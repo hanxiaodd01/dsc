@@ -41,3 +41,4 @@ _ide_helper_models.php
 
 # dcs
 temp/**/*.php
+data/sc_file/category/*.php
