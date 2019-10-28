@@ -8,7 +8,7 @@ class exchange
 	public $name;
 	public $error_msg;
 
-	public function exchange($table, &$db, $id, $name)
+	public function __construct($table, &$db, $id, $name)
 	{
 		$this->table = $table;
 		$this->db = &$db;
