@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function check_dirs_priv($checking_dirs)
 {
 	include_once ROOT_PATH . 'includes/lib_common.php';
@@ -7,7 +7,7 @@ function check_dirs_priv($checking_dirs)
 	$msgs = array(
 		'result' => 'OK',
 		'detail' => array()
-		);
+	);
 
 	foreach ($checking_dirs as $dir) {
 		if (!file_exists(ROOT_PATH . $dir)) {

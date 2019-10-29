@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function shipping_list()
 {
 	$where = '';
@@ -447,7 +447,7 @@ function order_fee($order, $goods, $consignee, $type = 0, $cart_value = '', $pay
 		'dis_amount'           => 0,
 		'goods_price_formated' => 0,
 		'seller_amount'        => array()
-		);
+	);
 	$weight = 0;
 	$arr = array();
 
@@ -1463,7 +1463,13 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0, $warehous
 	}
 
 	if (0 < $num) {
-		$sql = 'SELECT goods_number,stages_qishu,rec_id FROM ' . $GLOBALS['ecs']->table('cart') . ' WHERE ' . $sess_id . (' AND goods_id = \'' . $goods_id . '\' ') . (' AND parent_id = 0 AND goods_attr = \'' . $goods_attr . '\' ') . ' AND extension_code <> \'package_buy\' ' . ' AND rec_type = \'' . CART_GENERAL_GOODS . ('\' AND group_id=\'\' AND is_gift = 0 AND warehouse_id = \'' . $warehouse_id . '\' AND store_id = \'' . $store_id . '\'');
+		$update_where = '';
+
+		if (0 < $goods['model_attr']) {
+			$update_where = ' AND warehouse_id = \'' . $warehouse_id . '\' ';
+		}
+
+		$sql = 'SELECT goods_number,stages_qishu,rec_id FROM ' . $GLOBALS['ecs']->table('cart') . ' WHERE ' . $sess_id . (' AND goods_id = \'' . $goods_id . '\' ') . (' AND parent_id = 0 AND goods_attr = \'' . $goods_attr . '\' ') . ' AND extension_code <> \'package_buy\' ' . ' AND rec_type = \'' . CART_GENERAL_GOODS . '\' AND group_id=\'\' AND is_gift = 0 ' . $update_where . (' AND store_id = \'' . $store_id . '\'');
 		$row = $GLOBALS['db']->getRow($sql);
 
 		if ($row) {
@@ -1480,7 +1486,7 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0, $warehous
 
 			if ($GLOBALS['_CFG']['use_storage'] == 0 || $num <= $goods_storage) {
 				$goods_price = get_final_price($goods_id, $num, true, $spec, $warehouse_id, $area_id, $area_city, 0, 0, $add_tocart);
-				$sql = 'UPDATE ' . $GLOBALS['ecs']->table('cart') . (' SET goods_number = \'' . $num . '\', stages_qishu = \'' . $stages_qishu . '\'') . (' , goods_price = \'' . $goods_price . '\'') . ' , commission_rate = \'' . $goods['commission_rate'] . '\'' . (' , area_id = \'' . $area_id . '\'') . (' , area_city = \'' . $area_city . '\'') . ' , freight = \'' . $goods['freight'] . '\'' . ' , tid = \'' . $goods['tid'] . '\'' . ' , act_id = \'' . $act_id . '\'' . ' WHERE ' . $sess_id . (' AND goods_id = \'' . $goods_id . '\' ') . (' AND parent_id = 0 AND goods_attr = \'' . $goods_attr . '\' ') . ' AND extension_code <> \'package_buy\' ' . (' AND warehouse_id = \'' . $warehouse_id . '\' ') . 'AND rec_type = \'' . CART_GENERAL_GOODS . '\' AND group_id = 0';
+				$sql = 'UPDATE ' . $GLOBALS['ecs']->table('cart') . (' SET goods_number = \'' . $num . '\', stages_qishu = \'' . $stages_qishu . '\'') . (' , goods_price = \'' . $goods_price . '\'') . ' , commission_rate = \'' . $goods['commission_rate'] . '\'' . (' , area_id = \'' . $area_id . '\'') . (' , area_city = \'' . $area_city . '\'') . ' , freight = \'' . $goods['freight'] . '\'' . ' , tid = \'' . $goods['tid'] . '\'' . ' , act_id = \'' . $act_id . '\'' . ' WHERE ' . $sess_id . (' AND goods_id = \'' . $goods_id . '\' ') . (' AND parent_id = 0 AND goods_attr = \'' . $goods_attr . '\' ') . ' AND extension_code <> \'package_buy\' ' . $update_where . 'AND rec_type = \'' . CART_GENERAL_GOODS . '\' AND group_id = 0';
 				$GLOBALS['db']->query($sql);
 			}
 			else {
@@ -2129,15 +2135,11 @@ function return_card_money($order_id = 0, $ret_id = 0, $return_sn = '')
 		$order_info = $GLOBALS['db']->getRow($sql);
 		$sql = ' UPDATE ' . $GLOBALS['ecs']->table('value_card') . ' SET card_money = card_money + ' . $row['use_val'] . ' WHERE vid = \'' . $row['vc_id'] . '\' ';
 		$GLOBALS['db']->query($sql);
-		$sql = 'UPDATE ' . $GLOBALS['ecs']->table('value_card_record') . ' SET use_val  = use_val  - ' . $row['use_val'] . ' WHERE vc_id = \'' . $row['vc_id'] . ('\' AND order_id = \'' . $order_id . '\'');
-		$GLOBALS['db']->query($sql);
-		$sql = 'UPDATE ' . $GLOBALS['ecs']->table('order_info') . ' SET order_amount = order_amount + ' . $row['use_val'] . (' WHERE order_id = \'' . $order_id . '\'');
-		$GLOBALS['db']->query($sql);
 		$time = gmtime();
+		$log = array('vc_id' => $row['vc_id'], 'order_id' => $order_id, 'use_val' => $row['use_val'], 'vc_dis' => 1, 'add_val' => $row['use_val'], 'record_time' => $time);
+		$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('value_card_record'), $log, 'INSERT');
 
 		if ($return_sn) {
-			$sql = 'UPDATE ' . $GLOBALS['ecs']->table('order_return') . ' SET actual_return = actual_return + ' . $row['use_val'] . (' WHERE ret_id = \'' . $ret_id . '\'');
-			$GLOBALS['db']->query($sql);
 			$return_note = sprintf($GLOBALS['_LANG']['order_vcard_return'], $row['use_val']);
 			return_action($ret_id, RF_AGREE_APPLY, FF_REFOUND, $return_note);
 			$return_sn = '<br/>退换货-流水号：' . $return_sn;
@@ -2248,18 +2250,14 @@ function order_refund($order, $refund_type, $refund_note, $refund_amount = NULL,
 function get_return_vcard($order_id, $vc_id = 0, $refound_vcard = 0, $return_sn = '', $ret_id = 0)
 {
 	if ($vc_id && 0 < $refound_vcard) {
+		$time = gmtime();
 		$sql = 'SELECT order_sn, user_id, order_status, order_status, shipping_status FROM ' . $GLOBALS['ecs']->table('order_info') . (' WHERE order_id = \'' . $order_id . '\' LIMIT 1');
 		$order_info = $GLOBALS['db']->getRow($sql);
 		$refound_vcard = empty($refound_vcard) ? 0 : $refound_vcard;
 		$sql = 'UPDATE ' . $GLOBALS['ecs']->table('value_card') . (' SET card_money = card_money + ' . $refound_vcard . ' WHERE vid = \'' . $vc_id . '\' AND user_id = \'') . $order_info['user_id'] . '\'';
 		$GLOBALS['db']->query($sql);
-		$sql = 'UPDATE ' . $GLOBALS['ecs']->table('value_card_record') . (' SET use_val  = use_val  - ' . $refound_vcard . ' WHERE vc_id = \'' . $vc_id . '\' AND order_id = \'' . $order_id . '\'');
-		$GLOBALS['db']->query($sql);
-		$sql = 'UPDATE ' . $GLOBALS['ecs']->table('order_info') . (' SET order_amount = order_amount + ' . $refound_vcard . ' WHERE order_id = \'' . $order_id . '\'');
-		$GLOBALS['db']->query($sql);
-		$sql = 'UPDATE ' . $GLOBALS['ecs']->table('order_return') . (' SET actual_return = actual_return + ' . $refound_vcard . ' WHERE ret_id = \'' . $ret_id . '\'');
-		$GLOBALS['db']->query($sql);
-		$time = gmtime();
+		$log = array('vc_id' => $vc_id, 'order_id' => $order_id, 'use_val' => $refound_vcard, 'vc_dis' => 1, 'add_val' => $refound_vcard, 'record_time' => $time);
+		$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('value_card_record'), $log, 'INSERT');
 
 		if ($return_sn) {
 			$return_sn = '<br/>退换货-流水号：' . $return_sn;
@@ -3740,7 +3738,7 @@ function order_query_sql($type = 'finished', $alias = '')
 	}
 
 	if ($type == 'bill_confirm_take') {
-		return ' AND ' . $alias . 'order_status ' . db_create_in(array(OS_CONFIRMED, OS_RETURNED_PART, OS_SPLITED, OS_SPLITING_PART)) . (' AND ' . $alias . 'shipping_status ') . db_create_in(array(SS_RECEIVED)) . (' AND ' . $alias . 'pay_status ') . db_create_in(array(PS_PAYED, PS_UNPAYED)) . ' ';
+		return ' AND ' . $alias . 'order_status ' . db_create_in(array(OS_CONFIRMED, OS_RETURNED_PART, OS_SPLITED, OS_RETURNED_PART, OS_ONLY_REFOUND)) . (' AND ' . $alias . 'shipping_status ') . db_create_in(array(SS_RECEIVED)) . (' AND ' . $alias . 'pay_status ') . db_create_in(array(PS_PAYED)) . ' ';
 	}
 
 	if ($type == 'confirm_wait_goods') {
@@ -4589,8 +4587,7 @@ function get_order_return_rec($order_id)
 	$return_goods = $GLOBALS['db']->getOne($sql);
 	$return_goods = !empty($return_goods) ? explode(',', $return_goods) : array();
 	$is_diff = false;
-
-	if (!array_diff($rec_list, $return_goods)) {
+	if (!array_diff($rec_list, $return_goods) && count($return_goods) === 1) {
 		$is_diff = true;
 	}
 
@@ -5040,15 +5037,17 @@ function order_refound($order, $refund_type, $refund_note, $refund_amount = 0, $
 
 	$in_operation = array('refound');
 
-	if (in_array($operation, $in_operation)) {
-		$amount = $refund_amount;
-	}
-	else {
-		$amount = 0 < $refund_amount ? $refund_amount : $order['should_return'];
-	}
+	if ($refund_type != 5) {
+		if (in_array($operation, $in_operation)) {
+			$amount = $refund_amount;
+		}
+		else {
+			$amount = 0 < $refund_amount ? $refund_amount : $order['should_return'];
+		}
 
-	if ($amount <= 0) {
-		return 1;
+		if ($amount <= 0) {
+			return 1;
+		}
 	}
 
 	if (!in_array($refund_type, array(1, 2, 3, 5))) {
@@ -6427,7 +6426,7 @@ function get_favourable_info($goods_id = 0, $ru_id = 0, $goods = array())
 		$ext_where = ', userFav_type_ext, rs_id ';
 	}
 
-	$sql = 'SELECT act_id, act_range, act_range_ext, act_name, start_time, end_time, act_type, userFav_type $ext_where FROM ' . $GLOBALS['ecs']->table('favourable_activity') . (' WHERE review_status = 3 AND start_time <= \'' . $gmtime . '\' AND end_time >= \'' . $gmtime . '\' AND ') . $fav_where;
+	$sql = 'SELECT act_id, act_range, act_range_ext, act_name, start_time, end_time, act_type, userFav_type ' . $ext_where . ' FROM ' . $GLOBALS['ecs']->table('favourable_activity') . (' WHERE review_status = 3 AND start_time <= \'' . $gmtime . '\' AND end_time >= \'' . $gmtime . '\' AND ') . $fav_where;
 
 	if (!empty($goods_id)) {
 		$sql .= ' AND CONCAT(\',\', user_rank, \',\') LIKE \'%' . $user_rank . '%\'';

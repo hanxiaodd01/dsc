@@ -1,5 +1,5 @@
 <?php
- //大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Modules\Console\Controllers;
 
 class ViewController extends \App\Modules\Base\Controllers\FrontendController
@@ -128,7 +128,7 @@ class ViewController extends \App\Modules\Base\Controllers\FrontendController
 
 				if ($goods === false) {
 					foreach ($goods_id as $key => $val) {
-						$row = dao('goods')->field('goods_id ,  goods_name , model_attr, product_promote_price, promote_start_date, promote_end_date,  sales_volume ,market_price , shop_price, goods_thumb, goods_img, goods_number ')->where(array('goods_id' => $val, 'is_on_sale' => 1, 'is_delete' => 0))->find();
+						$row = dao('goods')->field('goods_id ,  goods_name , model_attr, product_promote_price, promote_start_date, promote_end_date,  sales_volume ,sales_volume_base ,market_price , shop_price, goods_thumb, goods_img, goods_number ')->where(array('goods_id' => $val, 'is_on_sale' => 1, 'is_delete' => 0))->find();
 
 						if ($row) {
 							if (0 < $row['promote_price']) {
@@ -145,7 +145,9 @@ class ViewController extends \App\Modules\Base\Controllers\FrontendController
 							$goods[$key]['goods_number'] = $row['goods_number'];
 							$goods[$key]['goods_id'] = $row['goods_id'];
 							$goods[$key]['title'] = $row['goods_name'];
-							$goods[$key]['sale'] = $row['sales_volume'];
+							if($row['sales_volume_base'] > 0){
+							$goods[$key]['sale'] = $row['sales_volume']+$row['sales_volume_base'];
+							}else{$goods[$key]['sale'] = $row['sales_volume'];}
 							$goods[$key]['marketPrice'] = price_format($row['market_price']);
 							$goods[$key]['img'] = get_image_path($row['goods_thumb']);
 							$goods[$key]['goods_img'] = get_image_path($row['goods_img']);
@@ -190,6 +192,8 @@ class ViewController extends \App\Modules\Base\Controllers\FrontendController
 	{
 		if (IS_POST) {
 			$goods_id = input('goods_id');
+			$warehouse_id = input('warehouse_id', 0);
+			$area_id = input('area_id', 0);
 
 			if (!empty($goods_id)) {
 				$goods_cache = md5('goods0' . $goods_id);
@@ -197,34 +201,40 @@ class ViewController extends \App\Modules\Base\Controllers\FrontendController
 				$goods = S($goods_cache);
 
 				if ($goods === false) {
-					foreach ($goods_id as $key => $val) {
-						$row = dao('goods')->field('goods_id ,  goods_name , model_attr, product_promote_price, promote_start_date, promote_end_date,  sales_volume ,market_price , shop_price, goods_thumb, goods_img, goods_number ')->where(array('goods_id' => $val, 'is_on_sale' => 1, 'is_delete' => 0))->find();
+					if ($goods_id) {
+						$sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('goods') . ' WHERE is_on_sale = 1 AND is_delete = 0 AND goods_id ' . db_create_in($goods_id);
+						$goods_list = $GLOBALS['db']->getAll($sql);
 
-						if ($row) {
-							if (0 < $row['promote_price']) {
-								$promote_price = bargain_price($row['promote_price'], $row['promote_start_date'], $row['promote_end_date']);
-							}
-							else {
-								$promote_price = 0;
+						if ($goods_list) {
+							foreach ($goods_list as $key => $row) {
+								if (0 < $row['promote_price']) {
+									$promote_price = bargain_price($row['promote_price'], $row['promote_start_date'], $row['promote_end_date']);
+								}
+								else {
+									$promote_price = 0;
+								}
+
+								$price_info = get_goods_one_attr_price($row, $warehouse_id, $area_id, $promote_price);
+								$row = !empty($row) ? array_merge($row, $price_info) : $row;
+								$promote_price = empty($row['promote_price']) ? $row['shop_price'] : $row['promote_price'];
+								$goods[$key]['shop_price'] = price_format($promote_price);
+								$goods[$key]['goods_number'] = $row['goods_number'];
+								$goods[$key]['goods_id'] = $row['goods_id'];
+								$goods[$key]['title'] = $row['goods_name'];
+								if($row['sales_volume_base'] > 0){
+								$goods[$key]['sale'] = $row['sales_volume']+$row['sales_volume_base'];
+								}else{$goods[$key]['sale'] = $row['sales_volume'];}
+								$goods[$key]['marketPrice'] = price_format($row['market_price']);
+								$goods[$key]['shop_price'] = price_format($row['shop_price']);
+								$goods[$key]['img'] = get_wechat_image_path($row['goods_thumb']);
+								$goods[$key]['goods_img'] = get_wechat_image_path($row['goods_img']);
+								$goods[$key]['url'] = build_uri('goods', array('gid' => $row['goods_id']), $row['goods_name']);
+								$goods[$key]['sales_volume'] = $row['sales_volume'];
 							}
 
-							$price_info = get_goods_one_attr_price($row, $warehouse_id, $area_id, $promote_price);
-							$row = !empty($row) ? array_merge($row, $price_info) : $row;
-							$promote_price = empty($row['promote_price']) ? $row['shop_price'] : $row['promote_price'];
-							$goods[$key]['shop_price'] = price_format($promote_price);
-							$goods[$key]['goods_number'] = $row['goods_number'];
-							$goods[$key]['goods_id'] = $row['goods_id'];
-							$goods[$key]['title'] = $row['goods_name'];
-							$goods[$key]['sale'] = $row['sales_volume'];
-							$goods[$key]['marketPrice'] = price_format($row['market_price']);
-							$goods[$key]['shop_price'] = price_format($row['shop_price']);
-							$goods[$key]['img'] = get_wechat_image_path($row['goods_thumb']);
-							$goods[$key]['goods_img'] = get_wechat_image_path($row['goods_img']);
-							$goods[$key]['url'] = build_uri('goods', array('gid' => $row['goods_id']), $row['goods_name']);
+							S($goods_cache, $goods);
 						}
 					}
-
-					S($goods_cache, $goods);
 				}
 
 				$this->response(array('error' => 0, 'product' => $goods));
@@ -383,11 +393,8 @@ class ViewController extends \App\Modules\Base\Controllers\FrontendController
 	{
 		if (IS_POST) {
 			$ru_id = input('ruid');
-			$sql = 'SELECT ms.shop_id, ms.user_id, ms.is_IM, ms.rz_shopName, ss.kf_qq, ss.kf_ww, ss.meiqia ' . ' FROM ' . $GLOBALS['ecs']->table('merchants_shop_information') . ' AS ms ' . ' LEFT JOIN ' . $GLOBALS['ecs']->table('seller_shopinfo') . ' AS ss ' . ' ON ms.user_id = ss.ru_id  ' . (' WHERE ms.user_id = ' . $ru_id . '  ');
+			$sql = 'SELECT ms.shop_id, ms.user_id, ms.is_IM, ms.rz_shopName, ss.kf_qq, ss.kf_ww, ss.meiqia ' . ' FROM ' . $GLOBALS['ecs']->table('merchants_shop_information') . ' AS ms ' . ' LEFT JOIN ' . $GLOBALS['ecs']->table('seller_shopinfo') . ' AS ss ' . ' ON ms.user_id = ss.ru_id  ' . (' WHERE ms.user_id = \'' . $ru_id . '\'  ');
 			$shop = $GLOBALS['db']->getAll($sql);
-			$kf_im_switch = dao('seller_shopinfo')->where(array('ru_id' => 0))->getField('kf_im_switch');
-			$customer_service = dao('shop_config')->where(array('code' => 'customer_service'))->getField('value');
-			$im_dialog = M()->query('SHOW TABLES LIKE "{pre}im_dialog"');
 
 			foreach ($shop as $key => $value) {
 				$store[$key]['shop_id'] = $value['shop_id'];
@@ -395,47 +402,7 @@ class ViewController extends \App\Modules\Base\Controllers\FrontendController
 				$store[$key]['rz_shopName'] = $value['rz_shopName'];
 				$store[$key]['shop_category'] = get_user_store_category($value['user_id']);
 				$store[$key]['shop_about'] = url('store/index/shop_about', array('ru_id' => $value['user_id']));
-
-				if ($customer_service == 0) {
-					if ($kf_im_switch == 1 && $im_dialog) {
-						$store[$key]['kf'] = url('chat/index/index', array('ru_id' => 0));
-					}
-					else if ($value['is_im'] == 1) {
-						$store[$key]['kf'] = url('chat/yunwang/index', array('ru_id' => $ru_id));
-					}
-					else if ($value['meiqia']) {
-						$store[$key]['kf'] = 'javascript:meiqia_chat();';
-						$store[$key]['meiqia'] = $value['meiqia'];
-					}
-					else {
-						$zkf = dao('seller_shopinfo')->field('kf_type, kf_qq, kf_ww')->where(array('ru_id' => '0'))->find();
-
-						if ($zkf['kf_type'] == 1) {
-							$store[$key]['kf'] = 'https://www.taobao.com/webww/ww.php?ver=3&touid=' . preg_replace('/^[^\\-]*\\|/is', '', $zkf['kf_ww']) . '&siteid=cntaobao&status=1&charset=utf-8';
-						}
-						else if ($value['kf_qq']) {
-							$store[$key]['kf'] = 'https://wpa.qq.com/msgrd?v=3&uin=' . preg_replace('/^[^\\-]*\\|/is', '', $zkf['kf_qq']) . '&site=qq&menu=yes';
-						}
-					}
-				}
-				else {
-					if ($kf_im_switch == 1 && $im_dialog) {
-						$store[$key]['kf'] = url('chat/index/index', array('ru_id' => $ru_id));
-					}
-					else if ($value['is_im'] == 1) {
-						$store[$key]['kf'] = url('chat/yunwang/index', array('ru_id' => $ru_id));
-					}
-					else if ($value['meiqia']) {
-						$store[$key]['kf'] = 'javascript:meiqia_chat();';
-						$store[$key]['meiqia'] = $value['meiqia'];
-					}
-					else if ($value['kf_ww']) {
-						$store[$key]['kf'] = 'https://www.taobao.com/webww/ww.php?ver=3&touid=' . preg_replace('/^[^\\-]*\\|/is', '', $value['kf_ww']) . '&siteid=cntaobao&status=1&charset=utf-8';
-					}
-					else if ($value['kf_qq']) {
-						$store[$key]['kf'] = 'https://wpa.qq.com/msgrd?v=3&uin=' . preg_replace('/^[^\\-]*\\|/is', '', $value['kf_qq']) . '&site=qq&menu=yes';
-					}
-				}
+				$store[$key]['kf'] = $this->kefu(0, $ru_id);
 			}
 
 			$this->response(array('store' => $store));
@@ -590,7 +557,7 @@ class ViewController extends \App\Modules\Base\Controllers\FrontendController
 				$district_info = get_table_date('region', $where, $date, 1);
 			}
 		}
-
+        //Scalping
 		$order_area = get_user_order_area($this->user_id);
 		$user_area = get_user_area_reg($this->user_id);
 		if ($order_area['province'] && 0 < $this->user_id) {

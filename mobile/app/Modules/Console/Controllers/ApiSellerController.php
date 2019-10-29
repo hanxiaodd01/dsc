@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Modules\Console\Controllers;
 
 class ApiSellerController extends \App\Modules\Admin\Controllers\EditorSellerController
@@ -607,11 +607,11 @@ class ApiSellerController extends \App\Modules\Admin\Controllers\EditorSellerCon
 			else {
 				$current = ($currentPage - 1) * $pageSize;
 			}
-
-			$keywords .= ' AND ';
+            //Scalping
+			$keywords = ' AND ';
 			$val = mysql_like_quote(trim($kwords));
 			$keywords .= '(goods_name LIKE \'%' . $val . '%\' OR goods_sn LIKE \'%' . $val . '%\' OR keywords LIKE \'%' . $val . '%\')';
-			$where = 'g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 AND g.user_id = ' . $user_id . ' ';
+			$where = 'g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 AND g.user_id = ' . $user_id . ' AND msi.shop_close = 1 NAD msi.merchants_audit ';
 
 			if (0 < $cat) {
 				$where .= ' AND g.cat_id = ' . $cat . ' ';

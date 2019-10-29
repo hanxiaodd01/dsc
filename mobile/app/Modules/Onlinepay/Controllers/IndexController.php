@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Modules\Onlinepay\Controllers;
 
 class IndexController extends \App\Modules\Base\Controllers\FrontendController
@@ -80,9 +80,10 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 		if (empty($payment_list)) {
 			show_message('请安装在线支付方式', '', url('user/order/index'), 'warning');
 		}
-
+        //zdl
 		$order = $this->db->getRow('SELECT * FROM {pre}order_info WHERE order_id=\'' . $order_id['order_id'] . '\' LIMIT 1');
-		$order['log_id'] = $GLOBALS['db']->getOne(' SELECT log_id FROM ' . $GLOBALS['ecs']->table('pay_log') . ' WHERE order_id = \'' . $order_id['order_id'] . '\' LIMIT 1 ');
+		$pay_log = $GLOBALS['db']->getRow(' SELECT * FROM ' . $GLOBALS['ecs']->table('pay_log') . ' WHERE order_id = \'' . $order_id['order_id'] . '\' AND order_type = \'' . PAY_ORDER . '\' ORDER BY log_id DESC LIMIT 1 ');
+		$order['log_id'] = $pay_log['log_id'];
 
 		if (0 < $order['order_amount']) {
 			$onlinepay_pay_id = $this->db->getOne('SELECT pay_id FROM {pre}payment WHERE pay_code=\'onlinepay\'');
@@ -114,6 +115,14 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 		include_once ADDONS_PATH . 'payment/' . $payment['pay_code'] . '.php';
 		$pay_obj = new $payment['pay_code']();
 		$order['pay_desc'] = $payment['pay_desc'];
+
+		if ($order['extension_code'] == 'presale') {
+			if (0 < $pay_log['is_paid']) {
+				$order['order_amount'] = $order['order_amount'] - $pay_log['order_amount'];
+				$order['attach'] = 'retainage';
+			}
+		}
+
 		$pay_online = $pay_obj->get_code($order, unserialize_config($payment['pay_config']));
 		$this->assign('pay_online', $pay_online);
 		$order['order_amount'] = price_format($order['order_amount']);
@@ -135,7 +144,7 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 		if (IS_AJAX) {
 			$payment = payment_info($payment_id);
 			$order = $this->db->getRow('SELECT * FROM {pre}order_info WHERE order_id=\'' . $order_id . '\' LIMIT 1');
-			$order['log_id'] = $GLOBALS['db']->getOne(' SELECT log_id FROM ' . $GLOBALS['ecs']->table('pay_log') . ' WHERE order_id = \'' . $order_id . '\' LIMIT 1 ');
+			$order['log_id'] = $GLOBALS['db']->getOne(' SELECT log_id FROM ' . $GLOBALS['ecs']->table('pay_log') . ' WHERE order_id = \'' . $order_id . '\' AND order_type = \'' . PAY_ORDER . '\' LIMIT 1 ');
 			$sql = 'UPDATE {pre}order_info set pay_id=\'' . $payment_id . '\',pay_name=\'' . $payment['pay_name'] . '\' WHERE order_id = \'' . $order_id . '\'';
 			$this->db->query($sql);
 			$sql = 'SELECT order_id FROM ' . $GLOBALS['ecs']->table('order_info') . (' WHERE main_order_id = \'' . $order_id . '\'');

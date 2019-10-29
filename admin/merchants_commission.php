@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function order_download_list($result)
 {
 	if (empty($result)) {
@@ -304,7 +304,7 @@ function merchants_order_list($page = 0)
 			}
 		}
 
-		$where .= order_query_sql('confirm_take', 'o.');
+		$where .= order_query_sql('bill_confirm_take', 'o.');
 		$where .= ' AND (SELECT count(*) FROM ' . $GLOBALS['ecs']->table('order_info') . ' AS oi2 WHERE oi2.main_order_id = o.order_id) = 0 ';
 		$where .= ' AND o.ru_id = \'' . $filter['id'] . '\' ';
 		$sql = 'SELECT count(*) FROM ' . $GLOBALS['ecs']->table('order_info') . ' AS o ' . $where;
@@ -1426,53 +1426,6 @@ else if ($_REQUEST['act'] == 'bill_goods_query') {
 	$smarty->assign($sort_flag['tag'], $sort_flag['img']);
 	make_json_result($smarty->fetch('merchants_bill_goods.dwt'), '', array('filter' => $result['filter'], 'page_count' => $result['page_count']));
 }
-else if ($_REQUEST['act'] == 'bill_notake_order') {
-	admin_priv('merchants_commission');
-	$smarty->assign('menu_select', array('action' => '17_merchants', 'current' => 'commission_bill'));
-	$user_id = !isset($_REQUEST['seller_id']) && empty($_REQUEST['seller_id']) ? 0 : intval($_REQUEST['seller_id']);
-	$smarty->assign('user_id', $user_id);
-
-	if (empty($user_id)) {
-		$Loaction = 'merchants_commission.php?act=list';
-		ecs_header('Location: ' . $Loaction . '
-');
-		exit();
-	}
-
-	$smarty->assign('ur_here', $_LANG['commission_bill_detail']);
-	$smarty->assign('full_page', 1);
-	$result = bill_notake_order_list();
-	$smarty->assign('full_page', 1);
-	$smarty->assign('order_list', $result['order_list']);
-	$smarty->assign('filter', $result['filter']);
-	$smarty->assign('record_count', $result['record_count']);
-	$smarty->assign('page_count', $result['page_count']);
-	$smarty->assign('sort_suppliers_id', '<img src="images/sort_desc.gif">');
-	$bill_detail = array('id' => $result['filter']['bill_id']);
-	$bill = get_bill_detail($bill_detail);
-	$smarty->assign('bill', $bill);
-
-	if (file_exists(MOBILE_DRP)) {
-		$smarty->assign('is_dir', 1);
-	}
-	else {
-		$smarty->assign('is_dir', 0);
-	}
-
-	assign_query_info();
-	$smarty->display('merchants_bill_notake_order.dwt');
-}
-else if ($_REQUEST['act'] == 'bill_notake_order_query') {
-	check_authz_json('merchants_commission');
-	$result = bill_notake_order_list();
-	$smarty->assign('order_list', $result['order_list']);
-	$smarty->assign('filter', $result['filter']);
-	$smarty->assign('record_count', $result['record_count']);
-	$smarty->assign('page_count', $result['page_count']);
-	$sort_flag = sort_flag($result['filter']);
-	$smarty->assign($sort_flag['tag'], $sort_flag['img']);
-	make_json_result($smarty->fetch('merchants_bill_notake_order.dwt'), '', array('filter' => $result['filter'], 'page_count' => $result['page_count']));
-}
 else if ($_REQUEST['act'] == 'apply_for') {
 	admin_priv('merchants_commission');
 	$smarty->assign('menu_select', array('action' => '17_merchants', 'current' => 'commission_bill'));
@@ -1707,7 +1660,7 @@ else if ($_REQUEST['act'] == 'replacement_order') {
 	$order_list = read_static_cache('commission_replacement_order' . $seller_id, '/data/sc_file/');
 
 	if (!$order_list) {
-		$sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('seller_commission_bill') . (' where seller_id = \'' . $seller_id . '\' AND repair_order = 0 AND chargeoff_status > 0 ORDER BY id DESC LIMIT 1');
+		$sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('seller_commission_bill') . (' where seller_id = \'' . $seller_id . '\' AND repair_order = 0 AND chargeoff_status > 0 ORDER BY end_time DESC LIMIT 1');
 		$bill_list = $GLOBALS['db']->getRow($sql);
 		$order_list = array();
 
@@ -1757,7 +1710,7 @@ else if ($_REQUEST['act'] == 'chang_replacement_order') {
 	$order_list = read_static_cache('commission_replacement_order' . $seller_id, '/data/sc_file/');
 
 	if ($order_list === false) {
-		$sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('seller_commission_bill') . (' where seller_id = \'' . $seller_id . '\' ORDER BY id DESC LIMIT 1');
+		$sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('seller_commission_bill') . (' where seller_id = \'' . $seller_id . '\' ORDER BY end_time DESC LIMIT 1');
 		$bill_list = $GLOBALS['db']->getRow($sql);
 		$order_list = array();
 
@@ -1809,175 +1762,6 @@ else if ($_REQUEST['act'] == 'chang_replacement_order') {
 		$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('seller_commission_bill'), $other, 'UPDATE', 'id = \'' . $bill_id . '\'');
 		$result['is_stop'] = 0;
 		dsc_unlink(ROOT_PATH . DATA_DIR . '/sc_file/commission_replacement_order' . $seller_id . '.php');
-	}
-	else {
-		$result['filter_page'] = $order_list['filter']['page'];
-	}
-
-	$result['seller_id'] = $seller_id;
-	$result['bill_id'] = $bill_id;
-	exit($json->encode($result));
-}
-else if ($_REQUEST['act'] == 'bill_detector') {
-	admin_priv('order_view');
-	$smarty->assign('ur_here', '检测账单');
-	$seller_id = isset($_REQUEST['seller_id']) && !empty($_REQUEST['seller_id']) ? intval($_REQUEST['seller_id']) : 0;
-	$bill_id = isset($_REQUEST['bill_id']) && !empty($_REQUEST['bill_id']) ? intval($_REQUEST['bill_id']) : 0;
-	$order_list = read_static_cache('commission_detector_order' . $bill_id, '/data/sc_file/');
-
-	if (!$order_list) {
-		$sql = 'SELECT sbo.*, (' . order_amount_field('sbo.') . ') AS total_fee, (' . order_activity_field_add('sbo.') . ') AS activity_fee, ' . '(' . order_commission_field('sbo.') . ') AS commission_total_fee, ' . 'o.is_settlement, scb.bill_sn, scb.commission_model, scb.commission_model, scb.proportion FROM ' . $GLOBALS['ecs']->table('seller_bill_order') . ' AS sbo ' . ' LEFT JOIN ' . $GLOBALS['ecs']->table('order_info') . ' AS o ON sbo.order_id = o.order_id' . ' LEFT JOIN ' . $GLOBALS['ecs']->table('seller_commission_bill') . ' AS scb ON sbo.bill_id = scb.id' . (' WHERE sbo.seller_id = \'' . $seller_id . '\'') . (' AND sbo.bill_id = \'' . $bill_id . '\' ORDER BY order_id DESC');
-		$order_list = $GLOBALS['db']->getAll($sql);
-		write_static_cache('commission_detector_order' . $bill_id, $order_list, '/data/sc_file/');
-	}
-
-	$record_count = $order_list ? count($order_list) : 0;
-	$smarty->assign('record_count', $record_count);
-	$smarty->assign('page', 1);
-	$smarty->assign('seller_id', $seller_id);
-	$smarty->assign('bill_id', $bill_id);
-	assign_query_info();
-	$smarty->display('commission_detector.dwt');
-}
-else if ($_REQUEST['act'] == 'chang_commission_detector') {
-	include_once ROOT_PATH . 'includes/cls_json.php';
-	$json = new JSON();
-	$page = !empty($_REQUEST['page']) ? intval($_REQUEST['page']) : 1;
-	$page_size = isset($_REQUEST['page_size']) ? intval($_REQUEST['page_size']) : 1;
-	$seller_id = isset($_REQUEST['seller_id']) && !empty($_REQUEST['seller_id']) ? intval($_REQUEST['seller_id']) : 0;
-	$bill_id = isset($_REQUEST['bill_id']) && !empty($_REQUEST['bill_id']) ? intval($_REQUEST['bill_id']) : 0;
-	$order_list = read_static_cache('commission_detector_order' . $bill_id, '/data/sc_file/');
-	$order_list = $ecs->page_array($page_size, $page, $order_list);
-	$result['list'] = $order_list['list'][0];
-	$row = array();
-	$value = $result['list'];
-
-	if ($value) {
-		$row = $value;
-		$return_amount = $value['return_amount'];
-		$return_shippingfee = $value['return_shippingfee'];
-		$value['bill_return_amount'] = $return_amount;
-		$value['bill_return_shippingfee'] = $return_shippingfee;
-		$value['return_amount'] = 0;
-		$value['return_shippingfee'] = 0;
-		$value['order_amount'] = $value['total_fee'] - $value['discount'];
-		$order = array('goods_amount' => $value['goods_amount'], 'activity_fee' => $value['activity_fee']);
-		$row['is_goods_rate'] = 0;
-		$goods_rate = get_alone_goods_rate($value['order_id'], 0, $order);
-		$row['goods_rate'] = $goods_rate;
-
-		if ($goods_rate) {
-			$value['commission_total_fee'] = $value['commission_total_fee'] - $goods_rate['total_fee'];
-
-			if ($goods_rate['total_fee']) {
-				if ($value['commission_total_fee'] <= 0) {
-					$row['is_goods_rate'] = 1;
-				}
-
-				if ($value['commission_total_fee'] < 0) {
-					$value['commission_total_fee'] = 0;
-				}
-			}
-		}
-
-		if ($value['commission_model']) {
-			$cat_commission = get_cat_gain_should_amount($value);
-			$format_gain_commission = $cat_commission['gain_commission'] + $goods_rate['gain_commission'];
-			$format_gain_commission = number_format($format_gain_commission, 2, '.', '');
-			$should_amount = $cat_commission['should_amount'];
-			$gain_commission = $cat_commission['gain_commission'];
-		}
-		else {
-			$commission = get_gain_should_amount($value['proportion'], $value);
-			$should_amount = $commission['should_amount'];
-			$format_gain_commission = $commission['gain_commission'] + $goods_rate['gain_commission'];
-			$format_gain_commission = number_format($format_gain_commission, 2, '.', '');
-			$row['format_gain_commission'] = price_format($format_gain_commission, false);
-			$row['format_drp_money'] = price_format($value['drp_money'], false);
-			$row['format_integral_money'] = price_format($value['integral_money'], false);
-			$gain_commission = $commission['gain_commission'];
-		}
-
-		$should_amount = number_format($should_amount, 2, '.', '');
-		$row['gain_commission'] = number_format($gain_commission, 2, '.', '');
-		$row['should_amount'] = $should_amount;
-		$format_should_amount = $should_amount + $goods_rate['should_amount'];
-		$format_should_amount = number_format($format_should_amount, 2, '.', '');
-
-		if ($type == 1) {
-			if ($value['is_settlement'] == 1) {
-				$all_gain_commission += $format_gain_commission;
-				$all_should_amount += $format_should_amount;
-			}
-
-			if ($value['is_settlement'] == 0) {
-				$bill_gain_commission += $format_gain_commission;
-				$bill_should_amount += $format_should_amount;
-			}
-		}
-
-		if ($value['order_status'] == OS_RETURNED) {
-			$format_gain_commission = 0;
-			$format_should_amount = 0;
-		}
-
-		if (0 < $format_should_amount) {
-			$format_should_amount -= $return_amount;
-		}
-
-		$row['gain_commission'] = $format_gain_commission;
-		$row['should_amount'] = $format_should_amount;
-		$row['format_gain_commission'] = price_format($format_gain_commission, false);
-		$row['format_should_amount'] = price_format($format_should_amount, false);
-		$row['format_drp_money'] = price_format($value['drp_money'], false);
-		$row['format_integral_money'] = price_format($value['integral_money'], false);
-		$row['format_order_amount'] = price_format($value['order_amount'], false);
-		$row['commission_total_fee'] = $value['commission_total_fee'];
-		$row['format_commission_total_fee'] = price_format($value['commission_total_fee'], false);
-		$row['format_shipping_fee'] = price_format($value['shipping_fee'], false);
-		$row['format_return_amount'] = price_format($return_amount + $return_shippingfee, false);
-		$row['gain_proportion'] = round(100 - $filter['proportion'], 2);
-		$row['should_proportion'] = $filter['proportion'];
-
-		if ($value['order_status'] == OS_RETURNED) {
-			$row['gain_commission'] = price_format(0, false);
-			$row['should_amount'] = price_format(0, false);
-			$row['goods_rate']['gain_commission'] = price_format(0, false);
-			$row['goods_rate']['should_amount'] = price_format(0, false);
-		}
-
-		if ($value['is_settlement'] == 1) {
-			$row['settlement'] = '已结算';
-		}
-		else {
-			$row['settlement'] = '未结算';
-		}
-	}
-
-	$result['list'] = $row;
-	$result['page'] = $order_list['filter']['page'] + 1;
-	$result['page_size'] = $order_list['filter']['page_size'];
-	$result['record_count'] = $order_list['filter']['record_count'];
-	$result['page_count'] = $order_list['filter']['page_count'];
-	$result['is_stop'] = 1;
-
-	if ($order_list['filter']['page_count'] < $page) {
-		$sql = 'SELECT commission_model, proportion FROM ' . $GLOBALS['ecs']->table('seller_commission_bill') . (' WHERE id = \'' . $bill_id . '\' AND seller_id = \'' . $seller_id . '\'');
-		$server = $GLOBALS['db']->getRow($sql);
-		if ($server && $server['commission_model'] == -1) {
-			$sql = 'SELECT s.commission_model, p.percent_value AS proportion FROM ' . $GLOBALS['ecs']->table('merchants_server') . ' AS s ' . ' LEFT JOIN ' . $GLOBALS['ecs']->table('merchants_percent') . ' AS p ON s.suppliers_percent = p.percent_id' . (' WHERE user_id = \'' . $seller_id . '\'');
-			$server = $GLOBALS['db']->getRow($sql);
-		}
-
-		$bill = array('seller_id' => $seller_id, 'bill_id' => $bill_id, 'commission_model' => $server['commission_model'], 'proportion' => $server['proportion']);
-		$detail = bill_detail_list(1, $bill);
-		$result['gain_commission'] = $detail && $detail['bill_gain_commission'] ? $detail['bill_gain_commission'] : 0;
-		$result['should_amount'] = $detail && $detail['bill_should_amount'] ? $detail['bill_should_amount'] : 0;
-		$result['return_amount'] = $detail && $detail['bill_return_amount'] ? $detail['bill_return_amount'] : 0;
-		$other = array('gain_commission' => $result['gain_commission'], 'should_amount' => $result['bill_should_amount'], 'return_amount' => $result['bill_return_amount']);
-		$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('seller_commission_bill'), $other, 'UPDATE', 'id = \'' . $bill_id . '\' AND seller_id = ' . $seller_id . '\'\'');
-		$result['is_stop'] = 0;
-		dsc_unlink(ROOT_PATH . DATA_DIR . '/sc_file/commission_detector_order' . $bill_id . '.php');
 	}
 	else {
 		$result['filter_page'] = $order_list['filter']['page'];

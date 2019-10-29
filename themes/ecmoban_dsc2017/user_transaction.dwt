@@ -47,7 +47,7 @@
     </div>
     <div class="user-main" ectype="userMain" data-action="noDefault">
         <div class="user-crumbs hide">
-            <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+            <!-- #BeginLibraryI'apply_return'tem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
         </div>
         <!-- #会员操作日志 -->
         <!--{if $action eq 'users_log'} -->
@@ -106,7 +106,7 @@
                         </table>
 						<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -211,7 +211,7 @@
                             </div>
                         </div>
                         {/if}
-                        
+
                         {foreach from=$extend_info_list item=field}
                         <!-- {if $field.id eq 6} -->
                         <div class="item">
@@ -267,7 +267,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!--图片上传框-->
         <div class="am-modal" ectype="docMdal">
             <div class="am-modal-dialog">
@@ -298,7 +298,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!--警告框-->
         <div class="am-modal am-modal-alert" ectype="modalAlert">
             <div class="am-modal-dialog">
@@ -308,7 +308,7 @@
         </div>
         <!-- {/if} -->
         <!-- 用户信息界面 end -->
-        
+
         <!-- 账号安全 start -->
         <!-- {if $action eq 'account_safe'} -->
         <div class="user-mod">
@@ -407,13 +407,13 @@
                 </div>
             </div>
             <!-- {/if} -->
-            
+
             <!--{if $type eq 'change_password'}-->
             <div class="type">
                 <div class="user-title">
                     <h2>{$lang.edit_password_login}</h2>
                 </div>
-                
+
                 <div class="stepflex">
                     <dl class="first{if $step eq 'first'} doing{elseif $step eq 'second' || $step eq 'last'} done{/if}">
                         <dt class="s-num">1</dt>
@@ -446,7 +446,7 @@
                                     <!-- {if $validate_info.is_validated && $validate_info.email} -->
                                     <b><a href="user.php?act=account_safe&type=change_password&sign=email" class="ftx-14">{$lang.Verify_email_in}</a></b>
                                     <!-- {/if} -->
-                                    
+
                                     <!-- {if $validate_info.pay_password} -->
                                     <b><a href="user.php?act=account_safe&type=change_password&sign=paypwd" class="ftx-14">{$lang.Verify_password_in}</a></b>
                                     <!-- {/if} -->
@@ -478,7 +478,7 @@
                                     <input type="hidden" value="account_safe" name="act">
                                     <input type="hidden" value="change_password" name="type">
                                     <input type="hidden" value="second" name="step">
-                                    
+
                                     <input type="submit" class="form-btn form-btn-line" value="{$lang.button_submit}" id="submitMobile" ectype="submitBtn">
                                 </div>
                             </div>
@@ -494,7 +494,7 @@
                                     <!-- {if $validate_info.mobile_phone} -->
                                     <b><a href="user.php?act=account_safe&type=change_password&sign=mobile" class="ftx-14">{$lang.Verify_phone_user}</a></b>
                                     <!-- {/if} -->
-                                    
+
                                     <!-- {if $validate_info.pay_password} -->
                                     <b><a href="user.php?act=account_safe&type=change_password&sign=paypwd" class="ftx-14">{$lang.Verify_password_in}</a></b>
                                     <!-- {/if} -->
@@ -522,15 +522,15 @@
                                 <div class="form-value">
                                     <input type="password" style="display:none"/>
                                     <input class="form-input" type="password" name="pay_password" tabindex="1" id="pay_password">
-                                    
+
                                     <!-- {if $validate_info.is_validated && $validate_info.email} -->
                                     <b><a href="user.php?act=account_safe&type=change_password&sign=email" class="ftx-14">{$lang.Verify_email_in}</a></b>
                                     <!-- {/if} -->
-                                    
+
                                     <!-- {if $validate_info.mobile_phone} -->
                                     <b><a href="user.php?act=account_safe&type=change_password&sign=mobile" class="ftx-14">{$lang.Verify_phone_user}</a></b>
                                     <!-- {/if} -->
-                                    
+
                                     <div class="form_prompt" id="pay_password_notice"></div>
                                 </div>
                             </div>
@@ -548,11 +548,11 @@
                                     <input id="flag" type="hidden" value="change_password_f" name="flag">
                                     <input id="seccode" type="hidden" value="{$sms_security_code}" name="seccode">
                                     <input type="hidden" value="paypwd" name="sign">
-        
+
                                     <input type="hidden" value="account_safe" name="act">
                                     <input type="hidden" value="change_password" name="type">
                                     <input type="hidden" value="second" name="step">
-        
+
                                     <input type="submit" class="form-btn form-btn-line" value="{$lang.submit_goods}" id="submitCode" ectype="submitBtn">
                                 </div>
                             </div>
@@ -589,7 +589,7 @@
                                     <div class="form_prompt" id="rePassword_error"></div>
                                 </div>
                             </div>
-    
+
                             <div class="form-row">
                                 <div class="form-label">{$lang.comment_captcha}：</div>
                                 <div class="form-value">
@@ -598,14 +598,14 @@
                                     <div class="form_prompt" id="code_notice"></div>
                                 </div>
                             </div>
-    
+
                             <div class="form-row">
                                 <div class="form-label">&nbsp;</div>
                                 <div class="form-value form-value-btn">
                                     <input type="hidden" name="act" value="account_safe" />
                                     <input type="hidden" name="type" value="change_password" />
                                     <input type="hidden" name="step" value="last" />
-        
+
                                     <input type="submit" class="form-btn form-btn-line" value="{$lang.button_submit}" id="submitSecond" ectype="submitBtn">
                                 </div>
                             </div>
@@ -622,13 +622,13 @@
                 </div>
                 <!--{/if}-->
             </div>
-            
+
             <!--{elseif $type eq 'change_email'}-->
             <div class="type">
                 <div class="user-title">
                     <h2>{$lang.Mailbox_Management}</h2>
                 </div>
-                
+
                 <div class="stepflex">
                     <dl class="first {if $step eq 'first'}doing{elseif $step eq 'second' || $step eq 'last' || $step eq 'second_email_verify'}done{/if}">
                         <dt class="s-num">1</dt>
@@ -669,7 +669,7 @@
                                     <!-- {if $validate_info.pay_password} -->
                                     <b><a href="user.php?act=account_safe&type=change_email&sign=paypwd" class="ftx-14">{$lang.Verify_password_in}</a></b>
                                     <!-- {/if} -->
-                                    
+
                                     <div class="form_prompt" id="phone_notice"></div>
                                 </div>
                             </div>
@@ -690,18 +690,18 @@
                                     <div class="form_prompt" id="code_notice"></div>
                                 </div>
                             </div>
-                            
+
                             <div class="form-row">
                                 <div class="form-label">&nbsp;</div>
                                 <div class="form-value form-value-btn">
                                     <input id="flag" type="hidden" value="change_password_f" name="flag">
                                     <input id="seccode" type="hidden" value="{$sms_security_code}" name="seccode">
                                     <input type="hidden" value="mobile" name="sign">
-    
+
                                     <input type="hidden" value="account_safe" name="act">
                                     <input type="hidden" value="change_email" name="type">
                                     <input type="hidden" value="second" name="step">
-    
+
                                     <input type="submit" class="form-btn form-btn-line" value="{$lang.button_submit}" id="submitMobile" ectype="submitBtn">
                                 </div>
                             </div>
@@ -730,7 +730,7 @@
                                     <div class="form_prompt" id="code_notice"></div>
                                 </div>
                             </div>
-                            
+
                             <div class="form-row">
                                 <div class="form-label">&nbsp;</div>
                                 <div class="form-value form-value-btn">
@@ -759,7 +759,7 @@
                                     <div class="form_prompt" id="pay_password_notice"></div>
                                 </div>
                             </div>
-                            
+
                             <div class="form-row">
                                 <div class="form-label">{$lang.comment_captcha}：</div>
                                 <div class="form-value">
@@ -775,11 +775,11 @@
                                     <input id="flag" type="hidden" value="change_password_f" name="flag">
                                     <input id="seccode" type="hidden" value="{$sms_security_code}" name="seccode">
                                     <input type="hidden" value="paypwd" name="sign">
-    
+
                                     <input type="hidden" value="account_safe" name="act">
                                     <input type="hidden" value="change_email" name="type">
                                     <input type="hidden" value="second" name="step">
-    
+
                                     <input type="submit" class="form-btn form-btn-line" value="{$lang.submit_goods}" id="submitCode" ectype="submitBtn">
                             	</div>
                             </div>
@@ -855,13 +855,13 @@
                 </div>
                 <!-- {/if} -->
             </div>
-            
+
             <!--{elseif $type eq 'change_phone'}-->
             <div class="type">
                 <div class="user-title">
                     <h2>{$lang.phone_Management}</h2>
                 </div>
-                
+
                 <div class="stepflex">
                     <dl class="first {if $step eq 'first'}doing{elseif $step eq 'second' || $step eq 'last'}done{/if}">
                         <dt class="s-num">1</dt>
@@ -882,11 +882,11 @@
                         {else}
                         <dt class="s-num">&nbsp;</dt>
                         {/if}
-                        
+
                         <dd class="s-text">{$lang.complete}<s></s><b></b></dd>
                     </dl>
                 </div>
-                
+
                 <!--{if $step eq 'first'}-->
                 <div class="form">
                     <div class="security-warp">
@@ -907,7 +907,7 @@
                                     <!-- {if $validate_info.pay_password} -->
                                     <b><a href="user.php?act=account_safe&type=change_phone&sign=paypwd" class="ftx-14">{$lang.Verify_password_in}</a></b>
                                     <!-- {/if} -->
-                                    
+
                                     <!-- {if !$validate_info.mobile_phone} -->
                                     <div class="form_prompt" id="phone_notice"></div>
                                     <!-- {/if} -->
@@ -938,11 +938,11 @@
                                     <input id="flag" type="hidden" value="change_password_f" name="flag">
                                     <input id="seccode" type="hidden" value="{$sms_security_code}" name="seccode">
                                     <input type="hidden" value="mobile" name="sign">
-    
+
                                     <input type="hidden" value="account_safe" name="act">
                                     <input type="hidden" value="change_phone" name="type">
                                     <input type="hidden" value="second" name="step">
-    
+
                                     <input type="submit" class="form-btn form-btn-line" value="{$lang.button_submit}" id="submitMobile" ectype="submitBtn">
                                 </div>
                             </div>
@@ -971,7 +971,7 @@
                                     <div class="form_prompt" id="code_notice"></div>
                                 </div>
                             </div>
-                            
+
                             <div class="form-row">
                                 <div class="form-label">&nbsp;</div>
                                 <div class="form-value form-value-btn">
@@ -989,7 +989,7 @@
                                     <!-- {if $validate_info.is_validated && $validate_info.email} -->
                                     <b><a href="user.php?act=account_safe&type=change_phone&sign=email" class="ftx-14">{$lang.Verify_email_in}</a></b>
                                     <!-- {/if} -->
-                                    
+
                                     <!-- {if $validate_info.mobile_phone} -->
                                     <b><a href="user.php?act=account_safe&type=change_phone&sign=mobile" class="ftx-14">{$lang.Verify_phone_user}</a></b>
                                     <!-- {/if} -->
@@ -997,7 +997,7 @@
                                     <div class="form_prompt"></div>
                                 </div>
                             </div>
-                            
+
                             <div class="form-row">
                                 <div class="form-label">{$lang.comment_captcha}：</div>
                                 <div class="form-value">
@@ -1014,18 +1014,18 @@
                                     <input id="flag" type="hidden" value="change_password_f" name="flag">
                                     <input id="seccode" type="hidden" value="{$sms_security_code}" name="seccode">
                                     <input type="hidden" value="paypwd" name="sign">
-    
+
                                     <input type="hidden" value="account_safe" name="act">
                                     <input type="hidden" value="change_phone" name="type">
                                     <input type="hidden" value="second" name="step">
-    
+
                                     <input type="submit" class="form-btn form-btn-line" value="{$lang.submit_goods}" id="submitCode" ectype="submitBtn">
                             	</div>
                             </div>
                         </form>
                         <!-- {/if} -->
                     </div>
-                    
+
                     <!--{if $sign eq 'validate_mail_ok'}-->
                     <div class="user-pwd-prompt user-prompt-ok">
                         <s class="icon-succ02 m-icon"></s>
@@ -1065,7 +1065,7 @@
                                     <div class="form_prompt" id="code_notice"></div>
                                 </div>
                             </div>
-                            
+
                             <div class="form-row">
                                 <div class="form-label">&nbsp;</div>
                                 <div class="form-value form-value-btn">
@@ -1076,11 +1076,11 @@
                                     <!-- {/if} -->
                                     <input id="flag" type="hidden" value="change_mobile" name="flag">
                                     <input id="seccode" type="hidden" value="{$sms_security_code}" name="seccode">
-    
+
                                     <input type="hidden" name="act" value="account_safe" />
                                     <input type="hidden" name="type" value="change_phone" />
                                     <input type="hidden" name="step" value="last" />
-    
+
                                     <input type="submit" class="form-btn form-btn-line" value="{$lang.lang_crowd_next_step}" id="submitMobile" ectype="submitBtn">
                                 </div>
                             </div>
@@ -1097,7 +1097,7 @@
                 </div>
                 <!-- {/if} -->
             </div>
-            
+
             <!--{elseif $type eq 'payment_password'}-->
             <div class="type">
                 <div class="user-title">
@@ -1118,7 +1118,7 @@
                         <dd class="s-text">{if $password_type eq 1}{$lang.reset_pay_password}{else}{$lang.Enable_pay_password}{/if}<s></s><b></b></dd>
                         <!-- {/if} -->
                     </dl>
-                    
+
                     <dl class="last{if $step eq 'last'} doing{/if}">
                         {if $step eq 'last'}
                         <dt class="s-num">3</dt>
@@ -1129,7 +1129,7 @@
                     </dl>
                 </div>
                 <!-- {/if} -->
-               
+
                 <!--{if $step eq 'zero'}-->
                 <div class="user-pwd-prompt user-prompt-ok">
                     <div class="fore">
@@ -1177,7 +1177,7 @@
                                 <div class="form_prompt" id="code_notice"></div>
                             </div>
                         </div>
-                        
+
                         <div class="form-row">
                         	<div class="form-label">&nbsp;</div>
                             <div class="form-value form-value-btn">
@@ -1215,7 +1215,7 @@
                                 <div class="form_prompt" id="code_notice"></div>
                             </div>
                         </div>
-                        
+
                         <div class="form-row">
                         	<div class="form-label">&nbsp;</div>
                             <div class="form-value form-value-btn">
@@ -1239,7 +1239,7 @@
                                 <div class="form_prompt" id="pay_password_notice"></div>
                             </div>
                         </div>
-                        
+
                         <div class="form-row">
                             <div class="form-label">{$lang.comment_captcha}：</div>
                             <div class="form-value">
@@ -1255,18 +1255,18 @@
                                 <input id="flag" type="hidden" value="change_password_f" name="flag">
                                 <input id="seccode" type="hidden" value="{$sms_security_code}" name="seccode">
                                 <input type="hidden" value="paypwd" name="sign">
-    
+
                                 <input type="hidden" value="account_safe" name="act">
                                 <input type="hidden" value="payment_password" name="type">
                                 <input type="hidden" value="second" name="step">
-    
+
                                 <input type="submit" class="form-btn form-btn-line" value="{$lang.submit_goods}" id="submitCode" ectype="submitBtn">
                             </div>
                         </div>
                     </form>
                     <!-- {/if} -->
                     </div>
-                    
+
                     <!--{if $sign eq 'validate_mail_ok'}-->
                     <div class="user-pwd-prompt user-prompt-ok">
                         <s class="icon-succ02 m-icon"></s>
@@ -1334,7 +1334,7 @@
                 </div>
                 <!-- {/if} -->
             </div>
-            
+
             <!--{elseif $type eq 'real_name'}-->
             <div class="type">
                 <div class="user-title">
@@ -1367,7 +1367,7 @@
                                   	<div class="form_prompt"></div>
                                 </div>
                             </div>
-                            
+
                             <div class="item">
                                 <div class="label"><em class="red">*</em>{$lang.bank_card}：</div>
                                 <div class="value">
@@ -1375,7 +1375,7 @@
                                     <div class="form_prompt"></div>
                                 </div>
                             </div>
-                            
+
                             <div class="item">
                                 <div class="label"><em class="red">*</em>{$lang.front_of_id_card}：</div>
                                 <div class="value">
@@ -1436,7 +1436,7 @@
                     </div>
                 </div>
                 <!--{/if}-->
-                
+
                 <!--{if $step eq 'realname_ok'}-->
                 <div class="account-main account-bind">
                     <div class="user-items">
@@ -1491,7 +1491,7 @@
                                 <span class="txt-lh red">{if $real_user.review_status eq 1}{$lang.is_confirm.1}{elseif $real_user.review_status eq 2}{$lang.is_confirm.2}{else}{$lang.is_confirm.0}{/if}</span>
                             </div>
                         </div>
-                        
+
                         {if $real_user.review_content && $real_user.review_status eq 2}
                         <div class="item">
                             <div class="label">{$lang.audit_statement}：</div>
@@ -1515,7 +1515,7 @@
         </div>
         <!-- {/if} -->
         <!-- 账号安全 end -->
-        
+
         <!-- 订单列表显示页面 start -->
         <!-- {if $action eq 'order_list' || $action eq 'order_recycle'} -->
         <div class="user-mod">
@@ -1581,7 +1581,7 @@
             {/if}
             </div>
         </div>
-        <!-- {/if} --> 
+        <!-- {/if} -->
         <!-- 订单商品列表 end -->
 
         <!-- 订单详情页面 start -->
@@ -1607,7 +1607,7 @@
                         <a href="./seckill.php?act=view&id={$order.extension_id}" class="f6"><strong>{$lang.order_is_seckill}</strong></a>
 					<!-- {elseif $order.extension_code eq "snatch"} -->
                         <a href="./snatch.php?act=view&id={$order.extension_id}" class="f6"><strong>{$lang.order_is_snatch}</strong></a>
-                    <!--{/if}-->  
+                    <!--{/if}-->
                     </p>
                 </div>
                 <div class="statu-right mt10">
@@ -1616,7 +1616,7 @@
                     {/if}
                 </div>
             </div>
-            
+
             <ul class="order-detail-progress progress-{$order.order_tracking}">
                 <li>{$lang.order_addtime}<div class="tip">{$order.add_time}</div></li>
                 <li>{$lang.pay}<div class="tip">{$order.pay_time}</div></li>
@@ -1641,7 +1641,7 @@
                     </div>
                 </div>
             </div>
-            
+
             {if $order.store_id}
             <div class="user-info-list">
                 <div class="info-title"><h2>{$lang.offline_store_information}</h2></div>
@@ -1656,7 +1656,7 @@
                         <div class="item-value">{$order.take_time}</div>
                     </div>
                     {/if}
-                    
+
                     {if $offline_store}
                     <div class="info-item">
                         <div class="item-label">{$lang.stores_name}：</div>
@@ -1688,7 +1688,7 @@
                 </div>
             </div>
             {/if}
-            
+
             {if $order.extension_code neq 'wholesale'}
             <div class="user-info-list">
                 <div class="info-title"><h2>{$lang.pay_info}</h2></div>
@@ -1722,10 +1722,10 @@
                                         </form>
                                     </div>
                   				</div>
-                                <!--{/if}--> 
-                                
+                                <!--{/if}-->
+
                                 <!-- {if $allow_edit_surplus} 如果可以编辑使用余额数 -->
-                                <div class="info-item"> 
+                                <div class="info-item">
                                     <div class="item-label lh30">{$lang.use_surplus}：</div>
                                     <div class="item-value">
                                     <form action="user.php" method="post" name="formFee" id="formFee" class="formfee" onsubmit="return paymentForm(this)">
@@ -1755,8 +1755,8 @@
                                             success:function(result){
                                                 pwd_erorr = result.error;
                                             }
-                                        }); 
-    
+                                        });
+
                                         if(pwd_erorr == 1 || pay_pwd == '' || pay_pwd == 0){
                                             pbDialog(json_languages.pay_password_packup_null,"",0);
                                             return false;
@@ -1765,7 +1765,7 @@
                                             return false;
                                         }
                                         <!-- {/if} -->
-                                        
+
                                         var surplus = $("#ECS_SURPLUS").val();
                                         if(surplus == '' || surplus == 0){
                                             pbDialog(json_languages.surplus_null,"",0);
@@ -1786,7 +1786,7 @@
                         <div class="info-item">
                             <div class="item-label">{$lang.pay_prompt}：</div>
                             <div class="item-value">{$lang.end_pay_time}：<span class="ftx-01">{$pay_end_time}</span>！</div>
-                        </div>                           
+                        </div>
                         <!--{/if}-->
                         <div class="info-item">
                             <div class="item-label">{$lang.pay_prompt}：</div>
@@ -1829,7 +1829,7 @@
                                             <input type="hidden" name="pay_status" value="{$order.extension_code}" />
                                             <input type="hidden" name="order_id" value="{$smarty.get.order_id}" />
                                         </form>
-                                    </div>    
+                                    </div>
                                   <script type="text/javascript">
                                     function paymentForm(frm){
                                         <!-- {if $open_pay_password} 开启支付密码 -->
@@ -1844,8 +1844,8 @@
                                             success:function(result){
                                                 pwd_erorr = result.error;
                                             }
-                                        }); 
-    
+                                        });
+
                                         if(pwd_erorr == 1 || pay_pwd == '' || pay_pwd == 0){
                                             pbDialog(json_languages.pay_password_packup_null,"",0);
                                             return false;
@@ -1854,7 +1854,7 @@
                                             return false;
                                         }
                                         <!-- {/if} -->
-                                        
+
                                         var surplus = $("#ECS_SURPLUS").val();
                                         if(surplus == '' || surplus == 0){
                                             pbDialog(json_languages.surplus_null,"",0);
@@ -1872,7 +1872,7 @@
                             <!--{/if}-->
                         <!--{/if}-->
                     <!--{/if}-->
-                    
+
                     <div class="info-item">
                         <div class="item-label lh30">{$lang.detail_pay_status}：</div>
                         <div class="item-value lh30">
@@ -1923,7 +1923,7 @@
 						{else}
 						<div class="item-value" id="shipping_name_{$order.order_id}">{$order.shipping_name}{if $order.point}<a class="ml10" href="javascript:;" ectype="btn-selfPoint">{$lang.view_self_lift}</a>{/if}</div>
 						{/if}
-                        
+
                     </div>
                     {if $order.invoice_no}
                     <div class="info-item">
@@ -1963,7 +1963,7 @@
 								<em>:</em>
 								<span class="minutes red">00</span>
 								<em>:</em>
-								<span class="seconds red">00</span>					   
+								<span class="seconds red">00</span>
 							</div>
 						</div>
 					</div>
@@ -2041,9 +2041,9 @@
                     var expressid = $("#shipping_name_" + {$order.order_id}).html();
                     //var expressno = $("#invoice_no_" + {$order.order_id}).html();
                     var expressno = $("[ectype='invoice_no_list']").find("li:first").data("invoice_no");
-                
+
                     $("#retData_" + {$order.order_id}).html("<center>"+json_languages.logistics_tracking_in+"</center>");
-                    
+
                     $.ajax({
                         url: "plugins/kuaidi/express.php",
                         type: "post",
@@ -2067,7 +2067,7 @@
 							content:'',
 							drag:false,
 							foot:false,
-						});	
+						});
 						//插入物流信息
 						$.ajax({
 							url: "plugins/kuaidi/express.php",
@@ -2078,7 +2078,7 @@
 							},
 							 error: function(o){
 							}
-						});						
+						});
 					})
 				}
             </script>
@@ -2186,11 +2186,11 @@
                     <tr>
                         <td>
                             <div class="product-item first">
-                                <div class="p-img fl"><a href="crowdfunding.php?act=detail&id={$zc_goods_info.pid}" target="_blank"><img src="{$zc_goods_info.title_img}" width="55" height="55"></a></div>                                                                 
+                                <div class="p-img fl"><a href="crowdfunding.php?act=detail&id={$zc_goods_info.pid}" target="_blank"><img src="{$zc_goods_info.title_img}" width="55" height="55"></a></div>
                                 <div class="p-name fl ml10">
                                 <a href="crowdfunding.php?act=detail&id={$zc_goods_info.pid}" class="ftx-07" target="_blank">{$zc_goods_info.title}</a>
                                 </div>
-                            </div> 							
+                            </div>
                         </td>
                         <td>{$zc_goods_info.start_time}</td>
                         <td>{$zc_goods_info.end_time}</td>
@@ -2229,7 +2229,7 @@
                         <!-- {if $goods.goods_id gt 0 && $goods.extension_code neq 'package_buy'} -->
                             <a href="{$goods.url}" class="img"><img src="{$goods.goods_thumb}" alt=""></a>
                         <!-- {/if} -->
-                        <!-- {if $goods.goods_id gt 0 && $goods.extension_code neq 'package_buy'} 商品 -->							
+                        <!-- {if $goods.goods_id gt 0 && $goods.extension_code neq 'package_buy'} 商品 -->
                             <a href="{$goods.url}" class="name"{if $goods.is_real eq 0 and $goods.virtual_info} style="margin-top:7px;"{/if}>{$goods.goods_name}</a>
                             <p class="fl ftx-05">{$lang.give_integral}：{$goods.give_integral}</p>
                             <!-- {if $goods.parent_id > 0} -->
@@ -2246,12 +2246,12 @@
                                   </a>
                                 <!-- {/foreach} -->
                             </div>
-                        <!-- {/if} --> 
+                        <!-- {/if} -->
                             <!-- {if $goods.is_real eq 0 and $goods.virtual_info} -->
                             <div id="virtual_div_{$goods.goods_id}" class="virtual_div">
-								
+
                                 <div id="show_virtual_info_{$goods.goods_id}" class="virtual_title">{$lang.virtual_goods_info}</div>
-								
+
                                 <div id="virtual_info_{$goods.goods_id}" class="virtual_info">
 									{foreach from=$goods.virtual_info item=virtual}
                                     <div class="virtual_info_item">
@@ -2262,9 +2262,9 @@
                                     </div>
 									{/foreach}
                                 </div>
-								
-                            </div>                                      
-                            <!-- {/if} --> 
+
+                            </div>
+                            <!-- {/if} -->
                         </td>
                         <td>{$goods.goods_attr|nl2br}</td>
                         <td>{$goods.goods_sn}</td>
@@ -2321,7 +2321,7 @@
                     <dt class="total-label">{$lang.pack_fee}：</dt>
                     <dd class="total-value">+  {$order.formated_pack_fee}</dd>
                 </dl>
-                <!-- {/if} -->				
+                <!-- {/if} -->
                 <!-- {if $order.card_fee gt 0} -->
                 <dl class="total-row">
                     <dt class="total-label">{$lang.card_fee}：</dt>
@@ -2343,8 +2343,8 @@
                 <dl class="total-row">
                     <dt class="total-label">{$lang.value_card_dis}：</dt>
                     <dd class="total-value">{$order.formated_vc_dis}折</dd>
-                </dl>    
-                <!-- {/if} -->                
+                </dl>
+                <!-- {/if} -->
                 <!-- {/if} -->
                 <!-- {if $order.surplus > 0} -->
                 <dl class="total-row">
@@ -2391,7 +2391,7 @@
         function checkOrder(){
             var log_id = '{$order.log_id|default:0}';
             var pay_code = '{$order.pay_code|default:0}';
-            
+
             if(pay_code == 'wxpay'){
                 var url = "user.php?act=checkorder&log_id=" + log_id+ "&pay_code=" + pay_code;
                 $.get(url, {}, function(data){
@@ -2404,13 +2404,13 @@
                 timer = setTimeout("checkOrder()", 5000);
             }
         }
-        checkOrder();  
+        checkOrder();
         </script>
         <!--{/if}-->
-        <!--#订单详情页面 end -->	
+        <!--#订单详情页面 end -->
 
         <!--#退换货订单详情页面 -->
-        <!--{if $action eq 'return_detail'} -->		
+        <!--{if $action eq 'return_detail'} -->
         <form id="returnInfo" name="returnInfo" method="post" action="user.php" onsubmit="return shipping_sub(this)">
         <div class="user-mod user-order-detail">
             <div class="user-title mb0">
@@ -2495,7 +2495,7 @@
                                     <i class="box-i"></i>
                                     <div class="conmment-box-content">
                                         <div class="cont" id="seller_deliveryInfo">
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -2506,7 +2506,7 @@
                     </dl>
                 </div>
             </div>
-            {if $goods.out_invoice_no}          
+            {if $goods.out_invoice_no}
             <script language="javascript">
                 $("#seller_deliveryInfo").html("<center>"+json_languages.logistics_tracking_in+"</center>");
                 if(document.getElementById("shipping_name_{$goods.order_id}"))
@@ -2524,7 +2524,7 @@
                      error: function(o){
                     }
                 });
-            </script> 
+            </script>
             {/if}
             {/if}
 	    {if $return_info}
@@ -2565,7 +2565,7 @@
                             <span class="blue">{$goods.back_invoice_no}</span>
                         </div>
                     </div>
-                </div>  
+                </div>
                 <div class="blank"></div>
                 {else}
                 <div class="express_list">
@@ -2591,7 +2591,7 @@
                         <input type="hidden" name="order_id" value="{$goods.order_id}" />
                         <input type="hidden" name="ret_id" value="{$goods.ret_id}" />
                     </div>
-                </div> 
+                </div>
                 {/if}
                 {if $goods.out_shipp_shipping}
                 <div class="express_list">
@@ -2605,7 +2605,7 @@
                             <span>{$lang.courier_sz}：</span>
                             <span class="blue">{$goods.out_invoice_no}</span>
                         </div>
-                    </div>        
+                    </div>
                 </div>
                 {/if}
             </div>
@@ -2633,7 +2633,7 @@
                     {else}
                     <a href="http://wpa.qq.com/msgrd?v=3&uin={$goods.kf_qq}&site=qq&menu=yes" class="iconfont icon-kefu user-shop-kefu" target="_blank"></a>
                     {/if}
-                    {/if}					
+                    {/if}
                 </div>
                 <table class="user-table user-table-detail-goods">
                     <colgroup>
@@ -2656,7 +2656,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                <a href="{$goods.url}" class="img"><img src="{$goods.goods_thumb}" alt=""></a>						
+                                <a href="{$goods.url}" class="img"><img src="{$goods.goods_thumb}" alt=""></a>
                                 <a href="{$goods.url}" class="name">{$goods.goods_name|truncate:25}</a>
                             </td>
                             <td>{$goods.goods_attr|nl2br}</td>
@@ -2698,9 +2698,9 @@
             </div>
         </div>
         </form>
-        <!--{/if}--> 
-        <!--#退换货订单详情页面 end -->		
-        
+        <!--{/if}-->
+        <!--#退换货订单详情页面 end -->
+
         <!-- 收货地址页面 start -->
         <!-- {if $action eq 'address_list'} -->
         <div class="user-mod">
@@ -2717,7 +2717,7 @@
                             <p>{$lang.consignee_new}</p>
                         </a>
                     </div>
-                </li>				
+                </li>
                 {/if}
                 <!-- {if $new_consignee_list} -->
                 <!-- {foreach from=$new_consignee_list item=consignee key=sn} -->
@@ -2754,9 +2754,9 @@
                 <!-- {/if} -->
             </ul>
         </div>
-        <!--{/if}--> 
-        <!--#收货地址页面 end -->	
-        
+        <!--{/if}-->
+        <!--#收货地址页面 end -->
+
         <!--#编辑地址页面 -->
         <!--{if $action eq 'address'} -->
         <div class="user-mod">
@@ -2857,9 +2857,9 @@
                     </div>
                 </form>
             </div>
-        </div>	
-        <!--{/if}--> 
-        <!--#编辑地址页面 end -->	
+        </div>
+        <!--{/if}-->
+        <!--#编辑地址页面 end -->
 
         <!-- 退换货列表页面 -->
         <!-- {if $action eq 'return_list'} -->
@@ -2875,10 +2875,10 @@
 				<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
 			<!-- {/if} -->
         </div>
-        <!-- {/if} --> 
+        <!-- {/if} -->
         <!-- 退换货列表页面 end -->
-        
-        <!--#退换货申请 Leah begin--> 
+
+        <!--#退换货申请 Leah begin-->
         <!--{if $action eq 'goods_order' } -->
         <div class="user-mod">
             <div class="user-title">
@@ -2890,26 +2890,26 @@
 					<div class="no_records">
 						<i class="no_icon_two"></i>
 						<div class="no_info"><h3>{$lang.package_buy_notic}</h3></div>
-					</div>				
-					<!-- {else} -->			
+					</div>
+					<!-- {else} -->
 					<!-- {foreach from=$goods_list item=goods} -->
 					<div class="tl-item">
 						<div class="item-t">
 							<div class="t-goods">
 								<div class="t-img">
-									<!-- {if $goods.goods_id gt 0 && $goods.extension_code neq 'package_buy'} 商品 --> 
-										<a href="{$goods.url}" target="_blank" class="f6"><img width="55" height="55" src="{$goods.goods_thumb}" title="{$goods.goods_name}"></a> 
-									<!-- {if $goods.parent_id > 0} --> 
-										<span style="color:#FF0000">（{$lang.accessories}）</span> 
-									<!-- {elseif $goods.is_gift} --> 
-										<span style="color:#FF0000">（{$lang.largess}）</span> 
-									<!-- {/if} --> 
-									<!-- {elseif $goods.goods_id gt 0 && $goods.extension_code eq 'package_buy'} --> 
+									<!-- {if $goods.goods_id gt 0 && $goods.extension_code neq 'package_buy'} 商品 -->
+										<a href="{$goods.url}" target="_blank" class="f6"><img width="55" height="55" src="{$goods.goods_thumb}" title="{$goods.goods_name}"></a>
+									<!-- {if $goods.parent_id > 0} -->
+										<span style="color:#FF0000">（{$lang.accessories}）</span>
+									<!-- {elseif $goods.is_gift} -->
+										<span style="color:#FF0000">（{$lang.largess}）</span>
+									<!-- {/if} -->
+									<!-- {elseif $goods.goods_id gt 0 && $goods.extension_code eq 'package_buy'} -->
 										<a href="javascript:void(0)" onclick="setSuitShow({$goods.goods_id})" class="f6"><img width="55" height="55" src="{$goods.goods_thumb}" title="{$goods.goods_name}"><span style="color:#FF0000;">{$lang.remark_package}</span></a>
-										<div id="suit_{$goods.goods_id}" style="display:none"> 
-											<!-- {foreach from=$goods.package_goods_list item=package_goods_list} --> 
+										<div id="suit_{$goods.goods_id}" style="display:none">
+											<!-- {foreach from=$goods.package_goods_list item=package_goods_list} -->
 											<a href="{$package_goods_list.url}" target="_blank" class="f6"><img width="55" height="55" src="{$goods.goods_thumb}" title="{$goods.goods_name}"></a><br />
-											<!-- {/foreach} --> 
+											<!-- {/foreach} -->
 										</div>
 									<!-- {/if} -->
 								</div>
@@ -2922,14 +2922,14 @@
 							<div class="t-statu">
                             {if $goods.goods_cause}
 							{if $goods.is_refound gt 0}
-								<span class="ftx-01 fs14">{$lang.Have_applied}</span> 
-							{else} 
+								<span class="ftx-01 fs14">{$lang.Have_applied}</span>
+							{else}
                                 {if $goods.extension_code eq 'virtual_card'}
-                                <span class="ftx-01 fs14">{$lang.virtual_card_notic}</span> 
+                                <span class="ftx-01 fs14">{$lang.virtual_card_notic}</span>
                                 {else}
                                 <a href="user.php?act=apply_return&rec_id={$goods.rec_id}&order_id={$order_id}" class="sc-btn">{$lang.applied}</a>
                                 {/if}
-								 
+
 							{/if}
                             {/if}
 							</div>
@@ -2972,8 +2972,8 @@
         </div>
         <!--{/if}-->
         <!--#退换货申请 end -->
-        
-        <!--#退换货服务说明 start--> 
+
+        <!--#退换货服务说明 start-->
         <!-- {if $action eq 'service_detail'} -->
         <div class="user-mod">
             <div class="user-title">
@@ -3040,11 +3040,11 @@
                     {$lang.Return_Explain}
                 </div>
             </div>
-        </div>    
+        </div>
         <!-- {/if} -->
-        <!--#退换货服务说明 end--> 
-        
-        <!--#退换货申请列表 start--> 
+        <!--#退换货服务说明 end-->
+
+        <!--#退换货申请列表 start-->
         <!-- {if $action eq 'apply_return'} -->
         <div class="user-mod user_apply_return">
             <div class="user-title">
@@ -3056,25 +3056,25 @@
                     <div class="item-t b-b-0">
                         <div class="t-goods">
                             <div class="t-img">
-                                <!-- {if $goods_return.goods_id gt 0 && $goods_return.extension_code neq 'package_buy'} 商品 --> 
+                                <!-- {if $goods_return.goods_id gt 0 && $goods_return.extension_code neq 'package_buy'} 商品 -->
                                     <a href="{$goods_return.url}" target="_blank" class="f6">
                                         <img width="55" height="55" src="{$goods_return.goods_thumb}" title="{$goods_return.goods_name}">
-                                    </a> 
-                                    <!-- {if $goods_return.parent_id > 0} --> 
-                                    <span class="red">（{$lang.accessories}）</span> 
-                                    <!-- {elseif $goods_return.is_gift} --> 
-                                    <span class="red">（{$lang.largess}）</span> 
-                                    <!-- {/if} --> 
-                                <!-- {elseif $goods_return.goods_id gt 0 && $goods_return.extension_code eq 'package_buy'} --> 
+                                    </a>
+                                    <!-- {if $goods_return.parent_id > 0} -->
+                                    <span class="red">（{$lang.accessories}）</span>
+                                    <!-- {elseif $goods_return.is_gift} -->
+                                    <span class="red">（{$lang.largess}）</span>
+                                    <!-- {/if} -->
+                                <!-- {elseif $goods_return.goods_id gt 0 && $goods_return.extension_code eq 'package_buy'} -->
                                     <a href="javascript:void(0)" onclick="setSuitShow({$goods_return.goods_id})" class="f6">
                                         <img width="55" height="55" src="{$goods_return.goods_thumb}" title="{$goods_return.goods_name}"><span style="color:#FF0000;">{$lang.remark_package}</span>
                                     </a>
-                                    <div id="suit_{$goods_return.goods_id}" style="display:none"> 
-                                        <!-- {foreach from=$goods_return.package_goods_list item=package_goods_list} --> 
+                                    <div id="suit_{$goods_return.goods_id}" style="display:none">
+                                        <!-- {foreach from=$goods_return.package_goods_list item=package_goods_list} -->
                                             <a href="{$package_goods_list.url}" target="_blank" class="f6">
                                                 <img width="55" height="55" src="{$package_goods_list.goods_thumb}" title="{$package_goods_list.goods_name}">
                                             </a>
-                                        <!-- {/foreach} --> 
+                                        <!-- {/foreach} -->
                                     </div>
                                 <!-- {/if} -->
                             </div>
@@ -3099,14 +3099,14 @@
                         <div class="item item1 first">
                             <div class="label"><em>*</em>{$lang.Service_type}：</div>
                             <div class="value value-checkbox">
-                            	
+
                                 {foreach from=$goods_cause item=goods}
                                 	<div class="value-item {if $goods.is_checked eq 1}selected{/if}">
                                         <input type="radio" id="service-{$goods.cause}" name="return_type" value="{$goods.cause}" class="ui-radio" autocomplete="off" {if $goods.is_checked eq 1}checked{/if} />
                                         <label for="service-{$goods.cause}" class="ui-radio-label">{$goods.lang}</label>
                                     </div>
                             	{/foreach}
-                                
+
                                 <input name="return_rec_id" value="{$goods_return.rec_id}" type="hidden" />
                                 <input name="return_g_id" value="{$goods_return.goods_id}" type="hidden" />
                                 <input name="return_g_number" value="{$goods_return.goods_number}" type="hidden" />
@@ -3149,10 +3149,14 @@
                                     <div class="type_box1" name="type_box1" id="changeid_{$goods_return.rec_id}">
                                         <div class="type_item">{$lang.return_g_number}：</div>
                                         <div class="type_con">
+                                            {if !$order.is_baitiao_order}
                                             <a onclick="buyNumber.minus(this, 1)" href="javascript:;" id="decrease" class="plus_minus"><i class="iconfont icon-reduce"></i></a>
-                                            <input type="text" class="return_num" defaultnumber="1" value="1" id="returnid_{$goods_return.rec_id}" name="only_return_number" onblur="check_return_num(this,{$goods_return.goods_number} ,{$goods_return.rec_id}, 2)" />
+                                            {/if}
+                                            <input type="text" class="return_num" defaultnumber="1" {if $order.is_baitiao_order} value="{$goods_return.goods_number}"  readonly="readonly" {else}value="1" {/if}id="returnid_{$goods_return.rec_id}" name="only_return_number" onblur="check_return_num(this,{$goods_return.goods_number} ,{$goods_return.rec_id}, 2)" />
+                                            {if !$order.is_baitiao_order}
                                             <a onclick="buyNumber.plus(this, 1)" href="javascript:;" id="increase" class="plus_minus"><i class="iconfont icon-plus"></i></a>
-                                            <div class="return_sm">({$lang.return_one}<span>{$goods_return.goods_number}</span>{$lang.return_two}<span id="retired_{$goods_return.rec_id}" name="retired">1</span>{$lang.jian})</div>
+                                             <div class="return_sm">({$lang.return_one}<span>{$goods_return.goods_number}</span>{$lang.return_two}<span id="retired_{$goods_return.rec_id}" name="retired">1</span>{$lang.jian})</div>
+                                            {/if}
                                         </div>
                                     </div>
                                 </div>
@@ -3308,14 +3312,14 @@
                     </div>
                 </form>
             </div>
-        </div>  
+        </div>
         <!-- {/if} -->
-        <!--#退换货申请列表 end-->  
-	
-        <!--#批量退换货申请列表 start--> 
+        <!--#退换货申请列表 end-->
+
+        <!--#批量退换货申请列表 start-->
         <!-- {if $action eq 'batch_applied'} -->
         <div class="user-mod user_apply_return">
-            <form id="formReturn" name="formReturn" method="post" action="user.php" onsubmit="return check_sub()">		
+            <form id="formReturn" name="formReturn" method="post" action="user.php" onsubmit="return check_sub()">
             <div class="user-title">
                 <h2>{$lang.return_list}</h2>
                 <a href="user.php?act=service_detail" class="more">{$lang.service_note}</a>
@@ -3329,22 +3333,22 @@
                                 <!-- {if $goods.goods_id gt 0 && $goods.extension_code neq 'package_buy'} 商品 -->
                                     <a href="{$goods.url}" target="_blank" class="f6">
                                         <img width="55" height="55" src="{$goods.goods_thumb}" title="{$goods.goods_name}">
-                                    </a> 
-                                    <!-- {if $goods.parent_id > 0} --> 
-                                    <span class="red">（{$lang.accessories}）</span> 
-                                    <!-- {elseif $goods.is_gift} --> 
-                                    <span class="red">（{$lang.largess}）</span> 
-                                    <!-- {/if} --> 
-                                <!-- {elseif $goods.goods_id gt 0 && $goods.extension_code eq 'package_buy'} --> 
+                                    </a>
+                                    <!-- {if $goods.parent_id > 0} -->
+                                    <span class="red">（{$lang.accessories}）</span>
+                                    <!-- {elseif $goods.is_gift} -->
+                                    <span class="red">（{$lang.largess}）</span>
+                                    <!-- {/if} -->
+                                <!-- {elseif $goods.goods_id gt 0 && $goods.extension_code eq 'package_buy'} -->
                                     <a href="javascript:void(0)" onclick="setSuitShow({$goods.goods_id})" class="f6">
                                         <img width="55" height="55" src="{$goods.goods_thumb}" title="{$goods.goods_name}"><span style="color:#FF0000;">{$lang.remark_package}</span>
                                     </a>
-                                    <div id="suit_{$goods.goods_id}" style="display:none"> 
-                                        <!-- {foreach from=$goods.package_goods_list item=package_goods_list} --> 
+                                    <div id="suit_{$goods.goods_id}" style="display:none">
+                                        <!-- {foreach from=$goods.package_goods_list item=package_goods_list} -->
                                             <a href="{$package_goods_list.url}" target="_blank" class="f6">
                                                 <img width="55" height="55" src="{$package_goods_list.goods_thumb}" title="{$package_goods_list.goods_name}">
                                             </a>
-                                        <!-- {/foreach} --> 
+                                        <!-- {/foreach} -->
                                     </div>
                                 <!-- {/if} -->
                             </div>
@@ -3516,12 +3520,12 @@
 				{/if}
 				</div>
 			</div>
-		</form>			
-        </div>  
+		</form>
+        </div>
         <!-- {/if} -->
-        <!--#退换货申请列表 end--> 
-		
-		
+        <!--#退换货申请列表 end-->
+
+
 		<!-- 拍卖活动列表 start -->
 		<!-- {if $action eq 'auction_list'} -->
 		<div class="user-mod">
@@ -3620,7 +3624,7 @@
             {/if}
             </div>
         </div>
-        <!-- {/if} --> 
+        <!-- {/if} -->
         <!-- 拍卖活动列表 end -->
 
 		<!-- 夺宝奇兵列表 start -->
@@ -3648,7 +3652,7 @@
 		</div>
 		<!-- {/if} -->
 		<!-- 拍卖活动列表 end -->
-		
+
         <!-- 优惠券界面 start-->
         <!--{if $action eq 'coupons'}-->
         <div class="user-mod" ectype="tabSection">
@@ -3835,7 +3839,7 @@
                         </div>
                         {/if}
                     </div>
-                </div>				
+                </div>
             </div>
         </div>
         <!--{/if}-->
@@ -3883,7 +3887,7 @@
                                 {if $item.invoice_no}
                                 <div class="conmment-box-content">
                                     <div class="cont" id="retData_{$item.order_id}">
-                                        
+
                                     </div>
                                 </div>
                                 {/if}
@@ -3903,7 +3907,7 @@
         </div>
         <!--{/if}-->
         <!--#跟踪包裹界面 end -->
-        
+
         <!-- #资金管理页面 -->
         <!--{if $action eq 'account_log' || $action eq 'account_detail' || $action eq 'account_paypoints' || $action eq 'account_rankpoints'} -->
         <div class="user-mod">
@@ -4013,7 +4017,7 @@
                                             <!-- {/if} -->
                                             </p>
                                         {else}
-                                        	{$lang.null_handle}    
+                                        	{$lang.null_handle}
                                         {/if}
                                     </td>
                                 </tr>
@@ -4027,7 +4031,7 @@
                     </div>
                     <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
                     <!-- {/if} -->
-                    
+
                     <!--{if $action eq 'account_detail'}-->
                     <div class="account-open-list">
                         <table class="user-table user-table-account">
@@ -4064,7 +4068,7 @@
                     </div>
                     <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
                     <!-- {/if} -->
-                    
+
                     <!--{if $action eq 'account_paypoints'}-->
                     <div class="account-open-list">
                         <table class="user-table user-table-account">
@@ -4102,7 +4106,7 @@
                     <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
                     <!-- {/if} -->
                 </div>
-                
+
                 <!--{if $action eq 'account_rankpoints'}-->
                 <div class="account-open-list">
                     <table class="user-table user-table-account">
@@ -4142,7 +4146,7 @@
           </div>
 		</div>
         <!--{/if}-->
-        
+
         <!--{if $action eq "account_complaint"} -->
         <div class="user-mod">
         	<div class="type">
@@ -4164,14 +4168,14 @@
                                 	<span class="txt-lh">{$user_account.amount}</span>
                                 </div>
                             </div>
-                            
+
                             <div class="item">
                                 <div class="label">{$lang.payment}：</div>
                                 <div class="value">
                                 	<span class="txt-lh">{$user_account.payment}</span>
                                 </div>
                             </div>
-                            
+
                             <div class="item">
                                 <div class="label"><em class="red">*</em>{$lang.appeal_credential}：</div>
                                 <div class="value">
@@ -4187,7 +4191,7 @@
                                     <div class="form_prompt"></div>
                                 </div>
                             </div>
-                            
+
                             <div class="item">
                                 <div class="label">{$lang.appeal_explain}：</div>
                                 <div class="value">
@@ -4196,7 +4200,7 @@
                                     </span>
                                 </div>
                             </div>
-                            
+
                             {if !$user_account.complaint_imges}
                                 <div class="item item-button">
                                     <div class="label">&nbsp;</div>
@@ -4211,9 +4215,9 @@
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>
         <!--{/if}-->
-        
+
         <!--{if $action eq "account_deposit"} -->
         <div class="user-mod">
             <div class="user-account-warp">
@@ -4266,8 +4270,8 @@
             </div>
         </div>
         <!--{/if}-->
-        
-        <!-- {if $action eq "account_raply"} -->		
+
+        <!-- {if $action eq "account_raply"} -->
         <div class="user-mod">
             <div class="user-account-warp">
                 <div class="user-title">
@@ -4309,7 +4313,7 @@
                                 <textarea name="user_note" class="text text-2" style="height:100px; line-height:20px; padding-top:3px; padding-bottom:3px;"></textarea>
                             </div>
                         </div>
-                        
+
                         {if $enabled_sms_signin}
                         <div class="item">
                             <div class="label"><em class="red">*</em>{$lang.label_mobile}：</div>
@@ -4320,7 +4324,7 @@
                                 <div class="form_prompt"></div>
                             </div>
                         </div>
-                        
+
                         <div class="item">
                             <div class="label"><em class="red">*</em>{$lang.bindMobile_code}：</div>
                             <div class="value">
@@ -4333,7 +4337,7 @@
                             </div>
                         </div>
                         {/if}
-                        
+
                         <div class="item item-button">
                             <div class="label">&nbsp;</div>
                             <div class="value">
@@ -4355,7 +4359,7 @@
             </div>
         </div>
         <!-- {/if} -->
-        
+
         <!-- {if $action eq "act_account"} -->
         <div class="user-mod">
             <div class="user-title">
@@ -4387,18 +4391,18 @@
                     <tr>
                         <td colspan="4" class="td td_bf">
                             <h1>{$lang.describe}：</h1>
-                            <span>{$payment.pay_desc}</span>						
+                            <span>{$payment.pay_desc}</span>
                         </td>
-                    </tr>					
+                    </tr>
                 </tbody>
             </table>
-        </div> 
+        </div>
         <script type="text/javascript">
             var timer;
             function checkOrder(){
                 var log_id = '{$order.log_id|default:0}';
                 var pay_code = '{$payment_info.pay_code|default:0}';
-                
+
                 if(pay_code == 'wxpay'){
                     var url = "user.php?act=checkorder&log_id=" + log_id+ "&pay_code=" + pay_code;
                     $.get(url, {}, function(data){
@@ -4411,10 +4415,10 @@
                     timer = setTimeout("checkOrder()", 5000);
                 }
             }
-            checkOrder();              
-        </script> 
+            checkOrder();
+        </script>
         <!-- {/if} -->
-        <!-- #资金管理页面 end -->	
+        <!-- #资金管理页面 end -->
 
         <!-- #白条页面 -->
         <!--{if $action eq 'baitiao' || $action eq 'baitiao_pay_log'} -->
@@ -4437,7 +4441,7 @@
                             <span><em id="price">{$repay_bt.format_stay_pay|default:0}</em></span>
                         </div>
                     </div>
-                    
+
                     <div class="u-b-bot fl">
                         <div class="user-frame-items">
                             <div class="item">
@@ -4456,17 +4460,17 @@
                                 <span>{$lang.amount_paid}</span>
                                 <span class="b-price">{$repay_bt.stay_pay|default:0}</span>
                             </div>
-                        </div>        
+                        </div>
                     </div>
                 </div>
-            
+
                 <div class="user-title mt30 width_860 fl">
                     <ul class="tabs">
                         <li {if $action eq 'baitiao'}class="active"{/if}><a href="user.php?act=baitiao">{$lang.Transaction_detail}</a></li>
                         <li {if $action eq 'baitiao_pay_log'}class="active"{/if}><a href="user.php?act=baitiao_pay_log">{$lang.repayment_record}</a></li>
                     </ul>
                 </div>
-            
+
                 <!-- {if $action eq 'baitiao'} -->
                 <div class="user-baitiao-list">
                     <table class="user-table user-table-baitiao">
@@ -4495,7 +4499,7 @@
                                     <a href="user.php?act=order_detail&order_id={$bt_log.order_id}" target="_blank" class="ftx-05">
                                     {$bt_log.order_sn}
                                     </a>
-                                    
+
                                     <br/><a href="user.php?act=baitiao_pay_log&log_id={$bt_log.log_id}" class="sc-btn">{$lang.view_repayment_record}</a>
                                 </td>
                                 <td class="tc">
@@ -4536,7 +4540,7 @@
                 </div>
                 <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
                 <!-- {/if} -->
-                
+
                 <!-- {if $action eq 'baitiao_pay_log'} -->
                 <div class="user-baitiao-list">
                     <table class="user-table user-table-baitiao">
@@ -4573,14 +4577,22 @@
                                 	{if $list.is_pay}
                                     	{$lang.also_pay.is_pay}
                                     {else}
-                                    	{$lang.also_pay.not_pay}
+                                        {if $list.is_refund}
+                                            {$lang.refound}
+                                        {else}
+                                    	    {$lang.also_pay.not_pay}
+                                        {/if}
                                     {/if}
                                 </td>
                                 <td class="tc">
                                 {if $list.pay_time}
                                 {$list.pay_time}
                                 {else}
-                                <a href="user.php?act=repay_bt&order_id={$list.order_id}&pay_id={$list.pay_id}&stages_num={$list.stages_num|default:0}" class="sc-btn" target="_blank">{$lang.repayment}</a> 
+                                    {if $list.is_refund}
+                                        {$lang.refound}
+                                    {else}
+                                        <a href="user.php?act=repay_bt&order_id={$list.order_id}&pay_id={$list.pay_id}&stages_num={$list.stages_num|default:0}" class="sc-btn" target="_blank">{$lang.repayment}</a>
+                                    {/if}
                                 {/if}
                                 </td>
                             </tr>
@@ -4592,8 +4604,8 @@
                 <!-- {/if} -->
          </div>
         <!--{/if}-->
-        <!-- #白条页面 end -->	
-        
+        <!-- #白条页面 end -->
+
         <!--@author-bylu 白条还款页 start-->
         <!-- {if $action eq 'repay_bt'} -->
         <div class="user-mod">
@@ -4672,7 +4684,7 @@
 			var log_id = '{$stages_info.log_id|default:0}';
 			var stages_num = '{$stages_num|default:0}';
 			var pay_code = '{$payment_info.pay_code|default:0}';
-			
+
 			if(pay_code == 'wxpay'){
 				var url = "user.php?act=checkorder&baitiao_id=" +baitiao_id+ "&log_id=" + log_id+ "&stages_num=" + stages_num + "&pay_code=" + pay_code;
 				$.get(url, {}, function(data){
@@ -4684,13 +4696,13 @@
 				},'json');
 				timer = setTimeout("checkOrder()", 5000);
 			}
-			
+
 		}
         checkOrder();
         </script>
         <!-- {/if} -->
-        <!--@author-bylu 白条还款页 end-->	
-        
+        <!--@author-bylu 白条还款页 end-->
+
         <!--#商家等级入驻列表页 by kong satrt-->
         <!--{if $action eq 'merchants_upgrade' } -->
         <div class="user-mod">
@@ -4735,8 +4747,8 @@
                             <td class="tc">
                                 {if $item.id eq $grade_id}
                                     <a href="javascript:void(0);" class="sc-btn sc-btn-disabled">{$lang.now_grade}</a>
-                                {else}        
-                                    {if $is_expiry}   
+                                {else}
+                                    {if $is_expiry}
                                     <a href="user.php?act=application_grade&grade_id={$item.id}" class="sc-btn">{$lang.once}</a>
                                     {else}
                                     <span>{$lang.not_to_apply}</span>
@@ -4753,14 +4765,14 @@
         $(function(){
 			checkOrder();
 		});
-		
+
 		var timer;
 		function checkOrder(){
 			var baitiao_id = '{$stages_info.baitiao_id|default:0}';
 			var log_id = '{$stages_info.log_id|default:0}';
 			var stages_num = '{$stages_num|default:0}';
 			var pay_code = '{$payment_info.pay_code|default:0}';
-			
+
 			if(pay_code == 'wxpay'){
 				var url = "user.php?act=checkorder&baitiao_id=" +baitiao_id+ "&log_id=" + log_id+ "&stages_num=" + stages_num + "&pay_code=" + pay_code;
 				$.get(url, {}, function(data){
@@ -4772,12 +4784,12 @@
 				},'json');
 				timer = setTimeout("checkOrder()", 5000);
 			}
-			
+
 		}
         </script>
         <!--{/if}-->
         <!--#商家等级入驻列表页 by kong end-->
-        
+
         <!--#商家等级申请记录 by kong satrt-->
         <!--{if $action eq 'merchants_upgrade_log' } -->
         <div class="user-mod">
@@ -4833,8 +4845,8 @@
             </div>
         </div>
         <!--{/if}-->
-        <!--#商家等级申请记录 by kong end-->       
-		
+        <!--#商家等级申请记录 by kong end-->
+
         <!--#商家等级入驻 by kong satrt-->
         <!--{if $action eq 'application_grade' || $action eq 'application_grade_edit'} -->
         <div class="user-mod user-profile">
@@ -4919,7 +4931,7 @@
                         </div>
 					</div>
                     <!--{/if}-->
-                    
+
                     <!--{foreach from = $entry_criteriat_info item = info} 开始循环等级一级标准-->
                     <!--{if $info.child}-->
                     <div class="user-title">
@@ -4979,7 +4991,7 @@
                     </div>
                     <!--{/if}-->
                     <!--{/foreach}-->
-                    
+
                     <!--{if $entry_criteriat_info.count_charge > 0}-->
                     <div class="user-title">
                         <h2>{$lang.information_count}</h2>
@@ -5047,7 +5059,7 @@
 									{else}
 									<a href="user.php?act=merchants_upgrade_log" class="sc-btn sc-redBg-btn">{$lang.back}</a>
                                     {/if}
-									
+
 									<input type="hidden" name="sc_guid"  value="{$sc_guid|default:0}"/>
 									<input type="hidden" name="sc_rand"  value="{$sc_rand|default:0}"/>
                                 </div>
@@ -5058,7 +5070,7 @@
             </form>
         </div>
         <!--{/if}-->
-		
+
 		<!--{if $action eq 'confirm_inventory'  || $action eq 'update_submit' || $action eq 'grade_load'} 商家等级支付结算页面-->
 		<div class="user-mod">
 			<div class="user-title">
@@ -5074,7 +5086,7 @@
 		</div>
 		<!--{/if}-->
         <!--#商家等级入驻 by kong end-->
-                    
+
         <!-- 我的红包界面 start-->
         <!--{if $action eq 'bonus'}-->
         <div class="user-mod">
@@ -5095,7 +5107,7 @@
                         <div class="value">
                             <input type="text" name="bonus_password" class="text text-2 txt_input_cardpw">
                         </div>
-                    </div> 
+                    </div>
                     <div class="item">
                         <div class="label"><em>*</em>{$lang.comment_captcha}：</div>
                         <div class="value">
@@ -5110,7 +5122,7 @@
                         <div class="value">
                             <a href="javascript:void(0);" class="sc-btn sc-redBg-btn"  id="bind_btn" onclick="new_addBonus();">{$lang.Bind_current_account}</a>
                         </div>
-                    </div>          
+                    </div>
                 </div>
                 </form>
             </div>
@@ -5120,6 +5132,7 @@
                         <li id="bound_giftcard" class="active"><a href="javascript:void(0);">{$lang.keyong}({$bonus.record_count})</a></li>
                         <li id="upcoming_giftcard"><a href="javascript:void(0);">{$lang.About_expire}({$bonus1.record_count})</a></li>
                         <li id="over_giftcard"><a href="javascript:void(0);">{$lang.have_been_exhausted}({$bonus2.record_count})</a></li>
+                        <li id="invalid_giftcard"><a href="javascript:void(0);">{$lang.overdue}({$bonus3.record_count})</a></li>
                     </ul>
                 </div>
                 <div class="user-bonus-info" ectype="tabContent">
@@ -5196,6 +5209,30 @@
                     </div>
                     <!-- {/if} -->
                     </div>
+                    <div id="gift_card_list_4" style=" display:none">
+                        <!-- {if $bonus3.invalid_list} -->
+                        <div class="items">
+                            <!--{foreach from=$bonus3.invalid_list item=item name=invalid_list}-->
+                            <div class="item item-disabled{if $smarty.foreach.useup_list.iteration % 3 == 0} item-last{/if}">
+                                <div class="b-price">{$item.type_money}</div>
+                                <div class="b-i-bot">
+                                    <div class="storeName">{$item.shop_name}</div>
+                                    <p>{$lang.card_number_label}：{$item.bonus_sn|default:N/A} - {$lang.order_limit}：{$item.min_goods_amount}</p>
+                                    <p>{$item.use_startdate} ~ {$item.use_enddate}</p>
+                                </div>
+                                <i class="i-soon">{$lang.overdue}</i>
+                            </div>
+                            <!--{/foreach}-->
+                        </div>
+                        <!--{else}-->
+                        <div class="no_records">
+                            <i class="no_icon_two"></i>
+                            <div class="no_info">
+                                <h3>{$lang.no_bonus_end}</h3>
+                            </div>
+                        </div>
+                        <!-- {/if} -->
+                    </div>
                 </div>
             </div>
             <div class="user-prompt mt20">
@@ -5205,9 +5242,9 @@
                 </div>
             </div>
         </div>
-        <!--{/if}--> 
+        <!--{/if}-->
         <!--#我的红包界面 end -->
-        
+
         <!-- 储值卡界面 start-->
         <!--{if $action eq 'value_card'}-->
         <div class="user-mod">
@@ -5227,7 +5264,7 @@
                         <div class="value">
                             <input type="text" name="card_password" class="text text-2 txt_input_cardpw">
                         </div>
-                    </div> 
+                    </div>
                     <div class="item">
                         <div class="label"><em>*</em>{$lang.comment_captcha}：</div>
                         <div class="value">
@@ -5243,7 +5280,7 @@
                             <a href="javascript:void(0);" id="bind_btn" class="sc-btn sc-redBg-btn" ectype="submitVC">{$lang.Bind_current_account}</a>
 							<input type="hidden" name="user_id" id="user_id" value="{$user_id}" />
                         </div>
-                    </div>          
+                    </div>
                 </div>
             </div>
             <div class="user-title">
@@ -5325,7 +5362,7 @@
                         <div class="value">
                             <input type="text" name="pay_card_password" class="text text-2 txt_input_cardpw2">
                         </div>
-                    </div> 
+                    </div>
                     <div class="item">
                         <div class="label"><em>*</em>{$lang.comment_captcha}：</div>
                         <div class="value">
@@ -5340,13 +5377,13 @@
                         <div class="value">
                             <a href="javascript:void(0);" class="sc-btn sc-redBg-btn" ectype="submitVC">{$lang.recharge}</a>
                         </div>
-                    </div>          
+                    </div>
                 </div>
             </div>
         </div>
         <!--{/if}-->
         <!--#储值卡充值界面 end -->
-        
+
         <!-- 储值卡使用详情页 start-->
         <!--{if $action eq 'value_card_info'}-->
         <div class="user-mod">
@@ -5358,7 +5395,7 @@
                     <div class="vcard_info" ectype='value_see'>
                         <span class="red">({$lang.view})</span>
                         <div class="value_shop" ectype='value_shop'>
-                              <!--{foreach from=$rz_shopNames item=list name=shop}-->     
+                              <!--{foreach from=$rz_shopNames item=list name=shop}-->
                               <a href="{$list.shop_url}" target="_blank">{$list.shop_name}</a>{if !$smarty.foreach.shop.last},{/if}
                               <!--{/foreach}-->
                         </div>
@@ -5394,15 +5431,15 @@
                         <td class="tc"><p class="date">{$item.record_time}</p></td>
                     </tr>
                     <!--{/foreach}-->
-                    <!-- {else} -->                                
+                    <!-- {else} -->
                     <tr><td colspan="5" class="td td_bf">{$lang.no_use_record}</td></tr>
                     <!-- {/if} -->
                 </tbody>
             </table>
         </div>
-        <!--{/if}--> 
+        <!--{/if}-->
         <!--#储值卡使用详情页 end -->
-        
+
         <!--账号绑定 start-->
         <!--{if $action eq 'account_bind'}-->
         <div class="user-mod">
@@ -5424,7 +5461,7 @@
                     <div class="b-type"><i class="iconfont{if $qq_info} icon-ok{else} icon-info-sign{/if}"></i>{if $qq_info}{$lang.Bound}{else}{$lang.not_Bound}{/if}</div>
                 </div>
                 {/if}
-                
+
                 {if $insert.weibo_install eq 1}
                 <div class="account-bind-item">
                     <i class="ab-icon ab-icon-weibo"></i>
@@ -5439,7 +5476,7 @@
                     <div class="b-type"><i class="iconfont{if $weibo_info} icon-ok{else} icon-info-sign{/if}"></i>{if $weibo_info}{$lang.Bound}{else}{$lang.not_Bound}{/if}</div>
                 </div>
                 {/if}
-                
+
                 {if $insert.wechat_install eq 1}
                 <div class="account-bind-item">
                     <i class="ab-icon ab-icon-wechat"></i>
@@ -5457,8 +5494,8 @@
             </div>
         </div>
         <!--{/if}-->
-        <!--账号绑定 end-->	
-        
+        <!--账号绑定 end-->
+
         <!--#我的众筹 start-->
         <!--{if $action eq 'crowdfunding'}-->
         <div class="user-mod" ectype="tabSection">
@@ -5521,7 +5558,7 @@
                                                 {if $vo.surplus_time != 0 && $vo.pay_status == 0}
                                                     <a target="_blank" href="user.php?act=order_detail&order_id={$vo.order_id}" class="sc-btn">{$lang.go_pay}</a>
                                                 {elseif $vo.surplus_time != 0 && $vo.pay_status == 1}
-                                                    <p>{$lang.cs.1}</p>                                    
+                                                    <p>{$lang.cs.1}</p>
                                                 {elseif $vo.surplus_time != 0 && $vo.pay_status == 2}
                                                     <p>{$lang.ps.2}</p>
                                                 {elseif $vo.surplus_time == 0 && $vo.pay_status == 2}
@@ -5530,17 +5567,17 @@
                                                 {else}
                                                     <p>{$lang.has_ended}</p>
                                                 {/if}
-                                                
+
                                                 {if $vo.shipping_status == 0}
                                                 <p>{$lang.ss.0}</p>
                                                 {elseif $vo.shipping_status == 5}
-                                                <p>{$lang.zc_ss}</p>                                           
+                                                <p>{$lang.zc_ss}</p>
                                                 {elseif $vo.shipping_status == 1}
                                                 <p>{$lang.ss.1}</p>
                                                 <a target="_blank" class="sc-btn" href="user.php?act=affirm_received&order_id={$vo.order_id}&action=crowdfunding" onclick="if (!confirm('{$lang.confirm_received}')) return false;">{$lang.received}</a>
                                                 {elseif $vo.shipping_status == 2}
                                                 <p>{$lang.Received_goods}</p>
-                                                {/if} 
+                                                {/if}
                                             </td>
                                         </tr>
                                     {/foreach}
@@ -5599,7 +5636,7 @@
                                                 {if $vo.surplus_time != 0 && $vo.pay_status == 0}
                                                     <a target="_blank" href="user.php?act=order_detail&order_id={$vo.order_id}" class="sc-btn">{$lang.go_pay}</a>
                                                 {elseif $vo.surplus_time != 0 && $vo.pay_status == 1}
-                                                    <p>{$lang.cs.1}</p>                                            
+                                                    <p>{$lang.cs.1}</p>
                                                 {elseif $vo.surplus_time != 0 && $vo.pay_status == 2}
                                                     <p>{$lang.ps.2}</p>
                                                 {elseif $vo.surplus_time == 0 && $vo.pay_status == 2}
@@ -5611,13 +5648,13 @@
                                                 {if $vo.shipping_status == 0}
                                                 <p>{$lang.ss.0}</p>
                                                 {elseif $vo.shipping_status == 5}
-                                                <p>{$lang.zc_ss}</p>                                           
+                                                <p>{$lang.zc_ss}</p>
                                                 {elseif $vo.shipping_status == 1}
                                                 <p>{$lang.ss.1}</p>
                                                 <a target="_blank" class="sc-btn" href="user.php?act=affirm_received&order_id={$vo.order_id}" onclick="if (!confirm('{$lang.confirm_received}')) return false;">{$lang.received}</a>
                                                 {elseif $vo.shipping_status == 2}
                                                 <p>{$lang.Received_goods}</p>
-                                                {/if}   
+                                                {/if}
                                             </td>
                                         </tr>
                                     {/foreach}
@@ -5676,7 +5713,7 @@
                                                 {if $vo.surplus_time != 0 && $vo.pay_status == 0}
                                                     <a target="_blank" href="user.php?act=order_detail&order_id={$vo.order_id}" class="sc-btn">{$lang.go_pay}</a>
                                                 {elseif $vo.surplus_time != 0 && $vo.pay_status == 1}
-                                                    <span>{$lang.cs.1}</span>                                            
+                                                    <span>{$lang.cs.1}</span>
                                                 {elseif $vo.surplus_time != 0 && $vo.pay_status == 2}
                                                     <span>{$lang.ps.2}</span>
                                                 {elseif $vo.surplus_time == 0 && $vo.pay_status == 2}
@@ -5688,13 +5725,13 @@
                                                 {if $vo.shipping_status == 0}
                                                 <span>{$lang.ss.0}</span>
                                                 {elseif $vo.shipping_status == 5}
-                                                <span>{$lang.zc_ss}</span>                                           
+                                                <span>{$lang.zc_ss}</span>
                                                 {elseif $vo.shipping_status == 1}
                                                 <span>{$lang.ss.1}</span>
                                                 <a target="_blank" class="sc-btn" href="user.php?act=affirm_received&order_id={$vo.order_id}" onclick="if (!confirm('{$lang.confirm_received}')) return false;">{$lang.received}</a>
                                                 {elseif $vo.shipping_status == 2}
                                                 <span>{$lang.Received_goods}</span>
-                                                {/if} 
+                                                {/if}
                                             </td>
                                         </tr>
                                     {/foreach}
@@ -5774,7 +5811,7 @@
         </div>
         <!-- {/if} -->
         <!--#我的众筹 end-->
-        
+
         <!--批发中心 start-->
         <!--{if $action eq 'wholesale_buy'} 我的采购单 start-->
         <div class="user-mod">
@@ -5817,15 +5854,15 @@
             //删除
             function delete_wholesale_order(order_id){
                 var order = new Object();
-                order.order_id   = order_id; 
+                order.order_id   = order_id;
 				pbDialog("{$lang.is_confirmed_who_buy}","",0,"","","",true,function(){
 					Ajax.call('user.php?act=delete_wholesale_order', 'order=' + $.toJSON(order), orderResponse, 'POST', 'JSON');
 				});
-            } 
+            }
             //查询
             function get_WholesaleOrderSearch(idTxt, action, type, t, c){
-                    
-                var keyword, status_keyword, date_keyword;  
+
+                var keyword, status_keyword, date_keyword;
                 var order = new Object();
                 if(t){
                     keyword = $(t).data('id');
@@ -5839,38 +5876,38 @@
                 }else{
                     keyword = document.getElementById(idTxt).value;
                 }
-        
+
                 //by sun
                 if(c){
                     $(c).addClass("active").siblings().removeClass("active");
                 }
                 //by sun end
-                    
+
                 if(idTxt == 'submitDate'){
                     var status_keyword = $("input[name='wholesale_order_status_list']").val();
-                    order.status_keyword   = status_keyword; 
+                    order.status_keyword   = status_keyword;
                 }else if(idTxt == 'status_list'){
                     var date_keyword = $("input[name='wholesale_order_submitDate']").val();
-                    order.date_keyword   = date_keyword; 
+                    order.date_keyword   = date_keyword;
                 }
-                    
-                order.idTxt   = idTxt; 
-                order.keyword   = keyword; 
-                order.action   = action; 
-                order.type   = type; 
+
+                order.idTxt   = idTxt;
+                order.keyword   = keyword;
+                order.action   = action;
+                order.type   = type;
 
                 Ajax.call('user.php?act=wholesale_order_to_query', 'order=' + $.toJSON(order), orderResponse, 'POST', 'JSON');
             }
-            
+
             function orderResponse(result){
                 if(result.error == 0){
                     $("#user_order_list").html(result.content);
                 }
-				
+
 				$(".user-purchase .item").each(function(){
 					var height_l = $(this).find(".itemc-left").height();
 					var height_r = $(this).find(".itemc-right").height();
-					
+
 					if(height_l < height_r){
 						$(this).find(".itemc-right").addClass("borderLeft");
 					}else if(height_l > height_r){
@@ -5880,9 +5917,9 @@
 					}
 				});
             }
-        </script>  
+        </script>
         <!--{/if} 我的采购单 end-->
-            
+
         <!--{if $action eq 'wholesale_purchase'} 我的求购单 start-->
         <div class="user-mod">
             <div class="user-title">
@@ -5983,7 +6020,7 @@
         }
         </script>
         <!--{/if} 我的求购单 end-->
-        
+
         <!--{if $action eq 'purchase_info'} 求购单信息 start-->
         <div class="user-mod">
             <form name="formEdit" action="user.php" method="post">
@@ -6037,7 +6074,7 @@
                                     </td>
                                 </tr>
                                 {/foreach}
-                            </tbody> 
+                            </tbody>
                             <tfoot>
                             	<tr>
                                     <td colspan="5">
@@ -6063,7 +6100,7 @@
                                             <div class="lie">
                                             	<div class="label">{$lang.label_address}：</div>
                                                 <div class="value">{$purchase_info.consignee_region} {$purchase_info.consignee_address}</div>
-                                            </div>											
+                                            </div>
                                             <div class="lie">
                                             	<div class="label">{$lang.label_supplement_explain}：</div>
                                                 <div class="value">{$purchase_info.description}</div>
@@ -6075,7 +6112,7 @@
                         </table>
                     </div>
                 </div>
-                
+
                 <div class="user-title">
                     <h2>{$lang.supplier_info}</h2>
                 </div>
@@ -6150,7 +6187,7 @@
                                 <div class="form_prompt"></div>
                             </div>
                         </div>
-                        
+
                         <div class="item">
                             <div class="label"><em class="red">*</em>{$lang.company_address}：</div>
                             <div class="value">
@@ -6195,7 +6232,7 @@
                         </div>
                         <div class="item">
                             <div class="label"><em class="red">*</em>{$lang.cat_name}：</div>
-                            <div class="value"> 
+                            <div class="value">
                                 <div id="first_cate" class="imitate_select w200 mr10">
                                     <div class="cite"><span>{$lang.please_select}</span><i class="iconfont icon-down"></i></div>
                                     <ul>
@@ -6204,7 +6241,7 @@
                                         {/foreach}
                                     </ul>
                                     <input type="hidden" name="first_cate" value="0" id="first_cate_val"/>
-                                </div>                                
+                                </div>
                                 <div class="category_checkbox_list">
                                     <div class="checkbox_items" id="steps_re_span">
                                     </div>
@@ -6256,7 +6293,7 @@
                                     </table>
                                 </div>
                             </div>
-                        </div>                       
+                        </div>
                         <div class="item">
                             <div class="label"><em class="red">*</em>{$lang.front_of_id_card}：</div>
                             <div class="value">
@@ -6316,7 +6353,7 @@
                                 </div>
                                 <div class="form_prompt"></div>
                             </div>
-                        </div>                         
+                        </div>
                         <div class="item">
                             <div class="label"><em class="red">*</em>{$lang.label_mobile}：</div>
                             <div class="value">
@@ -6354,13 +6391,13 @@
         </div>
         <!--{/if}-->
         <!--批发商申请 end-->
-        
+
         <!-- 批发退换货部分 start -->
-        
-        <!--#批发退换货申请列表 start--> 
+
+        <!--#批发退换货申请列表 start-->
         <!-- {if $action eq 'wholesale_batch_applied'} -->
         <div class="user-mod user_apply_return">
-            <form id="formReturn" name="formReturn" method="post" action="user.php" onsubmit="return check_sub()">      
+            <form id="formReturn" name="formReturn" method="post" action="user.php" onsubmit="return check_sub()">
             <div class="user-title">
                 <h2>{$lang.return_list}</h2>
                 <a href="user.php?act=service_detail" class="more">{$lang.service_note}</a>
@@ -6374,22 +6411,22 @@
                                 <!-- {if $goods.goods_id gt 0 && $goods.extension_code neq 'package_buy'} 商品 -->
                                     <a href="{$goods.url}" target="_blank" class="f6">
                                         <img width="55" height="55" src="{$goods.goods_thumb}" title="{$goods.goods_name}">
-                                    </a> 
-                                    <!-- {if $goods.parent_id > 0} --> 
-                                    <span class="red">（{$lang.accessories}）</span> 
-                                    <!-- {elseif $goods.is_gift} --> 
-                                    <span class="red">（{$lang.largess}）</span> 
-                                    <!-- {/if} --> 
-                                <!-- {elseif $goods.goods_id gt 0 && $goods.extension_code eq 'package_buy'} --> 
+                                    </a>
+                                    <!-- {if $goods.parent_id > 0} -->
+                                    <span class="red">（{$lang.accessories}）</span>
+                                    <!-- {elseif $goods.is_gift} -->
+                                    <span class="red">（{$lang.largess}）</span>
+                                    <!-- {/if} -->
+                                <!-- {elseif $goods.goods_id gt 0 && $goods.extension_code eq 'package_buy'} -->
                                     <a href="javascript:void(0)" onclick="setSuitShow({$goods.goods_id})" class="f6">
                                         <img width="55" height="55" src="{$goods.goods_thumb}" title="{$goods.goods_name}"><span style="color:#FF0000;">{$lang.remark_package}</span>
                                     </a>
-                                    <div id="suit_{$goods.goods_id}" style="display:none"> 
-                                        <!-- {foreach from=$goods.package_goods_list item=package_goods_list} --> 
+                                    <div id="suit_{$goods.goods_id}" style="display:none">
+                                        <!-- {foreach from=$goods.package_goods_list item=package_goods_list} -->
                                             <a href="{$package_goods_list.url}" target="_blank" class="f6">
                                                 <img width="55" height="55" src="{$package_goods_list.goods_thumb}" title="{$package_goods_list.goods_name}">
                                             </a>
-                                        <!-- {/foreach} --> 
+                                        <!-- {/foreach} -->
                                     </div>
                                 <!-- {/if} -->
                             </div>
@@ -6561,11 +6598,11 @@
                 {/if}
                 </div>
             </div>
-        </form>         
-        </div>  
+        </form>
+        </div>
         <!-- {/if} -->
-        <!--#批发退换货申请列表 end--> 
-        
+        <!--#批发退换货申请列表 end-->
+
         <!-- 退换货列表页面 -->
         <!-- {if $action eq 'wholesale_return_list'} -->
         <div class="user-mod">
@@ -6580,11 +6617,11 @@
                 <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
             <!-- {/if} -->
         </div>
-        <!-- {/if} --> 
+        <!-- {/if} -->
         <!-- 退换货列表页面 end -->
-        
+
         <!--#退换货订单详情页面 -->
-        <!--{if $action eq 'wholesale_return_detail'} -->       
+        <!--{if $action eq 'wholesale_return_detail'} -->
         <form id="returnInfo" name="returnInfo" method="post" action="user.php" onsubmit="return shipping_sub(this)">
         <div class="user-mod user-order-detail">
             <div class="user-title mb0">
@@ -6665,7 +6702,7 @@
                                     <i class="box-i"></i>
                                     <div class="conmment-box-content">
                                         <div class="cont" id="seller_deliveryInfo">
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -6676,7 +6713,7 @@
                     </dl>
                 </div>
             </div>
-            {if $goods.out_invoice_no}          
+            {if $goods.out_invoice_no}
             <script language="javascript">
             $("#seller_deliveryInfo").html("<center>"+json_languages.logistics_tracking_in+"</center>");
             if(document.getElementById("shipping_name_{$goods.order_id}"))
@@ -6694,10 +6731,10 @@
                  error: function(o){
                 }
             });
-            </script> 
+            </script>
             {/if}
             {/if}
-            
+
             {if $goods.agree_apply && $goods.return_type neq 3}
             <!--仅退款不需要 快递寄回-->
             <div class="user-info-list">
@@ -6717,7 +6754,7 @@
                             <span class="blue">{$goods.back_invoice_no}</span>
                         </div>
                     </div>
-                </div>  
+                </div>
                 <div class="blank"></div>
                 {else}
                 <div class="express_list">
@@ -6755,7 +6792,7 @@
                             <span>{$lang.courier_sz}：</span>
                             <span class="blue">{$goods.out_invoice_no}</span>
                         </div>
-                    </div>        
+                    </div>
                 </div>
                 {/if}
             </div>
@@ -6771,7 +6808,7 @@
                     {else}
                     <a href="http://wpa.qq.com/msgrd?v=3&uin={$goods.kf_qq}&site=qq&menu=yes" class="iconfont icon-kefu user-shop-kefu" target="_blank"></a>
                     {/if}
-                    {/if}                   
+                    {/if}
                 </div>
                 <table class="user-table user-table-detail-goods">
                     <colgroup>
@@ -6794,7 +6831,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                <a href="{$goods.url}" class="img"><img src="{$goods.goods_thumb}" alt=""></a>                      
+                                <a href="{$goods.url}" class="img"><img src="{$goods.goods_thumb}" alt=""></a>
                                 <a href="{$goods.url}" class="name">{$goods.goods_name|truncate:25}</a>
                             </td>
                             <td>{$goods.goods_attr|nl2br}</td>
@@ -6840,13 +6877,13 @@
                 </div>
             </div>
             {/if}
-            
+
         </div>
         </form>
-        <!--{/if}--> 
-        <!--#退换货订单详情页面 end -->      
-        
-        <!--#退换货申请 Leah begin--> 
+        <!--{/if}-->
+        <!--#退换货订单详情页面 end -->
+
+        <!--#退换货申请 Leah begin-->
         <!--{if $action eq 'wholesale_goods_order' } -->
         <div class="user-mod">
             <div class="user-title">
@@ -6858,26 +6895,26 @@
                     <div class="no_records">
                         <i class="no_icon_two"></i>
                         <div class="no_info"><h3>{$lang.package_buy_notic}</h3></div>
-                    </div>              
-                    <!-- {else} -->         
+                    </div>
+                    <!-- {else} -->
                     <!-- {foreach from=$goods_list item=goods} -->
                     <div class="tl-item">
                         <div class="item-t">
                             <div class="t-goods">
                                 <div class="t-img">
-                                    <!-- {if $goods.goods_id gt 0 && $goods.extension_code neq 'package_buy'} 商品 --> 
-                                        <a href="{$goods.url}" target="_blank" class="f6"><img width="55" height="55" src="{$goods.goods_thumb}" title="{$goods.goods_name}"></a> 
-                                    <!-- {if $goods.parent_id > 0} --> 
-                                        <span style="color:#FF0000">（{$lang.accessories}）</span> 
-                                    <!-- {elseif $goods.is_gift} --> 
-                                        <span style="color:#FF0000">（{$lang.largess}）</span> 
-                                    <!-- {/if} --> 
-                                    <!-- {elseif $goods.goods_id gt 0 && $goods.extension_code eq 'package_buy'} --> 
+                                    <!-- {if $goods.goods_id gt 0 && $goods.extension_code neq 'package_buy'} 商品 -->
+                                        <a href="{$goods.url}" target="_blank" class="f6"><img width="55" height="55" src="{$goods.goods_thumb}" title="{$goods.goods_name}"></a>
+                                    <!-- {if $goods.parent_id > 0} -->
+                                        <span style="color:#FF0000">（{$lang.accessories}）</span>
+                                    <!-- {elseif $goods.is_gift} -->
+                                        <span style="color:#FF0000">（{$lang.largess}）</span>
+                                    <!-- {/if} -->
+                                    <!-- {elseif $goods.goods_id gt 0 && $goods.extension_code eq 'package_buy'} -->
                                         <a href="javascript:void(0)" onclick="setSuitShow({$goods.goods_id})" class="f6"><img width="55" height="55" src="{$goods.goods_thumb}" title="{$goods.goods_name}"><span style="color:#FF0000;">{$lang.remark_package}</span></a>
-                                        <div id="suit_{$goods.goods_id}" style="display:none"> 
-                                            <!-- {foreach from=$goods.package_goods_list item=package_goods_list} --> 
+                                        <div id="suit_{$goods.goods_id}" style="display:none">
+                                            <!-- {foreach from=$goods.package_goods_list item=package_goods_list} -->
                                                 <a href="{$package_goods_list.url}" target="_blank" class="f6"><img width="55" height="55" src="{$goods.goods_thumb}" title="{$goods.goods_name}"></a><br />
-                                            <!-- {/foreach} --> 
+                                            <!-- {/foreach} -->
                                         </div>
                                     <!-- {/if} -->
                                 </div>
@@ -6889,9 +6926,9 @@
                             </div>
                             <div class="t-statu">
                             {if $goods.is_refound gt 0}
-                                <span class="ftx-01 fs14">{$lang.Have_applied}</span> 
-                            {else} 
-                                <a href="user.php?act=wholesale_apply_return&rec_id={$goods.rec_id}&order_id={$order_id}" class="sc-btn">{$lang.applied}</a> 
+                                <span class="ftx-01 fs14">{$lang.Have_applied}</span>
+                            {else}
+                                <a href="user.php?act=wholesale_apply_return&rec_id={$goods.rec_id}&order_id={$order_id}" class="sc-btn">{$lang.applied}</a>
                             {/if}
                             </div>
                         </div>
@@ -6929,8 +6966,8 @@
         </div>
         <!--{/if}-->
         <!--#退换货申请 end -->
-        
-        <!--#退换货申请列表 start--> 
+
+        <!--#退换货申请列表 start-->
         <!-- {if $action eq 'wholesale_apply_return'} -->
         <div class="user-mod user_apply_return">
             <div class="user-title">
@@ -6942,25 +6979,25 @@
                     <div class="item-t b-b-0">
                         <div class="t-goods">
                             <div class="t-img">
-                                <!-- {if $goods_return.goods_id gt 0 && $goods_return.extension_code neq 'package_buy'} 商品 --> 
+                                <!-- {if $goods_return.goods_id gt 0 && $goods_return.extension_code neq 'package_buy'} 商品 -->
                                     <a href="{$goods_return.url}" target="_blank" class="f6">
                                         <img width="55" height="55" src="{$goods_return.goods_thumb}" title="{$goods_return.goods_name}">
-                                    </a> 
-                                    <!-- {if $goods_return.parent_id > 0} --> 
-                                    <span class="red">（{$lang.accessories}）</span> 
-                                    <!-- {elseif $goods_return.is_gift} --> 
-                                    <span class="red">（{$lang.largess}）</span> 
-                                    <!-- {/if} --> 
-                                <!-- {elseif $goods_return.goods_id gt 0 && $goods_return.extension_code eq 'package_buy'} --> 
+                                    </a>
+                                    <!-- {if $goods_return.parent_id > 0} -->
+                                    <span class="red">（{$lang.accessories}）</span>
+                                    <!-- {elseif $goods_return.is_gift} -->
+                                    <span class="red">（{$lang.largess}）</span>
+                                    <!-- {/if} -->
+                                <!-- {elseif $goods_return.goods_id gt 0 && $goods_return.extension_code eq 'package_buy'} -->
                                     <a href="javascript:void(0)" onclick="setSuitShow({$goods_return.goods_id})" class="f6">
                                         <img width="55" height="55" src="{$goods_return.goods_thumb}" title="{$goods_return.goods_name}"><span style="color:#FF0000;">{$lang.remark_package}</span>
                                     </a>
-                                    <div id="suit_{$goods_return.goods_id}" style="display:none"> 
-                                        <!-- {foreach from=$goods_return.package_goods_list item=package_goods_list} --> 
+                                    <div id="suit_{$goods_return.goods_id}" style="display:none">
+                                        <!-- {foreach from=$goods_return.package_goods_list item=package_goods_list} -->
                                             <a href="{$package_goods_list.url}" target="_blank" class="f6">
                                                 <img width="55" height="55" src="{$package_goods_list.goods_thumb}" title="{$package_goods_list.goods_name}">
                                             </a>
-                                        <!-- {/foreach} --> 
+                                        <!-- {/foreach} -->
                                     </div>
                                 <!-- {/if} -->
                             </div>
@@ -7179,14 +7216,14 @@
                     </div>
                 </form>
             </div>
-        </div>  
+        </div>
         <!-- {/if} -->
-        <!--#退换货申请列表 end-->  
-        
+        <!--#退换货申请列表 end-->
+
         <!-- 批发退换货部分 end -->
     </div>
 </div>
-    
+
 <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 {insert_scripts files='jquery.SuperSlide.2.1.1.js,jquery.yomi.js,common.js,./sms/sms.js,jquery.validation.min.js,jquery.nyroModal.js,perfect-scrollbar/perfect-scrollbar.min.js,calendar.php,plupload.full.min.js,lib_ecmobanFunc.js,user.js,jquery.picTip.js'}
 <!-- {if $action eq 'profile'} -->
@@ -7200,14 +7237,14 @@
 $(function(){
 	//tab切换
 	$("*[ectype='tabSection']").slide({titCell:"*[ectype='tabs'] li",mainCell:"*[ectype='tabContent']",trigger:"click",titOnClassName:"active"});
-	
+
 	//查看图片
 	$(".nyroModal").nyroModal();
-	
+
 	if(document.getElementById("seccode")){
 		$("#seccode").val({$sms_security_code|default:0});
 	}
-	
+
 	//微信扫码弹出框
 	$("[data-type='wxpay']").on("click",function(){
 		var content = $("#wxpay_dialog").html();
@@ -7222,7 +7259,7 @@ $(function(){
 			cBtn: false
 		});
 	});
-	
+
 	//优惠券列表数量过多时添加滚动轴
 	$(".coupons-items").perfectScrollbar("destroy");
 	$(".coupons-items").perfectScrollbar();
@@ -7236,11 +7273,11 @@ $(function(){
 <!-- {if $action eq 'snatch_list'} 夺宝奇兵列表 -->
 <script type="text/javascript">
 	function get_SnatchSearch(idTxt, action, type, t, c){
-		var keyword, status_keyword, date_keyword;  
+		var keyword, status_keyword, date_keyword;
 		var snatch = new Object();
 		if(t){
 			keyword = $(t).data('id');
-			
+
 			if(idTxt == 'status_list'){
 				$("input[name='order_status_list']").val(keyword);
 			}else if(idTxt == 'submitDate'){
@@ -7253,7 +7290,7 @@ $(function(){
 		if(c){
 			$(c).addClass("active").siblings().removeClass("active");
 		}
-		
+
 		if(idTxt == 'submitDate'){
 			var status_keyword = $("input[name='order_status_list']").val();
 			snatch.status_keyword = status_keyword;
@@ -7261,7 +7298,7 @@ $(function(){
 			var date_keyword = $("input[name='order_submitDate']").val();
 			snatch.date_keyword = date_keyword;
 		}
-		
+
 		snatch.idTxt = idTxt;
 		snatch.keyword = keyword;
 		snatch.action = action;
@@ -7269,7 +7306,7 @@ $(function(){
 
 		Ajax.call('user.php?act=snatch_to_query', 'snatch=' + $.toJSON(snatch), auctionResponse, 'POST', 'JSON');
 	}
-	
+
 	function auctionResponse(result){
 		if(result.error == 0){
 			$("#user-snatch-list").html(result.content);
@@ -7281,11 +7318,11 @@ $(function(){
 <!-- {if $action eq 'auction_list'} 拍卖活动列表 -->
 <script type="text/javascript">
 	function get_AuctionSearch(idTxt, action, type, t, c){
-		var keyword, status_keyword, date_keyword;  
+		var keyword, status_keyword, date_keyword;
 		var auction = new Object();
 		if(t){
 			keyword = $(t).data('id');
-			
+
 			if(idTxt == 'status_list'){
 				$("input[name='order_status_list']").val(keyword);
 			}else if(idTxt == 'submitDate'){
@@ -7298,7 +7335,7 @@ $(function(){
 		if(c){
 			$(c).addClass("active").siblings().removeClass("active");
 		}
-		
+
 		if(idTxt == 'submitDate'){
 			var status_keyword = $("input[name='order_status_list']").val();
 			auction.status_keyword = status_keyword;
@@ -7306,7 +7343,7 @@ $(function(){
 			var date_keyword = $("input[name='order_submitDate']").val();
 			auction.date_keyword = date_keyword;
 		}
-		
+
 		auction.idTxt = idTxt;
 		auction.keyword = keyword;
 		auction.action = action;
@@ -7314,7 +7351,7 @@ $(function(){
 
 		Ajax.call('user.php?act=auction_to_query', 'auction=' + $.toJSON(auction), auctionResponse, 'POST', 'JSON');
 	}
-	
+
 	function auctionResponse(result){
 		if(result.error == 0){
 			$("#user-auction-list").html(result.content);
@@ -7338,7 +7375,7 @@ $(function(){
 		}
 	});
 	{/if}
-	
+
 	//删除、还原、永久性删除订单 start
 	function get_order_delete_restore(action, order_id){
 		var order = new Object();
@@ -7351,9 +7388,9 @@ $(function(){
 		}else if(action == 'thorough'){
 			firm = json_languages.operation_order_three;
 		}
-		
-		order.order_id = order_id; 
-		order.action  = action; 
+
+		order.order_id = order_id;
+		order.action  = action;
 		{if $action eq 'auction'}
 		order.act = 'auction';
 		{else}
@@ -7364,17 +7401,17 @@ $(function(){
 			Ajax.call('user.php?act=order_delete_restore', 'order=' + $.toJSON(order), orderResponse, 'POST', 'JSON');
 		}
 	}
-	
+
 	//删除、还原、永久性删除订单 end
-	
-	
+
+
 	//by wang 修改过
 	function get_OrderSearch(idTxt, action, type, t, c){
-		var keyword, status_keyword, date_keyword;  
+		var keyword, status_keyword, date_keyword;
 		var order = new Object();
 		if(t){
 			keyword = $(t).data('id');
-			
+
 			if(idTxt == 'status_list'){
 				$("input[name='order_status_list']").val(keyword);
 			}else if(idTxt == 'submitDate'){
@@ -7387,7 +7424,7 @@ $(function(){
 		if(c){
 			$(c).addClass("active").siblings().removeClass("active");
 		}
-		
+
 		if(idTxt == 'submitDate'){
 			var status_keyword = $("input[name='order_status_list']").val();
 			order.status_keyword = status_keyword;
@@ -7395,7 +7432,7 @@ $(function(){
 			var date_keyword = $("input[name='order_submitDate']").val();
 			order.date_keyword = date_keyword;
 		}
-		
+
 		order.idTxt = idTxt;
 		order.keyword = keyword;
 		order.action = action;
@@ -7403,7 +7440,7 @@ $(function(){
 
 		Ajax.call('user.php?act=order_to_query', 'order=' + $.toJSON(order), orderResponse, 'POST', 'JSON');
 	}
-	
+
 	function orderResponse(result){
 		if(result.error == 0){
 			$("#user_order_list").html(result.content);
@@ -7419,18 +7456,18 @@ $(function(){
 			Ajax.call('user.php?act=ajax_del_address', 'address_id=' + address_id, delAddressResponse, 'GET', 'JSON');
 		});
 	}
-	
+
 	function delAddressResponse(res){
 		$(".consignee_list_"+res.address_id).remove();
 	}
-	
+
 	//设置默认收获地址
 	function makeAddressAllDefault(address_id){
 		pbDialog(json_languages.default_consignee,"",0,490,"","",true,function(){
 			Ajax.call('user.php?act=ajax_make_address', 'address_id=' + address_id, makeAddressResponse, 'GET', 'JSON');
 		});
 	}
-	
+
 	function makeAddressResponse(res){
 		location.reload();
 	}
@@ -7441,11 +7478,11 @@ $(function(){
 <script type="text/javascript">
 	function new_addBonus(){
 		var bns = new Object;
-		
+
 		bns.bonus_sn = $(".txt_input_cardnum").val();
 		bns.password = $(".txt_input_cardpw").val();
 		bns.captcha = $(":input[name='captcha']").val();
-		
+
 		if(bns.bonus_sn == ''){
 			message = json_languages.card_number_null;
 		}else if(bns.password == ''){
@@ -7453,7 +7490,7 @@ $(function(){
 		}else if(bns.captcha == ''){
 			message = json_languages.null_captcha_login;
 		}
-		
+
 		if(bns.bonus_sn != '' && bns.password != '' && bns.captcha != ''){
 			Ajax.call('user.php', 'act=act_add_bonus&bns=' + $.toJSON(bns), function(data){
 				if(data.error == 2){
@@ -7484,26 +7521,26 @@ $(function(){
 		var key		 = $("#order_status_val").val();
 		var date_keyword = $("input[name='order_submitDate']").val();
 
-		order.idTxt   	= $("#order_status_"+key+" a").attr('data-idTxt'); 
-		order.keyword   = $("#order_status_"+key+" a").attr('data-id'); 
-		order.action  	= $("#order_status_"+key+" a").attr('data-action'); 
-		order.type   	= $("#order_status_"+key+" a").attr('data-type'); 
-		order.date_keyword   = date_keyword; 	
-		
+		order.idTxt   	= $("#order_status_"+key+" a").attr('data-idTxt');
+		order.keyword   = $("#order_status_"+key+" a").attr('data-id');
+		order.action  	= $("#order_status_"+key+" a").attr('data-action');
+		order.type   	= $("#order_status_"+key+" a").attr('data-type');
+		order.date_keyword   = date_keyword;
+
 		Ajax.call('user.php?act=order_to_query', 'order=' + $.toJSON(order), orderResponse, 'POST', 'JSON');
 	});
-	
+
 	$.divselect("#dateTime","#dateTime_val",function(){
 		var order    = new Object();
 		var key		 = $("#dateTime_val").val();
 		var status_keyword = $("input[name='order_status_list']").val();
 
-		order.idTxt   	= $("#time_"+key+" a").attr('data-idTxt'); 
-		order.keyword   = $("#time_"+key+" a").attr('data-id'); 
-		order.action  	= $("#time_"+key+" a").attr('data-action'); 
-		order.type   	= $("#time_"+key+" a").attr('data-type'); 
-		order.status_keyword   = status_keyword; 	
-		
+		order.idTxt   	= $("#time_"+key+" a").attr('data-idTxt');
+		order.keyword   = $("#time_"+key+" a").attr('data-id');
+		order.action  	= $("#time_"+key+" a").attr('data-action');
+		order.type   	= $("#time_"+key+" a").attr('data-type');
+		order.status_keyword   = status_keyword;
+
 		Ajax.call('user.php?act=order_to_query', 'order=' + $.toJSON(order), orderResponse, 'POST', 'JSON');
 	});
 </script>
@@ -7515,29 +7552,29 @@ $(function(){
 		var order    = new Object();
 		var key		 = $("#wholesale_order_status_val").val();
 		var date_keyword = $("input[name='wholesale_order_submitDate']").val();
-	
-		order.idTxt   	= $("#wholesale_order_status_"+key+" a").attr('data-idTxt'); 
-		order.keyword   = $("#wholesale_order_status_"+key+" a").attr('data-id'); 
-		order.action  	= $("#wholesale_order_status_"+key+" a").attr('data-action'); 
-		order.type   	= $("#wholesale_order_status_"+key+" a").attr('data-type'); 
-		order.date_keyword   = date_keyword; 	
-	
+
+		order.idTxt   	= $("#wholesale_order_status_"+key+" a").attr('data-idTxt');
+		order.keyword   = $("#wholesale_order_status_"+key+" a").attr('data-id');
+		order.action  	= $("#wholesale_order_status_"+key+" a").attr('data-action');
+		order.type   	= $("#wholesale_order_status_"+key+" a").attr('data-type');
+		order.date_keyword   = date_keyword;
+
 		Ajax.call('user.php?act=wholesale_order_to_query', 'order=' + $.toJSON(order), orderResponse, 'POST', 'JSON');
 	});
-	
+
 	$.divselect("#DateTime","#wholesale_dateTime_val",function(){
 		var order    = new Object();
 		var key		 = $("#wholesale_dateTime_val").val();
 		var status_keyword = $("input[name='wholesale_order_submitDate']").val();
-		order.idTxt   	= $("#time_"+key+" a").attr('data-idTxt'); 
-		order.keyword   = $("#time_"+key+" a").attr('data-id'); 
-		order.action  	= $("#time_"+key+" a").attr('data-action'); 
-		order.type   	= $("#time_"+key+" a").attr('data-type'); 
-		order.status_keyword   = status_keyword; 	
-	
+		order.idTxt   	= $("#time_"+key+" a").attr('data-idTxt');
+		order.keyword   = $("#time_"+key+" a").attr('data-id');
+		order.action  	= $("#time_"+key+" a").attr('data-action');
+		order.type   	= $("#time_"+key+" a").attr('data-type');
+		order.status_keyword   = status_keyword;
+
 		Ajax.call('user.php?act=wholesale_order_to_query', 'order=' + $.toJSON(order), orderResponse, 'POST', 'JSON');
 	});
-	
+
 	$(document).on("click","*[ectype='userWhoConfirm']",function(){
 		var orderid = $(this).data("orderid");
 		pbDialog("是否把此订单设为已完成","",0,"","","",true,function(){
@@ -7547,14 +7584,14 @@ $(function(){
 </script>
 <!-- {/if} -->
 
-<!--{if $action eq "account_deposit"} -->  
+<!--{if $action eq "account_deposit"} -->
 <script type="text/javascript">
 $(function(){
 	/* 返回实名认证页面 */
 	$("#goback_account_log").click(function(){
 		location.href = "user.php?act=account_log";
 	});
-	
+
 	$("#submitBtn").click(function(){
 		if($("#formSurplus").valid()){
 			//防止表单重复提交
@@ -7565,7 +7602,7 @@ $(function(){
 			}
 		}
 	});
-	
+
 	$('#formSurplus').validate({
 		errorPlacement:function(error, element){
 			var error_div = element.parents('div.value').find('div.form_prompt');
@@ -7587,7 +7624,7 @@ $(function(){
 			}
 		}
 	});
-  
+
 });
 </script>
 <!--{/if}-->
@@ -7605,7 +7642,7 @@ $(function(){
 				}
 			}
 		});
-		
+
 		$('#formSurplus').validate({
 			errorPlacement:function(error, element){
 				var error_div = element.parents('div.value').find('div.form_prompt');
@@ -7654,7 +7691,7 @@ $(function(){
 <!--{if $action eq 'wholesale_purchase'} 我的求购单-->
 <script type="text/javascript">
 	$(".t-images").slide({"mainCell":".t-images-info ul",effect:"left",trigger:"click",pnLoop:false,autoPage:true,vis:2,scroll:1});
-	
+
 	var opts1 = {
 		'targetId':'start_date',//时间写入对象的id
 		'triggerId':['start_date'],//触发事件的对象id
@@ -7676,7 +7713,7 @@ $(function(){
 <!--{if $action eq 'want_buy'} 我的求购单-->
 <script type="text/javascript">
 	$(".t-images").slide({"mainCell":".t-images-info ul",effect:"left",trigger:"click",pnLoop:false,autoPage:true,vis:2,scroll:1});
-	
+
 	var opts1 = {
 		'targetId':'wantbut_start_date',//时间写入对象的id
 		'triggerId':['wantbut_start_date'],//触发事件的对象id
@@ -7702,16 +7739,16 @@ $(function(){
 	{else}
 	var user_img="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/images/touxiang.jpg";
 	{/if}
-	
+
 	$("*[ectype='up-pre-before']").find("img").attr('src',user_img)
 	$("*[ectype='upImgTouch'] img").attr('src',user_img);
-	
-	
+
+
 	//提交修改个人信息表单
 	$("a[ectype='submit']").on("click",function(){
 		$("form[name='formEdit']").submit();
 	});
-	
+
 	//上传头像
 	$(function(){
 		//初始化
@@ -7721,21 +7758,21 @@ $(function(){
 			$modalLoad = $("*[ectype='modalLoad']"),//加载层
 			$modalAlert = $("*[ectype='modalAlert']"),//提示层
 			$alertContent = $modalAlert.find("*[ectype='alertContent']");//提示层内容
-			
+
 		var	URL = window.URL || window.webkitURL;
 		var	blobURL;
-			
+
 		$image.cropper({
 			aspectRatio:"1",
 			autoCropArea:0.8,
 			preview:".up-pre-after"
 		});
-		
+
 		//弹出上传图片栏
 		$("*[ectype='upImgTouch']").click(function(){
 			$modalDoc.modal({width:'600px'});
 		});
-		
+
 		//上传图片
 		if(URL){
 			$inputImage.change(function(){
@@ -7755,19 +7792,19 @@ $(function(){
 						window.alert('{$lang.select_img_file}');
 					}
 				}
-				
+
 				// Amazi UI 上传文件显示代码
 				var fileNames = '';
 				$.each(this.files,function(){
 					fileNames += '<span class="am-badge">' + this.name + '</span>';
 				});
-			
+
 				$('#file-list').html(fileNames);
 			});
 		}else{
 			$inputImage.prop('disabled', true).parent().addClass('disabled');
 		}
-		
+
 		//绑定上传事件
 		$("*[ectype='upBtnOk']").on('click',function(){
 			var img_src = $image.attr("src");
@@ -7782,43 +7819,43 @@ $(function(){
 				$modalAlert.modal();
 				return false;
 			}
-			
-			$.ajax({  
-				url:url,  
-				dataType:"json",  
+
+			$.ajax({
+				url:url,
+				dataType:"json",
 				type: "POST",
-				data: {"image":data.toString()},  
+				data: {"image":data.toString()},
 				success: function(data,textStatus){
 					//提示层赋值后，弹出提示
 					$alertContent.html("<div class='success'>" + data.result + "</div>");
 					$modalAlert.modal();
-					
+
 					if(data.error == "ok"){
 						$("*[ectype='upImgTouch'] img").attr("src",data.file+'?&'+Math.random());
-						
+
 						var img_name = data.file.split('/')[2];
-						
+
 					}
 				},
 				error: function(){
 					//提示层赋值后，弹出提示
 					$alertContent.html("<div class='error'>{$lang.update_file_error}</div>");
 					$modalAlert.modal();
-				}  
+				}
 			});
 		});
-		
+
 		//图片旋转
 		$("*[ectype='rotate']").on("click",function(){
 			var type = $(this).data("type")
 				val = 0;
-			
+
 			if(type == "left"){
 				val = -90;
 			}else{
 				val = 90
 			}
-			
+
 			if($image.attr("src") != ""){
 				$image.cropper('rotate', val);
 			}else{
@@ -7827,7 +7864,7 @@ $(function(){
 				$modalAlert.modal();
 			}
 		});
-		
+
 		$(".am-modal-btn").click(function(){
 			$modalDoc.modal();
 		});
@@ -7849,7 +7886,7 @@ $(function(){
 					$(".red").text(result.pager.record_count);
 				}
 			}, 'POST', 'JSON');
-		}  
+		}
 	}
 </script>
 <!--{/if}-->
@@ -7868,7 +7905,7 @@ $(function(){
                     $(".red").text(result.pager.record_count);
                 }
             }, 'POST', 'JSON');
-        }  
+        }
     }
 </script>
 <!--{/if}-->
@@ -7913,7 +7950,7 @@ var uploader_gallery = new plupload.Uploader({//创建实例的构造方法
 			}
 		},
 		UploadComplete:function(up,file){//所有文件上传成功时触发
-				
+
 		},
 		Error: function(up, err) { //上传出错的时候触发
 			pbDialog(err.message,"",0);
@@ -7924,16 +7961,16 @@ uploader_gallery.init();
 
 $(function(){
 	if($("input[name='return_type']").val() != 2){
-		
+
 		$("*[ectype='return-type']").hide();
 	}
 	$("input[name='return_type']").on("click",function(){
 		var val = $(this).val(),
 			list = $("*[ectype='return_lists']"),
-			div = list.find("*[ectype='return_div']");			
-		
+			div = list.find("*[ectype='return_div']");
+
 		div.eq(val).show().siblings().hide();
-		
+
 		if(val == 0){
 			$("*[ectype='return-type']").show();
 		}else if(val == 1){
@@ -7947,16 +7984,16 @@ $(function(){
 			$("*[ectype='return-type']").hide();
 			div.hide();
 		}
-		
+
 		//默认退换货数量为1
 		$("input[name='maintain_number'],input[name='attr_num'],input[name='return_num']").val(1);
 	});
-	
+
 	$("input[name='return_type']:first").click(); //默认退换货服务类型第一个选中点击
-	
+
 	//清空上传的图片
 	var rec_id = $("input[name='return_rec_id']").val();
-	
+
 	$('.clear_pictures').click(function(){
 		Ajax.call('return_images.php?act=clear_pictures&upload_type='+$("#uploadbutton").data('upload_type'), '&rec_id=' + rec_id,function(res){
 			$('.mslist').html(res.content);
@@ -7992,7 +8029,7 @@ function check_return_num(obj, num, rec_id, type) {
 		$(obj).val(1);
 	}
 	var val = $(obj).val();
-	
+
 	if(type == 1){
 		$('#maintain_span_' + rec_id).html(val);
 	}else if(type == 2){
@@ -8011,26 +8048,26 @@ function check_attr_num(obj, num, rec_id) {
 		val = 1;
 		$(obj).val(1);
 	}
-	
+
 	$('#retired1_' + rec_id).html(val);
 }
 
 /**换货获得商品属性*/
 function get_spec() {
-	var rec_id = $("input[name='return_rec_id']").val();    
-	var g_id = $("input[name='return_g_id']").val();    
-	var g_number = $("input[name='return_g_number']").val();    
-	
+	var rec_id = $("input[name='return_rec_id']").val();
+	var g_id = $("input[name='return_g_id']").val();
+	var g_number = $("input[name='return_g_number']").val();
+
 	Ajax.call('ajax_dialog.php?act=ajax_get_spec', 'rec_id=' + rec_id + '&g_id=' + g_id + '&g_number=' + g_number, get_pro_response, 'POST', 'JSON');
 }
 
 /**获得属性列表回调函数*/
 function get_pro_response(res) {
 	var spec = $("#spec_" + res.rec_id);
-	
+
 	spec.html("");
 	spec.append(res.spec).show();
-	
+
 	if(res.attr_val != ''){
 		var arr = new Array();
 		var attr_arr = new Array();
@@ -8045,7 +8082,7 @@ function get_pro_response(res) {
 /**选择商品属性*/
 function setChange(id, t, attr_id) {
 	$(t).addClass("cattsel").siblings().removeClass("cattsel");
-	
+
 	$('#attr_' + attr_id).val(id);
 }
 
@@ -8063,7 +8100,7 @@ var buyNumber = {
 		}
 		return defaultnumber;
 	},
-																							
+
 	goodNumber : function(type, inputName, lastSpan, num){
 		if(typeof(num) == 'number' && type == 2){
 			lastSpan.html(num);
@@ -8107,7 +8144,7 @@ var buyNumber = {
 		if(num >= buyNumber.minNumber){
 			buyNumber.goodNumber(2, input_name, lastSpan, num);
 		}
-	}                                                                                                        
+	}
 }
 
 /**大于5张图片 左右显示滚动切换*/
@@ -8119,8 +8156,8 @@ mscoll();
 /**提交验证表单*/
 function check_sub() {
 	var frm = $('#formReturn');
-	var rec_id = $("input[name='return_rec_id']").val();    
-	
+	var rec_id = $("input[name='return_rec_id']").val();
+
 	if($("#cause_" + rec_id).val() == 0){
 		pbDialog(json_languages.return_one,"",0);
 		return false;
@@ -8130,16 +8167,16 @@ function check_sub() {
 			return false;
 		}
 	}
-	
+
 	if($(".text_desc").val() == ''){
 		pbDialog(json_languages.return_three,"",0);
 		return false;
 	}
-	
+
 	var selCountries = $('#selCountries_0').val();
 	var selProvinces = $('#selProvinces_0').val();
 	var selCities = $('#selCities_0').val();
-	
+
 	if(selCountries == 0){
 		pbDialog(json_languages.return_four,"",0);
 		return false;
@@ -8158,17 +8195,17 @@ function check_sub() {
 			}
 		}
 	}
-	
+
 	if($("input[name='return_address']").val() == ''){
 		pbDialog(json_languages.address_empty,"",0);
 		return false;
 	}
-	
+
 	if($("input[name='addressee']").val() == ''){
 		pbDialog(json_languages.Contact_name_empty,"",0);
 		return false;
 	}
-	
+
 	if($("input[name='mobile']").val() != ''){
 		if($("input[name='mobile']").val().length != 11){
 			pbDialog(json_languages.phone_format_error,"",0);
@@ -8178,7 +8215,7 @@ function check_sub() {
 		pbDialog(json_languages.msg_phone_blank,"",0);
 		return false;
 	}
-	
+
 	frm.action = frm.action + '?act=submit_return';
 	frm.submit();
 	return true;
@@ -8228,7 +8265,7 @@ var uploader_gallery = new plupload.Uploader({//创建实例的构造方法
 			}
 		},
 		UploadComplete:function(up,file){//所有文件上传成功时触发
-				
+
 		},
 		Error: function(up, err) { //上传出错的时候触发
 			pbDialog(err.message,"",0);
@@ -8240,14 +8277,14 @@ uploader_gallery.init();
 $(function(){
 	if($("input[name='return_type']").val() != 2){
 		$("*[ectype='return-type']").hide();
-	}	
+	}
 	$("input[name='return_type']").on("click",function(){
 		var val = $(this).val(),
 			list = $("*[ectype='return_lists']"),
-			div = list.find("*[ectype='return_div']");			
-		
+			div = list.find("*[ectype='return_div']");
+
 		div.eq(val).show().siblings().hide();
-		
+
 		if(val == 0){
 			$("*[ectype='return-type']").show();
 		}else if(val == 1){
@@ -8259,8 +8296,8 @@ $(function(){
 			div.hide();
 		}
 	});
-	
-	
+
+
 	//清空上传的图片
 	$('.clear_pictures').click(function(){
 		Ajax.call('return_images.php?act=clear_pictures&upload_type='+$("#uploadbutton").data('upload_type'), '&rec_ids={$rec_ids}',function(res){
@@ -8297,16 +8334,16 @@ mscoll();
 /**提交验证表单*/
 function check_sub() {
 	var frm = $('#formReturn');
-	
+
 	if($(".text_desc").val() == ''){
 		pbDialog(json_languages.return_three,"",0);
 		return false;
 	}
-	
+
 	var selCountries = $('#selCountries_0').val();
 	var selProvinces = $('#selProvinces_0').val();
 	var selCities = $('#selCities_0').val();
-	
+
 	if(selCountries == 0){
 		pbDialog(json_languages.return_four,"",0);
 		return false;
@@ -8325,17 +8362,17 @@ function check_sub() {
 			}
 		}
 	}
-	
+
 	if($("input[name='return_address']").val() == ''){
 		pbDialog(json_languages.address_empty,"",0);
 		return false;
 	}
-	
+
 	if($("input[name='addressee']").val() == ''){
 		pbDialog(json_languages.Contact_name_empty,"",0);
 		return false;
 	}
-	
+
 	if($("input[name='mobile']").val() != ''){
 		if($("input[name='mobile']").val().length != 11){
 			pbDialog(json_languages.phone_format_error,"",0);
@@ -8345,7 +8382,7 @@ function check_sub() {
 		pbDialog(json_languages.msg_phone_blank,"",0);
 		return false;
 	}
-	
+
 	frm.action = frm.action + '?act=submit_batch_return';
 	frm.submit();
 	return true;
@@ -8364,7 +8401,7 @@ $.levelLink();
 <!-- {/if} -->
 
 <!--{if $action eq 'track_packages'} 跟踪包裹界面 start-->
-{if $orders}                  
+{if $orders}
 <script language="javascript">
 	$(".user-trackpack .item").each(function(){
 		var id = $(this).data('orderid');
@@ -8387,7 +8424,7 @@ $.levelLink();
 {/if}
 <!--{/if}-->
 
-<!--{if $action eq 'application_grade' || $action eq 'application_grade_edit'} 商家等级入驻-->     
+<!--{if $action eq 'application_grade' || $action eq 'application_grade_edit'} 商家等级入驻-->
 <script language="JavaScript">
    $("a[ectype='submit']").on("click",function(){
 		var frm  = $("form[name='grade_theForm']");
@@ -8397,7 +8434,7 @@ $.levelLink();
 			{if $info.child}
 				{foreach from=$info.child  item=child}
 					{if $child.is_mandatory eq 1 && $child.type neq 'charge'}
-						
+
 							var name="value[{$child.id}]";
 							var prompt  = "{$child.criteria_name}"+json_languages.cannot_null
 							var a  = frm.find("input[name='"+name+"']").val();
@@ -8409,7 +8446,7 @@ $.levelLink();
 							   error.html(prompt);
 							   msg += prompt + '\n';
 							}
-						
+
 					{/if}
 				{/foreach}
 			{/if}
@@ -8429,7 +8466,7 @@ $.levelLink();
 			frm.submit();
 		}
 	});
-	
+
 	window.onload = function()
 	{
 		add_charge();
@@ -8446,7 +8483,7 @@ $.levelLink();
 		if(i == 'reduce'){
 			if(num.value == 1){
 				pbDialog(json_languages.settled_down_lt1,"",0);
-			}else{          
+			}else{
 				if(num.value > 1){
 					price_one = Number(price_one) - Number(no_cumulative_price);
 				}
@@ -8479,18 +8516,18 @@ $.levelLink();
 <!--{if $action eq 'value_card'} 储值卡界面-->
 <script type="text/javascript">
 $("*[ectype='submitVC']").on("click",function(){
-	
+
 	new_addVC();
-	
+
 });
 function new_addVC(){
 	var vc = new Object;
 	var message;
-	
+
 	vc.value_card_sn = $(".txt_input_cardnum").val();
 	vc.password = $(".txt_input_cardpw").val();
 	vc.captcha = $(":input[name='captcha']").val();
-	
+
 	if(vc.value_card_sn == ''){
 		message = json_languages.card_number_null;
 	}else if(vc.password == ''){
@@ -8498,7 +8535,7 @@ function new_addVC(){
 	}else if(vc.captcha == ''){
 		message = json_languages.null_captcha_login;
 	}
-	
+
 	if(vc.value_card_sn != '' && vc.password != '' && vc.captcha != ''){
 		Ajax.call('user.php', 'act=add_value_card&vc=' + $.toJSON(vc), function(data){
 			if(data.error == 2){
@@ -8550,7 +8587,7 @@ function remove_bind(vid){
 </script>
 <!--{/if}-->
 
-<!--{if $action eq 'to_paid'} 储值卡充值界面-->    
+<!--{if $action eq 'to_paid'} 储值卡充值界面-->
 <script type="text/javascript">
 $("*[ectype='submitVC']").on("click",function(){
 	new_addPC();
@@ -8558,12 +8595,12 @@ $("*[ectype='submitVC']").on("click",function(){
 function new_addPC(){
 	var pc = new Object;
 	var message;
-	
+
 	pc.pay_card_sn = $(".txt_input_cardnum2").val();
 	pc.vid = {$vid};
 	pc.password = $(".txt_input_cardpw2").val();
 	pc.captcha = $(".captcha_error2").val();
-	
+
 	if(pc.pay_card_sn == ''){
 		message = json_languages.card_number_null;
 	}else if(pc.password == ''){
@@ -8571,7 +8608,7 @@ function new_addPC(){
 	}else if(pc.captcha == ''){
 		message = json_languages.null_captcha_login;
 	}
-	
+
 	if(pc.pay_card_sn != '' && pc.password != '' && pc.captcha != ''){
 		Ajax.call('user.php', 'act=use_pay_card&pc=' + $.toJSON(pc), function(data){
 			if(data.error == 2){
@@ -8617,10 +8654,10 @@ $(function(){
                 location.href = url;
             }
         });
-        
+
         $('#' + divId + ' .tip-box .pb-ok').addClass('color_df3134');
     });
-	
+
 	$('.ui-tab a').click(function(){
 		var index = $(this).data('val');
 		$(this).addClass('curr').siblings("a").removeClass('curr');
@@ -8634,15 +8671,15 @@ $(function(){
 <script type="text/javascript">
 //购物车弹出框效果
 $(document).on("click","*[data-dialog='oathdialog']",function(){
-	
+
 	var title = json_languages.Un_bind;
 	var id = $(this).data('id');
 	var username = $(this).data('username');
 	var identity = $(this).data('identity');
-	
+
 	var title_h3 = json_languages.bind_user_one + title + identity + json_languages.account_bind_fuor + '？';
 	var title_span = json_languages.account_bind_five+'{$dwt_shop_name}'+ json_languages.account_bind_fuor + '：' + username + json_languages.registered +'.';
-	
+
 	pbDialog(title_h3,title_span,0,455,58,80,true,function(){
 		Ajax.call('user.php?act=oath_remove', 'id=' + id + '&identity=' + identity, oath_removeResponse, 'POST','JSON');
 	});
@@ -8667,7 +8704,7 @@ function oath_removeResponse(result){
 			},
 			ignore : ""
 		});
-		
+
 		//所有账户安全验证方式 验证码验证通用
 		$("input[name='authCode']").rules("add",{
 			required : true,
@@ -8687,13 +8724,13 @@ function oath_removeResponse(result){
 				remote : json_languages.null_captcha_error
 			}
 		});
-		
+
 		//修改登录密码和修改支付密码 第二步 填写新密码验证
 		if(formName == "change_password_s" || formName == "payment_password"){
 			var newpass = "",
 				re_newpass = "",
 				re_newpass_yz = "";
-			
+
 			if(formName == "change_password_s"){
 				newpass = json_languages.new_login_pwd_null;
 				re_newpass = json_languages.new_login_pwd_error;
@@ -8703,7 +8740,7 @@ function oath_removeResponse(result){
 				re_newpass = json_languages.new_pay_pwd_error;
 				re_newpass_yz = json_languages.secondary_pay_pwd_error;
 			}
-			
+
 			//新密码
 			$("input[name='new_password']").rules("add",{
 				required : true,
@@ -8711,7 +8748,7 @@ function oath_removeResponse(result){
 					required : newpass
 				}
 			});
-			
+
 			//确认新密码
 			$("input[name='re_new_password']").rules("add",{
 				required : true,
@@ -8722,7 +8759,7 @@ function oath_removeResponse(result){
 				}
 			});
 		}
-		
+
 		/* 账号安全 第一步 使用手机验证 提交表单验证 */
 		if(formName == "formUser"){
 			//手机号码
@@ -8734,7 +8771,7 @@ function oath_removeResponse(result){
 					isMobile : json_languages.msg_phone_not
 				}
 			});
-			
+
 			//手机短信验证码
 			$("input[name='mobile_code']").rules("add",{
 				required : true,
@@ -8755,7 +8792,7 @@ function oath_removeResponse(result){
 				}
 			});
 		}
-		
+
 		/* 账号安全 第一步 使用支付密码验证 提交表单验证 */
 		if(formName == "formUserPwd"){
 			//支付密码
@@ -8778,7 +8815,7 @@ function oath_removeResponse(result){
 				}
 			});
 		}
-		
+
 		/* 账号安全 第一步 使用邮箱验证 提交表单验证 */
 		if(formName == "change_email_s"){
 			//支付密码
@@ -8791,7 +8828,7 @@ function oath_removeResponse(result){
 				}
 			});
 		}
-		
+
 		if(formName == "change_email_s"){
 			/* 账号安全 使用邮箱验证通过 提交表单 */
 			if($("form[name='"+formName+"']").valid()){
@@ -8805,14 +8842,14 @@ function oath_removeResponse(result){
 			}
 		}
 	});
-	
+
 	/* 账户安全 实名认证 */
 	$("#authSubmit").click(function(){
 		if($("form[name='real_name']").valid()){
 			$("form[name='real_name']").submit();
 		}
 	});
-	
+
 	$("form[name='real_name']").validate({
 		errorPlacement:function(error, element){
 			var error_div = element.parents('div.value').find('div.form_prompt');
@@ -8897,10 +8934,10 @@ function oath_removeResponse(result){
 			mail_address_data = '',									//ajax请求数据
 			mail_url = '',											//ajax请求地址
 			location_href_url = '';									//回调地址
-		
+
 		var isValidatedSize = $("input[name='is_validated']").size(),
 			isValidated = '';
-		
+
 		if(mail_type == 'change_pwd'){
 			mail_url = "user.php?is_ajax=1&act=account_safe&type=change_email&step=second_email_verify&mail_type=change_pwd";
 			location_href_url = "user.php?act=account_safe&type=change_password&step=first&sign=validate_mail_ok";
@@ -8917,7 +8954,7 @@ function oath_removeResponse(result){
 			mail_url = "user.php?is_ajax=1&act=account_safe&type=change_email&step=second_email_verify&mail_type=validate_mail";
 			location_href_url = "user.php?act=account_safe&type=change_email&step=first&sign=validate_mail_ok";
 		}else if(mail_type == 'edit_mail'){
-			// 更改邮箱                    
+			// 更改邮箱
 			if(isValidatedSize == 1){
 				isValidated = "&validated=1";
 			}
@@ -8937,7 +8974,7 @@ function oath_removeResponse(result){
 				var result = eval("("+res+")");
 				if(result.error){
 					pbDialog(result.message,"",0);
-					
+
 					return false;
 				}else{
 					window.location.href=location_href_url;
@@ -8951,7 +8988,7 @@ function oath_removeResponse(result){
 <script type="text/javascript">
 	$("#submitAddress").on("click",function(){
 		var count = $("input[name='count_consignee']").val();
-		
+
 		if(count < 10){
 			if($(this).parents("form[name='theForm']").valid()){
 				$(this).parents("form[name='theForm']").submit();
@@ -8960,7 +8997,7 @@ function oath_removeResponse(result){
 			pbDialog(json_languages.add_address_10,"",0);
 		}
 	});
-	
+
 	$("form[name='theForm']").validate({
 		errorPlacement:function(error, element){
 			var error_div = element.parents('div.form-value').find('div.form_prompt');
@@ -9027,7 +9064,7 @@ function oath_removeResponse(result){
             $("form[name='apply_suppliers']").submit();
         }
     });
-    
+
     $("form[name='apply_suppliers']").validate({
         errorPlacement:function(error, element){
             var error_div = element.parents('div.value').find('div.form_prompt');
@@ -9051,7 +9088,7 @@ function oath_removeResponse(result){
             },
             city:{
                 required : true,
-                min : 1 
+                min : 1
             },
             textfile_zheng:{
                 required : true
@@ -9095,7 +9132,7 @@ function oath_removeResponse(result){
             city:{
                 required : json_languages.enter_region,
                 min : json_languages.enter_region
-            },            
+            },
             textfile_zheng:{
                 required : json_languages.front_pic_null
             },
@@ -9112,20 +9149,20 @@ function oath_removeResponse(result){
             }
         }
     });
-    
+
     $.levelLink();//三级联动
-    
+
     $.divselect("#first_cate","#first_cate_val",function(){
-        val = $("#first_cate_val").val();   
+        val = $("#first_cate_val").val();
         var filter = new Object;
         filter.cat_id  = val;
         Ajax.call('user.php?is_ajax=1&act=addChildCate', filter, responseSelectChildCate, 'GET', 'JSON');
     })
-    
+
     function responseSelectChildCate(result){
-        
+
         var steps = document.getElementById('steps_re_span');
-        
+
         if(result.error == 0){
             steps.innerHTML = result.content;
         }

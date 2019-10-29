@@ -1,5 +1,5 @@
 <?php
-/*多点乐资源  禁止倒卖 一经发现停止任何服务*/
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Modules\Chat\Controllers;
 
 class AdminpController extends \App\Modules\Base\Controllers\FrontendController
@@ -81,7 +81,7 @@ class AdminpController extends \App\Modules\Base\Controllers\FrontendController
 			'code'    => 0,
 			'message' => '',
 			'data'    => array()
-			);
+		);
 		$listen_route = $this->config['listen_route'];
 
 		if (empty($this->config['port'])) {
@@ -142,7 +142,7 @@ class AdminpController extends \App\Modules\Base\Controllers\FrontendController
 
 		$serArr = $this->getServiceIdByRuId($storeId);
 		$serArr = implode(',', $serArr);
-		$sql = 'SELECT id, IF(from_user_id = ' . $userId . ", to_user_id, from_user_id) as service_id, message, user_type, from_user_id, to_user_id, dialog_id,\r\n from_unixtime(add_time) as add_time, status FROM " . \App\Modules\Chat\Models\Kefu::$pre . 'im_message WHERE ((from_user_id = ' . $userId . ' AND to_user_id IN (' . $serArr . ')) OR (to_user_id = ' . $userId . ' AND from_user_id IN (' . $serArr . '))) AND to_user_id <> 0 ORDER BY add_time DESC, id DESC';
+		$sql = 'SELECT id, IF(from_user_id = ' . $userId . ', to_user_id, from_user_id) as service_id, message, user_type, from_user_id, to_user_id, dialog_id, add_time, status FROM ' . \App\Modules\Chat\Models\Kefu::$pre . 'im_message WHERE ((from_user_id = ' . $userId . ' AND to_user_id IN (' . $serArr . ')) OR (to_user_id = ' . $userId . ' AND from_user_id IN (' . $serArr . '))) AND to_user_id <> 0 ORDER BY add_time DESC, id DESC';
 		$default = I('default', 0, 'intval');
 		$start = ($page - 1) * $size;
 
@@ -185,7 +185,8 @@ class AdminpController extends \App\Modules\Base\Controllers\FrontendController
 			}
 
 			$services[$k]['message'] = htmlspecialchars_decode($v['message']);
-			$services[$k]['time'] = $v['add_time'];
+			$services[$k]['add_time'] = local_date('Y-m-d H:i:s', $v['add_time']);
+			$services[$k]['time'] = local_date('Y-m-d H:i:s', $v['add_time']);
 			$services[$k]['id'] = $v['id'];
 		}
 
@@ -212,6 +213,19 @@ class AdminpController extends \App\Modules\Base\Controllers\FrontendController
 		$result['code'] = 0;
 		$result['message_list'] = $services;
 		$this->ajaxReturn($result);
+	}
+
+	public function actionChangeMessageStatus()
+	{
+		$this->userInfo();
+		$serviceId = $this->user['service_id'];
+		$customId = I('id', 0, 'intval');
+
+		if (empty($serviceId)) {
+			return array('error' => 1, 'msg' => '没有客服');
+		}
+
+		\App\Modules\Chat\Models\Kefu::changeMessageStatus($serviceId, $customId);
 	}
 
 	public function actionGoodsInfo()

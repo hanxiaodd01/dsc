@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Modules\User\Controllers;
 
 class OrderController extends \App\Modules\Base\Controllers\FrontendController
@@ -264,8 +264,8 @@ class OrderController extends \App\Modules\Base\Controllers\FrontendController
 			}
 		}
 
-		$order['order_status'] = $os[$order[order_status]];
-		$order['pay_status'] = $ps[$order[pay_status]];
+		$order['order_status'] = $os[$order['order_status']];
+		$order['pay_status'] = $ps[$order['pay_status']];
 		$order['shipping_status'] = $ss[$order['shipping_status']];
 		$order['c'] = get_region_name($order['country']);
 		$order['detail_address'] .= $order['c']['region_name'];
@@ -278,16 +278,15 @@ class OrderController extends \App\Modules\Base\Controllers\FrontendController
 		$order['detail_address'] .= $order['address'];
 		$order['delay'] = $delay;
 		$order['delay_type'] = $delay_type;
-		
-		if($order['point_id']){
-		$sql = 'SELECT * FROM ' . $this->ecs->table('shipping_point') . ' WHERE id = ' . $order['point_id'];
-		$order['point'] = $this->db->getRow($sql);
+		if (isset($order['point_id']) && !empty($order['point_id'])) {
+			$sql = 'SELECT * FROM ' . $this->ecs->table('shipping_point') . ' WHERE id = ' . $order['point_id'];
+			$order['point'] = $this->db->getRow($sql);
 
-		if ($order['point']) {
-			$order['point']['pickDate'] = local_date('Y', strtotime($order['add_time'])) . '年' . $order['shipping_datestr'];
+			if ($order['point']) {
+				$order['point']['pickDate'] = local_date('Y', strtotime($order['add_time'])) . '年' . $order['shipping_datestr'];
+			}
 		}
-        }
-		
+
 		if (is_dir(APP_TEAM_PATH)) {
 			if (0 < $order['team_id']) {
 				$failure = get_team_info($order['team_id'], $order['order_id']);
@@ -573,7 +572,7 @@ class OrderController extends \App\Modules\Base\Controllers\FrontendController
 				'keyword3' => array('value' => $surplus, 'color' => '#173177'),
 				'keyword4' => array('value' => $users['user_money'], 'color' => '#173177'),
 				'remark'   => array('value' => '详情请点击进入会员中心-资金管理页面查询!', 'color' => '#173177')
-				);
+			);
 			$url = __HOST__ . url('user/account/index');
 			push_template('OPENTM401833445', $pushData, $url);
 		}
@@ -685,7 +684,7 @@ class OrderController extends \App\Modules\Base\Controllers\FrontendController
 			show_message(L('complaint_success'), L('back_complaint_list'), url('order/complaint_list'));
 		}
 	}
-
+    //zdl
 	public function actionImgReturn()
 	{
 		$img = $_FILES['myfile']['tmp_name'];

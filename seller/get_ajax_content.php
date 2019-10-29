@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function upload_article_file($upload, $file = '')
 {
 	if (!make_dir('../' . DATA_DIR . '/gallery_album')) {
@@ -907,19 +907,19 @@ else if ($_REQUEST['act'] == 'upload_img') {
 	}
 	else if ($act_type == 'gallery_img') {
 		$_FILES['img_url'] = array(
-	'name'     => array($_FILES['file']['name']),
-	'type'     => array($_FILES['file']['type']),
-	'tmp_name' => array($_FILES['file']['tmp_name']),
-	'error'    => array($_FILES['file']['error']),
-	'size'     => array($_FILES['file']['size'])
-	);
+			'name'     => array($_FILES['file']['name']),
+			'type'     => array($_FILES['file']['type']),
+			'tmp_name' => array($_FILES['file']['tmp_name']),
+			'error'    => array($_FILES['file']['error']),
+			'size'     => array($_FILES['file']['size'])
+		);
 		$_REQUEST['goods_id_img'] = $id;
 		$_REQUEST['img_desc'] = array(
-	array('')
-	);
+			array('')
+		);
 		$_REQUEST['img_file'] = array(
-	array('')
-	);
+			array('')
+		);
 		$goods_id = !empty($_REQUEST['goods_id_img']) ? intval($_REQUEST['goods_id_img']) : 0;
 		$img_desc = !empty($_REQUEST['img_desc']) ? $_REQUEST['img_desc'] : array();
 		$img_file = !empty($_REQUEST['img_file']) ? $_REQUEST['img_file'] : array();
@@ -1011,6 +1011,7 @@ else if ($_REQUEST['act'] == 'upload_img') {
 		$this_img_info['thumb_url'] = get_image_path($goods_id, $this_img_info['thumb_url'], true);
 		$pic_url = $this_img_info['thumb_url'];
 		$upload_status = 1;
+		$result['content'] = $smarty->fetch('library/gallery_img.lbi');
 		$result['external_url'] = '';
 	}
 

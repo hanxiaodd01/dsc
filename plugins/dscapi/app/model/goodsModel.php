@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace app\model;
 
 abstract class goodsModel extends \app\func\common
@@ -668,7 +668,7 @@ abstract class goodsModel extends \app\func\common
 		}
 
 		if (0 < $order['coupons']) {
-			$sql = 'UPDATE ' . $GLOBALS['ecs']->table('coupons_user') . ' SET order_id = 0, is_use_time = 0, is_use=0 ' . ('WHERE order_id = \'' . $order_id . '\' LIMIT 1');
+			$sql = 'UPDATE ' . $GLOBALS['ecs']->table('coupons_user') . ' SET order_id = 0, is_use_time = 0, is_use=0 ' . 'WHERE order_id = \'' . $order['order_id'] . '\' LIMIT 1';
 			$GLOBALS['db']->query($sql);
 		}
 

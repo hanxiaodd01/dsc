@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function order_download_list($result)
 {
 	if (empty($result)) {
@@ -277,7 +277,7 @@ function merchants_order_list($page = 0)
 			}
 		}
 
-		$where .= order_query_sql('confirm_take', 'o.');
+		$where .= order_query_sql('bill_confirm_take', 'o.');
 		$where .= ' and (select count(*) from ' . $GLOBALS['ecs']->table('order_info') . ' as oi2 where oi2.main_order_id = o.order_id) = 0 ';
 		$where .= ' AND o.ru_id = \'' . $filter['id'] . '\' ';
 		$sql = 'SELECT count(*) FROM ' . $GLOBALS['ecs']->table('order_info') . ' AS o ' . $where;
@@ -1063,53 +1063,6 @@ else if ($_REQUEST['act'] == 'bill_goods') {
 
 	assign_query_info();
 	$smarty->display('merchants_bill_goods.dwt');
-}
-else if ($_REQUEST['act'] == 'bill_notake_order') {
-	admin_priv('merchants_commission');
-	$tab_menu = array();
-	$tab_menu[] = array('curr' => 0, 'text' => $_LANG['brokerage_amount_list'], 'href' => 'merchants_commission.php?act=list');
-	$tab_menu[] = array('curr' => 0, 'text' => $_LANG['commission_setup'], 'href' => 'merchants_commission.php?act=edit&id=' . $adminru['ru_id']);
-	$tab_menu[] = array('curr' => 1, 'text' => $_LANG['commission_bill'], 'href' => 'merchants_commission.php?act=commission_bill&id=' . $adminru['ru_id']);
-	$smarty->assign('tab_menu', $tab_menu);
-	$user_id = $adminru['ru_id'];
-	$smarty->assign('user_id', $user_id);
-	$smarty->assign('ur_here', $_LANG['commission_bill_detail']);
-	$smarty->assign('full_page', 1);
-	$result = bill_notake_order_list();
-	$smarty->assign('full_page', 1);
-	$smarty->assign('order_list', $result['order_list']);
-	$smarty->assign('filter', $result['filter']);
-	$smarty->assign('record_count', $result['record_count']);
-	$smarty->assign('page_count', $result['page_count']);
-	$smarty->assign('sort_suppliers_id', '<img src="images/sort_desc.gif">');
-	$bill_detail = array('id' => $result['filter']['bill_id']);
-	$bill = get_bill_detail($bill_detail);
-	$smarty->assign('bill', $bill);
-
-	if (file_exists(MOBILE_DRP)) {
-		$smarty->assign('is_dir', 1);
-	}
-	else {
-		$smarty->assign('is_dir', 0);
-	}
-
-	$page_count_arr = seller_page($result, $_REQUEST['page']);
-	$smarty->assign('page_count_arr', $page_count_arr);
-	assign_query_info();
-	$smarty->display('merchants_bill_notake_order.dwt');
-}
-else if ($_REQUEST['act'] == 'bill_notake_order_query') {
-	check_authz_json('merchants_commission');
-	$result = bill_notake_order_list();
-	$smarty->assign('order_list', $result['order_list']);
-	$smarty->assign('filter', $result['filter']);
-	$smarty->assign('record_count', $result['record_count']);
-	$smarty->assign('page_count', $result['page_count']);
-	$page_count_arr = seller_page($result, $_REQUEST['page']);
-	$smarty->assign('page_count_arr', $page_count_arr);
-	$sort_flag = sort_flag($result['filter']);
-	$smarty->assign($sort_flag['tag'], $sort_flag['img']);
-	make_json_result($smarty->fetch('merchants_bill_notake_order.dwt'), '', array('filter' => $result['filter'], 'page_count' => $result['page_count']));
 }
 else if ($_REQUEST['act'] == 'bill_goods_query') {
 	check_authz_json('merchants_commission');

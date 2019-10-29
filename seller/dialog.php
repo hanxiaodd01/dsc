@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function ajax_get_area_list($ra_id = 0, $region_ids = array())
 {
 	$sql = 'select r.region_id, r.region_name from ' . $GLOBALS['ecs']->table('merchants_region_info') . ' as mri' . ' left join ' . $GLOBALS['ecs']->table('region') . ' as r on mri.region_id = r.region_id' . (' where mri.ra_id = \'' . $ra_id . '\'');
@@ -949,6 +949,8 @@ else if ($_REQUEST['act'] == 'insert_attr_input') {
 
 	foreach ($attr_value_list as $key => $attr_value) {
 		if ($attr_value) {
+			$attr_value = trim($attr_value);
+
 			if ($goods_attr_id[$key]) {
 				$sql = 'UPDATE ' . $ecs->table('goods_attr') . (' SET attr_value = \'' . $attr_value . '\' WHERE goods_attr_id = \'') . $goods_attr_id[$key] . '\' LIMIT 1';
 				$db->query($sql);

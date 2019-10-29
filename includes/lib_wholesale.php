@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function move_temporary_files($ids = '', $dir = '')
 {
 	if (empty($ids) || empty($dir)) {
@@ -497,7 +497,7 @@ function set_wholesale_goods_attribute($goods_type = 0, $goods_id = 0, $goods_mo
 
 		if (0 < $val['attr_type']) {
 			if ($val['attr_values']) {
-				$attr_values = preg_replace('//', ',', $val['attr_values']);
+				$attr_values = preg_replace(array('/\\r\\n/', '/\\n/', '/\\r/'), ',', $val['attr_values']);
 				$attr_values = explode(',', $attr_values);
 			}
 			else {
@@ -868,7 +868,9 @@ function get_wholesale_goods_properties($goods_id, $warehouse_id = 0, $area_id =
 	$grp = $GLOBALS['db']->getOne($sql);
 
 	if (!empty($grp)) {
-		$groups = explode('', strtr($grp, '', ''));
+		$groups = explode('
+', strtr($grp, '
+', ''));
 	}
 
 	$model_attr = get_table_date('goods', 'goods_id = \'' . $goods_id . '\'', array('model_attr'), 2);
@@ -889,7 +891,8 @@ function get_wholesale_goods_properties($goods_id, $warehouse_id = 0, $area_id =
 	$arr['lnk'] = array();
 
 	foreach ($res as $row) {
-		$row['attr_value'] = str_replace('', '<br />', $row['attr_value']);
+		$row['attr_value'] = str_replace('
+', '<br />', $row['attr_value']);
 
 		if ($row['attr_type'] == 0) {
 			$group = isset($groups[$row['attr_group']]) ? $groups[$row['attr_group']] : $GLOBALS['_LANG']['goods_attr'];

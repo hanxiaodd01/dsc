@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function arr_foreach($arr)
 {
 	$tmp = array();
@@ -297,7 +297,7 @@ function get_month_day_start_end_goods($group_buy_id, $first_month_day = 0, $las
 		if (!is_array($price_ladder) || empty($price_ladder)) {
 			$price_ladder = array(
 				array('amount' => 0, 'price' => 0)
-				);
+			);
 		}
 		else {
 			foreach ($price_ladder as $k => $amount_price) {
@@ -1035,7 +1035,7 @@ function get_merchants_navigator($ru_id = 0, $ctype = '', $catlist = array())
 		'top'    => array(),
 		'middle' => array(),
 		'bottom' => array()
-		);
+	);
 
 	foreach ($res as $row) {
 		$navlist[$row['type']][] = array('cat_id' => $row['cat_id'], 'cat_name' => $row['name'], 'opennew' => $row['opennew'], 'url' => $row['url'], 'ctype' => $row['ctype'], 'cid' => $row['cat_id'], 'vieworder' => $row['vieworder'], 'child' => get_store_category_child($row['cat_id'], $row['ru_id']));
@@ -2585,6 +2585,7 @@ function get_guess_goods($user_id, $history = 0, $page = 1, $limit = 5, $warehou
 			$order_str = db_create_in($order_idArr, 'og.order_id');
 			$sql = 'SELECT g.goods_id, g.cat_id FROM ' . $GLOBALS['ecs']->table('order_goods') . ' AS og ' . 'LEFT JOIN ' . $GLOBALS['ecs']->table('goods') . ' AS g ON g.goods_id = og.goods_id ' . ('WHERE ' . $order_str . ' GROUP BY g.goods_id DESC');
 			$cat_All = $GLOBALS['db']->getAll($sql);
+			$finished_goodsStr = '';
 
 			foreach ($cat_All as $kk => $vv) {
 				$finished_goodsStr .= '\'' . $vv['goods_id'] . '\',';
@@ -2599,7 +2600,7 @@ function get_guess_goods($user_id, $history = 0, $page = 1, $limit = 5, $warehou
 
 			$link_cats = array_unique($link_cats);
 			$link_cats_str = db_create_in($link_cats, 'g.cat_id');
-			$sql = 'SELECT g.goods_id, g.goods_name, g.goods_thumb, g.user_id, g.market_price, ' . ('IFNULL(IFNULL(mp.user_price, IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) * \'' . $_SESSION['discount'] . '\'), g.shop_price * \'' . $_SESSION['discount'] . '\')  AS shop_price, ') . 'IFNULL(IF(g.model_price < 1, g.promote_price, IF(g.model_price < 2, wg.warehouse_promote_price, wag.region_promote_price)), g.promote_price) AS promote_price,' . ' g.sales_volume, g.promote_start_date, g.promote_end_date, g.product_price, g.product_promote_price FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' . $leftJoin . 'LEFT JOIN ' . $GLOBALS['ecs']->table('member_price') . ' AS mp ' . ('ON mp.goods_id = g.goods_id AND mp.user_rank = \'' . $_SESSION['user_rank'] . '\' ') . (' WHERE ' . $link_cats_str . ' AND g.goods_id NOT IN (' . $finished_goodsStr . ') AND g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 ' . $tag_where . ' ORDER BY g.sales_volume DESC  LIMIT ' . $start . ', ' . $limit);
+			$sql = 'SELECT g.goods_id, g.goods_name, g.goods_thumb, g.user_id, g.market_price, ' . ('IFNULL(IFNULL(mp.user_price, IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) * \'' . $_SESSION['discount'] . '\'), g.shop_price * \'' . $_SESSION['discount'] . '\')  AS shop_price, ') . 'IFNULL(IF(g.model_price < 1, g.promote_price, IF(g.model_price < 2, wg.warehouse_promote_price, wag.region_promote_price)), g.promote_price) AS promote_price,' . ' g.sales_volume, g.promote_start_date, g.promote_end_date, g.product_price, g.product_promote_price FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' . $leftJoin . 'LEFT JOIN ' . $GLOBALS['ecs']->table('member_price') . ' AS mp ' . ('ON mp.goods_id = g.goods_id AND mp.user_rank = \'' . $_SESSION['user_rank'] . '\' ') . (' WHERE ' . $link_cats_str . ' AND g.goods_id NOT IN (' . $finished_goodsStr . ') AND g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 ' . $tag_where . ' ORDER BY g.sort_order DESC  LIMIT ' . $start . ', ' . $limit);
 			$query = $GLOBALS['db']->query($sql);
 		}
 	}
@@ -2626,7 +2627,7 @@ function get_guess_goods($user_id, $history = 0, $page = 1, $limit = 5, $warehou
 	}
 
 	if ((empty($query) || count($query) < $limit) && $history == 1) {
-		$sql = 'SELECT g.goods_id, g.goods_name, g.goods_thumb, g.user_id, g.model_attr, g.market_price,' . ('IFNULL(IFNULL(mp.user_price, IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) * \'' . $_SESSION['discount'] . '\'), g.shop_price * \'' . $_SESSION['discount'] . '\')  AS shop_price, ') . 'IFNULL(IF(g.model_price < 1, g.promote_price, IF(g.model_price < 2, wg.warehouse_promote_price, wag.region_promote_price)), g.promote_price) AS promote_price,' . 'g.sales_volume, g.promote_start_date, g.promote_end_date, g.product_price, g.product_promote_price ' . 'FROM ' . $GLOBALS['ecs']->table('goods') . 'AS g' . $leftJoin . 'LEFT JOIN ' . $GLOBALS['ecs']->table('member_price') . ' AS mp ' . ('ON mp.goods_id = g.goods_id AND mp.user_rank = \'' . $_SESSION['user_rank'] . '\' ') . (' WHERE  (g.sales_volume > 0 OR g.is_hot = 1) AND g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 ' . $tag_where . ' ORDER BY g.sort_order,g.sales_volume DESC LIMIT ' . $start . ', ' . $limit);
+		$sql = 'SELECT g.goods_id, g.goods_name, g.goods_thumb, g.user_id, g.model_attr, g.market_price,' . ('IFNULL(IFNULL(mp.user_price, IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) * \'' . $_SESSION['discount'] . '\'), g.shop_price * \'' . $_SESSION['discount'] . '\')  AS shop_price, ') . 'IFNULL(IF(g.model_price < 1, g.promote_price, IF(g.model_price < 2, wg.warehouse_promote_price, wag.region_promote_price)), g.promote_price) AS promote_price,' . 'g.sales_volume, g.promote_start_date, g.promote_end_date, g.product_price, g.product_promote_price ' . 'FROM ' . $GLOBALS['ecs']->table('goods') . 'AS g' . $leftJoin . 'LEFT JOIN ' . $GLOBALS['ecs']->table('member_price') . ' AS mp ' . ('ON mp.goods_id = g.goods_id AND mp.user_rank = \'' . $_SESSION['user_rank'] . '\' ') . (' WHERE  (g.sales_volume > 0 OR g.is_hot = 1) AND g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 ' . $tag_where . ' ORDER BY g.sort_order DESC LIMIT ' . $start . ', ' . $limit);
 		$query = $GLOBALS['db']->query($sql);
 	}
 

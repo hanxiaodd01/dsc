@@ -1,5 +1,5 @@
 <?php
- //大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function get_collection_goods($user_id, $record_count, $page, $pageFunc, $size = 10)
 {
 	require_once 'includes/cls_pager.php';
@@ -634,9 +634,10 @@ function add_booking($booking)
 	return $GLOBALS['db']->insert_id();
 }
 
-function insert_user_account($surplus, $amount)
+function insert_user_account($surplus, $amount, $account_time = 0)
 {
-	$sql = 'INSERT INTO ' . $GLOBALS['ecs']->table('user_account') . ' (user_id, admin_user, amount, add_time, paid_time, admin_note, user_note, process_type, payment, is_paid,deposit_fee)' . (' VALUES (\'' . $surplus['user_id'] . '\', \'\', \'' . $amount . '\', \'') . gmtime() . ('\', 0, \'\', \'' . $surplus['user_note'] . '\', \'' . $surplus['process_type'] . '\', \'' . $surplus['payment'] . '\', 0,\'' . $surplus['deposit_fee'] . '\')');
+	$account_time = $account_time ? $account_time : gmtime();
+	$sql = 'INSERT INTO ' . $GLOBALS['ecs']->table('user_account') . ' (user_id, admin_user, amount, add_time, paid_time, admin_note, user_note, process_type, payment, is_paid,deposit_fee)' . (' VALUES (\'' . $surplus['user_id'] . '\', \'\', \'' . $amount . '\', \'') . $account_time . ('\', 0, \'\', \'' . $surplus['user_note'] . '\', \'' . $surplus['process_type'] . '\', \'' . $surplus['payment'] . '\', 0,\'' . $surplus['deposit_fee'] . '\')');
 	$GLOBALS['db']->query($sql);
 	return $GLOBALS['db']->insert_id();
 }
@@ -826,7 +827,7 @@ function add_tag($id, $tag)
 		}
 	}
 }
-
+//Scalping
 function color_tag(&$tags)
 {
 	$tagmark = array(
@@ -839,7 +840,7 @@ function color_tag(&$tags)
 		array('color' => '#669933', 'size' => '1.4em', 'ifbold' => 1),
 		array('color' => '#3366FF', 'size' => '1.5em', 'ifbold' => 0),
 		array('color' => '#197B30', 'size' => '1.6em', 'ifbold' => 1)
-		);
+	);
 	$maxlevel = count($tagmark);
 	$tcount = $scount = array();
 

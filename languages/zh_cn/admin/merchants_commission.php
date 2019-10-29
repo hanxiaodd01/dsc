@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 $_LANG['replacement_order'] = '一键补单';
 $_LANG['commission_replacement'] = '补单';
 $_LANG['commission_detector'] = '账单检测';
@@ -120,6 +120,7 @@ $_LANG['os'][OS_RETURNED] = '<font color="red">退货</font>';
 $_LANG['os'][OS_SPLITED] = '已分单';
 $_LANG['os'][OS_SPLITING_PART] = '部分分单';
 $_LANG['os'][OS_RETURNED_PART] = '<font color="red">部分已退货</font>';
+$_LANG['os'][OS_ONLY_REFOUND] = '<font color="red">仅退款</font>';
 $_LANG['ss'][SS_UNSHIPPED] = '未发货';
 $_LANG['ss'][SS_PREPARING] = '配货中';
 $_LANG['ss'][SS_SHIPPED] = '已发货';

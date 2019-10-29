@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function db_create_in($item_list, $field_name = '', $not = '')
 {
 	if (!empty($not)) {
@@ -55,7 +55,7 @@ function is_mobile($mobile)
 		return false;
 	}
 
-	return preg_match('/^1(3[0-9]|4[0-9]|5[0-35-9]|6[6]|7[01345678]|8[0-9]|9[89])\\d{8}$/', $mobile) ? true : false;
+	return preg_match('/^(1[3-9])\\d{9}$/', $mobile) ? true : false;
 }
 
 function is_time($time)
@@ -267,9 +267,9 @@ function load_ecsconfig()
 		$arr['min_goods_amount'] = isset($arr['min_goods_amount']) ? floatval($arr['min_goods_amount']) : 0;
 		$arr['one_step_buy'] = empty($arr['one_step_buy']) ? 0 : 1;
 		$arr['invoice_type'] = empty($arr['invoice_type']) ? array(
-	'type' => array(),
-	'rate' => array()
-	) : unserialize($arr['invoice_type']);
+			'type' => array(),
+			'rate' => array()
+		) : unserialize($arr['invoice_type']);
 		$arr['show_order_type'] = isset($arr['show_order_type']) ? $arr['show_order_type'] : 0;
 		$arr['help_open'] = isset($arr['help_open']) ? $arr['help_open'] : 1;
 		$arr['currency_format'] = !empty($arr['currency_format']) ? strip_tags($arr['currency_format']) : '';
@@ -3541,7 +3541,7 @@ function get_category_parentChild_tree1($parent_id = 0, $cat_type = 0, $cat_list
 			if ($cat_list == 1) {
 				$r = array(
 					$row['cat_id'] => array('cat_id' => $arr[$row['cat_id']]['id'], 'cat_name' => $arr[$row['cat_id']]['cat_name'], 'level' => $arr[$row['cat_id']]['level'], 'id' => $arr[$row['cat_id']]['id'], 'name' => $row['cat_name'], 'cat_alias_name' => $row['cat_alias_name'], 'url' => build_uri('category', array('cid' => $row['cat_id']), $row['cat_name']))
-					);
+				);
 				array_push($new_arr, $r, $arr[$row['cat_id']]['cat_id']);
 			}
 		}
@@ -4004,7 +4004,7 @@ function available_shipping_list($region, $ru_id = 0, $is_limit = 0)
 		array('name' => 'base_fee', 'value' => 0),
 		array('name' => 'step_fee', 'value' => 0),
 		array('name' => 'free_money', 'value' => 100000)
-		);
+	);
 
 	if ($shipping_list) {
 		foreach ($shipping_list as $key => $row) {
@@ -4035,19 +4035,9 @@ function unserialize_config($cfg)
 
 function get_goods_one_attr_price($goods, $warehouse_id = 0, $area_id = 0, $promote_price = 0, $goods_product = array())
 {
-	$goods_product = array('product_price' => $goods['product_price'], 'product_promote_price' => $goods['product_promote_price']);
-	$products = array();
 	$market_price = $goods['market_price'];
 	$org_price = $goods['org_price'];
 	$shop_price = $goods['shop_price'];
-	$time = gmtime();
-	if ($goods['promote_start_date'] <= $time && $time <= $goods['promote_end_date']) {
-		$is_promote = 1;
-	}
-	else {
-		$is_promote = 0;
-	}
-
 	$price = array('goods_id' => !empty($goods['goods_id']) ? $goods['goods_id'] : 0, 'market_price' => $market_price, 'org_price' => $org_price, 'shop_price' => $shop_price, 'promote_price' => $promote_price);
 	return $price;
 }

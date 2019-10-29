@@ -1,5 +1,5 @@
 <?php
-//duodl 多点乐资源
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 define('IN_ECS', true);
 require dirname(__FILE__) . '/includes/init.php';
 $sql = 'SELECT value FROM ' . $GLOBALS['ecs']->table('shop_config') . ' WHERE code = \'seller_login_logo\'';
@@ -19,15 +19,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	if (!empty($_GET['act']) && $_GET['act'] == 'reset_pwd') {
 		$code = !empty($_GET['code']) ? trim($_GET['code']) : '';
 		$adminid = !empty($_GET['uid']) ? intval($_GET['uid']) : 0;
-		if ($adminid == 0 || empty($code)) {
-			ecs_header("Location: privilege.php?act=login\n");
+		$sql = 'SELECT password, add_time FROM ' . $ecs->table('admin_user') . (' WHERE user_id = \'' . $adminid . '\'');
+		$admin_info = $db->getRow($sql);
+		if (empty($admin_info) || $adminid == 0 || empty($code)) {
+			ecs_header('Location: privilege.php?act=login
+');
 			exit();
 		}
 
-		$sql = 'SELECT password FROM ' . $ecs->table('admin_user') . (' WHERE user_id = \'' . $adminid . '\'');
-		$password = $db->getOne($sql);
-
-		if (md5($adminid . $password) != $code) {
+		if (md5($adminid . $admin_info['password'] . $admin_info['add_time']) != $code) {
 			$link[0]['text'] = $_LANG['back'];
 			$link[0]['href'] = 'privilege.php?act=login';
 			sys_msg($_LANG['code_param_error'], 0, $link);
@@ -56,11 +56,12 @@ else {
 		$admin_username = !empty($_POST['user_name']) ? trim($_POST['user_name']) : '';
 		$admin_email = !empty($_POST['email']) ? trim($_POST['email']) : '';
 		if (empty($admin_username) || empty($admin_email)) {
-			ecs_header("Location: privilege.php?act=login\n");
+			ecs_header('Location: privilege.php?act=login
+');
 			exit();
 		}
 
-		$sql = 'SELECT user_id, password FROM ' . $ecs->table('admin_user') . (' WHERE user_name = \'' . $admin_username . '\' AND email = \'' . $admin_email . '\'');
+		$sql = 'SELECT user_id, password, add_time FROM ' . $ecs->table('admin_user') . (' WHERE user_name = \'' . $admin_username . '\' AND email = \'' . $admin_email . '\'');
 		$admin_info = $db->getRow($sql);
 		$seller_shopinfo = get_seller_shopinfo($adminru['ru_id'], array('seller_email'));
 
@@ -83,7 +84,7 @@ else {
 
 		if (!empty($admin_info)) {
 			$admin_id = $admin_info['user_id'];
-			$code = md5($admin_id . $admin_info['password']);
+			$code = md5($admin_id . $admin_info['password'] . $admin_info['add_time']);
 			$template = get_mail_template('send_password');
 			$reset_email = $ecs->seller_url() . SELLER_PATH . '/get_password.php?act=reset_pwd&uid=' . $admin_id . '&code=' . $code;
 			$smarty->assign('user_name', $admin_username);
@@ -111,15 +112,15 @@ else {
 			$new_password = isset($_POST['password']) ? trim($_POST['password']) : '';
 			$adminid = isset($_POST['adminid']) ? intval($_POST['adminid']) : 0;
 			$code = isset($_POST['code']) ? trim($_POST['code']) : '';
+			$sql = 'SELECT password, add_time FROM ' . $ecs->table('admin_user') . (' WHERE user_id = \'' . $adminid . '\'');
+			$admin_info = $db->getRow($sql);
 			if (empty($new_password) || empty($code) || $adminid == 0) {
-				ecs_header("Location: privilege.php?act=login\n");
+				ecs_header('Location: privilege.php?act=login
+');
 				exit();
 			}
 
-			$sql = 'SELECT password FROM ' . $ecs->table('admin_user') . (' WHERE user_id = \'' . $adminid . '\'');
-			$password = $db->getOne($sql);
-
-			if (md5($adminid . $password) != $code) {
+			if (md5($adminid . $admin_info['password'] . $admin_info['add_time']) != $code) {
 				$link[0]['text'] = $_LANG['back'];
 				$link[0]['href'] = 'privilege.php?act=login';
 				sys_msg($_LANG['code_param_error'], 0, $link);

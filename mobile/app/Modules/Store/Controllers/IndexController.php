@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Modules\Store\Controllers;
 
 class IndexController extends \App\Modules\Base\Controllers\FrontendController
@@ -99,9 +99,9 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 
 			if (0 < $cat_id && empty($store_user)) {
 				exit(json_encode(array(
-	'list'      => array(),
-	'totalPage' => 0
-	)));
+					'list'      => array(),
+					'totalPage' => 0
+				)));
 			}
 
 			$counts = $this->db->getOne($count);
@@ -424,6 +424,41 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 		$info['count_gaze'] = intval($follow);
 		$info['lat'] = $data['latitude'];
 		$info['long'] = $data['longitude'];
+		$sql = 'select ss.*,sq.*, msf.license_fileImg,msf.companyName,msf.business_license_id,msf.legal_person,msf.license_comp_adress' . ',msf.license_adress,msf.business_term,msf.busines_scope,msf.company_located,msf.company_adress,msf.registered_capital from {pre}seller_shopinfo as ss ' . ' left join {pre}seller_qrcode as sq on sq.ru_id=ss.ru_id ' . ' left join {pre}merchants_steps_fields as msf on msf.user_id = ss.ru_id ' . (' where ss.ru_id=\'' . $ru_id . '\'');
+		$basic_info = $this->db->getRow($sql);
+		$info = array_merge($info, $basic_info);
+		$info['comp_img'] = !empty($basic_info['license_fileimg']) ? __STATIC__ . '/' . $basic_info['license_fileimg'] : __STATIC__ . '/';
+
+		if ($info['license_comp_adress']) {
+			$adress = explode(',', $info['license_comp_adress']);
+
+			if (!empty($adress)) {
+				$license_comp_adress = '';
+
+				foreach ($adress as $v) {
+					$license_comp_adress .= get_table_date('region', 'region_id=\'' . $v . '\'', array('region_name'), 2);
+				}
+			}
+
+			$info['license_comp_adress'] = $license_comp_adress;
+		}
+
+		if ($info['company_located']) {
+			$adress = explode(',', $info['company_located']);
+
+			if (!empty($adress)) {
+				$company_located = '';
+
+				foreach ($adress as $v) {
+					$company_located .= get_table_date('region', 'region_id=\'' . $v . '\'', array('region_name'), 2);
+				}
+			}
+
+			$company_located .= '&nbsp;&nbsp;' . $info['company_adress'];
+			$info['company_located'] = $company_located;
+		}
+
+		$info['business_term'] = str_replace(',', '-', $info['business_term']);
 		$url = url('shop_info', array('id' => $ru_id), true, true);
 		$errorCorrectionLevel = 'M';
 		$matrixPointSize = 8;
@@ -576,7 +611,7 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 		else {
 			$this->city_id = '';
 		}
-
+        //zdl
 		$child_num = get_region_child_num($this->city_id);
 
 		if (0 < $child_num) {

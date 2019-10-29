@@ -89,7 +89,7 @@
 <!-- {/if} -->
 <!--{if $log_type neq 'word'}-->
 <script type="text/javascript">
-		var uploader_gallery = new plupload.Uploader({//创建实例的构造方法
+		var uploader_gallery2 = new plupload.Uploader({//创建实例的构造方法
 			runtimes: 'html5,flash,silverlight,html4', //上传插件初始化选用那种方式的优先级顺序
 			browse_button: 'albumFile', // 上传按钮
 			url: "gallery_album.php?is_ajax=1&act=upload_pic", //远程上传地址
@@ -132,15 +132,15 @@
 				}
 			}
 		});
-		uploader_gallery.init();
+		uploader_gallery2.init();
 
 		function album_submitBtn(){
 			var album_id = $("[ectype='album_id_val']").val();
 			var data = {
 				album_id: album_id
 			};
-			uploader_gallery.setOption("multipart_params", data);
-			uploader_gallery.start();
+			uploader_gallery2.setOption("multipart_params", data);
+			uploader_gallery2.start();
 		};
 	</script>
 <!--{/if}-->

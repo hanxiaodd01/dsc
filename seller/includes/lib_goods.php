@@ -1,5 +1,5 @@
 <?php
- //大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function get_intro_list()
 {
 	return array('store_best' => $GLOBALS['_LANG']['store_best'], 'store_new' => $GLOBALS['_LANG']['store_new'], 'store_hot' => $GLOBALS['_LANG']['store_hot'], 'is_promote' => $GLOBALS['_LANG']['is_promote'], 'all_type' => $GLOBALS['_LANG']['all_type']);
@@ -62,7 +62,11 @@ function handle_goods_attr($goods_id, $id_list, $is_spec_list, $value_price_list
 		$result_id = $GLOBALS['db']->getOne($sql);
 
 		if (!empty($result_id)) {
-			$sql = 'UPDATE ' . $GLOBALS['ecs']->table('goods_attr') . ("\n                    SET attr_value = '" . $value . "'\n                    WHERE goods_id = '" . $goods_id . "'\n                    AND attr_id = '" . $id . "'\n                    AND goods_attr_id = '" . $result_id . '\'');
+			$sql = 'UPDATE ' . $GLOBALS['ecs']->table('goods_attr') . ('
+                    SET attr_value = \'' . $value . '\'
+                    WHERE goods_id = \'' . $goods_id . '\'
+                    AND attr_id = \'' . $id . '\'
+                    AND goods_attr_id = \'' . $result_id . '\'');
 			$goods_attr_id[$id] = $result_id;
 		}
 		else {
@@ -409,12 +413,13 @@ function update_goods($goods_id, $field, $value, $content = '', $type = '')
 {
 	if ($goods_id) {
 		clear_cache_files();
-		$date = array('model_attr');
-		$where = 'goods_id = \'' . $goods_id . '\'';
-		$model_attr = get_table_date('goods', $where, $date, 2);
 		$table = 'goods';
 
 		if ($type == 'updateNum') {
+			$date = array('model_attr');
+			$where = 'goods_id = \'' . $goods_id . '\'';
+			$model_attr = get_table_date('goods', $where, $date, 2);
+
 			if ($model_attr == 1) {
 				$table = 'warehouse_goods';
 				$field = 'region_number';
@@ -518,7 +523,7 @@ function delete_goods($goods_id)
 				'is_cname'  => $bucket_info['is_cname'],
 				'endpoint'  => $bucket_info['outside_site'],
 				'object'    => array($goods['goods_thumb'], $goods['goods_img'], $goods['original_img'], $goods['goods_video'])
-				);
+			);
 			$Http->doPost($url, $post_data);
 		}
 	}
@@ -551,7 +556,7 @@ function delete_goods($goods_id)
 				'is_cname'  => $bucket_info['is_cname'],
 				'endpoint'  => $bucket_info['outside_site'],
 				'object'    => array($row['img_url'], $row['thumb_url'], $row['img_original'])
-				);
+			);
 			$Http->doPost($url, $post_data);
 		}
 	}
@@ -630,10 +635,13 @@ function check_goods_sn_exist($goods_sn, $goods_id = 0)
 	}
 
 	if (empty($goods_id)) {
-		$sql = 'SELECT goods_id FROM ' . $GLOBALS['ecs']->table('goods') . ("\n                WHERE goods_sn = '" . $goods_sn . '\'');
+		$sql = 'SELECT goods_id FROM ' . $GLOBALS['ecs']->table('goods') . ('
+                WHERE goods_sn = \'' . $goods_sn . '\'');
 	}
 	else {
-		$sql = 'SELECT goods_id FROM ' . $GLOBALS['ecs']->table('goods') . ("\n                WHERE goods_sn = '" . $goods_sn . "'\n                AND goods_id <> '" . $goods_id . '\'');
+		$sql = 'SELECT goods_id FROM ' . $GLOBALS['ecs']->table('goods') . ('
+                WHERE goods_sn = \'' . $goods_sn . '\'
+                AND goods_id <> \'' . $goods_id . '\'');
 	}
 
 	$res = $GLOBALS['db']->getOne($sql);
@@ -659,7 +667,9 @@ function get_attr_list($cat_id, $goods_id = 0)
 
 function get_goods_type_specifications()
 {
-	$sql = "SELECT DISTINCT cat_id\n            FROM " . $GLOBALS['ecs']->table('attribute') . "\n            WHERE attr_type = 1";
+	$sql = 'SELECT DISTINCT cat_id
+            FROM ' . $GLOBALS['ecs']->table('attribute') . '
+            WHERE attr_type = 1';
 	$row = $GLOBALS['db']->GetAll($sql);
 	$return_arr = array();
 
@@ -703,7 +713,8 @@ function build_attr_html($cat_id, $goods_id = 0, $model_attr = 0)
 		else {
 			$html .= '<select name="attr_value_list[]" class="select">';
 			$html .= '<option value="">' . $GLOBALS['_LANG']['select_please'] . '</option>';
-			$attr_values = explode("\n", $val['attr_values']);
+			$attr_values = explode('
+', $val['attr_values']);
 
 			foreach ($attr_values as $opt) {
 				$opt = trim(htmlspecialchars($opt));
@@ -1061,7 +1072,11 @@ function check_goods_product_exist($goods_id, $conditions = '')
 		return -1;
 	}
 
-	$sql = "SELECT goods_id\n            FROM " . $GLOBALS['ecs']->table('products') . ("\n            WHERE goods_id = '" . $goods_id . "'\n            ") . $conditions . "\n            LIMIT 0, 1";
+	$sql = 'SELECT goods_id
+            FROM ' . $GLOBALS['ecs']->table('products') . ('
+            WHERE goods_id = \'' . $goods_id . '\'
+            ') . $conditions . '
+            LIMIT 0, 1';
 	$result = $GLOBALS['db']->getRow($sql);
 
 	if (empty($result)) {
@@ -1077,7 +1092,10 @@ function product_number_count($goods_id, $conditions = '', $warehouse_id = 0)
 		return -1;
 	}
 
-	$sql = "SELECT product_number\n            FROM " . $GLOBALS['ecs']->table('products') . ("\n            WHERE goods_id = '" . $goods_id . "' \n            ") . $conditions;
+	$sql = 'SELECT product_number
+            FROM ' . $GLOBALS['ecs']->table('products') . ('
+            WHERE goods_id = \'' . $goods_id . '\' 
+            ') . $conditions;
 	$nums = $GLOBALS['db']->getOne($sql);
 	$nums = empty($nums) ? 0 : $nums;
 	return $nums;
@@ -1114,7 +1132,12 @@ function get_goods_specifications_list($goods_id)
 		}
 	}
 
-	$sql = "SELECT g.goods_attr_id, g.attr_value, g.attr_id, a.attr_name\n            FROM " . $GLOBALS['ecs']->table('goods_attr') . " AS g\n                LEFT JOIN " . $GLOBALS['ecs']->table('attribute') . (" AS a\n                    ON a.attr_id = g.attr_id\n            WHERE goods_id = '" . $goods_id . "'\n            AND a.attr_type = 1") . $where . ' ORDER BY a.sort_order, a.attr_id, g.goods_attr_id';
+	$sql = 'SELECT g.goods_attr_id, g.attr_value, g.attr_id, a.attr_name
+            FROM ' . $GLOBALS['ecs']->table('goods_attr') . ' AS g
+                LEFT JOIN ' . $GLOBALS['ecs']->table('attribute') . (' AS a
+                    ON a.attr_id = g.attr_id
+            WHERE goods_id = \'' . $goods_id . '\'
+            AND a.attr_type = 1') . $where . ' ORDER BY a.sort_order, a.attr_id, g.goods_attr_id';
 	$results = $GLOBALS['db']->getAll($sql);
 	return $results;
 }
@@ -1151,7 +1174,10 @@ function product_list($goods_id, $conditions = '')
 		$where .= $conditions;
 		$sql = 'SELECT COUNT(*) FROM ' . $GLOBALS['ecs']->table('products') . (' AS p WHERE goods_id = ' . $goods_id . ' ' . $where);
 		$filter['record_count'] = $GLOBALS['db']->getOne($sql);
-		$sql = "SELECT product_id, goods_id, goods_attr, product_sn, bar_code, product_price, product_number\n                FROM " . $GLOBALS['ecs']->table('products') . (" AS g\n                WHERE goods_id = " . $goods_id . ' ' . $where . "\n                ORDER BY " . $filter['sort_by'] . ' ' . $filter['sort_order']);
+		$sql = 'SELECT product_id, goods_id, goods_attr, product_sn, bar_code, product_price, product_number
+                FROM ' . $GLOBALS['ecs']->table('products') . (' AS g
+                WHERE goods_id = ' . $goods_id . ' ' . $where . '
+                ORDER BY ' . $filter['sort_by'] . ' ' . $filter['sort_order']);
 		$filter['keyword'] = stripslashes($filter['keyword']);
 	}
 	else {
@@ -1201,7 +1227,10 @@ function get_product_info($product_id, $filed = '')
 function check_goods_specifications_exist($goods_id)
 {
 	$goods_id = intval($goods_id);
-	$sql = "SELECT COUNT(a.attr_id)\n            FROM " . $GLOBALS['ecs']->table('attribute') . ' AS a, ' . $GLOBALS['ecs']->table('goods') . (" AS g\n            WHERE a.cat_id = g.goods_type\n            AND g.goods_id = '" . $goods_id . '\'');
+	$sql = 'SELECT COUNT(a.attr_id)
+            FROM ' . $GLOBALS['ecs']->table('attribute') . ' AS a, ' . $GLOBALS['ecs']->table('goods') . (' AS g
+            WHERE a.cat_id = g.goods_type
+            AND g.goods_id = \'' . $goods_id . '\'');
 	$count = $GLOBALS['db']->getOne($sql);
 
 	if (0 < $count) {
@@ -1235,10 +1264,15 @@ function check_goods_attr_exist($goods_attr, $goods_id, $product_id = 0, $region
 	}
 
 	if (empty($product_id)) {
-		$sql = 'SELECT product_id FROM ' . $GLOBALS['ecs']->table($table) . ("\n                WHERE goods_attr = '" . $goods_attr . "'\n                AND goods_id = '" . $goods_id . '\'') . $where_products;
+		$sql = 'SELECT product_id FROM ' . $GLOBALS['ecs']->table($table) . ('
+                WHERE goods_attr = \'' . $goods_attr . '\'
+                AND goods_id = \'' . $goods_id . '\'') . $where_products;
 	}
 	else {
-		$sql = 'SELECT product_id FROM ' . $GLOBALS['ecs']->table($table) . ("\n                WHERE goods_attr = '" . $goods_attr . "'\n                AND goods_id = '" . $goods_id . "'\n                AND product_id <> '" . $product_id . '\'') . $where_products;
+		$sql = 'SELECT product_id FROM ' . $GLOBALS['ecs']->table($table) . ('
+                WHERE goods_attr = \'' . $goods_attr . '\'
+                AND goods_id = \'' . $goods_id . '\'
+                AND product_id <> \'' . $product_id . '\'') . $where_products;
 	}
 
 	$res = $GLOBALS['db']->getOne($sql);
@@ -1283,10 +1317,13 @@ function check_product_sn_exist($product_sn, $product_id = 0, $ru_id = 0, $goods
 	$where .= ' AND (SELECT g.user_id FROM ' . $GLOBALS['ecs']->table('goods') . (' AS g WHERE g.goods_id = p.goods_id LIMIT 1) = \'' . $ru_id . '\'');
 
 	if (empty($product_id)) {
-		$sql = 'SELECT p.product_id FROM ' . $GLOBALS['ecs']->table($table) . ' AS p ' . ("\n                WHERE p.product_sn = '" . $product_sn . '\'') . $where;
+		$sql = 'SELECT p.product_id FROM ' . $GLOBALS['ecs']->table($table) . ' AS p ' . ('
+                WHERE p.product_sn = \'' . $product_sn . '\'') . $where;
 	}
 	else {
-		$sql = 'SELECT p.product_id FROM ' . $GLOBALS['ecs']->table($table) . ' AS p ' . ("\n                WHERE p.product_sn = '" . $product_sn . "'\n                AND p.product_id <> '" . $product_id . '\'') . $where;
+		$sql = 'SELECT p.product_id FROM ' . $GLOBALS['ecs']->table($table) . ' AS p ' . ('
+                WHERE p.product_sn = \'' . $product_sn . '\'
+                AND p.product_id <> \'' . $product_id . '\'') . $where;
 	}
 
 	$res = $GLOBALS['db']->getOne($sql);
@@ -1339,10 +1376,13 @@ function check_product_bar_code_exist($product_bar_code, $product_id = 0, $ru_id
 	$where .= ' AND (SELECT g.user_id FROM ' . $GLOBALS['ecs']->table('goods') . (' AS g WHERE g.goods_id = p.goods_id LIMIT 1) = \'' . $ru_id . '\'');
 
 	if (empty($product_id)) {
-		$sql = 'SELECT p.product_id FROM ' . $GLOBALS['ecs']->table($table) . ' AS p ' . ("\n                WHERE p.bar_code = '" . $product_bar_code . '\'') . $where;
+		$sql = 'SELECT p.product_id FROM ' . $GLOBALS['ecs']->table($table) . ' AS p ' . ('
+                WHERE p.bar_code = \'' . $product_bar_code . '\'') . $where;
 	}
 	else {
-		$sql = 'SELECT p.product_id FROM ' . $GLOBALS['ecs']->table($table) . ' AS p ' . ("\n                WHERE p.bar_code = '" . $product_bar_code . "'\n                AND product_id <> '" . $product_id . '\'') . $where;
+		$sql = 'SELECT p.product_id FROM ' . $GLOBALS['ecs']->table($table) . ' AS p ' . ('
+                WHERE p.bar_code = \'' . $product_bar_code . '\'
+                AND product_id <> \'' . $product_id . '\'') . $where;
 	}
 
 	$res = $GLOBALS['db']->getOne($sql);

@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Extensions;
 
 class Form
@@ -108,7 +108,7 @@ class Form
 
 	public function isMobile($field, $type = 0)
 	{
-		return $this->isPreg('/^1(3[0-9]|4[0-9]|5[0-35-9]|6[6]|7[01345678]|8[0-9]|9[89])\\d{8}$/', $field, $type);
+		return $this->isPreg('/^(1[3-9])\\d{9}$/', $field, $type);
 	}
 
 	public function isCreditNo($field, $type = 0)

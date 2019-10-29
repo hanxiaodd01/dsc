@@ -107,6 +107,13 @@
 						<span class="box-flex t-goods1">{$info.street_desc}</span>
 					</div>
 				</section>
+                <section class="padding-all b-color-f m-top1px j-f-c-receipt">
+                    <div class="dis-box">
+                        <label class="t-remark g-t-temark">证照信息</label>
+                        <span class="box-flex t-goods1"></span>
+                        <span><i class="iconfont icon-iconfontzhizuobiaozhun10" style="font-size:1.8rem; color: #21ba45;"></i></span>
+                    </div>
+                </section>
 				<section class="padding-all b-color-f m-top1px">
 					<div class="dis-box">
 						<label class="t-remark g-t-temark">公司名称</label>
@@ -140,6 +147,29 @@
 			</div>
 		</div>
         <div class="mask-filter-div"></div>
+
+        <div id="j-filter-div" class="j-filter-div filter-div ts-5 filter-receipt-div">
+            <div class=" con-filter-div  con-filter-div-scrll">
+                <div class="license-div">
+                    <div class="title">商城网店经营者营业执照信息<i class="iconfont icon-guanbi"></i></div>
+                    <div class="content">
+                        <div>企业名称：{$info.companyname}</div>
+                        <div>营业执照注册号：{$info.business_license_id}</div>
+                        <div>法定代表名称：{$info.legal_person}</div>
+                        <div>营业执照所在地：{$info.license_comp_adress}</div>
+                        <div>企业注册资金：{$info.registered_capital}万元</div>
+                        <div>营业执照有效期：{$info.business_term}</div>
+                        <div>营业执照经营范围：{$info.busines_scope}</div>
+                        <div>公司地址：<span>&nbsp;&nbsp;{$info.company_located}</span></div>
+                        <div>店铺名称：{$info.shop_name}</div>
+                        <div>
+                            {if $info.comp_img}<img class="img"  src="{$info.comp_img}">{/if}
+                        </div>
+                        <strong>注：以上营业执照信息，根据国家工商总局《网络交易管理办法》要求对入驻商家营业执照信息进行公示，除企业名称通过认证之外，其余信息由卖家自行申报填写。如需进一步核实，请联系当地工商行政管理部门。</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
      <!--快捷导航-->
     {include file="float_nav"}
                 <li>
@@ -198,7 +228,17 @@
              }
          }
 
+         $('.icon-guanbi').click(function(){
+            $("body").removeClass("show-receipt-div");
+         })
         </script>
+        <style type="text/css">
+            .license-div .title { padding: 1.1rem;font-size: 1.6rem;border-bottom: 1px solid #ddd; position: relative;}
+            .license-div .title .iconfont{ position: absolute; right: 1.1rem; top: 16px; }
+            .license-div .content{ padding: 1.1rem;font-size: 1.5rem;line-height: 1.5; }
+            .license-div .content strong{ margin-top: 2rem; display: block; }
+            .license-div .content .img{ width: 100%; margin-top: 2rem; }
+        </style>
 	</body>
 
 </html>

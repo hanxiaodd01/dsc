@@ -1,5 +1,5 @@
 <?php
-//高度差网络 https://www.gaodux.com/
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Services;
 
 class GoodsService
@@ -92,11 +92,6 @@ class GoodsService
 		$result['goods_comment'] = $goodsComment;
 		$result['total_comment_number'] = count($result['goods_comment']);
 		$goodsInfo = $this->goodsRepository->goodsInfo($id);
-
-		if ($goodsInfo['is_on_sale'] == 0) {
-			return array('error' => 1, 'msg' => '商品已下架');
-		}
-
 		$goodsInfo['goods_thumb'] = get_image_path($goodsInfo['goods_thumb']);
 		$goodsInfo['goods_video'] = $goodsInfo['goods_video'] ? get_image_path($goodsInfo['goods_video']) : '';
 		$goodsInfo['goods_price_formated'] = price_format($goodsInfo['goods_price'], true);
@@ -122,6 +117,10 @@ class GoodsService
 		}
 		else {
 			$goodsInfo['goods_desc'] = 'xxx';
+		}
+
+		if ($goodsInfo['review_status'] <= 2) {
+			$goodsInfo['is_on_sale'] = 0;
 		}
 
 		$result['goods_info'] = array_merge($goodsInfo, array('is_collect' => empty($collect) ? 0 : 1));

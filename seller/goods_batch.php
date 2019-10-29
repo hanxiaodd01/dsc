@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 define('IN_ECS', true);
 require dirname(__FILE__) . '/includes/init.php';
 require_once ROOT_PATH . '/' . SELLER_PATH . '/includes/lib_goods.php';
@@ -8,10 +8,10 @@ $smarty->assign('action_type', 'goods');
 $adminru = get_admin_ru_id();
 $smarty->assign('primary_cat', $_LANG['02_cat_and_goods']);
 $smarty->assign('current', basename(PHP_SELF, '.php'));
+$smarty->assign('menu_select', array('action' => '02_cat_and_goods', 'current' => '15_batch_edit'));
 
 if ($_REQUEST['act'] == 'add') {
 	admin_priv('goods_batch');
-	$smarty->assign('menu_select', array('action' => '02_cat_and_goods', 'current' => '15_batch_edit'));
 	$tab_menu = array();
 
 	if (admin_priv('goods_batch')) {
@@ -50,7 +50,17 @@ if ($_REQUEST['act'] == 'add') {
 else if ($_REQUEST['act'] == 'upload') {
 	admin_priv('goods_batch');
 	$smarty->assign('menu_select', array('action' => '02_cat_and_goods', 'current' => '15_batch_edit'));
-	$adminru = get_admin_ru_id();
+	$guid = gmtime() . rand(1, 10000);
+	$smarty->assign('guid', $guid);
+	$max_id = $db->getOne('SELECT MAX(goods_id) FROM ' . $ecs->table('goods'));
+	$generate_goods_sn = generate_goods_sn($max_id);
+	$sn_prefix = $GLOBALS['_CFG']['sn_prefix'];
+
+	if ($sn_prefix) {
+		$generate_goods_sn = str_replace($sn_prefix, '', $generate_goods_sn);
+	}
+
+	$generate_goods_sn = intval($generate_goods_sn);
 	$line_number = 0;
 	$arr = array();
 	$goods_list = array();
@@ -141,7 +151,7 @@ else if ($_REQUEST['act'] == 'upload') {
 	else if ($_POST['data_cat'] == 'taobao') {
 		$id_is = 0;
 
-		foreach ($data as $line) {
+		foreach ($data as $key => $line) {
 			if ($line_number == 0) {
 				$line_number++;
 				continue;
@@ -150,7 +160,7 @@ else if ($_REQUEST['act'] == 'upload') {
 			$arr = array();
 			$line_list = explode('	', $line);
 			$arr['goods_name'] = trim($line_list[0], '"');
-			$max_id = $db->getOne('SELECT MAX(goods_id) + ' . $id_is . ' FROM ' . $ecs->table('goods'));
+			$max_id = $generate_goods_sn + $key;
 			$id_is++;
 			$goods_sn = generate_goods_sn($max_id);
 			$arr['goods_sn'] = $goods_sn;
@@ -176,9 +186,7 @@ else if ($_REQUEST['act'] == 'upload') {
 		}
 	}
 	else if ($_POST['data_cat'] == 'paipai') {
-		$id_is = 0;
-
-		foreach ($data as $line) {
+		foreach ($data as $key => $line) {
 			if ($line_number == 0) {
 				$line_number++;
 				continue;
@@ -187,9 +195,7 @@ else if ($_REQUEST['act'] == 'upload') {
 			$arr = array();
 			$line_list = explode(',', $line);
 			$arr['goods_name'] = trim($line_list[3], '"');
-			$max_id = $db->getOne('SELECT MAX(goods_id) + ' . $id_is . ' FROM ' . $ecs->table('goods'));
-			$id_is++;
-			$goods_sn = generate_goods_sn($max_id);
+			$goods_sn = $generate_goods_sn + $key;
 			$arr['goods_sn'] = $goods_sn;
 			$arr['brand_name'] = '';
 			$arr['market_price'] = $line_list[13];
@@ -214,7 +220,7 @@ else if ($_REQUEST['act'] == 'upload') {
 	else if ($_POST['data_cat'] == 'paipai3') {
 		$id_is = 0;
 
-		foreach ($data as $line) {
+		foreach ($data as $key => $line) {
 			if ($line_number == 0) {
 				$line_number++;
 				continue;
@@ -223,7 +229,7 @@ else if ($_REQUEST['act'] == 'upload') {
 			$arr = array();
 			$line_list = explode(',', $line);
 			$arr['goods_name'] = trim($line_list[1], '"');
-			$max_id = $db->getOne('SELECT MAX(goods_id) + ' . $id_is . ' FROM ' . $ecs->table('goods'));
+			$max_id = $generate_goods_sn + $key;
 			$id_is++;
 			$goods_sn = generate_goods_sn($max_id);
 			$arr['goods_sn'] = $goods_sn;
@@ -248,9 +254,7 @@ else if ($_REQUEST['act'] == 'upload') {
 		}
 	}
 	else if ($_POST['data_cat'] == 'taobao46') {
-		$id_is = 0;
-
-		foreach ($data as $line) {
+		foreach ($data as $key => $line) {
 			if ($line_number == 0) {
 				$line_number++;
 				continue;
@@ -263,9 +267,7 @@ else if ($_REQUEST['act'] == 'upload') {
 			$arr = array();
 			$line_list = explode('	', $line);
 			$arr['goods_name'] = trim($line_list[0], '"');
-			$max_id = $db->getOne('SELECT MAX(goods_id) + ' . $id_is . ' FROM ' . $ecs->table('goods'));
-			$id_is++;
-			$goods_sn = generate_goods_sn($max_id);
+			$goods_sn = $generate_goods_sn + $key;
 			$arr['goods_sn'] = $goods_sn;
 			$arr['brand_name'] = '';
 			$arr['market_price'] = $line_list[7];
@@ -297,27 +299,17 @@ else if ($_REQUEST['act'] == 'upload') {
 	assign_query_info();
 	$smarty->display('goods_batch_confirm.dwt');
 }
-else if ($_REQUEST['act'] == 'insert') {
+else if ($_REQUEST['act'] == 'ajax_insert_data') {
 	admin_priv('goods_batch');
-
-	if (isset($_POST['checked'])) {
-		include_once ROOT_PATH . 'includes/cls_image.php';
-		$image = new cls_image($_CFG['bgcolor']);
+	$guid = isset($_POST['guid']) && !empty($_POST['guid']) ? trim($_POST['guid']) : '';
+	if (isset($_POST['checked']) && !empty($guid)) {
 		$default_value = array('brand_id' => 0, 'goods_number' => 0, 'goods_weight' => 0, 'market_price' => 0, 'shop_price' => 0, 'warn_number' => 0, 'is_real' => 1, 'is_on_sale' => 1, 'is_alone_sale' => 1, 'integral' => 0, 'is_best' => 0, 'is_new' => 0, 'is_hot' => 0, 'goods_type' => 0);
-		$brand_list = array();
-		$sql = 'SELECT brand_id, brand_name FROM ' . $ecs->table('brand');
-		$res = $db->query($sql);
-
-		while ($row = $db->fetchRow($res)) {
-			$brand_list[$row['brand_name']] = $row['brand_id'];
-		}
-
 		$field_list = array_keys($_LANG['upload_goods']);
 		$field_list[] = 'goods_class';
-		$max_id = $db->getOne('SELECT MAX(goods_id) + 1 FROM ' . $ecs->table('goods'));
+		$goods_list = array();
 
 		foreach ($_POST['checked'] as $key => $value) {
-			$field_arr = array('cat_id' => intval($_POST['cat']), 'user_cat' => intval($_POST['user_cat']), 'add_time' => gmtime(), 'last_update' => gmtime());
+			$field_arr = array('cat_id' => $_POST['cat'], 'add_time' => gmtime(), 'last_update' => gmtime());
 
 			foreach ($field_list as $field) {
 				$field_value = isset($_POST[$field][$value]) ? $_POST[$field][$value] : '';
@@ -335,34 +327,13 @@ else if ($_REQUEST['act'] == 'insert') {
 				$field_arr[$field] = !isset($field_value) && isset($default_value[$field]) ? $default_value[$field] : $field_value;
 
 				if (!empty($field_value)) {
-					if (in_array($field, array('original_img', 'goods_img', 'goods_thumb'))) {
-						if (0 < strpos($field_value, '|;')) {
-							$field_value = explode(':', $field_value);
-							$field_value = $field_value[0];
-							@copy(ROOT_PATH . 'images/' . $field_value . '.tbi', ROOT_PATH . 'images/' . $field_value . '.jpg');
-
-							if (is_file(ROOT_PATH . 'images/' . $field_value . '.jpg')) {
-								$field_arr[$field] = IMAGE_DIR . '/' . $field_value . '.jpg';
-							}
-						}
-						else {
-							$field_arr[$field] = IMAGE_DIR . '/' . $field_value;
-						}
+					if (in_array($field, array('goods_number', 'warn_number', 'integral'))) {
+						$field_arr[$field] = intval($field_value);
 					}
 					else if ($field == 'brand_name') {
-						if (isset($brand_list[$field_value])) {
-							$field_arr['brand_id'] = $brand_list[$field_value];
-						}
-						else {
-							$sql = 'INSERT INTO ' . $ecs->table('brand') . ' (brand_name) VALUES (\'' . addslashes($field_value) . '\')';
-							$db->query($sql);
-							$brand_id = $db->insert_id();
-							$brand_list[$field_value] = $brand_id;
-							$field_arr['brand_id'] = $brand_id;
-						}
-					}
-					else if (in_array($field, array('goods_number', 'warn_number', 'integral'))) {
-						$field_arr[$field] = intval($field_value);
+						$sql = 'SELECT brand_id FROM ' . $GLOBALS['ecs']->table('brand') . ' WHERE brand_name = \'' . $field_arr[$field] . '\'';
+						$brand_id = $GLOBALS['db']->getOne($sql);
+						$field_arr['brand_id'] = $brand_id ? $brand_id : 0;
 					}
 					else if (in_array($field, array('goods_weight', 'market_price', 'shop_price'))) {
 						$field_arr[$field] = floatval($field_value);
@@ -375,10 +346,6 @@ else if ($_REQUEST['act'] == 'insert') {
 				if ($field == 'is_real') {
 					$field_arr[$field] = intval($_POST['goods_class'][$key]);
 				}
-
-				if (empty($_CFG['review_goods'])) {
-					$field_arr['review_status'] = 5;
-				}
 			}
 
 			if (empty($field_arr['goods_sn'])) {
@@ -389,66 +356,158 @@ else if ($_REQUEST['act'] == 'insert') {
 				$field_arr['goods_number'] = 0;
 			}
 
-			$adminru = get_admin_ru_id();
-			$field_arr['user_id'] = $adminru['ru_id'];
-			$db->autoExecute($ecs->table('goods'), $field_arr, 'INSERT');
-			$max_id = $db->insert_id() + 1;
-			if (!empty($field_arr['original_img']) || !empty($field_arr['goods_img']) || !empty($field_arr['goods_thumb'])) {
-				$goods_img = '';
-				$goods_thumb = '';
-				$original_img = '';
-				$goods_gallery = array();
-				$goods_gallery['goods_id'] = $db->insert_id();
-
-				if (!empty($field_arr['original_img'])) {
-					if ($_CFG['auto_generate_gallery']) {
-						$ext = substr($field_arr['original_img'], strrpos($field_arr['original_img'], '.'));
-						$img = dirname($field_arr['original_img']) . '/' . $image->random_filename() . $ext;
-						$gallery_img = dirname($field_arr['original_img']) . '/' . $image->random_filename() . $ext;
-						@copy(ROOT_PATH . $field_arr['original_img'], ROOT_PATH . $img);
-						@copy(ROOT_PATH . $field_arr['original_img'], ROOT_PATH . $gallery_img);
-						$goods_gallery['img_original'] = reformat_image_name('gallery', $goods_gallery['goods_id'], $img, 'source');
-					}
-
-					if ($_CFG['retain_original_img']) {
-						$original_img = reformat_image_name('goods', $goods_gallery['goods_id'], $field_arr['original_img'], 'source');
-					}
-					else {
-						@unlink(ROOT_PATH . $field_arr['original_img']);
-					}
+			if ($field_arr && $field_arr['goods_name']) {
+				if (isset($field_arr['goods_name']) && $field_arr['goods_name']) {
+					$field_arr['goods_name'] = addslashes($field_arr['goods_name']);
 				}
 
-				if (!empty($field_arr['goods_img'])) {
-					if ($_CFG['auto_generate_gallery'] && !empty($gallery_img)) {
-						$goods_gallery['img_url'] = reformat_image_name('gallery', $goods_gallery['goods_id'], $gallery_img, 'goods');
-					}
-
-					$goods_img = reformat_image_name('goods', $goods_gallery['goods_id'], $field_arr['goods_img'], 'goods');
+				if (isset($field_arr['goods_brief']) && $field_arr['goods_brief']) {
+					$field_arr['goods_brief'] = htmlspecialchars_decode($field_arr['goods_brief']);
+					$field_arr['goods_brief'] = str_replace('\'', '"', $field_arr['goods_brief']);
+					$field_arr['goods_brief'] = stripcslashes($field_arr['goods_brief']);
 				}
 
-				if (!empty($field_arr['goods_thumb'])) {
-					if ($_CFG['auto_generate_gallery']) {
-						$ext = substr($field_arr['goods_thumb'], strrpos($field_arr['goods_thumb'], '.'));
-						$gallery_thumb = dirname($field_arr['goods_thumb']) . '/' . $image->random_filename() . $ext;
-						@copy(ROOT_PATH . $field_arr['goods_thumb'], ROOT_PATH . $gallery_thumb);
-						$goods_gallery['thumb_url'] = reformat_image_name('gallery_thumb', $goods_gallery['goods_id'], $gallery_thumb, 'thumb');
-					}
-
-					$goods_thumb = reformat_image_name('goods_thumb', $goods_gallery['goods_id'], $field_arr['goods_thumb'], 'thumb');
+				if (isset($field_arr['goods_desc']) && $field_arr['goods_desc']) {
+					$field_arr['goods_desc'] = htmlspecialchars_decode($field_arr['goods_desc']);
+					$field_arr['goods_desc'] = str_replace('\'', '"', $field_arr['goods_desc']);
+					$field_arr['goods_desc'] = stripcslashes($field_arr['goods_desc']);
 				}
 
-				$db->query('UPDATE ' . $ecs->table('goods') . (' SET goods_img = \'' . $goods_img . '\', goods_thumb = \'' . $goods_thumb . '\', original_img = \'' . $original_img . '\' WHERE goods_id=\'') . $goods_gallery['goods_id'] . '\'');
+				$field_arr['user_id'] = $adminru['ru_id'];
+				$goods_list[$key] = $field_arr;
+			}
+		}
 
-				if ($_CFG['auto_generate_gallery']) {
-					$db->autoExecute($ecs->table('goods_gallery'), $goods_gallery, 'INSERT');
+		write_static_cache('goods_batch-' . $guid, $goods_list, DATA_DIR . '/sc_file/goods_batch/' . $adminru['ru_id'] . '/');
+	}
+
+	$smarty->assign('page', 1);
+	$smarty->assign('guid', $guid);
+	$smarty->assign('lang_list', $_LANG['upload_goods']);
+	$ur_here = $_LANG['goods_upload_confirm'];
+	$smarty->assign('ur_here', $ur_here);
+	assign_query_info();
+	$smarty->display('goods_batch_add_separate.dwt');
+}
+else if ($_REQUEST['act'] == 'goods_batch_separate') {
+	include_once ROOT_PATH . 'includes/cls_image.php';
+	include_once ROOT_PATH . 'includes/cls_json.php';
+	$json = new JSON();
+	$image = new cls_image($_CFG['bgcolor']);
+	$page = !empty($_REQUEST['page']) ? intval($_REQUEST['page']) : 1;
+	$page_size = isset($_REQUEST['page_size']) ? intval($_REQUEST['page_size']) : 1;
+	$guid = isset($_POST['guid']) && !empty($_POST['guid']) ? trim($_POST['guid']) : '';
+	$goods_list = read_static_cache('goods_batch-' . $guid, DATA_DIR . '/sc_file/goods_batch/' . $adminru['ru_id'] . '/');
+	$goods_list = $ecs->page_array($page_size, $page, $goods_list);
+	$result['list'] = $goods_list['list'][0];
+	$goods = $result['list'];
+	$goods_id = 0;
+	if ($goods && !empty($guid)) {
+		if ($goods && $goods['goods_name']) {
+			$sql = 'SELECT COUNT(*) FROM ' . $GLOBALS['ecs']->table('goods') . ' WHERE (goods_name = \'' . $goods['goods_name'] . '\' OR goods_sn = \'' . $goods['goods_sn'] . '\') AND ' . 'user_id = \'' . $adminru['ru_id'] . '\'';
+			$count = $GLOBALS['db']->getOne($sql);
+
+			if ($count <= 0) {
+				if (isset($goods['goods_name']) && $goods['goods_name']) {
+					$goods['goods_name'] = addslashes($goods['goods_name']);
+				}
+
+				if (isset($goods['goods_brief']) && $goods['goods_brief']) {
+					$goods['goods_brief'] = htmlspecialchars_decode($goods['goods_brief']);
+					$goods['goods_brief'] = str_replace('\'', '"', $goods['goods_brief']);
+					$goods['goods_brief'] = stripcslashes($goods['goods_brief']);
+				}
+
+				if (isset($goods['goods_desc']) && $goods['goods_desc']) {
+					$goods['goods_desc'] = htmlspecialchars_decode($goods['goods_desc']);
+					$goods['goods_desc'] = str_replace('\'', '"', $goods['goods_desc']);
+					$goods['goods_desc'] = stripcslashes($goods['goods_desc']);
+				}
+
+				$goods['user_id'] = $adminru['ru_id'];
+				$db->autoExecute($ecs->table('goods'), $goods, 'INSERT');
+				$goods_id = $db->insert_id();
+				$max_id = $goods_id + 1;
+				if (!empty($goods['original_img']) || !empty($goods['goods_img']) || !empty($goods['goods_thumb'])) {
+					$goods_img = '';
+					$goods_thumb = '';
+					$original_img = '';
+					$goods_gallery = array();
+
+					if (!empty($goods['original_img'])) {
+						if ($_CFG['auto_generate_gallery']) {
+							$ext = substr($goods['original_img'], strrpos($goods['original_img'], '.'));
+							$img = dirname($goods['original_img']) . '/' . $image->random_filename() . $ext;
+							$gallery_img = dirname($goods['original_img']) . '/' . $image->random_filename() . $ext;
+							@copy(ROOT_PATH . $goods['original_img'], ROOT_PATH . $img);
+							@copy(ROOT_PATH . $goods['original_img'], ROOT_PATH . $gallery_img);
+							$goods_gallery['img_original'] = reformat_image_name('gallery', $goods_id, $img, 'source');
+						}
+
+						if ($_CFG['retain_original_img']) {
+							$original_img = reformat_image_name('goods', $goods_id, $goods['original_img'], 'source');
+						}
+						else {
+							@unlink(ROOT_PATH . $goods['original_img']);
+						}
+					}
+
+					if (!empty($goods['goods_img'])) {
+						if ($_CFG['auto_generate_gallery'] && !empty($gallery_img)) {
+							$goods_gallery['img_url'] = reformat_image_name('gallery', $goods_id, $gallery_img, 'goods');
+						}
+
+						$goods_img = reformat_image_name('goods', $goods_id, $goods['goods_img'], 'goods');
+					}
+
+					if (!empty($goods['goods_thumb'])) {
+						if ($_CFG['auto_generate_gallery']) {
+							$ext = substr($goods['goods_thumb'], strrpos($goods['goods_thumb'], '.'));
+							$gallery_thumb = dirname($goods['goods_thumb']) . '/' . $image->random_filename() . $ext;
+							@copy(ROOT_PATH . $goods['goods_thumb'], ROOT_PATH . $gallery_thumb);
+							$goods_gallery['thumb_url'] = reformat_image_name('gallery_thumb', $goods_id, $gallery_thumb, 'thumb');
+						}
+
+						$goods_thumb = reformat_image_name('goods_thumb', $goods_id, $goods['goods_thumb'], 'thumb');
+					}
+
+					if ($goods_gallery) {
+						$goods_gallery['goods_id'] = $goods_id;
+					}
+
+					$goodsOther = array('goods_thumb' => $goods_img, 'goods_img' => $goods_thumb, 'original_img' => $original_img);
+					$db->autoExecute($ecs->table('goods'), $goodsOther, 'UPDATE', 'goods_id = \'' . $goods_id . '\'');
+					if ($_CFG['auto_generate_gallery'] && $goods_gallery) {
+						$db->autoExecute($ecs->table('goods_gallery'), $goods_gallery, 'INSERT');
+					}
 				}
 			}
 		}
 	}
 
-	admin_log('', 'batch_upload', 'goods');
-	$link[] = array('href' => 'goods.php?act=list', 'text' => $_LANG['01_goods_list']);
-	sys_msg($_LANG['batch_upload_ok'], 0, $link);
+	if (0 < $goods_id) {
+		$result['status_lang'] = $GLOBALS['_LANG']['add_date_success'];
+		admin_log('[' . $GLOBALS['_LANG']['goods_id'] . ':' . $goods_id . ']' . $goods['goods_name'], 'batch_upload', 'goods');
+	}
+	else {
+		$result['status_lang'] = $GLOBALS['_LANG']['add_date_fail'];
+	}
+
+	$result['page'] = $goods_list['filter']['page'] + 1;
+	$result['page_size'] = $goods_list['filter']['page_size'];
+	$result['record_count'] = $goods_list['filter']['record_count'];
+	$result['page_count'] = $goods_list['filter']['page_count'];
+	$result['is_stop'] = 1;
+
+	if ($goods_list['filter']['page_count'] < $page) {
+		$result['is_stop'] = 0;
+		dsc_unlink(DATA_DIR . '/sc_file/goods_batch/' . $adminru['ru_id'] . '/goods_batch-' . $guid . '.php');
+	}
+	else {
+		$result['filter_page'] = $goods_list['filter']['page'];
+	}
+
+	exit($json->encode($result));
 }
 else if ($_REQUEST['act'] == 'select') {
 	admin_priv('goods_batch');
@@ -482,7 +541,9 @@ else if ($_REQUEST['act'] == 'edit') {
 		$where = ' WHERE goods_id ' . db_create_in($_POST['goods_ids']);
 	}
 	else {
-		$goods_sns = str_replace("\n", ',', str_replace("\r", '', $_POST['sn_list']));
+		$goods_sns = str_replace('
+', ',', str_replace('
+', '', $_POST['sn_list']));
 		$sql = 'SELECT DISTINCT goods_id FROM ' . $ecs->table('goods') . ' WHERE goods_sn ' . db_create_in($goods_sns);
 		$goods_ids = join(',', $db->getCol($sql));
 		$where = ' WHERE goods_id ' . db_create_in($goods_ids);

@@ -1,5 +1,5 @@
 <?php
- //高度差网络 https://www.gaodux.com/
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function edit_profile($profile)
 {
 	if (empty($profile['user_id'])) {
@@ -226,7 +226,6 @@ function get_user_orders($user_id, $num = 10, $page = 1, $status = 0)
 	}
 	else if ($status == 2) {
 		$where .= ' AND oi.pay_status = ' . PS_PAYED . ' AND oi.order_status in (' . OS_CONFIRMED . ', ' . OS_SPLITED . ', ' . OS_SPLITING_PART . ') AND (oi.shipping_status >= ' . SS_UNSHIPPED . ' AND oi.shipping_status <> ' . SS_RECEIVED . ')';
-		$cache_info = S('message_' . $_SESSION['user_id']);
 	}
 
 	$select = ' (SELECT count(*) FROM ' . $GLOBALS['ecs']->table('comment') . (' AS c WHERE c.comment_type = 0 AND c.id_value = og.goods_id AND c.order_id = oi.order_id AND c.parent_id = 0 AND c.user_id = \'' . $user_id . '\') AS sign1, ') . '(SELECT count(*) FROM ' . $GLOBALS['ecs']->table('comment_img') . ' AS ci, ' . $GLOBALS['ecs']->table('comment') . ' AS c' . (' WHERE c.comment_type = 0 AND c.id_value = og.goods_id AND c.order_id = oi.order_id AND c.parent_id = 0 AND c.user_id = \'' . $user_id . '\' AND ci.comment_id = c.comment_id )  AS sign2, ');
@@ -268,7 +267,7 @@ function get_user_orders($user_id, $num = 10, $page = 1, $status = 0)
 
 		if ($row['order_status'] == OS_UNCONFIRMED) {
 			$row['handler'] = '<a class="btn-default-new br-5 cancel-order" data-item="' . $row['order_id'] . '" href="javascript:;" >' . L('cancel') . '</a>';
-			$row['online_pay'] = url('onlinepay/index/index', array('order_sn' => $row[order_sn]));
+			$row['online_pay'] = url('onlinepay/index/index', array('order_sn' => $row['order_sn']));
 		}
 		else if ($row['order_status'] == OS_SPLITED) {
 			if ($row['shipping_status'] == SS_SHIPPED) {
@@ -297,18 +296,21 @@ function get_user_orders($user_id, $num = 10, $page = 1, $status = 0)
 		}
 
 		if (0 < $sign_time) {
-			$day = ($noTime - $row['pay_time']) / 3600 / 24;
+			$row['handler_return'] = '';
 			if ($row['order_status'] != OS_CANCELED && $row['pay_status'] == PS_PAYED) {
+				$day = ($noTime - $row['shipping_time']) / 3600 / 24;
+
 				if ($day < $sign_time) {
 					$row['handler_return'] = url('user/refound/index', array('order_id' => $row['order_id']));
-				}
-				else {
-					@$row['handler_return'] = '';
 				}
 			}
 		}
 
-		if ($row[order_status] == 2 || $row[order_status] == 5 && $row[shipping_status] == 2 && $row[pay_status] == 2) {
+		if ($row['shipping_status'] == SS_UNSHIPPED && $row['pay_status'] == PS_PAYED) {
+			$row['handler_return'] = url('user/refound/index', array('order_id' => $row['order_id']));
+		}
+
+		if ($row['order_status'] == 2 || $row['order_status'] == 5 && $row['shipping_status'] == 2 && $row['pay_status'] == 2) {
 			$row['order_del'] = 1;
 		}
 
@@ -363,7 +365,7 @@ function get_user_orders($user_id, $num = 10, $page = 1, $status = 0)
 		}
 
 		$row['shipping_status'] = $row['shipping_status'] == SS_SHIPPED_ING ? SS_PREPARING : $row['shipping_status'];
-		$row['order_status'] = $os[$row[order_status]] . ',' . $ps[$row[pay_status]] . ',' . $ss[$row['shipping_status']];
+		$row['order_status'] = $os[$row['order_status']] . ',' . $ps[$row['pay_status']] . ',' . $ss[$row['shipping_status']];
 		$br = '';
 		$order_over = 0;
 		if ($row['user_order'] == OS_SPLITED && $row['user_shipping'] == SS_RECEIVED && $row['user_pay'] == PS_PAYED) {
@@ -426,7 +428,7 @@ function get_user_orders($user_id, $num = 10, $page = 1, $status = 0)
 		$district_name = !empty($district['region_name']) ? $district['region_name'] : '';
 		$address_detail = $province['region_name'] . '&nbsp;' . $city['region_name'] . '市' . '&nbsp;' . $district_name;
 		$delivery['delivery_time'] = local_date($GLOBALS['_CFG']['time_format'], $delivery['update_time']);
-		$arr[] = array('order_id' => $row['order_id'], 'order_sn' => $row['order_sn'], 'order_time' => local_date($GLOBALS['_CFG']['time_format'], $row['add_time']), 'order_status' => $row['order_status'], 'order_del' => $row['order_del'], 'online_pay' => $row['online_pay'], 'status' => $row['status'], 'status_number' => $status_number, 'consignee' => $row['consignee'], 'main_order_id' => $row['main_order_id'], 'user_name' => get_shop_name($ru_id, 1), 'order_goods' => $row['order_goods'], 'order_goods_num' => count($row['order_goods']), 'order_child' => $order_child, 'no_picture' => $GLOBALS['_CFG']['no_picture'], 'order_child' => $order_child, 'delete_yes' => $row['delete_yes'], 'invoice_no' => $row['invoice_no'], 'shipping_name' => $row['shipping_name'], 'email' => $row['email'], 'address_detail' => $row['address_detail'], 'address' => $row['address'], 'address_detail' => $address_detail, 'tel' => $row['tel'], 'delivery_time' => $delivery['delivery_time'], 'order_count' => $order_count, 'kf_type' => $basic_info['kf_type'], 'kf_ww' => $basic_info['kf_ww'], 'kf_qq' => $basic_info['kf_qq'], 'total_fee' => price_format($row['total_fee'], false), 'handler_return' => $row['handler_return'], 'pay_status' => $row['pay_status'], 'handler' => $row['handler'], 'team_id' => $row['team_id'], 'extension_code' => $row['extension_code'], 'order_url' => url('user/order/detail', array('order_id' => $row['order_id'])), 'delay' => $delay);
+		$arr[] = array('order_id' => $row['order_id'], 'order_sn' => $row['order_sn'], 'order_time' => local_date($GLOBALS['_CFG']['time_format'], $row['add_time']), 'order_status' => $row['order_status'], 'order_del' => $row['order_del'], 'online_pay' => $row['online_pay'], 'status' => $row['status'], 'status_number' => $status_number, 'consignee' => $row['consignee'], 'main_order_id' => $row['main_order_id'], 'user_name' => get_shop_name($ru_id, 1), 'order_goods' => $row['order_goods'], 'order_goods_num' => count($row['order_goods']), 'order_child' => $order_child, 'no_picture' => $GLOBALS['_CFG']['no_picture'], 'delete_yes' => $row['delete_yes'], 'invoice_no' => $row['invoice_no'], 'shipping_name' => $row['shipping_name'], 'email' => $row['email'], 'address' => $row['address'], 'address_detail' => $address_detail, 'tel' => $row['tel'], 'delivery_time' => $delivery['delivery_time'], 'order_count' => $order_count, 'kf_type' => $basic_info['kf_type'], 'kf_ww' => $basic_info['kf_ww'], 'kf_qq' => $basic_info['kf_qq'], 'total_fee' => price_format($row['total_fee'], false), 'handler_return' => $row['handler_return'], 'pay_status' => $row['pay_status'], 'handler' => $row['handler'], 'team_id' => $row['team_id'], 'extension_code' => $row['extension_code'], 'order_url' => url('user/order/detail', array('order_id' => $row['order_id'])), 'delay' => $delay);
 	}
 
 	$order_list = array('list' => $arr, 'totalpage' => ceil($total / $num));
@@ -435,7 +437,7 @@ function get_user_orders($user_id, $num = 10, $page = 1, $status = 0)
 
 function cancel_order($order_id, $user_id = 0)
 {
-	$sql = 'SELECT user_id, order_id, order_sn , surplus , integral , bonus_id, order_status, shipping_status, pay_status FROM ' . $GLOBALS['ecs']->table('order_info') . (' WHERE order_id = \'' . $order_id . '\'');
+	$sql = 'SELECT user_id, order_id, order_sn , surplus , integral , bonus_id, order_status, shipping_status, pay_status, uc_id, coupons FROM ' . $GLOBALS['ecs']->table('order_info') . (' WHERE order_id = \'' . $order_id . '\'');
 	$order = $GLOBALS['db']->getRow($sql);
 
 	if (empty($order)) {
@@ -471,6 +473,7 @@ function cancel_order($order_id, $user_id = 0)
 	$sql = 'UPDATE ' . $GLOBALS['ecs']->table('order_info') . ' SET order_status = \'' . OS_CANCELED . ('\' WHERE order_id = \'' . $order_id . '\'');
 
 	if ($GLOBALS['db']->query($sql)) {
+		return_card_money($order_id);
 		order_action($order['order_sn'], OS_CANCELED, $order['shipping_status'], PS_UNPAYED, L('buyer_cancel'), L('buyer'));
 		if (0 < $order['user_id'] && 0 < $order['surplus']) {
 			$change_desc = sprintf(L('return_surplus_on_cancel'), $order['order_sn']);
@@ -484,6 +487,10 @@ function cancel_order($order_id, $user_id = 0)
 
 		if (0 < $order['user_id'] && 0 < $order['bonus_id']) {
 			change_user_bonus($order['bonus_id'], $order['order_id'], false);
+		}
+
+		if (0 < $order['user_id'] && 0 < $order['uc_id']) {
+			unuse_coupons($order);
 		}
 
 		if ($GLOBALS['_CFG']['use_storage'] == '1' && $GLOBALS['_CFG']['stock_dec_time'] == SDT_PLACE) {
@@ -613,6 +620,21 @@ function get_order_detail($order_id, $user_id = 0)
 	if (0 < $user_id && $user_id != $order['user_id']) {
 		$GLOBALS['err']->add(L('no_priv'));
 		return false;
+	}
+
+	if ($order['order_status'] != OS_CANCELED && $order['order_status'] != OS_INVALID && $order['order_status'] != OS_RETURNED && $order['pay_status'] == PS_UNPAYED) {
+		$plugin = ADDONS_PATH . 'payment/' . $order['pay_code'] . '.php';
+
+		if (file_exists($plugin)) {
+			include_once $plugin;
+			$pay_obj = new $order['pay_code']();
+			$order['log_id'] = dao('pay_log')->where(array('order_id' => $order['order_id']))->where(array('order_type' => PAY_ORDER))->getField('log_id');
+			$res = $pay_obj->query($order);
+
+			if ($res == true) {
+				$order = order_info($order_id);
+			}
+		}
 	}
 
 	if (!empty($order['invoice_no'])) {

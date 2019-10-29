@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function get_win_goods($id)
 {
 	$adminru = get_admin_ru_id();
@@ -1047,19 +1047,19 @@ else if ($_REQUEST['act'] == 'upload_img') {
 	}
 	else if ($act_type == 'gallery_img') {
 		$_FILES['img_url'] = array(
-	'name'     => array($_FILES['file']['name']),
-	'type'     => array($_FILES['file']['type']),
-	'tmp_name' => array($_FILES['file']['tmp_name']),
-	'error'    => array($_FILES['file']['error']),
-	'size'     => array($_FILES['file']['size'])
-	);
+			'name'     => array($_FILES['file']['name']),
+			'type'     => array($_FILES['file']['type']),
+			'tmp_name' => array($_FILES['file']['tmp_name']),
+			'error'    => array($_FILES['file']['error']),
+			'size'     => array($_FILES['file']['size'])
+		);
 		$_REQUEST['goods_id_img'] = $id;
 		$_REQUEST['img_desc'] = array(
-	array('')
-	);
+			array('')
+		);
 		$_REQUEST['img_file'] = array(
-	array('')
-	);
+			array('')
+		);
 		$goods_id = !empty($_REQUEST['goods_id_img']) ? intval($_REQUEST['goods_id_img']) : 0;
 		$img_desc = !empty($_REQUEST['img_desc']) ? $_REQUEST['img_desc'] : array();
 		$img_file = !empty($_REQUEST['img_file']) ? $_REQUEST['img_file'] : array();
@@ -1152,6 +1152,7 @@ else if ($_REQUEST['act'] == 'upload_img') {
 		$pic_url = $this_img_info['thumb_url'];
 		$upload_status = 1;
 		$result['external_url'] = '';
+		$result['content'] = $smarty->fetch('library/gallery_img.lbi');
 	}
 
 	if ($upload_status) {
@@ -1730,7 +1731,7 @@ else if ($_REQUEST['act'] == 'insert_goodsImg') {
 			$sql = 'INSERT INTO ' . $ecs->table($table) . ' (goods_id, img_url, img_desc, thumb_url, img_original) ' . ('VALUES (\'' . $goods_id . '\', \'') . $val['pic_image'] . ('\', ' . $img_desc_new . ', \'') . $val['pic_thumb'] . '\', \'' . $val['pic_file'] . '\')';
 			$db->query($sql);
 			$thumb_img_id[] = $img_id = $GLOBALS['db']->insert_id();
-			//get_oss_add_file($result['data']);  //zdl
+			get_oss_add_file($result['data']);
 		}
 	}
 
@@ -1766,7 +1767,6 @@ else if ($_REQUEST['act'] == 'insert_goodsImg') {
 
 	$smarty->assign('img_list', $goods_gallery_list);
 	$result['content'] = $smarty->fetch('library/gallery_img.lbi');
-	$result['data']['goods_thumb'] = get_image_path($goods_id, $result['data']['goods_thumb']);//zdl
 	exit($json->encode($result));
 }
 else if ($_REQUEST['act'] == 'getFCKeditor') {
@@ -2651,7 +2651,7 @@ else if ($_REQUEST['act'] == 'getcat_atr') {
 	$article_list = array(
 		'list'   => array(),
 		'filter' => array()
-		);
+	);
 
 	if ($type == 1) {
 		$where = ' AND a.article_id in(' . $old_article . ') ';
@@ -3154,19 +3154,19 @@ else if ($_REQUEST['act'] == 'lib_upload_img') {
 	}
 	else if ($act_type == 'gallery_img') {
 		$_FILES['img_url'] = array(
-	'name'     => array($_FILES['file']['name']),
-	'type'     => array($_FILES['file']['type']),
-	'tmp_name' => array($_FILES['file']['tmp_name']),
-	'error'    => array($_FILES['file']['error']),
-	'size'     => array($_FILES['file']['size'])
-	);
+			'name'     => array($_FILES['file']['name']),
+			'type'     => array($_FILES['file']['type']),
+			'tmp_name' => array($_FILES['file']['tmp_name']),
+			'error'    => array($_FILES['file']['error']),
+			'size'     => array($_FILES['file']['size'])
+		);
 		$_REQUEST['goods_id_img'] = $id;
 		$_REQUEST['img_desc'] = array(
-	array('')
-	);
+			array('')
+		);
 		$_REQUEST['img_file'] = array(
-	array('')
-	);
+			array('')
+		);
 		$goods_id = !empty($_REQUEST['goods_id_img']) ? intval($_REQUEST['goods_id_img']) : 0;
 		$img_desc = !empty($_REQUEST['img_desc']) ? $_REQUEST['img_desc'] : array();
 		$img_file = !empty($_REQUEST['img_file']) ? $_REQUEST['img_file'] : array();

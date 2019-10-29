@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function shipping_list()
 {
 	$sql = 'SELECT shipping_id, shipping_name ' . 'FROM ' . $GLOBALS['ecs']->table('shipping') . ' WHERE enabled = 1';
@@ -1252,7 +1252,13 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0, $cart_ext
 	}
 
 	if (0 < $num) {
-		$sql = 'SELECT goods_number FROM ' . $GLOBALS['ecs']->table('cart') . ' WHERE ' . $sess_id . (' AND goods_id = \'' . $goods_id . '\' ') . (' AND parent_id = 0 AND goods_attr = \'' . $goods_attr . '\' ') . ' AND extension_code <> \'package_buy\' ' . ' AND rec_type = \'' . $rec_type . ('\' AND group_id=\'\' AND warehouse_id = \'' . $warehouse_id . '\' AND stages_qishu=\'-1\' AND store_id = \'') . $store_id . '\' ';
+		$update_where = '';
+
+		if (0 < $goods['model_attr']) {
+			$update_where = ' AND warehouse_id = \'' . $warehouse_id . '\' ';
+		}
+
+		$sql = 'SELECT goods_number FROM ' . $GLOBALS['ecs']->table('cart') . ' WHERE ' . $sess_id . (' AND goods_id = \'' . $goods_id . '\' ') . (' AND parent_id = 0 AND goods_attr = \'' . $goods_attr . '\' ') . ' AND extension_code <> \'package_buy\' ' . ' AND rec_type = \'' . $rec_type . '\' AND group_id=\'\' ' . $update_where . ' AND stages_qishu=\'-1\' AND store_id = \'' . $store_id . '\' ';
 		$row = $GLOBALS['db']->getRow($sql);
 
 		if ($row) {
@@ -1266,7 +1272,7 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0, $cart_ext
 
 			if ($GLOBALS['_CFG']['use_storage'] == 0 || $num <= $goods_storage) {
 				$goods_price = get_final_price($goods_id, $num, true, $spec, $warehouse_id, $area_id, $area_city, 0, 0, $add_tocart);
-				$sql = 'UPDATE ' . $GLOBALS['ecs']->table('cart') . (' SET goods_number = \'' . $num . '\'') . (' , goods_price = \'' . $goods_price . '\'') . (' , area_id = \'' . $area_id . '\'') . ' WHERE ' . $sess_id . (' AND goods_id = \'' . $goods_id . '\' ') . (' AND parent_id = 0 AND goods_attr = \'' . $goods_attr . '\' ') . ' AND extension_code <> \'package_buy\' ' . (' AND warehouse_id = \'' . $warehouse_id . '\' ') . 'AND rec_type = \'' . $rec_type . '\' AND group_id = 0 AND stages_qishu=\'-1\' AND store_id = ' . $store_id;
+				$sql = 'UPDATE ' . $GLOBALS['ecs']->table('cart') . (' SET goods_number = \'' . $num . '\'') . (' , goods_price = \'' . $goods_price . '\'') . (' , area_id = \'' . $area_id . '\'') . ' WHERE ' . $sess_id . (' AND goods_id = \'' . $goods_id . '\' ') . (' AND parent_id = 0 AND goods_attr = \'' . $goods_attr . '\' ') . ' AND extension_code <> \'package_buy\' ' . $update_where . 'AND rec_type = \'' . $rec_type . '\' AND group_id = 0 AND stages_qishu=\'-1\' AND store_id = ' . $store_id;
 				$GLOBALS['db']->query($sql);
 			}
 			else {
@@ -4791,16 +4797,29 @@ function unuse_coupons($order_info)
 	}
 }
 
-function return_card_money($order_id)
+function return_card_money($order_id, $ret_id = 0, $return_sn = '')
 {
 	$sql = ' SELECT use_val,vc_id FROM ' . $GLOBALS['ecs']->table('value_card_record') . (' WHERE order_id = \'' . $order_id . '\' LIMIT 1 ');
 	$row = $GLOBALS['db']->getRow($sql);
 
 	if ($row) {
-		$sql = ' UPDATE ' . $GLOBALS['ecs']->table('value_card') . (' SET card_money = card_money + \'' . $row['use_val'] . '\' WHERE vid = \'' . $row['vc_id'] . '\' ');
-	}
+		$sql = 'SELECT order_sn, user_id, order_status, order_status, shipping_status FROM ' . $GLOBALS['ecs']->table('order_info') . (' WHERE order_id = \'' . $order_id . '\' LIMIT 1');
+		$order_info = $GLOBALS['db']->getRow($sql);
+		$sql = ' UPDATE ' . $GLOBALS['ecs']->table('value_card') . ' SET card_money = card_money + ' . $row['use_val'] . ' WHERE vid = \'' . $row['vc_id'] . '\' ';
+		$GLOBALS['db']->query($sql);
+		$time = gmtime();
+		$log = array('vc_id' => $row['vc_id'], 'order_id' => $order_id, 'use_val' => $row['use_val'], 'vc_dis' => 1, 'add_val' => $row['use_val'], 'record_time' => $time);
+		$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('value_card_record'), $log, 'INSERT');
 
-	return $GLOBALS['db']->query($sql);
+		if ($return_sn) {
+			$return_note = sprintf($GLOBALS['_LANG']['order_vcard_return'], $row['use_val']);
+			return_action($ret_id, RF_AGREE_APPLY, FF_REFOUND, $return_note);
+			$return_sn = '<br/>退换货-流水号：' . $return_sn;
+		}
+
+		$note = sprintf($GLOBALS['_LANG']['order_vcard_return'] . $return_sn, $row['use_val']);
+		order_action($order_info['order_sn'], $order_info['order_status'], $order_info['shipping_status'], $order_info['pay_status'], $note, NULL, 0, $time);
+	}
 }
 
 function return_integral_rank($ret_id = 0, $user_id = 0, $order_sn = 0, $rec_id = 0, $refound_pay_points = 0)
@@ -5545,7 +5564,7 @@ function update_team($team_id = 0, $team_parent_id = 0)
 					$pushData = array(
 						'keyword1' => array('value' => $vo['order_sn'], 'color' => '#173177'),
 						'keyword2' => array('value' => $res['goods_name'], 'color' => '#173177')
-						);
+					);
 					$url = __HOST__ . url('team/goods/teamwait', array('team_id' => $team_id, 'user_id' => $vo['user_id']));
 					push_template('OPENTM407456411', $pushData, $url, $vo['user_id']);
 				}
@@ -5564,7 +5583,7 @@ function update_team($team_id = 0, $team_parent_id = 0)
 					'keyword3' => array('value' => $res['team_num'], 'color' => '#173177'),
 					'keyword4' => array('value' => '普通', 'color' => '#173177'),
 					'keyword5' => array('value' => $res['validity_time'] . '小时', 'color' => '#173177')
-					);
+				);
 				$url = __HOST__ . url('team/goods/teamwait', array('team_id' => $team_id, 'user_id' => $_SESSION['user_id']));
 				push_template('OPENTM407307456', $pushData, $url, $_SESSION['user_id']);
 			}
@@ -5574,7 +5593,7 @@ function update_team($team_id = 0, $team_parent_id = 0)
 					'keyword1' => array('value' => $res['goods_name'], 'color' => '#173177'),
 					'keyword2' => array('value' => $res['team_price'] . '元', 'color' => '#173177'),
 					'keyword3' => array('value' => $res['validity_time'] . '小时', 'color' => '#173177')
-					);
+				);
 				$url = __HOST__ . url('team/goods/teamwait', array('team_id' => $team_id, 'user_id' => $_SESSION['user_id']));
 				push_template('OPENTM400048581', $pushData, $url, $_SESSION['user_id']);
 			}

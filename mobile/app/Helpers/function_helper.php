@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function get_ip_area_name($ip = '', $api = 0)
 {
 	if ($ip == '') {
@@ -66,18 +66,18 @@ function get_taobao_api($ip = 0)
 			$ip_city = get_shop_address($GLOBALS['_CFG']['shop_city']);
 			$str = array(
 				'data' => array('city' => $ip_city, 'county' => '')
-				);
+			);
 		}
 		else if (!empty($GLOBALS['_CFG']['shop_province'])) {
 			$ip_province = get_shop_address($GLOBALS['_CFG']['shop_province']);
 			$str = array(
 				'data' => array('city' => '', 'county' => '', 'region' => $ip_province)
-				);
+			);
 		}
 		else {
 			$str = array(
 				'data' => array('region' => '上海', 'city' => '', 'county' => '')
-				);
+			);
 		}
 	}
 
@@ -2901,9 +2901,9 @@ function get_new_order_info($newInfo, $type = 0, $bonus_id = 0)
 			}
 			else {
 				$arr[$key]['compute_discount'] = array(
-	'discount' => 0,
-	'name'     => array()
-	);
+					'discount' => 0,
+					'name'     => array()
+				);
 			}
 		}
 	}
@@ -3535,18 +3535,31 @@ function get_to_area_list($ra_id = 0)
 
 function get_user_store_category($ru_id)
 {
-	$sql = 'select cat_id, cat_name from ' . $GLOBALS['ecs']->table('merchants_category') . ('  where user_id = \'' . $ru_id . '\' and is_show = 1 and parent_id=0');
-	$res = $GLOBALS['db']->getAll($sql);
-	$arr = array();
+	$cat_cache = md5('mobile_store_category' . $ru_id);
+	$cat_list = S($cat_cache);
 
-	foreach ($res as $key => $row) {
-		$arr[$key] = $row;
-		$arr[$key]['url'] = build_uri('merchants_store', array('cid' => $row['cat_id'], 'urid' => $ru_id), $row['cat_name']);
-		$arr[$key]['opennew'] = 0;
-		$arr[$key]['child'] = get_store_category_child($row['cat_id'], $ru_id);
+	if ($cat_list === false) {
+		$sql = 'select cat_id, cat_name from ' . $GLOBALS['ecs']->table('merchants_category') . ('  where user_id = \'' . $ru_id . '\' and is_show = 1 and parent_id = 0');
+		$res = $GLOBALS['db']->getAll($sql);
+		$arr = array();
+
+		if ($res) {
+			foreach ($res as $key => $row) {
+				$arr[$key] = $row;
+				$arr[$key]['url'] = build_uri('merchants_store', array('cid' => $row['cat_id'], 'urid' => $ru_id), $row['cat_name']);
+				$arr[$key]['opennew'] = 0;
+				$arr[$key]['child'] = get_store_category_child($row['cat_id'], $ru_id);
+			}
+
+			$arr = array_merge($arr);
+		}
+
+		S($cat_cache, $arr);
+	}
+	else {
+		$arr = $cat_list;
 	}
 
-	$arr = array_merge($arr);
 	return $arr;
 }
 
@@ -4075,7 +4088,7 @@ function goodsShippingFee($goods_id = 0, $warehouse_id = 0, $area_id = 0, $regio
 						array('name' => 'base_fee', 'value' => 0),
 						array('name' => 'step_fee', 'value' => 0),
 						array('name' => 'free_money', 'value' => 100000)
-						);
+					);
 					if (!isset($sellerShippingInfo['configure']) && empty($sellerShippingInfo['configure'])) {
 						$sellerShippingInfo['configure'] = serialize($cfg);
 					}

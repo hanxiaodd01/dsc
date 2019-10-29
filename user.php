@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function get_validate_info($user_id)
 {
 	$sql = 'SELECT u.mobile_phone, u.is_validated, u.email, up.pay_password, ur.bank_mobile, ur.real_name, ur.bank_card, ur.bank_name, ur.review_status FROM ' . $GLOBALS['ecs']->table('users') . ' AS u ' . ' LEFT JOIN ' . $GLOBALS['ecs']->table('users_paypwd') . ' AS up ON u.user_id = up.user_id ' . ' LEFT JOIN ' . $GLOBALS['ecs']->table('users_real') . ' AS ur ON u.user_id = ur.user_id ' . (' WHERE u.user_id=\'' . $user_id . '\'');
@@ -681,6 +681,22 @@ function get_user_accountlog_list($user_id = 0, $account_type = '', $pager = arr
 	}
 
 	return $account_log;
+}
+
+function get_is_baitiao_order($order_id = '')
+{
+	$is_baitiao_order = 0;
+
+	if ($order_id) {
+		$sql = 'SELECT log_id FROM ' . $GLOBALS['ecs']->table('baitiao_log') . ' WHERE order_id = \'' . $order_id . '\'';
+		$res = $GLOBALS['db']->getOne($sql);
+
+		if ($res) {
+			$is_baitiao_order = 1;
+		}
+	}
+
+	return $is_baitiao_order;
 }
 
 define('IN_ECS', true);
@@ -2302,15 +2318,14 @@ else if ($action == 'get_password') {
 		$smarty->assign('enabled_sms_signin', 0);
 	}
 
-	if (isset($_GET['code']) && isset($_GET['uid'])) {
+	if (isset($_GET['code'])) {
 		$code = trim($_GET['code']);
-		$uid = intval($_GET['uid']);
-		$user_info = $user->get_profile_by_id($uid);
+		$_SESSION['pass_uid'] = isset($_SESSION['pass_uid']) && !empty($_SESSION['pass_uid']) ? intval($_SESSION['pass_uid']) : 0;
+		$user_info = $user->get_profile_by_id($_SESSION['pass_uid']);
 		if (empty($user_info) || $user_info && md5($user_info['user_id'] . $_CFG['hash_code'] . $user_info['reg_time']) != $code) {
 			show_message($_LANG['parm_error'], $_LANG['back_home_lnk'], './', 'info');
 		}
 
-		$smarty->assign('uid', $uid);
 		$smarty->assign('code', $code);
 		$smarty->assign('action', 'reset_password');
 		$smarty->display('user_passport.dwt');
@@ -2378,7 +2393,7 @@ else if ($action == 'check_answer') {
 	else {
 		$_SESSION['user_id'] = $user_question_arr['user_id'];
 		$_SESSION['user_name'] = $user_question_arr['user_name'];
-		$smarty->assign('uid', $_SESSION['user_id']);
+		$_SESSION['pass_uid'] = $user_question_arr['user_id'];
 		$smarty->assign('action', 'reset_password');
 		$smarty->display('user_passport.dwt');
 	}
@@ -2401,8 +2416,9 @@ else if ($action == 'send_pwd_email') {
 	$user_info = $user->get_user_info($user_name);
 	if ($user_info && $user_info['email'] == $email) {
 		$code = md5($user_info['user_id'] . $_CFG['hash_code'] . $user_info['reg_time']);
+		$_SESSION['pass_uid'] = $user_info['user_id'];
 
-		if (send_pwd_email($user_info['user_id'], $user_name, $email, $code)) {
+		if (send_pwd_email(0, $user_name, $email, $code)) {
 			show_message($_LANG['send_success'] . $email, $_LANG['back_home_lnk'], './', 'info');
 		}
 		else {
@@ -2456,7 +2472,7 @@ else if ($action == 'get_pwd_mobile') {
 
 	$sql = 'SELECT user_id, user_name FROM ' . $ecs->table('users') . (' WHERE mobile_phone = \'' . $mobile_phone . '\' ' . $where . ' LIMIT 1');
 	$user_arr = $db->getRow($sql);
-	$smarty->assign('uid', $user_arr['user_id']);
+	$_SESSION['pass_uid'] = $user_arr['user_id'];
 	$smarty->assign('action', 'reset_password');
 	$smarty->display('user_passport.dwt');
 }
@@ -2468,9 +2484,9 @@ else if ($action == 'act_edit_password') {
 	$_POST = get_request_filter($_POST, 1);
 	$old_password = isset($_POST['old_password']) ? trim($_POST['old_password']) : '';
 	$new_password = isset($_POST['new_password']) ? trim($_POST['new_password']) : '';
-	$user_id = isset($_POST['uid']) ? intval($_POST['uid']) : $user_id;
 	$code = isset($_POST['code']) ? trim($_POST['code']) : '';
 	$captcha_str = isset($_POST['captcha']) ? trim($_POST['captcha']) : '';
+	$user_id = isset($_SESSION['pass_uid']) && !empty($_SESSION['pass_uid']) ? intval($_SESSION['pass_uid']) : 0;
 	$verify = new Verify();
 	$captcha_code = $verify->check($captcha_str, 'get_password');
 	$comfirm_password = isset($_POST['confirm_password']) ? trim($_POST['confirm_password']) : '';
@@ -2935,7 +2951,7 @@ else {
 			}
 
 			$order['affirm_received'] = '';
-			if (($orderInfo['order_status'] == OS_CONFIRMED || $orderInfo['order_status'] == OS_SPLITED) && $orderInfo['shipping_status'] == SS_SHIPPED && $orderInfo['pay_status'] == PS_PAYED) {
+			if (($orderInfo['order_status'] == OS_CONFIRMED || $orderInfo['order_status'] == OS_SPLITED || $orderInfo['order_status'] == OS_RETURNED_PART || $orderInfo['order_status'] == OS_ONLY_REFOUND) && $orderInfo['shipping_status'] == SS_SHIPPED && $orderInfo['pay_status'] == PS_PAYED) {
 				$order['affirm_received'] = 'user.php?act=affirm_received&order_id=' . $order_id . '&action=info';
 			}
 
@@ -4348,11 +4364,20 @@ else {
 						$amount = $amount - $deposit_money;
 					}
 
+					$account_time = gmtime();
+					$sql = 'SELECT COUNT(*) FROM ' . $GLOBALS['ecs']->table('user_account') . ' WHERE user_id = \'' . $surplus['user_id'] . ('\' AND add_time = \'' . $account_time . '\'');
+					$account_count = $GLOBALS['db']->getOne($sql);
+
+					if (0 < $account_count) {
+						$content = $GLOBALS['_LANG']['surplus_appl_submit'];
+						show_message($content, $GLOBALS['_LANG']['back_account_log'], 'user.php?act=account_log', 'info');
+					}
+
 					$surplus['deposit_fee'] = '-' . $deposit_money;
 					$frozen_money = $amount + $deposit_money;
 					$amount = '-' . $amount;
 					$surplus['payment'] = '';
-					$surplus['rec_id'] = insert_user_account($surplus, $amount);
+					$surplus['rec_id'] = insert_user_account($surplus, $amount, $account_time);
 
 					if (0 < $surplus['rec_id']) {
 						$sc_rand = isset($_POST['sc_rand']) && !empty($_POST['sc_rand']) ? addslashes(trim($_POST['sc_rand'])) : '';
@@ -5016,6 +5041,8 @@ else {
 				$smarty->assign('bonus1', $bonus1);
 				$bonus2 = get_user_bouns_new_list($user_id, $page, 2, 'bouns_useup_gotoPage', 0, $size);
 				$smarty->assign('bonus2', $bonus2);
+				$bonus3 = get_user_bouns_new_list($user_id, $page, 3, 'bouns_invalid_gotoPage', 0, $size);
+				$smarty->assign('bonus3', $bonus3);
 				$smarty->assign('size', $size);
 				$bonus3 = get_user_bouns_new_list($user_id, $page, 0, '', 1);
 				$bouns_amount = get_bouns_amount_list($bonus3);
@@ -5226,7 +5253,7 @@ else {
 						'page_next'    => $page < $max_page ? $url_format . ($page + 1) : 'javascript:;',
 						'page_last'    => $url_format . $max_page,
 						'array'        => array()
-						);
+					);
 
 					for ($i = 1; $i <= $max_page; $i++) {
 						$pager['array'][$i] = $i;
@@ -5756,6 +5783,7 @@ else {
 
 				$order_id = intval($_REQUEST['order_id']);
 				$order = order_info($order_id);
+				$order['is_baitiao_order'] = get_is_baitiao_order($order_id);
 				$sql = ' SELECT order_id FROM ' . $GLOBALS['ecs']->table('order_info') . (' WHERE order_id = \'' . $order_id . '\' AND shipping_status > 0 ');
 				$return_allowable = $GLOBALS['db']->getOne($sql, true);
 				$smarty->assign('return_allowable', $return_allowable);

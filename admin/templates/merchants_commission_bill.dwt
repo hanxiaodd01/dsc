@@ -163,10 +163,6 @@
                                             {if $bill.bill_apply neq 1}
                                             <a href="javascript:;" onclick="listTable.remove('0&bill_id={$bill.id}&seller_id={$filter.id}', '{$lang.trash_goods_confirm}', 'bill_remove')" class="btn_trash"><i class="icon icon-trash"></i>{$lang.delete_bill}</a>
                                             {/if}
-                                            
-                                            {if $bill.chargeoff_status eq 1}
-                                            <a href="merchants_commission.php?act=bill_detector&bill_id={$bill.id}&seller_id={$filter.id}" class="btn_trash" style="display:none"><i class="icon icon-trash"></i>{$lang.commission_detector}</a>	
-                                            {/if}
                                         </p>
                                     </div>
                                 </td>

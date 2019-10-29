@@ -796,6 +796,7 @@ transform: rotate(135deg);background:#fff; bottom:-.6rem; z-index: -1; left:50%;
 .product-list-small .p-price small{margin-left:.6rem; font-size:1.4rem;}
 .product-list-small .icon-flow-cart{ right:1.3rem; bottom:1.3rem;width:2.8rem; height:2.8rem; line-height:2.8rem; }
 .product-list-small .icon-flow-cart i.icon-gouwuche{font-size:1.8rem;}
+.product-list-small .extra-btn{ cursor: pointer; float: right; height: 2.3rem; line-height: 2.3rem; padding: 0 1rem; background: #EC5151; color: #fff; font-size: 1.2rem;}
 
 /*
  * 商品列表一行多列显示

@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function edit_profile($profile)
 {
 	global $_CFG;
@@ -687,7 +687,7 @@ function get_user_orders($user_id, $record_count, $page, $is_delete = 0, $where 
 			$row['handler'] = '<a href="user.php?act=cancel_order&order_id=' . $row['order_id'] . '" onclick="if (!confirm(\'' . $GLOBALS['_LANG']['confirm_cancel'] . '\')) return false;">' . $GLOBALS['_LANG']['cancel'] . '</a>';
 		}
 		else {
-			if ($row['order_status'] == OS_SPLITED || $row['order_status'] == OS_CONFIRMED || $row['order_status'] == OS_RETURNED_PART) {
+			if ($row['order_status'] == OS_SPLITED || $row['order_status'] == OS_CONFIRMED || $row['order_status'] == OS_RETURNED_PART || $row['order_status'] == OS_ONLY_REFOUND) {
 				if ($row['shipping_status'] == SS_SHIPPED) {
 					@$row['allow_order_delay_handler'] = $GLOBALS['_LANG']['allow_order_delay'];
 					@$row['remind'] = $GLOBALS['_LANG']['confirm_received'];
@@ -784,9 +784,7 @@ function get_user_orders($user_id, $record_count, $page, $is_delete = 0, $where 
 		}
 
 		$br = '';
-		$order_over = 0;
-		if ($row['user_order'] == OS_SPLITED && $row['user_shipping'] == SS_RECEIVED && $row['user_pay'] == PS_PAYED) {
-			$order_over = 1;
+		if (($row['user_order'] == OS_CONFIRMED || $row['user_order'] == OS_SPLITED) && $row['user_shipping'] == SS_RECEIVED && $row['user_pay'] == PS_PAYED) {
 			$row['order_status'] = $GLOBALS['_LANG']['ss_received'];
 			$row['original_handler'] = $GLOBALS['_LANG']['single_comment'];
 
@@ -810,14 +808,13 @@ function get_user_orders($user_id, $record_count, $page, $is_delete = 0, $where 
 				$row['handler_act'] = 'commented_view';
 			}
 
-			$row['handler'] = '<a href="user.php?act=commented_view&order_id=' . $row['order_id'] . $sign . '">' . $row['original_handler'] . '</a><br/>';
+			$row['handler'] = '<a href=\'user.php?act=commented_view&order_id=' . $row['order_id'] . $sign . '\'>' . $row['original_handler'] . '</a><br/>';
 			@$row['original_handler_return'] = $GLOBALS['_LANG']['return'];
 			@$row['handler_return_act'] = 'goods_order';
 			@$row['handler_return'] = '<a href="user.php?act=goods_order&order_id=' . $row['order_id'] . '" style="margin-left:5px;" >' . $GLOBALS['_LANG']['return'] . '</a><br/>';
 		}
 		else {
 			if ($row['user_order'] == OS_CANCELED && $row['user_shipping'] == SS_UNSHIPPED && $row['user_pay'] == PS_UNPAYED) {
-				$order_over = 1;
 				$row['order_status'] = $GLOBALS['_LANG']['os'][OS_CANCELED];
 				$row['handler_order_status'] = false;
 				$row['handler'] = '';
@@ -828,38 +825,12 @@ function get_user_orders($user_id, $record_count, $page, $is_delete = 0, $where 
 					$br = '<br/>';
 				}
 				else {
-					if ($row['user_order'] == OS_CONFIRMED && $row['user_shipping'] == SS_RECEIVED && $row['user_pay'] == PS_PAYED) {
-						$order_over = 1;
-						$row['order_status'] = $GLOBALS['_LANG']['ss_received'];
-						$row['original_handler'] = $GLOBALS['_LANG']['single_comment'];
-
-						if (0 < $row['sign']) {
-							$sign = '&sign=' . $row['sign'];
-							$row['original_handler'] = $GLOBALS['_LANG']['single_comment_on'];
-						}
-						else {
-							$sign = '';
-						}
-
+					if (!($row['user_order'] == OS_UNCONFIRMED && $row['user_shipping'] == SS_UNSHIPPED && $row['user_pay'] == PS_UNPAYED) && !($row['user_order'] == OS_CONFIRMED && $row['user_shipping'] == SS_SHIPPED && $row['user_pay'] == PS_PAYED)) {
 						$row['handler_order_status'] = false;
-
-						if ($row['extension_code'] != 'package_buy') {
-							$row['handler_act'] = 'commented_view';
-						}
-
-						$row['handler'] = '<a href="user.php?act=commented_view&order_id=' . $row['order_id'] . $sign . '">' . $row['original_handler'] . '</a><br/>';
-						@$row['original_handler_return'] = $GLOBALS['_LANG']['return'];
-						@$row['handler_return_act'] = 'goods_order';
-						@$row['handler_return'] = '<a href="user.php?act=goods_order&order_id=' . $row['order_id'] . '" style="margin-left:5px;" >' . $GLOBALS['_LANG']['return'] . '</a><br/>';
+						$row['handler'] = '';
 					}
 					else {
-						if (!($row['user_order'] == OS_UNCONFIRMED && $row['user_shipping'] == SS_UNSHIPPED && $row['user_pay'] == PS_UNPAYED) && !($row['user_order'] == OS_CONFIRMED && $row['user_shipping'] == SS_SHIPPED && $row['user_pay'] == PS_PAYED)) {
-							$row['handler_order_status'] = false;
-							$row['handler'] = '';
-						}
-						else {
-							$br = '<br/>';
-						}
+						$br = '<br/>';
 					}
 				}
 			}
@@ -1237,7 +1208,7 @@ function get_snatch_search_keyword($snatch = array())
 
 function cancel_order($order_id, $user_id = 0)
 {
-	$sql = 'SELECT user_id, order_id, order_sn , surplus , integral , bonus_id, order_status, shipping_status, pay_status FROM ' . $GLOBALS['ecs']->table('order_info') . (' WHERE order_id = \'' . $order_id . '\'');
+	$sql = 'SELECT user_id, order_id, order_sn , surplus , integral , bonus_id, order_status, shipping_status, pay_status, uc_id FROM ' . $GLOBALS['ecs']->table('order_info') . (' WHERE order_id = \'' . $order_id . '\'');
 	$order = $GLOBALS['db']->GetRow($sql);
 
 	if (empty($order)) {
@@ -1287,6 +1258,10 @@ function cancel_order($order_id, $user_id = 0)
 
 		if (0 < $order['user_id'] && 0 < $order['bonus_id']) {
 			change_user_bonus($order['bonus_id'], $order['order_id'], false);
+		}
+
+		if (0 < $order['user_id'] && 0 < $order['uc_id']) {
+			unuse_coupons($order['order_id']);
 		}
 
 		if ($GLOBALS['_CFG']['use_storage'] == '1' && $GLOBALS['_CFG']['stock_dec_time'] == SDT_PLACE) {

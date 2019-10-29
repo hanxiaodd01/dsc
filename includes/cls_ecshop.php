@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 class ECS
 {
 	public $db_name = '';
@@ -233,7 +233,7 @@ class ECS
 					$req->setSmsType($row['SmsType']);
 					$req->setSmsFreeSignName($row['SignName']);
 					$req->setSmsParam($row['smsParams']);
-					$req->setRecNum(''.$phones);
+					$req->setRecNum($phones);
 					$req->setSmsTemplateCode($row['SmsCdoe']);
 					$arr[$key]['resp'] = $c->execute($req);
 				}
@@ -246,7 +246,7 @@ class ECS
 			$req->setSmsType($msg['SmsType']);
 			$req->setSmsFreeSignName($msg['SignName']);
 			$req->setSmsParam($msg['smsParams']);
-			$req->setRecNum(''.$phones);
+			$req->setRecNum($phones);
 			$req->setSmsTemplateCode($msg['SmsCdoe']);
 			$resp = $c->execute($req);
 			return $resp;
@@ -612,7 +612,7 @@ if (!defined('IN_ECS')) {
 }
 
 define('APPNAME', 'ECMOBAN_DSC');
-define('VERSION', 'v2.7.3.3');
-define('RELEASE', '20190313');
+define('VERSION', 'v2.7.3.4');
+define('RELEASE', '20190705');
 
 ?>

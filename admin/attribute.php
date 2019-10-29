@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function get_attrlist($ru_id = 0)
 {
 	$filter = array();
@@ -32,7 +32,8 @@ function get_attrlist($ru_id = 0)
 
 	foreach ($row as $key => $val) {
 		$row[$key]['attr_input_type_desc'] = $GLOBALS['_LANG']['value_attr_input_type'][$val['attr_input_type']];
-		$row[$key]['attr_values'] = str_replace("\n", ', ', $val['attr_values']);
+		$row[$key]['attr_values'] = str_replace('
+', ', ', $val['attr_values']);
 	}
 
 	$arr = array('item' => $row, 'filter' => $filter, 'page_count' => $filter['page_count'], 'record_count' => $filter['record_count']);
@@ -126,7 +127,7 @@ else {
 			if (0 < $adminru['ru_id']) {
 				$links = array(
 					array('href' => 'goods_type.php?act=manage', 'text' => $_LANG['back_list'])
-					);
+				);
 				sys_msg($add_edit_cenetent, 0, $links);
 				exit();
 			}
@@ -153,6 +154,7 @@ else {
 			}
 
 			$attr = array('cat_id' => $cat_id, 'attr_name' => $_POST['attr_name'], 'attr_cat_type' => $_POST['attr_cat_type'], 'attr_index' => $_POST['attr_index'], 'sort_order' => $sort_order, 'attr_input_type' => $_POST['attr_input_type'], 'is_linked' => $_POST['is_linked'], 'attr_values' => isset($_POST['attr_values']) ? $_POST['attr_values'] : '', 'attr_type' => empty($_POST['attr_type']) ? '0' : intval($_POST['attr_type']), 'attr_group' => isset($_POST['attr_group']) ? intval($_POST['attr_group']) : 0);
+			$attr['attr_values'] = filterTextblank($attr['attr_values']);
 
 			if ($is_insert) {
 				$db->autoExecute($ecs->table('attribute'), $attr, 'INSERT');
@@ -168,7 +170,7 @@ else {
 				$links = array(
 					array('text' => $_LANG['add_next'], 'href' => '?act=add&goods_type=' . $cat_id),
 					array('text' => $_LANG['back_list'], 'href' => '?act=list&goods_type=' . $cat_id)
-					);
+				);
 				sys_msg(sprintf($_LANG['add_ok'], $attr['attr_name']), 0, $links);
 			}
 			else {
@@ -176,7 +178,7 @@ else {
 				admin_log($_POST['attr_name'], 'edit', 'attribute');
 				$links = array(
 					array('text' => $_LANG['back_list'], 'href' => '?act=list&amp;goods_type=' . $cat_id . '')
-					);
+				);
 				sys_msg(sprintf($_LANG['edit_ok'], $attr['attr_name']), 0, $links);
 			}
 		}
@@ -196,7 +198,8 @@ if ($_REQUEST['act'] == 'set_gcolor') {
 
 	if (!empty($color_values)) {
 		if ($attribute['attr_input_type'] == 1) {
-			$list = explode("\n", trim($color_values));
+			$list = explode('
+', trim($color_values));
 		}
 		else {
 			$sql = 'SELECT GROUP_CONCAT(ga.attr_value) AS attr_values FROM ' . $GLOBALS['ecs']->table('attribute') . ' AS a, ' . $GLOBALS['ecs']->table('goods_attr') . ' AS ga ' . (' WHERE a.attr_id = ga.attr_id AND a.attr_id = \'' . $attr_id . '\'');
@@ -208,7 +211,8 @@ if ($_REQUEST['act'] == 'set_gcolor') {
 		}
 
 		if (empty($attr_valuess) && !empty($color_values)) {
-			$list = explode("\n", trim($color_values));
+			$list = explode('
+', trim($color_values));
 		}
 
 		for ($i = 0; $i < count($list); $i++) {
@@ -262,7 +266,8 @@ if ($_REQUEST['act'] == 'gcolor_insert') {
 			$v = substr($v, 1);
 		}
 
-		$str .= $k . '_#' . $v . "\n";
+		$str .= $k . '_#' . $v . '
+';
 	}
 
 	$str = strtoupper(trim($str));
@@ -348,7 +353,8 @@ else if ($_REQUEST['act'] == 'remove') {
 	$db->query('DELETE FROM ' . $ecs->table('attribute') . (' WHERE attr_id=\'' . $id . '\''));
 	$db->query('DELETE FROM ' . $ecs->table('goods_attr') . (' WHERE attr_id=\'' . $id . '\''));
 	$url = 'attribute.php?act=query&' . str_replace('act=remove', '', $_SERVER['QUERY_STRING']);
-	ecs_header('Location: ' . $url . "\n");
+	ecs_header('Location: ' . $url . '
+');
 	exit();
 }
 else if ($_REQUEST['act'] == 'get_attr_num') {

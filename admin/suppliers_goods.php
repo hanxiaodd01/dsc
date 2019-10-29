@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function list_link($is_add = true, $extension_code = '')
 {
 	$href = 'goods.php?act=list';
@@ -67,6 +67,7 @@ require_once ROOT_PATH . '/admin/includes/lib_goods.php';
 include_once ROOT_PATH . '/includes/cls_image.php';
 $image = new cls_image($_CFG['bgcolor']);
 $exc = new exchange($ecs->table('goods'), $db, 'goods_id', 'goods_name');
+$admin_id = get_admin_id();
 if ($_REQUEST['act'] == 'list' || $_REQUEST['act'] == 'trash') {
 	admin_priv('goods_manage');
 	$cat_id = empty($_REQUEST['cat_id']) ? 0 : intval($_REQUEST['cat_id']);
@@ -156,7 +157,7 @@ else {
 				'goods_weight'       => 0,
 				'give_integral'      => -1,
 				'rank_integral'      => -1
-				);
+			);
 
 			if ($code != '') {
 				$goods['goods_number'] = 0;
@@ -171,7 +172,7 @@ else {
 			$goods_article_list = array();
 			$sql = 'DELETE FROM ' . $ecs->table('goods_article') . (' WHERE goods_id = 0 AND admin_id = \'' . $_SESSION['admin_id'] . '\'');
 			$db->query($sql);
-			$sql = 'DELETE FROM ' . $ecs->table('goods_attr') . ' WHERE goods_id = 0';
+			$sql = 'DELETE FROM ' . $ecs->table('goods_attr') . (' WHERE goods_id = 0 AND admin_id = \'' . $admin_id . '\'');
 			$db->query($sql);
 			$img_list = array();
 		}
@@ -202,7 +203,7 @@ else {
 					'goods_weight'       => 0,
 					'give_integral'      => -1,
 					'rank_integral'      => -1
-					);
+				);
 			}
 
 			if (0 < $goods['goods_weight']) {
@@ -267,7 +268,7 @@ else {
 					$db->autoExecute($ecs->table('goods_article'), $row, 'INSERT');
 				}
 
-				$sql = 'DELETE FROM ' . $ecs->table('goods_attr') . ' WHERE goods_id = 0';
+				$sql = 'DELETE FROM ' . $ecs->table('goods_attr') . (' WHERE goods_id = 0 AND admin_id = \'' . $admin_id . '\'');
 				$db->query($sql);
 				$sql = 'SELECT 0 AS goods_id, attr_id, attr_value, attr_price ' . 'FROM ' . $ecs->table('goods_attr') . (' WHERE goods_id = \'' . $_REQUEST['goods_id'] . '\' ');
 				$res = $db->query($sql);
@@ -350,7 +351,7 @@ else {
 		if (empty($volume_price_list)) {
 			$volume_price_list = array(
 				array('number' => '', 'price' => '')
-				);
+			);
 		}
 
 		$smarty->assign('volume_price_list', $volume_price_list);
@@ -584,12 +585,12 @@ else {
 			$give_integral = isset($_POST['give_integral']) ? intval($_POST['give_integral']) : '-1';
 			$rank_integral = isset($_POST['rank_integral']) ? intval($_POST['rank_integral']) : '-1';
 			$goods_name_style = $_POST['goods_name_color'] . '+' . $_POST['goods_name_style'];
-			$catgory_id = empty($_POST['cat_id']) ? '' : intval($_POST['cat_id']);
+			$catgory_id = empty($_POST['cat_id']) ? '' : intval($_POST['cat_id']);//Scalping
 			$brand_id = empty($_POST['brand_id']) ? '' : intval($_POST['brand_id']);
 			$goods_img = empty($goods_img) && !empty($_POST['goods_img_url']) && goods_parse_url($_POST['goods_img_url']) ? htmlspecialchars(trim($_POST['goods_img_url'])) : $goods_img;
 			$goods_thumb = empty($goods_thumb) && !empty($_POST['goods_thumb_url']) && goods_parse_url($_POST['goods_thumb_url']) ? htmlspecialchars(trim($_POST['goods_thumb_url'])) : $goods_thumb;
 			$goods_thumb = empty($goods_thumb) && isset($_POST['auto_thumb']) ? $goods_img : $goods_thumb;
-
+            
 			if ($is_insert) {
 				if ($code == '') {
 					$sql = 'INSERT INTO ' . $ecs->table('goods') . ' (goods_name, goods_name_style, goods_sn, ' . 'cat_id, brand_id, shop_price, market_price, is_promote, promote_price, ' . 'promote_start_date, promote_end_date, goods_img, goods_thumb, original_img, keywords, goods_brief, ' . 'seller_note, goods_weight, goods_number, warn_number, integral, give_integral, is_best, is_new, is_hot, ' . 'is_on_sale, is_alone_sale, goods_desc, add_time, last_update, goods_type, rank_integral)' . ('VALUES (\'' . $_POST['goods_name'] . '\', \'' . $goods_name_style . '\', \'' . $goods_sn . '\', \'' . $catgory_id . '\', ') . ('\'' . $brand_id . '\', \'' . $shop_price . '\', \'' . $market_price . '\', \'' . $is_promote . '\',\'' . $promote_price . '\', ') . ('\'' . $promote_start_date . '\', \'' . $promote_end_date . '\', \'' . $goods_img . '\', \'' . $goods_thumb . '\', \'' . $original_img . '\', ') . ('\'' . $_POST['keywords'] . '\', \'' . $_POST['goods_brief'] . '\', \'' . $_POST['seller_note'] . '\', \'' . $goods_weight . '\', \'' . $goods_number . '\',') . (' \'' . $warn_number . '\', \'' . $_POST['integral'] . '\', \'' . $give_integral . '\', \'' . $is_best . '\', \'' . $is_new . '\', \'' . $is_hot . '\', \'' . $is_on_sale . '\', \'' . $is_alone_sale . '\', ') . (' \'' . $_POST['goods_desc'] . '\', \'') . gmtime() . '\', \'' . gmtime() . ('\', \'' . $goods_type . '\', \'' . $rank_integral . '\')');

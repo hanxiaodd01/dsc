@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function db_create_in($item_list, $field_name = '', $not = '')
 {
 	if (!empty($not)) {
@@ -482,9 +482,9 @@ function load_config()
 		$arr['min_goods_amount'] = isset($arr['min_goods_amount']) ? floatval($arr['min_goods_amount']) : 0;
 		$arr['one_step_buy'] = empty($arr['one_step_buy']) ? 0 : 1;
 		$arr['invoice_type'] = !isset($arr['invoice_type']) && empty($arr['invoice_type']) ? array(
-	'type' => array(),
-	'rate' => array()
-	) : $arr['invoice_type'];
+			'type' => array(),
+			'rate' => array()
+		) : $arr['invoice_type'];
 		$arr['show_order_type'] = isset($arr['show_order_type']) ? $arr['show_order_type'] : 0;
 		$arr['help_open'] = isset($arr['help_open']) ? $arr['help_open'] : 1;
 		$arr['cat_belongs'] = isset($arr['cat_belongs']) ? $arr['cat_belongs'] : 0;
@@ -5296,6 +5296,7 @@ function get_user_bouns_new_list($user_id = 0, $page = 1, $type = 0, $pageFunc =
 	$day = local_getdate();
 	$cur_date = local_mktime(23, 59, 59, $day['mon'], $day['mday'], $day['year']);
 	$before_date = local_mktime(0, 0, 0, $day['mon'], $day['mday'], $day['year']) - 2 * 24 * 3600;
+	$time = gmtime();
 	$useDate = ' AND b.use_start_date < ' . $cur_date . ' AND b.use_end_date > ' . $cur_date;
 	$where = '';
 
@@ -5315,6 +5316,11 @@ function get_user_bouns_new_list($user_id = 0, $page = 1, $type = 0, $pageFunc =
 	else if ($type == 2) {
 		$uOrder = ' AND u.order_id > 0';
 		$arrName = 'useup_list';
+	}
+	else if ($type == 3) {
+		$uOrder = ' AND u.order_id = 0';
+		$useDate = '  AND b.use_end_date < ' . $time;
+		$arrName = 'invalid_list';
 	}
 
 	$sql = 'SELECT COUNT(*) FROM ' . $GLOBALS['ecs']->table('user_bonus') . ' as u,' . $GLOBALS['ecs']->table('bonus_type') . ' AS b' . ' WHERE u.bonus_type_id = b.type_id AND b.review_status = 3 ' . $uOrder . (' AND u.user_id = \'' . $user_id . '\' ') . $useDate . $where;
@@ -5396,12 +5402,21 @@ function value_card_use_info($vc_id = 0)
 	$res = $GLOBALS['db']->getAll($sql);
 	$arr = array();
 
-	foreach ($res as $key => $row) {
-		$arr[$key]['rid'] = $row['rid'];
-		$arr[$key]['order_sn'] = $row['order_sn'];
-		$arr[$key]['use_val'] = price_format($row['use_val']);
-		$arr[$key]['add_val'] = price_format($row['add_val']);
-		$arr[$key]['record_time'] = local_date($GLOBALS['_CFG']['time_format'], $row['record_time']);
+	if ($res) {
+		foreach ($res as $key => $row) {
+			if (0 < $row['use_val'] && 0 < $row['add_val']) {
+				$row['add_val'] = 0;
+				$arr[$key]['use_val'] = 0 < $row['use_val'] ? '+' . price_format($row['use_val']) : price_format($row['use_val']);
+			}
+			else {
+				$arr[$key]['use_val'] = 0 < $row['use_val'] ? '-' . price_format($row['use_val']) : price_format($row['use_val']);
+			}
+
+			$arr[$key]['rid'] = $row['rid'];
+			$arr[$key]['order_sn'] = $row['order_sn'];
+			$arr[$key]['add_val'] = 0 < $row['add_val'] ? '+' . price_format($row['add_val']) : price_format($row['add_val']);
+			$arr[$key]['record_time'] = local_date($GLOBALS['_CFG']['time_format'], $row['record_time']);
+		}
 	}
 
 	return $arr;
@@ -5506,12 +5521,13 @@ function get_link_brand_list($brand_id, $type = 0, $sqlType = 0)
 
 function get_update_flow_Consignee($address_id = 0)
 {
+	$user_id = isset($_SESSION['user_id']) && !empty($_SESSION['user_id']) ? intval($_SESSION['user_id']) : 0;
 	$consignee = array();
 
 	if ($address_id) {
-		$sql = 'UPDATE ' . $GLOBALS['ecs']->table('users') . (' SET address_id = \'' . $address_id . '\' WHERE user_id = \'') . $_SESSION['user_id'] . '\'';
+		$sql = 'UPDATE ' . $GLOBALS['ecs']->table('users') . (' SET address_id = \'' . $address_id . '\' WHERE user_id = \'' . $user_id . '\'');
 		$GLOBALS['db']->query($sql);
-		$sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('user_address') . (' WHERE address_id = \'' . $address_id . '\'');
+		$sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('user_address') . (' WHERE address_id = \'' . $address_id . '\' AND user_id = \'' . $user_id . '\'');
 		$consignee = $GLOBALS['db']->getRow($sql);
 	}
 
@@ -6357,7 +6373,7 @@ function available_shipping_list($region, $ru_id = 0, $is_limit = 0)
 		array('name' => 'base_fee', 'value' => 0),
 		array('name' => 'step_fee', 'value' => 0),
 		array('name' => 'free_money', 'value' => 100000)
-		);
+	);
 
 	if ($shipping_list) {
 		foreach ($shipping_list as $key => $row) {
@@ -7646,7 +7662,7 @@ function get_time_past($time = 0, $now = 0)
 
 function is_mobile($mobile)
 {
-	$chars = '/^1(3[0-9]|4[0-9]|5[0-35-9]|6[6]|7[01345678]|8[0-9]|9[89])\\d{8}$/';
+	$chars = '/^(1[3-9])\\d{9}$/';
 
 	if (preg_match($chars, $mobile)) {
 		return true;
@@ -7654,6 +7670,28 @@ function is_mobile($mobile)
 	else {
 		return false;
 	}
+}
+
+function filterTextblank($attr_values)
+{
+	$attr_values_str = '';
+
+	if ($attr_values) {
+		$attr_values = preg_replace(array('/\\r\\n/', '/\\n/', '/\\r/'), ',', $attr_values);
+		$attr_values = explode(',', $attr_values);
+
+		foreach ($attr_values as $key => $val) {
+			if ($key != count($attr_values) - 1) {
+				$attr_values_str .= trim($val) . '
+';
+			}
+			else {
+				$attr_values_str .= trim($val);
+			}
+		}
+	}
+
+	return $attr_values_str;
 }
 
 if (!defined('IN_ECS')) {

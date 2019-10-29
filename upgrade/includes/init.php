@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 define('IN_ECS', true);
 ini_set('display_errors', 1);
 error_reporting(32767 ^ 8);

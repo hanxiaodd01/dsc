@@ -1,5 +1,5 @@
 <?php
-//zend by 商创商城  禁止倒卖 一经发现停止任何服务
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 define('IN_ECS', true);
 require dirname(__FILE__) . '/includes/init.php';
 require ROOT_PATH . '/includes/lib_area.php';
@@ -12,7 +12,7 @@ if ((DEBUG_MODE & 2) != 2) {
 
 $act = isset($_REQUEST['act']) ? trim($_REQUEST['act']) : 'repay';
 assign_template();
-$comment_id = empty($_REQUEST['comment_id']) ? 0 : $_REQUEST['comment_id'];
+$comment_id = isset($_REQUEST['comment_id']) && !empty($_REQUEST['comment_id']) ? intval($_REQUEST['comment_id']) : 0;
 $smarty->assign('helps', get_shop_help());
 $smarty->assign('data_dir', DATA_DIR);
 $smarty->assign('action', $action);
@@ -48,12 +48,14 @@ if ($_REQUEST['act'] == 'repay') {
 
 	if (!$smarty->is_cached('goods_discuss_show.dwt', $cache_id)) {
 		if (empty($comment_id)) {
-			ecs_header("Location: ./\n");
+			ecs_header('Location: ./
+');
 			exit();
 		}
 
 		if (empty($comment)) {
-			ecs_header("location: ./\n");
+			ecs_header('location: ./
+');
 			exit();
 		}
 

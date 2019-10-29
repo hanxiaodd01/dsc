@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Services;
 
 class FlowService
@@ -297,8 +297,8 @@ class FlowService
 			}
 		}
 
-		$order['bonus'] = isset($bonus) ? $bonus['type_money'] : '';
-		$order['coupons'] = isset($coupons) ? $coupons['cou_money'] : '';
+		$order['bonus'] = isset($bonus) ? $bonus['type_money'] : 0;
+		$order['coupons'] = isset($coupons) ? $coupons['cou_money'] : 0;
 		$order['goods_amount'] = $total['goods_price'];
 		$order['discount'] = $total['discount'];
 		$order['surplus'] = $total['surplus'];
@@ -1133,10 +1133,10 @@ class FlowService
 	{
 		$uid = app('config')->get('uid');
 		$this->cartRepository->deleteAll(array(
-	array('in', 'rec_id', $arr),
-	array('rec_type', $type),
-	array('user_id', $uid)
-	));
+			array('in', 'rec_id', $arr),
+			array('rec_type', $type),
+			array('user_id', $uid)
+		));
 	}
 
 	public function shippingFee($args)

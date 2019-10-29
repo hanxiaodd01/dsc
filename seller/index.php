@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function get_sales($day_num)
 {
 	$adminru = get_admin_ru_id();
@@ -707,7 +707,7 @@ else if ($_REQUEST['act'] == 'merchants_second') {
 				'is_cname'  => $bucket_info['is_cname'],
 				'endpoint'  => $bucket_info['outside_site'],
 				'object'    => array($oss_street_thumb, $oss_brand_thumb, $del_logo_thumb)
-				);
+			);
 			$Http->doPost($url, $post_data);
 		}
 
@@ -913,8 +913,8 @@ else if ($_REQUEST['act'] == 'check_bill') {
 	$checkbil_array = array(
 		$day_time => array(
 			$adminru['ru_id'] => array('checkbill_number' => 1)
-			)
-		);
+		)
+	);
 	$cfg_checkbill = read_static_cache('checkbill_number_' . $adminru['ru_id'], '/data/sc_file/seller_bill/');
 
 	if ($cfg_checkbill === false) {
@@ -925,7 +925,7 @@ else if ($_REQUEST['act'] == 'check_bill') {
 			dsc_unlink(ROOT_PATH . DATA_DIR . '/sc_file/seller_bill/checkbill_number_' . $adminru['ru_id'] . '.php');
 			$cfg_checkbill = array(
 				$day_time => array('checkbill_number' => $cfg_checkbill[$day_time][$adminru['ru_id']]['checkbill_number'])
-				);
+			);
 		}
 
 		if ($cfg_checkbill[$day_time][$adminru['ru_id']]['checkbill_number'] < $checkbill_number) {
@@ -1122,7 +1122,7 @@ else if ($_REQUEST['act'] == 'check_bill') {
 				foreach ($day_array as $keys => $rows) {
 					$last_year_start = local_strtotime($rows['last_year_start']);
 					$last_year_end = local_strtotime($rows['last_year_end']);
-					$sql = 'SELECT COUNT(*) FROM ' . $GLOBALS['ecs']->table('seller_commission_bill') . ' WHERE seller_id = \'' . $row['seller_id'] . '\' AND bill_cycle = \'' . $row['cycle'] . '\'' . (' AND start_time >= \'' . $last_year_start . '\' AND end_time <= \'' . $last_year_end . '\'');
+					$sql = 'SELECT COUNT(*) FROM ' . $GLOBALS['ecs']->table('seller_commission_bill') . ' WHERE seller_id = \'' . $row['seller_id'] . '\' AND bill_cycle = \'' . $row['cycle'] . '\'' . (' AND start_time >= \'' . $last_year_start . '\' AND end_time <= \'' . $last_year_end . '\' AND repair_order = 0');
 					$bill_count = $GLOBALS['db']->getOne($sql, true);
 					if ($is_charge == 1 && (0 < $last_year_start && 0 < $last_year_end && $last_year_start < $last_year_end)) {
 						if ($bill_count <= 0) {

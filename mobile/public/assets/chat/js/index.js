@@ -45,6 +45,12 @@ var dscmallKefu = {
         //连接
         this.socket.onopen = function() {
             that.socket.send(that.json_decode({uid:that.user.user_id, name:that.user.user_name, type:'login', user_type:that.user.user_type, avatar:that.user.avatar, store_id: that.user.store_id,  origin: (that.IsPC()) ? 'pc' : 'phone'}));
+
+            // 客户端定时发送心跳 10秒
+            setInterval(function () {
+                that.socket.send('{"type":"pong"}');
+            }, 10000);
+
         };
 
         // 接收消息
@@ -52,6 +58,10 @@ var dscmallKefu = {
             var info = that.json_encode(e.data);
 
             switch (info.message_type){
+                // 服务端ping客户端
+                case 'ping':
+                    that.socket.send('{"type":"pong"}');
+                    return;
                 case 'come': // 有客服登录
                     if(info.uid == that.user.user_id)return ;
                     dscmallEvent.init();

@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function get_order_detection_list()
 {
 	$no_main_order = ' and (select count(*) from ' . $GLOBALS['ecs']->table('order_info') . ' as oi2 where oi2.main_order_id = o.order_id) = 0 ';
@@ -16,7 +16,7 @@ function get_order_detection_list()
 			$seller_id = $GLOBALS['db']->getOne('SELECT ru_id FROM ' . $GLOBALS['ecs']->table('order_goods') . ' WHERE order_id = \'' . $value['order_id'] . '\'', true);
 			$value_card = $GLOBALS['db']->getOne('SELECT use_val FROM ' . $GLOBALS['ecs']->table('value_card_record') . ' WHERE order_id = \'' . $value['order_id'] . '\'', true);
 			$return_amount = get_order_return_amount($value['order_id']);
-			$other = array('user_id' => $value['user_id'], 'seller_id' => $seller_id, 'order_id' => $value['order_id'], 'order_sn' => $value['order_sn'], 'order_status' => $value['order_status'], 'shipping_status' => SS_RECEIVED, 'pay_status' => $value['pay_status'], 'order_amount' => $value['total_fee'], 'return_amount' => $return_amount, 'goods_amount' => $value['goods_amount'], 'tax' => $value['tax'], 'shipping_fee' => $value['shipping_fee'], 'insure_fee' => $value['insure_fee'], 'pay_fee' => $value['pay_fee'], 'pack_fee' => $value['pack_fee'], 'card_fee' => $value['card_fee'], 'bonus' => $value['bonus'], 'integral_money' => $value['integral_money'], 'coupons' => $value['coupons'], 'discount' => $value['discount'], 'value_card' => $value_card, 'money_paid' => $value['money_paid'], 'surplus' => $value['surplus'], 'confirm_take_time' => $confirm_take_time);
+			$other = array('user_id' => $value['user_id'], 'seller_id' => $seller_id, 'order_id' => $value['order_id'], 'order_sn' => $value['order_sn'], 'order_status' => $value['order_status'], 'shipping_status' => SS_RECEIVED, 'pay_status' => $value['pay_status'], 'order_amount' => $value['order_amount'], 'return_amount' => $return_amount, 'goods_amount' => $value['goods_amount'], 'tax' => $value['tax'], 'shipping_fee' => $value['shipping_fee'], 'insure_fee' => $value['insure_fee'], 'pay_fee' => $value['pay_fee'], 'pack_fee' => $value['pack_fee'], 'card_fee' => $value['card_fee'], 'bonus' => $value['bonus'], 'integral_money' => $value['integral_money'], 'coupons' => $value['coupons'], 'discount' => $value['discount'], 'value_card' => $value_card, 'money_paid' => $value['money_paid'], 'surplus' => $value['surplus'], 'confirm_take_time' => $confirm_take_time);
 
 			if ($seller_id) {
 				get_order_bill_log($other);
@@ -29,9 +29,6 @@ function get_order_detection_list()
 
 define('IN_ECS', true);
 require dirname(__FILE__) . '/includes/init.php';
-
-if ($_REQUEST['detection'] == '1') {
-	get_order_detection_list();
-}
+get_order_detection_list();
 
 ?>

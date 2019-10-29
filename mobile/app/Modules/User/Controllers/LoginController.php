@@ -1,5 +1,5 @@
 <?php
- //大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Modules\User\Controllers;
 
 class LoginController extends \App\Modules\Base\Controllers\FrontendController
@@ -91,6 +91,7 @@ class LoginController extends \App\Modules\Base\Controllers\FrontendController
 
 		$this->assign('oauth_list', $oauth_list);
 		$this->assign('sms_signin', C('shop.sms_signin'));
+		$this->assign('shop_reg_closed', C('shop.shop_reg_closed'));
 		$this->assign('back_act', $back_act);
 		$this->assign('page_title', L('log_user'));
 		$this->assign('passport_js', L('passport_js'));
@@ -215,16 +216,23 @@ class LoginController extends \App\Modules\Base\Controllers\FrontendController
 			$result = array('error' => 0, 'content' => '');
 			$code = I('code', '');
 
+			if (!session('?forget_error')) {
+				session('forget_error', 0);
+			}
+
 			if (empty($code)) {
 				$result['error'] = 1;
 				$result['content'] = '验证码不能为空';
 			}
 
-			if (session('forget_user_data.verify_str') == md5($code . session('forget_user_data.user_id') . session('forget_user_data.reg_time'))) {
+			$condition = session('forget_user_data.verify_str') == md5($code . session('forget_user_data.user_id') . session('forget_user_data.reg_time'));
+			if ($condition && session('forget_error') <= 3) {
 				$result['error'] = 0;
 				$result['content'] = '验证通过';
+				session('forget_normal', 1);
 			}
 			else {
+				session('forget_error', session('forget_error') + 1);
 				$result['error'] = 1;
 				$result['content'] = '验证码错误，请重新输入';
 			}
@@ -339,6 +347,10 @@ class LoginController extends \App\Modules\Base\Controllers\FrontendController
 			}
 
 			show_message(L('edit_error'), L('retrieve_password'), url('user/login/get_password_phone', array('enabled_sms' => 2)), 'info');
+		}
+
+		if (!session('?forget_normal')) {
+			$this->redirect('/');
 		}
 
 		$this->display();

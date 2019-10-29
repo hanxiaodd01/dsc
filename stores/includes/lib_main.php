@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function read_modules($directory = '.')
 {
 	global $_LANG;
@@ -664,8 +664,7 @@ function get_add_attr_values($attr_id, $type = 0, $list = array())
 	$attr_values = $GLOBALS['db']->getOne($sql);
 
 	if (!empty($attr_values)) {
-		$attr_values = preg_replace('/
-/', ',', $attr_values);
+		$attr_values = preg_replace(array('/\\r\\n/', '/\\n/', '/\\r/'), ',', $attr_values);
 		$attr_values = explode(',', $attr_values);
 		$arr = array();
 

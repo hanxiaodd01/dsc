@@ -758,7 +758,8 @@
                                 <dl>
                                     <dt>{$lang.lab_goods_brief}</dt>
                                     <dd>
-										<textarea class="textarea" name="goods_brief" cols="40" rows="3">{$goods.goods_brief|escape}</textarea>
+										<textarea class="textarea" name="goods_brief" cols="40" rows="3" maxlength="60" onchange="this.value=this.value.substring(0,60)" onkeydown="this.value=this.value.substring(0,60)" onkeyup="this.value=this.value.substring(0,60)">{$goods.goods_brief|escape}</textarea>
+                                        <div class="notic">{$lang.lab_goods_brief_notic}</div>
                                     </dd>
                                 </dl>
                                 <dl>
@@ -3102,7 +3103,7 @@
                                     });
                                 }
                                 $("#gallery_"+data.min_img_id).find(".zt").html(jl_main_img);
-				$("#" + file.id).html("<div class='img' onclick='img_default("+data.img_id+")'><img src='" + data.pic + "'/></div><div class='info'><span class='zt red'>"+html+"</span><div class='sort'><span>"+jl_label_sort+"</span><input type='text' name='sort' value='" + data.img_desc + "' class='stext' /></div><a href='javascript:void(0);' class='delete_img' data-imgid='"+data.img_id+"'><i class='icon icon-trash'></i></a></div><div class='info'><input name='external_url' type='text' class='text w130' ectype='external_url' value='" + data.external_url + "' title='" + data.external_url + "' data-imgid='" + data.img_id + "' placeholder='"+jl_img_outlink+"' onfocus='if (this.value == '"+jl_img_outlink+"'){this.value='http://';this.style.color='#000';}></div>");
+                                $("#gallery_img_list").html(data.content);
                         },
 			Error: function(up, err) { //上传出错的时候触发
 				alert(err.message);

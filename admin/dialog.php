@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function ajax_get_area_list($ra_id = 0, $region_ids = array())
 {
 	$sql = 'select r.region_id, r.region_name from ' . $GLOBALS['ecs']->table('merchants_region_info') . ' as mri' . ' left join ' . $GLOBALS['ecs']->table('region') . ' as r on mri.region_id = r.region_id' . (' where mri.ra_id = \'' . $ra_id . '\'');
@@ -846,6 +846,8 @@ else if ($_REQUEST['act'] == 'insert_attr_input') {
 
 	foreach ($attr_value_list as $key => $attr_value) {
 		if ($attr_value) {
+			$attr_value = trim($attr_value);
+
 			if ($goods_attr_id[$key]) {
 				$sql = 'UPDATE ' . $ecs->table('goods_attr') . (' SET attr_value = \'' . $attr_value . '\' WHERE goods_attr_id = \'') . $goods_attr_id[$key] . '\' LIMIT 1';
 				$db->query($sql);
@@ -1144,7 +1146,7 @@ else if ($_REQUEST['act'] == 'update_review_status') {
 	$goods_id = isset($_REQUEST['goods_id']) ? intval($_REQUEST['goods_id']) : 0;
 	$other['review_status'] = isset($_REQUEST['review_status']) ? intval($_REQUEST['review_status']) : 2;
 	$other['review_content'] = !empty($_REQUEST['review_content']) ? addslashes(trim($_REQUEST['review_content'])) : '';
-	$type = !empty($_REQUEST['type']) ? addslashes(trim($_REQUEST['type'])) : not_audit;
+	$type = !empty($_REQUEST['type']) ? addslashes(trim($_REQUEST['type'])) : 'not_audit';
 	$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('goods'), $other, 'UPDATE', 'goods_id = \'' . $goods_id . '\'');
 	$result['goods_id'] = $goods_id;
 	$result['type'] = $type;
@@ -2905,6 +2907,111 @@ else {
 		$result = array('error' => 0, 'message' => '', 'content' => '');
 		$smarty->assign('temp', 'video_box_load');
 		$result['content'] = $GLOBALS['smarty']->fetch('library/dialog.lbi');
+		exit($json->encode($result));
+	}
+	else if ($_REQUEST['act'] == 'goods_review_status') {
+		$json = new JSON();
+		$result = array('error' => 0, 'message' => '', 'content' => '');
+		$seller_list = isset($_REQUEST['seller_list']) && !empty($_REQUEST['seller_list']) ? 1 : 0;
+		$review_status = isset($_REQUEST['review_status']) && !empty($_REQUEST['review_status']) ? addslashes_deep($_REQUEST['review_status']) : 3;
+
+		if ($seller_list) {
+			$where = ' AND user_id > 0 ';
+		}
+		else {
+			$where = ' AND user_id = 0 ';
+		}
+
+		$sql = 'SELECT COUNT(*) FROM' . $GLOBALS['ecs']->table('goods') . (' WHERE review_status IN(' . $review_status . ')') . $where;
+		$count = $GLOBALS['db']->getOne($sql);
+		$result['count'] = $count;
+		exit($json->encode($result));
+	}
+	else if ($_REQUEST['act'] == 'goods_ordinary') {
+		$json = new JSON();
+		$result = array('error' => 0, 'message' => '', 'content' => '');
+		$seller_list = isset($_REQUEST['seller_list']) && !empty($_REQUEST['seller_list']) ? 1 : 0;
+
+		if ($seller_list) {
+			$where = ' AND user_id > 0 ';
+		}
+		else {
+			$where = ' AND user_id = 0 ';
+		}
+
+		$sql = 'SELECT COUNT(*) FROM' . $GLOBALS['ecs']->table('goods') . ' WHERE review_status >= 3 AND extension_code = \'\' AND is_real = 1 AND is_delete = 0' . $where;
+		$count = $GLOBALS['db']->getOne($sql);
+		$result['count'] = $count;
+		exit($json->encode($result));
+	}
+	else if ($_REQUEST['act'] == 'goods_virtual_card') {
+		$json = new JSON();
+		$result = array('error' => 0, 'message' => '', 'content' => '');
+		$seller_list = isset($_REQUEST['seller_list']) && !empty($_REQUEST['seller_list']) ? 1 : 0;
+
+		if ($seller_list) {
+			$where = ' AND user_id > 0 ';
+		}
+		else {
+			$where = ' AND user_id = 0 ';
+		}
+
+		$sql = 'SELECT COUNT(*) FROM' . $GLOBALS['ecs']->table('goods') . ' WHERE review_status > 2 AND extension_code = \'virtual_card\' AND is_real = 0' . $where;
+		$count = $GLOBALS['db']->getOne($sql);
+		$result['count'] = $count;
+		exit($json->encode($result));
+	}
+	else if ($_REQUEST['act'] == 'goods_status') {
+		$json = new JSON();
+		$result = array('error' => 0, 'message' => '', 'content' => '');
+		$review_status = isset($_REQUEST['review_status']) && !empty($_REQUEST['review_status']) ? intval($_REQUEST['review_status']) : 1;
+		$seller_list = isset($_REQUEST['seller_list']) && !empty($_REQUEST['seller_list']) ? 1 : 0;
+
+		if ($seller_list) {
+			$where = ' AND user_id > 0 ';
+		}
+		else {
+			$where = ' AND user_id = 0 ';
+		}
+
+		$sql = 'SELECT COUNT(*) FROM' . $GLOBALS['ecs']->table('goods') . (' WHERE review_status = \'' . $review_status . '\'') . $where;
+		$count = $GLOBALS['db']->getOne($sql);
+		$result['count'] = $count;
+		exit($json->encode($result));
+	}
+	else if ($_REQUEST['act'] == 'goods_delete') {
+		$json = new JSON();
+		$result = array('error' => 0, 'message' => '', 'content' => '');
+		$seller_list = isset($_REQUEST['seller_list']) && !empty($_REQUEST['seller_list']) ? 1 : 0;
+
+		if ($seller_list) {
+			$where = ' AND user_id > 0 ';
+		}
+		else {
+			$where = ' AND user_id = 0 ';
+		}
+
+		$sql = 'SELECT COUNT(*) FROM' . $GLOBALS['ecs']->table('goods') . ' WHERE is_delete = 1' . $where;
+		$count = $GLOBALS['db']->getOne($sql);
+		$result['count'] = $count;
+		exit($json->encode($result));
+	}
+	else if ($_REQUEST['act'] == 'goods_sale') {
+		$json = new JSON();
+		$result = array('error' => 0, 'message' => '', 'content' => '');
+		$is_on_sale = isset($_REQUEST['is_on_sale']) && !empty($_REQUEST['is_on_sale']) ? intval($_REQUEST['is_on_sale']) : 0;
+		$seller_list = isset($_REQUEST['seller_list']) && !empty($_REQUEST['seller_list']) ? 1 : 0;
+
+		if ($seller_list) {
+			$where = ' AND user_id > 0 ';
+		}
+		else {
+			$where = ' AND user_id = 0 ';
+		}
+
+		$sql = 'SELECT COUNT(*) FROM' . $GLOBALS['ecs']->table('goods') . (' WHERE review_status >= 3 AND is_on_sale = \'' . $is_on_sale . '\' AND is_delete = 0') . $where;
+		$count = $GLOBALS['db']->getOne($sql);
+		$result['count'] = $count;
 		exit($json->encode($result));
 	}
 }

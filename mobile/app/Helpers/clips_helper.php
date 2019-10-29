@@ -1,5 +1,5 @@
 <?php
- //高度差网络 https://www.gaodux.com/
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function get_collection_goods($user_id, $size = 10, $page = 1)
 {
 	if (!isset($_COOKIE['province'])) {
@@ -53,7 +53,7 @@ function get_collection_goods($user_id, $size = 10, $page = 1)
 	$sql = 'SELECT count(c.rec_id) as num FROM ' . $GLOBALS['ecs']->table('collect_goods') . ' AS c' . ' LEFT JOIN ' . $GLOBALS['ecs']->table('goods') . ' AS g ' . 'ON g.goods_id = c.goods_id ' . $leftJoin . ' LEFT JOIN ' . $GLOBALS['ecs']->table('member_price') . ' AS mp ' . ('ON mp.goods_id = g.goods_id AND mp.user_rank = \'' . $_SESSION['user_rank'] . '\' ') . (' WHERE g.goods_id = c.goods_id AND c.user_id = \'' . $user_id . '\' ORDER BY c.rec_id DESC ');
 	$total = $GLOBALS['db']->getOne($sql);
 	$sql = 'SELECT g.goods_thumb, g.goods_id, g.goods_name, g.market_price, g.shop_price AS org_price, ' . ('IFNULL(IFNULL(mp.user_price, IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) * \'' . $_SESSION['discount'] . '\'), g.shop_price * \'' . $_SESSION['discount'] . '\')  AS shop_price, ') . 'IFNULL(IF(g.model_price < 1, g.promote_price, IF(g.model_price < 2, wg.warehouse_promote_price, wag.region_promote_price)), g.promote_price) AS promote_price, ' . 'g.promote_start_date,g.promote_end_date, c.rec_id, c.is_attention, c.add_time' . ' FROM ' . $GLOBALS['ecs']->table('collect_goods') . ' AS c' . ' LEFT JOIN ' . $GLOBALS['ecs']->table('goods') . ' AS g ' . 'ON g.goods_id = c.goods_id ' . $leftJoin . ' LEFT JOIN ' . $GLOBALS['ecs']->table('member_price') . ' AS mp ' . ('ON mp.goods_id = g.goods_id AND mp.user_rank = \'' . $_SESSION['user_rank'] . '\' ') . (' WHERE g.goods_id = c.goods_id AND c.user_id = \'' . $user_id . '\' ORDER BY c.rec_id DESC ');
-	$res = $GLOBALS['db']->selectLimit($sql, $size, $page  * $size);
+	$res = $GLOBALS['db']->selectLimit($sql, $size, ($page - 1) * $size);
 	$goods_list = array();
 
 	foreach ($res as $key => $row) {
@@ -703,7 +703,7 @@ function color_tag(&$tags)
 		array('color' => '#669933', 'size' => '1.4em', 'ifbold' => 1),
 		array('color' => '#3366FF', 'size' => '1.5em', 'ifbold' => 0),
 		array('color' => '#197B30', 'size' => '1.6em', 'ifbold' => 1)
-		);
+	);
 	$maxlevel = count($tagmark);
 	$tcount = $scount = array();
 
@@ -999,10 +999,17 @@ function value_card_use_info($vc_id = 0, $page = 0, $size = 10)
 	$res = $GLOBALS['db']->selectLimit($sql, $size, ($page - 1) * $size);
 
 	foreach ($res as $key => $row) {
+		if (0 < $row['use_val'] && 0 < $row['add_val']) {
+			$row['add_val'] = 0;
+			$res[$key]['use_val'] = 0 < $row['use_val'] ? '+' . price_format($row['use_val']) : price_format($row['use_val']);
+		}
+		else {
+			$res[$key]['use_val'] = 0 < $row['use_val'] ? '-' . price_format($row['use_val']) : price_format($row['use_val']);
+		}
+
 		$res[$key]['rid'] = $row['rid'];
 		$res[$key]['order_sn'] = $row['order_sn'];
-		$res[$key]['use_val'] = price_format($row['use_val']);
-		$res[$key]['add_val'] = price_format($row['add_val']);
+		$res[$key]['add_val'] = 0 < $row['add_val'] ? '+' . price_format($row['add_val']) : price_format($row['add_val']);
 		$res[$key]['record_time'] = local_date(C('shop.time_format'), $row['record_time']);
 	}
 

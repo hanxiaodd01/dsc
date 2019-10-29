@@ -1,5 +1,5 @@
 <?php
- //大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function is_not_null($value)
 {
 	if (is_array($value)) {
@@ -15,7 +15,7 @@ function get_seachable_attributes($cat_id = 0)
 	$attributes = array(
 		'cate' => array(),
 		'attr' => array()
-		);
+	);
 	$sql = 'SELECT t.cat_id, cat_name FROM ' . $GLOBALS['ecs']->table('goods_type') . ' AS t, ' . $GLOBALS['ecs']->table('attribute') . ' AS a' . ' WHERE t.cat_id = a.cat_id AND t.enabled = 1 AND a.attr_index > 0 ';
 	$cat = $GLOBALS['db']->getAll($sql);
 
@@ -30,8 +30,10 @@ function get_seachable_attributes($cat_id = 0)
 
 		while ($row = $GLOBALS['db']->FetchRow($res)) {
 			if ($row['attr_index'] == 1 && $row['attr_input_type'] == 1) {
-				$row['attr_values'] = str_replace("\r", '', $row['attr_values']);
-				$options = explode("\n", $row['attr_values']);
+				$row['attr_values'] = str_replace('
+', '', $row['attr_values']);
+				$options = explode('
+', $row['attr_values']);
 				$attr_value = array();
 
 				foreach ($options as $opt) {
@@ -86,7 +88,8 @@ if (empty($_GET['encode'])) {
 
 	$string['search_encode_time'] = time();
 	$string = str_replace('+', '%2b', base64_encode(serialize($string)));
-	header('Location:search.php?encode=' . $string . "\n");
+	header('Location:search.php?encode=' . $string . '
+');
 	exit();
 }
 else {
@@ -873,9 +876,9 @@ else {
 		$tag_left = '';
 
 		if ($have == 1) {
-			$tag_left .= ' LEFT JOIN ' . $GLOBALS['ecs']->table('warehouse_goods') . (' AS wg ON g.goods_id = wg.goods_id AND wg.region_id = \'' . $region_id . '\' ');
-			$tag_left .= ' LEFT JOIN ' . $GLOBALS['ecs']->table('warehouse_area_goods') . (' AS wag ON g.goods_id = wag.goods_id AND wag.region_id = \'' . $area_id . '\' ' . $where_area . ' ');
-			$tag_where .= ' AND IF(g.model_price < 1, g.goods_number, IF(g.model_price < 2, wg.region_number, wag.region_number)) > 0 ';
+			$warehouse_number = '(SELECT wg.region_number FROM ' . $GLOBALS['ecs']->table('warehouse_goods') . (' AS wg WHERE g.goods_id = wg.goods_id AND wg.region_id = \'' . $region_id . '\')');
+			$region_number = '(SELECT wag.region_number FROM ' . $GLOBALS['ecs']->table('warehouse_area_goods') . (' AS wag WHERE g.goods_id = wag.goods_id AND wag.region_id = \'' . $area_id . '\' ' . $where_area . ')');
+			$tag_where .= ' AND IF(g.model_price < 1, g.goods_number, IF(g.model_price < 2, ' . $warehouse_number . ', ' . $region_number . ')) > 0 ';
 		}
 
 		$cou_goods_where = '';
@@ -943,7 +946,8 @@ else {
 			$goods_sort = 'g.' . $sort;
 		}
 
-		$sql = 'SELECT pa.act_id, pa.act_name, pa.start_time, pa.end_time, ' . '(SELECT ' . 'IF((iw.goods_number + iw.user_number + iw.goods_comment_number + iw.merchants_comment_number + iw.user_attention_number) > iw.return_number, (iw.goods_number + iw.user_number + iw.goods_comment_number + iw.merchants_comment_number + iw.user_attention_number - iw.return_number), 0) ' . ' AS goods_sort FROM ' . $GLOBALS['ecs']->table('intelligent_weight') . ' AS iw WHERE iw.goods_id = g.goods_id LIMIT 1) AS goods_sort, ' . 'g.goods_id, g.is_shipping, g.user_id, g.goods_name, g.shop_price,g.market_price, g.is_new, g.comments_number, g.sales_volume,g.sales_volume_base, g.is_best, g.is_hot,g.store_new, g.store_best, g.store_hot, ' . $shop_price . ' g.model_price, g.model_attr, ' . 'IF((SELECT COUNT(*) FROM ' . $ecs->table('goods') . (' AS gf WHERE gf.goods_id = g.goods_id AND goods_name LIKE \'%' . $insert_keyword . '%\') > 0, 0, 1) AS goods_fen, ') . 'IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) AS org_price, ' . ('IFNULL(IFNULL(mp.user_price, IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) * \'' . $_SESSION['discount'] . '\'), g.shop_price * \'' . $_SESSION['discount'] . '\') AS shop_price, ') . 'IFNULL(IF(g.model_price < 1, g.promote_price, IF(g.model_price < 2, wg.warehouse_promote_price, wag.region_promote_price)), g.promote_price) AS promote_price, ' . ' IF(g.model_price < 1, g.goods_number, IF(g.model_price < 2, wg.region_number, wag.region_number)) AS goods_number, ' . 'g.promote_start_date, g.promote_end_date, g.is_promote, g.goods_thumb, g.goods_img, g.goods_brief, g.goods_type, g.product_price, g.product_promote_price ' . 'FROM ' . $ecs->table('goods') . ' AS g ' . ' LEFT JOIN ' . $GLOBALS['ecs']->table('warehouse_goods') . (' AS wg ON g.goods_id = wg.goods_id AND wg.region_id = \'' . $region_id . '\' ') . ' LEFT JOIN ' . $GLOBALS['ecs']->table('warehouse_area_goods') . (' AS wag ON g.goods_id = wag.goods_id AND wag.region_id = \'' . $area_id . '\' ' . $where_area . ' ') . $leftJoin . 'LEFT JOIN ' . $GLOBALS['ecs']->table('member_price') . ' AS mp ' . ('ON mp.goods_id = g.goods_id AND mp.user_rank = \'' . $_SESSION['user_rank'] . '\' ') . ('WHERE (g.is_delete = 0 AND g.is_on_sale = 1 AND g.is_show = 1 AND g.is_alone_sale = 1 ' . $attr_in . ' ' . $cou_goods_where . ' ') . 'AND (( 1 ' . $categories . $keywords . $where_price_min . $where_price_max . $intro . $outstock . ' ) ' . $tag_where . ' ) ) ' . $act_name . $tag_where . $where_price_min . $where_price_max . (' GROUP BY g.goods_id ORDER BY goods_fen, ' . $goods_sort . ' ' . $order);
+		$mp_select = '(SELECT mp.user_price FROM ' . $GLOBALS['ecs']->table('member_price') . (' AS mp WHERE mp.goods_id = g.goods_id AND mp.user_rank = \'' . $_SESSION['user_rank'] . '\') AS user_price, ');
+		$sql = 'SELECT pa.act_id, pa.act_name, pa.start_time, pa.end_time, ' . '(SELECT ' . 'IF((iw.goods_number + iw.user_number + iw.goods_comment_number + iw.merchants_comment_number + iw.user_attention_number) > iw.return_number, (iw.goods_number + iw.user_number + iw.goods_comment_number + iw.merchants_comment_number + iw.user_attention_number - iw.return_number), 0) ' . ' AS goods_sort FROM ' . $GLOBALS['ecs']->table('intelligent_weight') . ' AS iw WHERE iw.goods_id = g.goods_id LIMIT 1) AS goods_sort, ' . 'g.goods_id, g.is_shipping, g.user_id, g.goods_name, g.goods_number, g.shop_price, g.market_price, g.promote_price, g.is_new, g.comments_number, g.sales_volume,sales_volume_base, g.is_best, g.is_hot,g.store_new, g.store_best, g.store_hot, ' . $shop_price . ' g.model_price, g.model_attr, ' . $mp_select . 'IF((SELECT COUNT(*) FROM ' . $ecs->table('goods') . (' AS gf WHERE gf.goods_id = g.goods_id AND goods_name LIKE \'%' . $insert_keyword . '%\') > 0, 0, 1) AS goods_fen, ') . 'g.promote_start_date, g.promote_end_date, g.is_promote, g.goods_thumb, g.goods_img, g.goods_brief, g.goods_type, g.product_price, g.product_promote_price ' . 'FROM ' . $ecs->table('goods') . ' AS g ' . $leftJoin . ('WHERE (g.is_delete = 0 AND g.is_on_sale = 1 AND g.is_show = 1 AND g.is_alone_sale = 1 ' . $attr_in . ' ' . $cou_goods_where . ' ') . 'AND (( 1 ' . $categories . $keywords . $where_price_min . $where_price_max . $intro . $outstock . ' ) ' . $tag_where . ' ) ) ' . $act_name . $tag_where . $where_price_min . $where_price_max . (' ORDER BY goods_fen, ' . $goods_sort . ' ' . $order);
 		if (isset($_REQUEST['act']) && $_REQUEST['act'] == 'load_more_goods') {
 			$start = intval($_REQUEST['goods_num']);
 		}
@@ -969,6 +973,33 @@ else {
 		}
 
 		while ($row = $db->FetchRow($res)) {
+			if (0 < $row['model_price']) {
+				$sql = 'SELECT warehouse_price, warehouse_promote_price, region_number FROM ' . $GLOBALS['ecs']->table('warehouse_goods') . ' AS wg ' . ' WHERE goods_id = \'' . $row['goods_id'] . ('\' AND wg.region_id = \'' . $region_id . '\'');
+				$warehouse_goods = $db->getRow($sql);
+				$sql = 'SELECT region_price, region_promote_price, region_number FROM ' . $GLOBALS['ecs']->table('warehouse_area_goods') . ' AS wg ' . ' WHERE goods_id = \'' . $row['goods_id'] . ('\' AND wg.region_id = \'' . $area_id . '\' ' . $where_area);
+				$warehouse_area_goods = $db->getRow($sql);
+
+				if ($row['model_price'] == 1) {
+					$row['org_price'] = $warehouse_goods ? $warehouse_goods['warehouse_price'] : 0;
+					$row['goods_number'] = $warehouse_goods ? $warehouse_goods['region_number'] : 0;
+					$row['promote_price'] = $warehouse_goods ? $warehouse_goods['warehouse_promote_price'] : 0;
+				}
+				else {
+					$row['org_price'] = $warehouse_area_goods ? $warehouse_area_goods['region_price'] : 0;
+					$row['goods_number'] = $warehouse_area_goods ? $warehouse_area_goods['region_number'] : 0;
+					$row['promote_price'] = $warehouse_area_goods ? $warehouse_area_goods['promote_price'] : 0;
+				}
+
+				$row['shop_price'] = $row['org_price'];
+			}
+
+			if ($row['user_price'] && 0 < $row['user_price']) {
+				$row['shop_price'] = $row['user_price'];
+			}
+			else {
+				$row['shop_price'] = $row['shop_price'] * $_SESSION['discount'];
+			}
+
 			$shop_info = get_shop_name($row['user_id'], 3);
 			$arr[$idx]['rz_shopName'] = $shop_info['shop_name'];
 			$arr[$idx]['goods_fen'] = $row['goods_fen'];

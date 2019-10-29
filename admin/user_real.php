@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function users_real_list()
 {
 	$result = get_filter();
@@ -18,7 +18,13 @@ function users_real_list()
 		$ex_where = ' WHERE 1 ';
 
 		if ($filter['keywords']) {
-			$ex_where .= ' AND u.user_name LIKE \'%' . mysql_like_quote($filter['keywords']) . '%\'';
+			if ($filter['user_type'] == 1) {
+				$store_where = ' AND msi.rz_shopName LIKE \'%' . mysql_like_quote($filter['keywords']) . '%\'';
+				$ex_where .= ' AND (SELECT msi.user_id FROM ' . $GLOBALS['ecs']->table('merchants_shop_information') . ' as msi ' . (' WHERE msi.user_id = ur.user_id ' . $store_where . ') > 0 ');
+			}
+			else {
+				$ex_where .= ' AND u.user_name LIKE \'%' . mysql_like_quote($filter['keywords']) . '%\'';
+			}
 		}
 
 		if ($filter['review_status'] != -1) {

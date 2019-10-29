@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 define('IN_ECS', true);
 require dirname(__FILE__) . '/includes/init.php';
 
@@ -11,18 +11,19 @@ else {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-	if (!empty($_GET['act']) && ($_GET['act'] == 'reset_pwd')) {
-		$code = (!empty($_GET['code']) ? trim($_GET['code']) : '');
-		$adminid = (!empty($_GET['uid']) ? intval($_GET['uid']) : 0);
-		if (($adminid == 0) || empty($code)) {
-			ecs_header("Location: privilege.php?act=login\n");
+	if (!empty($_GET['act']) && $_GET['act'] == 'reset_pwd') {
+		$code = !empty($_GET['code']) ? trim($_GET['code']) : '';
+		$adminid = !empty($_GET['uid']) ? intval($_GET['uid']) : 0;
+		if ($adminid == 0 || empty($code)) {
+			ecs_header('Location: privilege.php?act=login
+');
 			exit();
 		}
 
-		$sql = 'SELECT stores_pwd FROM ' . $ecs->table('store_user') . ' WHERE id = \'' . $adminid . '\'';
-		$password = $db->getOne($sql);
+		$sql = 'SELECT stores_pwd, add_time FROM ' . $ecs->table('store_user') . (' WHERE id = \'' . $adminid . '\'');
+		$admin_info = $db->getRow($sql);
 
-		if (md5($adminid . $password) != $code) {
+		if (md5($adminid . $admin_info['stores_pwd'] . $admin_info['add_time']) != $code) {
 			$link[0]['text'] = $_LANG['back'];
 			$link[0]['href'] = 'privilege.php?act=login';
 			sys_msg($_LANG['code_param_error'], 0, $link);
@@ -34,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		}
 	}
 	else {
-		if (!empty($_GET['act']) && ($_GET['act'] == 'forget_pwd')) {
+		if (!empty($_GET['act']) && $_GET['act'] == 'forget_pwd') {
 			$smarty->assign('form_act', 'forget_pwd');
 		}
 	}
@@ -44,20 +45,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	$smarty->display('get_pwd.dwt');
 }
 else {
-	if (!empty($_POST['action']) && ($_POST['action'] == 'get_pwd')) {
-		$admin_username = (!empty($_POST['user_name']) ? trim($_POST['user_name']) : '');
-		$admin_email = (!empty($_POST['email']) ? trim($_POST['email']) : '');
+	if (!empty($_POST['action']) && $_POST['action'] == 'get_pwd') {
+		$admin_username = !empty($_POST['user_name']) ? trim($_POST['user_name']) : '';
+		$admin_email = !empty($_POST['email']) ? trim($_POST['email']) : '';
 		if (empty($admin_username) || empty($admin_email)) {
-			ecs_header("Location: privilege.php?act=login\n");
+			ecs_header('Location: privilege.php?act=login
+');
 			exit();
 		}
 
-		$sql = 'SELECT id, stores_pwd FROM ' . $ecs->table('store_user') . ' WHERE stores_user = \'' . $admin_username . '\' AND email = \'' . $admin_email . '\'';
+		$sql = 'SELECT id, stores_pwd, add_time FROM ' . $ecs->table('store_user') . (' WHERE stores_user = \'' . $admin_username . '\' AND email = \'' . $admin_email . '\'');
 		$admin_info = $db->getRow($sql);
 
 		if (!empty($admin_info)) {
 			$admin_id = $admin_info['id'];
-			$code = md5($admin_id . $admin_info['stores_pwd']);
+			$code = md5($admin_id . $admin_info['stores_pwd'], $admin_info['add_time']);
 			$template = get_mail_template('send_password');
 			$reset_email = $ecs->stores_url() . STORES_PATH . '/get_password.php?act=reset_pwd&uid=' . $admin_id . '&code=' . $code;
 			$smarty->assign('user_name', $admin_username);
@@ -81,26 +83,27 @@ else {
 		}
 	}
 	else {
-		if (!empty($_POST['action']) && ($_POST['action'] == 'reset_pwd')) {
-			$new_password = (isset($_POST['password']) ? trim($_POST['password']) : '');
-			$adminid = (isset($_POST['adminid']) ? intval($_POST['adminid']) : 0);
-			$code = (isset($_POST['code']) ? trim($_POST['code']) : '');
-			if (empty($new_password) || empty($code) || ($adminid == 0)) {
-				ecs_header("Location: privilege.php?act=login\n");
+		if (!empty($_POST['action']) && $_POST['action'] == 'reset_pwd') {
+			$new_password = isset($_POST['password']) ? trim($_POST['password']) : '';
+			$adminid = isset($_POST['adminid']) ? intval($_POST['adminid']) : 0;
+			$code = isset($_POST['code']) ? trim($_POST['code']) : '';
+			if (empty($new_password) || empty($code) || $adminid == 0) {
+				ecs_header('Location: privilege.php?act=login
+');
 				exit();
 			}
 
-			$sql = 'SELECT stores_pwd FROM ' . $ecs->table('store_user') . ' WHERE id = \'' . $adminid . '\'';
-			$password = $db->getOne($sql);
+			$sql = 'SELECT stores_pwd, add_time FROM ' . $ecs->table('store_user') . (' WHERE id = \'' . $adminid . '\'');
+			$admin_info = $db->getRow($sql);
 
-			if (md5($adminid . $password) != $code) {
+			if (md5($adminid . $admin_info['stores_pwd'] . $admin_info['add_time']) != $code) {
 				$link[0]['text'] = $_LANG['back'];
 				$link[0]['href'] = 'privilege.php?act=login';
 				sys_msg($_LANG['code_param_error'], 0, $link);
 			}
 
 			$ec_salt = rand(1, 9999);
-			$sql = 'UPDATE ' . $ecs->table('store_user') . 'SET stores_pwd = \'' . md5(md5($new_password) . $ec_salt) . '\',`ec_salt`=\'' . $ec_salt . '\' ' . 'WHERE id = \'' . $adminid . '\'';
+			$sql = 'UPDATE ' . $ecs->table('store_user') . 'SET stores_pwd = \'' . md5(md5($new_password) . $ec_salt) . ('\',`ec_salt`=\'' . $ec_salt . '\' ') . ('WHERE id = \'' . $adminid . '\'');
 			$result = $db->query($sql);
 
 			if ($result) {

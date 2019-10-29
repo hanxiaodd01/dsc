@@ -1,5 +1,5 @@
 <?php
- //大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function get_adslist($ru_id)
 {
 	$filter = array();
@@ -281,7 +281,7 @@ else if ($_REQUEST['act'] == 'add') {
 	$smarty->assign('form_act', 'insert');
 	$smarty->assign('action', 'add');
 	$smarty->assign('cfg_lang', $_CFG['lang']);
-	$this->smarty->assign('position_id', $pid);
+	$smarty->assign('position_id', $pid);
 	set_default_filter(0, 0, $adminru['ru_id']);
 	assign_query_info();
 	$smarty->assign('current', 'ads');
@@ -390,7 +390,26 @@ else if ($_REQUEST['act'] == 'insert') {
 
 	get_oss_add_file(array(DATA_DIR . '/afficheimg/' . $ad_code));
 	$public_ruid = $adminru['ru_id'];
-	$sql = 'INSERT INTO ' . $ecs->table('ad') . (" (position_id,media_type,ad_name,is_new,is_hot,is_best,public_ruid,ad_link,ad_code,start_time,end_time,link_man,link_email,link_phone,click_count,enabled, link_color, ad_type, goods_name)\n    VALUES ('" . $_POST['position_id'] . "',\n            '" . $_POST['media_type'] . "',\n            '" . $ad_name . "',\n            '" . $is_new . "',\n            '" . $is_hot . "',\n            '" . $is_best . "',\n            '" . $public_ruid . "',\n            '" . $ad_link . "',\n            '" . $ad_code . "',\n            '" . $start_time . "',\n            '" . $end_time . "',\n            '" . $_POST['link_man'] . "',\n            '" . $_POST['link_email'] . "',\n            '" . $_POST['link_phone'] . "',\n            '0',\n            '1',\n            '" . $link_color . "',\n            '" . $ad_type . "',\n            '" . $goods_name . '\')');
+	$sql = 'INSERT INTO ' . $ecs->table('ad') . (' (position_id,media_type,ad_name,is_new,is_hot,is_best,public_ruid,ad_link,ad_code,start_time,end_time,link_man,link_email,link_phone,click_count,enabled, link_color, ad_type, goods_name)
+    VALUES (\'' . $_POST['position_id'] . '\',
+            \'' . $_POST['media_type'] . '\',
+            \'' . $ad_name . '\',
+            \'' . $is_new . '\',
+            \'' . $is_hot . '\',
+            \'' . $is_best . '\',
+            \'' . $public_ruid . '\',
+            \'' . $ad_link . '\',
+            \'' . $ad_code . '\',
+            \'' . $start_time . '\',
+            \'' . $end_time . '\',
+            \'' . $_POST['link_man'] . '\',
+            \'' . $_POST['link_email'] . '\',
+            \'' . $_POST['link_phone'] . '\',
+            \'0\',
+            \'1\',
+            \'' . $link_color . '\',
+            \'' . $ad_type . '\',
+            \'' . $goods_name . '\')');
 	$db->query($sql);
 	admin_log($_POST['ad_name'], 'add', 'ads');
 	clear_cache_files();
@@ -621,7 +640,8 @@ else if ($_REQUEST['act'] == 'remove') {
 
 	admin_log('', 'remove', 'ads');
 	$url = 'ads.php?act=query&' . str_replace('act=remove', '', $_SERVER['QUERY_STRING']);
-	ecs_header('Location: ' . $url . "\n");
+	ecs_header('Location: ' . $url . '
+');
 	exit();
 }
 else if ($_REQUEST['act'] == 'getCatList') {

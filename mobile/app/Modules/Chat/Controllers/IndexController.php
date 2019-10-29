@@ -1,5 +1,5 @@
 <?php
-/*多点乐资源  禁止倒卖 一经发现停止任何服务*/
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Modules\Chat\Controllers;
 
 class IndexController extends \App\Modules\Base\Controllers\FrontendController
@@ -280,7 +280,7 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 
 		$serArr = $this->getServiceIdByRuId($store_id);
 		$serArr = implode(',', $serArr);
-		$sql = 'SELECT id, IF(from_user_id = ' . $uid . ", to_user_id, from_user_id) as service_id, message, user_type, from_user_id, to_user_id,\r\n from_unixtime(add_time) as add_time, status FROM " . \App\Modules\Chat\Models\Kefu::$pre . 'im_message WHERE ((from_user_id = ' . $uid . ' AND to_user_id IN (' . $serArr . ')) OR (to_user_id = ' . $uid . ' AND from_user_id IN (' . $serArr . '))) AND to_user_id <> 0 ORDER BY add_time DESC, id DESC';
+		$sql = 'SELECT id, IF(from_user_id = ' . $uid . ', to_user_id, from_user_id) as service_id, message, user_type, from_user_id, to_user_id, add_time, status FROM ' . \App\Modules\Chat\Models\Kefu::$pre . 'im_message WHERE ((from_user_id = ' . $uid . ' AND to_user_id IN (' . $serArr . ')) OR (to_user_id = ' . $uid . ' AND from_user_id IN (' . $serArr . '))) AND to_user_id <> 0 ORDER BY add_time DESC, id DESC';
 		$default = I('default', 0, 'intval');
 		$start = ($page - 1) * $size;
 
@@ -318,7 +318,7 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 			}
 
 			$services[$k]['message'] = htmlspecialchars_decode($v['message']);
-			$services[$k]['time'] = $v['add_time'];
+			$services[$k]['time'] = local_date('Y-m-d H:i:s', $v['add_time']);
 			$services[$k]['id'] = $v['id'];
 		}
 
@@ -395,7 +395,7 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 
 		return $server_ip;
 	}
-
+    //Scalping
 	public function formatImage($pic = '')
 	{
 		return __PUBLIC__ . '/assets/chat/images/service.png';
@@ -418,7 +418,7 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 				'code' => 0,
 				'msg'  => '上传成功',
 				'data' => array('src' => get_image_path($result['url']), 'title' => '')
-				);
+			);
 			$this->ajaxReturn($arr);
 		}
 	}

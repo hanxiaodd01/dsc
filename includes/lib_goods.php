@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function goods_sort($goods_a, $goods_b)
 {
 	if ($goods_a['sort_order'] == $goods_b['sort_order']) {
@@ -149,7 +149,7 @@ function get_top10($cats = 0, $presale = '', $ru_id = 0, $warehouse_id = 0, $are
 		$where_area = ' AND wag.city_id = \'' . $area_city . '\'';
 	}
 
-	$leftJoin .= ' LEFT JOIN ' . $GLOBALS['ecs']->table('warehouse_goods') . (' as wg on g.goods_id = wg.goods_id and wg.region_id = \'' . $warehouse_id . '\' ');
+	$leftJoin = ' LEFT JOIN ' . $GLOBALS['ecs']->table('warehouse_goods') . (' as wg on g.goods_id = wg.goods_id and wg.region_id = \'' . $warehouse_id . '\' ');
 	$leftJoin .= ' LEFT JOIN ' . $GLOBALS['ecs']->table('warehouse_area_goods') . (' as wag on g.goods_id = wag.goods_id and wag.region_id = \'' . $area_id . '\' ' . $where_area . ' ');
 	$sql = 'SELECT g.goods_id, g.goods_name, g.goods_thumb, SUM(og.goods_number) as goods_number,g.comments_number, g.market_price, g.market_price, ' . ('IFNULL(IFNULL(mp.user_price, IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) * \'' . $_SESSION['discount'] . '\'), g.shop_price * \'' . $_SESSION['discount'] . '\')  AS shop_price, ') . 'IFNULL(IF(g.model_price < 1, g.promote_price, IF(g.model_price < 2, wg.warehouse_promote_price, wag.region_promote_price)), g.promote_price) AS promote_price, ' . 'g.promote_start_date, g.promote_end_date FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' . $leftJoin . ' LEFT JOIN ' . $GLOBALS['ecs']->table('order_goods') . ' AS og ON og.goods_id = g.goods_id ' . ' LEFT JOIN ' . $GLOBALS['ecs']->table('order_info') . ' AS o ON og.order_id = o.order_id ' . ' LEFT JOIN ' . $GLOBALS['ecs']->table('member_price') . ' AS mp ' . ('ON mp.goods_id = g.goods_id AND mp.user_rank = \'' . $_SESSION['user_rank'] . '\' ') . (' WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 AND g.is_show=1 ' . $where . ' ' . $top10_time . ' ');
 
@@ -166,7 +166,7 @@ function get_top10($cats = 0, $presale = '', $ru_id = 0, $warehouse_id = 0, $are
 		$arr[$i]['url'] = build_uri('goods', array('gid' => $arr[$i]['goods_id']), $arr[$i]['goods_name']);
 		$arr[$i]['goods_thumb'] = get_image_path($arr[$i]['goods_id'], $arr[$i]['goods_thumb'], true);
 
-		if (0 < $row['promote_price']) {
+		if (0 < $arr[$i]['promote_price']) {
 			$promote_price = bargain_price($arr[$i]['promote_price'], $arr[$i]['promote_start_date'], $arr[$i]['promote_end_date']);
 		}
 		else {
@@ -217,7 +217,6 @@ function get_recommend_goods($type = '', $cats = '', $warehouse_id = 0, $area_id
 		$where_area = ' AND wag.city_id = \'' . $area_city . '\'';
 	}
 
-	$shop_price = 'wg.warehouse_price, wg.warehouse_promote_price, wag.region_price, wag.region_promote_price, g.model_price, g.model_attr, ';
 	$leftJoin .= ' left join ' . $GLOBALS['ecs']->table('warehouse_goods') . (' as wg on g.goods_id = wg.goods_id and wg.region_id = \'' . $warehouse_id . '\' ');
 	$leftJoin .= ' left join ' . $GLOBALS['ecs']->table('warehouse_area_goods') . (' as wag on g.goods_id = wag.goods_id and wag.region_id = \'' . $area_id . '\' ' . $where_area . ' ');
 
@@ -231,7 +230,8 @@ function get_recommend_goods($type = '', $cats = '', $warehouse_id = 0, $area_id
 		$type_goods['best'] = array();
 		$type_goods['new'] = array();
 		$type_goods['hot'] = array();
-		$sql = 'SELECT g.goods_id, ' . $goods_hnb_files . ' g.is_promote, b.brand_name,g.sort_order ' . ' FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' . ' LEFT JOIN ' . $GLOBALS['ecs']->table('brand') . ' AS b ON b.brand_id = g.brand_id ' . $leftJoin . ' WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 AND g.is_show=1 AND (' . $goods_hot_new_best . ')' . $tag_where . ' ORDER BY g.sort_order, g.last_update DESC';
+		$brand_select = '(SELECT b.brand_name FROM ' . $GLOBALS['ecs']->table('brand') . ' as b WHERE b.brand_id = g.brand_id) as brand_name, ';
+		$sql = 'SELECT g.goods_id, ' . $goods_hnb_files . $brand_select . ' g.is_promote,g.sort_order ' . ' FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' . $leftJoin . ' WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 AND g.is_show = 1 AND (' . $goods_hot_new_best . ')' . $tag_where . ' ORDER BY g.sort_order DESC LIMIT 20';
 		$goods_res = $GLOBALS['db']->getAll($sql);
 		$goods_data['best'] = array();
 		$goods_data['new'] = array();
@@ -258,7 +258,6 @@ function get_recommend_goods($type = '', $cats = '', $warehouse_id = 0, $area_id
 			}
 		}
 
-		$time = gmtime();
 		$order_type = $GLOBALS['_CFG']['recommend_order'];
 		static $type_array = array();
 
@@ -302,7 +301,7 @@ function get_recommend_goods($type = '', $cats = '', $warehouse_id = 0, $area_id
 			}
 		}
 
-		$sql = 'SELECT g.goods_id, g.goods_name, g.goods_name_style, g.comments_number, g.sales_volume,g.sales_volume_base,  g.market_price, ' . 'g.is_best, g.is_new, g.is_hot, g.user_id, g.model_attr, ' . 'IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) AS org_price, ' . 'IFNULL(IF(g.model_price < 1, g.promote_price, IF(g.model_price < 2, wg.warehouse_promote_price, wag.region_promote_price)), g.promote_price) AS promote_price, ' . ('IFNULL(IFNULL(mp.user_price, IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) * \'' . $_SESSION['discount'] . '\'), g.shop_price * \'' . $_SESSION['discount'] . '\')  AS shop_price, ') . 'promote_start_date, promote_end_date, g.is_promote, g.goods_brief, g.goods_thumb, g.goods_img, RAND() AS rnd, g.product_price, g.product_promote_price ' . 'FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' . $leftJoin . 'LEFT JOIN ' . $GLOBALS['ecs']->table('member_price') . ' AS mp ' . ('ON mp.goods_id = g.goods_id AND mp.user_rank = \'' . $_SESSION['user_rank'] . '\' ');
+		$sql = 'SELECT g.goods_id, g.goods_name, g.goods_name_style, g.comments_number, g.sales_volume,g.sales_volume_base, g.market_price, ' . 'g.is_best, g.is_new, g.is_hot, g.user_id, g.model_attr, ' . 'IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) AS org_price, ' . 'IFNULL(IF(g.model_price < 1, g.promote_price, IF(g.model_price < 2, wg.warehouse_promote_price, wag.region_promote_price)), g.promote_price) AS promote_price, ' . ('IFNULL(IFNULL(mp.user_price, IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) * \'' . $_SESSION['discount'] . '\'), g.shop_price * \'' . $_SESSION['discount'] . '\')  AS shop_price, ') . 'promote_start_date, promote_end_date, g.is_promote, g.goods_brief, g.goods_thumb, g.goods_img, RAND() AS rnd, g.product_price, g.product_promote_price ' . 'FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' . $leftJoin . 'LEFT JOIN ' . $GLOBALS['ecs']->table('member_price') . ' AS mp ' . ('ON mp.goods_id = g.goods_id AND mp.user_rank = \'' . $_SESSION['user_rank'] . '\' ');
 		$type_merge = array_merge($type_array['new'], $type_array['best'], $type_array['hot']);
 		$type_merge = array_unique($type_merge);
 		$sql .= ' WHERE g.goods_id ' . db_create_in($type_merge);
@@ -375,7 +374,7 @@ function get_promote_goods($cats = '', $warehouse_id = 0, $area_id = 0)
 	}
 
 	$num = get_library_number('recommend_promotion');
-	$sql = 'SELECT g.goods_id, g.goods_name, g.goods_name_style, g.comments_number, g.sales_volume, g.sales_volume_base,g.market_price, g.model_attr, ' . ' IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) AS org_price, ' . ('IFNULL(IFNULL(mp.user_price, IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) * \'' . $_SESSION['discount'] . '\'), g.shop_price * \'' . $_SESSION['discount'] . '\')  AS shop_price, ') . 'IFNULL(IF(g.model_price < 1, g.promote_price, IF(g.model_price < 2, wg.warehouse_promote_price, wag.region_promote_price)), g.promote_price) AS promote_price, ' . 'promote_start_date, promote_end_date, g.goods_brief, g.goods_thumb, goods_img, b.brand_name, ' . 'g.is_best, g.is_new, g.is_hot, g.is_promote, RAND() AS rnd, g.product_price, g.product_promote_price ' . 'FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' . $leftJoin . 'LEFT JOIN ' . $GLOBALS['ecs']->table('brand') . ' AS b ON b.brand_id = g.brand_id ' . 'LEFT JOIN ' . $GLOBALS['ecs']->table('member_price') . ' AS mp ' . ('ON mp.goods_id = g.goods_id AND mp.user_rank = \'' . $_SESSION['user_rank'] . '\' ') . 'WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 ' . (' AND g.is_promote = 1 AND g.promote_start_date <= \'' . $time . '\' AND g.promote_end_date >= \'' . $time . '\' ') . $where;
+	$sql = 'SELECT g.goods_id, g.goods_name, g.goods_name_style, g.comments_number, g.sales_volume,g.sales_volume_base, g.market_price, g.model_attr, ' . ' IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) AS org_price, ' . ('IFNULL(IFNULL(mp.user_price, IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) * \'' . $_SESSION['discount'] . '\'), g.shop_price * \'' . $_SESSION['discount'] . '\')  AS shop_price, ') . 'IFNULL(IF(g.model_price < 1, g.promote_price, IF(g.model_price < 2, wg.warehouse_promote_price, wag.region_promote_price)), g.promote_price) AS promote_price, ' . 'promote_start_date, promote_end_date, g.goods_brief, g.goods_thumb, goods_img, b.brand_name, ' . 'g.is_best, g.is_new, g.is_hot, g.is_promote, RAND() AS rnd, g.product_price, g.product_promote_price ' . 'FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' . $leftJoin . 'LEFT JOIN ' . $GLOBALS['ecs']->table('brand') . ' AS b ON b.brand_id = g.brand_id ' . 'LEFT JOIN ' . $GLOBALS['ecs']->table('member_price') . ' AS mp ' . ('ON mp.goods_id = g.goods_id AND mp.user_rank = \'' . $_SESSION['user_rank'] . '\' ') . 'WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 ' . (' AND g.is_promote = 1 AND g.promote_start_date <= \'' . $time . '\' AND g.promote_end_date >= \'' . $time . '\' ') . $where;
 	$sql .= $order_type == 0 ? ' ORDER BY g.sort_order, g.last_update DESC' : ' ORDER BY rnd';
 	$sql .= ' LIMIT ' . $num . ' ';
 	$result = $GLOBALS['db']->getAll($sql);
@@ -752,7 +751,9 @@ function get_goods_properties($goods_id, $warehouse_id = 0, $area_id = 0, $area_
 	$grp = $GLOBALS['db']->getOne($sql);
 
 	if (!empty($grp)) {
-		$groups = explode('', strtr($grp, '', ''));
+		$groups = explode('
+', strtr($grp, '
+', ''));
 	}
 
 	if ($model_attr < 0) {
@@ -931,7 +932,7 @@ function get_goods_gallery($goods_id, $gallery_number = 0, $table = 'goods_galle
 		$goods = get_goods_info($goods_id, 0, 0, $select);
 		$row = array(
 			array('img_url' => $goods['goods_thumb'], 'thumb_url' => $goods['goods_thumb'])
-			);
+		);
 	}
 
 	return $row;
@@ -1356,7 +1357,7 @@ function group_buy_info($group_buy_id, $current_num = 0, $path = '')
 	if (!is_array($price_ladder) || empty($price_ladder)) {
 		$price_ladder = array(
 			array('amount' => 0, 'price' => 0)
-			);
+		);
 	}
 	else {
 		foreach ($price_ladder as $key => $amount_price) {

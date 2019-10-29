@@ -315,7 +315,7 @@ $(function(){
     Ajax.call('index.php?is_ajax=1&act=check_order','', function(data){
 		// var wait_orders = data.wait_orders ? data.wait_orders :0;
 		// var new_paid = data.new_paid ? data.new_paid :0;
-		
+
 		//订单提醒 start
 		var new_orders = data.new_orders ? data.new_orders :0;//新订单 
 		var await_ship = data.await_ship ? data.await_ship :0;//待发货订单
@@ -504,7 +504,7 @@ $(function(){
 				if(self_warn_number>=0 && self_warn_number<100){
 					$("*[ectype='goodMsg']").append('<p><a href="javascript:void(0);" data-url="goods.php?act=list&warn_number=1&seller_list=0" data-param="menushopping|01_goods_list" target="workspace" class="message">自营普通商品库存预警</a> <span class="tiptool">（<em id="goods_report">'+self_warn_number+'</em>）</span></p>')
 				}else if(self_warn_number>99){
-					$("*[ectype='goodMsg']").append('<p><a href="javascript:void(0);" data-url="goods.php?act=list$warn_number=1&seller_list=0" data-param="menushopping|01_goods_list" target="workspace" class="message">自营普通商品库存预警</a><span class="tiptool">（<em id="goods_report">99+</em>）</span></p>')
+					$("*[ectype='goodMsg']").append('<p><a href="javascript:void(0);" data-url="goods.php?act=list&warn_number=1&seller_list=0" data-param="menushopping|01_goods_list" target="workspace" class="message">自营普通商品库存预警</a><span class="tiptool">（<em id="goods_report">99+</em>）</span></p>')
 				}
 				//自营商品库存预警值 end
 				
@@ -512,7 +512,7 @@ $(function(){
 				if(merchants_warn_number>=0 && merchants_warn_number<100){
 					$("*[ectype='goodMsg']").append('<p><a href="javascript:void(0);" data-url="goods.php?act=list&warn_number=1&seller_list=1" data-param="menushopping|01_goods_list" target="workspace" class="message">商家普通商品库存预警</a> <span class="tiptool">（<em id="goods_report">'+merchants_warn_number+'</em>）</span></p>')
 				}else if(merchants_warn_number>99){
-					$("*[ectype='goodMsg']").append('<p><a href="javascript:void(0);" data-url="goods.php?act=list$warn_number=1&seller_list=1" data-param="menushopping|01_goods_list" target="workspace" class="message">商家普通商品库存预警</a><span class="tiptool">（<em id="goods_report">99+</em>）</span></p>')
+					$("*[ectype='goodMsg']").append('<p><a href="javascript:void(0);" data-url="goods.php?act=list&warn_number=1&seller_list=1" data-param="menushopping|01_goods_list" target="workspace" class="message">商家普通商品库存预警</a><span class="tiptool">（<em id="goods_report">99+</em>）</span></p>')
 				}
 				//商家商品库存预警值 end
 			//商品提醒 end

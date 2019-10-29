@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 $_LANG['lab_goods_desc'] = '商品统一描述';
 $_LANG['lab_add_desc'] = '添加关联描述';
 $_LANG['lab_desc_list'] = '描述列表';
@@ -395,7 +395,14 @@ $_LANG['goods_desc'] = '商品描述';
 $_LANG['store_rec'] = '店铺推荐';
 $_LANG['add_attr_img_noc'] = '添加属性图片时必须要选定一个默认展示图片，否则前台无法显示属性图片。';
 $_LANG['be_careful'] = '注意';
-$_LANG['goods_images_tishi'] = "<h4>上传要求：</h4>\r\n                    <ul>\r\n                        <li>1. 请使用jpg\\jpeg\\png等格式、单张大小不超过1M的正方形图片。</li>\r\n                        <li>2. 上传图片最大尺寸为800*800像素。</li>\r\n                        <li>3. 通过更改排序数字修改商品图片的排列显示顺序。</li>\r\n                        <li>4. 图片质量要清晰，不能虚化，要保证亮度充足。</li>\r\n                        <li>5. 操作完成后请点提交，否则无法在网站生效。</li>\r\n                    </ul>";
+$_LANG['goods_images_tishi'] = '<h4>上传要求：</h4>
+                    <ul>
+                        <li>1. 请使用jpg\\jpeg\\png等格式、单张大小不超过1M的正方形图片。</li>
+                        <li>2. 上传图片最大尺寸为800*800像素。</li>
+                        <li>3. 通过更改排序数字修改商品图片的排列显示顺序。</li>
+                        <li>4. 图片质量要清晰，不能虚化，要保证亮度充足。</li>
+                        <li>5. 操作完成后请点提交，否则无法在网站生效。</li>
+                    </ul>';
 $_LANG['package'] = '套餐';
 $_LANG['limit_add_number'] = '限制购买配件数量';
 $_LANG['this_goods_region'] = '该商品的地区';
@@ -524,6 +531,7 @@ $_LANG['accessories_price'] = '配件价格';
 $_LANG['accessories_type'] = '配件类型';
 $_LANG['lab_goods_sn_notic'] = '如果您不输入商品货号，系统将自动生成一个唯一的货号。';
 $_LANG['lab_bar_code_notic'] = '必须点击扫码入库按钮文本框出现光标在使用扫码枪扫码，扫码入库功能必须去店铺基本信息设置里面设置<a href="index.php?act=merchants_first" class="fn">扫码appkey</a>才可以使用';
+$_LANG['lab_goods_brief_notic'] = '最多输入60个字符';
 $_LANG['lab_inventory_notic'] = '库存在商品为虚货或商品存在货品时为不可编辑状态，库存数值取决于其虚货数量或货品数量。';
 $_LANG['lab_other_brand_notic'] = '没有符合"<strong>其他</strong>"条件的品牌';
 $_LANG['lab_goods_img_notic'] = '图片尺寸建议800*800';
@@ -535,7 +543,26 @@ $_LANG['comment_tag_notic'] = '请用\',\'号分割；例：商品好看,很实�
 $_LANG['service_commitment_tag_notic'] = '请用\',\'号分割（注：逗号要使用英文逗号）';
 $_LANG['stores_remarks_notic'] = '仅供商家自己看的信息';
 $_LANG['checkbox_select_img_notic'] = '按住ctrl可同时批量选择多张图片上传';
-$_LANG['phone_terminal_notic'] = "<div class=\"explain\">\r\n\t<p>\r\n\t\t<strong>一、基本要求</strong>\r\n\t\t<span><em>1、</em>手机详情总体大小：图片+文字，<i class=\"red\">图片不超过20张，文字不超过5000字</i>；</span>\r\n\t\t<span><em>建议：</em>所有图片都是本宝贝相关的图片。</span>\r\n\t</p>\r\n\t<p>\r\n\t\t<strong>二、图片大小</strong>\r\n\t\t<span><em>1、</em>建议使用宽度480 ~ 620像素、高度小于等于960像素的图片；</span>\r\n\t\t<span><em>2、</em>格式为：JPG\\JEPG\\GIF\\PNG；</span>\r\n\t\t<span><em>举例：</em>可以上传一张宽度为480，高度为960像素，格式为JPG的图片。</span>\r\n\t</p>\r\n\t<p>\r\n\t\t<strong>三、文字要求</strong>\r\n\t\t<span><em>1、</em>每次插入文字不能超过500个字，标点、特殊字符按照一个字计算；</span>\r\n\t\t<span><em>2、</em>请手动输入文字，不要复制粘贴网页上的文字，防止出现乱码；</span>\r\n\t\t<span><em>3、</em>以下特殊字符“&lt;”、“&gt;”、“\"”、“’”、“\\”会被替换为空。</span>\r\n\t\t<span><em>建议：</em>不要添加太多的文字，这样看起来更清晰。</span>\r\n\t</p>\r\n</div>";
+$_LANG['phone_terminal_notic'] = '<div class="explain">
+	<p>
+		<strong>一、基本要求</strong>
+		<span><em>1、</em>手机详情总体大小：图片+文字，<i class="red">图片不超过20张，文字不超过5000字</i>；</span>
+		<span><em>建议：</em>所有图片都是本宝贝相关的图片。</span>
+	</p>
+	<p>
+		<strong>二、图片大小</strong>
+		<span><em>1、</em>建议使用宽度480 ~ 620像素、高度小于等于960像素的图片；</span>
+		<span><em>2、</em>格式为：JPG\\JEPG\\GIF\\PNG；</span>
+		<span><em>举例：</em>可以上传一张宽度为480，高度为960像素，格式为JPG的图片。</span>
+	</p>
+	<p>
+		<strong>三、文字要求</strong>
+		<span><em>1、</em>每次插入文字不能超过500个字，标点、特殊字符按照一个字计算；</span>
+		<span><em>2、</em>请手动输入文字，不要复制粘贴网页上的文字，防止出现乱码；</span>
+		<span><em>3、</em>以下特殊字符“&lt;”、“&gt;”、“"”、“’”、“\\”会被替换为空。</span>
+		<span><em>建议：</em>不要添加太多的文字，这样看起来更清晰。</span>
+	</p>
+</div>';
 $_LANG['goods_lib_cat'] = '商品库商品分类';
 $_LANG['goods_lib_info'] = '商品库信息';
 $_LANG['import_seller_goods'] = '导入店铺商品';

@@ -1,5 +1,6 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+$_LANG['update_type'] = '更新状态';
 $_LANG['goods_alt'] = '商品';
 $_LANG['order_vcard_return'] = '【订单退款】储值卡退款金额：%s';
 $_LANG['seller_off'] = '店铺关闭中，请及时联系平台客服人员进行查询相关信息！';
@@ -1443,6 +1444,8 @@ $_LANG['please_input_title_in_set'] = '请在显示设置填写主标题';
 $_LANG['please_input_subtitle_in_set'] = '请在显示设置填写次标题';
 $_LANG['please_select_goods_type'] = '请选择商品类型';
 $_LANG['notice_mobile_100_100'] = '（注：手机端专用,建议上传正方形图片（100*100））';
+$_LANG['add_date_success'] = '已添加数据成功';
+$_LANG['add_date_fail'] = '已添加数据失败';
 $_LANG['pagetip_merge_order_list'] = '当两个订单不一致时，合并后的订单信息（如：支付方式、配送方式、包装、贺卡、红包等）以主订单为准。';
 $_LANG['pagetip_shop_banner_1'] = '注意：1、弹出框鼠标移到头部可以拖动，以防笔记本小屏幕内容展示不全；';
 $_LANG['pagetip_shop_banner_2'] = '注意：1、请按照模板展示模式图片上面的尺寸来设置广告；';

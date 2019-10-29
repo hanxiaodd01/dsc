@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Models;
 
 class OrderInfo extends \Illuminate\Database\Eloquent\Model
@@ -13,6 +13,18 @@ class OrderInfo extends \Illuminate\Database\Eloquent\Model
 	public function goods()
 	{
 		return self::hasMany('App\\Models\\OrderGoods', 'order_id', 'order_id');
+	}
+
+	public function getMainOrder()
+	{
+		return $this->hasOne('App\\Models\\OrderInfo', 'main_order_id', 'order_id');
+	}
+
+	public function scopeMainOrderCount()
+	{
+		return $this->whereHas('getMainOrder', function($query) {
+			$query->selectRaw('count(*) as count')->Having('count', 0);
+		});
 	}
 
 	public function getMainOrderId()

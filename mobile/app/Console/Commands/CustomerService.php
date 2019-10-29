@@ -1,5 +1,5 @@
 <?php
-//zend 多点乐资源  禁止倒卖 一经发现停止任何服务
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Console\Commands;
 
 class CustomerService extends \Illuminate\Console\Command
@@ -52,7 +52,9 @@ class CustomerService extends \Illuminate\Console\Command
 			$port_status = $this->checkPort($ip, $newPort);
 			$this->workermanEvent->setPort($newPort);
 			$config['port'] = (string) $newPort;
-			file_put_contents($chat_config, "<?php\n\r return " . var_export($config, 1) . ';');
+			file_put_contents($chat_config, '<?php
+
+ return ' . var_export($config, 1) . ';');
 			$index++;
 		} while ($port_status != 2 && $index < 3);
 
@@ -68,22 +70,32 @@ class CustomerService extends \Illuminate\Console\Command
 		$ws_worker->serviceContainer = array();
 		$ws_worker->customerContainer = array();
 		$ws_worker->eventContainer = $this->workermanEvent;
+		define('HEARTBEAT_TIME', 55);
+		define('CHECK_HEARTBEAT_TIME', 1);
 		if ($action == 'stop' || $action == 'restart') {
-			echo "change service status...\n";
+			echo 'change service status...
+';
 			$ws_worker->eventContainer->changeServiceStatus();
-			echo "all service in logout status\n";
+			echo 'all service in logout status
+';
 		}
 
 		$ws_worker->onConnect = function($connection) {
-			echo 'new connection from ip ' . $connection->getRemoteIp() . "\n";
+			echo 'new connection from ip ' . $connection->getRemoteIp() . '
+';
 		};
 		$ws_worker->onMessage = function($connection, $data) use($ws_worker) {
 			$data = json_decode($data, 1);
 			$data['store_id'] = isset($data['store_id']) ? intval($data['store_id']) : 0;
 			$data['goods_id'] = isset($data['goods_id']) ? intval($data['goods_id']) : 0;
 			$event = $ws_worker->eventContainer;
+			$connection->lastMessageTime = time();
 
 			switch ($data['type']) {
+			case 'pong':
+				$connection->send(json_encode(array('type' => 'ping')));
+				break;
+
 			case 'login':
 				$connection->uid = $data['uid'];
 				$connection->uname = $data['name'];
@@ -224,6 +236,22 @@ class CustomerService extends \Illuminate\Console\Command
 				break;
 			}
 		};
+		$ws_worker->onWorkerStart = function($ws_worker) {
+			\Workerman\Lib\Timer::add(CHECK_HEARTBEAT_TIME, function() use($ws_worker) {
+				$time_now = time();
+
+				foreach ($ws_worker->connections as $connection) {
+					if (empty($connection->lastMessageTime)) {
+						$connection->lastMessageTime = $time_now;
+						continue;
+					}
+
+					if (HEARTBEAT_TIME < $time_now - $connection->lastMessageTime) {
+						$connection->close();
+					}
+				}
+			});
+		};
 		$ws_worker->onClose = function($connection) use($ws_worker) {
 			$event = $ws_worker->eventContainer;
 
@@ -248,9 +276,11 @@ class CustomerService extends \Illuminate\Console\Command
 			}
 		};
 		$ws_worker->onWorkerStop = function() use($ws_worker) {
-			echo "change service status...\n";
+			echo 'change service status...
+';
 			$ws_worker->eventContainer->changeServiceStatus();
-			echo "all service in logout status\n";
+			echo 'all service in logout status
+';
 		};
 		\Workerman\Worker::runAll();
 	}

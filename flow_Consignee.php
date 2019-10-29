@@ -1,8 +1,8 @@
 <?php
-//商创商城资源
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function get_regions_log($type = 0, $parent = 0)
 {
-	$sql = 'SELECT region_id, region_name FROM ' . $GLOBALS['ecs']->table('region') . ' WHERE region_type = \'' . $type . '\' AND parent_id = \'' . $parent . '\'';
+	$sql = 'SELECT region_id, region_name FROM ' . $GLOBALS['ecs']->table('region') . (' WHERE region_type = \'' . $type . '\' AND parent_id = \'' . $parent . '\'');
 	return $GLOBALS['db']->GetAll($sql);
 }
 
@@ -23,7 +23,7 @@ if ($_REQUEST['step'] == 'edit_Consignee') {
 	include 'includes/cls_json.php';
 	$json = new JSON();
 	$res = array('message' => '', 'result' => '', 'qty' => 1);
-	$address_id = (isset($_REQUEST['address_id']) ? intval($_REQUEST['address_id']) : 0);
+	$address_id = isset($_REQUEST['address_id']) ? intval($_REQUEST['address_id']) : 0;
 
 	if ($address_id == 0) {
 		$consignee['country'] = 1;
@@ -57,7 +57,7 @@ if ($_REQUEST['step'] == 'edit_Consignee') {
 }
 else if ($_REQUEST['step'] == 'insert_Consignee') {
 	include 'includes/cls_json.php';
-	$json = new JSON();
+	$json = new JSON();//zdl
 	$result = array('message' => '', 'result' => '', 'error' => 0);
 	$_REQUEST['csg'] = isset($_REQUEST['csg']) ? json_str_iconv($_REQUEST['csg']) : '';
 	$csg = $json->decode($_REQUEST['csg']);
@@ -137,12 +137,12 @@ else if ($_REQUEST['step'] == 'delete_Consignee') {
 	$json = new JSON();
 	$res = array('message' => '', 'result' => '', 'qty' => 1);
 	$result['error'] = 0;
-	$address_id = (isset($_REQUEST['address_id']) ? intval($_REQUEST['address_id']) : 0);
-	$sql = 'delete from ' . $ecs->table('user_address') . ' where address_id = \'' . $address_id . '\'';
+	$address_id = isset($_REQUEST['address_id']) ? intval($_REQUEST['address_id']) : 0;
+	$sql = 'delete from ' . $ecs->table('user_address') . (' where address_id = \'' . $address_id . '\' AND user_id = \'' . $user_id . '\'');
 	$db->query($sql);
 	$consignee = $_SESSION['flow_consignee'];
 	$smarty->assign('consignee', $consignee);
-	$user_address = get_order_user_address_list($_SESSION['user_id']);
+	$user_address = get_order_user_address_list($user_id);
 	$smarty->assign('user_address', $user_address);
 	$result['content'] = $smarty->fetch('library/consignee_flow.lbi');
 	exit($json->encode($result));

@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function add_link($extension_code = '')
 {
 	$href = 'goods.php?act=add';
@@ -89,7 +89,7 @@ if ($_REQUEST['act'] == 'list' || $_REQUEST['act'] == 'trash' || $_REQUEST['act'
 	get_del_goods_gallery();
 	get_updel_goods_attr();
 	get_del_goods_video();
-	$sql = 'DELETE FROM' . $GLOBALS['ecs']->table('products_changelog') . 'WHERE admin_id = \'' . $_SESSION['admin_id'] . '\'';
+	$sql = 'DELETE FROM' . $GLOBALS['ecs']->table('products_changelog') . ' WHERE goods_id = 0 AND admin_id = \'' . $_SESSION['admin_id'] . '\'';
 	$GLOBALS['db']->query($sql);
 	$cat_id = empty($_REQUEST['cat_id']) ? 0 : intval($_REQUEST['cat_id']);
 	$code = empty($_REQUEST['extension_code']) ? '' : trim($_REQUEST['extension_code']);
@@ -195,8 +195,6 @@ if ($_REQUEST['act'] == 'list' || $_REQUEST['act'] == 'trash' || $_REQUEST['act'
 }
 else {
 	if ($_REQUEST['act'] == 'add' || $_REQUEST['act'] == 'edit' || $_REQUEST['act'] == 'copy') {
-		$sql = 'DELETE FROM' . $GLOBALS['ecs']->table('products_changelog') . 'WHERE admin_id = \'' . $_SESSION['admin_id'] . '\'';
-		$GLOBALS['db']->query($sql);
 		get_del_goodsimg_null();
 		get_del_goods_gallery();
 		get_del_update_goods_null();
@@ -266,6 +264,14 @@ else {
 
 		$adminru = get_admin_ru_id();
 		$goods_id = isset($_REQUEST['goods_id']) && !empty($_REQUEST['goods_id']) ? intval($_REQUEST['goods_id']) : 0;
+		$changelog_where = '';
+
+		if (empty($goods_id)) {
+			$changelog_where = ' AND admin_id = \'' . $admin_id . '\'';
+		}
+
+		$sql = 'DELETE FROM' . $GLOBALS['ecs']->table('products_changelog') . (' WHERE goods_id = \'' . $goods_id . '\'') . $changelog_where;
+		$GLOBALS['db']->query($sql);
 
 		if ($is_add) {
 			$goods = array(
@@ -297,7 +303,7 @@ else {
 				'goods_unit'         => '个',
 				'goods_cause'        => 0,
 				'goods_extend'       => array('is_reality' => 0, 'is_return' => 0, 'is_fast' => 0)
-				);
+			);
 
 			if ($code != '') {
 				$goods['goods_number'] = 0;
@@ -312,7 +318,7 @@ else {
 			$goods_article_list = array();
 			$sql = 'DELETE FROM ' . $ecs->table('goods_article') . (' WHERE goods_id = 0 AND admin_id = \'' . $_SESSION['admin_id'] . '\'');
 			$db->query($sql);
-			$sql = 'DELETE FROM ' . $ecs->table('goods_attr') . ' WHERE goods_id = 0';
+			$sql = 'DELETE FROM ' . $ecs->table('goods_attr') . (' WHERE goods_id = 0 AND admin_id = \'' . $admin_id . '\'');
 			$db->query($sql);
 			$img_list = array();
 		}
@@ -372,7 +378,7 @@ else {
 					'rank_integral'      => 0,
 					'user_cat'           => 0,
 					'goods_extend'       => array('is_reality' => 0, 'is_return' => 0, 'is_fast' => 0)
-					);
+				);
 			}
 
 			$goods['goods_video_path'] = !empty($goods['goods_video']) ? get_image_path($goods['goods_id'], $goods['goods_video']) : '';
@@ -474,7 +480,7 @@ else {
 					$db->autoExecute($ecs->table('goods_article'), $row, 'INSERT');
 				}
 
-				$sql = 'DELETE FROM ' . $ecs->table('goods_attr') . ' WHERE goods_id = 0';
+				$sql = 'DELETE FROM ' . $ecs->table('goods_attr') . (' WHERE goods_id = 0 AND admin_id = \'' . $admin_id . '\'');
 				$db->query($sql);
 				$sql = 'SELECT 0 AS goods_id, attr_id, attr_value, attr_price ' . 'FROM ' . $ecs->table('goods_attr') . (' WHERE goods_id = \'' . $_REQUEST['goods_id'] . '\' ');
 				$res = $db->query($sql);
@@ -729,8 +735,6 @@ else {
 			$smarty->assign('ur_here', $_LANG['lab_review_not_audit']);
 		}
 
-		$goods_list_type = get_goods_type_number();
-		$smarty->assign('goods_list_type', $goods_list_type);
 		$goods_list = goods_list(0, 1, '', $status, 1);
 		$smarty->assign('goods_list', $goods_list['goods']);
 		$smarty->assign('filter', $goods_list['filter']);
@@ -2231,7 +2235,13 @@ else {
 						}
 					}
 
-					$sql = 'DELETE FROM' . $ecs->table('products_changelog') . ('WHERE goods_id = \'' . $goods_id . '\' AND admin_id = \'') . $_SESSION['admin_id'] . '\'';
+					$products_changelog_where = '';
+
+					if (empty($goods_id)) {
+						$products_changelog_where = ' AND admin_id = \'' . $admin_id . '\'';
+					}
+
+					$sql = 'DELETE FROM' . $ecs->table('products_changelog') . ('WHERE goods_id = \'' . $goods_id . '\'') . $products_changelog_where;
 					$db->query($sql);
 					$goods = get_admin_goods_info($goods_id, array('promote_price', 'promote_start_date', 'promote_end_date', 'user_id', 'model_attr'));
 					if ($GLOBALS['_CFG']['add_shop_price'] == 0 && $goods['model_attr'] == 0) {
@@ -2749,8 +2759,6 @@ else {
 						$shop_province = $db->getOne('SELECT region_name FROM ' . $ecs->table('region') . (' WHERE region_id=\'' . $shop_province . '\''));
 						$shop_city = $db->getOne('SELECT region_name FROM ' . $ecs->table('region') . (' WHERE region_id=\'' . $shop_city . '\''));
 						$httpData = array('domain' => $ecs->get_domain(), 'url' => urldecode($shop_url), 'shop_name' => $_CFG['shop_name'], 'shop_title' => $_CFG['shop_title'], 'shop_desc' => $_CFG['shop_desc'], 'shop_keywords' => $_CFG['shop_keywords'], 'country' => $shop_country, 'province' => $shop_province, 'city' => $shop_city, 'address' => $shop_address, 'qq' => $qq, 'ww' => $ww, 'ym' => $service_phone, 'msn' => $_CFG['msn'], 'email' => $service_email, 'phone' => $_CFG['sms_shop_mobile'], 'icp' => $_CFG['icp_number'], 'version' => VERSION, 'release' => RELEASE, 'language' => $_CFG['lang'], 'php_ver' => PHP_VERSION, 'mysql_ver' => $db->version(), 'charset' => EC_CHARSET);
-						$Http = new Http();
-						$Http->doPost($_CFG['certi'], $httpData);
 						write_static_cache('seller_goods_str', $httpData);
 					}
 				}
@@ -3020,6 +3028,10 @@ else {
 					$sql = 'delete from ' . $ecs->table('goods_extend') . (' where goods_id=\'' . $goods_id . '\'');
 					$db->query($sql);
 					$sql = 'DELETE FROM ' . $ecs->table('products') . (' WHERE goods_id = \'' . $goods_id . '\'');
+					$db->query($sql);
+					$sql = 'DELETE FROM ' . $ecs->table('products_warehouse') . (' WHERE goods_id = \'' . $goods_id . '\'');
+					$db->query($sql);
+					$sql = 'DELETE FROM ' . $ecs->table('products_area') . (' WHERE goods_id = \'' . $goods_id . '\'');
 					$db->query($sql);
 					admin_log(addslashes($goods['goods_name']), 'remove', 'goods');
 					$sql = 'SELECT img_url, thumb_url, img_original ' . 'FROM ' . $ecs->table('goods_gallery') . (' WHERE goods_id = \'' . $goods_id . '\'');

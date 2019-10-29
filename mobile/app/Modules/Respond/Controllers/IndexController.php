@@ -1,5 +1,5 @@
 <?php
-//zend 多点乐资源  禁止倒卖 一经发现停止任何服务
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Modules\Respond\Controllers;
 
 class IndexController extends \App\Modules\Base\Controllers\FrontendController
@@ -41,8 +41,9 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 			}
 		}
 
-		if (isset($_GET['log_id']) && !empty($_GET['log_id'])) {
-			$log_id = intval($_GET['log_id']);
+		$out_trade_no = addslashes($_GET['out_trade_no']);
+		$log_id = parse_trade_no($out_trade_no);
+		if (isset($log_id) && !empty($log_id)) {
 			$pay_log = dao('pay_log')->field('order_type, order_id')->where(array('log_id' => $log_id))->find();
 
 			if ($pay_log['order_type'] == 0) {
@@ -113,7 +114,7 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 			else if ($pay_log['order_type'] == 3) {
 				$order_url = url('team/user/index');
 			}
-
+            //zdl
 			$order_url = str_replace('respond', 'index', $order_url);
 			$repond_url = __URL__ . '/respond.php?code=' . $this->data['code'] . '&status=1&log_id=' . $log_id;
 		}

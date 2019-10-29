@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function get_warehouse_area_attr_price_insert($warehouse_area, $goods_id, $goods_attr_id, $table)
 {
 	$arr = array();
@@ -987,7 +987,7 @@ function get_order_drp_money($total_fee = 0, $ru_id = 0, $order_id = 0, $order =
 		$where .= ' AND oi.order_id = \'' . $order_id . '\'';
 	}
 	else {
-		$where .= order_query_sql('confirm_take', 'oi.');
+		$where .= order_query_sql('bill_confirm_take', 'oi.');
 		$where .= ' AND og.ru_id = \'' . $ru_id . '\'';
 		$where .= ' AND (SELECT count(*) FROM ' . $GLOBALS['ecs']->table('order_info') . ' AS oi2 WHERE oi2.main_order_id = oi.order_id LIMIT 1) = 0';
 	}
@@ -1056,7 +1056,7 @@ function get_seller_account_log()
 		$store_search_where = '';
 
 		if ($filter['store_search'] != 0) {
-			if ($ru_id == 0) {
+			if ($adminru['ru_id'] == 0) {
 				if ($_REQUEST['store_type']) {
 					$store_search_where = 'AND mis.shopNameSuffix = \'' . $_REQUEST['store_type'] . '\'';
 				}
@@ -1124,17 +1124,17 @@ function get_del_edit_goods_img($goods_id, $table = 'goods')
 	$row = $GLOBALS['db']->getRow($sql);
 
 	if ($row) {
-		if ($result['data']['goods_thumb'] && $row['goods_thumb'] != $result['data']['goods_thumb'] && strpos($row['goods_thumb'], 'data/gallery_album') === false) {
+		if (strpos($row['goods_thumb'], 'data/gallery_album') === false) {
 			dsc_unlink(ROOT_PATH . $row['goods_thumb']);
 			$arr_img[] = $row['goods_thumb'];
 		}
 
-		if ($result['data']['goods_img'] && $row['goods_img'] != $result['data']['goods_img'] && strpos($row['goods_img'], 'data/gallery_album') === false) {
+		if (strpos($row['goods_img'], 'data/gallery_album') === false) {
 			dsc_unlink(ROOT_PATH . $row['goods_img']);
 			$arr_img[] = $row['goods_img'];
 		}
 
-		if ($result['data']['original_img'] && $row['original_img'] != $result['data']['original_img'] && strpos($k['original_img'], 'data/gallery_album') === false) {
+		if (strpos($row['original_img'], 'data/gallery_album') === false) {
 			dsc_unlink(ROOT_PATH . $row['original_img']);
 			$arr_img[] = $row['original_img'];
 		}
@@ -1190,17 +1190,17 @@ function get_del_goods_gallery()
 			foreach ($res as $k) {
 				if ($k['img_url'] && strpos($k['img_url'], 'data/gallery_album') === false) {
 					dsc_unlink(ROOT_PATH . $k['img_url']);
-					$arr_img[] = $row['img_url'];
+					$arr_img[] = $k['img_url'];
 				}
 
 				if ($k['thumb_url'] && strpos($k['thumb_url'], 'data/gallery_album') === false) {
 					dsc_unlink(ROOT_PATH . $k['thumb_url']);
-					$arr_img[] = $row['thumb_url'];
+					$arr_img[] = $k['thumb_url'];
 				}
 
 				if ($k['img_original'] && strpos($k['img_original'], 'data/gallery_album') === false) {
 					dsc_unlink(ROOT_PATH . $k['img_original']);
-					$arr_img[] = $row['img_original'];
+					$arr_img[] = $k['img_original'];
 				}
 
 				get_oss_del_file($arr_img);
@@ -1632,22 +1632,40 @@ function get_goods_product_list($goods_id = 0, $model = 0, $warehouse_id = 0, $a
 	}
 
 	$res = $GLOBALS['db']->getAll($sql);
+	$arr = array();
 
 	for ($i = 0; $i < count($res); $i++) {
 		$goods_attr_id = str_replace('|', ',', $res[$i]['goods_attr']);
 		$sql = 'SELECT attr_value FROM ' . $GLOBALS['ecs']->table('goods_attr') . ' WHERE goods_id = \'' . $res[$i]['goods_id'] . ('\' AND goods_attr_id IN(' . $goods_attr_id . ')');
 		$attr_value = $GLOBALS['db']->getAll($sql);
 		$res[$i]['attr_value'] = get_goods_attr_value($attr_value);
+
+		if (!trim($res[$i]['attr_value'])) {
+			if ($filter['model'] == 1) {
+				$table = 'products_warehouse';
+			}
+			else if ($filter['model'] == 2) {
+				$table = 'products_area';
+			}
+			else {
+				$table = 'products';
+			}
+
+			$sql = 'DELETE FROM ' . $GLOBALS['ecs']->table($table) . ' WHERE goods_attr = \'' . $res[$i]['goods_attr'] . '\' AND goods_id = \'' . $res[$i]['goods_id'] . '\'';
+			$GLOBALS['db']->query($sql);
+			unset($res[$i]);
+		}
+		else {
+			$arr[] = $res[$i];
+		}
 	}
 
 	if ($is_pagging) {
-		$arr = array('product_list' => $res, 'filter' => $filter, 'page_count' => $filter['page_count'], 'record_count' => $filter['record_count'], 'query' => 'sku_query');
+		return array('product_list' => $arr, 'filter' => $filter, 'page_count' => $filter['page_count'], 'record_count' => $filter['record_count'], 'query' => 'sku_query');
 	}
 	else {
-		return $res;
+		return $arr;
 	}
-
-	return $arr;
 }
 
 function get_goods_attr_value($attr_value)
@@ -2523,31 +2541,31 @@ function get_statistical_data($start_date = 0, $end_date = 0, $type = 'order')
 			'magicType'   => array(
 				'show' => true,
 				'type' => array('line', 'bar')
-				),
+			),
 			'saveAsImage' => array('show' => true)
-			)
-		);
+		)
+	);
 	$tooltip = array(
 		'trigger'     => 'axis',
 		'axisPointer' => array(
 			'lineStyle' => array('color' => '#6cbd40')
-			)
-		);
+		)
+	);
 	$xAxis = array(
 		'type'        => 'category',
 		'boundaryGap' => false,
 		'axisLine'    => array(
 			'lineStyle' => array('color' => '#ccc', 'width' => 0)
-			),
+		),
 		'data'        => array()
-		);
+	);
 	$yAxis = array(
 		'type'      => 'value',
 		'axisLine'  => array(
 			'lineStyle' => array('color' => '#ccc', 'width' => 0)
-			),
+		),
 		'axisLabel' => array('formatter' => '')
-		);
+	);
 	$series = array(
 		array(
 			'name'      => '',
@@ -2556,30 +2574,30 @@ function get_statistical_data($start_date = 0, $end_date = 0, $type = 'order')
 				'normal' => array(
 					'color'     => '#6cbd40',
 					'lineStyle' => array('color' => '#6cbd40')
-					)
-				),
+				)
+			),
 			'data'      => array(),
 			'markPoint' => array(
 				'itemStyle' => array(
 					'normal' => array('color' => '#6cbd40')
-					),
+				),
 				'data'      => array(
 					array('type' => 'max', 'name' => '最大值'),
 					array('type' => 'min', 'name' => '最小值')
-					)
 				)
-			),
+			)
+		),
 		array(
 			'type'      => 'force',
 			'name'      => '',
 			'draggable' => false,
 			'nodes'     => array('draggable' => false)
-			)
-		);
+		)
+	);
 	$calculable = true;
 	$legend = array(
 		'data' => array()
-		);
+	);
 
 	if ($type == 'order') {
 		$title['text'] = '订单数量';
@@ -2686,11 +2704,6 @@ function get_link_goods_desc_list($ru_id = 0)
 		}
 
 		$filter['page'] = empty($_REQUEST['page']) || intval($_REQUEST['page']) <= 0 ? 1 : intval($_REQUEST['page']);
-
-		if (0 < $page) {
-			$filter['page'] = $page;
-		}
-
 		if (isset($_REQUEST['page_size']) && 0 < intval($_REQUEST['page_size'])) {
 			$filter['page_size'] = intval($_REQUEST['page_size']);
 		}

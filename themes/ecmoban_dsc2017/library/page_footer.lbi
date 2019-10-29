@@ -102,7 +102,7 @@
             <!--{/if}-->
             
             <!-- {if $icp_number} ICP 证书-->
-            <p><span>©&nbsp;2015-2018&nbsp;dscmall.cn&nbsp;版权所有&nbsp;&nbsp;</span><span>{$lang.icp_number}:</span><a href="http://www.miibeian.gov.cn/" target="_blank">{$icp_number}</a>&nbsp;POWERED by<a href="http://www.dscmall.cn/" target="_blank">大商创</a>2.0</p>
+            <p><span>©&nbsp;2015-2018&nbsp;dscmall.cn&nbsp;版权所有&nbsp;&nbsp;</span><span>{$lang.icp_number}:</span><a href="http://www.miit.gov.cn/" target="_blank">{$icp_number}</a>&nbsp;POWERED by<a href="http://www.dscmall.cn/" target="_blank">大商创</a>2.0</p>
             <!--{/if}-->
             
             <!--{if $partner_img_links  or $partner_txt_links }-->

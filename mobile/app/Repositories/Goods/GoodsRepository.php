@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Repositories\Goods;
 
 class GoodsRepository
@@ -214,7 +214,7 @@ class GoodsRepository
 
 	public function goodsInfo($id)
 	{
-		$res = \App\Models\Goods::select('goods_id', 'cat_id', 'goods_name', 'brand_id', 'shop_price as goods_price', 'market_price', 'goods_number as stock', 'goods_desc', 'desc_mobile', 'goods_brief', 'sales_volume as sales', 'goods_thumb', 'model_attr', 'goods_type', 'user_id', 'is_on_sale', 'promote_price', 'product_price', 'product_promote_price', 'promote_start_date', 'promote_end_date', 'goods_video', 'cloud_id')->where('goods_id', $id)->where('is_delete', 0)->where('review_status', '>', 2)->first();
+		$res = \App\Models\Goods::select('goods_id', 'cat_id', 'goods_name', 'brand_id', 'shop_price as goods_price', 'market_price', 'goods_number as stock', 'goods_desc', 'desc_mobile', 'goods_brief', 'sales_volume as sales', 'goods_thumb', 'model_attr', 'goods_type', 'user_id', 'is_on_sale', 'review_status', 'promote_price', 'product_price', 'product_promote_price', 'promote_start_date', 'promote_end_date', 'goods_video', 'cloud_id')->where('goods_id', $id)->where('is_delete', 0)->where('is_alone_sale', 1)->first();
 
 		if ($res === null) {
 			return array();

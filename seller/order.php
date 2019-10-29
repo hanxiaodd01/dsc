@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function cause_info($c_id)
 {
 	$sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('return_cause') . ' WHERE cause_id = ' . $c_id;
@@ -667,7 +667,8 @@ function order_list($page = 0)
 			}
 		}
 
-		$sql = 'SELECT ifnull(bai.is_stages,0) is_stages, o.order_id, o.main_order_id, o.order_sn, o.add_time, o.order_status, o.shipping_status, o.pay_status, o.order_amount, o.money_paid, o.is_delete,' . 'o.shipping_fee, o.insure_fee, o.pay_fee, o.pack_fee, o.card_fee, o.surplus,o.tax, o.integral_money, o.bonus, o.discount, o.coupons,' . 'o.shipping_time, o.auto_delivery_time, o.consignee, o.address, o.email, o.tel, o.mobile, o.extension_code AS o_extension_code, ' . 'o.extension_id, o.user_id, o.referer, o.froms, o.chargeoff_status, o.confirm_take_time, o.pay_id, o.pay_name, o.shipping_id, o.shipping_name, o.goods_amount, ' . '(' . order_amount_field('o.') . ') AS total_fee, (o.goods_amount + o.tax + o.shipping_fee + o.insure_fee + o.pay_fee + o.pack_fee + o.card_fee - o.discount) AS total_fee_order, o.pay_id ' . ' FROM ' . $GLOBALS['ecs']->table('order_info') . ' AS o ' . ' LEFT JOIN ' . $GLOBALS['ecs']->table('baitiao_log') . ' AS bai ON o.order_id=bai.order_id ' . $leftJoin . $where . $no_main_order . $groupBy . (' ORDER BY ' . $filter['sort_by'] . ' ' . $filter['sort_order'] . ' ') . ' LIMIT ' . ($filter['page'] - 1) * $filter['page_size'] . (',' . $filter['page_size']);
+		$select = '(SELECT bai.is_stages FROM ' . $GLOBALS['ecs']->table('baitiao_log') . ' as bai WHERE o.order_id = bai.order_id) AS is_stages,';
+		$sql = 'SELECT ' . $select . ' o.order_id, o.main_order_id, o.order_sn, o.add_time, o.order_status, o.shipping_status, o.pay_status, o.order_amount, o.money_paid, o.is_delete,' . 'o.shipping_fee, o.insure_fee, o.pay_fee, o.pack_fee, o.card_fee, o.surplus,o.tax, o.integral_money, o.bonus, o.discount, o.coupons,' . 'o.shipping_time, o.auto_delivery_time, o.consignee, o.address, o.email, o.tel, o.mobile, o.extension_code AS o_extension_code, ' . 'o.extension_id, o.user_id, o.referer, o.froms, o.chargeoff_status, o.confirm_take_time, o.pay_id, o.pay_name, o.shipping_id, o.shipping_name, o.goods_amount, ' . '(' . order_amount_field('o.') . ') AS total_fee, (o.goods_amount + o.tax + o.shipping_fee + o.insure_fee + o.pay_fee + o.pack_fee + o.card_fee - o.discount) AS total_fee_order, o.pay_id ' . ' FROM ' . $GLOBALS['ecs']->table('order_info') . ' AS o ' . $leftJoin . $where . $no_main_order . $groupBy . (' ORDER BY ' . $filter['sort_by'] . ' ' . $filter['sort_order'] . ' ') . ' LIMIT ' . ($filter['page'] - 1) * $filter['page_size'] . (',' . $filter['page_size']);
 
 		foreach (array('order_sn', 'consignee', 'email', 'address', 'zipcode', 'tel', 'user_name') as $val) {
 			$filter[$val] = stripslashes($filter[$val]);
@@ -683,6 +684,10 @@ function order_list($page = 0)
 	$row = $GLOBALS['db']->getAll($sql);
 
 	foreach ($row as $key => $value) {
+		if (!$value['is_stages']) {
+			$row[$key]['is_stages'] = 0;
+		}
+
 		$sql = 'SELECT id FROM ' . $GLOBALS['ecs']->table('store_order') . (' WHERE order_id = \'' . $value['order_id'] . '\'');
 		$row[$key]['store_order_id'] = $GLOBALS['db']->getOne($sql);
 		if (($value['order_status'] == OS_UNCONFIRMED || $value['order_status'] == OS_CONFIRMED || $value['order_status'] == OS_SPLITED) && $value['pay_status'] == PS_UNPAYED) {
@@ -751,7 +756,7 @@ function order_list($page = 0)
 					if (empty($confirm_take_time)) {
 						$confirm_take_time = gmtime();
 						$note = $GLOBALS['_LANG']['admin_order_list_motion'];
-						order_action($value['order_sn'], $value['order_status'], $value['shipping_status'], $value['pay_status'], $note, $_SESSION['admin_name'], 0, $confirm_take_time);
+						order_action($value['order_sn'], $value['order_status'], $value['shipping_status'], $value['pay_status'], $note, $GLOBALS['_LANG']['system_handle'], 0, $confirm_take_time);
 					}
 
 					$log_other = array('confirm_take_time' => $confirm_take_time);
@@ -1479,7 +1484,7 @@ function back_list()
 			}
 		}
 
-		$leftjoin = ' LEFT JOIN ' . $GLOBALS['ecs']->table('back_order') . ' AS o ON bo.order_id = o.order_id ';
+		$leftjoin = ' LEFT JOIN ' . $GLOBALS['ecs']->table('order_info') . ' AS o ON bo.order_id = o.order_id ';
 		$sql = 'SELECT COUNT(*) FROM ' . $GLOBALS['ecs']->table('back_order') . ' AS bo ' . $leftjoin . $where;
 		$filter['record_count'] = $GLOBALS['db']->getOne($sql);
 		$filter['page_count'] = 0 < $filter['record_count'] ? ceil($filter['record_count'] / $filter['page_size']) : 1;
@@ -2188,7 +2193,7 @@ else if ($_REQUEST['act'] == 'info') {
 				if (empty($confirm_take_time)) {
 					$confirm_take_time = gmtime();
 					$note = $GLOBALS['_LANG']['admin_order_list_motion'];
-					order_action($value['order_sn'], $value['order_status'], $value['shipping_status'], $value['pay_status'], $note, $_SESSION['admin_name'], 0, $confirm_take_time);
+					order_action($value['order_sn'], $value['order_status'], $value['shipping_status'], $value['pay_status'], $note, $GLOBALS['_LANG']['system_handle'], 0, $confirm_take_time);
 					$order['confirm_take_time'] = $confirm_take_time;
 				}
 
@@ -3033,7 +3038,7 @@ else if ($_REQUEST['act'] == 'delivery_ship') {
 				'keyword3' => array('value' => $invoice_no),
 				'keyword4' => array('value' => $order['consignee']),
 				'remark'   => array('value' => $_LANG['order_delivery_wait'])
-				);
+			);
 			$shop_url = str_replace('/seller', '', $GLOBALS['ecs']->url());
 			$order_url = $shop_url . 'mobile/index.php?m=user&c=order&a=detail&order_id=' . $order_id;
 			push_template_curl('OPENTM202243318', $pushData, $order_url, $order['user_id'], $shop_url);
@@ -3120,7 +3125,7 @@ else if ($_REQUEST['act'] == 'ajax_order_detection') {
 			$seller_id = $GLOBALS['db']->getOne('SELECT ru_id FROM ' . $GLOBALS['ecs']->table('order_goods') . ' WHERE order_id = \'' . $order['order_id'] . '\'', true);
 			$value_card = $GLOBALS['db']->getOne('SELECT use_val FROM ' . $GLOBALS['ecs']->table('value_card_record') . ' WHERE order_id = \'' . $order['order_id'] . '\'', true);
 			$return_amount = get_order_return_amount($order['order_id']);
-			$other = array('user_id' => $order['user_id'], 'seller_id' => $seller_id, 'order_id' => $order['order_id'], 'order_sn' => $order['order_sn'], 'order_status' => $order['order_status'], 'shipping_status' => $order['shipping_status'], 'pay_status' => $order['pay_status'], 'order_amount' => $order['total_fee'], 'return_amount' => $return_amount, 'goods_amount' => $order['goods_amount'], 'tax' => $order['tax'], 'shipping_fee' => $order['shipping_fee'], 'insure_fee' => $order['insure_fee'], 'pay_fee' => $order['pay_fee'], 'pack_fee' => $order['pack_fee'], 'card_fee' => $order['card_fee'], 'bonus' => $order['bonus'], 'integral_money' => $order['integral_money'], 'coupons' => $order['coupons'], 'discount' => $order['discount'], 'value_card' => $value_card, 'money_paid' => $order['money_paid'], 'surplus' => $order['surplus'], 'confirm_take_time' => $confirm_take_time);
+			$other = array('user_id' => $order['user_id'], 'seller_id' => $seller_id, 'order_id' => $order['order_id'], 'order_sn' => $order['order_sn'], 'order_status' => $order['order_status'], 'shipping_status' => $order['shipping_status'], 'pay_status' => $order['pay_status'], 'order_amount' => $order['order_amount'], 'return_amount' => $return_amount, 'goods_amount' => $order['goods_amount'], 'tax' => $order['tax'], 'shipping_fee' => $order['shipping_fee'], 'insure_fee' => $order['insure_fee'], 'pay_fee' => $order['pay_fee'], 'pack_fee' => $order['pack_fee'], 'card_fee' => $order['card_fee'], 'bonus' => $order['bonus'], 'integral_money' => $order['integral_money'], 'coupons' => $order['coupons'], 'discount' => $order['discount'], 'value_card' => $value_card, 'money_paid' => $order['money_paid'], 'surplus' => $order['surplus'], 'confirm_take_time' => $confirm_take_time);
 
 			if ($seller_id) {
 				get_order_bill_log($other);
@@ -5286,7 +5291,7 @@ else {
 							'keyword3' => array('value' => $invoice_no),
 							'keyword4' => array('value' => $order['consignee']),
 							'remark'   => array('value' => $_LANG['order_delivery_wait'])
-							);
+						);
 						$shop_url = str_replace('/seller', '', $GLOBALS['ecs']->url());
 						$order_url = $shop_url . 'mobile/index.php?m=user&c=order&a=detail&order_id=' . $order_id;
 						push_template_curl('OPENTM202243318', $pushData, $order_url, $order['user_id'], $shop_url);
@@ -5661,8 +5666,8 @@ else {
 
 				if ($order['ru_id'] != $adminru['ru_id']) {
 					sys_msg($_LANG['order_removed'], 0, array(
-	array('href' => 'order.php?act=list&' . list_link_postfix(), 'text' => $_LANG['return_list'])
-	));
+						array('href' => 'order.php?act=list&' . list_link_postfix(), 'text' => $_LANG['return_list'])
+					));
 					exit();
 				}
 
@@ -5676,8 +5681,8 @@ else {
 
 				if ($return_order) {
 					sys_msg(sprintf($_LANG['order_remove_failure'], $order['order_sn']), 0, array(
-	array('href' => 'order.php?act=list&' . list_link_postfix(), 'text' => $_LANG['return_list'])
-	));
+						array('href' => 'order.php?act=list&' . list_link_postfix(), 'text' => $_LANG['return_list'])
+					));
 					exit();
 				}
 
@@ -5689,8 +5694,8 @@ else {
 				del_delivery($order_id, $action_array);
 				admin_log($order['order_sn'], 'remove', 'order');
 				sys_msg($_LANG['order_removed'], 0, array(
-	array('href' => 'order.php?act=list&' . list_link_postfix(), 'text' => $_LANG['return_list'])
-	));
+					array('href' => 'order.php?act=list&' . list_link_postfix(), 'text' => $_LANG['return_list'])
+				));
 			}
 		}
 		else if (isset($_REQUEST['remove_invoice'])) {
@@ -5714,8 +5719,8 @@ else {
 			}
 
 			sys_msg($_LANG['tips_delivery_del'], 0, array(
-	array('href' => 'order.php?act=delivery_list', 'text' => $_LANG['return_list'])
-	));
+				array('href' => 'order.php?act=delivery_list', 'text' => $_LANG['return_list'])
+			));
 		}
 		else if (isset($_REQUEST['remove_back'])) {
 			$back_id = isset($_REQUEST['back_id']) ? $_REQUEST['back_id'] : $_POST['checkboxes'];
@@ -5732,8 +5737,8 @@ else {
 			}
 
 			sys_msg($_LANG['tips_back_del'], 0, array(
-	array('href' => 'order.php?act=back_list', 'text' => $_LANG['return_list'])
-	));
+				array('href' => 'order.php?act=back_list', 'text' => $_LANG['return_list'])
+			));
 		}
 		else if (isset($_POST['print'])) {
 			if (empty($_POST['order_id'])) {
@@ -6080,7 +6085,7 @@ else {
 							'keyword3' => array('value' => $invoice_no),
 							'keyword4' => array('value' => $order['consignee']),
 							'remark'   => array('value' => $_LANG['order_delivery_wait'])
-							);
+						);
 						$shop_url = str_replace('/seller', '', $GLOBALS['ecs']->url());
 						$order_url = $shop_url . 'mobile/index.php?m=user&c=order&a=detail&order_id=' . $order_id;
 						push_template_curl('OPENTM202243318', $pushData, $order_url, $order['user_id'], $shop_url);
@@ -6096,8 +6101,8 @@ else {
 			}
 
 			sys_msg($_LANG['batch_delivery_success'], 0, array(
-	array('href' => 'order.php?act=delivery_list', 'text' => $_LANG['return_list'])
-	));
+				array('href' => 'order.php?act=delivery_list', 'text' => $_LANG['return_list'])
+			));
 		}
 
 		$sql = 'select log_id from ' . $ecs->table('baitiao_log') . ' where order_id' . db_create_in(explode(',', $order_id));
@@ -6303,8 +6308,8 @@ else {
 
 				if ($return_order) {
 					sys_msg(sprintf($_LANG['order_remove_failure'], $order['order_sn']), 0, array(
-	array('href' => 'order.php?act=list&' . list_link_postfix(), 'text' => $_LANG['return_list'])
-	));
+						array('href' => 'order.php?act=list&' . list_link_postfix(), 'text' => $_LANG['return_list'])
+					));
 					exit();
 				}
 
@@ -6941,7 +6946,7 @@ else {
 
 				if ($return_count == 1) {
 					$bonus = $order['bonus'];
-					$sql = 'UPDATE ' . $GLOBALS['ecs']->table('user_bonus') . ' SET used_time = \'\' , order_id = \'\' WHERE order_id = ' . $order_id;
+					$sql = 'UPDATE ' . $GLOBALS['ecs']->table('user_bonus') . (' SET used_time = \'\' , order_id = \'\' WHERE order_id = \'' . $order_id . '\'');
 					$GLOBALS['db']->query($sql);
 					unuse_coupons($order_id);
 					$is_whole = 1;
@@ -6996,6 +7001,27 @@ else {
 					$GLOBALS['db']->query($sql);
 					$sql = 'UPDATE ' . $GLOBALS['ecs']->table('seller_bill_order') . (' SET return_amount = return_amount + \'' . $return_amount . '\', ') . ('return_shippingfee = \'' . $shippingFee . '\' WHERE order_id = \'' . $order_id . '\'');
 					$GLOBALS['db']->query($sql);
+
+					if ($order['chargeoff_status'] == 1) {
+						$sql = 'SELECT bill_id FROM ' . $GLOBALS['ecs']->table('seller_bill_order') . (' WHERE order_id = \'' . $order_id . '\'');
+						$bill_id = $GLOBALS['db']->getOne($sql, true);
+						$sql = 'SELECT b.*, s.commission_model, s.bill_freeze_day FROM ' . $GLOBALS['ecs']->table('seller_commission_bill') . ' AS b ' . 'LEFT JOIN ' . $GLOBALS['ecs']->table('merchants_server') . ' AS s ON b.seller_id = s.user_id AND b.bill_cycle = s.cycle ' . (' WHERE id = \'' . $bill_id . '\' LIMIT 1');
+						$bill_info = $GLOBALS['db']->getRow($sql);
+
+						if ($bill_info) {
+							$bill_detail = get_bill_amount_detail($bill_info['id'], $bill_info['seller_id'], $bill_info['proportion'], $bill_info['start_time'], $bill_info['end_time'], $bill_info['chargeoff_status'], $bill_info['commission_model']);
+							$bill_other['order_amount'] = $bill_detail['order_amount'];
+							$bill_other['shipping_amount'] = $bill_detail['shipping_amount'];
+							$bill_other['return_amount'] = $bill_detail['return_amount'];
+							$bill_other['return_shippingfee'] = $bill_detail['return_shippingfee'];
+							$bill_other['gain_commission'] = $bill_detail['gain_commission'];
+							$bill_other['should_amount'] = $bill_detail['should_amount'];
+							$bill_other['drp_money'] = $bill_detail['drp_money'];
+							$bill_other['commission_model'] = $bill_detail['commission_model'];
+							$bill_other['chargeoff_time'] = gmtime();
+							$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('seller_commission_bill'), $bill_other, 'UPDATE', 'id = \'' . $bill_info['id'] . '\'');
+						}
+					}
 				}
 			}
 
@@ -7449,7 +7475,7 @@ else {
 		else {
 			$ru_id = array(
 				array('ru_id' => $adminru['ru_id'])
-				);
+			);
 		}
 
 		$where = '';

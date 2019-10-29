@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function utf82u2($str)
 {
 	$len = strlen($str);
@@ -171,9 +171,11 @@ function get_export_where_sql($filter)
 
 function replace_special_char($str, $replace = true)
 {
-	$str = str_replace("\r\n", '', image_path_format($str));
+	$str = str_replace('
+', '', image_path_format($str));
 	$str = str_replace('	', '    ', $str);
-	$str = str_replace("\n", '', $str);
+	$str = str_replace('
+', '', $str);
 
 	if ($replace == true) {
 		$str = '"' . str_replace('"', '""', $str) . '"';
@@ -238,7 +240,8 @@ else if ($_REQUEST['act'] == 'act_export_taobao') {
 	$sql = 'SELECT g.goods_id, g.goods_name, g.shop_price, g.goods_number, g.goods_desc, g.goods_img ' . ' FROM ' . $ecs->table('goods') . ' AS g ' . $where;
 	$res = $db->query($sql);
 	$goods_value = array('goods_name' => '""', 'goods_class' => $goods_class, 'shop_class' => 0, 'new_level' => 5, 'province' => $shop_province, 'city' => $shop_city, 'sell_type' => '"b"', 'shop_price' => 0, 'add_price' => 0, 'goods_number' => 0, 'die_day' => 14, 'load_type' => 1, 'post_express' => $post_express, 'ems' => $ems, 'express' => $express, 'pay_type' => 2, 'allow_alipay' => 1, 'invoice' => 0, 'repair' => 0, 'resend' => 1, 'is_store' => 0, 'window' => 0, 'add_time' => '"1980-1-1  0:00:00"', 'story' => '""', 'goods_desc' => '""', 'goods_img' => '""', 'goods_attr' => '""', 'group_buy' => 0, 'group_buy_num' => 0, 'template' => 0, 'discount' => 0, 'modify_time' => '""', 'upload_status' => 100, 'img_status' => 1);
-	$content = implode(',', $_LANG['taobao']) . "\n";
+	$content = implode(',', $_LANG['taobao']) . '
+';
 
 	while ($row = $db->fetchRow($res)) {
 		$goods_value['goods_name'] = '"' . $row['goods_name'] . '"';
@@ -246,7 +249,8 @@ else if ($_REQUEST['act'] == 'act_export_taobao') {
 		$goods_value['goods_number'] = $row['goods_number'];
 		$goods_value['goods_desc'] = replace_special_char($row['goods_desc']);
 		$goods_value['goods_img'] = '"' . $row['goods_img'] . '"';
-		$content .= implode('	', $goods_value) . "\n";
+		$content .= implode('	', $goods_value) . '
+';
 		if (!empty($row['goods_img']) && is_file(ROOT_PATH . $row['goods_img'])) {
 			$zip->add_file(file_get_contents(ROOT_PATH . $row['goods_img']), $row['goods_img']);
 		}
@@ -299,7 +303,8 @@ else if ($_REQUEST['act'] == 'act_export_taobao V4.3') {
 	$sql = 'SELECT g.goods_id, g.goods_name, g.shop_price, g.goods_number, g.goods_desc, g.goods_img ' . ' FROM ' . $ecs->table('goods') . ' AS g ' . $where;
 	$res = $db->query($sql);
 	$goods_value = array('goods_name' => '""', 'goods_class' => $goods_class, 'shop_class' => 0, 'new_level' => 5, 'province' => $shop_province, 'city' => $shop_city, 'sell_type' => '"b"', 'shop_price' => 0, 'add_price' => 0, 'goods_number' => 0, 'die_day' => 14, 'load_type' => 1, 'post_express' => $post_express, 'ems' => $ems, 'express' => $express, 'pay_type' => 2, 'allow_alipay' => 1, 'invoice' => 0, 'repair' => 0, 'resend' => 1, 'is_store' => 0, 'window' => 0, 'add_time' => '"1980-1-1  0:00:00"', 'story' => '""', 'goods_desc' => '""', 'goods_img' => '""', 'goods_attr' => '""', 'group_buy' => 0, 'group_buy_num' => 0, 'template' => 0, 'discount' => 0, 'modify_time' => '""', 'upload_status' => 100, 'img_status' => 1);
-	$content = implode('	', $_LANG['taobao']) . "\n";
+	$content = implode('	', $_LANG['taobao']) . '
+';
 
 	while ($row = $db->fetchRow($res)) {
 		$goods_value['goods_name'] = '"' . $row['goods_name'] . '"';
@@ -307,7 +312,8 @@ else if ($_REQUEST['act'] == 'act_export_taobao V4.3') {
 		$goods_value['goods_number'] = $row['goods_number'];
 		$goods_value['goods_desc'] = replace_special_char($row['goods_desc']);
 		$goods_value['goods_img'] = '"' . $row['goods_img'] . '"';
-		$content .= implode('	', $goods_value) . "\n";
+		$content .= implode('	', $goods_value) . '
+';
 		if (!empty($row['goods_img']) && is_file(ROOT_PATH . $row['goods_img'])) {
 			$zip->add_file(file_get_contents(ROOT_PATH . $row['goods_img']), $row['goods_img']);
 		}
@@ -375,7 +381,8 @@ else if ($_REQUEST['act'] == 'act_export_ecshop') {
 		$goods_value['is_on_sale'] = 1;
 		$goods_value['is_alone_sale'] = 1;
 		$goods_value['is_real'] = 1;
-		$content = '"' . implode('","', $_LANG['ecshop']) . "\"\n";
+		$content = '"' . implode('","', $_LANG['ecshop']) . '"
+';
 
 		while ($row = $db->fetchRow($res)) {
 			$goods_value['goods_name'] = '"' . $row['goods_name'] . '"';
@@ -388,8 +395,8 @@ else if ($_REQUEST['act'] == 'act_export_ecshop') {
 			$goods_value['goods_img'] = '"' . $row['goods_img'] . '"';
 			$goods_value['goods_thumb'] = '"' . $row['goods_thumb'] . '"';
 			$goods_value['keywords'] = '"' . $row['keywords'] . '"';
-			$goods_value['goods_brief'] = '"' . replace_special_char($row['goods_brief'], false) . '"';
-			$goods_value['goods_desc'] = '"' . replace_special_char($row['goods_desc'], false) . '"';
+			$goods_value['goods_brief'] = '"' . htmlspecialchars($row['goods_brief']) . '"';
+			$goods_value['goods_desc'] = '"' . htmlspecialchars($row['goods_desc']) . '"';
 			$goods_value['goods_weight'] = $row['goods_weight'];
 			$goods_value['goods_number'] = $row['goods_number'];
 			$goods_value['warn_number'] = $row['warn_number'];
@@ -399,7 +406,8 @@ else if ($_REQUEST['act'] == 'act_export_ecshop') {
 			$goods_value['is_on_sale'] = $row['is_on_sale'];
 			$goods_value['is_alone_sale'] = $row['is_alone_sale'];
 			$goods_value['is_real'] = $row['is_real'];
-			$content .= implode(',', $goods_value) . "\n";
+			$content .= implode(',', $goods_value) . '
+';
 			if (!empty($row['goods_img']) && is_file(ROOT_PATH . $row['goods_img'])) {
 				$zip->add_file(file_get_contents(ROOT_PATH . $row['goods_img']), $row['goods_img']);
 			}
@@ -446,7 +454,7 @@ else if ($_REQUEST['act'] == 'act_export_step_search') {
 			'silent'    => $silent,
 			'data_cat'  => $data_cat,
 			'row'       => array('new_page' => sprintf($_LANG['page_format'], 1), 'new_total' => sprintf($_LANG['total_format'], ceil($count / $page_size)), 'new_time' => $_LANG['wait'], 'cur_id' => 'time_1')
-			);
+		);
 		$result['total_page'] = ceil($count / $page_size);
 		$result['filter'] = $arr['filter'];
 		clear_cache_files();
@@ -565,7 +573,8 @@ else if ($_REQUEST['act'] == 'act_export_paipai') {
 	$goods_value['pic_height'] = 80;
 	$goods_value['skin'] = 0;
 	$goods_value['prop'] = '""';
-	$content = '"' . implode('","', $_LANG['paipai']) . "\"\n";
+	$content = '"' . implode('","', $_LANG['paipai']) . '"
+';
 
 	while ($row = $db->fetchRow($res)) {
 		$goods_value['title'] = '"' . $row['goods_name'] . '"';
@@ -573,7 +582,8 @@ else if ($_REQUEST['act'] == 'act_export_paipai') {
 		$goods_value['quantity'] = $row['goods_number'];
 		$goods_value['description'] = replace_special_char($row['goods_desc']);
 		$goods_value['pic_filename'] = '"' . $row['goods_img'] . '"';
-		$content .= implode(',', $goods_value) . "\n";
+		$content .= implode(',', $goods_value) . '
+';
 		if (!empty($row['goods_img']) && is_file(ROOT_PATH . $row['goods_img'])) {
 			$zip->add_file(file_get_contents(ROOT_PATH . $row['goods_img']), $row['goods_img']);
 		}
@@ -665,7 +675,8 @@ else if ($_REQUEST['act'] == 'act_export_paipai4') {
 	$goods_value['attr'] = '""';
 	$goods_value['chengBao'] = '""';
 	$goods_value['shopWindow'] = 0;
-	$content = '"' . implode('","', $_LANG['paipai4']) . "\"\n";
+	$content = '"' . implode('","', $_LANG['paipai4']) . '"
+';
 
 	while ($row = $db->fetchRow($res)) {
 		$goods_value['goods_name'] = '"' . $row['goods_name'] . '"';
@@ -673,7 +684,8 @@ else if ($_REQUEST['act'] == 'act_export_paipai4') {
 		$goods_value['quantity'] = $row['goods_number'];
 		$goods_value['description'] = replace_special_char($row['goods_desc']);
 		$goods_value['pic_filename'] = '"' . $row['goods_img'] . '"';
-		$content .= implode(',', $goods_value) . "\n";
+		$content .= implode(',', $goods_value) . '
+';
 		if (!empty($row['goods_img']) && is_file(ROOT_PATH . $row['goods_img'])) {
 			$zip->add_file(file_get_contents(ROOT_PATH . $row['goods_img']), $row['goods_img']);
 		}
@@ -727,7 +739,8 @@ else if ($_REQUEST['act'] == 'act_export_custom') {
 		}
 	}
 
-	$content = '"' . implode('","', $goods_field_name) . "\"\n";
+	$content = '"' . implode('","', $goods_field_name) . '"
+';
 
 	while ($row = $db->fetchRow($res)) {
 		$goods_value = $goods_field_value;
@@ -759,7 +772,8 @@ else if ($_REQUEST['act'] == 'act_export_custom') {
 			}
 		}
 
-		$content .= implode(',', $goods_value) . "\n";
+		$content .= implode(',', $goods_value) . '
+';
 		if (!empty($row['goods_img']) && is_file(ROOT_PATH . $row['goods_img'])) {
 			$zip->add_file(file_get_contents(ROOT_PATH . $row['goods_img']), $row['goods_img']);
 		}
@@ -822,7 +836,8 @@ else if ($_REQUEST['act'] == 'act_export_taobao V4.6') {
 	$sql = 'SELECT g.goods_id, g.goods_name, g.shop_price, g.goods_number, g.goods_desc, g.goods_img ' . ' FROM ' . $ecs->table('goods') . ' AS g ' . $where;
 	$res = $db->query($sql);
 	$goods_value = array('goods_name' => '', 'goods_class' => $goods_class, 'shop_class' => 0, 'new_level' => 0, 'province' => $shop_province, 'city' => $shop_city, 'sell_type' => '"b"', 'shop_price' => 0, 'add_price' => 0, 'goods_number' => 0, 'die_day' => 14, 'load_type' => 1, 'post_express' => $post_express, 'ems' => $ems, 'express' => $express, 'pay_type' => '', 'allow_alipay' => '', 'invoice' => 0, 'repair' => 0, 'resend' => 1, 'is_store' => 0, 'window' => 0, 'add_time' => '"1980-1-1  0:00:00"', 'story' => '', 'goods_desc' => '', 'goods_img' => '', 'goods_attr' => '', 'group_buy' => '', 'group_buy_num' => '', 'template' => 0, 'discount' => 0, 'modify_time' => '"2011-5-1  0:00:00"', 'upload_status' => 100, 'img_status' => 1, 'img_status' => '', 'rebate_proportion' => 0, 'new_goods_img' => '', 'video' => '', 'marketing_property_mix' => '', 'user_input_ID_numbers' => '', 'input_user_name_value' => '', 'sellers_code' => '', 'another_of_marketing_property' => '', 'charge_type' => '0', 'treasure_number' => '', 'ID_number' => '');
-	$content = implode('	', $_LANG['taobao46']) . "\n";
+	$content = implode('	', $_LANG['taobao46']) . '
+';
 
 	while ($row = $db->fetchRow($res)) {
 		if (!empty($row['goods_img']) && is_file(ROOT_PATH . $row['goods_img'])) {
@@ -846,7 +861,8 @@ else if ($_REQUEST['act'] == 'act_export_taobao V4.6') {
 			$goods_value['new_goods_img'] = '"' . $row['new_goods_img'] . ':0:0:|;' . '"';
 		}
 
-		$content .= implode('	', $goods_value) . "\n";
+		$content .= implode('	', $goods_value) . '
+';
 	}
 
 	if (EC_CHARSET != 'utf-8') {

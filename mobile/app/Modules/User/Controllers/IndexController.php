@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Modules\User\Controllers;
 
 class IndexController extends \App\Modules\Base\Controllers\FrontendController
@@ -117,7 +117,7 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 				}
 			}
 		}
-
+        //Scalping
 		$key = 'goods_id';
 		$goods_list = $this->arrayUnique($goods_list, $key);
 		$total = count($goods_list);
@@ -326,6 +326,7 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 	{
 		$sign = isset($_REQUEST['sign']) ? intval($_REQUEST['sign']) : 0;
 		$page = isset($_REQUEST['page']) ? intval($_REQUEST['page']) : 1;
+		$action = isset($_REQUEST['action']) ? trim($_REQUEST['action']) : '';
 		$size = 10;
 		$sql = 'DELETE FROM ' . $GLOBALS['ecs']->table('comment_img') . (' WHERE user_id=\'' . $_SESSION['user_id'] . '\' AND comment_id = 0');
 		$GLOBALS['db']->query($sql);
@@ -519,7 +520,7 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 
 			if ($query) {
 				$result['error'] = 2;
-				$result['sucess'] = $mobile_phone;
+				$result['sucess'] = $email;
 				$result['message'] = L('edit_sucsess');
 				exit(json_encode($result));
 			}
@@ -533,7 +534,7 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 		if (isset($_POST['sex'])) {
 			$sex = $_POST['sex'];
 
-			if (sex == '') {
+			if ($sex == '') {
 				$result['error'] = 1;
 				$result['message'] = '未接收到值';
 				exit(json_encode($result));
@@ -860,18 +861,17 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 		$user_id = $this->user_id;
 		$page = isset($_REQUEST['page']) ? intval($_REQUEST['page']) : 1;
 		$order_id = empty($_GET['order_id']) ? 0 : intval($_GET['order_id']);
+		$action = isset($_REQUEST['action']) ? trim($_REQUEST['action']) : '';
 		$info = get_user_default($user_id);
 		$order_info = array();
 
 		if ($order_id) {
-			$sql = 'SELECT COUNT(*) FROM {pre}feedback
-                     WHERE parent_id = 0 AND order_id = \'' . $order_id . '\' AND user_id = \'' . $user_id . '\'';
+			$sql = 'SELECT COUNT(*) FROM {pre}feedback WHERE parent_id = 0 AND order_id = \'' . $order_id . '\' AND user_id = \'' . $user_id . '\'';
 			$order_info = $this->db->getRow('SELECT * FROM {pre}order_info  WHERE order_id = \'' . $order_id . '\' AND user_id = \'' . $user_id . '\'');
 			$order_info['url'] = 'user.php?act=order_detail&order_id=' . $order_id;
 		}
 		else {
-			$sql = 'SELECT COUNT(*) FROM {pre}feedback
-                     WHERE parent_id = 0 AND user_id = \'' . $user_id . '\' AND user_name = \'' . $_SESSION['user_name'] . '\' AND order_id=0';
+			$sql = 'SELECT COUNT(*) FROM {pre}feedback WHERE parent_id = 0 AND user_id = \'' . $user_id . '\' AND user_name = \'' . $_SESSION['user_name'] . '\' AND order_id=0';
 		}
 
 		$record_count = $this->db->getOne($sql);
@@ -931,7 +931,7 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 		$user_id = $this->user_id;
 		$collection_id = I('rec_id');
 
-		if (0 < I('rec_id')) {
+		if (0 < $collection_id) {
 			$this->db->query('DELETE FROM {pre}collect_store WHERE rec_id=\'' . $collection_id . '\' AND user_id =\'' . $user_id . '\'');
 			ecs_header('Location: ' . url('user/index/storelist'));
 			exit();
@@ -942,6 +942,7 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 	{
 		if (IS_POST) {
 			$page = isset($_REQUEST['page']) ? intval($_REQUEST['page']) : 1;
+			$action = isset($_REQUEST['act']) ? trim($_REQUEST['act']) : '';
 			$sql = 'SELECT COUNT(*) ' . 'FROM ' . $GLOBALS['ecs']->table('booking_goods') . ' AS bg, ' . $GLOBALS['ecs']->table('goods') . ' AS g ' . ('WHERE bg.goods_id = g.goods_id AND bg.user_id = \'' . $this->user_id . '\'');
 			$record_count = $GLOBALS['db']->getOne($sql);
 			$pager = get_pager('user.php', array('act' => $action), $record_count, $page);
@@ -1223,7 +1224,6 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 	public function actionService()
 	{
 		$this->assign('page_title', '服务中心');
-		$this->assign('report_time', $report_time);
 		$this->display();
 	}
 

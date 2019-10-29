@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function get_categories_tree_pro($cat_id = 0, $type = '')
 {
 	if (0 < $cat_id) {
@@ -245,7 +245,7 @@ function get_month_day_start_end_goods($group_buy_id, $first_month_day = 0, $las
 		if (!is_array($price_ladder) || empty($price_ladder)) {
 			$price_ladder = array(
 				array('amount' => 0, 'price' => 0)
-				);
+			);
 		}
 		else {
 			foreach ($price_ladder as $k => $amount_price) {
@@ -881,7 +881,7 @@ function get_merchants_navigator($ru_id = 0, $ctype = '', $catlist = array())
 		'top'    => array(),
 		'middle' => array(),
 		'bottom' => array()
-		);
+	);
 
 	while ($row = $GLOBALS['db']->fetchRow($res)) {
 		$navlist[$row['type']][] = array('cat_id' => 'cid', 'cat_name' => $row['name'], 'opennew' => $row['opennew'], 'url' => $row['url'], 'ctype' => $row['ctype'], 'cid' => $row['cat_id'], 'vieworder' => $row['vieworder']);
@@ -2714,7 +2714,7 @@ function get_guess_goods($user_id, $history = 0, $page = 1, $limit = 5, $warehou
 
 			$link_cats = array_unique($link_cats);
 			$link_cats_str = db_create_in($link_cats, 'g.cat_id');
-			$sql = 'SELECT g.goods_id, g.goods_name, g.goods_thumb, g.user_id, ' . ('IFNULL(IFNULL(mp.user_price, IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) * \'' . $_SESSION['discount'] . '\'), g.shop_price * \'' . $_SESSION['discount'] . '\')  AS shop_price, ') . 'IFNULL(IF(g.model_price < 1, g.promote_price, IF(g.model_price < 2, wg.warehouse_promote_price, wag.region_promote_price)), g.promote_price) AS promote_price,' . ' g.sales_volume,g.sales_volume_base, g.promote_start_date, g.promote_end_date, g.product_price, g.product_promote_price FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' . $leftJoin . 'LEFT JOIN ' . $GLOBALS['ecs']->table('member_price') . ' AS mp ' . ('ON mp.goods_id = g.goods_id AND mp.user_rank = \'' . $_SESSION['user_rank'] . '\' ') . (' WHERE ' . $link_cats_str . ' AND g.goods_id NOT IN (' . $finished_goodsStr . ') AND g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 ' . $tag_where . ' ORDER BY g.sales_volume DESC  LIMIT 8');
+			$sql = 'SELECT g.goods_id, g.goods_name, g.goods_thumb, g.user_id, ' . ('IFNULL(IFNULL(mp.user_price, IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) * \'' . $_SESSION['discount'] . '\'), g.shop_price * \'' . $_SESSION['discount'] . '\')  AS shop_price, ') . 'IFNULL(IF(g.model_price < 1, g.promote_price, IF(g.model_price < 2, wg.warehouse_promote_price, wag.region_promote_price)), g.promote_price) AS promote_price,' . ' g.sales_volume, g.sales_volume_base,g.promote_start_date, g.promote_end_date, g.product_price, g.product_promote_price FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' . $leftJoin . 'LEFT JOIN ' . $GLOBALS['ecs']->table('member_price') . ' AS mp ' . ('ON mp.goods_id = g.goods_id AND mp.user_rank = \'' . $_SESSION['user_rank'] . '\' ') . (' WHERE ' . $link_cats_str . ' AND g.goods_id NOT IN (' . $finished_goodsStr . ') AND g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 ' . $tag_where . ' ORDER BY g.sort_order DESC  LIMIT 8');
 			$query = $GLOBALS['db']->query($sql);
 		}
 	}
@@ -2736,12 +2736,12 @@ function get_guess_goods($user_id, $history = 0, $page = 1, $limit = 5, $warehou
 			$goods_str = 'AND g.goods_id NOT IN (' . $goods_str . ')';
 		}
 
-		$sql = 'SELECT g.goods_id, g.goods_name, g.goods_thumb, g.model_attr, ' . ('IFNULL(IFNULL(mp.user_price, IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) * \'' . $_SESSION['discount'] . '\'), g.shop_price * \'' . $_SESSION['discount'] . '\')  AS shop_price, ') . 'IFNULL(IF(g.model_price < 1, g.promote_price, IF(g.model_price < 2, wg.warehouse_promote_price, wag.region_promote_price)), g.promote_price) AS promote_price,' . ' g.sales_volume,g.sales_volume_base, g.user_id, g.promote_start_date, g.promote_end_date, g.product_price, g.product_promote_price FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' . $leftJoin . 'LEFT JOIN ' . $GLOBALS['ecs']->table('member_price') . ' AS mp ' . ('ON mp.goods_id = g.goods_id AND mp.user_rank = \'' . $_SESSION['user_rank'] . '\' ') . (' WHERE ' . $where_cat . ' ' . $goods_str . ' AND g.is_on_sale = 1 AND g.is_hot = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 AND g.sales_volume > 0 ' . $tag_where . ' LIMIT ' . $start . ', ' . $limit);
+		$sql = 'SELECT g.goods_id, g.goods_name, g.goods_thumb, g.model_attr, ' . ('IFNULL(IFNULL(mp.user_price, IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) * \'' . $_SESSION['discount'] . '\'), g.shop_price * \'' . $_SESSION['discount'] . '\')  AS shop_price, ') . 'IFNULL(IF(g.model_price < 1, g.promote_price, IF(g.model_price < 2, wg.warehouse_promote_price, wag.region_promote_price)), g.promote_price) AS promote_price,' . ' g.sales_volume, g.sales_volume_base,g.user_id, g.promote_start_date, g.promote_end_date, g.product_price, g.product_promote_price FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' . $leftJoin . 'LEFT JOIN ' . $GLOBALS['ecs']->table('member_price') . ' AS mp ' . ('ON mp.goods_id = g.goods_id AND mp.user_rank = \'' . $_SESSION['user_rank'] . '\' ') . (' WHERE ' . $where_cat . ' ' . $goods_str . ' AND g.is_on_sale = 1 AND g.is_hot = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 AND g.sales_volume > 0 ' . $tag_where . ' LIMIT ' . $start . ', ' . $limit);
 		$query = $GLOBALS['db']->query($sql);
 	}
 
 	if ((empty($query) || count($query) < $limit) && $history == 1) {
-		$sql = 'SELECT g.goods_id, g.goods_name, g.goods_thumb, g.user_id, g.model_attr, ' . ('IFNULL(IFNULL(mp.user_price, IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) * \'' . $_SESSION['discount'] . '\'), g.shop_price * \'' . $_SESSION['discount'] . '\')  AS shop_price, ') . 'IFNULL(IF(g.model_price < 1, g.promote_price, IF(g.model_price < 2, wg.warehouse_promote_price, wag.region_promote_price)), g.promote_price) AS promote_price,' . 'g.sales_volume,g.sales_volume_base, g.promote_start_date, g.promote_end_date, g.product_price, g.product_promote_price ' . 'FROM ' . $GLOBALS['ecs']->table('goods') . 'AS g' . $leftJoin . 'LEFT JOIN ' . $GLOBALS['ecs']->table('member_price') . ' AS mp ' . ('ON mp.goods_id = g.goods_id AND mp.user_rank = \'' . $_SESSION['user_rank'] . '\' ') . (' WHERE  (g.sales_volume > 0 OR g.is_hot = 1) AND g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 ' . $tag_where . ' ORDER BY g.sort_order,g.sales_volume DESC LIMIT ' . $start . ', ' . $limit);
+		$sql = 'SELECT g.goods_id, g.goods_name, g.goods_thumb, g.user_id, g.model_attr, ' . ('IFNULL(IFNULL(mp.user_price, IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) * \'' . $_SESSION['discount'] . '\'), g.shop_price * \'' . $_SESSION['discount'] . '\')  AS shop_price, ') . 'IFNULL(IF(g.model_price < 1, g.promote_price, IF(g.model_price < 2, wg.warehouse_promote_price, wag.region_promote_price)), g.promote_price) AS promote_price,' . 'g.sales_volume,g.sales_volume_base, g.promote_start_date, g.promote_end_date, g.product_price, g.product_promote_price ' . 'FROM ' . $GLOBALS['ecs']->table('goods') . 'AS g' . $leftJoin . 'LEFT JOIN ' . $GLOBALS['ecs']->table('member_price') . ' AS mp ' . ('ON mp.goods_id = g.goods_id AND mp.user_rank = \'' . $_SESSION['user_rank'] . '\' ') . (' WHERE  (g.sales_volume > 0 OR g.is_hot = 1) AND g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 ' . $tag_where . ' ORDER BY g.sort_order DESC LIMIT ' . $start . ', ' . $limit);
 		$query = $GLOBALS['db']->query($sql);
 	}
 
@@ -4099,10 +4099,10 @@ function get_baitiao_balance($user_id = 0)
 		'stay_pay'       => 0,
 		'already_amount' => 0,
 		'bt_info'        => array()
-		);
+	);
 	$bt_other = array('user_id' => $user_id);
 	$bt_info = get_baitiao_info($bt_other);
-
+    //Scalping
 	if ($bt_info) {
 		$sql = 'SELECT SUM(b.stages_one_price * (b.stages_total - b.yes_num)) AS total_amount, SUM(b.stages_one_price * b.yes_num) AS already_amount, count(log_id) AS numbers FROM ' . $GLOBALS['ecs']->table('baitiao_log') . ' AS b ' . (' WHERE b.user_id = \'' . $user_id . '\' AND b.is_repay = 0 AND b.is_refund = 0');
 		$baitiao_log = $GLOBALS['db']->getRow($sql, true);
@@ -4121,7 +4121,7 @@ function get_baitiao_pay_log_list($log_id = array(), $size = 0, $start = 0)
 		return array();
 	}
 
-	$sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('baitiao_pay_log') . ' WHERE log_id ' . db_create_in($log_id) . ' ORDER BY id DESC';
+	$sql = 'SELECT bpl.*, is_refund FROM ' . $GLOBALS['ecs']->table('baitiao_pay_log') . ' as bpl left join ' . $GLOBALS['ecs']->table('baitiao_log') . ' as bl on bpl.log_id = bl.log_id WHERE bpl.log_id ' . db_create_in($log_id) . ' ORDER BY id DESC';
 
 	if (0 < $size) {
 		$res = $GLOBALS['db']->SelectLimit($sql, $size, $start);

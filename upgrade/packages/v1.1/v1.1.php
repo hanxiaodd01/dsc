@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 class up_v1_1
 {
 	/**
@@ -8,7 +8,7 @@ class up_v1_1
 	public $sql_files = array(
 		'structure' => 'structure.sql',
 		'data'      => array('zh_cn_gbk' => 'data_zh_cn_gbk.sql', 'zh_cn_utf-8' => 'data_zh_cn_utf-8.sql', 'zh_tw_utf-8' => 'data_zh_tw_utf-8.sql')
-		);
+	);
 	/**
      * 本升级包是否进行智能化的查询操作。每个版本类必须有该属性。
      */

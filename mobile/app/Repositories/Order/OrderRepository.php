@@ -1,5 +1,5 @@
 <?php
- //大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Repositories\Order;
 
 class OrderRepository
@@ -17,7 +17,7 @@ class OrderRepository
 
 	public function orderNum($id, $status = NULL)
 	{
-		$model = \App\Models\OrderInfo::select('*')->where('user_id', $id)->where('order_status', '<>', OS_CANCELED)->where('extension_code', '')->where('main_order_id', '<>', 0);
+		$model = \App\Models\OrderInfo::MainOrderCount()->select('*')->where('user_id', $id)->where('order_status', '<>', OS_CANCELED)->where('extension_code', '');
 
 		if ($status === null) {
 			$orderNum = $model->count();
@@ -142,7 +142,7 @@ class OrderRepository
 
 	public function getOrderByUserId($id, $status = 0, $type = '', $page = 0, $size = 10)
 	{
-		$model = \App\Models\OrderInfo::select('*')->where('user_id', $id)->where('order_status', '<>', OS_CANCELED);
+		$model = \App\Models\OrderInfo::MainOrderCount()->select('*')->where('user_id', $id)->where('order_status', '<>', OS_CANCELED);
 
 		if (!empty($status)) {
 			switch ($status) {
@@ -158,7 +158,6 @@ class OrderRepository
 
 		if (empty($type)) {
 			$model->where('extension_code', '');
-			$model->where('main_order_id', '<>', 0);
 		}
 
 		if (!empty($type)) {
@@ -184,7 +183,7 @@ class OrderRepository
 		$orderModel = new \App\Models\OrderInfo();
 
 		foreach ($order as $k => $v) {
-			$orderModel->$k = $v;
+			$orderModel->{$k} = $v;
 		}
 
 		$res = $orderModel->save();

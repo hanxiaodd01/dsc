@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Modules\User\Controllers;
 
 class RefoundController extends \App\Modules\Base\Controllers\FrontendController
@@ -65,7 +65,7 @@ class RefoundController extends \App\Modules\Base\Controllers\FrontendController
 		}
 
 		$order_id = I('order_id', 0, 'intval');
-		$order = dao('order_info')->field('shipping_status, order_status, chargeoff_status, is_settlement')->where(array('order_id' => $order_id))->find();
+		$order = dao('order_info')->where(array('order_id' => $order_id))->find();
 		$return_allowable = SS_UNSHIPPED < $order['shipping_status'] && $order['order_status'] != OS_RETURNED ? true : false;
 		$this->assign('return_allowable', $return_allowable);
 		$parent_cause = get_parent_cause();
@@ -110,7 +110,7 @@ class RefoundController extends \App\Modules\Base\Controllers\FrontendController
 		$this->assign('city_list', $city_list);
 		$district_list = get_region_city_county($this->city_id);
 		$this->assign('district_list', $district_list);
-		$consignee = get_consignee($_SESSION['user_id']);
+		$consignee = array('province' => $order['province'], 'city' => $order['city'], 'district' => $order['district'], 'street' => $order['street'], 'address' => $order['address'], 'address_id' => '');
 		$this->assign('consignee', $consignee);
 		$user_address = get_goods_region_name($consignee['province']) . ' ' . get_goods_region_name($consignee['city']) . ' ' . get_goods_region_name($consignee['district']);
 		$userinfo = array('consignee' => $consignee['consignee'], 'mobile' => $consignee['mobile'], 'email' => $consignee['email'], 'user_address' => $user_address);
@@ -594,7 +594,7 @@ class RefoundController extends \App\Modules\Base\Controllers\FrontendController
 			exit(json_encode($result));
 		}
 	}
-
+    //zdl
 	public function actionAffirmReceived()
 	{
 		$user_id = $_SESSION['user_id'];
@@ -733,7 +733,7 @@ class RefoundController extends \App\Modules\Base\Controllers\FrontendController
 				$json_res['error'] = 1;
 				$json_res['msg'] = '删除失败';
 			}
-
+          
 			exit(json_encode($json_res));
 		}
 	}

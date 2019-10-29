@@ -18,25 +18,25 @@
         	<div class="tabs_info">
             	<ul>
                     <li {if $menu_select.current eq '01_goods_list'}class="curr"{/if}>
-                    	<a href="goods.php?act=list{$seller_list}">{$lang.ordinary_goods} {if $menu_select.current neq '01_goods_list'}{if $goods_list_type}<em class="li_color">({$goods_list_type.ordinary|default:0})</em>{/if}{/if}</a>
+                    	<a href="goods.php?act=list{$seller_list}">{$lang.ordinary_goods} {if $menu_select.current neq '01_goods_list'}<em class="li_color" id="ordinary"></em>{/if}</a>
                     </li>
                     <li {if $menu_select.current eq '50_virtual_card_list'}class="curr"{/if}>
-                    	<a href="goods.php?act=list&extension_code=virtual_card{$seller_list}">{$lang.virtual_goods} {if $menu_select.current neq '50_virtual_card_list'}{if $goods_list_type}<em class="li_color">({$goods_list_type.virtual_card|default:0})</em>{/if}{/if}</a>
+                    	<a href="goods.php?act=list&extension_code=virtual_card{$seller_list}">{$lang.virtual_goods} {if $menu_select.current neq '50_virtual_card_list'}<em class="li_color" id="virtual_card"></em>{/if}</a>
                     </li>
                     {if $cfg.review_goods && $filter.seller_list eq 1}
                 	<li {if $menu_select.current eq '01_review_status'}class="curr"{/if}>
-                    	<a href="goods.php?act=review_status{$seller_list}">{$lang.01_review_status} {if $menu_select.current neq '01_review_status'}{if $goods_list_type}<em class="li_color">({$goods_list_type.review_status|default:0})</em>{/if}{/if}</a>
+                    	<a href="goods.php?act=review_status{$seller_list}">{$lang.01_review_status} {if $menu_select.current neq '01_review_status'}<em class="li_color" id="review_status"></em>{/if}</a>
                     </li>
                     {/if}
 					<li {if $menu_select.current eq '11_goods_trash'}class="curr"{/if}>
-                    	<a href="goods.php?act=trash{$seller_list}">{$lang.11_goods_trash} {if $menu_select.current neq '11_goods_trash'}{if $goods_list_type}<em class="li_color">({$goods_list_type.delete|default:0})</em>{/if}{/if}</a>
+                    	<a href="goods.php?act=trash{$seller_list}">{$lang.11_goods_trash} {if $menu_select.current neq '11_goods_trash'}<em class="li_color" id="is_delete"></em>{/if}</a>
                     </li>
                     <li {if $menu_select.current eq '19_is_sale'}class="curr"{/if}>
-                    	<a href="goods.php?act=is_sale{$seller_list}">{$lang.shelves_goods} {if $menu_select.current neq '19_is_sale'}{if $goods_list_type}<em class="li_color">({$goods_list_type.is_sale|default:0})</em>{/if}{/if}</a>
+                    	<a href="goods.php?act=is_sale{$seller_list}">{$lang.shelves_goods} {if $menu_select.current neq '19_is_sale'}<em class="li_color" id="is_sale"></em>{/if}</a>
                     </li>
                     
                     <li {if $menu_select.current eq '20_is_sale'}class="curr"{/if}>
-                    	<a href="goods.php?act=on_sale{$seller_list}">{$lang.off_the_shelf_goods} {if $menu_select.current neq '20_is_sale'}{if $goods_list_type}<em class="li_color">({$goods_list_type.on_sale|default:0})</em>{/if}{/if}</a>
+                    	<a href="goods.php?act=on_sale{$seller_list}">{$lang.off_the_shelf_goods} {if $menu_select.current neq '20_is_sale'}<em class="li_color" id="on_sale"></em>{/if}</a>
                     </li>
                 </ul>
             </div>			
@@ -231,6 +231,65 @@
 			  frm.submit();
 		  }
 	  }
+	  
+	  	$(function(){
+			getGoodsNumber();
+		})
+	  
+	  	function getGoodsNumber()
+		{
+			
+			var seller_list = '{$seller_list}';
+			seller_list.substr(seller_list.length-1,1)
+			
+			//普通商品
+			Ajax.call('dialog.php?is_ajax=1&act=goods_ordinary', 'seller_list='+seller_list, ordinaryResponse, 'GET', 'JSON');
+			
+			//审核商品
+			Ajax.call('dialog.php?is_ajax=1&act=goods_review_status', 'seller_list='+seller_list + '&review_status=1,2', reviewStatusResponse, 'GET', 'JSON');
+			
+			//虚拟商品
+			Ajax.call('dialog.php?is_ajax=1&act=goods_virtual_card', 'seller_list='+seller_list, virtualCardResponse, 'GET', 'JSON');
+			
+			//回收站商品
+			Ajax.call('dialog.php?is_ajax=1&act=goods_delete', 'seller_list='+seller_list, deleteResponse, 'GET', 'JSON');
+			
+			//上架商品
+			Ajax.call('dialog.php?is_ajax=1&act=goods_sale', 'seller_list='+seller_list + '&is_on_sale=1', isSaleResponse, 'GET', 'JSON');
+			
+			//下架商品
+			Ajax.call('dialog.php?is_ajax=1&act=goods_sale', 'seller_list='+seller_list + '&is_on_sale=0', onSaleResponse, 'GET', 'JSON');
+		}
+		
+		function ordinaryResponse(result)
+		{
+			$("#ordinary").html("(" + result.count + ")");
+		}
+		
+		function reviewStatusResponse(result)
+		{
+			$("#review_status").html("(" + result.count + ")");
+		}
+	
+		function virtualCardResponse(result)
+		{
+			$("#virtual_card").html("(" + result.count + ")");
+		}
+		
+		function deleteResponse(result)
+		{
+			$("#is_delete").html("(" + result.count + ")");
+		}
+		
+		function isSaleResponse(result)
+		{
+			$("#is_sale").html("(" + result.count + ")");
+		}
+		
+		function onSaleResponse(result)
+		{
+			$("#on_sale").html("(" + result.count + ")");
+		}
 	  {/literal}
 	</script>
 </body>

@@ -276,7 +276,7 @@
                                                   <input class="btn btn25 red_btn" type="submit" value="{$lang.receive_goods}" name="receive_goods">
                                                 {/if}
                                                 
-                                                {if $back_order.return_type eq 1 || $back_order.return_type eq 3 && $back_order.chargeoff_status eq 0 && $back_order.agree_apply}
+                                                {if ($back_order.return_type eq 1 || $back_order.return_type eq 3) && $back_order.chargeoff_status < 2 && $back_order.agree_apply}
                                                     {if $back_order.refound_status1 eq 0 }
                                                     <input class="btn btn25 red_btn" type="submit" value="{$lang.refound}" name="refound">
                                                     {/if}

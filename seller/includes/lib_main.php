@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function read_modules($directory = '.')
 {
 	global $_LANG;
@@ -697,8 +697,7 @@ function get_add_attr_values($attr_id, $type = 0, $list = array())
 	$attr_values = $GLOBALS['db']->getOne($sql);
 
 	if (!empty($attr_values)) {
-		$attr_values = preg_replace('/
-/', ',', $attr_values);
+		$attr_values = preg_replace(array('/\\r\\n/', '/\\n/', '/\\r/'), ',', $attr_values);
 		$attr_values = explode(',', $attr_values);
 		$arr = array();
 
@@ -1677,8 +1676,7 @@ function set_goods_attribute($goods_type = 0, $goods_id = 0, $goods_model = 0)
 
 		if (0 < $val['attr_type']) {
 			if ($val['attr_values']) {
-				$attr_values = preg_replace('/
-/', ',', $val['attr_values']);
+				$attr_values = preg_replace(array('/\\r\\n/', '/\\n/', '/\\r/'), ',', $val['attr_values']);
 				$attr_values = explode(',', $attr_values);
 			}
 			else {
@@ -1972,11 +1970,11 @@ function set_seller_menu()
 
 	foreach ($modules as $key => $val) {
 		$menu[$i] = array(
-	'action'   => $key,
-	'label'    => get_menu_url(reset($val), $_LANG[$key]),
-	'url'      => get_menu_url(reset($val)),
-	'children' => array()
-	);
+			'action'   => $key,
+			'label'    => get_menu_url(reset($val), $_LANG[$key]),
+			'url'      => get_menu_url(reset($val)),
+			'children' => array()
+		);
 
 		foreach ($val as $k => $v) {
 			if (get_menu_url($v)) {

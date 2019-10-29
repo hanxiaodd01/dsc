@@ -233,6 +233,7 @@
 <script type="text/javascript">
 $(function(){
     //表单验证
+	{if $log_info.log_type eq 1 || $log_info.log_type eq 4}
 	$(document).on('click','#submitBtn',function(){
 		if($("#submitForm").valid()){
             var frozen_money = $("input[name='frozen_money']").val();
@@ -259,6 +260,7 @@ $(function(){
 			}
 		}
 	});
+	{/if}
 	
     {if $log_info.log_type neq 5}
     $('#submitForm').validate({

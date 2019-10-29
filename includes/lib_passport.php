@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function register($username, $password, $email, $other = array(), $register_mode = 0)
 {
 	if (!empty($GLOBALS['_CFG']['shop_reg_closed'])) {
@@ -24,7 +24,7 @@ function register($username, $password, $email, $other = array(), $register_mode
 			$GLOBALS['err']->add($GLOBALS['_LANG']['msg_mobile_code_blank']);
 		}
 		else {
-			if ($_CFG['sms_signin'] == 1) {
+			if ($GLOBALS['_CFG']['sms_signin'] == 1) {
 				if ($other['mobile_phone'] != $_SESSION['sms_mobile'] || $other['mobile_code'] != $_SESSION['sms_mobile_code']) {
 					$GLOBALS['err']->add($GLOBALS['_LANG']['msg_mobile_mobile_code']);
 				}
@@ -175,7 +175,7 @@ function check_userinfo($user_name, $email)
 
 function send_pwd_email($uid, $user_name, $email, $code)
 {
-	if (empty($uid) || empty($user_name) || empty($email) || empty($code)) {
+	if (empty($user_name) || empty($email) || empty($code)) {
 		ecs_header('Location: user.php?act=get_password
 ');
 		exit();

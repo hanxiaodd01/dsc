@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function get_seller_commission_info($ru_id = 0)
 {
 	$sql = 'SELECT ms.server_id, ms.commission_model, ms.suppliers_percent, mp.percent_value FROM ' . $GLOBALS['ecs']->table('merchants_server') . ' AS ms ' . 'LEFT JOIN ' . $GLOBALS['ecs']->table('merchants_percent') . ' AS mp ON ms.suppliers_percent = mp.percent_id ' . ('WHERE ms.user_id = \'' . $ru_id . '\' LIMIT 1');
@@ -58,21 +58,8 @@ function get_bill_detail($select = array())
 		$row['format_return_amount'] = price_format($row['return_amount'] + $row['return_shippingfee'], false);
 		$row['gain_proportion'] = round(100 - $row['proportion'], 2);
 		$row['should_proportion'] = $row['proportion'];
-		$detail_other = array('seller_id' => $row['seller_id'], 'bill_id' => $row['id'], 'start_time' => $row['start_time'], 'end_time' => $row['end_time'], 'proportion' => $row['proportion'], 'chargeoff_time' => $row['chargeoff_time'], 'commission_model' => $row['commission_model'], 'order_status' => OS_RETURNED, 'repair_order' => $row['repair_order']);
-		$detail_list = bill_detail_list(1, $detail_other);
 		$row['gain_commission'] = floatval($row['gain_commission']);
 		$row['should_amount'] = floatval($row['should_amount']);
-
-		if ($detail_list) {
-			if (0 < $row['gain_commission']) {
-				$row['gain_commission'] = number_format($row['gain_commission'] - $detail_list['all_gain_commission'], 2, '.', '');
-			}
-
-			if (0 < $row['should_amount']) {
-				$row['should_amount'] = number_format($row['should_amount'] - $detail_list['all_should_amount'], 2, '.', '');
-			}
-		}
-
 		$row['format_gain_commission'] = price_format($row['gain_commission'], false);
 		$row['format_should_amount'] = price_format($row['should_amount'] - $row['settle_accounts'], false);
 		$row['format_frozen_money'] = price_format($row['frozen_money'], false);
@@ -142,7 +129,6 @@ function bill_detail_list($type = 0, $bill = array())
 			}
 		}
 		else {
-			$aiax = isset($_GET['is_ajax']) ? $_GET['is_ajax'] : 0;
 			$filter['bill_id'] = empty($_REQUEST['bill_id']) ? 0 : intval($_REQUEST['bill_id']);
 			$filter['commission_model'] = empty($_REQUEST['commission_model']) ? 0 : intval($_REQUEST['commission_model']);
 			$filter['seller_id'] = empty($_REQUEST['seller_id']) ? 0 : intval($_REQUEST['seller_id']);
@@ -220,10 +206,6 @@ function bill_detail_list($type = 0, $bill = array())
 	foreach ($row as $key => $value) {
 		$return_amount = $value['return_amount'];
 		$return_shippingfee = $value['return_shippingfee'];
-		$value['bill_return_amount'] = $return_amount;
-		$value['bill_return_shippingfee'] = $return_shippingfee;
-		$value['return_amount'] = 0;
-		$value['return_shippingfee'] = 0;
 		$value['order_amount'] = $value['total_fee'] - $value['discount'];
 		$order = array('goods_amount' => $value['goods_amount'], 'activity_fee' => $value['activity_fee']);
 		$row[$key]['is_goods_rate'] = 0;
@@ -287,10 +269,6 @@ function bill_detail_list($type = 0, $bill = array())
 		if ($value['order_status'] == OS_RETURNED) {
 			$format_gain_commission = 0;
 			$format_should_amount = 0;
-		}
-
-		if (0 < $format_should_amount) {
-			$format_should_amount -= $return_amount;
 		}
 
 		$row[$key]['format_gain_commission'] = price_format($format_gain_commission, false);
@@ -444,8 +422,6 @@ function commission_bill_list($ajax_bill = 0)
 			$row[$key]['is_bill_freeze'] = 0;
 		}
 
-		$detail_list = array();
-
 		if ($value['repair_order'] == 0) {
 			if (empty($value['chargeoff_status'])) {
 				$detail = get_bill_amount_detail($value['id'], $value['seller_id'], $value['proportion'], $value['start_time'], $value['end_time'], $value['chargeoff_status'], $value['commission_model']);
@@ -464,7 +440,7 @@ function commission_bill_list($ajax_bill = 0)
 					$row[$key]['chargeoff_status'] = $other['chargeoff_status'];
 					$bill_order_other['bill_id'] = $value['id'];
 					$bill_order_other['chargeoff_status'] = $other['chargeoff_status'];
-					$where_bill_order = order_query_sql('confirm_take') . ' AND confirm_take_time >= \'' . $value['start_time'] . '\' AND confirm_take_time <= \'' . $value['end_time'] . '\' AND seller_id = \'' . $value['seller_id'] . '\' AND chargeoff_status <> 2';
+					$where_bill_order = order_query_sql('bill_confirm_take') . ' AND confirm_take_time >= \'' . $value['start_time'] . '\' AND confirm_take_time <= \'' . $value['end_time'] . '\' AND seller_id = \'' . $value['seller_id'] . '\' AND chargeoff_status <> 2 AND bill_id = 0';
 					$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('seller_bill_order'), $bill_order_other, 'UPDATE', '1 ' . $where_bill_order);
 					$sql = 'SELECT GROUP_CONCAT(order_id) AS order_list FROM ' . $GLOBALS['ecs']->table('seller_bill_order') . ' WHERE 1 ' . $where_bill_order;
 					$res = $GLOBALS['db']->getRow($sql);
@@ -514,9 +490,6 @@ function commission_bill_list($ajax_bill = 0)
 							$GLOBALS['db']->query($sql);
 						}
 					}
-
-					$detail_other = array('seller_id' => $value['seller_id'], 'bill_id' => $value['id'], 'start_time' => $value['start_time'], 'end_time' => $value['end_time'], 'proportion' => $value['proportion'], 'chargeoff_time' => $value['chargeoff_time'], 'commission_model' => $value['commission_model'], 'order_status' => OS_RETURNED, 'repair_order' => $value['repair_order']);
-					$detail_list = bill_detail_list(1, $detail_other);
 				}
 
 				$value['return_amount'] = $value['return_amount'] + $value['return_shippingfee'];
@@ -525,17 +498,6 @@ function commission_bill_list($ajax_bill = 0)
 
 		$value['gain_commission'] = floatval($value['gain_commission']);
 		$value['should_amount'] = floatval($value['should_amount']);
-
-		if ($detail_list) {
-			if (0 < $value['gain_commission']) {
-				$value['gain_commission'] = number_format($value['gain_commission'] - $detail_list['all_gain_commission'], 2, '.', '');
-			}
-
-			if (0 < $value['should_amount']) {
-				$value['should_amount'] = number_format($value['should_amount'] - $detail_list['all_should_amount'], 2, '.', '');
-			}
-		}
-
 		$row[$key]['gain_proportion'] = round(100 - $value['proportion'], 2);
 		$row[$key]['should_proportion'] = $value['proportion'];
 		$row[$key]['settle_accounts'] = 0;
@@ -585,8 +547,8 @@ function commission_bill_list($ajax_bill = 0)
 
 function get_bill_amount_detail($bill_id = 0, $seller_id = 0, $proportion = 100, $start_time = 0, $end_time = 0, $chargeoff_status = 0, $commission_model = 0)
 {
-	$where = 'sbo.seller_id = \'' . $seller_id . '\'';
-	$where .= order_query_sql('confirm_take', 'sbo.');
+	$where = 'sbo.seller_id = \'' . $seller_id . '\' AND sbo.bill_id = 0';
+	$where .= order_query_sql('bill_confirm_take', 'sbo.');
 	$where .= ' AND sbo.confirm_take_time >= \'' . $start_time . '\' AND sbo.confirm_take_time <= \'' . $end_time . '\'';
 
 	if ($chargeoff_status <= 1) {
@@ -715,135 +677,12 @@ function bill_goods_list()
 	return $arr;
 }
 
-function bill_notake_order_list()
-{
-	$result = get_filter();
-
-	if ($result === false) {
-		$filter['keywords'] = empty($_REQUEST['keywords']) ? '' : trim($_REQUEST['keywords']);
-		if (!empty($_GET['is_ajax']) && $_GET['is_ajax'] == 1) {
-			$filter['keywords'] = json_str_iconv($filter['keywords']);
-		}
-
-		$filter['bill_id'] = empty($_REQUEST['bill_id']) ? 0 : intval($_REQUEST['bill_id']);
-		$filter['seller_id'] = empty($_REQUEST['seller_id']) ? 0 : intval($_REQUEST['seller_id']);
-		$filter['commission_model'] = empty($_REQUEST['commission_model']) ? 0 : intval($_REQUEST['commission_model']);
-		$filter['sort_by'] = empty($_REQUEST['sort_by']) ? 'o.order_id' : trim($_REQUEST['sort_by']);
-		$filter['sort_order'] = empty($_REQUEST['sort_order']) ? 'DESC' : trim($_REQUEST['sort_order']);
-		$filter['page'] = empty($_REQUEST['page']) || intval($_REQUEST['page']) <= 0 ? 1 : intval($_REQUEST['page']);
-		if (isset($_REQUEST['page_size']) && 0 < intval($_REQUEST['page_size'])) {
-			$filter['page_size'] = intval($_REQUEST['page_size']);
-		}
-		else {
-			if (isset($_COOKIE['ECSCP']['page_size']) && 0 < intval($_COOKIE['ECSCP']['page_size'])) {
-				$filter['page_size'] = intval($_COOKIE['ECSCP']['page_size']);
-			}
-			else {
-				$filter['page_size'] = 15;
-			}
-		}
-
-		$proportion = 0;
-		$chargeoff_status = 0;
-		$settleaccounts_time = '';
-
-		if ($filter['bill_id']) {
-			$bill_detail = array('id' => $filter['bill_id']);
-			$bill = get_bill_detail($bill_detail);
-			$start_time = $bill['start_time'];
-			$end_time = $bill['end_time'];
-			$proportion = $bill['proportion'];
-			$chargeoff_status = $bill['chargeoff_status'];
-			$settleaccounts_time = $bill['format_settleaccounts_time'];
-		}
-
-		$where = '';
-
-		if ($filter['keywords']) {
-			$where .= ' AND o.order_sn LIKE \'%' . $filter['keywords'] . '%\'';
-		}
-
-		$where_order = ' AND (SELECT count(*) FROM ' . $GLOBALS['ecs']->table('order_info') . ' as oi2 WHERE oi2.main_order_id = o.order_id) = 0';
-		$where_order .= ' AND o.ru_id = \'' . $filter['seller_id'] . '\'';
-		$where_order .= ' AND IF(o.confirm_take_time = 0, oa.log_time >= \'' . $start_time . '\' AND oa.log_time <= \'' . $end_time . '\', o.confirm_take_time >= \'' . $start_time . '\' AND o.confirm_take_time <= \'' . $end_time . '\')';
-		$where_wait_order = ' AND IF(o.confirm_take_time = 0, ';
-		$where_wait_order .= db_create_in(array(OS_CONFIRMED, OS_SPLITED), 'oa.order_status') . ' AND oa.shipping_status ' . db_create_in(array(SS_SHIPPED)) . ' AND oa.pay_status ' . db_create_in(array(PS_PAYED)) . ' AND (SELECT COUNT(*) FROM ' . $GLOBALS['ecs']->table('order_action') . ' AS oa2 WHERE oa2.shipping_status = 2) = 0';
-		$where_wait_order .= ', ' . db_create_in(array(OS_CONFIRMED, OS_SPLITED), 'o.order_status') . ' AND ' . db_create_in(array(SS_RECEIVED), 'o.shipping_status', 'NOT') . ' AND IF(o.shipping_status = 2, ' . db_create_in(array(PS_PAYED), 'o.pay_status', 'NOT') . ', ' . db_create_in(array(PS_PAYED), 'o.pay_status') . ')' . ' AND ' . db_create_in(array(OS_RETURNED), 'o.order_status', 'NOT') . ')';
-		$where_wait_order .= $where_order;
-		$sql = 'SELECT o.order_id FROM ' . $GLOBALS['ecs']->table('order_info') . ' AS o ' . 'LEFT JOIN' . $GLOBALS['ecs']->table('order_action') . ' AS oa ON o.order_id = oa.order_id ' . 'WHERE 1 ' . $where_wait_order . $where . ' GROUP BY o.order_id';
-		$filter['record_count'] = count($GLOBALS['db']->getAll($sql));
-		$filter['page_count'] = 0 < $filter['record_count'] ? ceil($filter['record_count'] / $filter['page_size']) : 1;
-		$sql = 'SELECT o.*, (' . order_amount_field('o.') . ') AS total_fee, ' . '(' . order_commission_field('o.') . ') AS commission_total_fee, ' . '(' . order_activity_field_add('sbo.') . ') AS activity_fee, ' . 'sbo.goods_amount FROM ' . $GLOBALS['ecs']->table('order_info') . ' AS o ' . 'LEFT JOIN' . $GLOBALS['ecs']->table('order_action') . ' AS oa ON o.order_id = oa.order_id ' . 'LEFT JOIN' . $GLOBALS['ecs']->table('seller_bill_order') . ' AS sbo ON o.order_id = sbo.order_id ' . 'WHERE 1 ' . $where_wait_order . $where . (' GROUP BY o.order_id ORDER BY ' . $filter['sort_by'] . ' ' . $filter['sort_order'] . ' ') . 'LIMIT ' . ($filter['page'] - 1) * $filter['page_size'] . (',' . $filter['page_size']);
-
-		foreach (array('order_sn') as $val) {
-			$filter[$val] = stripslashes($filter[$val]);
-		}
-
-		set_filter($filter, $sql);
-	}
-	else {
-		$sql = $result['sql'];
-		$filter = $result['filter'];
-	}
-
-	$row = $GLOBALS['db']->getAll($sql);
-
-	foreach ($row as $key => $value) {
-		$row[$key]['chargeoff_status'] = $chargeoff_status;
-		$row[$key]['format_settleaccounts_time'] = $settleaccounts_time;
-		$order_id = $value['order_id'];
-		$value['drp_money'] = $GLOBALS['db']->getOne('SELECT SUM(drp_money) AS drp_money FROM ' . $GLOBALS['ecs']->table('order_goods') . (' WHERE order_id = \'' . $order_id . '\''), true);
-		$row[$key]['format_drp_money'] = price_format($value['drp_money'], false);
-		$row[$key]['format_integral_money'] = price_format($value['integral_money'], false);
-		$row[$key]['format_total_fee'] = price_format($value['total_fee'], false);
-		$row[$key]['format_shipping_fee'] = price_format($value['shipping_fee'], false);
-		$return_amount = get_order_return_amount($order_id);
-		$row[$key]['format_return_amount'] = price_format($return_amount, false);
-		$order = array('goods_amount' => $value['goods_amount'], 'activity_fee' => $value['activity_fee']);
-		$goods_rate = get_alone_goods_rate($value['order_id'], 0, $order);
-		$row[$key]['goods_rate'] = $goods_rate;
-
-		if ($goods_rate) {
-			$value['commission_total_fee'] = $value['commission_total_fee'] - $goods_rate['total_fee'];
-
-			if ($goods_rate['total_fee']) {
-				if ($value['commission_total_fee'] <= 0) {
-					$row[$key]['is_goods_rate'] = 1;
-				}
-
-				if ($value['commission_total_fee'] < 0) {
-					$value['commission_total_fee'] = 0;
-				}
-			}
-		}
-
-		if ($filter['commission_model']) {
-			$cat_commission = get_cat_gain_should_amount($value);
-			$value['gain_commission'] = $cat_commission['gain_commission'];
-			$value['should_amount'] = $cat_commission['should_amount'];
-		}
-		else {
-			$commission = get_gain_should_amount($proportion, $value);
-			$value['gain_commission'] = $commission['gain_commission'];
-			$value['should_amount'] = $commission['should_amount'];
-			$row[$key]['gain_proportion'] = round(100 - $proportion, 2);
-			$row[$key]['should_proportion'] = $proportion;
-		}
-
-		$row[$key]['format_gain_commission'] = price_format($value['gain_commission'], false);
-		$row[$key]['format_should_amount'] = price_format($value['should_amount'], false);
-	}
-
-	$arr = array('order_list' => $row, 'filter' => $filter, 'page_count' => $filter['page_count'], 'record_count' => $filter['record_count']);
-	return $arr;
-}
-
 function get_gain_should_amount($proportion, $order)
 {
 	$gain_proportion = round(100 - $proportion, 2);
 	$should_proportion = $proportion;
 	$arr = array();
-	$order['return_amount'] = $order['bill_return_amount'] + $order['bill_return_shippingfee'];
+	$order['return_amount'] = $order['return_amount'] + $order['return_shippingfee'];
 
 	if ($order['return_amount'] == $order['total_fee']) {
 		$arr['gain_commission'] = 0;
@@ -865,7 +704,7 @@ function get_cat_gain_should_amount($value = array())
 		$value['goods_amount'] = 1;
 	}
 
-	$value['return_amount'] = $value['bill_return_amount'] + $value['bill_return_shippingfee'];
+	$value['return_amount'] = $value['return_amount'] + $value['return_shippingfee'];
 
 	if ($value['total_fee'] == $value['return_amount']) {
 		$gain_commission = 0;
@@ -897,7 +736,7 @@ function get_bill_order_amount($seller_id, $start_time, $end_time, $commission_m
 		$where .= ' AND sbo.order_id = \'' . $order_id . '\'';
 	}
 	else {
-		$where .= order_query_sql('confirm_take', 'sbo.');
+		$where .= order_query_sql('bill_confirm_take', 'sbo.');
 		$where .= ' AND sbo.confirm_take_time >= \'' . $start_time . '\' AND sbo.confirm_take_time <= \'' . $end_time . '\'';
 
 		if ($chargeoff_status <= 1) {
@@ -908,7 +747,7 @@ function get_bill_order_amount($seller_id, $start_time, $end_time, $commission_m
 		}
 	}
 
-	$sql = 'SELECT sbo.*, sbo.goods_amount, ' . '(' . order_amount_field('sbo.') . ') AS total_fee, (' . order_commission_field('sbo.') . ') AS commission_total_fee, ' . '(SELECT SUM(sbg.drp_money) FROM ' . $GLOBALS['ecs']->table('seller_bill_goods') . ' AS sbg WHERE sbg.order_id = sbo.order_id) AS drp_money, ' . '(' . order_activity_field_add('sbo.') . ') AS activity_fee ' . 'FROM ' . $GLOBALS['ecs']->table('seller_bill_order') . ' AS sbo ' . 'LEFT JOIN ' . $GLOBALS['ecs']->table('order_info') . 'AS o ON o.order_id = sbo.order_id ' . 'LEFT JOIN ' . $GLOBALS['ecs']->table('merchants_server') . ' AS ms ON sbo.seller_id = ms.user_id ' . ' WHERE 1 ' . $where . ' AND o.is_settlement = 0 ORDER BY sbo.order_id DESC';
+	$sql = 'SELECT sbo.*, sbo.goods_amount, ' . '(' . order_amount_field('sbo.') . ') AS total_fee, (' . order_commission_field('sbo.') . ') AS commission_total_fee, ' . '(SELECT SUM(sbg.drp_money) FROM ' . $GLOBALS['ecs']->table('seller_bill_goods') . ' AS sbg WHERE sbg.order_id = sbo.order_id) AS drp_money, ' . '(' . order_activity_field_add('sbo.') . ') AS activity_fee ' . 'FROM ' . $GLOBALS['ecs']->table('seller_bill_order') . ' AS sbo ' . 'LEFT JOIN ' . $GLOBALS['ecs']->table('order_info') . 'AS o ON o.order_id = sbo.order_id ' . 'LEFT JOIN ' . $GLOBALS['ecs']->table('merchants_server') . ' AS ms ON sbo.seller_id = ms.user_id ' . ' WHERE sbo.bill_id = 0 ' . $where . ' AND o.is_settlement = 0 ORDER BY sbo.order_id DESC';
 	$order_list = $GLOBALS['db']->getAll($sql);
 	$arr['gain_commission'] = 0;
 	$arr['should_amount'] = 0;
@@ -1027,7 +866,7 @@ function merchants_is_settlement($ru_id = 0, $state = '', $filter = array())
 		$where .= ' AND o.is_settlement = \'' . $state . '\' ';
 	}
 
-	$where .= order_query_sql('confirm_take', 'o.');
+	$where .= order_query_sql('bill_confirm_take', 'o.');
 	$where .= ' AND (SELECT COUNT(*) FROM ' . $GLOBALS['ecs']->table('order_info') . ' AS oi2 WHERE oi2.main_order_id = o.order_id) = 0 ';
 	$where .= ' AND o.ru_id = \'' . $ru_id . '\' ';
 	$sql = 'SELECT o.order_id, o.main_order_id, o.order_sn, o.add_time, o.order_status, o.shipping_status, o.order_amount, o.money_paid,' . 'o.shipping_time, o.auto_delivery_time, o.pay_status, o.consignee, o.address, o.email, o.tel, o.extension_code, o.extension_id, ' . 'o.is_delete, o.is_settlement, o.goods_amount, o.shipping_fee, (' . order_commission_field('o.') . ') AS total_fee, ' . '(' . order_activity_field_add('o.') . ') AS activity_fee ' . ' FROM ' . $GLOBALS['ecs']->table('order_info') . ' AS o ' . $where;
@@ -1233,7 +1072,7 @@ function get_merchants_order_valid_refund($ru_id, $type = 0)
 		}
 	}
 	else {
-		$where = order_query_sql('confirm_take', 'oi.');
+		$where = order_query_sql('bill_confirm_take', 'oi.');
 		$total_fee = 'SUM((' . order_commission_field('oi.') . ')) AS total_fee, (' . order_activity_field_add('oi.') . ') AS activity_fee, oi.goods_amount ';
 		$sql = 'SELECT oi.order_id, oi.order_sn, ' . $total_fee . '  FROM ' . $GLOBALS['ecs']->table('order_info') . ' as oi ' . (' WHERE 1 ' . $where . ' AND oi.ru_id = \'' . $ru_id . '\'') . ' AND (select count(*) from ' . $GLOBALS['ecs']->table('order_info') . ' as oi2 where oi2.main_order_id = oi.order_id LIMIT 1) = 0 LIMIT 1';
 		$res = $GLOBALS['db']->getRow($sql);
@@ -1638,9 +1477,9 @@ function get_bill_half_month($seller_id = 0, $cycle = 0)
 					}
 
 					$min_month_array[] = array(
-	'upper' => array('start_time' => $upper_start_time, 'end_time' => $upper_end_time),
-	'lower' => array('start_time' => $lower_start_time, 'end_time' => $lower_end_time)
-	);
+						'upper' => array('start_time' => $upper_start_time, 'end_time' => $upper_end_time),
+						'lower' => array('start_time' => $lower_start_time, 'end_time' => $lower_end_time)
+					);
 				}
 			}
 			else {
@@ -1651,9 +1490,9 @@ function get_bill_half_month($seller_id = 0, $cycle = 0)
 				$lower_start_time = $min_year . '-12-' . ($halfMonth + 1) . ' 00:00:00';
 				$lower_end_time = $min_year . '-12-' . $days . ' 23:59:59';
 				$min_month_array[] = array(
-	'upper' => array('start_time' => $upper_start_time, 'end_time' => $upper_end_time),
-	'lower' => array('start_time' => $lower_start_time, 'end_time' => $lower_end_time)
-	);
+					'upper' => array('start_time' => $upper_start_time, 'end_time' => $upper_end_time),
+					'lower' => array('start_time' => $lower_start_time, 'end_time' => $lower_end_time)
+				);
 			}
 
 			for ($i = 1; $i <= $max_month; $i++) {
@@ -1674,9 +1513,9 @@ function get_bill_half_month($seller_id = 0, $cycle = 0)
 				}
 
 				$max_month_array[] = array(
-	'upper' => array('start_time' => $upper_start_time, 'end_time' => $upper_end_time),
-	'lower' => array('start_time' => $lower_start_time, 'end_time' => $lower_end_time)
-	);
+					'upper' => array('start_time' => $upper_start_time, 'end_time' => $upper_end_time),
+					'lower' => array('start_time' => $lower_start_time, 'end_time' => $lower_end_time)
+				);
 			}
 
 			if ($min_month_array && $max_month_array) {
@@ -1732,9 +1571,9 @@ function get_bill_half_month($seller_id = 0, $cycle = 0)
 				}
 
 				$month_array[] = array(
-	'upper' => array('start_time' => $upper_start_time, 'end_time' => $upper_end_time),
-	'lower' => array('start_time' => $lower_start_time, 'end_time' => $lower_end_time)
-	);
+					'upper' => array('start_time' => $upper_start_time, 'end_time' => $upper_end_time),
+					'lower' => array('start_time' => $lower_start_time, 'end_time' => $lower_end_time)
+				);
 			}
 
 			if ($month_array) {

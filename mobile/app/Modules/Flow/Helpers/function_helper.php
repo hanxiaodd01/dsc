@@ -1,5 +1,5 @@
 <?php
-//高度差网络 https://www.gaodux.com/
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function get_consignee_list_p($user_id, $id = 0, $num = 10, $start = 0)
 {
 	if ($id) {
@@ -43,21 +43,23 @@ function flow_available_points($cart_value, $flow_type = 0, $warehouse_id = 0, $
 
 function get_cart_value($flow_type = 0, $store_id = 0)
 {
-	$where = '';
+	$where = '1';
 
 	if (!empty($_SESSION['user_id'])) {
-		$c_sess = ' c.user_id = \'' . $_SESSION['user_id'] . '\' ';
+		$c_sess = ' AND c.user_id = \'' . $_SESSION['user_id'] . '\' ';
 	}
 	else {
-		$c_sess = ' c.session_id = \'' . real_cart_mac_ip() . '\' ';
+		$c_sess = ' AND c.session_id = \'' . real_cart_mac_ip() . '\' ';
 	}
 
 	if (0 < $store_id) {
-		$where .= ' c.store_id = ' . $store_id . ' AND ';
+		$where .= ' AND c.store_id = \'' . $store_id . '\'';
 	}
 
 	if ($_REQUEST['stages_qishu']) {
-		$where .= 'AND c.stages_qishu = ' . trim($_REQUEST['stages_qishu']);
+		$stages_qishu = trim($_REQUEST['stages_qishu']);
+		$stages_qishu = intval($stages_qishu);
+		$where .= ' AND c.stages_qishu = \'' . $stages_qishu . '\'';
 	}
 
 	$sql = 'SELECT c.rec_id FROM ' . $GLOBALS['ecs']->table('cart') . ' AS c LEFT JOIN ' . $GLOBALS['ecs']->table('goods') . (' AS g ON c.goods_id = g.goods_id WHERE ' . $where . ' ') . $c_sess . (' AND c.is_checked = 1 AND c.is_invalid = 0 AND c.rec_type = \'' . $flow_type . '\' order by c.rec_id asc');
@@ -143,7 +145,7 @@ function flow_cart_stock($arr, $store_id = 0, $warehouse_id = 0, $area_id = 0, $
 			if (0 < intval($GLOBALS['_CFG']['use_storage']) && 0 < $store_id && $row['cloud_id'] == 0) {
 				$sql = 'SELECT goods_number,ru_id FROM' . $GLOBALS['ecs']->table('store_goods') . (' WHERE store_id = \'' . $store_id . '\' AND goods_id = \'') . $row['goods_id'] . '\' ';
 				$goodsInfo = $GLOBALS['db']->getRow($sql);
-				$products = get_warehouse_id_attr_number($row['goods_id'], $goods['goods_attr_id'], $goodsInfo['ru_id'], 0, 0, '', $store_id);
+				$products = get_warehouse_id_attr_number($row['goods_id'], $goods['goods_attr_id'], $goodsInfo['ru_id'], 0, 0, 0, '', $store_id);
 				$attr_number = $products['product_number'];
 
 				if ($goods['goods_attr_id']) {

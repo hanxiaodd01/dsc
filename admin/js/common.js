@@ -221,7 +221,7 @@ function checkOrderResponse(data)
 				if(self_warn_number>=0 && self_warn_number<100){
 					$("*[ectype='goodMsg']").append('<p><a href="javascript:void(0);" data-url="goods.php?act=list&warn_number=1&seller_list=0" data-param="menushopping|01_goods_list" target="workspace" class="message">自营普通商品库存预警</a> <span class="tiptool">（<em id="goods_report">'+self_warn_number+'</em>）</span></p>')
 				}else if(self_warn_number>99){
-					$("*[ectype='goodMsg']").append('<p><a href="javascript:void(0);" data-url="goods.php?act=list$warn_number=1&seller_list=0" data-param="menushopping|01_goods_list" target="workspace" class="message">自营普通商品库存预警</a><span class="tiptool">（<em id="goods_report">99+</em>）</span></p>')
+					$("*[ectype='goodMsg']").append('<p><a href="javascript:void(0);" data-url="goods.php?act=list&warn_number=1&seller_list=0" data-param="menushopping|01_goods_list" target="workspace" class="message">自营普通商品库存预警</a><span class="tiptool">（<em id="goods_report">99+</em>）</span></p>')
 				}
 				//自营商品库存预警值 end
 				
@@ -229,7 +229,7 @@ function checkOrderResponse(data)
 				if(merchants_warn_number>=0 && merchants_warn_number<100){
 					$("*[ectype='goodMsg']").append('<p><a href="javascript:void(0);" data-url="goods.php?act=list&warn_number=1&seller_list=1" data-param="menushopping|01_goods_list" target="workspace" class="message">商家普通商品库存预警</a> <span class="tiptool">（<em id="goods_report">'+merchants_warn_number+'</em>）</span></p>')
 				}else if(merchants_warn_number>99){
-					$("*[ectype='goodMsg']").append('<p><a href="javascript:void(0);" data-url="goods.php?act=list$warn_number=1&seller_list=1" data-param="menushopping|01_goods_list" target="workspace" class="message">商家普通商品库存预警</a><span class="tiptool">（<em id="goods_report">99+</em>）</span></p>')
+					$("*[ectype='goodMsg']").append('<p><a href="javascript:void(0);" data-url="goods.php?act=list&warn_number=1&seller_list=1" data-param="menushopping|01_goods_list" target="workspace" class="message">商家普通商品库存预警</a><span class="tiptool">（<em id="goods_report">99+</em>）</span></p>')
 				}
 				//商家商品库存预警值 end
 			//商品提醒 end

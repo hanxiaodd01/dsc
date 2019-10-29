@@ -1,4 +1,5 @@
 <?php
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 function flow_available_points($cart_value, $warehouse_id = 0, $area_id = 0, $area_city = 0)
 {
 	if (!empty($_SESSION['user_id'])) {
@@ -6382,7 +6383,7 @@ else if ($_REQUEST['step'] == 'order_reload') {
 	}
 
 	$order = $db->getRow('SELECT * FROM ' . $ecs->table('order_info') . ' WHERE order_id=\'' . $order_info['order_id'] . '\' LIMIT 1');
-	$order['log_id'] = $GLOBALS['db']->getOne(' SELECT log_id FROM ' . $GLOBALS['ecs']->table('pay_log') . ' WHERE order_id = \'' . $order_info['order_id'] . '\' LIMIT 1 ');
+	$order['log_id'] = $GLOBALS['db']->getOne(' SELECT log_id FROM ' . $GLOBALS['ecs']->table('pay_log') . ' WHERE order_id = \'' . $order_info['order_id'] . '\' AND order_type = \'' . PAY_ORDER . '\' LIMIT 1 ');
 
 	if (0 < $order['order_amount']) {
 		$onlinepay_pay_id = $db->getOne('SELECT pay_id FROM ' . $ecs->table('payment') . ' WHERE pay_code=\'onlinepay\'');

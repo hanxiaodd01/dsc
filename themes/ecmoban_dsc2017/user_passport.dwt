@@ -484,7 +484,6 @@ var {$key} = "{$item}";
                                     <!-- {/if} -->
                                     <div class="item item2 item-button">
                                         <input type="hidden" name="act" value="act_edit_password" />
-                                        <input type="hidden" name="uid" value="{$uid}" />
                                         <input type="hidden" name="code" value="{$code}" />
                                         <input type="submit" name="submit" id="get-phone-submit" value="{$lang.submit}" class="btn sc-redBg-btn" ectype="submitBtn">
                                     </div>

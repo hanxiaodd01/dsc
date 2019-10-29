@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 $_LANG['prev_step'] = '上一步：';
 $_LANG['next_step'] = '下一步：';
 $_LANG['select_language_title'] = '大商创升级程序 第1步/共3步 选择语言编码';
@@ -101,8 +101,8 @@ $_LANG['ui_title'] = '大商创用户接口';
 $_LANG['ui_dsc'] = '大商创方式';
 $_LANG['ui_ucenter'] = 'UCenter方式';
 $_LANG['ui_ordinary'] = '普通方式';
-$_LANG['update_v250']['zh_cn'] = array(0 => '帐户冲值', 1 => '帐户提款', 2 => '购买商品', 3 => '订单退款', 'init' => '初始化');
-$_LANG['update_v250']['zh_tw'] = array(0 => '帳戶沖值', 1 => '帳戶提款', 2 => '購買商品', 3 => '訂單退款', 'init' => '初始化');
-$_LANG['update_v250']['en_us'] = array(0 => 'saving', 1 => 'drawing', 2 => 'buying', 3 => 'refundment', 'init' => 'initialize');
+$_LANG['update_v250']['zh_cn'] = array('帐户冲值', '帐户提款', '购买商品', '订单退款', 'init' => '初始化');
+$_LANG['update_v250']['zh_tw'] = array('帳戶沖值', '帳戶提款', '購買商品', '訂單退款', 'init' => '初始化');
+$_LANG['update_v250']['en_us'] = array('saving', 'drawing', 'buying', 'refundment', 'init' => 'initialize');
 
 ?>

@@ -185,12 +185,16 @@
                             <td><div class="tDiv">{$lang.os[$order.order_status]}<br/>{$lang.ps[$order.pay_status]}<br/>{$lang.ss[$order.shipping_status]}</div></td>
                             <td align="center">
                                 {if !$order.is_settlement}
+									{if $order.chargeoff_status eq 0}
                                     <div class="tDiv">
                                         <div style=" left:25%" class="switch mauto {if $order.is_settlement}active{/if}" {if !$order.is_settlement}onclick="listTable.switchBt(this, 'toggle_on_settlement', {$order.order_id})"{/if} title="{$lang.yes}">
                                             <div class="circle"></div>
                                         </div>
                                         <input type="hidden" value="" name="is_settlement">
                                     </div>
+									{else}
+										<div class="tDiv"><img src="images/no.png" class="pl3"></div>
+									{/if}
                                 {else}
                                     <div class="tDiv"><img src="images/yes.png" class="pl3"></div>
                                 {/if}

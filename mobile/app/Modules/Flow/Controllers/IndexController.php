@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Modules\Flow\Controllers;
 
 class IndexController extends \App\Modules\Base\Controllers\FrontendController
@@ -1272,7 +1272,7 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 					'keyword3' => array('value' => date('Y-m-d', gmtime()), 'color' => '#173177'),
 					'keyword4' => array('value' => '下单成功', 'color' => '#173177'),
 					'remark'   => array('value' => '您可以进入微店中了解更多佣金详情。', 'color' => '#173177')
-					);
+				);
 				$url = __HOST__ . url('drp/user/order');
 				push_template('OPENTM206328970', $pushData, $url, $parent_id);
 			}
@@ -1508,7 +1508,7 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 				'orderMoneySum'   => array('value' => $order['order_amount'], 'color' => '#ec5151'),
 				'backupFieldName' => array('value' => '', 'color' => '#173177'),
 				'remark'          => array('value' => '感谢您的光临', 'color' => '#173177')
-				);
+			);
 			$url = __HOST__ . url('user/order/detail', array('order_id' => $order_id));
 			push_template('TM00016', $pushData, $url);
 		}
@@ -1534,7 +1534,7 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 					'keyword3' => array('value' => $order_surplus, 'color' => '#ec5151'),
 					'keyword4' => array('value' => $users['user_money'], 'color' => '#ec5151'),
 					'remark'   => array('value' => '详情请点击进入会员中心-资金管理页面查询', 'color' => '#173177')
-					);
+				);
 				$url = __HOST__ . url('user/account/index');
 				push_template('OPENTM401833445', $pushData, $url);
 			}
@@ -1604,15 +1604,15 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 			}
 		}
 
+		if (is_dir(APP_DRP_PATH) && $is_distribution == 1) {
+			add_drp_log();
+		}
+
 		$payment = payment_info($order['pay_id']);
 		$order['pay_code'] = $payment['pay_code'];
 		if (0 < $order['order_amount'] && $payment['pay_code'] == 'onlinepay' && $payment['pay_code'] != 'cod') {
 			ecs_header('Location: ' . url('onlinepay/index/index', array('order_sn' => $order['order_sn'])) . '
 ');
-		}
-
-		if (is_dir(APP_DRP_PATH) && $is_distribution == 1) {
-			add_drp_log();
 		}
 
 		S('order_hash_' . $_SESSION['user_id'], null);

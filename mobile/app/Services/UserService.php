@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Services;
 
 class UserService
@@ -479,6 +479,22 @@ class UserService
 
 		case 'zto':
 			$fee = 'zhongtong';
+			break;
+
+		case 'yunda':
+			$fee = 'yunda';
+			break;
+
+		case 'huitong':
+			$fee = 'huitongkuaidi';
+			break;
+
+		case 'quanfeng':
+			$fee = 'quanfengkuaidi';
+			break;
+
+		case 'tiantian':
+			$fee = 'tiantian';
 			break;
 
 		default:

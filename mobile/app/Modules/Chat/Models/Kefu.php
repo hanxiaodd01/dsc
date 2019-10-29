@@ -1,5 +1,5 @@
 <?php
-/*多点乐资源  禁止倒卖 一经发现停止任何服务*/
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 namespace App\Modules\Chat\Models;
 
 class Kefu extends \Think\Model
@@ -14,8 +14,8 @@ class Kefu extends \Think\Model
 
 		$adminUser = \App\Models\AdminUser::where('user_id', $admin)->with(array('Service' => function($query) {
 			$query->addSelect('id', 'user_id', 'login_time')->where('status', 1);
-		}))->first()->toArray();
-		return $adminUser;
+		}))->first();
+		return $adminUser ? $adminUser->toArray() : array();
 	}
 
 	static public function getService($id)
@@ -68,14 +68,14 @@ class Kefu extends \Think\Model
 
 	static public function getWait($ru_id = 0)
 	{
-		$waitMessage = \App\Models\ImDialog::select('id', 'customer_id', 'services_id', 'origin', 'goods_id', 'store_id', 'start_time')->where('services_id', 0)->where('store_id', $ru_id)->where('status', 1)->orderby('start_time', 'DESC')->groupby('customer_id')->get()->toArray();
+		$waitMessage = \App\Models\ImDialog::select('id', 'customer_id', 'services_id', 'origin', 'goods_id', 'store_id', 'start_time')->where('services_id', 0)->where('store_id', $ru_id)->where('status', 1)->orderBy('start_time', 'DESC')->groupby('customer_id')->get()->toArray();
 		$total = 0;
 		$waitMessageDataList = array();
 
 		foreach ($waitMessage as $k => $v) {
-			$waitMessage[$k]['add_time'] = date('Y-m-d H:i:s', $v['start_time']);
+			$waitMessage[$k]['add_time'] = local_date('Y-m-d H:i:s', $v['start_time']);
 			$waitMessage[$k]['origin'] = $v['origin'] == 1 ? 'PC' : 'H5';
-			$res = \App\Models\ImMessage::where('from_user_id', $v['customer_id'])->where('to_user_id', 0)->where('status', 1)->orderby('add_time', 'desc')->get()->toArray();
+			$res = \App\Models\ImMessage::where('from_user_id', $v['customer_id'])->where('to_user_id', 0)->where('status', 1)->orderBy('add_time', 'desc')->get()->toArray();
 
 			if (empty($res)) {
 				unset($waitMessage[$k]);
@@ -92,7 +92,7 @@ class Kefu extends \Think\Model
 			$temp = $res[count($res) - 1];
 			unset($res);
 			$res = $temp;
-			$waitMessage[$k]['num'] = \App\Models\ImMessage::where('from_user_id', $v['customer_id'])->where('to_user_id', 0)->where('status', 1)->orderby('add_time', 'desc')->count();
+			$waitMessage[$k]['num'] = \App\Models\ImMessage::where('from_user_id', $v['customer_id'])->where('to_user_id', 0)->where('status', 1)->orderBy('add_time', 'desc')->count();
 			$total += $waitMessage[$k]['num'];
 			$waitMessage[$k]['fid'] = $res['from_user_id'];
 			$waitMessage[$k]['message'] = htmlspecialchars_decode($res['message']);
@@ -134,7 +134,7 @@ class Kefu extends \Think\Model
 
 	static public function getChatLog($service)
 	{
-		$messageList = \App\Models\ImDialog::select('id', 'customer_id', 'services_id', 'origin', 'goods_id', 'store_id', 'status')->where('services_id', $service['id'])->orderby('start_time', 'DESC')->get()->toArray();
+		$messageList = \App\Models\ImDialog::select('id', 'customer_id', 'services_id', 'origin', 'goods_id', 'store_id', 'status')->where('services_id', $service['id'])->orderBy('start_time', 'DESC')->get()->toArray();
 		$temp = array();
 
 		foreach ($messageList as $k => $v) {
@@ -152,14 +152,14 @@ class Kefu extends \Think\Model
 			$where = '((from_user_id = ' . $v['services_id'] . ' AND to_user_id = ' . $v['customer_id'] . ') OR (from_user_id = ' . $v['customer_id'] . ' AND to_user_id = ' . $v['services_id'] . '))';
 			$res = M('im_message')->where($where)->order('add_time DESC')->field('message, add_time, user_type, status')->find();
 			$messageList[$k]['message'] = htmlspecialchars_decode($res['message']);
-			$messageList[$k]['add_time'] = date('Y-m-d H:i:s', $res['add_time']);
+			$messageList[$k]['add_time'] = local_date('Y-m-d H:i:s', $res['add_time']);
 			$messageList[$k]['origin'] = $v['origin'] == 1 ? 'PC' : 'H5';
 			$messageList[$k]['user_type'] = $res['user_type'];
 			$messageList[$k]['status'] = $v['status'] == 1 ? '未结束' : '结束';
 			$messageList[$k]['goods']['goods_name'] = '';
 			$messageList[$k]['goods']['shop_price'] = '';
 			$messageList[$k]['goods']['goods_thumb'] = '';
-			$res = \App\Models\ImMessage::where('dialog_id', $v['id'])->where('status', 1)->select('message')->orderby('add_time', 'DESC')->get()->toArray();
+			$res = \App\Models\ImMessage::where('dialog_id', $v['id'])->where('status', 1)->select('message')->orderBy('add_time', 'DESC')->get()->toArray();
 
 			if (!empty($res)) {
 				$temp = array();
@@ -247,7 +247,7 @@ class Kefu extends \Think\Model
 			}
 
 			$list[$k]['message'] = htmlspecialchars_decode($v['message']);
-			$list[$k]['add_time'] = date('Y-m-d H:i:s', $v['add_time']);
+			$list[$k]['add_time'] = local_date('Y-m-d H:i:s', $v['add_time']);
 		}
 
 		return array('list' => $list, 'total' => ceil($count / $size));
@@ -277,7 +277,7 @@ class Kefu extends \Think\Model
 			}
 
 			$list[$k]['message'] = htmlspecialchars_decode($v['message']);
-			$list[$k]['add_time'] = date('Y-m-d H:i:s', $v['add_time']);
+			$list[$k]['add_time'] = local_date('Y-m-d H:i:s', $v['add_time']);
 
 			if ($mid == $v['id']) {
 				$list[$k]['current'] = 1;
@@ -307,7 +307,7 @@ class Kefu extends \Think\Model
 
 	static public function isDialog($data)
 	{
-		$dialog = \App\Models\ImDialog::where('customer_id', $data['customer_id'])->where('services_id', $data['services_id'])->where('goods_id', $data['goods_id'])->where('store_id', $data['store_id'])->orderby('id', 'DESC')->where('status', 1)->limit(1)->get();
+		$dialog = \App\Models\ImDialog::where('customer_id', $data['customer_id'])->where('services_id', $data['services_id'])->where('goods_id', $data['goods_id'])->where('store_id', $data['store_id'])->orderBy('id', 'DESC')->where('status', 1)->limit(1)->get();
 		$dialog = $dialog[0];
 
 		if (!empty($dialog)) {
@@ -335,7 +335,7 @@ class Kefu extends \Think\Model
 
 	static public function getRecentDialog($fid, $cid)
 	{
-		$dialog = \App\Models\ImDialog::where('customer_id', $cid)->where('services_id', $fid)->orderby('id', 'DESC')->limit(1)->get();
+		$dialog = \App\Models\ImDialog::where('customer_id', $cid)->where('services_id', $fid)->orderBy('id', 'DESC')->limit(1)->get();
 		$dialog = $dialog[0];
 
 		if ($dialog) {
@@ -357,7 +357,7 @@ class Kefu extends \Think\Model
 
 	static public function updateNewDialog($cusId, $serId)
 	{
-		$ImMessage = \App\Models\ImMessage::where('from_user_id', $cusId)->where('user_type', 2)->orderby('add_time', 'DESC')->limit(1)->get();
+		$ImMessage = \App\Models\ImMessage::where('from_user_id', $cusId)->where('user_type', 2)->orderBy('add_time', 'DESC')->limit(1)->get();
 		$ImMessage = $ImMessage[0];
 
 		if (!empty($ImMessage)) {
@@ -377,12 +377,12 @@ class Kefu extends \Think\Model
 
 	static public function closeWindow($uid, $tid)
 	{
-		\App\Models\ImDialog::where('customer_id', $tid)->where('services_id', $uid)->orderby('start_time', 'DESC')->update(array('end_time' => time(), 'status' => 2));
+		\App\Models\ImDialog::where('customer_id', $tid)->where('services_id', $uid)->orderBy('start_time', 'DESC')->update(array('end_time' => time(), 'status' => 2));
 	}
 
 	static public function closeOldWindow($expire)
 	{
-		$dialog = \App\Models\ImDialog::where('end_time', '<', time() - $expire)->where('status', 1)->where('end_time', '>', 0)->where('services_id', '<>', 0)->distinct()->orderby('start_time', 'DESC')->get();
+		$dialog = \App\Models\ImDialog::where('end_time', '<', time() - $expire)->where('status', 1)->where('end_time', '>', 0)->where('services_id', '<>', 0)->distinct()->orderBy('start_time', 'DESC')->get();
 		$temp = array();
 
 		foreach ($dialog as $k => $v) {
@@ -479,7 +479,7 @@ class Kefu extends \Think\Model
 			'exts'     => array('jpg', 'gif', 'png', 'jpeg', 'bmp', 'mp3', 'amr', 'mp4'),
 			'autoSub'  => false,
 			'thumb'    => $thumb
-			);
+		);
 		$up = new \Think\Upload($config);
 		$result = $up->upload();
 
@@ -540,7 +540,7 @@ class Kefu extends \Think\Model
 							$replace = '<a href="' . $url . '" target="_blank">' . $url . '</a>';
 						}
 					}
-					else if (preg_match('/(.jpg|.png|.gif)/i', $url)) {
+					else if (preg_match('/(.jpg|.jpeg|.png|.gif)/i', $url)) {
 						$replace = $url;
 					}
 					else {

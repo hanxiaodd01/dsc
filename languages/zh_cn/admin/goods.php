@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
 $_LANG['del_goods_fail'] = '无法删除该商品，商品已产生订单数据，您可以选择下架商品！';
 $_LANG['lab_goods_desc'] = '商品统一描述';
 $_LANG['lab_add_desc'] = '添加关联描述';
@@ -587,6 +587,7 @@ $_LANG['brand_log_null'] = '品牌LOGO不能为空';
 $_LANG['cat_name_not_null'] = '分类名称不能为空';
 $_LANG['lab_goods_sn_notic'] = '如果您不输入商品货号，系统将自动生成一个唯一的货号。';
 $_LANG['lab_bar_code_notic'] = '必须点击扫码入库按钮文本框出现光标在使用扫码枪扫码，扫码入库功能必须去店铺基本信息设置里面设置<a href="index.php?act=merchants_first" class="fn">扫码appkey</a>才可以使用';
+$_LANG['lab_goods_brief_notic'] = '最多输入60个字符';
 $_LANG['lab_inventory_notic'] = '库存在商品为虚货或商品存在货品时为不可编辑状态，库存数值取决于其虚货数量或货品数量。';
 $_LANG['lab_other_brand_notic'] = '没有符合"<strong>其他</strong>"条件的品牌';
 $_LANG['lab_goods_img_notic'] = '图片尺寸建议800*800<br><br>格式：jpg，gif，png，jpeg';
