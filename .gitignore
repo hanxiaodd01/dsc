@@ -41,4 +41,5 @@ _ide_helper_models.php
 
 # dcs
 temp/**/*.php
+temp/**/*.zip
 data/sc_file/category/*.php
