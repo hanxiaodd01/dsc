@@ -8,6 +8,3 @@ interface TransformerInterface
 
 	public function transform(array $map);
 }
-
-
-?>

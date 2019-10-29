@@ -119,5 +119,3 @@ $_LANG['operation_prompt_content']['list'][3] = '可进行首页模板信息，�
 $_LANG['operation_prompt_content']['list'][4] = '每套模板有对应的首页模板。';
 $_LANG['operation_prompt_content']['list'][5] = '该功能暂时只支持ecmoban_dsc2017，ecmoban_dsc后期开发中，敬请期待。';
 $_LANG['operation_prompt_content']['list'][6] = '导出时需选中对应的选中按钮。';
-
-?>

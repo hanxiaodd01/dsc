@@ -2877,5 +2877,3 @@ function get_order_delayed_list($ru_id = 0)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

@@ -48,5 +48,3 @@ echo $chaine;
 echo "                </li>\n            </ol>\n        </li>\n        <li>\n            Point 3 :<br>";
 echo $chaine;
 echo "        </li>\n    </ol>\n</page>";
-
-?>

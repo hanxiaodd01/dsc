@@ -29,5 +29,3 @@ $_LANG['js_languages']['rows_num_must_over_0'] = '排列显示条目数应该大
 $_LANG['operation_prompt_content']['info'][0] = '上架，当商品处于非上架状态时，前台将不能浏览该商品，店主可控制商品上架状态。';
 $_LANG['operation_prompt_content']['info'][1] = '违规下架，当商品处于违规下架状态时，前台将不能购买该商品，只有管理员可控制商品违规下架状态，并且商品只有重新编辑后才能上架。';
 $_LANG['operation_prompt_content']['info'][2] = '设置项中可以查看商品详细、查看商品SKU。查看商品详细，跳转到商品详细页。查看商品SKU，显示商品的SKU、图片、价格、库存信息。';
-
-?>

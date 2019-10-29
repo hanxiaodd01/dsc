@@ -32,5 +32,3 @@ class RegionRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

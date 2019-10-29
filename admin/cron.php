@@ -338,5 +338,3 @@ else if ($_REQUEST['act'] == 'do') {
 	$links[] = array('text' => $_LANG['back_list'], 'href' => 'cron.php?act=list');
 	sys_msg($_LANG['do_ok'], 0, $links);
 }
-
-?>

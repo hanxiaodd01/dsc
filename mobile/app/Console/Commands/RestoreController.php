@@ -31,5 +31,3 @@ class RestoreController extends \Illuminate\Console\Command
 		}
 	}
 }
-
-?>

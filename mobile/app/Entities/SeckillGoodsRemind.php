@@ -43,5 +43,3 @@ class SeckillGoodsRemind extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

@@ -91,5 +91,3 @@ $_LANG['operation_prompt_content']['list'][1] = '可查看下一级分类。';
 $_LANG['operation_prompt_content']['list'][2] = '鼠标移动“设置”位置，可新增下一级分类、查看下一级分类、转移商品等操作。';
 $_LANG['operation_prompt_content']['list'][4] = '<span class="red">设置分类显示会同步操作分类及子分类下所有商品是否显示，请谨慎操作</span>';
 $_LANG['operation_prompt_content']['info'][0] = '请按提示信息填写每一个字段。';
-
-?>

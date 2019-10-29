@@ -43,5 +43,3 @@ class ZcFocus extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

@@ -1773,5 +1773,3 @@ function lib_cat_name($cat_id)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

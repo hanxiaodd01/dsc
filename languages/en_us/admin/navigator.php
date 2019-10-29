@@ -29,5 +29,3 @@ $_LANG['quotation'] = 'Quotations';
 $_LANG['namecannotnull'] = 'Please enter the name of the navigation bar!';
 $_LANG['linkcannotnull'] = 'Please enter the link!';
 $_LANG['notice_url'] = 'If this site are the Web site can be abbreviated as the root directory with the city relative addresses, such asindex.php；<br>Other circumstances should enter the full URL, such ashttp://www.ecmoban.com/';
-
-?>

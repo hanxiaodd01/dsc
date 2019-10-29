@@ -71,5 +71,3 @@ $_LANG['operation_prompt_content']['info'][0] = '对降价通知的信息进行�
 $_LANG['operation_prompt_content']['info'][1] = '请确定邮件或短信已经配置过。';
 $_LANG['operation_prompt_content']['list'][0] = '前台会员可在商品详情页进行选择降价通知。';
 $_LANG['operation_prompt_content']['list'][1] = '可进行发送状态筛选、客户邮箱搜索。';
-
-?>

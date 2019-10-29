@@ -103,5 +103,3 @@ else {
 }
 
 require dirname(__FILE__) . '/plugins/dscapi/view/' . $file_type . '.php';
-
-?>

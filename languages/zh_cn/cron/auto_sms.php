@@ -11,5 +11,3 @@ $_LANG['auto_sms_count_range'][50] = '50';
 $_LANG['auto_sms_count_range'][100] = '100';
 $_LANG['order_placed_sms'] = '您有新订单，收货人：%s 电话：%s';
 $_LANG['sms_paid'] = '已付款';
-
-?>

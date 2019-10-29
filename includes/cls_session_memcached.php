@@ -179,5 +179,3 @@ class cls_session_memcached
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

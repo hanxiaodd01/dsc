@@ -53,5 +53,3 @@ class BCGothercode extends BCGBarcode1D
 		parent::validate();
 	}
 }
-
-?>

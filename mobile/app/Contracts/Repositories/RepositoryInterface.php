@@ -62,6 +62,3 @@ interface RepositoryInterface
 
 	public function firstOrCreate(array $attributes = array());
 }
-
-
-?>

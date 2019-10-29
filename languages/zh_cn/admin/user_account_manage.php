@@ -33,5 +33,3 @@ $_LANG['view'] = '查看';
 $_LANG['start_end_date'] = '起止时间';
 $_LANG['operation_prompt_content']['list'][0] = '搜索某个时间的商城用户充值总额。';
 $_LANG['operation_prompt_content']['list'][1] = '搜索出来的信息只能查看不能修改。';
-
-?>

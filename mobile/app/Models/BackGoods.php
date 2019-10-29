@@ -120,5 +120,3 @@ class BackGoods extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

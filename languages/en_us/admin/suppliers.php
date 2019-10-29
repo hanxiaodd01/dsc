@@ -20,5 +20,3 @@ $_LANG['batch_drop_ok'] = 'batched delete succesful';
 $_LANG['suppliers_edit_fail'] = 'fail to edit name';
 $_LANG['no_record_selected'] = 'no record selected';
 $_LANG['js_languages']['no_suppliers_name'] = 'no supplier name';
-
-?>

@@ -17,5 +17,3 @@ foreach ($characters as $character) {
 
 echo "</div>\r\n\r\n<div id=\"explanation\">\r\n    <h3>Explanation</h3>\r\n    <ul>\r\n        <li>Interleaved 2 of 5 is based on Standard 2 of 5 symbology.</li>\r\n        <li>There is an optional checksum.</li>\r\n    </ul>\r\n</div>\r\n\r\n";
 include 'include/footer.php';
-
-?>

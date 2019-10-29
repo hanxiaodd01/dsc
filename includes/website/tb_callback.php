@@ -65,5 +65,3 @@ else {
 	$go_url = '../../user.php?act=other_login&type=tb';
 	header('location:' . $go_url);
 }
-
-?>

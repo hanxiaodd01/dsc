@@ -23,5 +23,3 @@ $_LANG['js_languages']['mc_order_notic_three'] = '下单次数不能为空';
 $_LANG['js_languages']['mc_order_notic_four'] = '下单次数必须为整数';
 $_LANG['operation_prompt_content']['mc_order'][0] = '添加订单的用户必须是商城注册用户。';
 $_LANG['operation_prompt_content']['mc_order'][1] = '注意上传文件的格式是.txt格式。';
-
-?>

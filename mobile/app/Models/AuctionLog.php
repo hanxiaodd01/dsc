@@ -54,5 +54,3 @@ class AuctionLog extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

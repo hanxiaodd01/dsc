@@ -83,5 +83,3 @@ $config = array(
 $uri = htmlspecialchars($_POST['upfile']);
 $uri = str_replace('&amp;', '&', $uri);
 getRemoteImage($uri, $config);
-
-?>

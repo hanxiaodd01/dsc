@@ -86,5 +86,3 @@ if($act_name == 'alitongxin'){
 		'password' => 'admin123'
 	);
 }
-
-?>

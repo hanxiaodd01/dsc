@@ -25,5 +25,3 @@ $_LANG['ctenpay_url'] = 'http://union.tenpay.com/mch/mch_register_b2c.shtml?sp_s
 $_LANG['ctenpayc2c_url'] = 'https://www.tenpay.com/mchhelper/mch_register_c2c.shtml?sp_suggestuser=542554970';
 $_LANG['tenpay'] = 'tenpay';
 $_LANG['tenpayc2c'] = 'Intermediary security';
-
-?>

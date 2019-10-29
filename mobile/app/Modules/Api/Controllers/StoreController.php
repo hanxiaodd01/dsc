@@ -40,5 +40,3 @@ class StoreController extends \App\Modules\Api\Foundation\Controller
 		return $this->storeService->attention($request->get('id'), $uid);
 	}
 }
-
-?>

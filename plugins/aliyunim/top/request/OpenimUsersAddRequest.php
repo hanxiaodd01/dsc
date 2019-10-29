@@ -39,6 +39,3 @@ class OpenimUsersAddRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

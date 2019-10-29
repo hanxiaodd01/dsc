@@ -17,5 +17,3 @@ $_LANG['recover_license'] = 'Certificate recover successful.';
 $_LANG['no_license_down'] = 'Failure。No certificate can be downloaded temporarily！';
 $_LANG['fail_license_login'] = 'Certificate of registry failure. From the certificate is not correct!';
 $_LANG['js_languages']['del_confirm'] = 'Confirm the deletion of wrong certificates？';
-
-?>

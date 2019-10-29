@@ -213,5 +213,3 @@ class product extends \app\model\productModel
 		return \app\model\productModel::get_delete($this->table, $this->where, $this->format);
 	}
 }
-
-?>

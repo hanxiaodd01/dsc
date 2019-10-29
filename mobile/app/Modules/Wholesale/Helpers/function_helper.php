@@ -116,6 +116,3 @@ function is_attr_matching(&$goods_list, $reference)
 
 	return false;
 }
-
-
-?>

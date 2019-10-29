@@ -230,5 +230,3 @@ class Wholesale extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

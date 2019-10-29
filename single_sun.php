@@ -347,5 +347,3 @@ else if ($_REQUEST['act'] == 'ajax_verify') {
 
 	exit($json->encode($error));
 }
-
-?>

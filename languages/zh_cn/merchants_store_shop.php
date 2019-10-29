@@ -23,7 +23,3 @@ $_LANG['Recommendation'] = "掌柜推荐";
 
 $_LANG['Store_score'] = "店铺评分";
 $_LANG['shelf_time'] = "上架时间";
-
-?>
-
-

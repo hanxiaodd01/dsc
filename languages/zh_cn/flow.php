@@ -284,5 +284,3 @@ $_LANG['district_null'] = "所在地区不能为空！";
 $_LANG['street_null'] = "所在街道不能为空！";
 
 $_LANG['package_null'] = "商品【%s】暂时缺货，请联系客服！";
-
-?>

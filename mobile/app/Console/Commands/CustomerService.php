@@ -296,5 +296,3 @@ class CustomerService extends \Illuminate\Console\Command
 		return $return;
 	}
 }
-
-?>

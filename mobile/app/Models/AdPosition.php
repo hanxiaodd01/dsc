@@ -109,5 +109,3 @@ class AdPosition extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

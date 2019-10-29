@@ -54,5 +54,3 @@ class FriendLink extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

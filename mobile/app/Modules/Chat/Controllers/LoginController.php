@@ -160,5 +160,3 @@ class LoginController extends \App\Modules\Base\Controllers\FrontendController
 		return $token;
 	}
 }
-
-?>

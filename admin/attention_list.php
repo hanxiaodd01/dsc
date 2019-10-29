@@ -147,5 +147,3 @@ else if ($_REQUEST['act'] == 'batch_addtolist') {
 		sys_msg($_LANG['edit_ok'], 0, $links);
 	}
 }
-
-?>

@@ -174,5 +174,3 @@ class region extends \app\model\regionModel
 		return \app\model\regionModel::get_delete($this->table, $this->where, $this->format);
 	}
 }
-
-?>

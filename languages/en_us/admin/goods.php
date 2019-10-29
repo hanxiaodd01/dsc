@@ -215,5 +215,3 @@ $_LANG['exist_same_goods_attr'] = 'Item Specifications Property repeat';
 $_LANG['cannot_goods_number'] = 'Item Specifications Property repeat';
 $_LANG['not_exist_goods_attr'] = 'This product does not exist specifications, please add the size of their';
 $_LANG['goods_sn_exists'] = 'The goods_sn you entered already exists';
-
-?>

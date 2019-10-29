@@ -899,5 +899,3 @@ else if ($_REQUEST['act'] == 'in_stock') {
 	setcookie('flow_region', $flow_warehouse['region_id'], gmtime() + 3600 * 24 * 30, $GLOBALS['cookie_path'], $GLOBALS['cookie_domain']);
 	exit($json->encode($res));
 }
-
-?>

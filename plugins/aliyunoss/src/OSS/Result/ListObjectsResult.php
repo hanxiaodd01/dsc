@@ -59,5 +59,3 @@ class ListObjectsResult extends Result
 		return $retList;
 	}
 }
-
-?>

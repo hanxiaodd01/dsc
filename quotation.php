@@ -127,5 +127,3 @@ if (is_null($smarty->get_template_vars('helps'))) {
 }
 
 $smarty->display('quotation.dwt');
-
-?>

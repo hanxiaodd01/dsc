@@ -29,5 +29,3 @@ $_LANG['region_name_exist'] = '已經有相同的地區名稱存在!';
 $_LANG['parent_id_exist'] = '該區域下有其它下級地區存在, 不能刪除!';
 $_LANG['form_notic'] = '點擊查看下級地區';
 $_LANG['area_drop_confirm'] = '如果訂單或用戶默認配送方式中使用以下地區，這些地區信息將顯示爲空。您確認要刪除這條記錄嗎?';
-
-?>

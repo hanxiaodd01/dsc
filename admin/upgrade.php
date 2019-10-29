@@ -159,5 +159,3 @@ if ($_REQUEST['act'] == 'init') {
 		);
 	sys_msg($GLOBALS['_LANG']['upgradeing'], 2, $links);
 }
-
-?>

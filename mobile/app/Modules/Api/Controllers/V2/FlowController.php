@@ -67,5 +67,3 @@ class FlowController extends \App\Modules\Api\Foundation\Controller
 		}
 	}
 }
-
-?>

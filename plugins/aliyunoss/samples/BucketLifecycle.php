@@ -78,5 +78,3 @@ putBucketLifecycle($ossClient, $bucket);
 getBucketLifecycle($ossClient, $bucket);
 deleteBucketLifecycle($ossClient, $bucket);
 getBucketLifecycle($ossClient, $bucket);
-
-?>

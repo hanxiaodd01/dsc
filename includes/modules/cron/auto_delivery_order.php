@@ -67,5 +67,3 @@ if ($debug == true) {
 	auto_delivery_order_logResult('==================== cron log ====================');
 	auto_delivery_order_logResult($order_list);
 }
-
-?>

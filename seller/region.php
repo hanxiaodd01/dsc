@@ -33,5 +33,3 @@ if (0 < $parent) {
 $json = new JSON();
 $data['content'] = $value;
 echo $json->encode($data);
-
-?>

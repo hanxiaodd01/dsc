@@ -197,5 +197,3 @@ class UserAddress extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

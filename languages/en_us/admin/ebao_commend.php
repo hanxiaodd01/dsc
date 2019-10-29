@@ -49,5 +49,3 @@ $_LANG['not_new'] = 'Cancel New Products';
 $_LANG['hot'] = 'Hot';
 $_LANG['not_hot'] = 'The abolition of sales';
 $_LANG['move_to'] = 'Transferred to the classification';
-
-?>

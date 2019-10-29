@@ -22,5 +22,3 @@ class GetCorsResult extends Result
 		return false;
 	}
 }
-
-?>

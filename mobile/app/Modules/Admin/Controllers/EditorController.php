@@ -141,5 +141,3 @@ class EditorController extends \App\Modules\Base\Controllers\BackendController
 		}
 	}
 }
-
-?>

@@ -224,5 +224,3 @@ class TouchAd extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

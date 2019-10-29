@@ -44,5 +44,3 @@ $_LANG['drop_ok'] = '成功刪除了 %d 條商品屬性';
 $_LANG['js_languages']['name_not_null'] = '請您輸入屬性名稱。';
 $_LANG['js_languages']['values_not_null'] = '請您輸入該屬性的可選值。';
 $_LANG['js_languages']['cat_id_not_null'] = '請您選擇該屬性所屬的商品類型。';
-
-?>

@@ -42,5 +42,3 @@ class ErrorLog extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

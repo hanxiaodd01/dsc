@@ -105,5 +105,3 @@ $_LANG['js_languages']['goods_over'] = "此商品暂时售完";
 $_LANG['is_shipping_area'] = "[ 暂不支持配送 ]";
 
 $_LANG['buy_error'] = "很抱歉，您预售的商品暂时缺货，请及时联系客服！";
-
-?>

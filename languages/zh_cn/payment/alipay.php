@@ -63,9 +63,3 @@ $_LANG['pay_button_shbank']='支付宝网银在线支付';
 $_LANG['pay_button_shrcb']='支付宝网银在线支付';
 $_LANG['pay_button_spabank']='支付宝网银在线支付';
 $_LANG['pay_button_spdb']='支付宝网银在线支付';
-
-
-
-
-
-?>

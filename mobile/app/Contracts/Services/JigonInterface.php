@@ -16,6 +16,3 @@ interface JigonInterface
 
 	public function getAfterSalesAddress($store_addres);
 }
-
-
-?>

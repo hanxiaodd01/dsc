@@ -489,6 +489,3 @@ class Iconv
 		return $result;
 	}
 }
-
-
-?>

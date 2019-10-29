@@ -296,6 +296,3 @@ class Http
 		return true;
 	}
 }
-
-
-?>

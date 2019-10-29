@@ -45,5 +45,3 @@ $_LANG['js_languages']['remove_confirm'] = '您确定要删除选定的分类吗
 $_LANG['operation_prompt_content'][0] = '该页面展示所有文章分类。';
 $_LANG['operation_prompt_content'][1] = '可添加子分类以及编辑修改、删除分类。';
 $_LANG['operation_prompt_content'][2] = '请注意选择上级分类。';
-
-?>

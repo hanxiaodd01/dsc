@@ -560,5 +560,3 @@ if ($_REQUEST['act'] == 'run_optimize') {
 	array('text' => $_LANG['go_back'], 'href' => 'database.php?act=optimize')
 	));
 }
-
-?>

@@ -14,6 +14,3 @@ class ShopService
 		return array();
 	}
 }
-
-
-?>

@@ -11,5 +11,3 @@ $_LANG['ipdel_day_range'][90] = '90 Days';
 $_LANG['ipdel_day_range'][180] = '180 Days';
 $_LANG['ipdel_day_range'][240] = '240 Days';
 $_LANG['ipdel_day_range'][360] = '360 Days';
-
-?>

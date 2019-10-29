@@ -54,5 +54,3 @@ class ShippingArea extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

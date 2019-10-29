@@ -484,6 +484,3 @@ function get_brands_list($cat = 0, $keyword = '', $size = 10, $page = 0)
 
 	return array('list' => array_values($list), 'totalpage' => ceil($total / $size));
 }
-
-
-?>

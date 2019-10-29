@@ -106,6 +106,3 @@ class Aliyun
 		unset($this->sms);
 	}
 }
-
-
-?>

@@ -173,4 +173,3 @@ $_LANG['remark_gift'] = '（赠品）';
 $_LANG['remark_favourable'] = '（特惠品）';
 $_LANG['remark_package'] = '（礼包）';
 $_LANG['remark_package_goods'] = '（礼包内产品）';
-?>

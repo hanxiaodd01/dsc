@@ -2035,5 +2035,3 @@ $_LANG['supplier_entry'] = '供应商入驻';
 
 $_LANG['wholesale_purchase_null'] = '当前还没有求购数据哟';
 $_LANG['is_confirmed_who_buy'] = '是否确定删除采购单？';
-
-?>

@@ -4,6 +4,3 @@ namespace App\Contracts\Repositories\User;
 
 interface UserRankRepositoryInterface
 {}
-
-
-?>

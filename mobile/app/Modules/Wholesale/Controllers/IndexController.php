@@ -342,5 +342,3 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 		$this->ajaxReturn(array('error' => 0, 'msg' => sprintf(L('ws_order_submitted'), $order['order_sn'])));
 	}
 }
-
-?>

@@ -187,5 +187,3 @@ if ($_REQUEST['act'] == 'update') {
 	ecs_header('Location: ?act=detail&id=' . $_REQUEST['rec_id'] . ('&send_ok=' . $send_ok . "\n"));
 	exit();
 }
-
-?>

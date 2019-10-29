@@ -17,5 +17,3 @@ $_LANG['recover_license'] = '证书恢复成功。';
 $_LANG['no_license_down'] = '失败。暂无证书可下载！';
 $_LANG['fail_license_login'] = '证书登录失败。上传证书不正确！';
 $_LANG['js_languages']['del_confirm'] = '确认删除错误的证书吗？';
-
-?>

@@ -17,6 +17,3 @@ class RegionService
 		return $list;
 	}
 }
-
-
-?>

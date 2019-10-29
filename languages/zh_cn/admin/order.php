@@ -669,5 +669,3 @@ $_LANG['current'] = '当前';
 $_LANG['store_info'] = '门店信息';
 $_LANG['this_order_return_no_continue'] = '此订单已确认为退换货订单，无法继续订单操作！';
 $_LANG['no_info_fill_express_number'] = '暂无信息,请填写快递单号';
-
-?>

@@ -37,5 +37,3 @@ $_LANG['option_name'] = 'Vote option';
 $_LANG['vote_count'] = 'Total votes';
 $_LANG['option_order'] = 'Options Order';
 $_LANG['option_name_empty'] = 'Vote option can\'t be blank!';
-
-?>

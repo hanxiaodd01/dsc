@@ -438,5 +438,3 @@ else if ($_REQUEST['act'] == 'is_ajax') {
 		exit($json->encode($result));
 	}
 }
-
-?>

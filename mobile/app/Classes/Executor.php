@@ -583,6 +583,3 @@ class Executor
 		return true;
 	}
 }
-
-
-?>

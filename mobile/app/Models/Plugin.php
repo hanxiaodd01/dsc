@@ -10,5 +10,3 @@ class Plugin extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('version', 'library', 'assign', 'install_date');
 	protected $guarded = array();
 }
-
-?>

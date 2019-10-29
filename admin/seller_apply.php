@@ -399,5 +399,3 @@ else if ($_REQUEST['act'] == 'exprod') {
 	echo download_apply_list($apply_list['pzd_list']);
 	exit();
 }
-
-?>

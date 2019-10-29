@@ -15,6 +15,3 @@ function baseCustomSetup($barcode, $get)
 
 	$barcode->setFont($font);
 }
-
-
-?>

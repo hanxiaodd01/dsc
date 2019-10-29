@@ -51,5 +51,3 @@ class LocationController extends \App\Modules\Api\Foundation\Controller
 		return $region;
 	}
 }
-
-?>

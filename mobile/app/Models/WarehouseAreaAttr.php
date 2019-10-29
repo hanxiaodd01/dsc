@@ -64,5 +64,3 @@ class WarehouseAreaAttr extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

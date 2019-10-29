@@ -165,5 +165,3 @@ $_LANG['js_languages']['good_category_not_null'] = 'Goods category can not null'
 $_LANG['js_languages']['good_number_not_number'] = 'Goods number is not number';
 $_LANG['js_languages']['good_price_not_number'] = 'Goods price is not number';
 $_LANG['send_mail_off'] = 'Turn off automatically send e-mail';
-
-?>

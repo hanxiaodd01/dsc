@@ -36,6 +36,3 @@ class CollectGoodsRepository
 		return \App\Models\CollectGoods::where('goods_id', $goodsId)->where('user_id', $uid)->delete();
 	}
 }
-
-
-?>

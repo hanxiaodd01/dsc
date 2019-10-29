@@ -123,5 +123,3 @@ else if ($_REQUEST['act'] == 'complaint_conf') {
 	assign_query_info();
 	$smarty->display('goods_report_conf.dwt');
 }
-
-?>

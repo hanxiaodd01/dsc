@@ -239,5 +239,3 @@ class DrpController extends \App\Api\Controllers\Controller
 		return $this->drpService->news($uid);
 	}
 }
-
-?>

@@ -32,5 +32,3 @@ class Agency extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

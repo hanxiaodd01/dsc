@@ -104,5 +104,3 @@ default:
 	echo '非法接口连接';
 	break;
 }
-
-?>

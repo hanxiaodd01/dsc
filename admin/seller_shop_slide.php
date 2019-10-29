@@ -213,5 +213,3 @@ else if ($_REQUEST['act'] == 'query') {
 	$smarty->assign('seller_slide_list', $slide_list);
 	make_json_result($smarty->fetch('seller_shop_slide.dwt'), '');
 }
-
-?>

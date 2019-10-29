@@ -12,5 +12,3 @@ $diff = '';
 $file = 'freesansb.z';
 $ctg = 'freesansb.ctg.z';
 $originalsize = 283180;
-
-?>

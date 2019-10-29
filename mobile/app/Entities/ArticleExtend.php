@@ -53,5 +53,3 @@ class ArticleExtend extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

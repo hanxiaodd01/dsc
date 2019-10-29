@@ -35,5 +35,3 @@ $_LANG['tutorials_bonus_list_one'] = '商城合作伙伴操作说明';
 $_LANG['operation_prompt_content']['info'][0] = '请认真填写链接名称、链接地址等信息。';
 $_LANG['operation_prompt_content']['list'][0] = '该页面展示所有合作伙伴链接信息列表。';
 $_LANG['operation_prompt_content']['list'][1] = '可点击链接进入相应网页，也可进行编辑或删除合作伙伴链接。';
-
-?>

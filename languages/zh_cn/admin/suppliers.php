@@ -27,5 +27,3 @@ $_LANG['js_languages']['no_suppliers_name'] = '没有填供货商名称';
 $_LANG['operation_prompt_content']['list'][0] = '该页面展示了所有供货商的信息。';
 $_LANG['operation_prompt_content']['list'][1] = '可删除、编辑供货商。';
 $_LANG['operation_prompt_content']['info'][0] = '供货商隶属于管理员下级的角色，请注意勾选管理员。';
-
-?>

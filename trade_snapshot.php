@@ -42,5 +42,3 @@ if ($action == 'trade') {
 	$smarty->assign('goods', $row);
 	$smarty->display('trade_snapshot.dwt');
 }
-
-?>

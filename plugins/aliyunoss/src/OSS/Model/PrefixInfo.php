@@ -16,6 +16,3 @@ class PrefixInfo
 		return $this->prefix;
 	}
 }
-
-
-?>

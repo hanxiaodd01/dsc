@@ -133,5 +133,3 @@ else if ($_REQUEST['act'] == 'remove') {
 ');
 	exit();
 }
-
-?>

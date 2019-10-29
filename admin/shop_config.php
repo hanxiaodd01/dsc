@@ -474,5 +474,3 @@ else if ($_REQUEST['act'] == 'del') {
 	$links[] = array('text' => $text, 'href' => $href);
 	sys_msg($sys_msg, 0, $links);
 }
-
-?>

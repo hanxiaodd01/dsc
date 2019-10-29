@@ -230,5 +230,3 @@ else {
 }
 
 $smarty->display('preview.dwt');
-
-?>

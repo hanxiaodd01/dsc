@@ -2800,5 +2800,3 @@ function judge_goods_cat_enabled($cat_id = 0)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

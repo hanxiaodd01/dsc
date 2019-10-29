@@ -55,5 +55,3 @@ else {
 
 $json = new JSON();
 echo $json->encode($res);
-
-?>

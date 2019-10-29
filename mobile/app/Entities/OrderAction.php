@@ -98,5 +98,3 @@ class OrderAction extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

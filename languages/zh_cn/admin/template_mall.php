@@ -137,5 +137,3 @@ $_LANG['seller_masg_06'] = '请选择导出对象！';
 $_LANG['operation_prompt_content']['list'][0] = '该页面展示了所有商家购买模板信息。';
 $_LANG['operation_prompt_content']['list'][1] = '模板购买付款后模板直接导入商家模板中。';
 $_LANG['operation_prompt_content']['list'][2] = '线下付款则直接点击确认付款即可';
-
-?>

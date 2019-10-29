@@ -392,5 +392,3 @@ class UserController extends \App\Modules\Api\Foundation\Controller
 		return $this->apiReturn($invoice);
 	}
 }
-
-?>

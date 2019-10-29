@@ -19,5 +19,3 @@ $_LANG['index_hot'] = '热门';
 $_LANG['score_street'] = "评分";
 $_LANG['recommend_hot_goods'] = '热卖商品';
 $_LANG['Monthly_closing'] = "月成交";
-
-?>

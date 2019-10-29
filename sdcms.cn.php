@@ -36,5 +36,3 @@ if (isset($_SESSION['user_id']) && 0 < $_SESSION['user_id']) {
 else {
 	echo 'success=' . $_LANG['upload_fail'];
 }
-
-?>

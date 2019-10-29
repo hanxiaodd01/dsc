@@ -72,5 +72,3 @@ class BCGcodabar extends BCGBarcode1D
 		parent::validate();
 	}
 }
-
-?>

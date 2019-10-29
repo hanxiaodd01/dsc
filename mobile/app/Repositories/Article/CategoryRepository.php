@@ -53,6 +53,3 @@ class CategoryRepository
 		return $model->toArray();
 	}
 }
-
-
-?>

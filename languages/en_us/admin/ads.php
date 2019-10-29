@@ -98,5 +98,3 @@ $_LANG['ad_name_exist'] = 'The AD name has existed!';
 $_LANG['ad_name_notic'] = 'The AD name only discriminate other ADs, and conceal in the AD.';
 $_LANG['ad_code_img'] = 'Upload the AD image file, or appoint a remote URL address.';
 $_LANG['ad_code_flash'] = 'Upload the AD Flash file, or appoint a remote URL address.';
-
-?>

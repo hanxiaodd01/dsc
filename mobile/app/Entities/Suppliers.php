@@ -43,5 +43,3 @@ class Suppliers extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

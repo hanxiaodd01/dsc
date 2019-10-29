@@ -749,5 +749,3 @@ $_LANG['taxrate_number'] = '税率必须为数字';
 $_LANG['tutorials_bonus_list_one'] = "<a href=\"http://help.ecmoban.com/article-6273.html\" target=\"_blank\">商店设置---平台基本信息设置</a>\r\n                            <a href=\"http://help.ecmoban.com/article-6274.html\" target=\"_blank\">商店设置---客服设置</a>\r\n                            <a href=\"http://help.ecmoban.com/article-6268.html\" target=\"_blank\">商店设置---市场价格比例及积分比例设置</a>\r\n                            <a href=\"http://help.ecmoban.com/article-6271.html\" target=\"_blank\">商店设置---设置区分地区商品</a>\r\n                            <a href=\"http://help.ecmoban.com/article-6266.html\" target=\"_blank\">商店设置---短信设置</a>\r\n                            <a href=\"http://help.ecmoban.com/article-6267.html\" target=\"_blank\">商店设置---WAP设置</a>\r\n                            <a href=\"http://help.ecmoban.com/article-6265.html\" target=\"_blank\">商店设置---商品属性价格模式设置</a>";
 $_LANG['tutorials_bonus_list_two'] = '商城邮件服务器设置';
 $_LANG['operation_prompt_content']['shop_config'][0] = '商店相关信息设置，请谨慎填写信息。';
-
-?>

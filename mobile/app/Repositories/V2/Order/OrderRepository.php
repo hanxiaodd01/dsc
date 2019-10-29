@@ -32,5 +32,3 @@ class OrderRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

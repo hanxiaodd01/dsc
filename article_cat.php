@@ -134,5 +134,3 @@ else {
 }
 
 $smarty->display('article_cat.dwt', $cache_id);
-
-?>

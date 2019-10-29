@@ -12,5 +12,3 @@ foreach ($characters as $character) {
 
 echo "</div>\r\n\r\n<div id=\"explanation\">\r\n    <h3>Explanation</h3>\r\n    <ul>\r\n        <li>Known also as USD-8.</li>\r\n        <li>Code 11 was developed in 1977 as a high-density numeric symbology.</li>\r\n        <li>Used to identify telecommunications equipment.</li>\r\n        <li>Code 11 is a numeric symbology and its character set consists of 10 digital characters and the dash symbol (-).</li>\r\n        <li>There is a \"C\" check digit. If the length of encoded message is greater thant 10, a \"K\" check digit may be used.</li>\r\n    </ul>\r\n</div>\r\n\r\n";
 include 'include/footer.php';
-
-?>

@@ -246,5 +246,3 @@ if (!$smarty->is_cached('store_street.dwt', $cache_id)) {
 }
 
 $smarty->display('store_street.dwt', $cache_id);
-
-?>

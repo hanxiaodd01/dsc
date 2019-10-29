@@ -61,5 +61,3 @@ $_LANG['Indiana_snatch_notic'] = "此活动当前未设置竞拍攻略哟~";
 
 /* 夺宝奇兵 */
 $_LANG['js_languages']['snatch']['buy_error'] = '很抱歉，您夺宝的商品暂时缺货，请及时联系客服！';
-
-?>

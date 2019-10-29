@@ -2222,5 +2222,3 @@ $_LANG['exist'] = '存在';
 $_LANG['wholesale_order_php_download_orderlist'] = '下单会员,下单时间,收货人,联系电话,地址,总金额,确认状态';
 $_LANG['batch_import'] = '批量导入';
 $_LANG['free_ship'] = '免运费';
-
-?>

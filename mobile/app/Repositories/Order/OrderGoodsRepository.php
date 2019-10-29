@@ -87,6 +87,3 @@ class OrderGoodsRepository
 		return $goods->toArray();
 	}
 }
-
-
-?>

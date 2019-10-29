@@ -40,5 +40,3 @@ $_LANG['js_languages']['remove_confirm'] = 'Are you sure delete the record?';
 $_LANG['js_languages']['no_title'] = 'Please enter article\'s title.';
 $_LANG['js_languages']['no_cat'] = 'Please select the help article\'s category.';
 $_LANG['js_languages']['chap'] = 'Chapter';
-
-?>

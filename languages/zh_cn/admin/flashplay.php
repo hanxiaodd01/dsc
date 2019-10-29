@@ -54,5 +54,3 @@ $_LANG['lable_content'] = '内容：';
 $_LANG['system_set'] = '系统默认';
 $_LANG['custom_set'] = '自定义';
 $_LANG['js_languages']['setupConfirm'] = '启用新的Flash样式将覆盖原来的样式。\\n您确定要启用选定的样式吗？';
-
-?>

@@ -31,5 +31,3 @@ $_LANG['lift_brand'] = "品牌推荐";
 $_LANG['lift_master'] = "达人专区";
 $_LANG['lift_storeRec'] = "店铺推荐";
 $_LANG['lift_guessYouLike'] = "还没逛够";
-
-?>

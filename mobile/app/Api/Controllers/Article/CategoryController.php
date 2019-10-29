@@ -21,5 +21,3 @@ class CategoryController extends \App\Api\Controllers\Controller
 		return $this->category->detail($id);
 	}
 }
-
-?>

@@ -15,5 +15,3 @@ $_LANG['order_not_num'] = '輸入的排序權值不是有效的數字。';
 $_LANG['no_edit'] = '系統保留不可修改';
 $_LANG['no_remove'] = '系統保留不可刪除';
 $_LANG['js_languages']['field_name_empty'] = '您沒有輸入會員註冊字段名稱。';
-
-?>

@@ -31,5 +31,3 @@ class BrandExtend extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

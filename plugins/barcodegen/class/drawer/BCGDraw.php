@@ -17,6 +17,3 @@ abstract class BCGDraw
 
 	abstract public function draw();
 }
-
-
-?>

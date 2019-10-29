@@ -1077,5 +1077,3 @@ else if ($_REQUEST['act'] == 'bill_goods_query') {
 	$smarty->assign($sort_flag['tag'], $sort_flag['img']);
 	make_json_result($smarty->fetch('merchants_bill_goods.dwt'), '', array('filter' => $result['filter'], 'page_count' => $result['page_count']));
 }
-
-?>

@@ -1177,5 +1177,3 @@ else {
 }
 
 $smarty->display($dwt_name . '.dwt', $cache_id);
-
-?>

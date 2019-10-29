@@ -340,5 +340,3 @@ class GoodsLib extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

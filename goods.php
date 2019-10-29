@@ -1093,5 +1093,3 @@ else {
 }
 
 $smarty->display('goods.dwt', $cache_id);
-
-?>

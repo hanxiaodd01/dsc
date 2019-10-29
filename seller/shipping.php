@@ -519,5 +519,3 @@ else if ($_REQUEST['act'] == 'account_submit') {
 		make_json_result($result['Reason']);
 	}
 }
-
-?>

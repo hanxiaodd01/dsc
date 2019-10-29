@@ -272,5 +272,3 @@ else {
 	echo $html;
 	exit();
 }
-
-?>

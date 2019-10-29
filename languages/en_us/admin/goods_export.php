@@ -221,5 +221,3 @@ $_LANG['custom_goods_field_not_null'] = 'Output data out of the merchandise shou
 $_LANG['export_condition'] = 'Export volume of goods data';
 $_LANG['export_condition_search'] = 'Search';
 $_LANG['export_format'] = 'Data Format';
-
-?>

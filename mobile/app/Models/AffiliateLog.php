@@ -87,5 +87,3 @@ class AffiliateLog extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

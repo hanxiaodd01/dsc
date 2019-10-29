@@ -457,5 +457,3 @@ if (defined('THEME_EXTENSION')) {
 
 $smarty->assign('shop_name', $shop_name);
 $smarty->display($dwt, $cache_id, $not);
-
-?>

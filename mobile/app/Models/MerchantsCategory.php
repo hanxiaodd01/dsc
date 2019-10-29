@@ -263,5 +263,3 @@ class MerchantsCategory extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

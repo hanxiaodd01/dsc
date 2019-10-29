@@ -74,5 +74,3 @@ $_LANG['c_paygate_range'][5] = '廣州農村信用合作社(廣州)';
 $_LANG['c_paygate_range'][5] = '上海浦東發展銀行(廣州)';
 $_LANG['account_voucher'] = '會員帳戶充值';
 $_LANG['shop_order_sn'] = '商城訂單號';
-
-?>

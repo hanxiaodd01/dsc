@@ -49,5 +49,3 @@ $_LANG['cfm_allow'] = 'Are you sure you want to allow shows the selected comment
 $_LANG['cfm_remove'] = 'Are you sure you want to delete the selected comments?';
 $_LANG['cfm_deny'] = 'Are you sure you want to ban shows the selected comments?';
 $_LANG['mail_send_fail'] = 'Mail sent failed, please check the e-mail server settings and try again.';
-
-?>

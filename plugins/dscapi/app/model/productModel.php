@@ -138,5 +138,3 @@ abstract class productModel extends \app\func\common
 		return $result;
 	}
 }
-
-?>

@@ -265,6 +265,3 @@ function get_comment_reply($comment_id, $parent_id = 0, $goods_id = 0)
 
 	return $res;
 }
-
-
-?>

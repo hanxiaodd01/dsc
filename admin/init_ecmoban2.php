@@ -25,5 +25,3 @@ foreach ($order_res as $idx => $val) {
 		sys_msg($_LANG['sales_volume_initial_fail'], 0, $link);
 	}
 }
-
-?>

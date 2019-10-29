@@ -35,6 +35,3 @@ class city_express
 		return false;
 	}
 }
-
-
-?>

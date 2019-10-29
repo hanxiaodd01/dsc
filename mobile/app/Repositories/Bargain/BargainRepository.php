@@ -373,6 +373,3 @@ class BargainRepository
 		return $result;
 	}
 }
-
-
-?>

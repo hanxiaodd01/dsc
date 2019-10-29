@@ -622,6 +622,3 @@ function get_table_name($table = '')
 
 	return array('row' => $res, 'bool' => $bool);
 }
-
-
-?>

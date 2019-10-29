@@ -12,5 +12,3 @@ $_LANG['udpay_button'] = 'Pay in Udpay immediately';
 $_LANG['udpay_txn_id'] = 'Udpay ID';
 $_LANG['udpay_orderInfo'] = 'Your Ind Coope of Udpay(english).';
 $_LANG['udpay_errorfile'] = 'Error check file address';
-
-?>

@@ -14,5 +14,3 @@ class HeaderResultTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals($result->getData()['key'], 'value');
 	}
 }
-
-?>

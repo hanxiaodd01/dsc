@@ -32,5 +32,3 @@ else if ($_REQUEST['act'] == 'cloud_update') {
 	$link[] = array('text' => $_LANG['go_back'], 'href' => 'cloud_api.php?act=config');
 	sys_msg($_LANG['save_success'], 0, $link);
 }
-
-?>

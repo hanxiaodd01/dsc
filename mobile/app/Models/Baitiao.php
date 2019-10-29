@@ -65,5 +65,3 @@ class Baitiao extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

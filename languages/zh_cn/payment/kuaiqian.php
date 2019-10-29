@@ -41,5 +41,3 @@ $_LANG['kq_account'] = '收款帐号';
 $_LANG['kq_account_desc'] = '人民币支付网关的收款帐号为用户在快钱的用户编号后面附加数字01，即[用户编号01]';
 $_LANG['kq_key']     = '商户密钥';
 $_LANG['pay_button'] = '立即使用快钱支付';
-
-?>

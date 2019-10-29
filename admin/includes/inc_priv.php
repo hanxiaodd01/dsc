@@ -298,5 +298,3 @@ if (judge_supplier_enabled()) {
 	$purview['suppliers_stats'] = 'suppliers_stats';
 	$purview['suppliers_sale_list'] = 'suppliers_sale_list';
 }
-
-?>

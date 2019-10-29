@@ -141,5 +141,3 @@ class WechatRedpackLog extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

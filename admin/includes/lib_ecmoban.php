@@ -3484,5 +3484,3 @@ function del_complaint_talk($complaint_id = 0)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

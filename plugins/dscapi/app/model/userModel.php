@@ -147,5 +147,3 @@ abstract class userModel extends \app\func\common
 		return $result;
 	}
 }
-
-?>

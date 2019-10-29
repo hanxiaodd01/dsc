@@ -121,6 +121,3 @@ function unescape($str)
 
 	return $ret;
 }
-
-
-?>

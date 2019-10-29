@@ -59,5 +59,3 @@ else if ($_REQUEST['act'] == 'query') {
 	$smarty->assign('end_date', local_date('Y-m-d'));
 	make_json_result($smarty->fetch('search_log_list.htm'), '', array('filter' => $logdb['filter'], 'page_count' => $logdb['page_count']));
 }
-
-?>

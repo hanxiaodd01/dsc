@@ -102,6 +102,3 @@ class AlibabaAliqinFcTtsNumSinglecallRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

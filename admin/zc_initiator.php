@@ -365,5 +365,3 @@ else {
 		Header('Location:zc_initiator.php?act=rank_logo');
 	}
 }
-
-?>

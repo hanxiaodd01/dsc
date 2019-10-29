@@ -48,5 +48,3 @@ $_LANG['cashdesk'] = '收银台';
 $_LANG['sell_date'] = '售出日期';
 $_LANG['operation_prompt_content']['list'][0] = '统计所有销售统计信息。';
 $_LANG['operation_prompt_content']['list'][1] = '根据订单时间、订单类型、发货状态等筛选出某个时间段的订单信息。';
-
-?>

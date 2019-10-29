@@ -9,5 +9,3 @@ class LocationTransformer extends \League\Fractal\TransformerAbstract
 		return array();
 	}
 }
-
-?>

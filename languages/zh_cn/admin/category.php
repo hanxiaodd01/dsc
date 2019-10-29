@@ -132,5 +132,3 @@ $_LANG['operation_prompt_content']['list'][4] = '<span class="red">设置分类�
 $_LANG['operation_prompt_content']['info'][0] = '请按提示信息填写每一个字段。';
 $_LANG['operation_prompt_content']['titleFileView'][0] = '商家入驻分类的类目证件。';
 $_LANG['operation_prompt_content']['titleFileView'][1] = '请谨慎添加，以防出现错误。';
-
-?>

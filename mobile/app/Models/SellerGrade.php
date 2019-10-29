@@ -152,5 +152,3 @@ class SellerGrade extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

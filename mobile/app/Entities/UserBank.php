@@ -64,5 +64,3 @@ class UserBank extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

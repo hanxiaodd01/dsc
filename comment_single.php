@@ -34,5 +34,3 @@ if ($result['error'] == 0) {
 }
 
 echo $json->encode($result);
-
-?>

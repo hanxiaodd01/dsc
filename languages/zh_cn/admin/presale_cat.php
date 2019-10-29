@@ -61,5 +61,3 @@ $_LANG['js_languages']['cat_name_null'] = '请输入分类名称';
 $_LANG['operation_prompt_content']['list'][0] = '展示了预售商品分类列表。';
 $_LANG['operation_prompt_content']['list'][1] = '可进行删除或修改预售商品分类名称。';
 $_LANG['operation_prompt_content']['info'][0] = '可选择已有的顶级预售分类。';
-
-?>

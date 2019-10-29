@@ -144,6 +144,3 @@ function IsImageValid($filePath, $extension)
 
 	return true;
 }
-
-
-?>

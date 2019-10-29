@@ -66,5 +66,3 @@ $_LANG['upload_goods']['is_alone_sale'] = 'Can be a common product sale?';
 $_LANG['upload_goods']['is_real'] = 'Entity';
 $_LANG['batch_upload_ok'] = 'Batch upload successfully.';
 $_LANG['goods_upload_confirm'] = 'Batch upload confirmation.';
-
-?>

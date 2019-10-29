@@ -32,5 +32,3 @@ class MessageRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

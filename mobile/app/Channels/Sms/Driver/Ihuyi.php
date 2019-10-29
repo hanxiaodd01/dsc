@@ -112,6 +112,3 @@ class Ihuyi
 		unset($this->sms);
 	}
 }
-
-
-?>

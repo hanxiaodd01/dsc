@@ -234,5 +234,3 @@ function get_oss_list_file($file = array())
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

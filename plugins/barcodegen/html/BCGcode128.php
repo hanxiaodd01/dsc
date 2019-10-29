@@ -24,5 +24,3 @@ for ($i = 0; $i < $c; $i++) {
 
 echo "</div>\r\n\r\n<div id=\"explanation\">\r\n    <h3>Explanation</h3>\r\n    <ul>\r\n        <li>Code 128 is a high-density alphanumeric symbology.</li>\r\n        <li>Used extensively worldwide.</li>\r\n        <li>Code 128 is designed to encode 128 full ASCII characters.</li>\r\n        <li>The symbology includes a checksum digit.</li>\r\n        <li>Code 128A handles capital letters<br />Code 128B handles capital letters and lowercase<br />Code 128C handles group of 2 numbers</li>\r\n        <li>Your browser may not be able to write the special characters (NUL, SOH, etc.) but you can write them with the code.</li>\r\n    </ul>\r\n</div>\r\n\r\n";
 include 'include/footer.php';
-
-?>

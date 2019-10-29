@@ -75,5 +75,3 @@ $_LANG['error_exist_order'] = '該團購活動已經有訂單，不能刪除！'
 $_LANG['batch_drop_success'] = '成功刪除了 %s 條團購活動記錄（已經有訂單的團購活動不能刪除）。';
 $_LANG['no_select_group_buy'] = '您現在沒有團購活動記錄！';
 $_LANG['log_action']['group_buy'] = '團購商品';
-
-?>

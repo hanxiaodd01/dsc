@@ -193,4 +193,3 @@ $_LANG['shopping_package'] = '超值礼包列表';
 /*门店 by kong 20160722*/
 $_LANG['stock_store_shortage'] = "非常抱歉，您选择的商品 %s 的门店库存数量只有 %d，您最多只能购买 %d 件。";
 $_LANG['shop_store'] = "门店";
-?>

@@ -108,5 +108,3 @@ class SaleNotice extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

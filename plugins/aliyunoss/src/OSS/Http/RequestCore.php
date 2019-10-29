@@ -606,6 +606,3 @@ class RequestCore
 		return $this->response_code;
 	}
 }
-
-
-?>

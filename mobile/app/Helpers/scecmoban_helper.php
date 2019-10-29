@@ -2839,5 +2839,3 @@ function get_order_return_amount($order_id = 0)
 }
 
 defined('IN_ECTOUCH') || exit('Deny Access');
-
-?>

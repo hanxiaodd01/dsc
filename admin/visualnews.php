@@ -30,5 +30,3 @@ else if ($_REQUEST['act'] == 'restore') {
 	del_DirAndFile($des);
 	exit(json_encode($result));
 }
-
-?>

@@ -52,5 +52,3 @@ else {
 	$info['url'] = str_replace($root_path_relative, $root_path, $info['url']);
 	echo '{\'url\':\'' . $info['url'] . '\',state:\'' . $info['state'] . '\'}';
 }
-
-?>

@@ -29,5 +29,3 @@ $_LANG['link_name_exist'] = '此鏈接名稱已經存在!';
 $_LANG['enter_int'] = '顯示順序的類型必須為數字!';
 $_LANG['url_logo_value'] = '在指定遠程LOGO圖片時, LOGO圖片的URL網址必須為http:// 或 https://開頭的正確URL格式!';
 $_LANG['link_name_desc'] = '當你添加文字鏈接時, 鏈接LOGO為你的鏈接名稱.';
-
-?>

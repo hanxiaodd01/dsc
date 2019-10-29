@@ -92,5 +92,3 @@ $_LANG['js_languages']['password_not_same'] = '輸入的密碼和確認密碼不
 $_LANG['js_languages']['invalid_pay_points'] = '消費積分數不是一個整數。';
 $_LANG['js_languages']['invalid_rank_points'] = '等級積分數不是一個整數。';
 $_LANG['js_languages']['password_len_err'] = '新密碼和確認密碼的長度不能小於6';
-
-?>

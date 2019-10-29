@@ -174,5 +174,3 @@ foreach ($crondb as $key => $cron_val) {
 }
 
 write_error_arr($error_log);
-
-?>

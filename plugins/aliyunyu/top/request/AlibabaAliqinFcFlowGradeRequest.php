@@ -24,6 +24,3 @@ class AlibabaAliqinFcFlowGradeRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

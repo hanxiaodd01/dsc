@@ -833,5 +833,3 @@ else if ($_REQUEST['act'] == 'batch') {
 		}
 	}
 }
-
-?>

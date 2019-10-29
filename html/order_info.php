@@ -45,7 +45,7 @@
                         }
                         echo "淘宝客服：" . $kf_ww_one;
                     }
-                    ?>
+
                 </td>
             </tr>
             <tr>
@@ -153,7 +153,7 @@
                         if ($v['dis_amount'] > 0) {
                             echo "<font style='color:#F00'>（优惠：" . $v['discount_amount'] . "）</font>";
                         }
-                        ?>
+
                     </td>
                 </tr>
             <?php endforeach; ?>

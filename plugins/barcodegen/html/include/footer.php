@@ -34,5 +34,3 @@ echo $code;
 echo ' PHP5-v';
 echo $codeVersion;
 echo "            </footer>\r\n        </div>\r\n    </body>\r\n</html>";
-
-?>

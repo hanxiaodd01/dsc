@@ -117,5 +117,3 @@ else if ($_REQUEST['act'] == 'update_allot') {
 	$link[] = array('text' => $_LANG['go_back'], 'href' => 'merchants_privilege.php?act=allot&grade_id=' . $grade_id);
 	sys_msg($_LANG['action_succeed'], 0, $link);
 }
-
-?>

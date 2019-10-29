@@ -22,5 +22,3 @@ class Category extends \app\api\foundation\Controller
 		return $this->category->detail($args['id']);
 	}
 }
-
-?>

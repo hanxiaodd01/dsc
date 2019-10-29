@@ -1990,5 +1990,3 @@ else {
 		make_json_response('', $send_ok);
 	}
 }
-
-?>

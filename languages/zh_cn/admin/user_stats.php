@@ -41,5 +41,3 @@ $_LANG['operation_prompt_content']['analysis'][1] = '可根据所选时间段统
 $_LANG['operation_prompt_content']['area_analysis'][0] = '有效订单：所选时间段内除无效订单状态下的所有订单总数。';
 $_LANG['operation_prompt_content']['area_analysis'][1] = '根据收货地址统计所选时间段内各地区有效订单下单会员总数、下单总金额和下单量。';
 $_LANG['operation_prompt_content']['rank_analysis'][0] = '统计图展示了平台所有会员等级的分布占比。';
-
-?>

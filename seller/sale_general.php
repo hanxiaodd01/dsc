@@ -214,5 +214,3 @@ else if ($_REQUEST['act'] == 'download') {
 		echo "\n";
 	}
 }
-
-?>

@@ -233,5 +233,3 @@ $_LANG['total_number'] = '总数';
 $_LANG['time'] = '时间';
 $_LANG['range'] = '范围';
 $_LANG['js_languages']['downloaded_completed'] = '已下载完成！';
-
-?>

@@ -32,5 +32,3 @@ class UserTypeRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

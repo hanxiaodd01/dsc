@@ -49,5 +49,3 @@ $_LANG['top_html'] = '代碼';
 $_LANG['lable_upload'] = '上傳';
 $_LANG['lable_from_web'] = '或者遠程URL地址';
 $_LANG['lable_content'] = '內容';
-
-?>

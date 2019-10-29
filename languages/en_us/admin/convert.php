@@ -31,5 +31,3 @@ $_LANG['js_languages']['host_not_null'] = 'The host name or address can\'t be bl
 $_LANG['js_languages']['db_not_null'] = 'The database name can\'t be blank.';
 $_LANG['js_languages']['user_not_null'] = 'Register ID can\'t be blank.';
 $_LANG['js_languages']['path_not_null'] = 'Original shop root directory can\'t be blank.';
-
-?>

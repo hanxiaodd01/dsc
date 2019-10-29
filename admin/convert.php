@@ -163,5 +163,3 @@ else if ($_REQUEST['act'] == 'process') {
 	$step = $convert->next_step($step);
 	make_json_result($step, empty($_LANG[$step]) ? '' : $_LANG[$step]);
 }
-
-?>

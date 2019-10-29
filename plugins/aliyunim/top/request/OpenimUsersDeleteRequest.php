@@ -41,6 +41,3 @@ class OpenimUsersDeleteRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

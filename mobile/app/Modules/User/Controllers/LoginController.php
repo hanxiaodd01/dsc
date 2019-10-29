@@ -574,5 +574,3 @@ class LoginController extends \App\Modules\Base\Controllers\FrontendController
 		}
 	}
 }
-
-?>

@@ -85,5 +85,3 @@ class BCGDrawJPG extends BCGDraw
 		}
 	}
 }
-
-?>

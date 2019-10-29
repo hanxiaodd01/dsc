@@ -341,5 +341,3 @@ $smarty->assign('helps', get_shop_help());
 $smarty->assign('lang', $_LANG);
 $smarty->assign('feed_url', $_CFG['rewrite'] == 1 ? 'feed-typeactivity.xml' : 'feed.php?type=activity');
 $smarty->display('activity.dwt');
-
-?>

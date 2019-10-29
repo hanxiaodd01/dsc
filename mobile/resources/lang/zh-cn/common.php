@@ -740,5 +740,3 @@ $_LANG['delivery_fail'] = '提货失败';
 $_LANG['receipt_fail'] = '收货失败';
 $_LANG['receipt_Success'] = '收货成功';
 return $_LANG;
-
-?>

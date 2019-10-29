@@ -32,5 +32,3 @@ class ConfigRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

@@ -18,5 +18,3 @@ echo str_replace('XXX', '20', $content);
 echo "</div>\n                hidden center middle\n            </td>\n            <td>\n                <u>Exemple 3 :</u><br><br>\n                <div class=\"zone zone_over\" style=\"text-align: right; vertical-align: bottom;\">";
 echo str_replace('XXX', '20', $content);
 echo "</div>\n                hidden right bottom\n            </td>\n        </tr>\n    </table>\n</page>";
-
-?>

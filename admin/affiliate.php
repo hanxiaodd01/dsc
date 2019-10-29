@@ -163,5 +163,3 @@ else if ($_REQUEST['act'] == 'del') {
 ');
 	exit();
 }
-
-?>

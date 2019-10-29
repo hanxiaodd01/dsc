@@ -50,5 +50,3 @@ class OssClientBucketLifecycleTest extends TestOssClientBase
 		}
 	}
 }
-
-?>

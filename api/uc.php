@@ -496,5 +496,3 @@ else {
 }
 
 $ecs_url = str_replace('/api', '', $ecs->url());
-
-?>

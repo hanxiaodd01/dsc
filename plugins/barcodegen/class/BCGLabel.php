@@ -217,5 +217,3 @@ class BCGLabel
 include_once 'BCGArgumentException.php';
 include_once 'BCGFontPhp.php';
 include_once 'BCGFontFile.php';
-
-?>

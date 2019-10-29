@@ -98,5 +98,3 @@ $_LANG['ad_name_exist'] = '該廣告名稱已經存在!';
 $_LANG['ad_name_notic'] = '廣告名稱只是作為辨別多個廣告條目之用，並不顯示在廣告中';
 $_LANG['ad_code_img'] = '上傳該廣告的圖片文件,或者你也可以指定一個遠程URL地址為廣告的圖片';
 $_LANG['ad_code_flash'] = '上傳該廣告的Flash文件,或者你也可以指定一個遠程的Flash文件';
-
-?>

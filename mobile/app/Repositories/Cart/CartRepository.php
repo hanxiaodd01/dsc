@@ -610,6 +610,3 @@ class CartRepository
 		return $res;
 	}
 }
-
-
-?>

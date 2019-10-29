@@ -22,5 +22,3 @@ class GetRefererResult extends Result
 		return false;
 	}
 }
-
-?>

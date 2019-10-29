@@ -230,5 +230,3 @@ class SellerApplyInfo extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

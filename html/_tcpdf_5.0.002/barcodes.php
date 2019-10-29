@@ -1686,6 +1686,3 @@ class TCPDFBarcode
 		return $table;
 	}
 }
-
-
-?>

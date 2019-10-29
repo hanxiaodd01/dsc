@@ -444,5 +444,3 @@ class User extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

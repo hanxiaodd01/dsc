@@ -336,6 +336,3 @@ function clear_cart($type = CART_GENERAL_GOODS, $cart_value = '')
 	$sql = 'DELETE FROM ' . $GLOBALS['ecs']->table('cart_user_info') . ' WHERE ' . $sess_id;
 	$GLOBALS['db']->query($sql);
 }
-
-
-?>

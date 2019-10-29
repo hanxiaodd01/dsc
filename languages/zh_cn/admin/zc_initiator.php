@@ -28,5 +28,3 @@ $_LANG['operation_prompt_content']['list'][0] = '众筹项目发起人信息管�
 $_LANG['operation_prompt_content']['list'][1] = '可通过关键字进行名称搜索。';
 $_LANG['operation_prompt_content']['rank_list'][0] = '等级标识相关信息管理。';
 $_LANG['operation_prompt_content']['rank_list'][1] = '等级标识作为添加发起人时勾选的发起人等级时使用。';
-
-?>

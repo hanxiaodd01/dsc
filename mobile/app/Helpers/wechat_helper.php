@@ -252,6 +252,3 @@ function array_key_case(&$array, $case = CASE_LOWER)
 		}
 	}
 }
-
-
-?>

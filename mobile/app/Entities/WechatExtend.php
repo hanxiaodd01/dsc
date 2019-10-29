@@ -108,5 +108,3 @@ class WechatExtend extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

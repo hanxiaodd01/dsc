@@ -1562,5 +1562,3 @@ function get_goods_gallery_count($goods_id = 0)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

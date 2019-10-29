@@ -18,5 +18,3 @@ if (!empty($session_id)) {
 else {
 	exit('{"res":"fail","msg":"error:000001","info":""}');
 }
-
-?>

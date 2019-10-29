@@ -68,5 +68,3 @@ else if ($_REQUEST['act'] == 'download') {
 	$config = array('filename' => $_LANG['04_industry_analysis'], 'thead' => $thead, 'tbody' => $tbody, 'tdata' => $tdata);
 	list_download($config);
 }
-
-?>

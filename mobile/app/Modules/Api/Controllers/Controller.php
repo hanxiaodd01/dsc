@@ -37,5 +37,3 @@ class Controller extends \Think\Controller\RestController
 		return $token['payload'];
 	}
 }
-
-?>

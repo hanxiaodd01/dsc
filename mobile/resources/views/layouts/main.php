@@ -10,7 +10,7 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
 AppAsset::register($this);
-?>
+
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
@@ -34,7 +34,6 @@ AppAsset::register($this);
         ],
     ]);
     NavBar::end();
-    ?>
 
     <div class="container">
         <?= Breadcrumbs::widget([

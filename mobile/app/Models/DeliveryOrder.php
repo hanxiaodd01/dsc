@@ -340,5 +340,3 @@ class DeliveryOrder extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

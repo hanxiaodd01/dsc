@@ -55,5 +55,3 @@ $_LANG['operation_prompt_content']['info'][1] = '需要在系统设置->商品�
 $_LANG['operation_prompt_content']['list'][0] = '该页面展示OSS配置的列表信息。';
 $_LANG['operation_prompt_content']['list'][1] = '可以直接在列表页面进行编辑和删除。';
 $_LANG['operation_prompt_content']['list'][2] = 'OSS可用于图片、音视频、日志等海量文件的存储。';
-
-?>

@@ -9,5 +9,3 @@ class IndexController extends \App\Modules\Base\Controllers\BackendController
 		$this->display();
 	}
 }
-
-?>

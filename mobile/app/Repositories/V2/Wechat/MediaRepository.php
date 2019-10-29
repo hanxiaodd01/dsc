@@ -32,5 +32,3 @@ class MediaRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

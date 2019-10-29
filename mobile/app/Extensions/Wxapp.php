@@ -336,6 +336,3 @@ class Wxapp
 		return S($cachename, null);
 	}
 }
-
-
-?>

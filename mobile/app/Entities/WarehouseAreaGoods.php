@@ -153,5 +153,3 @@ class WarehouseAreaGoods extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

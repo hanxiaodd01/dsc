@@ -56,5 +56,3 @@ class CategoryRepository implements \app\classes\interfaces\RepositoryInterface
 		return $model->paginate($perPage, $columns)->toArray();
 	}
 }
-
-?>

@@ -705,5 +705,3 @@ else {
 		exit(json_encode($result));
 	}
 }
-
-?>

@@ -23,5 +23,3 @@ if (empty($steps_site)) {
 
 ecs_header('Location: ' . $steps_site . "\n");
 exit();
-
-?>

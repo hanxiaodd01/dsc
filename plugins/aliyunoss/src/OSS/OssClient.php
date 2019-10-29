@@ -1493,6 +1493,3 @@ class OssClient
 		$this->connectTimeout = $connectTimeout;
 	}
 }
-
-
-?>

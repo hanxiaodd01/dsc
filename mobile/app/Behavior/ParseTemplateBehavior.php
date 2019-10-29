@@ -20,6 +20,3 @@ class ParseTemplateBehavior
 		return $content;
 	}
 }
-
-
-?>

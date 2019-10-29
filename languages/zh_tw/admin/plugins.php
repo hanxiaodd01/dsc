@@ -15,5 +15,3 @@ $_LANG['install_success'] = '指定的插件已經安裝成功。';
 $_LANG['upgrade_success'] = '指定的插件已經升級成功。';
 $_LANG['plugin_not_exists'] = '沒有找到指定的插件文件，請確認該插件是否確實存在。';
 $_LANG['class_not_exists'] = '沒有找到指定的插件類，該插件可能已經被損壞。';
-
-?>

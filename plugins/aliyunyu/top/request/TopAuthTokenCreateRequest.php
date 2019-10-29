@@ -55,6 +55,3 @@ class TopAuthTokenCreateRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

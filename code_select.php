@@ -35,5 +35,3 @@ $result = json_decode($result);
 echo $_LANG['code_value'];
 print_r($result->showapi_res_code);
 echo "<br>\r\n";
-
-?>

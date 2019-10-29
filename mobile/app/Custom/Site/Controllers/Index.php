@@ -13,5 +13,3 @@ class Index extends \App\Http\Site\Controllers\Index
 	{
 	}
 }
-
-?>

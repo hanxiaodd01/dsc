@@ -99,6 +99,3 @@ class RevisionNameBehavior
 		S('transform', md5(VERSION));
 	}
 }
-
-
-?>

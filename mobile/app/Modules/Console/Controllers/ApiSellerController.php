@@ -799,5 +799,3 @@ class ApiSellerController extends \App\Modules\Admin\Controllers\EditorSellerCon
 		$this->area_info = get_area_info($this->province_id);
 	}
 }
-
-?>

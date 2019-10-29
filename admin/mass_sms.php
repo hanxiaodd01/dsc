@@ -443,5 +443,3 @@ else if ($_REQUEST['act'] == 'batch_send') {
 
 	exit($json->encode($result));
 }
-
-?>

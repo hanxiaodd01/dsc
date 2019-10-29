@@ -291,5 +291,3 @@ if (!$smarty->is_cached('news.dwt', $cache_id)) {
 }
 
 $smarty->display('news.dwt', $cache_id);
-
-?>

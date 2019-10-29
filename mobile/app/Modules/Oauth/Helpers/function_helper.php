@@ -265,6 +265,3 @@ function merge_user($from_user_id = 0, $to_user_id = 0)
 		return false;
 	}
 }
-
-
-?>

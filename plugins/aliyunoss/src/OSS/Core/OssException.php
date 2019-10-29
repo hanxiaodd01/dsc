@@ -44,5 +44,3 @@ class OssException extends \Exception
 		return isset($this->details['body']) ? $this->details['body'] : '';
 	}
 }
-
-?>

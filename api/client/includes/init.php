@@ -66,5 +66,3 @@ if ((!isset($_SESSION['admin_id']) || (intval($_SESSION['admin_id']) <= 0)) && (
 if ($_CFG['shop_closed'] == 1) {
 	client_show_message(105);
 }
-
-?>

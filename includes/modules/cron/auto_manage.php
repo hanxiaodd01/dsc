@@ -114,5 +114,3 @@ foreach ($autodb as $key => $val) {
 		$db->query($sql);
 	}
 }
-
-?>

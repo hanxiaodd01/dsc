@@ -2098,5 +2098,3 @@ function invoice_list($user_id = 0, $record_count, $page, $pagesize = 10)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

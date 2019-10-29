@@ -92,6 +92,3 @@ class Alidayu
 		unset($this->sms);
 	}
 }
-
-
-?>

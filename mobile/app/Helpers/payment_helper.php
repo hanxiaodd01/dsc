@@ -487,6 +487,3 @@ function order_pay_fee($payment_id, $order_amount, $cod_fee = NULL)
 
 	return round($pay_fee, 2);
 }
-
-
-?>

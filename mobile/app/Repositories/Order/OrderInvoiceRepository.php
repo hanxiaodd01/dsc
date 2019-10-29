@@ -42,6 +42,3 @@ class OrderInvoiceRepository
 		return $model->invoice_id;
 	}
 }
-
-
-?>

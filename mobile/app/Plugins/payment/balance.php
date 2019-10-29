@@ -16,6 +16,3 @@ class balance
 		return NULL;
 	}
 }
-
-
-?>

@@ -45,5 +45,3 @@ class ListMultipartUploadResultTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals('2012-02-23T04:18:23.000Z', $listMultipartUploadInfo->getUploads()[0]->getInitiated());
 	}
 }
-
-?>

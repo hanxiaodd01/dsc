@@ -224,6 +224,3 @@ function count_number($type)
 	$goods_list = $GLOBALS['db']->getAll($sql);
 	return count($goods_list);
 }
-
-
-?>

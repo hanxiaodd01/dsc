@@ -26,5 +26,3 @@ $_LANG['js_languages']['remove_confirm'] = '你确定要删除所选的会员实
 $_LANG['js_languages']['select_operation_cat'] = '请选择操作状态';
 $_LANG['operation_prompt_content']['stats'][0] = '统计商城所有的订单，销售总额、有效金额、总点击数、每日点击数、每日点击购买额。';
 $_LANG['operation_prompt_content']['stats'][1] = '选择不同月份统计出现几个月的订单概括、配送方式、支付方式统计图。';
-
-?>

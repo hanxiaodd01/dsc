@@ -8,5 +8,3 @@ $_LANG['note'] = '執行SQL將直接操作數據庫，請謹慎使用';
 $_LANG['query'] = '提交查詢';
 $_LANG['no_data'] = '返回結果為空';
 $_LANG['js_languages']['sql_not_null'] = 'SQL語句為空';
-
-?>

@@ -624,5 +624,3 @@ class BCGcode128 extends BCGBarcode1D
 		$this->data[] = $this->code[self::KEY_STOP];
 	}
 }
-
-?>

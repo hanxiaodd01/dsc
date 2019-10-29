@@ -16,5 +16,3 @@ $_LANG['no_select_goods'] = '沒有選定商品';
 $_LANG['batch_start_succeed'] = '批量上架成功';
 $_LANG['batch_end_succeed'] = '批量下架成功';
 $_LANG['back_list'] = '返回商品自動上下架';
-
-?>

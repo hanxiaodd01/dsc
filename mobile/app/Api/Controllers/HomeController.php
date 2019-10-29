@@ -9,5 +9,3 @@ class HomeController extends Controller
 		return array('home' => 'array');
 	}
 }
-
-?>

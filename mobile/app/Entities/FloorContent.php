@@ -76,5 +76,3 @@ class FloorContent extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

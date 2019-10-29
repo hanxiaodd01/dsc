@@ -29,5 +29,3 @@ for ($i = 0; $i < 12; $i++) {
 }
 
 echo "                </table>\n                <br>\n                <table cellspacing=\"0\" style=\"width: 100%; border: solid 2px #000000; text-align: left; font-size: 10pt\">\n                    <tr>\n                        <th style=\"width: 30%;\">\n                            Commentaire<br>\n                            Retour :<br>\n                            &nbsp;<br>\n                            &nbsp;<br>\n                        </th>\n                        <td style=\"width: 70%;\">\n                        </td>\n                    </tr>\n                </table>\n                <br>\n                <br>\n                <span style=\"font-size: 13pt\"><b><u>A COLLER IMPERATIVEMENT SUR LES COLIS</u></b></span>\n            </td>\n            <td style=\"width: 4%\"></td>\n        </tr>\n    </table>\n</page>";
-
-?>

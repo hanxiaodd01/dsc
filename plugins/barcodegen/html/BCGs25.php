@@ -17,5 +17,3 @@ foreach ($characters as $character) {
 
 echo "</div>\r\n\r\n<div id=\"explanation\">\r\n    <h3>Explanation</h3>\r\n    <ul>\r\n        <li>Known also as Industrial 2 of 5.</li>\r\n        <li>Standard 2 of 5 is a low-density numeric symbology that has been with us since the 1960s.</li>\r\n        <li>There is an optional checksum.</li>\r\n        <li>Note: Standard 2 of 5 is really tough to read!</li>\r\n    </ul>\r\n</div>\r\n\r\n";
 include 'include/footer.php';
-
-?>

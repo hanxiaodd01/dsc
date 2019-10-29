@@ -20,5 +20,3 @@ $_LANG['back_list'] = '返回日誌列表';
 $_LANG['js_languages']['select_date_value'] = '如果您要清除日誌,請選擇清除的日期';
 $_LANG['drop_sueeccud'] = '操作成功!';
 $_LANG['batch_drop_success'] = '成功刪除了 %d 個日誌記錄';
-
-?>

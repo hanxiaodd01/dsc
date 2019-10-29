@@ -10,5 +10,3 @@ $_LANG['pay_button'] = '立即使用財付通支付';
 $_LANG['account_voucher'] = '會員帳戶充值';
 $_LANG['shop_order_sn'] = '商城訂單號';
 $_LANG['penpay_register'] = '<a href=\'http://cloud.ecshop.com/payment_apply.php?mod=tenpay&par=1202822001\' target="_blank">立即免費申請：單筆費率1%</a>';
-
-?>

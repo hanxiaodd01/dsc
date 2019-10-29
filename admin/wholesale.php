@@ -1980,5 +1980,3 @@ elseif ($_REQUEST['act'] == 'drop_attr_img')
 
     die($json->encode($result));
 }
-
-?>

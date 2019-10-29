@@ -230,5 +230,3 @@ else if ($_REQUEST['act'] == 'addtolist') {
 		sys_msg($_LANG['edit_ok'], 0, $links);
 	}
 }
-
-?>

@@ -9,5 +9,3 @@ for ($k = 0; $k < 50; $k++) {
 }
 
 echo "    <tfoot>\n        <tr>\n            <th colspan=\"4\" style=\"font-size: 16px;\">\n                bas du tableau\n            </th>\n        </tr>\n    </tfoot>\n</table>\nCool non ?<br>";
-
-?>

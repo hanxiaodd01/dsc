@@ -32,5 +32,3 @@ class BankRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

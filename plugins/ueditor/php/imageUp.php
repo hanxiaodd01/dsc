@@ -67,5 +67,3 @@ if ($GLOBALS['_CFG']['open_oss'] == 1) {
 }
 
 echo '{\'url\':\'' . $info['url'] . '\',\'title\':\'' . $title . '\',\'original\':\'' . $info['originalName'] . '\',\'state\':\'' . $info['state'] . '\'}';
-
-?>

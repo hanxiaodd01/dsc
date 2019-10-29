@@ -449,5 +449,3 @@ else if ($_REQUEST['act'] == 'on_change') {
 		make_json_result($updated, sprintf($_LANG['new_stat'], $stat['new'], $stat['unknown']));
 	}
 }
-
-?>

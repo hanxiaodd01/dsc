@@ -560,5 +560,3 @@ class BCGgs1128 extends BCGcode128
 		return (10 - ($checksumValue % 10)) % 10;
 	}
 }
-
-?>

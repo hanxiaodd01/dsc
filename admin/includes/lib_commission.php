@@ -783,5 +783,3 @@ function get_gift_gard_log($id = 0)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

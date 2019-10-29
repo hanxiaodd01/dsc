@@ -19,5 +19,3 @@ echo $phrase;
 echo "</div>\n<div style=\"width: 103mm; border: solid 1px green; text-align: right; margin: 1mm 0 1mm 0;padding: 1mm;\">";
 echo $phrase;
 echo '</div>';
-
-?>

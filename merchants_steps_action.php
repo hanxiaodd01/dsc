@@ -139,5 +139,3 @@ if ($strpos === false) {
 
 ecs_header('Location: ' . $steps_site . "\n");
 exit();
-
-?>

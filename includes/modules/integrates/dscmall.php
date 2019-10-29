@@ -104,5 +104,3 @@ class dscmall extends integrate
 		}
 	}
 }
-
-?>

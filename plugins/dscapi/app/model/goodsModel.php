@@ -676,5 +676,3 @@ abstract class goodsModel extends \app\func\common
 		$GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('order_info'), $arr, 'UPDATE', 'order_id = \'' . $order['order_id'] . '\'');
 	}
 }
-
-?>

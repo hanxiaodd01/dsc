@@ -254,6 +254,3 @@ class Dbbak
 		throw new \Exception($str, 500);
 	}
 }
-
-
-?>

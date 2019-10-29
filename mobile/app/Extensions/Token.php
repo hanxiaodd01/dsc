@@ -25,6 +25,3 @@ class Token
 		return mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $this->key, $str, MCRYPT_MODE_CBC, $this->iv);
 	}
 }
-
-
-?>

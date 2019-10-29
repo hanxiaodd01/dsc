@@ -9,6 +9,3 @@ class RegionService
 		return array();
 	}
 }
-
-
-?>

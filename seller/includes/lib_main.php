@@ -2149,5 +2149,3 @@ function delete_invalid_goods_attr($attr_group = array(), $goods_id = 0, $goods_
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

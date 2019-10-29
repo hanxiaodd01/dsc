@@ -113,5 +113,3 @@ $_LANG['sms_send'] = 'Send SMS ';
 $_LANG['sms_charge'] = 'SMS recharge ';
 $_LANG['send_history'] = 'Send record ';
 $_LANG['charge_history'] = 'Voucher record ';
-
-?>

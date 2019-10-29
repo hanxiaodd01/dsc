@@ -27,6 +27,3 @@ class cac
 		return false;
 	}
 }
-
-
-?>

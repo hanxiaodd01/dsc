@@ -207,5 +207,3 @@ class alipay_spabank
         }
     }
 }
-
-?>

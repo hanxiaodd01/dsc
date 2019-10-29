@@ -31,5 +31,3 @@ $_LANG['message_type'][4] = '已閱讀的留言';
 $_LANG['drop_msg'] = '刪除選中';
 $_LANG['batch_drop_success'] = '成功刪除了 %d 個留言記錄';
 $_LANG['no_select_msg'] = '您現在沒有任何留言記錄';
-
-?>

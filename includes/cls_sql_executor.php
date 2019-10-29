@@ -590,5 +590,3 @@ class sql_executor
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

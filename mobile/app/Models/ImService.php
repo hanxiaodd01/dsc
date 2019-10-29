@@ -91,5 +91,3 @@ class ImService extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

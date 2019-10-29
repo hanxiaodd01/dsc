@@ -97,6 +97,3 @@ CHANGE `product_id` `product_id` INT( 10 ) UNSIGNED NOT NULL DEFAULT \'0\';';
 		}
 	}
 }
-
-
-?>

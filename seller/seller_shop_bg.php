@@ -72,5 +72,3 @@ else if ($_REQUEST['act'] == 'second') {
 		sys_msg($_LANG['update_shop_background_success'], 0, $lnk);
 	}
 }
-
-?>

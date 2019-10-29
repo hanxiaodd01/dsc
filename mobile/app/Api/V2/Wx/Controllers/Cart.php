@@ -41,5 +41,3 @@ class Cart extends \app\api\foundation\Controller
 		return $this->apiReturn($result);
 	}
 }
-
-?>

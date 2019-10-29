@@ -36,6 +36,3 @@ class CollectStoreRepository
 		return \App\Models\CollectStore::where('ru_id', $ruId)->where('user_id', $uid)->delete();
 	}
 }
-
-
-?>

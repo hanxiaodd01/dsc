@@ -32,5 +32,3 @@ class AddressRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

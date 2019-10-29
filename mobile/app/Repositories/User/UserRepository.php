@@ -105,6 +105,3 @@ class UserRepository
 		return $list->toArray();
 	}
 }
-
-
-?>

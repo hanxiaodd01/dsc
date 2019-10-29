@@ -343,6 +343,3 @@ class TopClient
 		return substr($this->sdkVersion, 0, 11) . '-cluster' . substr($this->sdkVersion, 11);
 	}
 }
-
-
-?>

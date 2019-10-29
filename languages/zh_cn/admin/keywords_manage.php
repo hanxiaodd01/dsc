@@ -24,5 +24,3 @@ $_LANG['keyword_other'] = '其他';
 $_LANG['tutorials_bonus_list_one'] = '商城用户检索记录说明';
 $_LANG['operation_prompt_content']['list'][0] = '该页面展示了用户搜索关键字的搜索周期次数相关信息列表。';
 $_LANG['operation_prompt_content']['list'][1] = '点击查看可直接访问检索的页面。';
-
-?>

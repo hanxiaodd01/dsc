@@ -26,6 +26,3 @@ function _decrypt($str, $key = AUTH_KEY)
 
 	return $coded;
 }
-
-
-?>

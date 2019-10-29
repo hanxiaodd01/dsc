@@ -383,5 +383,3 @@ else if ($_REQUEST['act'] = 'batch') {
 	$link[0]['href'] = 'merchants_custom.php?act=list';
 	sys_msg($_LANG['delete_success_alt'], 0, $link);
 }
-
-?>

@@ -63,5 +63,3 @@ $_LANG['bid_user'] = 'Buyer';
 $_LANG['bid_price'] = 'Bid';
 $_LANG['bid_time'] = 'Time';
 $_LANG['status'] = 'State';
-
-?>

@@ -62,5 +62,3 @@ $_LANG['operation_prompt_content']['list'][0] = '该页面展示了商品列表�
 $_LANG['operation_prompt_content']['list'][1] = '可根据关键词进行查询，编辑商品库存。';
 $_LANG['operation_prompt_content']['log'][0] = '该页面展示了库存日志。';
 $_LANG['operation_prompt_content']['purchase'][0] = '录入商品库存。';
-
-?>

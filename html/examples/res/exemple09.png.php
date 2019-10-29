@@ -35,5 +35,3 @@ for ($y = 0; $y < $height; $y += $py) {
 header('Content-type: image/png');
 imagepng($im);
 imagedestroy($im);
-
-?>

@@ -87,5 +87,3 @@ class UsersLog extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

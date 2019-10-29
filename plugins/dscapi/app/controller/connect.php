@@ -165,5 +165,3 @@ class connect extends \app\model\connectModel
 		return \app\model\connectModel::get_delete($this->table, $this->where, $this->format);
 	}
 }
-
-?>

@@ -25,5 +25,3 @@ $_LANG['js_languages']['lang_remove'] = 'Remove';
 $_LANG['js_languages']['attribute'] = 'Attribute';
 $_LANG['js_languages']['remove_confirm'] = 'All attributes will be deleted if you delete the product type. \\nAre you sure delete the product type?';
 $_LANG['js_languages']['type_name_empty'] = 'Merchandise type name should not be empty!';
-
-?>

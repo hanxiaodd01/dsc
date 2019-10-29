@@ -101,5 +101,3 @@ if (!defined('WEBSITE')) {
 		}
 	}
 }
-
-?>

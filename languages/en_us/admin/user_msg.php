@@ -40,5 +40,3 @@ $_LANG['js_languages']['no_reply_content'] = 'The reply content can\'t be blank.
 $_LANG['js_languages']['no_title'] = 'The title can\'t be blank.';
 $_LANG['mail_send_fail'] = 'Mail sent failed, please check the e-mail server settings and try again.';
 $_LANG['remail'] = 'Re-issued e-mail';
-
-?>

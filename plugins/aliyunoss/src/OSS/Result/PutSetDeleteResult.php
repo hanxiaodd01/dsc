@@ -9,5 +9,3 @@ class PutSetDeleteResult extends Result
 		return null;
 	}
 }
-
-?>

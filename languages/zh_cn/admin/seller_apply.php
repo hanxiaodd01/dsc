@@ -45,5 +45,3 @@ $_LANG['invalid'] = '无效';
 $_LANG['effective'] = '有效';
 $_LANG['operation_prompt_content']['list'][0] = '等级入驻商相关信息管理。';
 $_LANG['operation_prompt_content']['list'][1] = '可进入查看进行审核入驻信息。';
-
-?>

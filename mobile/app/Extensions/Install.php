@@ -56,6 +56,3 @@ class Install
 		return $result;
 	}
 }
-
-
-?>

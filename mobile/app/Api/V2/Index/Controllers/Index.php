@@ -71,5 +71,3 @@ class Index extends \App\Api\Foundation\Controller
 	{
 	}
 }
-
-?>

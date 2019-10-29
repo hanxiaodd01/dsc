@@ -15,5 +15,3 @@ $_LANG['order_not_num'] = 'The value inputed is not a valid numble.';
 $_LANG['no_edit'] = 'System reserved can`t be edited';
 $_LANG['no_remove'] = 'System reserved can`t be removed';
 $_LANG['js_languages']['field_name_empty'] = 'You don\'t input the name of the user info option.';
-
-?>

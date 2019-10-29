@@ -1550,6 +1550,3 @@ function get_home_templates()
 
 	return array('list' => $arr, 'filter' => $filter, 'page_count' => $filter['page_count'], 'record_count' => $filter['record_count'], 'default_tem' => $default_tem);
 }
-
-
-?>

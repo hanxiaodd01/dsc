@@ -151,5 +151,3 @@ else if ($_REQUEST['act'] == 'cate_setting') {
 		sys_msg($_LANG['Submit_fail'], 0, $links);
 	}
 }
-
-?>

@@ -95,5 +95,3 @@ case 'GIF':
 }
 
 $drawing->finish($filetypes[$_GET['filetype']]);
-
-?>

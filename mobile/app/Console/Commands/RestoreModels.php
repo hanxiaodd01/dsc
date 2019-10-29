@@ -34,5 +34,3 @@ class RestoreModels extends \Illuminate\Console\Command
 		}
 	}
 }
-
-?>

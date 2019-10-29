@@ -12,5 +12,3 @@ foreach ($characters as $character) {
 
 echo "</div>\r\n\r\n<div id=\"explanation\">\r\n    <h3>Explanation</h3>\r\n    <ul>\r\n        <li>EAN means Internal Article Numbering.</li>\r\n        <li>It is an extension of UPC-A to include the country information.</li>\r\n        <li>Used with consumer products internationally.</li>\r\n        <li>Composed by 2 number system, 5 manufacturer code, 5 product code and 1 check digit.</li>\r\n    </ul>\r\n</div>\r\n\r\n";
 include 'include/footer.php';
-
-?>

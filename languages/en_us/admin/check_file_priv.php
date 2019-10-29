@@ -12,5 +12,3 @@ $_LANG['unread'] = 'Unreadable';
 $_LANG['unwrite'] = 'Unwritable';
 $_LANG['unmodify'] = 'Unrevisable';
 $_LANG['unrename'] = 'Directory need to run rename authorization.';
-
-?>

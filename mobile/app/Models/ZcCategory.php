@@ -230,5 +230,3 @@ class ZcCategory extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

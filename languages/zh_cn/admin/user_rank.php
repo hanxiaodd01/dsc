@@ -25,5 +25,3 @@ $_LANG['js_languages']['integral_max_small'] = '积分上限必须大于积分�
 $_LANG['js_languages']['lang_remove'] = '移除';
 $_LANG['operation_prompt_content']['list'][0] = '该页面展示所有会员等级的信息。';
 $_LANG['operation_prompt_content']['list'][1] = '可以添加会员等级、编辑会员等级、删除会员等级。';
-
-?>

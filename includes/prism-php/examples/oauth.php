@@ -14,5 +14,3 @@ else {
 	$a = $c->get('/userasdfa/asda');
 	var_dump($a);
 }
-
-?>

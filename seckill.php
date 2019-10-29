@@ -595,5 +595,3 @@ else if ($_REQUEST['act'] == 'cancel') {
 		exit($json->encode($result));
 	}
 }
-
-?>

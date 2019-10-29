@@ -72,6 +72,3 @@ class ObjectListInfo
 		return $this->nextMarker;
 	}
 }
-
-
-?>

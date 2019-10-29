@@ -25,5 +25,3 @@ $_LANG['dispose'] = 'Process application for refundment';
 $_LANG['undispose_repay'] = 'Unprocess application of refundment';
 $_LANG['list_all'] = 'All application of refundment';
 $_LANG['js_languages']['no_action_note'] = 'Please enter disposal remark.';
-
-?>

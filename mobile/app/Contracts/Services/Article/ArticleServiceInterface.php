@@ -12,6 +12,3 @@ interface ArticleServiceInterface
 
 	public function help();
 }
-
-
-?>

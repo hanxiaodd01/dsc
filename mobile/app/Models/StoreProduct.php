@@ -10,5 +10,3 @@ class StoreProduct extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('goods_id', 'goods_attr', 'product_sn', 'product_number', 'ru_id', 'store_id');
 	protected $guarded = array();
 }
-
-?>

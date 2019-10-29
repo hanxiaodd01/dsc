@@ -157,5 +157,3 @@ class TeamController extends \App\Api\Controllers\Controller
 		return $this->apiReturn($list);
 	}
 }
-
-?>

@@ -9,5 +9,3 @@ class ArticleTransformer extends \app\api\foundation\Transformer
 		return array('id' => $map['article_id'], 'title' => $map['title']);
 	}
 }
-
-?>

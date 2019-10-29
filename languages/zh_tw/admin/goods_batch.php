@@ -66,5 +66,3 @@ $_LANG['upload_goods']['is_alone_sale'] = '能否作為普通商品銷售';
 $_LANG['upload_goods']['is_real'] = '是否實體商品';
 $_LANG['batch_upload_ok'] = '批量上傳成功';
 $_LANG['goods_upload_confirm'] = '批量上傳確認';
-
-?>

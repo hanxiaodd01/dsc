@@ -17,5 +17,3 @@ $_LANG['tutorials_bonus_list_one'] = '商家满意度使用说明';
 $_LANG['operation_prompt_content']['list'][0] = '展示商家服务相关信息的评分。';
 $_LANG['operation_prompt_content']['list'][1] = '可根据店铺名称、用户名称进行搜索。';
 $_LANG['operation_prompt_content']['baseline'][0] = '请合理设置商家评分基线。';
-
-?>

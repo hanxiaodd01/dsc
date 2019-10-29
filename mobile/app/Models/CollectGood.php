@@ -10,5 +10,3 @@ class CollectGood extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('user_id', 'goods_id', 'add_time', 'is_attention');
 	protected $guarded = array();
 }
-
-?>

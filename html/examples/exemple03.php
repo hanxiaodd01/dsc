@@ -15,5 +15,3 @@ catch (HTML2PDF_exception $e) {
 	echo $e;
 	exit();
 }
-
-?>

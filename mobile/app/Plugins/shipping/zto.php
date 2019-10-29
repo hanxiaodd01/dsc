@@ -61,6 +61,3 @@ class zto
 		return $fee;
 	}
 }
-
-
-?>

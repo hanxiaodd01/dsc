@@ -24,5 +24,3 @@ if (!empty($_FILES)) {
 		echo $fileName . '上传失败！';
 	}
 }
-
-?>

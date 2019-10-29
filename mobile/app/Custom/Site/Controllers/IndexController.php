@@ -13,5 +13,3 @@ class IndexController extends \App\Modules\Site\Controllers\IndexController
 	{
 	}
 }
-
-?>

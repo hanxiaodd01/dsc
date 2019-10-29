@@ -45,5 +45,3 @@ $_LANG['new_stat'] = '<strong>Update success</strong>, now %s records are encryp
 $_LANG['update_error'] = 'Update was wrong: %s';
 $_LANG['js_languages']['updating_info'] = '<strong>Updating</strong>(Each 100 records)';
 $_LANG['js_languages']['updated_info'] = '<strong>Updated</strong> <span id=\\"updated\\">0</span> records.';
-
-?>

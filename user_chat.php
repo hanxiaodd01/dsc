@@ -242,5 +242,3 @@ else if ($action == 'service') {
 	$smarty->assign('user_info', $user_info);
 	$smarty->display('user_chat.dwt');
 }
-
-?>

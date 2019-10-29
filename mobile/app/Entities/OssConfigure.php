@@ -97,5 +97,3 @@ class OssConfigure extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

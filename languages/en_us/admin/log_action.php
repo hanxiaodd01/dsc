@@ -61,5 +61,3 @@ $_LANG['log_action']['package'] = 'Preferential Packeage';
 $_LANG['log_action']['exchange_goods'] = 'Integral convertible goods';
 $_LANG['log_action']['suppliers'] = 'Suppliers';
 $_LANG['log_action']['reg_fields'] = 'User register options';
-
-?>

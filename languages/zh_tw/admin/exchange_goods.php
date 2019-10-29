@@ -27,5 +27,3 @@ $_LANG['batch_remove_succeed'] = '您已經成功刪除 %d 件商品';
 $_LANG['exchange_integral_invalid'] = '積分值為空或不是數字';
 $_LANG['js_languages']['no_goods_id'] = '沒有選擇商品';
 $_LANG['js_languages']['invalid_exchange_integral'] = '積分值為空或不是數字';
-
-?>

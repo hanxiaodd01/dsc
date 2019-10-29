@@ -667,5 +667,3 @@ if ($_REQUEST['act'] == 'restore_backup') {
 	array('text' => $_LANG['backup_setting'], 'href' => 'template.php?act=backup_setting')
 	));
 }
-
-?>

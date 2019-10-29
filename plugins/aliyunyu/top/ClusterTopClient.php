@@ -250,5 +250,3 @@ class ClusterTopClient extends TopClient
 		return $min + ((mt_rand() / mt_getrandmax()) * ($max - $min));
 	}
 }
-
-?>

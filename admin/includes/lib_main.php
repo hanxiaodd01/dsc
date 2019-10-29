@@ -2021,5 +2021,3 @@ function file_write_mobile($file_path, $filename, $content = '')
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

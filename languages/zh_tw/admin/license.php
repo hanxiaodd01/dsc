@@ -17,5 +17,3 @@ $_LANG['recover_license'] = '證書恢復功能。';
 $_LANG['no_license_down'] = '失敗。暫無證書可下載！';
 $_LANG['fail_license_login'] = '證書登錄失敗。上傳證書不正確！';
 $_LANG['js_languages']['del_confirm'] = '確認刪除錯誤的證書嗎？';
-
-?>

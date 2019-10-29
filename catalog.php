@@ -43,5 +43,3 @@ if (!$smarty->is_cached('catalog.dwt')) {
 }
 
 $smarty->display('catalog.dwt');
-
-?>

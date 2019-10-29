@@ -168,6 +168,3 @@ function store_get_goods($children, $brand, $min, $max, $ext, $size, $page, $sor
 
 	return $arr;
 }
-
-
-?>

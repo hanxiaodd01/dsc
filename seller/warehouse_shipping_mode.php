@@ -213,5 +213,3 @@ else if ($_REQUEST['act'] == 'remove') {
 	$_LANG['remove_success'] = $_LANG['delete_success_alt'];
 	sys_msg(sprintf($_LANG['remove_success'], $username), 0, $link);
 }
-
-?>

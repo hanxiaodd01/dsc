@@ -425,6 +425,3 @@ class HTML2PDF_parsingHtml
 		return substr($this->_html, $pos - $before, $before + $after);
 	}
 }
-
-
-?>

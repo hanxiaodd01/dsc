@@ -11,5 +11,3 @@ $classFile = 'BCGintelligentmail.barcode.php';
 $className = 'BCGintelligentmail';
 $baseClassFile = 'BCGBarcode1D.php';
 $codeVersion = '5.2.0';
-
-?>

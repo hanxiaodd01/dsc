@@ -136,6 +136,3 @@ class PaymentService
 		return array('code' => 0, 'res' => $res, 'extension_code' => $order['extension_code'], 'team_id' => $order['team_id'], 'user_id' => $order['user_id']);
 	}
 }
-
-
-?>

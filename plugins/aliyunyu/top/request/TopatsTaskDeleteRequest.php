@@ -40,6 +40,3 @@ class TopatsTaskDeleteRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

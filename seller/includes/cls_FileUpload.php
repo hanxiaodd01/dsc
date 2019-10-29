@@ -265,6 +265,3 @@ class FileUpload
 		return $this->errorMess;
 	}
 }
-
-
-?>

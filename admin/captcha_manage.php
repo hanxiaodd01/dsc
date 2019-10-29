@@ -77,5 +77,3 @@ if ($_REQUEST['act'] == 'save_config') {
 	array('href' => 'captcha_manage.php?act=main', 'text' => $_LANG['captcha_manage'])
 	));
 }
-
-?>

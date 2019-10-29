@@ -7,5 +7,3 @@ for ($i = 0; $i <= 40; $i++) {
 }
 
 echo "            </table>\n        </td>\n    </tr>\n</table>";
-
-?>

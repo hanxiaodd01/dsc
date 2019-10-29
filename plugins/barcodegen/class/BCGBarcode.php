@@ -293,5 +293,3 @@ include_once 'BCGColor.php';
 include_once 'BCGLabel.php';
 include_once 'BCGArgumentException.php';
 include_once 'BCGDrawException.php';
-
-?>

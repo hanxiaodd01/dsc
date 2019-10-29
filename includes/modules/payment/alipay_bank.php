@@ -221,5 +221,3 @@ class alipay_bank
         }
     }
 }
-
-?>

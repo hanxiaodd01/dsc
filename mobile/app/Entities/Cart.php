@@ -395,5 +395,3 @@ class Cart extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

@@ -231,5 +231,3 @@ class prism_message
 
 class prism_exception extends Exception
 {}
-
-?>

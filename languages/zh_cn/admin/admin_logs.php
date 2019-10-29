@@ -23,5 +23,3 @@ $_LANG['drop_sueeccud'] = '操作成功!';
 $_LANG['batch_drop_success'] = '成功删除了 %d 个日志记录';
 $_LANG['operation_prompt_content']['log'][0] = '该页面展示管理员的操作日志。';
 $_LANG['operation_prompt_content']['log'][1] = '侧边栏可进行高级搜索。';
-
-?>

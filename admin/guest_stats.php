@@ -79,5 +79,3 @@ if ($_REQUEST['act'] == 'list') {
 	assign_query_info();
 	$smarty->display('guest_stats.dwt');
 }
-
-?>

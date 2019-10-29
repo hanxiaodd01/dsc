@@ -53,5 +53,3 @@ $_LANG['page']['article_cat'] = 'Article list page';
 $_LANG['page']['article'] = 'Article page';
 $_LANG['page']['brand'] = 'Brand Area';
 $_LANG['page']['search'] = 'Search results pages';
-
-?>

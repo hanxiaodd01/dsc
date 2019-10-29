@@ -249,5 +249,3 @@ class BCGupce extends BCGBarcode1D
 		return $text;
 	}
 }
-
-?>

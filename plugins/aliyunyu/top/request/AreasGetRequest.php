@@ -40,6 +40,3 @@ class AreasGetRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

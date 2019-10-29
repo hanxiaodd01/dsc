@@ -7735,5 +7735,3 @@ if (!function_exists('array_combine')) {
 		return $combined;
 	}
 }
-
-?>

@@ -165,5 +165,3 @@ if (!defined('IN_CB')) {
 }
 
 $imageKeys = array();
-
-?>

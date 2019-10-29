@@ -291,5 +291,3 @@ if (!defined('CAL_JEWISH_ADD_ALAFIM')) {
 if (!defined('CAL_JEWISH_ADD_GERESHAYIM')) {
 	define('CAL_JEWISH_ADD_GERESHAYIM', 8);
 }
-
-?>

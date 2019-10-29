@@ -12,5 +12,3 @@ $_LANG['magic_string'] = '自定義簽名';
 $_LANG['pay_button'] = '立即使用財付通支付';
 $_LANG['account_voucher'] = '會員帳戶充值';
 $_LANG['shop_order_sn'] = '商城訂單號';
-
-?>

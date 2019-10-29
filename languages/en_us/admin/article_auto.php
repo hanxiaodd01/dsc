@@ -16,5 +16,3 @@ $_LANG['batch_start_succeed'] = 'Batch successfully posted';
 $_LANG['batch_end_succeed'] = 'Cancel Batch success';
 $_LANG['back_list'] = 'Published article automatically return';
 $_LANG['select_time'] = 'Please select the time';
-
-?>

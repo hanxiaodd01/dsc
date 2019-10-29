@@ -84,5 +84,3 @@ class cls_ecmac
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

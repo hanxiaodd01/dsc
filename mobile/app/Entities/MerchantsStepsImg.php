@@ -32,5 +32,3 @@ class MerchantsStepsImg extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

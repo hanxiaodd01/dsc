@@ -150,5 +150,3 @@ function get_merchant_cat($ru_id)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

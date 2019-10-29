@@ -472,5 +472,3 @@ class OrderReturn extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

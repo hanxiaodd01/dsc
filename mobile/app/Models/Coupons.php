@@ -241,5 +241,3 @@ class Coupons extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

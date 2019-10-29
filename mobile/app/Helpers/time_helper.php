@@ -115,6 +115,3 @@ function get_status($starttime, $endtime)
 
 	return 0;
 } 
-
-
-?>

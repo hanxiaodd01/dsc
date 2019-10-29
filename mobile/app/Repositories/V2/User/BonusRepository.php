@@ -32,5 +32,3 @@ class BonusRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

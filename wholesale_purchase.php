@@ -200,5 +200,3 @@ $smarty->assign('categories', get_categories_tree()); // 分类树
 $smarty->assign('helps',      get_shop_help());       // 网店帮助
 
 $smarty->display('wholesale_purchase.dwt');
-
-?>

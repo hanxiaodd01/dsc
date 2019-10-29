@@ -20,5 +20,3 @@ $_LANG['no-open'] = '您還沒有開通此項服務。';
 $_LANG['col_goods_num'] = '個商品';
 $_LANG['item'] = '條';
 $_LANG['js_languages']['sev_stop'] = '暫停服務后，您的商店、商品信息將停止向搜索引擎更新，確定要暫停嗎？';
-
-?>

@@ -49,5 +49,3 @@ $_LANG['top_html'] = 'Code';
 $_LANG['lable_upload'] = 'Upload';
 $_LANG['lable_from_web'] = 'Or remote URL address';
 $_LANG['lable_content'] = 'Content';
-
-?>

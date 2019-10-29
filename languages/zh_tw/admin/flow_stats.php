@@ -17,5 +17,3 @@ $_LANG['start_date'] = '開始日期';
 $_LANG['end_date'] = '結束日期';
 $_LANG['down_flow_stats'] = '流量分析報表下載';
 $_LANG['flow_statistics'] = '流量分析報表';
-
-?>

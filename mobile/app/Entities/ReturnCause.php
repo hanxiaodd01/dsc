@@ -54,5 +54,3 @@ class ReturnCause extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

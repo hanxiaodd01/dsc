@@ -280,5 +280,3 @@ $_LANG['suppliers_child_manage'] = '下级管理员列表';
 $_LANG['suppliers_privilege'] = '编辑个人资料';
 $_LANG['suppliers_sys_manage'] = '系统（供应商）';
 $_LANG['suppliers_order_print_setting'] = '打印设置';
-
-?>

@@ -10,5 +10,3 @@ class BCGParseException extends Exception
 		parent::__construct($message, 10000);
 	}
 }
-
-?>

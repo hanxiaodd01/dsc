@@ -54,5 +54,3 @@ class RegionBackup extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

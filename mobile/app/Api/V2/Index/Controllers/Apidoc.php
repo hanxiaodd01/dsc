@@ -36,5 +36,3 @@ class Apidoc extends \App\Api\Foundation\Controller
 		return \Parsedown::instance()->text($content);
 	}
 }
-
-?>

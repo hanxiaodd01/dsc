@@ -58,5 +58,3 @@ else if ($_REQUEST['act'] == 'order_stats') {
 	$smarty->assign('ur_here', $_LANG['order_stats']);
 	$smarty->display('sales_order_stats.dwt');
 }
-
-?>

@@ -81,5 +81,3 @@ echo getInputTextHtml('font_size', $font_size, array('type' => 'number', 'min' =
 echo "</td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td><label for=\"text\">Data</label></td>\r\n                        <td>\r\n                            <div class=\"generate\" style=\"float: left\">";
 echo getInputTextHtml('text', $text, array('type' => 'text', 'required' => 'required'));
 echo " <input type=\"submit\" value=\"Generate\" /></div>\r\n                            <div class=\"possiblechars\" style=\"float: right; position: relative;\"><a href=\"#\" class=\"info characters\"><img src=\"info.gif\" alt=\"Help\" /></a></div>\r\n                        </td>\r\n                    </tr>\r\n                </tbody>\r\n            </table>\r\n        </section>\r\n    </div>";
-
-?>

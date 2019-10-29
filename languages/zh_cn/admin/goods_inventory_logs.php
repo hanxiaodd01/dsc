@@ -36,5 +36,3 @@ $_LANG['time_start_not_null'] = '开始时间不能为空';
 $_LANG['operation_prompt_content']['list'][0] = '展示了商城商品入库/出库的操作日志。';
 $_LANG['operation_prompt_content']['list'][1] = '可以按照时间段筛选、商品名称关键字搜索，查看具体商品入库/出库日志。';
 $_LANG['operation_prompt_content']['list'][2] = '侧边栏可进行高级搜索。';
-
-?>

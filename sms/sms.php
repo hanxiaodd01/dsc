@@ -190,5 +190,3 @@ if ($_GET['act'] == 'send') {
 		exit(json_encode(array('msg' => $sms_error, 'error' => $error)));
 	}
 }
-
-?>

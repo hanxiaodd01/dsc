@@ -107,5 +107,3 @@ $_LANG['bonus_not_exist'] = 'The bonus is nonexistent.';
 $_LANG['success_send_mail'] = 'Send %d mails successfully.';
 $_LANG['send_continue'] = 'Continue to send bonus.';
 $_LANG['send_to_user'] = 'Disseminate the red envelope to the following users.';
-
-?>

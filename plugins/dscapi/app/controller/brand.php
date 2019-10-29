@@ -164,5 +164,3 @@ class brand extends \app\model\brandModel
 		return \app\model\brandModel::get_delete($this->table, $this->where, $this->format);
 	}
 }
-
-?>

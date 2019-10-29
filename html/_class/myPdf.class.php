@@ -972,5 +972,3 @@ class HTML2PDF_myPdf extends TCPDF
 		$this->_myLastPageGroupNb = $myLastPageGroupNb;
 	}
 }
-
-?>

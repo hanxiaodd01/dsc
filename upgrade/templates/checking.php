@@ -197,5 +197,3 @@ echo '</div>
 </body>
 </html>
 ';
-
-?>

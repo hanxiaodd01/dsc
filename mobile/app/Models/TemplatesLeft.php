@@ -119,5 +119,3 @@ class TemplatesLeft extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

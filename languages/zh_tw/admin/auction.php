@@ -63,5 +63,3 @@ $_LANG['bid_user'] = '買家';
 $_LANG['bid_price'] = '出價';
 $_LANG['bid_time'] = '時間';
 $_LANG['status'] = '狀態';
-
-?>

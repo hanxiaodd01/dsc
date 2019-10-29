@@ -43,5 +43,3 @@ $_LANG['account_log'] = '账目明细';
 $_LANG['operation_prompt_content']['summary_of_money'][0] = '有效订单：所选时间段内除无效订单状态下的所有订单总数。';
 $_LANG['operation_prompt_content']['summary_of_money'][1] = '统计当日商城订单数走势。';
 $_LANG['operation_prompt_content']['member_account'][0] = '统计选择时间范围内商城会员资金变动情况。';
-
-?>

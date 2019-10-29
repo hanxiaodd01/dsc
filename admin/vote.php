@@ -203,5 +203,3 @@ else if ($_REQUEST['act'] == 'remove_option') {
 	ecs_header('Location: ' . $url . "\n");
 	exit();
 }
-
-?>

@@ -84,5 +84,3 @@ else if ($_REQUEST['act'] == 'download_settlement') {
 	$config = array('filename' => $_LANG['settlement_stats'], 'thead' => $thead, 'tbody' => $tbody, 'tdata' => $tdata);
 	list_download($config);
 }
-
-?>

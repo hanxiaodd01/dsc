@@ -87,6 +87,3 @@ class WechatUserRepository
 		return $wechatuser->toArray();
 	}
 }
-
-
-?>

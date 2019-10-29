@@ -27,5 +27,3 @@ $_LANG['silent'] = '出错时忽略错误,继续执行程序';
 $_LANG['no_silent'] = '出错时立即提示，并中止程序';
 $_LANG['operation_prompt_content']['batch'][0] = '根据商品分类选择商品进行图片处理。';
 $_LANG['operation_prompt_content']['batch'][1] = '勾选处理图片的方式。';
-
-?>

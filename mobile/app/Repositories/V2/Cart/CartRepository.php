@@ -32,5 +32,3 @@ class CartRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

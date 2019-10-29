@@ -224,5 +224,3 @@ else if ($_REQUEST['act'] == 'edit_ra_sort') {
 		make_json_result($ra_sort);
 	}
 }
-
-?>

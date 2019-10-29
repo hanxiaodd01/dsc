@@ -9,5 +9,3 @@ class GoodsInventoryLog extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('goods_id', 'order_id', 'use_storage', 'admin_id', 'number', 'model_inventory', 'model_attr', 'product_id', 'warehouse_id', 'area_id', 'add_time');
 	protected $guarded = array();
 }
-
-?>

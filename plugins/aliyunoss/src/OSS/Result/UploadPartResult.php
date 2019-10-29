@@ -15,5 +15,3 @@ class UploadPartResult extends Result
 		throw new \OSS\Core\OssException('cannot get ETag');
 	}
 }
-
-?>

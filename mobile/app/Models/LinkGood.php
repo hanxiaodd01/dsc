@@ -9,5 +9,3 @@ class LinkGood extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('goods_id', 'link_goods_id', 'is_double', 'admin_id');
 	protected $guarded = array();
 }
-
-?>

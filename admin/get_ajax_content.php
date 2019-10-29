@@ -3366,5 +3366,3 @@ else if ($_REQUEST['act'] == 'attribute_add') {
 	admin_log($_POST['attr_name'], 'add', 'attribute');
 	exit(json_encode($result));
 }
-
-?>

@@ -301,5 +301,3 @@ function get_wholesale_cat_goodsCount($children, $cat_id, $ext = '') {
     $leftJoin .= " LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " as g on g.goods_id = w.goods_id ";
     return $GLOBALS['db']->getOne('SELECT COUNT(*) FROM ' . $GLOBALS['ecs']->table('wholesale') . " AS w " . $leftJoin . " WHERE $where $ext");
 }
-
-?>

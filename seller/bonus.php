@@ -819,5 +819,3 @@ if ($_REQUEST['act'] == 'batch') {
 		sys_msg($_LANG['no_select_bonus'], 1);
 	}
 }
-
-?>

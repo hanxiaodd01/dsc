@@ -95,5 +95,3 @@ $_LANG['operation_prompt_content']['info'][0] = '请谨慎填写表单创建相�
 $_LANG['operation_prompt_content']['process'][0] = '需先选择所属流程，请合理设定流程信息。';
 $_LANG['operation_prompt_content']['title_list'][0] = '流程内容信息管理。';
 $_LANG['operation_prompt_content']['title_list'][1] = '可编辑流程内容和添加流程内容。';
-
-?>

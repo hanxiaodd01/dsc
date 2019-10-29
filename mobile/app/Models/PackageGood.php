@@ -9,5 +9,3 @@ class PackageGood extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('package_id', 'goods_id', 'product_id', 'goods_number', 'admin_id');
 	protected $guarded = array();
 }
-
-?>

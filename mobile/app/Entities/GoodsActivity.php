@@ -208,5 +208,3 @@ class GoodsActivity extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

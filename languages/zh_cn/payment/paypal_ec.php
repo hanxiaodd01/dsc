@@ -31,4 +31,3 @@ $_LANG['paypal_ec_currency_range']['JPY'] = '日元';
 $_LANG['paypal_ec_currency_range']['USD'] = '美元';
 $_LANG['paypal_ec_currency_range']['HKD'] = '港元';
 $_LANG['pay_button'] = '立即使用 paypal快速结帐支付';
-?>

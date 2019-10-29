@@ -567,5 +567,3 @@ else if ($act == 'get_brand_cat_goods') {
 	$result['content'] = $smarty->fetch('library/brand_goods_list.lbi');
 	exit($json->encode($result));
 }
-
-?>

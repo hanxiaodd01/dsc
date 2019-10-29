@@ -426,5 +426,3 @@ class user extends \app\model\userModel
 		return \app\model\userModel::get_delete($this->table, $this->where, $this->format);
 	}
 }
-
-?>

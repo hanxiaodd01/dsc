@@ -25,5 +25,3 @@ $_LANG['error_rename'] = '無法將文件 %s 重命名為 %s';
 $_LANG['js_languages']['no_action'] = '你沒選擇任何操作';
 $_LANG['silent'] = '出錯時忽略錯誤,繼續執行程序';
 $_LANG['no_silent'] = '出錯時立即提示，並中止程序';
-
-?>

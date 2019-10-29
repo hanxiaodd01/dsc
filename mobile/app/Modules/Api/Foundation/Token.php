@@ -348,6 +348,3 @@ class Token
 		return false;
 	}
 }
-
-
-?>

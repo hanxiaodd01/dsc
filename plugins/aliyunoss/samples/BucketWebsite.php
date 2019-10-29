@@ -66,5 +66,3 @@ putBucketWebsite($ossClient, $bucket);
 getBucketWebsite($ossClient, $bucket);
 deleteBucketWebsite($ossClient, $bucket);
 getBucketWebsite($ossClient, $bucket);
-
-?>

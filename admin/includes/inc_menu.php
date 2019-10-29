@@ -259,4 +259,3 @@ if (judge_supplier_enabled()) {
 $modules['supply_and_demand']['03_wholesale_purchase'] = 'wholesale_purchase.php?act=list';
 $modules['supply_and_demand']['02_wholesale_order'] = 'wholesale_order.php?act=list';
 $modules['supply_and_demand']['01_wholesale']            = 'wholesale.php?act=list';
-?>

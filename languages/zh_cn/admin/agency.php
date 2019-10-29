@@ -32,5 +32,3 @@ $_LANG['operation_prompt_content']['list'][0] = '该页面展示了所有办事�
 $_LANG['operation_prompt_content']['list'][1] = '可删除、编辑办事处。';
 $_LANG['operation_prompt_content']['info'][0] = '办事处隶属于管理员下级的角色，请注意勾选管理员。';
 $_LANG['operation_prompt_content']['info'][1] = '请注意添加办事处地区。';
-
-?>

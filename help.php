@@ -100,5 +100,3 @@ if (!$smarty->is_cached('help.dwt', $cache_id)) {
 }
 
 $smarty->display('help.dwt', $cache_id);
-
-?>

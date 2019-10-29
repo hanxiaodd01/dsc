@@ -82,5 +82,3 @@ else if ($_REQUEST['act'] == 'del') {
 	$links[] = array('text' => $_LANG['back'], 'href' => 'license.php?act=list_edit');
 	sys_msg($_LANG['delete_license'], 0, $links);
 }
-
-?>

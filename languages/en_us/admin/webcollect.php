@@ -20,5 +20,3 @@ $_LANG['no-open'] = 'You haven`t opened the service.';
 $_LANG['col_goods_num'] = 'merchandises';
 $_LANG['item'] = 'items';
 $_LANG['js_languages']['sev_stop'] = 'After you pause the service，your shop、commodity information will stop an update to the search engine，sure you want to pause?？';
-
-?>

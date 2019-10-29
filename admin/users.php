@@ -823,5 +823,3 @@ else if ($_REQUEST['act'] == 'batch_log') {
 		sys_msg($_LANG['batch_drop_ok'], '', $link);
 	}
 }
-
-?>

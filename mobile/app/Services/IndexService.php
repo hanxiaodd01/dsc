@@ -99,6 +99,3 @@ class IndexService
 		return $res;
 	}
 }
-
-
-?>

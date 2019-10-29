@@ -22,5 +22,3 @@ $_LANG['filename'] = '文件名';
 $_LANG['filesize'] = '文件大小';
 $_LANG['filemtime'] = '最後修改時間';
 $_LANG['filecheck_nofound_md5file'] = '不存在校驗文件，無法進行此操作';
-
-?>

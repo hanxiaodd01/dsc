@@ -57,5 +57,3 @@ if ($action == 'get') {
 
 	echo $str;
 }
-
-?>

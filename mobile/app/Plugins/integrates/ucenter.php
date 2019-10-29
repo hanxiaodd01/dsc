@@ -398,5 +398,3 @@ class ucenter extends \App\Libraries\Integrate
 		return 'ucenter';
 	}
 }
-
-?>

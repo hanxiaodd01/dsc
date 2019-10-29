@@ -448,5 +448,3 @@ else {
 		make_json_result($smarty->fetch($tpl), '', array('filter' => $topic_list['filter'], 'page_count' => $topic_list['page_count']));
 	}
 }
-
-?>

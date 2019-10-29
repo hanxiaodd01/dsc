@@ -44,5 +44,3 @@ $_LANG['unlimited'] = '不限';
 $_LANG['js_languages']['receive_coupons'] = '领取优惠券';
 $_LANG['js_languages']['Immediate_use'] = '立即使用';
 return $_LANG;
-
-?>

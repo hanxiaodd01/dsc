@@ -87,6 +87,3 @@ function exchange_points($uid, $fromcredits, $tocredits, $toappid, $netamount)
 		return true;
 	}
 }
-
-
-?>

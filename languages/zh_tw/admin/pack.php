@@ -26,5 +26,3 @@ $_LANG['continue_add'] = '繼續添加新包裝';
 $_LANG['js_languages']['no_packname'] = '沒有輸入包裝名';
 $_LANG['js_languages']['packfee_un_num'] = '包裝費用為空或不是數字';
 $_LANG['js_languages']['packmoney_un_num'] = '包裝免費額度為空或不是數字';
-
-?>

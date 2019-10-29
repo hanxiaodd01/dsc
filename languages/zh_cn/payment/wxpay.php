@@ -32,4 +32,3 @@ $_LANG['sslcert_desc'] = '证书可选填，仅用于退款、发送现金红包
 $_LANG['sslkey_desc'] = '证书可选填，仅用于退款、发送现金红包等功能，不影响正常购物支付。请在微信商户后台下载支付证书，用记事本打开apiclient_key.pem，并复制里面的内容粘贴到这里';
 $_LANG['wxpay_signtype'] = '签名方式';
 $_LANG['wxpay_button'] = '立即用微信支付';
-?>

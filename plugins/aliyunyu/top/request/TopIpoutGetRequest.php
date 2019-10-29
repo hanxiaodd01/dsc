@@ -24,6 +24,3 @@ class TopIpoutGetRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

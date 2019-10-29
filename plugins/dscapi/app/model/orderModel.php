@@ -505,5 +505,3 @@ abstract class orderModel extends \app\func\common
 		return $result;
 	}
 }
-
-?>

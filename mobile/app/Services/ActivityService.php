@@ -208,6 +208,3 @@ class ActivityService
 		return $result;
 	}
 }
-
-
-?>

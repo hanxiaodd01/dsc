@@ -91,5 +91,3 @@ else if ($_REQUEST['act'] == 'comment_batch_import') {
 	$link[] = array('href' => 'goods.php?act=list', 'text' => $_LANG['01_goods_list']);
 	sys_msg($success_failure, 1, $link);
 }
-
-?>

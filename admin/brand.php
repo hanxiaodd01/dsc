@@ -470,5 +470,3 @@ else if ($_REQUEST['act'] == 'query') {
 	$smarty->assign('page_count', $brand_list['page_count']);
 	make_json_result($smarty->fetch('brand_list.dwt'), '', array('filter' => $brand_list['filter'], 'page_count' => $brand_list['page_count']));
 }
-
-?>

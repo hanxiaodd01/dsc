@@ -123,6 +123,3 @@ class CategoryRepository
 		return $tmp;
 	}
 }
-
-
-?>

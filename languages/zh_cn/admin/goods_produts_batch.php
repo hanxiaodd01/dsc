@@ -30,5 +30,3 @@ $_LANG['save_products'] = '保存货品成功';
 $_LANG['13_batch_add'] = '商品货品批量上传';
 $_LANG['notice_select'] = '（导出CSV属性类型）';
 $_LANG['edit_goods'] = '编辑商品信息';
-
-?>

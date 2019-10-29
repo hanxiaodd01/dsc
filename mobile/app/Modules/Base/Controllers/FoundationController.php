@@ -248,5 +248,3 @@ abstract class FoundationController extends \Think\Controller\RestController
 		}
 	}
 }
-
-?>

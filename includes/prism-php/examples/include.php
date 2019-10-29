@@ -9,5 +9,3 @@ $c->set_logger(function($message) {
 	echo $message;
 	flush();
 });
-
-?>

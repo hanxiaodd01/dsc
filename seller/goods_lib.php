@@ -315,5 +315,3 @@ else if ($_REQUEST['act'] == 'batch_import') {
 		sys_msg($_LANG['import_success'], 0, $link);
 	}
 }
-
-?>

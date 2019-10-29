@@ -107,5 +107,3 @@ else if ($_REQUEST['act'] == 'save_template') {
 		sys_msg($_LANG['update_failed'], 1, array(), false);
 	}
 }
-
-?>

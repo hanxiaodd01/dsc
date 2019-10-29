@@ -29,5 +29,3 @@ $_LANG['link_name_exist'] = 'Links name already exists.';
 $_LANG['enter_int'] = 'Display the order must be an integer!';
 $_LANG['url_logo_value'] = 'If appoint remote LOGO image, the beginning of LOGO\'s URL must be http:// or https://, and the format should be correctly!';
 $_LANG['link_name_desc'] = 'When you add a text link, the link LOGO will be your link name.';
-
-?>

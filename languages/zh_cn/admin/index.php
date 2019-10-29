@@ -332,5 +332,3 @@ $_LANG['operation_prompt_content']['operation_flow'][6] = '平台可设置商家
 $_LANG['operation_prompt_content']['operation_flow'][7] = '免费版的大商创系统不具备分销功能的设置，需购买大商创微商城的分销功能才能开展分销传播。';
 $_LANG['operation_prompt_content']['seller_shopinfo'][0] = '请准确无误的设置店铺信息。';
 $_LANG['operation_prompt_content']['seller_shopinfo'][1] = '其中部分店铺信息需要其他地方先配置，比如配送方式等。';
-
-?>

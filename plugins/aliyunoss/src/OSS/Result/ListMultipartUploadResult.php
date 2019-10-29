@@ -37,5 +37,3 @@ class ListMultipartUploadResult extends Result
 		return new \OSS\Model\ListMultipartUploadInfo($bucket, $keyMarker, $uploadIdMarker, $nextKeyMarker, $nextUploadIdMarker, $delimiter, $prefix, $maxUploads, $isTruncated, $listUpload);
 	}
 }
-
-?>

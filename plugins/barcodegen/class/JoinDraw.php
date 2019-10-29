@@ -160,6 +160,3 @@ class JoinDraw
 		return $this->im;
 	}
 }
-
-
-?>

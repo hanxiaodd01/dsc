@@ -16,5 +16,3 @@ $_LANG['yp_jcard_desc'] = 'YeePay Epro Junnet paid plug-ins';
 $_LANG['yp_account'] = 'Merchant Code';
 $_LANG['yp_key'] = 'Key businesses';
 $_LANG['pay_button'] = 'Immediate payment of the use of YeePay Epro';
-
-?>

@@ -26,5 +26,3 @@ class BrandController extends \App\Api\Controllers\Controller
 		return $this->apiReturn($data);
 	}
 }
-
-?>

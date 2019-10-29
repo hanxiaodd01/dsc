@@ -196,5 +196,3 @@ class BCGcode39extended extends BCGcode39
 		}
 	}
 }
-
-?>

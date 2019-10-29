@@ -26,5 +26,3 @@ include ROOT_PATH . 'upgrade/templates/copyright.php';
 echo '</div>
 </body>
 </html>';
-
-?>

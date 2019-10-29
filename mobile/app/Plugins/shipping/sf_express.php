@@ -46,6 +46,3 @@ class sf_express
 		return $proxy->getExpress('shunfeng', $invoice_sn);
 	}
 }
-
-
-?>

@@ -63,5 +63,3 @@ $_LANG['operation_prompt_content'][1] = '可新增商品属性。';
 $_LANG['operation_prompt_content'][2] = '请按提示文案正确填写信息。';
 $_LANG['operation_prompt_content']['color'][0] = '填写颜色信息';
 $_LANG['label_attr_filter_style'] = '分类筛选样式：';
-
-?>

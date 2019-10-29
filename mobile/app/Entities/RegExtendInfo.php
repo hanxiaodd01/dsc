@@ -43,5 +43,3 @@ class RegExtendInfo extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

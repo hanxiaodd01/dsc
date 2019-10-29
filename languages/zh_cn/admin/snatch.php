@@ -79,5 +79,3 @@ $_LANG['label_cost_score'] = '消耗积分：';
 $_LANG['notice_cost_score'] = '每次出价所消耗的积分值';
 $_LANG['label_whether_hot'] = '是否热销：';
 $_LANG['act_start_end_time'] = '活动起始时间';
-
-?>

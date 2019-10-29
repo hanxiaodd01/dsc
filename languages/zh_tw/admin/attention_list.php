@@ -11,5 +11,3 @@ $_LANG['finish_list'] = '已經插入 %s 條記錄,請稍後~';
 $_LANG['finishing'] = '正在生成請稍後';
 $_LANG['edit_ok'] = '操作成功！';
 $_LANG['batch_note'] = '將此日期後更新的商品全部插入發送隊列：';
-
-?>

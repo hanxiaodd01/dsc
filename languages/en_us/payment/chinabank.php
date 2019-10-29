@@ -6,5 +6,3 @@ $_LANG['chinabank_desc'] = 'Ebank online(www.chinabank.com.cn) unites 19 banks l
 $_LANG['chinabank_account'] = 'Ebank online accounts';
 $_LANG['chinabank_key'] = 'MD5 Key';
 $_LANG['pay_button'] = 'Pay in Ebank online immediately.';
-
-?>

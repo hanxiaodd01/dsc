@@ -23,5 +23,3 @@ class Guide extends \App\Api\Foundation\Controller
 		return $this->apiReturn($res);
 	}
 }
-
-?>

@@ -43,6 +43,3 @@ function get_article_count($cat_id, $requirement = '')
 
 	return $count;
 }
-
-
-?>

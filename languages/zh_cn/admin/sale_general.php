@@ -55,5 +55,3 @@ $_LANG['accord_deliver_time'] = '按发货时间';
 $_LANG['accord_order_time'] = '按下单时间';
 $_LANG['deliver_time'] = '发货时间';
 $_LANG['order_time'] = '下单日期';
-
-?>

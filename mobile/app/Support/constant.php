@@ -193,5 +193,3 @@ define('USER_PHONE', 6);
 define('USER_EMAIL', 7);
 define('USER_LPASS', 8);
 define('USER_LINE', 9);
-
-?>

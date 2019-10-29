@@ -34,5 +34,3 @@ class GetCorsResultTest extends \PHPUnit_Framework_TestCase
 		}
 	}
 }
-
-?>

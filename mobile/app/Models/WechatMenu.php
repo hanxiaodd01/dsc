@@ -97,5 +97,3 @@ class WechatMenu extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

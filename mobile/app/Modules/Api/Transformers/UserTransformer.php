@@ -9,6 +9,3 @@ class UserTransformer
 		return array('id' => $user->user_id, 'name' => $user->user_name);
 	}
 }
-
-
-?>

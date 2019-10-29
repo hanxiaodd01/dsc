@@ -418,5 +418,3 @@ case 'error':
 default:
 	exit('ERROR, unknown step!');
 }
-
-?>

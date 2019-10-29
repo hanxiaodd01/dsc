@@ -117,6 +117,3 @@ class Compile
 		return $list;
 	}
 }
-
-
-?>

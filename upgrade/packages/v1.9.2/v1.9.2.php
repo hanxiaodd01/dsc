@@ -145,6 +145,3 @@ CHANGE `parent_cid` `parent_id` INT( 10 ) UNSIGNED NOT NULL DEFAULT \'0\';';
 		}
 	}
 }
-
-
-?>

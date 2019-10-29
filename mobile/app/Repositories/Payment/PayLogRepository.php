@@ -20,6 +20,3 @@ class PayLogRepository
 		return \App\Models\PayLog::where('order_id', $oid)->where('order_type', $type)->select('log_id')->first()->toArray();
 	}
 }
-
-
-?>

@@ -30,5 +30,3 @@ $_LANG['upfile_error'] = 'Wrong, please ensure the writability of data catalog f
 $_LANG['js_languages']['no_cardname'] = 'Please enter card name.';
 $_LANG['js_languages']['cardfee_un_num'] = 'Cart money is invalid.';
 $_LANG['js_languages']['cardmoney_un_num'] = 'Card free allowance is invalid.';
-
-?>

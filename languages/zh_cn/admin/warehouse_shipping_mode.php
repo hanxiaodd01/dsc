@@ -23,5 +23,3 @@ $_LANG['region_existed'] = '该地区已存在';
 $_LANG['js_languages']['tpl_name_null'] = '请输入仓库模板名称';
 $_LANG['js_languages']['shipping_id_null'] = '请选择物流配送';
 $_LANG['operation_prompt_content']['list'][0] = '此配送方式的所有仓库配送地区列表。';
-
-?>

@@ -30,5 +30,3 @@ $_LANG['send_out_success'] = '发送成功';
 $_LANG['send_out_fail'] = '发送失败';
 $_LANG['operation_prompt_content']['list'][0] = '展示了商品降价通知的操作日志。';
 $_LANG['operation_prompt_content']['list'][1] = '可对固定时间段内的操作日志进行删除。';
-
-?>

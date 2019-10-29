@@ -512,5 +512,3 @@ function order_pay_fee($payment_id, $order_amount, $cod_fee = NULL)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

@@ -49,6 +49,3 @@ class ApplicationVar
 		@fclose($fp);
 	}
 }
-
-
-?>

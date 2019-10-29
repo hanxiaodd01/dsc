@@ -9,5 +9,3 @@ class Stat extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('access_time', 'ip_address', 'visit_times', 'browser', 'system', 'language', 'area', 'referer_domain', 'referer_path', 'access_url');
 	protected $guarded = array();
 }
-
-?>

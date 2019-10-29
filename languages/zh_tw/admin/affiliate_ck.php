@@ -37,5 +37,3 @@ $_LANG['separate_by'][-1] = '推薦註冊分成';
 $_LANG['separate_by'][-2] = '推薦訂單分成';
 $_LANG['show_affiliate_orders'] = '此列表顯示此用戶推薦的訂單信息。';
 $_LANG['back_note'] = '返回會員編輯頁面';
-
-?>

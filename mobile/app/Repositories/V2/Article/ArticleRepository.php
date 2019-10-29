@@ -112,5 +112,3 @@ class ArticleRepository extends \app\repositories\v2\Foundation implements \app\
 		return $ret;
 	}
 }
-
-?>

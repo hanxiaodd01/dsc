@@ -122,5 +122,3 @@ deleteBucket($ossClient, $bucket);
 putBucketAcl($ossClient, $bucket);
 getBucketAcl($ossClient, $bucket);
 listBuckets($ossClient);
-
-?>

@@ -19,5 +19,3 @@ $_LANG['tutorials_bonus_list_one'] = '商城会员注册项设置';
 $_LANG['operation_prompt_content']['info'][0] = '请合理输入注册项名称，以免会员注册时无法理解。';
 $_LANG['operation_prompt_content']['list'][0] = '该页面展示了会员注册项相关信息。';
 $_LANG['operation_prompt_content']['list'][1] = '可在列表页点击是否显示和是否必填。';
-
-?>

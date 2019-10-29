@@ -32,5 +32,3 @@ class RealNameRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

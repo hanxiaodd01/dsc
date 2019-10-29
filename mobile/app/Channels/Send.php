@@ -48,6 +48,3 @@ class Send
 		return call_user_func_array(array(self::$objArr[$this->send], $method), $args);
 	}
 }
-
-
-?>

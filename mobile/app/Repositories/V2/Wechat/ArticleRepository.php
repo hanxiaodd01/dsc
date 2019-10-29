@@ -32,5 +32,3 @@ class ArticleRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

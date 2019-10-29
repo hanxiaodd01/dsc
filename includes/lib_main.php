@@ -2154,5 +2154,3 @@ function get_wholesale_parent_cats($cat)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

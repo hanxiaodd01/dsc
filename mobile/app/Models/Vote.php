@@ -65,5 +65,3 @@ class Vote extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

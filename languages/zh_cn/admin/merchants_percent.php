@@ -26,5 +26,3 @@ $_LANG['js_languages']['no_percent_value'] = '请填写百分比值';
 $_LANG['operation_prompt_content']['info'][0] = '请填写合适的佣金百分比并且双方达成一致。';
 $_LANG['operation_prompt_content']['list'][0] = '佣金比例列表信息管理。';
 $_LANG['operation_prompt_content']['list'][0] = '可自定义添加合适的佣金比例。';
-
-?>

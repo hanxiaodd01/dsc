@@ -80,5 +80,3 @@ class LifecycleConfig implements XmlConfig
 		return $this->rules;
 	}
 }
-
-?>

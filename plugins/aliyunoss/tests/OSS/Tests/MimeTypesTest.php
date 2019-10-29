@@ -9,5 +9,3 @@ class MimeTypesTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals('application/xml', \OSS\Core\MimeTypes::getMimetype('file.xml'));
 	}
 }
-
-?>

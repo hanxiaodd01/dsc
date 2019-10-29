@@ -422,5 +422,3 @@ if ($_REQUEST['act'] == 'coupons_info') {
 	$smarty->assign('left', $left);
 	$smarty->display('coupons.dwt');
 }
-
-?>

@@ -705,6 +705,3 @@ class integrate
 		return $row;
 	}
 }
-
-
-?>

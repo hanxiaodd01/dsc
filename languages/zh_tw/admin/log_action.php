@@ -61,5 +61,3 @@ $_LANG['log_action']['package'] = '超值禮包';
 $_LANG['log_action']['exchange_goods'] = '積分可兌換的商品';
 $_LANG['log_action']['suppliers'] = '供货商管理';
 $_LANG['log_action']['reg_fields'] = '會員註冊項';
-
-?>

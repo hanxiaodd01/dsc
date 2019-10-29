@@ -67,5 +67,3 @@ $_LANG['drop_attr_img'] = '删除图标';
 $_LANG['drop_attr_img_success'] = '删除属性图片成功';
 $_LANG['exist_same_product_sn'] = '货品货号重复';
 //ecmoban模板堂 --zhuo end
-
-?>

@@ -9,5 +9,3 @@ class AliyunxinConfigure extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('temp_id', 'temp_content', 'add_time', 'set_sign', 'send_time', 'signature');
 	protected $guarded = array();
 }
-
-?>

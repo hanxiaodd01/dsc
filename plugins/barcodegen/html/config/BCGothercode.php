@@ -11,5 +11,3 @@ $classFile = 'BCGothercode.barcode.php';
 $className = 'BCGothercode';
 $baseClassFile = 'BCGBarcode1D.php';
 $codeVersion = '5.2.0';
-
-?>

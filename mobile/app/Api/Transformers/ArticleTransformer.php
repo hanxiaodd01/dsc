@@ -9,5 +9,3 @@ class ArticleTransformer extends \League\Fractal\TransformerAbstract
 		return array('id' => $article->article_id, 'title' => $article->title);
 	}
 }
-
-?>

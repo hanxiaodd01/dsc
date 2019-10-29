@@ -29,5 +29,3 @@ $_LANG['back_list_all'] = '返回缺貨登記列表';
 $_LANG['dispose_succeed'] = '處理成功';
 $_LANG['mail_send_fail'] = '郵件發送失敗，請檢查郵件服務器設置后重新發送郵件';
 $_LANG['remail'] = '重發郵件';
-
-?>

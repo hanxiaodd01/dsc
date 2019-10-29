@@ -17,5 +17,3 @@ class CategoryController extends \App\Modules\Api\Foundation\Controller
 		return $this->apiReturn($list);
 	}
 }
-
-?>

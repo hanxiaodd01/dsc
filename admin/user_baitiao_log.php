@@ -303,5 +303,3 @@ else if ($_REQUEST['act'] == 'remove_log') {
 		}
 	}
 }
-
-?>

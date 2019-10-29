@@ -188,5 +188,3 @@ else if ($_REQUEST['act'] == 'ajax_update') {
 
 	exit($json->encode($result));
 }
-
-?>

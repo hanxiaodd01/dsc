@@ -86,5 +86,3 @@ class ImMessage extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

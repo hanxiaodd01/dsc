@@ -8,6 +8,3 @@ interface XmlConfig
 
 	public function serializeToXml();
 }
-
-
-?>

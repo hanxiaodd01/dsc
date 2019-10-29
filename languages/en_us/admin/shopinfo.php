@@ -16,5 +16,3 @@ $_LANG['remove_fail'] = 'Delete failed.';
 $_LANG['title_empty'] = 'Title can\'t be blank!';
 $_LANG['js_languages']['no_title'] = 'Please enter a title.';
 $_LANG['js_languages']['remove_confirm'] = 'Are you sure delete the record?';
-
-?>

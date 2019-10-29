@@ -10,6 +10,3 @@ class PaymentRepository
 		return $payment;
 	}
 }
-
-
-?>

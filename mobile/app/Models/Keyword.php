@@ -9,5 +9,3 @@ class Keyword extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('date', 'searchengine', 'keyword', 'count');
 	protected $guarded = array();
 }
-
-?>

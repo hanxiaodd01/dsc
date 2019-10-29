@@ -129,5 +129,3 @@ class BCGmsi extends BCGBarcode1D
 		return false;
 	}
 }
-
-?>

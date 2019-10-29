@@ -8,6 +8,3 @@ interface PatchInterface
 
 	public function updateFiles();
 }
-
-
-?>

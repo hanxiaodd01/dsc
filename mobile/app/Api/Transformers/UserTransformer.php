@@ -9,5 +9,3 @@ class UserTransformer extends \League\Fractal\TransformerAbstract
 		return array('id' => $user->user_id, 'name' => $user->user_name);
 	}
 }
-
-?>

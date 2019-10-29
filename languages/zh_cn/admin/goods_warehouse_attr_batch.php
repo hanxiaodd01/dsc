@@ -24,5 +24,3 @@ $_LANG['add_area_batch'] = '继续批量添加商品仓库属性';
 $_LANG['13_batch_add'] = '仓库属性价格批量上传';
 $_LANG['02_cat_and_goods'] = '商品';
 $_LANG['current_modification_data'] = '当前需要修改的数据有';
-
-?>

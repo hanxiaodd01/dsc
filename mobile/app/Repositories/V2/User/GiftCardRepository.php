@@ -32,5 +32,3 @@ class GiftCardRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

@@ -64,5 +64,3 @@ class ActivityGoodsAttr extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

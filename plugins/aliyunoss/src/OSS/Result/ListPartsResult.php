@@ -29,5 +29,3 @@ class ListPartsResult extends Result
 		return new \OSS\Model\ListPartsInfo($bucket, $key, $uploadId, $nextPartNumberMarker, $maxParts, $isTruncated, $partList);
 	}
 }
-
-?>

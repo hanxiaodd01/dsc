@@ -191,6 +191,3 @@ function FCKeditor_IsCompatibleBrowser()
 		return false;
 	}
 }
-
-
-?>

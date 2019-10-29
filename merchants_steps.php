@@ -311,5 +311,3 @@ $smarty->assign('brand_name', $brand_name);
 $smarty->assign('brand_letter', $brand_letter);
 $smarty->assign('ec_brandFirstChar', $ec_brandFirstChar);
 $smarty->display('merchants_steps.dwt');
-
-?>

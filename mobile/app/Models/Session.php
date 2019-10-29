@@ -10,5 +10,3 @@ class Session extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('expiry', 'userid', 'adminid', 'ip', 'user_name', 'user_rank', 'discount', 'email', 'data');
 	protected $guarded = array();
 }
-
-?>

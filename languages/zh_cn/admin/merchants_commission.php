@@ -302,5 +302,3 @@ $_LANG['03_daily_checkout_bill'] = '日结账单';
 $_LANG['04_3_day_checkout_bill'] = '3日结账单';
 $_LANG['label_start_product_bill_time'] = '开始生产账单时间：';
 $_LANG['js_languages']['frozen_gt_should'] = '冻结金额大于本期应结金额';
-
-?>

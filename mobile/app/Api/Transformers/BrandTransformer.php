@@ -9,5 +9,3 @@ class BrandTransformer extends \League\Fractal\TransformerAbstract
 		return array('id' => $map['article_id'], 'title' => $map['title']);
 	}
 }
-
-?>

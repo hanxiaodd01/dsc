@@ -10,5 +10,3 @@ class DeliveryGood extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('delivery_id', 'goods_id', 'product_id', 'product_sn', 'goods_name', 'brand_name', 'goods_sn', 'is_real', 'extension_code', 'parent_id', 'send_number', 'goods_attr');
 	protected $guarded = array();
 }
-
-?>

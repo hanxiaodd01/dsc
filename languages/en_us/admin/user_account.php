@@ -39,5 +39,3 @@ $_LANG['js_languages']['deposit_amount_error'] = 'Please enter a valid format of
 $_LANG['js_languages']['deposit_type_empty'] = 'Please select a type!';
 $_LANG['js_languages']['deposit_notic_empty'] = 'Please enter remarks!';
 $_LANG['js_languages']['deposit_desc_empty'] = 'Please enter description of users!';
-
-?>

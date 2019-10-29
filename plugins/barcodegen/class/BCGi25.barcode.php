@@ -144,5 +144,3 @@ class BCGi25 extends BCGBarcode1D
 		return $in;
 	}
 }
-
-?>

@@ -57,5 +57,3 @@ $_LANG['pls_set_act_range'] = '請設置優惠範圍';
 $_LANG['amount_error'] = '金額下限不能大於金額上限';
 $_LANG['act_name_exists'] = '該優惠活動名稱已存在，請您換一個';
 $_LANG['nolimit'] = '沒有限制';
-
-?>

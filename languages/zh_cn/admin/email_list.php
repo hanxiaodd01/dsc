@@ -16,5 +16,3 @@ $_LANG['batch_unremove_succeed'] = '已成功确认 %d 个E-mail地址';
 $_LANG['batch_exit_succeed'] = '已成功退订 %d 个E-mail地址';
 $_LANG['back_list'] = '返回邮件列表';
 $_LANG['operation_prompt_content']['list'][0] = '前台用户点击邮箱订阅输入邮箱地址，后台即可管理邮箱地址。';
-
-?>

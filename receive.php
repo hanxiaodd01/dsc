@@ -36,5 +36,3 @@ $smarty->assign('helps', get_shop_help());
 assign_dynamic('receive');
 $smarty->assign('msg', $msg);
 $smarty->display('receive.dwt');
-
-?>

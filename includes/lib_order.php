@@ -6542,5 +6542,3 @@ function update_cart_goods_fav($rec_id, $user_id, $act_id)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

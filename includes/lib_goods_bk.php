@@ -2655,5 +2655,3 @@ function get_merchants_grade_rank($ru_id)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

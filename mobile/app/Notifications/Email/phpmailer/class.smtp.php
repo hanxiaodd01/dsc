@@ -676,6 +676,3 @@ class SMTP
 		return $this->Timeout;
 	}
 }
-
-
-?>

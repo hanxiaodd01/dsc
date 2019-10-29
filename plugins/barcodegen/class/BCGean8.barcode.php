@@ -160,5 +160,3 @@ class BCGean8 extends BCGBarcode1D
 		$this->thickness = $rememberH;
 	}
 }
-
-?>

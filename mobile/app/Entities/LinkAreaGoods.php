@@ -42,5 +42,3 @@ class LinkAreaGoods extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

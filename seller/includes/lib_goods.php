@@ -1616,5 +1616,3 @@ function get_add_seckill_goods($sec_id, $tb_id)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

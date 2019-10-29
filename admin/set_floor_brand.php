@@ -105,5 +105,3 @@ else if ($act == 'remove') {
 	$link[] = array('text' => $_LANG['go_back'], 'href' => 'set_floor_brand.php?filename=index');
 	sys_msg($_LANG['remove_success'], 0, $link);
 }
-
-?>

@@ -28,5 +28,3 @@ class UploadPartResultTest extends \PHPUnit_Framework_TestCase
 		}
 	}
 }
-
-?>

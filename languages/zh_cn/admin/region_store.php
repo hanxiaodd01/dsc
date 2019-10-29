@@ -11,5 +11,3 @@ $_LANG['designated_city'] = '指定城市';
 $_LANG['binding_admin'] = '绑定管理员';
 $_LANG['operation_prompt_content']['list'][0] = '该页面展示了商城所有的卖场信息，可对卖场进行编辑修改操作。';
 $_LANG['operation_prompt_content']['info'][0] = '新增编辑卖场信息，请严禁填写卖场信息。';
-
-?>

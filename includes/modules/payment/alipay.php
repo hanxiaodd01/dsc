@@ -161,5 +161,3 @@ class OrderPaidNotify implements \Payment\Notify\PayNotifyInterface
 		return true;
 	}
 }
-
-?>

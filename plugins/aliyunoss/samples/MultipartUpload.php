@@ -132,5 +132,3 @@ multiuploadFile($ossClient, $bucket);
 putObjectByRawApis($ossClient, $bucket);
 uploadDir($ossClient, $bucket);
 listMultipartUploads($ossClient, $bucket);
-
-?>

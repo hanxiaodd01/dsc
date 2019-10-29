@@ -25,5 +25,3 @@ $_LANG['dispose'] = '退款申請處理';
 $_LANG['undispose_repay'] = '未處理的退款申請';
 $_LANG['list_all'] = '全部退款申請';
 $_LANG['js_languages']['no_action_note'] = '必須輸入處理備註';
-
-?>

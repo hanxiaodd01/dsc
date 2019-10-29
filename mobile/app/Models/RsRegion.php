@@ -31,5 +31,3 @@ class RsRegion extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

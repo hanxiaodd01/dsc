@@ -32,5 +32,3 @@ class HelpRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

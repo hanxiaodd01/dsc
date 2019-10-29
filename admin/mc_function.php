@@ -153,6 +153,3 @@ function get_array_rand_return($arr)
 
 	return $newArr;
 }
-
-
-?>

@@ -30,5 +30,3 @@ function get_order_detection_list()
 define('IN_ECS', true);
 require dirname(__FILE__) . '/includes/init.php';
 get_order_detection_list();
-
-?>

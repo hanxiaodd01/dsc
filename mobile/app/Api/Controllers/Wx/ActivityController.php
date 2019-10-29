@@ -56,5 +56,3 @@ class ActivityController extends \App\Api\Controllers\Controller
 		return $this->apiReturn($list);
 	}
 }
-
-?>

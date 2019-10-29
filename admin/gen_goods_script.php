@@ -16,5 +16,3 @@ if ($_REQUEST['act'] == 'setup') {
 	assign_query_info();
 	$smarty->display('gen_goods_script.dwt');
 }
-
-?>

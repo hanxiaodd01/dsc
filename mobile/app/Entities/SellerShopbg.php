@@ -86,5 +86,3 @@ class SellerShopbg extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

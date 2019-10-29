@@ -40,6 +40,3 @@ class TopatsResultGetRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

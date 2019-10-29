@@ -152,5 +152,3 @@ class QrpayLog extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

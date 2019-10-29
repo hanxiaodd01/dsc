@@ -87,5 +87,3 @@ class GoodsTransport extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

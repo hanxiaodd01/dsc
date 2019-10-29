@@ -219,5 +219,3 @@ class GoodsExtend extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

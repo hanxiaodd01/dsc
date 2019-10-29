@@ -290,5 +290,3 @@ if ($_REQUEST['act'] == 'remove_pc') {
 	ecs_header('Location: ' . $url . "\n");
 	exit();
 }
-
-?>

@@ -32,5 +32,3 @@ $_LANG['no_image'] = '无图片';
 $_LANG['zc_topic_confirm'] = '确定执行此操作？';
 $_LANG['operation_prompt_content']['info'][0] = '众筹项目相关话题管理。';
 $_LANG['operation_prompt_content']['info'][1] = '可设置是否显示话题。';
-
-?>

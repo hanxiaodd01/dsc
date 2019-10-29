@@ -125,5 +125,3 @@ echo '</div>
 </body>
 </html>
 ';
-
-?>

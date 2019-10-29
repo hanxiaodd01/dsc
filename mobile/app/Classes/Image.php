@@ -477,6 +477,3 @@ class Image
 		return true;
 	}
 }
-
-
-?>

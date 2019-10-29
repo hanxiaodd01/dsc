@@ -17,5 +17,3 @@ foreach ($characters as $character) {
 
 echo "</div>\r\n\r\n<div id=\"explanation\">\r\n    <h3>Explanation</h3>\r\n    <ul>\r\n        <li>Enter width of each bars with one characters. Begin by a bar.</li>\r\n        <li>10523: Will do 2px bar, 1px space, 6px bar, 3px space, 4px bar.</li>\r\n    </ul>\r\n</div>\r\n\r\n";
 include 'include/footer.php';
-
-?>

@@ -152,5 +152,3 @@ class ValueCardType extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

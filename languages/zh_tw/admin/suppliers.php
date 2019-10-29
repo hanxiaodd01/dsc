@@ -20,5 +20,3 @@ $_LANG['batch_drop_no'] = '批量删除失败';
 $_LANG['suppliers_edit_fail'] = '名称修改失败';
 $_LANG['no_record_selected'] = '没有选择任何记录';
 $_LANG['js_languages']['no_suppliers_name'] = '沒有填供貨商名稱';
-
-?>

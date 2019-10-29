@@ -2727,5 +2727,3 @@ if (!class_exists('QRcode', false)) {
 		}
 	}
 }
-
-?>

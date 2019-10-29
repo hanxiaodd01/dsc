@@ -9,5 +9,3 @@ class BodyResult extends Result
 		return empty($this->rawResponse->body) ? '' : $this->rawResponse->body;
 	}
 }
-
-?>

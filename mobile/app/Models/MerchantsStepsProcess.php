@@ -75,5 +75,3 @@ class MerchantsStepsProcess extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

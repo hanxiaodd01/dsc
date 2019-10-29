@@ -15,5 +15,3 @@ for ($k = 0; $k < 12; $k++) {
 }
 
 echo "    </table>\n    <br>\n    Ca marche toujours !<br>\n    De plus, vous pouvez faire des sauts de page manuellement en utilisant les balises &lt;page&gt; &lt;/page&gt;, comme ici par exemple :\n</page>\n<page pageset=\"old\">\n    Nouvelle page !!!!\n</page>";
-
-?>

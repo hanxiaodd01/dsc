@@ -513,6 +513,3 @@ class UserService
 		$this->orderRepository->updateOrderInfo($order_id, $order_info);
 	}
 }
-
-
-?>

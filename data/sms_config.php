@@ -127,4 +127,3 @@ function get_order_info_lang($str_centent = array())
     
     return $result;
 }
-?>

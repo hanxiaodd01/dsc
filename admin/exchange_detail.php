@@ -277,5 +277,3 @@ else if ($_REQUEST['act'] == 'order_query') {
 	$sort_flag = sort_flag($order_list['filter']);
 	make_json_result($smarty->fetch('give_integral_orders.dwt'), '', array('filter' => $order_list['filter'], 'page_count' => $order_list['page_count']));
 }
-
-?>

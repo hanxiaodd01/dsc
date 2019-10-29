@@ -12,5 +12,3 @@ $_LANG['js_languages']['visual_article_one'] = '此模块只能添加';
 $_LANG['js_languages']['visual_article_two'] = '个文章';
 $_LANG['js_languages']['visual_article_confirm_one'] = '确定执行此操作吗？确认后CMS将恢复默认，操作不可逆，请谨慎操作！';
 $_LANG['js_languages']['visual_article_confirm_two'] = '恢复默认设置成功！';
-
-?>

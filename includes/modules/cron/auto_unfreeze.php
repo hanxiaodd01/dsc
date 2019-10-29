@@ -73,5 +73,3 @@ if ($debug == true && $log == true) {
 	auto_unfreeze_logResult('==================== cron log ====================');
 	auto_unfreeze_logResult($bill_list);
 }
-
-?>

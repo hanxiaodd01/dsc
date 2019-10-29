@@ -9,5 +9,3 @@ $_LANG['step_users'] = 'Converting user...';
 $_LANG['step_article'] = 'Converting article...';
 $_LANG['step_order'] = 'Converting product order...';
 $_LANG['step_config'] = 'Converting config for shop...';
-
-?>

@@ -620,5 +620,3 @@ $_LANG['label_collection'] = 'my collection';
 $_LANG['article_list'] = 'article list';
 $_LANG['Preferences_price'] = 'Preferences price';
 $_LANG['divided_into'] = 'Into rules';
-
-?>

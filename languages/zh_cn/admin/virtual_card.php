@@ -52,5 +52,3 @@ $_LANG['js_languages']['updated_info'] = '<strong>已更新</strong> <span id=\\
 $_LANG['operation_prompt_content']['batch_confirm'][0] = '上传文件格式必须后缀为.csv文件。';
 $_LANG['operation_prompt_content']['replenish'][0] = '虚拟卡补货请认真谨慎填写补货信息。';
 $_LANG['operation_prompt_content']['replenish_list'][0] = '虚拟商品虚拟卡列表信息页，展示此虚拟商品所有的虚拟卡卡号信息。';
-
-?>

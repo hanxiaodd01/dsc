@@ -240,5 +240,3 @@ if ($_REQUEST['act'] == 'remove') {
 		return false;
 	}
 }
-
-?>

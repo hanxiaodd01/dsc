@@ -112,4 +112,3 @@ function logResult($word='') {
     flock($fp, LOCK_UN);
     fclose($fp);
 }
-?>

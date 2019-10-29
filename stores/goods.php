@@ -588,5 +588,3 @@ else if ($_REQUEST['act'] == 'batch_goods_number') {
 		make_json_response('', 2, '请选择商品！', array('url' => 'goods.php?act=list&page=' . $page, 'page' => $page));
 	}
 }
-
-?>

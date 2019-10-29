@@ -16,5 +16,3 @@ $_LANG['status_failure'] = '插入失败';
 $_LANG['already_show'] = '数据已存在';
 $_LANG['save_products'] = '保存白条设置成功';
 $_LANG['14_batch_add'] = '白条批量设置';
-
-?>

@@ -196,5 +196,3 @@ class warehouse extends \app\model\warehouseModel
 		return \app\model\warehouseModel::get_delete($this->table, $this->where, $this->format);
 	}
 }
-
-?>

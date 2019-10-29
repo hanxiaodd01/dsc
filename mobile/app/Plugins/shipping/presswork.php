@@ -54,6 +54,3 @@ class presswork
 		return ceil($price);
 	}
 }
-
-
-?>

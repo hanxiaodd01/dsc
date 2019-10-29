@@ -23,5 +23,3 @@ $_LANG['js_languages']['integral_max_invalid'] = '您沒有輸入積分上限或
 $_LANG['js_languages']['discount_invalid'] = '您沒有輸入折扣率或者折扣率無效。';
 $_LANG['js_languages']['integral_max_small'] = '積分上限必須大於積分下限。';
 $_LANG['js_languages']['lang_remove'] = '移除';
-
-?>

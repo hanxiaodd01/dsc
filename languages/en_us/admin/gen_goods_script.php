@@ -26,5 +26,3 @@ $_LANG['js_languages']['goods_num_must_be_int'] = 'Product quantity should be an
 $_LANG['js_languages']['goods_num_must_over_0'] = 'Product quantity should more than 0.';
 $_LANG['js_languages']['rows_num_must_be_int'] = 'With show entries should be rounded';
 $_LANG['js_languages']['rows_num_must_over_0'] = 'ith show entries should be greater than 0';
-
-?>

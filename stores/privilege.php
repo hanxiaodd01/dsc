@@ -95,5 +95,3 @@ else if ($_REQUEST['act'] == 'signin') {
 		make_json_response('', 0, $_LANG['login_faild']);
 	}
 }
-
-?>

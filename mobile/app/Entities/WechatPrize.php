@@ -108,5 +108,3 @@ class WechatPrize extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

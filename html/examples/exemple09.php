@@ -48,5 +48,3 @@ if ($generate) {
 }
 
 echo "        <form method=\"get\" action=\"\">\n            <input type=\"hidden\" name=\"make_pdf\" value=\"\">\n            Ton nom : <input type=\"text\" name=\"nom\" value=\"\"> -\n            <input type=\"submit\" value=\"Generer le PDF\" >\n        </form>\n    </body>\n</html>";
-
-?>

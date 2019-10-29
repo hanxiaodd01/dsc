@@ -32,6 +32,3 @@ class ShopConfigRepository
 		return \App\Models\OssConfigure::where('is_use', 1)->first()->toArray();
 	}
 }
-
-
-?>

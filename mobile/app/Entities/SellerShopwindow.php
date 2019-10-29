@@ -141,5 +141,3 @@ class SellerShopwindow extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

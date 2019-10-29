@@ -240,6 +240,3 @@ class WxPay
 		$this->debugInfo = PHP_EOL . $this->debugInfo . $debugInfo . PHP_EOL;
 	}
 }
-
-
-?>

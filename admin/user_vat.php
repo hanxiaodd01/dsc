@@ -159,5 +159,3 @@ if ($_REQUEST['act'] == 'remove') {
 	ecs_header('Location: ' . $url . "\n");
 	exit();
 }
-
-?>

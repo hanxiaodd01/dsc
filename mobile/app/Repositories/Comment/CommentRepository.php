@@ -15,6 +15,3 @@ class CommentRepository
 		return $commemt->save();
 	}
 }
-
-
-?>

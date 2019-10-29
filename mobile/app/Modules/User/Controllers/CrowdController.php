@@ -227,5 +227,3 @@ class CrowdController extends \App\Modules\Base\Controllers\FrontendController
 		}
 	}
 }
-
-?>

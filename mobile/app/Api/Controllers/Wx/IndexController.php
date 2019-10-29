@@ -27,5 +27,3 @@ class IndexController extends \App\Api\Controllers\Controller
 		return $this->apiReturn($data);
 	}
 }
-
-?>

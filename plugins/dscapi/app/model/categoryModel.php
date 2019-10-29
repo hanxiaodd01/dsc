@@ -136,5 +136,3 @@ abstract class categoryModel extends \app\func\common
 		return $result;
 	}
 }
-
-?>

@@ -214,6 +214,3 @@ class AliyunClient
 		$logger->log($logData);
 	}
 }
-
-
-?>

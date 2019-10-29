@@ -12,5 +12,3 @@ class ExampleJob extends Job
 	{
 	}
 }
-
-?>

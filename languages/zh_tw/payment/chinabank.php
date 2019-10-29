@@ -6,5 +6,3 @@ $_LANG['chinabank_desc'] = '網銀在線（www.chinabank.com.cn）與中國工�
 $_LANG['chinabank_account'] = '商戶編號';
 $_LANG['chinabank_key'] = 'MD5 密鑰';
 $_LANG['pay_button'] = '立即使用網銀在線支付';
-
-?>

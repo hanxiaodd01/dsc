@@ -67,5 +67,3 @@ class CnameConfig implements XmlConfig
 		return $this->serializeToXml();
 	}
 }
-
-?>

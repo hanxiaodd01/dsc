@@ -86,5 +86,3 @@ class WechatMessageLog extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

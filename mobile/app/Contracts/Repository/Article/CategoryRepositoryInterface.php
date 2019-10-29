@@ -14,6 +14,3 @@ interface CategoryRepositoryInterface
 
 	public function delete($id);
 }
-
-
-?>

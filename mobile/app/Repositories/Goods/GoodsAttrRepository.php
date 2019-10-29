@@ -51,6 +51,3 @@ class GoodsAttrRepository
 		return $goodsAttr->toArray();
 	}
 }
-
-
-?>

@@ -993,5 +993,3 @@ class ApiController extends \App\Modules\Admin\Controllers\EditorController
 		$this->area_info = get_area_info($this->province_id);
 	}
 }
-
-?>

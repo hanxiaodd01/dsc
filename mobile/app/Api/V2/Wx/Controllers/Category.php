@@ -18,5 +18,3 @@ class Category extends \app\api\foundation\Controller
 		return $this->apiReturn(array('category' => $list));
 	}
 }
-
-?>

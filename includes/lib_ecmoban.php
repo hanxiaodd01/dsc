@@ -4161,5 +4161,3 @@ function get_manual_intervention($goods_id)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

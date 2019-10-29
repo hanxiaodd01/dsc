@@ -135,5 +135,3 @@ abstract class shippingModel extends \app\func\common
 		return $result;
 	}
 }
-
-?>

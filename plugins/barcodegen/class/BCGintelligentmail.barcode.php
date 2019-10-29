@@ -604,5 +604,3 @@ class BCGintelligentmail extends BCGBarcode1D
 		}
 	}
 }
-
-?>

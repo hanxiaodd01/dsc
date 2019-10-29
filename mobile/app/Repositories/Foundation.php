@@ -41,6 +41,3 @@ class Foundation
 		return $body;
 	}
 }
-
-
-?>

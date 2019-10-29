@@ -46,5 +46,3 @@ class PaymentController extends \App\Api\Controllers\Controller
 		return $this->apiReturn($res);
 	}
 }
-
-?>

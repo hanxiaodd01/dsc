@@ -229,6 +229,3 @@ class Verify
 		return md5($key . $str);
 	}
 }
-
-
-?>

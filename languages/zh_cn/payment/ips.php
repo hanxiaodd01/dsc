@@ -33,5 +33,3 @@ $_LANG['ips_lang_range']['BIG5']   = 'BIG5中文';
 $_LANG['ips_lang_range']['JP']   = 'JP';
 $_LANG['ips_lang_range']['FR']   = 'FR';
 $_LANG['pay_button']     = '立即使用IPS支付';
-
-?>

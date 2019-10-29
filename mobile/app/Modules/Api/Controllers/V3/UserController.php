@@ -50,5 +50,3 @@ class UserController extends \App\Modules\Api\Controllers\Controller
 		}
 	}
 }
-
-?>

@@ -86,5 +86,3 @@ class BargainStatisticsLog extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

@@ -76,5 +76,3 @@ if (isset($set_modules) && $set_modules == true) {
 	$modules[$i]['kdniao_height'] = 150;
 	return NULL;
 }
-
-?>

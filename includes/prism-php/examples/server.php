@@ -23,5 +23,3 @@ else if (array_key_exists('method', $_REQUEST)) {
 else {
 	echo '        <a href="?show_api_json">json</a>';
 }
-
-?>

@@ -9,6 +9,3 @@ class UserBonusRepository
 		return \App\Models\UserBonus::where('user_id', $userId)->count();
 	}
 }
-
-
-?>

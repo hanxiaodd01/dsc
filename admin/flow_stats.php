@@ -330,5 +330,3 @@ else if ($act = 'download') {
 		echo $data . '	';
 	}
 }
-
-?>

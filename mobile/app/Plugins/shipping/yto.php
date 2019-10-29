@@ -46,6 +46,3 @@ class yto
 		return $proxy->getExpress('yuantong', $invoice_sn);
 	}
 }
-
-
-?>

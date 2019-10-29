@@ -123,5 +123,3 @@ else if ($_REQUEST['act'] == 'download_area') {
 	$config = array('filename' => $_LANG['shop_area_distribution'], 'thead' => $thead, 'tbody' => $tbody, 'tdata' => $tdata);
 	list_download($config);
 }
-
-?>

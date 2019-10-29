@@ -139,6 +139,3 @@ function get_exchange_recommend_goods($type = '', $cats = '', $min = 0, $max = 0
 
 	return $auction;
 }
-
-
-?>

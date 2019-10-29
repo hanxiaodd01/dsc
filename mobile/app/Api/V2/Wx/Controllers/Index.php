@@ -26,5 +26,3 @@ class Index extends \app\api\foundation\Controller
 		return $this->apiReturn($data);
 	}
 }
-
-?>

@@ -134,6 +134,3 @@ class Uploader
 		return $pathStr;
 	}
 }
-
-
-?>

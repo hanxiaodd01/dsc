@@ -10,5 +10,3 @@ if (USE_DEBUGLIB) {
 	class Print_a_class
 	{	}
 }
-
-?>

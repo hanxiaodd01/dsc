@@ -23,5 +23,3 @@ $_LANG['syl_security_key']            = '商户密钥';
 
 $_LANG['syl_button']               = '马上使用银联支付';
 $_LANG['syl_txn_id']               = '银联交易号';
-
-?>

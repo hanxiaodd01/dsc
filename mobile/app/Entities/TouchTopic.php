@@ -196,5 +196,3 @@ class TouchTopic extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

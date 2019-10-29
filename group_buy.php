@@ -1007,5 +1007,3 @@ if (!empty($_REQUEST['act']) && $_REQUEST['act'] == 'checked_certification') {
 
 	exit($json->encode($result));
 }
-
-?>

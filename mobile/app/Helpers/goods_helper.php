@@ -2179,6 +2179,3 @@ function getStoreIdByGoodsId($goods_id)
 	$res = $GLOBALS['db']->getRow($sql);
 	return $res['store_id'];
 }
-
-
-?>

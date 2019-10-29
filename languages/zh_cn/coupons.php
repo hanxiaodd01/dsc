@@ -75,5 +75,3 @@ $_LANG['bonus_notic'] = "页面出错了！";
 
 $_LANG['js_languages']['receive_coupons'] = '领取优惠券';
 $_LANG['js_languages']['Immediate_use'] = "立即使用";
-
-?>

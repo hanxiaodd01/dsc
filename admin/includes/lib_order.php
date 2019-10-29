@@ -5068,5 +5068,3 @@ function goods_cost_price($order_id)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

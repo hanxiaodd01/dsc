@@ -110,5 +110,3 @@ $_LANG['date'] = '日期';
 $_LANG['hits'] = '搜索次数';
 $_LANG['pay_uncomplete'] = '已支付未完成';
 $_LANG['suppliers_return'] = '退换货';
-
-?>

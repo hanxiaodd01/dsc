@@ -11,5 +11,3 @@ class Controller extends \Laravel\Lumen\Routing\Controller
 		return array('code' => $code, 'data' => $data);
 	}
 }
-
-?>

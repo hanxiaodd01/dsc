@@ -78,5 +78,3 @@ putBucketCors($ossClient, $bucket);
 getBucketCors($ossClient, $bucket);
 deleteBucketCors($ossClient, $bucket);
 getBucketCors($ossClient, $bucket);
-
-?>

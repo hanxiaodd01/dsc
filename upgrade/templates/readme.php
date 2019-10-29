@@ -70,5 +70,3 @@ echo '</div>
 </body>
 </html>
 ';
-
-?>

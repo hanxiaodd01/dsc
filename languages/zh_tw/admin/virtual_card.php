@@ -45,5 +45,3 @@ $_LANG['new_stat'] = '<strong>更新完畢</strong>，現在使用新串加密�
 $_LANG['update_error'] = '更新過程中出錯：%s';
 $_LANG['js_languages']['updating_info'] = '<strong>正在更新</strong>（每次 100 條記錄）';
 $_LANG['js_languages']['updated_info'] = '<strong>已更新</strong> <span id=\\"updated\\">0</span> 條記錄。';
-
-?>

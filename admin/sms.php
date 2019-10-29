@@ -70,5 +70,3 @@ case 'send_sms':
 
 	break;
 }
-
-?>

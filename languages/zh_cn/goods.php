@@ -180,5 +180,3 @@ $_LANG['js_languages']['Already_buy_two'] = '件商品达到限购条件,无法�
 $_LANG['js_languages']['bid_prompt_error'] = '价格输入格式不正确！';
 $_LANG['js_languages']['mobile_error_goods'] = '&nbsp;&nbsp;手机格式不正确！';
 $_LANG['js_languages']['null_email_goods'] = '邮箱不能为空'; 
-
-?>

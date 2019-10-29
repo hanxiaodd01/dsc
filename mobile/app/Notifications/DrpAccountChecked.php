@@ -13,6 +13,3 @@ class DrpAccountChecked
 		return $this;
 	}
 }
-
-
-?>

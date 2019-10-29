@@ -48,5 +48,3 @@ $_LANG['operation_prompt_content']['setting_info'][0] = '从列表中选择规�
 $_LANG['operation_prompt_content']['setting_info'][1] = '可以将常用规格设置为默认。';
 $_LANG['operation_prompt_content']['kdniao'][0] = '使用快递鸟打印快递单时需要在此次页面填写配置信息';
 $_LANG['operation_prompt_content']['kdniao'][1] = '配置快递鸟API信息';
-
-?>

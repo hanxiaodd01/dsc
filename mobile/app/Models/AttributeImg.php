@@ -53,5 +53,3 @@ class AttributeImg extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

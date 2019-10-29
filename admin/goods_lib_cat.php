@@ -317,5 +317,3 @@ else if ($_REQUEST['act'] == 'remove') {
 
 	exit($json->encode($result));
 }
-
-?>

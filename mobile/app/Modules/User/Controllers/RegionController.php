@@ -38,5 +38,3 @@ class RegionController extends \App\Modules\Base\Controllers\FrontendController
 		}
 	}
 }
-
-?>

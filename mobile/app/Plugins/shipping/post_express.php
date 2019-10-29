@@ -62,6 +62,3 @@ class post_express
 		return ceil($price);
 	}
 }
-
-
-?>

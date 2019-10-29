@@ -34,6 +34,3 @@ class Sms
 		return call_user_func_array(array(self::$objArr[$sms_type], $method), $args);
 	}
 }
-
-
-?>

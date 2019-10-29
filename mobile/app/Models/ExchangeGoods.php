@@ -109,5 +109,3 @@ class ExchangeGoods extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

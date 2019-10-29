@@ -41,5 +41,3 @@ $_LANG['search_goods'] = "搜索商品";
 $_LANG['search_store'] = "搜索店铺";
 
 $_LANG['not_search_goods'] = "无法搜索到商品，请重新输入！";
-
-?>

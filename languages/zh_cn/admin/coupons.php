@@ -215,5 +215,3 @@ $_LANG['operation_prompt_content']['info'][0] = '注册赠券:新用户注册成
 $_LANG['operation_prompt_content']['info'][1] = '购物赠券:购物满一定金额即发放到用户账户中(后台发货后)；';
 $_LANG['operation_prompt_content']['info'][2] = '全场赠券:用户在优惠券首页或列表页或商品详情页或侧边栏点击领取；';
 $_LANG['operation_prompt_content']['info'][3] = '会员赠券:同全场赠券(可限定领取的会员等级)。';
-
-?>

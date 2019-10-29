@@ -8,6 +8,3 @@ interface BrandRepositoryInterface
 
 	public function getBrandDetail($id);
 }
-
-
-?>

@@ -82,5 +82,3 @@ $_LANG['arrival_route'] = '到达路线';
 $_LANG['operation_prompt_content']['list'][0] = '配送区域列表是展示所有配送区域的范围和所在地区。';
 $_LANG['operation_prompt_content']['list'][1] = '其中上门自提是展示某范围区域的自提点。';
 $_LANG['operation_prompt_content']['info'][0] = '搜索地区列表，选择搜索的地区添加到配送区域。';
-
-?>

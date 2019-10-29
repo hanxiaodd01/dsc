@@ -638,5 +638,3 @@ class AccountController extends \App\Modules\Base\Controllers\FrontendController
 		$this->display();
 	}
 }
-
-?>

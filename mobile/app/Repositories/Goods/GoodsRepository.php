@@ -860,6 +860,3 @@ class GoodsRepository
 		return $three_arr;
 	}
 }
-
-
-?>

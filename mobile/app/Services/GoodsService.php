@@ -334,6 +334,3 @@ class GoodsService
 		return $goods_list;
 	}
 }
-
-
-?>

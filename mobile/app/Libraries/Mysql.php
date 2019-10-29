@@ -239,5 +239,3 @@ class Mysql extends \Think\Model
 		return $res;
 	}
 }
-
-?>

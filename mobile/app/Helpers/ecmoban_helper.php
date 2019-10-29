@@ -3326,6 +3326,3 @@ function return_act_range_ext($act_range_ext, $userFav_type, $act_range)
 
 	return $act_range_ext;
 }
-
-
-?>

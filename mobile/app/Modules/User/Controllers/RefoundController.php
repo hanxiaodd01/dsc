@@ -738,5 +738,3 @@ class RefoundController extends \App\Modules\Base\Controllers\FrontendController
 		}
 	}
 }
-
-?>

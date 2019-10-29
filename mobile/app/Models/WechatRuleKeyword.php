@@ -9,5 +9,3 @@ class WechatRuleKeyword extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('rid', 'rule_keywords');
 	protected $guarded = array();
 }
-
-?>

@@ -16,5 +16,3 @@ $_LANG['remove_fail'] = '刪除失敗';
 $_LANG['title_empty'] = '文章標題不能為空！';
 $_LANG['js_languages']['no_title'] = '沒有文章標題';
 $_LANG['js_languages']['remove_confirm'] = '你確定要刪除這條記錄嗎？';
-
-?>

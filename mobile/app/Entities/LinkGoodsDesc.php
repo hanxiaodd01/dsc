@@ -75,5 +75,3 @@ class LinkGoodsDesc extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

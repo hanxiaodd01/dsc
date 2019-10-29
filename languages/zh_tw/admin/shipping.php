@@ -61,5 +61,3 @@ $_LANG['js_languages']['no_select_lable'] = '操作終止！您未選擇任何�
 $_LANG['js_languages']['no_add_repeat_lable'] = '操作失敗！不允許添加重復標簽。';
 $_LANG['js_languages']['no_select_lable_del'] = '刪除失敗！您沒有選中任何標簽。';
 $_LANG['js_languages']['recovery_default_suer'] = '您確認恢復默認嗎？恢復默認后將顯示安裝時的內容。';
-
-?>

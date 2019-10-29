@@ -308,5 +308,3 @@ if (isset($article) && 2 < $article['cat_id']) {
 else {
 	$smarty->display('article_pro.dwt', $cache_id);
 }
-
-?>

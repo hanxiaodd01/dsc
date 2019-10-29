@@ -296,5 +296,3 @@ function dump_null_string($str)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

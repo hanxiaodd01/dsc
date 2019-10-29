@@ -75,5 +75,3 @@ if ($_REQUEST['act'] == 'get_bonus') {
 
 	exit($json->encode($result));
 }
-
-?>

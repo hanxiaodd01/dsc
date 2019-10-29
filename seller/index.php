@@ -1228,5 +1228,3 @@ else if ($_REQUEST['act'] == 'upload_store_img') {
 
 	exit(json_encode($result));
 }
-
-?>

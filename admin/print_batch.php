@@ -181,5 +181,3 @@ else if ($_REQUEST['act'] == 'ajax_print') {
 		exit(json_encode($data));
 	}
 }
-
-?>

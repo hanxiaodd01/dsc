@@ -53,5 +53,3 @@ class Seo extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

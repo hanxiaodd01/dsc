@@ -32,5 +32,3 @@ class MenuRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

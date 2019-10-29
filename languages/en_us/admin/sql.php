@@ -8,5 +8,3 @@ $_LANG['note'] = 'Run the SQL query will operate the database directly, please o
 $_LANG['query'] = 'Query';
 $_LANG['no_data'] = 'Return a null value';
 $_LANG['js_languages']['sql_not_null'] = 'SQL is blank';
-
-?>

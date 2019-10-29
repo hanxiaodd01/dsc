@@ -53,5 +53,3 @@ $_LANG['page']['article_cat'] = '文章列表頁';
 $_LANG['page']['article'] = '文章頁';
 $_LANG['page']['brand'] = '品牌專區';
 $_LANG['page']['search'] = '搜索結果頁';
-
-?>

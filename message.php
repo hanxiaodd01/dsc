@@ -195,5 +195,3 @@ else if ($action == 'cat_tree_two') {
 	$result['content'] = $smarty->fetch('library/secondlevel_cat_tree2.lbi');
 	exit($json->encode($result));
 }
-
-?>

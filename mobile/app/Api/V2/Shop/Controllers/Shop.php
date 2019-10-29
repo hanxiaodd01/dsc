@@ -28,5 +28,3 @@ class Shop extends \App\Api\Foundation\Controller
 		return $this->apiReturn($list);
 	}
 }
-
-?>

@@ -100,5 +100,3 @@ $_LANG['operation_prompt_content']['gift_info'][0] = '请正确填写礼品卡�
 $_LANG['operation_prompt_content']['take_list'][0] = '商城所有的订单列表，包括平台自营和入驻商家的订单。';
 $_LANG['operation_prompt_content']['take_list'][1] = '点击订单号即可进入详情页面对订单进行操作。';
 $_LANG['operation_prompt_content']['take_list'][2] = 'Tab切换不同状态下的订单，便于分类订单。';
-
-?>

@@ -22,5 +22,3 @@ class GetLifecycleResult extends Result
 		return false;
 	}
 }
-
-?>

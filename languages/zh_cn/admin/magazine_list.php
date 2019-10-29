@@ -21,5 +21,3 @@ $_LANG['user_list'] = '全体会员';
 $_LANG['js_languages']['magazine_name_notic'] = '请输入杂志标题';
 $_LANG['operation_prompt_content']['list'][0] = '杂志可发送给不同类型的会员。';
 $_LANG['operation_prompt_content']['info'][0] = '添加杂志标题和内容，点击确定完成添加。';
-
-?>

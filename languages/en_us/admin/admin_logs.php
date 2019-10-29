@@ -20,5 +20,3 @@ $_LANG['back_list'] = 'Return to logs list.';
 $_LANG['js_languages']['select_date_value'] = 'If you will delete the log, please select date of deletion.';
 $_LANG['drop_sueeccud'] = 'Successfully!';
 $_LANG['batch_drop_success'] = 'Delete %d records successfully.';
-
-?>

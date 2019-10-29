@@ -107,6 +107,3 @@ class orderLang
 		return call_user_func_array(array(self, $method), $arguments);
 	}
 }
-
-
-?>

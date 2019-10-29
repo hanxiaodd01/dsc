@@ -32,5 +32,3 @@ class ExchangeRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

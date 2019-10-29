@@ -32,5 +32,3 @@ class ChatRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

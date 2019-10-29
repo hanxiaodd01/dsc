@@ -246,5 +246,3 @@ else if ($_REQUEST['act'] == 'edit_title') {
 		make_json_error(sprintf($_LANG['articlename_exist'], $title));
 	}
 }
-
-?>

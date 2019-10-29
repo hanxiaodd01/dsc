@@ -155,6 +155,3 @@ class Validation
 		return $type === gettype($str);
 	}
 }
-
-
-?>

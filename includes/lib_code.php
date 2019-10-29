@@ -30,5 +30,3 @@ function decrypt($str, $key = AUTH_KEY)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

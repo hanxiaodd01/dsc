@@ -1750,5 +1750,3 @@ function list_download($config = array())
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

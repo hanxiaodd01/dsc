@@ -37,5 +37,3 @@ $_LANG['option_name'] = '調查選項';
 $_LANG['vote_count'] = '投票數';
 $_LANG['option_order'] = '選項排序';
 $_LANG['option_name_empty'] = '調查選項不能為空！';
-
-?>

@@ -36,6 +36,3 @@ function get_bonus_list($num = 10, $page = 1, $status = 4)
 
 	return array('tab' => $tab, 'totalpage' => ceil($total / $num));
 }
-
-
-?>

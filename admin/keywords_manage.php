@@ -258,5 +258,3 @@ else if ($_REQUEST['act'] == 'edit_show_order') {
 		make_json_result(stripslashes($order));
 	}
 }
-
-?>

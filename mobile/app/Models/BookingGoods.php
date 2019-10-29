@@ -142,5 +142,3 @@ class BookingGoods extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

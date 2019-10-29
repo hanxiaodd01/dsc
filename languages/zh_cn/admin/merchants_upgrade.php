@@ -24,5 +24,3 @@ $_LANG['refund_grade'] = '剩余金额';
 $_LANG['apply_return'] = '升级时退回用户多余预付款';
 $_LANG['seller_upgrade_list'] = '申请记录';
 $_LANG['grade_done'] = '支付';
-
-?>

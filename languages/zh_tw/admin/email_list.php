@@ -15,5 +15,3 @@ $_LANG['batch_remove_succeed'] = '已成功刪除 %d 個E-mail地址';
 $_LANG['batch_unremove_succeed'] = '已成功確認 %d 個E-mail地址';
 $_LANG['batch_exit_succeed'] = '已成功退訂 %d 個E-mail地址';
 $_LANG['back_list'] = '返回郵件列表';
-
-?>

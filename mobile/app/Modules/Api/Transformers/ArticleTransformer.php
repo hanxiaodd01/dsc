@@ -9,6 +9,3 @@ class ArticleTransformer
 		return array('id' => $article->article_id, 'title' => $article->title);
 	}
 }
-
-
-?>

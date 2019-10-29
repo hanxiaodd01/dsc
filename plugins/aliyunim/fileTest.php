@@ -30,5 +30,3 @@ $resp = $c->execute($req);
 echo '<pre>';
 echo '<pre>';
 print_r($resp);
-
-?>

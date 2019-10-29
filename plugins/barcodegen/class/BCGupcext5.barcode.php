@@ -130,5 +130,3 @@ class BCGupcext5 extends BCGBarcode1D
 		return $text;
 	}
 }
-
-?>

@@ -72,5 +72,3 @@ class MapController extends \App\Modules\Base\Controllers\FrontendController
 		}
 	}
 }
-
-?>

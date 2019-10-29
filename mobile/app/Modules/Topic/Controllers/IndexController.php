@@ -252,5 +252,3 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 		$this->area_info = get_area_info($this->province_id);
 	}
 }
-
-?>

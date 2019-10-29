@@ -130,5 +130,3 @@ class StoreUser extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

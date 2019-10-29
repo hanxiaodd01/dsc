@@ -179,5 +179,3 @@ else if ($_REQUEST['act'] == 'batch_end') {
 	$lnk[] = array('text' => $_LANG['back_list'], 'href' => 'goods_auto.php?act=list');
 	sys_msg($_LANG['batch_end_succeed'], 0, $lnk);
 }
-
-?>

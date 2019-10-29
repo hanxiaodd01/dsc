@@ -123,5 +123,3 @@ if (($_REQUEST['act'] == 'list') || ($_REQUEST['act'] == 'download')) {
 	assign_query_info();
 	$smarty->display('visit_sold.dwt');
 }
-
-?>

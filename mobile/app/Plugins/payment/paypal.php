@@ -156,6 +156,3 @@ class paypal
 		return $nvpArray;
 	}
 }
-
-
-?>

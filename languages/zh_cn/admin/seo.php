@@ -25,5 +25,3 @@ $_LANG['operation_prompt_content']['info'][3] = '文章分类名称 {article_cla
 $_LANG['operation_prompt_content']['info'][4] = '店铺名称 {shopname}，（应用范围：店铺页）';
 $_LANG['operation_prompt_content']['info'][5] = '关键词 {key}，（应用范围：商品关键词、文章关键词、店铺关键词）';
 $_LANG['operation_prompt_content']['info'][6] = '简单描述 {description}，（应用范围：商品描述、文章网页描述、店铺关键词）';
-
-?>

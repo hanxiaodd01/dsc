@@ -2727,5 +2727,3 @@ if ($_REQUEST['act'] == 'delete_zc_history') {
 	$result['error'] = 1;
 	exit(json_encode($result));
 }
-
-?>

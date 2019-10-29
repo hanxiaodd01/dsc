@@ -4,6 +4,3 @@ namespace App\Notifications;
 
 class DrpDirectReferrals
 {}
-
-
-?>

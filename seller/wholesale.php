@@ -1208,4 +1208,3 @@ function seller_wholesale_list($ru_id)
 	}
 	return array('item' => $list, 'filter' => $filter, 'page_count' => $filter['page_count'], 'record_count' => $filter['record_count']);
 }
-?>

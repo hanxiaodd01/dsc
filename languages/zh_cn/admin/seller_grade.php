@@ -40,5 +40,3 @@ $_LANG['operation_prompt_content']['list'][0] = '平台区分商家等级有助�
 $_LANG['operation_prompt_content']['list'][1] = '对于不同等级的商家可提供不同权限的服务。';
 $_LANG['operation_prompt_content']['info'][0] = '请根据提示正确的填写商家等级信息。';
 $_LANG['operation_prompt_content']['info'][1] = '请上传合适的等级标志图片。';
-
-?>

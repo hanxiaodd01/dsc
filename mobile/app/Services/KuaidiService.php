@@ -15,6 +15,3 @@ class KuaidiService
 		return false;
 	}
 }
-
-
-?>

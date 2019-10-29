@@ -42,5 +42,3 @@ class AreaRegion extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

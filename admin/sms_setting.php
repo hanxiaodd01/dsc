@@ -13,5 +13,3 @@ if ($_REQUEST['act'] == 'step_up') {
 	assign_query_info();
 	$smarty->display('sms_step_up.dwt');
 }
-
-?>

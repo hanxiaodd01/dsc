@@ -191,6 +191,3 @@ class WxHongbao
 		return $this->configure;
 	}
 }
-
-
-?>

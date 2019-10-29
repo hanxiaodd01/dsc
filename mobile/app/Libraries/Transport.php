@@ -249,6 +249,3 @@ class Transport
 		return $crlf;
 	}
 }
-
-
-?>

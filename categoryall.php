@@ -39,5 +39,3 @@ if (!$smarty->is_cached('category_all.dwt', $cache_id)) {
 }
 
 $smarty->display('category_all.dwt', $cache_id);
-
-?>

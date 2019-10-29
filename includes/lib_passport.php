@@ -320,5 +320,3 @@ function admin_registered($adminname)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

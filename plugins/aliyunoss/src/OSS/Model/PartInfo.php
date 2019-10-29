@@ -37,6 +37,3 @@ class PartInfo
 		return $this->size;
 	}
 }
-
-
-?>

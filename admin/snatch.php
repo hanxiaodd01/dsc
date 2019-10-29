@@ -445,5 +445,3 @@ else if ($_REQUEST['act'] == 'search_products') {
 
 	make_json_result($arr);
 }
-
-?>

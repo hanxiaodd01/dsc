@@ -395,5 +395,3 @@ else if ($_REQUEST['act'] == 'del_pay') {
 	$Loaction = 'merchants_account.php?act=account_manage&act_type=detail';
 	ecs_header('Location: ' . $Loaction . "\n");
 }
-
-?>

@@ -18,6 +18,3 @@ interface GoodsRepositoryInterface
 
 	public function skuAdd();
 }
-
-
-?>

@@ -220,5 +220,3 @@ class OssClientObjectTest extends TestOssClientBase
 		$this->ossClient->putObject($this->bucket, 'oss-php-sdk-test/upload-test-object-name.txt', file_get_contents(__FILE__));
 	}
 }
-
-?>

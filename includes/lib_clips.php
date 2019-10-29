@@ -1042,5 +1042,3 @@ function get_bind_oath_info($user_id, $identity_type = 'qq')
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

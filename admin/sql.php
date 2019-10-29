@@ -105,5 +105,3 @@ if ($_REQUEST['act'] == 'query') {
 	$smarty->assign('ur_here', $_LANG['04_sql_query']);
 	$smarty->display('sql.dwt');
 }
-
-?>

@@ -5415,5 +5415,3 @@ if (!defined('__CLASS_HTML2PDF__')) {
 		}
 	}
 }
-
-?>

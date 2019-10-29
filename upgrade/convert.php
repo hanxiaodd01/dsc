@@ -463,5 +463,3 @@ else if ($step == 'start') {
 }
 
 ob_end_flush();
-
-?>

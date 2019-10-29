@@ -220,5 +220,3 @@ else if ($_REQUEST['act'] == 'query') {
 	$smarty->assign('current', 'seller_shop_slide');
 	make_json_result($smarty->fetch('seller_shop_slide.dwt'), '');
 }
-
-?>

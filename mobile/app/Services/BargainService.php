@@ -378,6 +378,3 @@ class BargainService
 		return $list;
 	}
 }
-
-
-?>

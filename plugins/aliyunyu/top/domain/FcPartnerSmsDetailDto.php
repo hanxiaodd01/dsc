@@ -35,6 +35,3 @@ class FcPartnerSmsDetailDto
 	 **/
 	public $sms_status;
 }
-
-
-?>

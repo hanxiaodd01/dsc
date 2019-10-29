@@ -8,5 +8,3 @@ class Index extends \app\api\Controller
 	{
 	}
 }
-
-?>

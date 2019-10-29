@@ -58,6 +58,3 @@ class ListPartsInfo
 		return $this->listPart;
 	}
 }
-
-
-?>

@@ -42,6 +42,3 @@ interface ShopServiceInterface
 
 	public function uploadMaterials();
 }
-
-
-?>

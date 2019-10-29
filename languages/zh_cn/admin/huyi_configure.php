@@ -56,5 +56,3 @@ $_LANG['send_time'] = '发送时机';
 $_LANG['set_sign'] = '设置签名内容';
 $_LANG['variable_attr'] = '变量属性';
 $_LANG['tutorials_bonus_list_one'] = '互亿短信配置使用说明';
-
-?>

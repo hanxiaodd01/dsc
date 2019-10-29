@@ -29,5 +29,3 @@ $_LANG['region_name_exist'] = 'The region name already exists.';
 $_LANG['parent_id_exist'] = 'You can\'t delete it, because the region contains subregions!';
 $_LANG['form_notic'] = 'View subregion';
 $_LANG['area_drop_confirm'] = 'If the default order or the user mode using the following distribution areas, where information will be displayed as empty. Are you sure you want to delete this record?';
-
-?>

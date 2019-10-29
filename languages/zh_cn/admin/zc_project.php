@@ -74,5 +74,3 @@ $_LANG['operation_prompt_content']['progress_list'][1] = '及时更新项目进�
 $_LANG['operation_prompt_content']['progress_info'][1] = '注意上传图片的尺寸，以免出错。';
 $_LANG['operation_prompt_content']['zc_list'][0] = '众筹项目相关信息列表。';
 $_LANG['operation_prompt_content']['zc_list'][1] = '可按照分类或关键字进行搜索查询。';
-
-?>

@@ -53,5 +53,3 @@ $_LANG['operation_prompt_content']['title'][0] = '商品举报主题管理。';
 $_LANG['operation_prompt_content']['title_info'][0] = '添加编辑举报主题。';
 $_LANG['operation_prompt_content']['type'][0] = '商品举报类型管理。';
 $_LANG['operation_prompt_content']['type_info'][0] = '添加/编辑举报类型。';
-
-?>

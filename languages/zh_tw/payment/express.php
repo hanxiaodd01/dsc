@@ -24,5 +24,3 @@ $_LANG['cnbb'] = '中信實業銀行';
 $_LANG['gzcb'] = '廣州商業銀行';
 $_LANG['chinapost'] = '郵政儲蓄';
 $_LANG['hxb'] = '華夏銀行';
-
-?>

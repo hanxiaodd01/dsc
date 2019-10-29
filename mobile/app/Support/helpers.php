@@ -376,6 +376,3 @@ function uaredirect($url = '')
 		redirect($url);
 	}
 }
-
-
-?>

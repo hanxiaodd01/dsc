@@ -226,5 +226,3 @@ class sms
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

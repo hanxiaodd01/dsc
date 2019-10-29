@@ -98,5 +98,3 @@ class UserBonus extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

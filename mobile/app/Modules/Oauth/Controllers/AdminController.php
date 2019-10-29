@@ -205,5 +205,3 @@ class AdminController extends \App\Modules\Base\Controllers\BackendController
 		return $modules;
 	}
 }
-
-?>

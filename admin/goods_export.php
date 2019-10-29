@@ -874,5 +874,3 @@ else if ($_REQUEST['act'] == 'act_export_taobao V4.6') {
 	header('Content-Type: application/unknown');
 	exit($zip->file());
 }
-
-?>

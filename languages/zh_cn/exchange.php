@@ -99,5 +99,3 @@ $_LANG['js_languages']['most_exchange'] = "您最多可积分兑换";
 $_LANG['js_languages']['Piece_goods'] = "件商品";
 $_LANG['js_languages']['exchange_error_one'] = "对不起，您现有的积分值不够兑换本商品！";
 $_LANG['is_shipping_area'] = "[ 暂不支持配送 ]";
-
-?>

@@ -81,5 +81,3 @@ $smarty->assign('warehouse_id', $region_id);
 $smarty->assign('area_id', $area_id);
 $smarty->assign('nav_page', $nav_page);
 $smarty->display('topic.dwt');
-
-?>

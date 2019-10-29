@@ -8,5 +8,3 @@ $_LANG['upop_account'] = 'UnionPay accounts';
 $_LANG['upop_security_key'] = 'Verification code for safe dealings';
 $_LANG['upop_button'] = 'UnionPay payment immediately.';
 $_LANG['upop_txn_id'] = 'Bank transaction number';
-
-?>

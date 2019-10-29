@@ -130,6 +130,3 @@ class TenpayHttpClient
 		return $this->responseCode;
 	}
 }
-
-
-?>

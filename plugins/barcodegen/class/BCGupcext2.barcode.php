@@ -84,5 +84,3 @@ class BCGupcext2 extends BCGBarcode1D
 		return $text;
 	}
 }
-
-?>

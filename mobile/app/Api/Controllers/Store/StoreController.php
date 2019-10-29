@@ -22,5 +22,3 @@ class StoreController extends \App\Api\Controllers\Controller
 		return $this->store->detail($request->get('id'));
 	}
 }
-
-?>

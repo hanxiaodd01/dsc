@@ -293,6 +293,3 @@ function insert_vote()
 	$val = $GLOBALS['smarty']->fetch('library/vote.lbi');
 	return $val;
 }
-
-
-?>

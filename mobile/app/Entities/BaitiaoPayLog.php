@@ -108,5 +108,3 @@ class BaitiaoPayLog extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

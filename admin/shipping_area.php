@@ -468,5 +468,3 @@ else {
 		exit($json->encode($data));
 	}
 }
-
-?>

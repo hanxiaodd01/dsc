@@ -160,5 +160,3 @@ else if ($_REQUEST['act'] == 'toggle_showprice') {
 		make_json_error($db->error());
 	}
 }
-
-?>

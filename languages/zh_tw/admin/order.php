@@ -324,5 +324,3 @@ $_LANG['return_time'] = '退貨時間：';
 $_LANG['label_return_time'] = '退貨時間';
 $_LANG['tips_back_del'] = '退貨單刪除成功！';
 $_LANG['goods_num_err'] = '庫存不足，請重新選擇！';
-
-?>

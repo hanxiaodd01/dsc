@@ -3809,6 +3809,3 @@ class ErrorCode
 		}
 	}
 }
-
-
-?>

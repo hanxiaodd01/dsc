@@ -23,5 +23,3 @@ class SmsDriver implements SendInterface
 		return $this->sms->getError();
 	}
 }
-
-?>

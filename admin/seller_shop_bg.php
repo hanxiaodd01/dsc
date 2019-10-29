@@ -69,5 +69,3 @@ else if ($_REQUEST['act'] == 'second') {
 		sys_msg($_LANG['update_store_bg_success'], 0, $lnk);
 	}
 }
-
-?>

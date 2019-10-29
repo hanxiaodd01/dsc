@@ -185,5 +185,3 @@ $smarty->assign('categories_pro', $categories_pro);
 $smarty->assign('helps', get_shop_help());
 assign_dynamic('compare');
 $smarty->display('category_compare.dwt');
-
-?>

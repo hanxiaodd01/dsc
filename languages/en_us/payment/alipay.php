@@ -12,5 +12,3 @@ $_LANG['alipay_pay_method_desc'] = 'Please select your last payment of Po with t
 $_LANG['alipay_pay_method_range'][0] = 'Using a standard dual-interface';
 $_LANG['alipay_pay_method_range'][1] = 'The use of secured transactions interface';
 $_LANG['alipay_pay_method_range'][2] = 'The use of real-time interface transactions arrive';
-
-?>

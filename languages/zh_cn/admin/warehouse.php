@@ -103,5 +103,3 @@ $_LANG['delet_tpl_id_2'] = '的模板吗？';
 $_LANG['label_express_deliver'] = '物流配送：';
 $_LANG['label_start_send_area'] = '始发地：';
 $_LANG['label_terminus_ad_quem'] = '到达目的地：';
-
-?>

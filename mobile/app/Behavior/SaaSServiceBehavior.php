@@ -42,6 +42,3 @@ class SaaSServiceBehavior
 		define('APP_DEMAND_PATH', $demand_path);
 	}
 }
-
-
-?>

@@ -35,6 +35,3 @@ class AccountRepository
 		\App\Models\Users::where('user_id', $user_id)->update($params);
 	}
 }
-
-
-?>

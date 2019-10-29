@@ -76,5 +76,3 @@ $Config['FileTypesPath']['Media'] = $Config['UserFilesPath'] . 'Media/';
 $Config['FileTypesAbsolutePath']['Media'] = $Config['UserFilesAbsolutePath'] == '' ? '' : $Config['UserFilesAbsolutePath'] . 'Media/';
 $Config['QuickUploadPath']['Media'] = $Config['UserFilesPath'] . 'Media/';
 $Config['QuickUploadAbsolutePath']['Media'] = $Config['UserFilesAbsolutePath'] . 'Media/';
-
-?>

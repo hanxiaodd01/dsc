@@ -40,5 +40,3 @@ $_LANG['operation_prompt_content']['list'][0] = '该页面展示了所有客服�
 $_LANG['operation_prompt_content']['list'][1] = '可删除、编辑客服。';
 $_LANG['operation_prompt_content']['dialog_list'][0] = '该页面展示了统计聊天的信息。';
 $_LANG['operation_prompt_content']['info'][0] = '客服隶属于管理员下级的角色，请注意勾选管理员。';
-
-?>

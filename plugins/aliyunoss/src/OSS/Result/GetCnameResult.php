@@ -22,5 +22,3 @@ class GetCnameResult extends Result
 		return false;
 	}
 }
-
-?>

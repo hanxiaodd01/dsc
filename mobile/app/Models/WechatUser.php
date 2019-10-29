@@ -263,5 +263,3 @@ class WechatUser extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

@@ -303,5 +303,3 @@ class attribute extends \app\model\attributeModel
 		return \app\model\attributeModel::get_delete($this->table, $this->where, $this->format);
 	}
 }
-
-?>

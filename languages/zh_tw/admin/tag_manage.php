@@ -20,5 +20,3 @@ $_LANG['drop_success'] = '您已經成功的刪除了 %d 個標籤';
 $_LANG['back_list'] = '返回標籤列表';
 $_LANG['drop_confirm'] = '您確定要刪除這條記錄嗎?';
 $_LANG['js_languages']['tag_name_not_empty'] = '標籤名稱不能為空！';
-
-?>

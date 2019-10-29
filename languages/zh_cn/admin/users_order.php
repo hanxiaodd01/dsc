@@ -9,5 +9,3 @@ $_LANG['user_orderinfo_2'] = '订单数(单位:个)';
 $_LANG['user_orderinfo_3'] = '购物金额';
 $_LANG['operation_prompt_content']['list'][0] = '搜索某个时间段的会员消费统计排行榜。';
 $_LANG['operation_prompt_content']['list'][1] = '统计的订单都是会员确认收货后的订单。';
-
-?>

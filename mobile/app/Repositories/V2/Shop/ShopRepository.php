@@ -32,5 +32,3 @@ class ShopRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

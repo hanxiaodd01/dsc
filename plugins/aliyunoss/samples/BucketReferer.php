@@ -75,5 +75,3 @@ putBucketReferer($ossClient, $bucket);
 getBucketReferer($ossClient, $bucket);
 deleteBucketReferer($ossClient, $bucket);
 getBucketReferer($ossClient, $bucket);
-
-?>

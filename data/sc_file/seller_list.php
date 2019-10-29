@@ -129,4 +129,3 @@ $data = array (
     'bill_time' => NULL,
   ),
 );
-?>

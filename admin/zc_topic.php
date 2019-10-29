@@ -166,5 +166,3 @@ else if ($_REQUEST['act'] == 'batch') {
 		sys_msg($_LANG['no_select_topic'], 0, $link);
 	}
 }
-
-?>

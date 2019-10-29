@@ -18,5 +18,3 @@ $_LANG['store_integral_detail'] = '商家积分明细';
 $_LANG['operation_prompt_content']['list'][0] = '统计所有商家总赠送消费积分、总赠送等级积分。';
 $_LANG['operation_prompt_content']['info'][0] = '该页面展示了商家商品有积分的商品。';
 $_LANG['operation_prompt_content']['order'][0] = '该页面展示了订单商品赠送的积分列表。';
-
-?>

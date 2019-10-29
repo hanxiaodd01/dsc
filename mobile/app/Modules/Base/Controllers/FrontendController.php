@@ -362,5 +362,3 @@ abstract class FrontendController extends FoundationController
 		return $data;
 	}
 }
-
-?>

@@ -191,5 +191,3 @@ $sql = 'select kf_qq, kf_ww, kf_type, kf_tel from ' . $GLOBALS['ecs']->table('se
 $basic_info = $GLOBALS['db']->getRow($sql);
 $GLOBALS['smarty']->assign('basic_info', $basic_info);
 $GLOBALS['smarty']->assign('user_id', $_SESSION['user_id']);
-
-?>

@@ -198,5 +198,3 @@ class DRPModuleSeeder extends \Illuminate\Database\Seeder
 		}
 	}
 }
-
-?>

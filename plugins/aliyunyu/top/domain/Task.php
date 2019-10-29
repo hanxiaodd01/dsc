@@ -37,6 +37,3 @@ class Task
 	 **/
 	public $task_id;
 }
-
-
-?>

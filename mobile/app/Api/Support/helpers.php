@@ -457,5 +457,3 @@ if (!function_exists('local_date()')) {
 		return date($format, $time);
 	}
 }
-
-?>

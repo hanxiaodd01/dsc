@@ -46,5 +46,3 @@ class ResultTest extends \PHPUnit_Framework_TestCase
 	{
 	}
 }
-
-?>

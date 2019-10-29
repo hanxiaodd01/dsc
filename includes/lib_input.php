@@ -180,6 +180,3 @@ function array_map_recursive($filter, $data)
 
 	return $result;
 }
-
-
-?>

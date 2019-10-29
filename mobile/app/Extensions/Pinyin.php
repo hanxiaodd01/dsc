@@ -10,6 +10,3 @@ class Pinyin
 		return $pinyin->convert($str);
 	}
 }
-
-
-?>

@@ -44,5 +44,3 @@ $_LANG['operation_prompt_content']['list'][0] = '该页面展示所有会员预�
 $_LANG['operation_prompt_content']['list'][1] = '可编辑或删除会员收货地址。';
 $_LANG['operation_prompt_content']['list'][2] = '可以输入会员名称关键字进行搜索，侧边栏可进行高级搜索。';
 $_LANG['operation_prompt_content']['info'][0] = '请慎重编辑会员的收货地址。';
-
-?>

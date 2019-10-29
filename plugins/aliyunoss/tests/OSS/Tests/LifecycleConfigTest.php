@@ -92,5 +92,3 @@ class LifecycleConfigTest extends \PHPUnit_Framework_TestCase
 		return str_replace("\n", '', str_replace("\r", '', $xml));
 	}
 }
-
-?>

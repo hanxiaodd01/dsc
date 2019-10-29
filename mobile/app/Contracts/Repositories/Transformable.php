@@ -6,6 +6,3 @@ interface Transformable
 {
 	public function transform();
 }
-
-
-?>

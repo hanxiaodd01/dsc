@@ -635,5 +635,3 @@ else if ($_REQUEST['act'] == 'update_home_temp') {
 
 	exit(json_encode($result));
 }
-
-?>

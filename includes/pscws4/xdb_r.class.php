@@ -173,5 +173,3 @@ class XDB_R
 define('XDB_VERSION', 34);
 define('XDB_TAGNAME', 'XDB');
 define('XDB_MAXKLEN', 240);
-
-?>

@@ -392,5 +392,3 @@ else if ($_REQUEST['act'] == 'user_default') {
 	$GLOBALS['db']->query($sql);
 	make_json_result('', $_LANG['default_template_set_success']);
 }
-
-?>

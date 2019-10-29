@@ -30,5 +30,3 @@ $_LANG['search_placeholder'] = '会员名称/昵称/手机号/邮箱';
 $_LANG['operation_prompt_content']['sales_volume'][0] = '有效订单：所选时间段内除无效订单状态下的所有订单总数。';
 $_LANG['operation_prompt_content']['sales_volume'][1] = '统计所选时间段内有效订单数量走势。';
 $_LANG['operation_prompt_content']['sales_money'][0] = '统计所选时间段内实际付款金额走势。';
-
-?>

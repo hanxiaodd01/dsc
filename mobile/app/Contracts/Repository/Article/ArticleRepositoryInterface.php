@@ -14,6 +14,3 @@ interface ArticleRepositoryInterface
 
 	public function delete($id);
 }
-
-
-?>

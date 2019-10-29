@@ -26,5 +26,3 @@ foreach ($region as $k => $v) {
 
 $json = new JSON();
 echo $json->encode($value);
-
-?>

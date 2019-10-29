@@ -50,5 +50,3 @@ function setSync(){
 </script>
 </body>
 </html>';
-
-?>

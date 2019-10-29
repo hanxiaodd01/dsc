@@ -26,5 +26,3 @@ $_LANG['magic_string']      = '自定义签名';
 $_LANG['pay_button']        = '立即使用财付通支付';
 $_LANG['account_voucher']   = '会员帐户充值';
 $_LANG['shop_order_sn']     = '商城订单号';
-
-?>

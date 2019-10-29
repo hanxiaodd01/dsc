@@ -43,5 +43,3 @@ class OrderInvoice extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

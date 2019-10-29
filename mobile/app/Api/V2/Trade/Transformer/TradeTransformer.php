@@ -9,5 +9,3 @@ class TradeTransformer extends \App\Api\Foundation\Transformer
 		return array();
 	}
 }
-
-?>

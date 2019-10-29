@@ -165,5 +165,3 @@ if ($_REQUEST['act'] == 'batch_drop') {
 		}
 	}
 }
-
-?>

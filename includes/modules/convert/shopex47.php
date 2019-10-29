@@ -701,5 +701,3 @@ if (isset($set_modules) && ($set_modules == true)) {
 	$modules[$i]['author'] = 'ECSHOP R&D TEAM';
 	return NULL;
 }
-
-?>

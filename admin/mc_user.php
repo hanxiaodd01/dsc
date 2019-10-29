@@ -73,5 +73,3 @@ else {
 	$smarty->assign('ur_here', $_LANG['batch_add_user']);
 	$smarty->display('mc_user.dwt');
 }
-
-?>

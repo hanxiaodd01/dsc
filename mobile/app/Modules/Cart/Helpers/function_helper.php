@@ -605,6 +605,3 @@ function cart_favourable_box($favourable_id, $act_sel_id = array())
 
 	return $favourable_box;
 }
-
-
-?>

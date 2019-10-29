@@ -2286,6 +2286,3 @@ function wholesale_order_weight_price($order_id)
 	$row['formated_weight'] = formated_weight($row['weight']);
 	return $row;
 }
-
-
-?>

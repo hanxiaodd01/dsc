@@ -134,5 +134,3 @@ class BCGcode11 extends BCGBarcode1D
 		return $length;
 	}
 }
-
-?>

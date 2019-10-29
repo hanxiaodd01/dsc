@@ -64,6 +64,3 @@ class HTML2PDF_locale
 		return isset(self::$_list[$key]) ? self::$_list[$key] : $default;
 	}
 }
-
-
-?>

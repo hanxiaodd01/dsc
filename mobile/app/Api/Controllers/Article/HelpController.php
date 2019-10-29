@@ -41,5 +41,3 @@ class HelpController extends \App\Api\Controllers\Controller
 		return $help;
 	}
 }
-
-?>

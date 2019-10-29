@@ -882,5 +882,3 @@ else if ($_REQUEST['act'] == 'pay_order') {
 
 	exit($json->encode($result));
 }
-
-?>

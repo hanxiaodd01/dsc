@@ -12,5 +12,3 @@ $diff = '';
 $file = 'dejavusanscondensedb.z';
 $ctg = 'dejavusanscondensedb.ctg.z';
 $originalsize = 534464;
-
-?>

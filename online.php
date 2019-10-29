@@ -93,5 +93,3 @@ if ($_REQUEST['act'] == 'history') {
 	$goods = goods_info($itemId);
 	echo "    {\r\n    \"code\": \"200\",\r\n    \"desc\": \"powered by 大商创\",\r\n    \"itemDetail\": [\r\n            {\r\n                \"userid\": \"" . $request['userid'] . "\",\r\n                \"itemid\": \"" . $itemId . "\",\r\n                \"itemname\": \"" . $goods['goods_name'] . "\",\r\n                \"itempic\": \"" . $url . $goods['goods_thumb'] . "\",\r\n                \"itemprice\": \"" . $goods['shop_price'] . "\",\r\n                \"itemurl\": \"" . $current_url . "\",\r\n                \"extra\": {}\r\n            }\r\n        ]\r\n    }";
 }
-
-?>

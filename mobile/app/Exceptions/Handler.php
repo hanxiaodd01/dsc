@@ -21,5 +21,3 @@ class Handler extends \Laravel\Lumen\Exceptions\Handler
 		return parent::render($request, $e);
 	}
 }
-
-?>

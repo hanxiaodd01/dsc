@@ -19,5 +19,3 @@ class ListBucketsResult extends Result
 		return new \OSS\Model\BucketListInfo($bucketList);
 	}
 }
-
-?>

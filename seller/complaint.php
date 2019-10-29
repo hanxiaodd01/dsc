@@ -239,5 +239,3 @@ else if ($_REQUEST['act'] == 'talk_release') {
 	$result['content'] = $smarty->fetch('library/talk_list.lbi');
 	exit($json->encode($result));
 }
-
-?>

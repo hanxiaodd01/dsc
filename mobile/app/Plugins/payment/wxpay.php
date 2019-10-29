@@ -364,5 +364,3 @@ class wxpay
 }
 
 defined('IN_ECTOUCH') || exit('Deny Access');
-
-?>

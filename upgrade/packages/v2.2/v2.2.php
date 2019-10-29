@@ -349,6 +349,3 @@ ADD `bill_time` INT( 10 ) UNSIGNED NOT NULL DEFAULT \'0\' AFTER `day_number` ;';
 		}
 	}
 }
-
-
-?>

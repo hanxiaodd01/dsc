@@ -153,5 +153,3 @@ default:
 	exit(json_encode($results));
 	break;
 }
-
-?>

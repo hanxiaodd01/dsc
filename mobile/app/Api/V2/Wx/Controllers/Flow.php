@@ -30,5 +30,3 @@ class Flow extends \app\api\foundation\Controller
 		return $this->apiReturn($res);
 	}
 }
-
-?>

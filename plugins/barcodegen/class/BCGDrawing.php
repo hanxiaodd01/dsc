@@ -173,5 +173,3 @@ include_once 'BCGColor.php';
 include_once 'BCGDrawException.php';
 include_once 'drawer/BCGDrawJPG.php';
 include_once 'drawer/BCGDrawPNG.php';
-
-?>

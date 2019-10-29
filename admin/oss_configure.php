@@ -195,5 +195,3 @@ else {
 		sys_msg(sprintf($_LANG['remove_success'], $bucket), 0, $link);
 	}
 }
-
-?>

@@ -164,5 +164,3 @@ class GoodsReport extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

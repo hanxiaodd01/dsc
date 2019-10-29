@@ -29,5 +29,3 @@ $_LANG['operation_prompt_content']['info'][0] = '请按提示信息填写每一�
 $_LANG['operation_prompt_content']['list'][0] = '展示了平台商品库的所有分类。';
 $_LANG['operation_prompt_content']['list'][1] = '可在列表直接增加下一级分类。';
 $_LANG['operation_prompt_content']['list'][2] = '鼠标移动“设置”位置，可新增、查看下一级分类。';
-
-?>

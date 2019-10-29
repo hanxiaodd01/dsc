@@ -193,5 +193,3 @@ class shipping extends \app\model\shippingModel
 		return \app\model\shippingModel::get_delete($this->table, $this->where, $this->format);
 	}
 }
-
-?>

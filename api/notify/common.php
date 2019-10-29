@@ -22,5 +22,3 @@ else {
 		$msg = $_LANG['pay_not_exist'];
 	}
 }
-
-?>

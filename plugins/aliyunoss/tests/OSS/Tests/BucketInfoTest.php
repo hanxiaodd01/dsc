@@ -13,5 +13,3 @@ class BucketInfoTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals('today', $bucketInfo->getCreateDate());
 	}
 }
-
-?>

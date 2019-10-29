@@ -10,5 +10,3 @@ $_LANG['pay_button'] = 'Pay in Tenpay immediately';
 $_LANG['account_voucher'] = 'Member Account recharge';
 $_LANG['shop_order_sn'] = 'Mall order number';
 $_LANG['penpay_register'] = '<a href=\'http://cloud.ecshop.com/payment_apply.php?mod=tenpay&par=1202822001\' target="_blank">Application: single immediately free rate:1%</a>';
-
-?>

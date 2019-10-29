@@ -55,5 +55,3 @@ $_LANG['label_deliver_status'] = '发货状态：';
 $_LANG['label_goods_sn'] = '商品货号：';
 $_LANG['accord_deliver_time'] = '按发货时间';
 $_LANG['accord_order_time'] = '按下单时间';
-
-?>

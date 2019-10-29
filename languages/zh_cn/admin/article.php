@@ -61,5 +61,3 @@ $_LANG['delete_upload_file_success'] = '删除上传文件成功！';
 $_LANG['operation_prompt_content'][0] = '该页面展示所有分类下的文章。';
 $_LANG['operation_prompt_content'][1] = '可通过搜索文章标题进行搜索，侧边栏可进行高级搜索。';
 $_LANG['operation_prompt_content']['info'][0] = '请注意选择文章分类；请严谨描述文章内容。';
-
-?>

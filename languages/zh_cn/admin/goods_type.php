@@ -54,5 +54,3 @@ $_LANG['operation_prompt_content']['list'][1] = '每个商品类型下管理不�
 $_LANG['operation_prompt_content']['list'][2] = '可以对商品类型进行编辑和删除操作。';
 $_LANG['operation_prompt_content']['info'][0] = '请合理创建商品类型名称。';
 $_LANG['operation_prompt_content']['cat_info'][0] = '请合理创建商品类型分类名称。';
-
-?>

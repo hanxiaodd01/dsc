@@ -26,5 +26,3 @@ $_LANG['use'] = "使用";
 $_LANG['already_received'] = "已领取";
 $_LANG['have_finished'] = "已领完";
 $_LANG['receive'] = "领取";
-
-?>

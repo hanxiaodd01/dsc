@@ -626,5 +626,3 @@ if (3 <= count($arg)) {
 else {
 	print("Usage: makefont.php <ttf/otf/pfb file> <afm/ufm file> <encoding> <patch>\n");
 }
-
-?>

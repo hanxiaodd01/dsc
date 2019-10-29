@@ -7,5 +7,3 @@ class BCGDrawException extends Exception
 		parent::__construct($message, 30000);
 	}
 }
-
-?>

@@ -76,5 +76,3 @@ class OrderDelayed extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

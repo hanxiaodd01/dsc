@@ -199,5 +199,3 @@ else {
 		sys_msg($_LANG['log_account_change_ok'], 0, $links);
 	}
 }
-
-?>

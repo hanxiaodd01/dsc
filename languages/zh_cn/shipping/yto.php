@@ -126,5 +126,3 @@ $_LANG['shipping_print'] = '<table border="0" cellspacing="0" cellpadding="0" st
     </td>
   </tr>
 </table>';
-
-?>

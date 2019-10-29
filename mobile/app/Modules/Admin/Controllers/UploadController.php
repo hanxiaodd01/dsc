@@ -236,5 +236,3 @@ class UploadController extends \App\Modules\Base\Controllers\BackendController
 		return $files;
 	}
 }
-
-?>

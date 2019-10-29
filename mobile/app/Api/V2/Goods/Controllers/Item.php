@@ -20,5 +20,3 @@ class Goods extends \app\api\Controller
 	{
 	}
 }
-
-?>

@@ -669,5 +669,3 @@ class cls_mysql
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

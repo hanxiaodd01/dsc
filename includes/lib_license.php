@@ -189,5 +189,3 @@ function license_reg($certi_added = '')
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

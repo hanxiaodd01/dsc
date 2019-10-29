@@ -9,5 +9,3 @@ class BrandTransformer extends \App\Api\Foundation\Transformer
 		return array();
 	}
 }
-
-?>

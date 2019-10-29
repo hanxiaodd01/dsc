@@ -207,5 +207,3 @@ else if ($_REQUEST['act'] == 'remove') {
 	$link[] = array('text' => $_LANG['go_back'], 'href' => 'user_address_log.php?act=list');
 	sys_msg($_LANG['remove_success'], 0, $link);
 }
-
-?>

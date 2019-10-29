@@ -1077,6 +1077,3 @@ function get_goods_cause($goods_cause, $chargeoff_status = -1, $is_settlement = 
 
 	return $arr;
 }
-
-
-?>

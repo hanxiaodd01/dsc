@@ -79,6 +79,3 @@ class ListMultipartUploadInfo
 		return $this->uploads;
 	}
 }
-
-
-?>

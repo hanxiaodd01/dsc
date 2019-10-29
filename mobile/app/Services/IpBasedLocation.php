@@ -117,6 +117,3 @@ class IpBasedLocation
 		return $region;
 	}
 }
-
-
-?>

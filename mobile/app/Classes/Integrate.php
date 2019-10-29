@@ -496,6 +496,3 @@ class Integrate
 		return $user_list;
 	}
 }
-
-
-?>

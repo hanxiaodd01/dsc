@@ -47,6 +47,3 @@ class template
 		echo $this->fetch($file);
 	}
 }
-
-
-?>

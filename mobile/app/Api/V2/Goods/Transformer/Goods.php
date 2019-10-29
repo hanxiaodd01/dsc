@@ -9,5 +9,3 @@ class Goods extends \app\api\foundation\Transformer
 		return array();
 	}
 }
-
-?>

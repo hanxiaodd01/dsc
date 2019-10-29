@@ -19,6 +19,3 @@ class Result
 	 **/
 	public $success;
 }
-
-
-?>

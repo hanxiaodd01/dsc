@@ -34,6 +34,3 @@ class ResponseCore
 		return $this->status === $codes;
 	}
 }
-
-
-?>

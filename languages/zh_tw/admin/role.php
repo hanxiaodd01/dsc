@@ -65,5 +65,3 @@ $_LANG['label_captcha'] = '驗證碼：';
 $_LANG['click_for_another'] = '看不清？點擊更換另一個驗證碼。';
 $_LANG['signin_now'] = '進入管理中心';
 $_LANG['remember'] = '請保存我這次的登錄信息。';
-
-?>

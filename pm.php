@@ -6,5 +6,3 @@ if (empty($_SESSION['user_id']) || $_CFG['integrate_code'] == 'dscmall') {
 }
 
 uc_call('uc_pm_location', array($_SESSION['user_id']));
-
-?>

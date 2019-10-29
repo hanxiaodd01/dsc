@@ -27,5 +27,3 @@ $_LANG['continue_add_agency'] = 'Continue to add new offices';
 $_LANG['back_agency_list'] = 'Back office list';
 $_LANG['js_languages']['region_exists'] = 'Already exists in the region';
 $_LANG['js_languages']['no_agencyname'] = 'Names of their offices have not completed';
-
-?>

@@ -272,5 +272,3 @@ if (!defined('WEBSITE')) {
 		}
 	}
 }
-
-?>

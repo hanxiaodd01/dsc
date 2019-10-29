@@ -1353,5 +1353,3 @@ $cat_list = cat_list($cat_id, 1, 0, 'merchants_category', array(), 0, $merchant_
 $smarty->assign('cat_store_list', $cat_list);
 $smarty->assign('filename', 'merchants_store');
 $smarty->display($dwt, $cache_id, $not);
-
-?>

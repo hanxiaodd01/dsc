@@ -85,5 +85,3 @@ class ArticleController extends \App\Modules\Api\Foundation\Controller
 		return $this->resp($data);
 	}
 }
-
-?>

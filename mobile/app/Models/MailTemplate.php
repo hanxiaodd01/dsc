@@ -10,5 +10,3 @@ class MailTemplate extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('template_code', 'is_html', 'template_subject', 'template_content', 'last_modify', 'last_send', 'type');
 	protected $guarded = array();
 }
-
-?>

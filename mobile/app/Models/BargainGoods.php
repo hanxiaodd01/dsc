@@ -185,5 +185,3 @@ class BargainGoods extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

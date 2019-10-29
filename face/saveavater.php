@@ -23,5 +23,3 @@ default:
 }
 
 print(json_encode($rs));
-
-?>

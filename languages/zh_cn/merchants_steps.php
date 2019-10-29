@@ -143,5 +143,3 @@ $_LANG['belong_region'] = "入驻地区";
 $_LANG['review_progress'] = "审核进度";
 $_LANG['reapply'] = "重新申请";
 $_LANG['merchant_login'] = "商家登录";
-
-?>

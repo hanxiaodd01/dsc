@@ -89,6 +89,3 @@ class Dscsms
 		unset($this->sms);
 	}
 }
-
-
-?>

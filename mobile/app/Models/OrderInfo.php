@@ -1055,5 +1055,3 @@ class OrderInfo extends \Illuminate\Database\Eloquent\Model
 		return $this->hasOne('App\\Models\\OrderGoods', 'order_id', 'order_id');
 	}
 }
-
-?>

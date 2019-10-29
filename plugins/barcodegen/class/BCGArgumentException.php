@@ -10,5 +10,3 @@ class BCGArgumentException extends Exception
 		parent::__construct($message, 20000);
 	}
 }
-
-?>

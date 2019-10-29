@@ -127,5 +127,3 @@ class BCGisbn extends BCGean13
 		return $isbn;
 	}
 }
-
-?>

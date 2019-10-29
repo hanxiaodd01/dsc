@@ -109,5 +109,3 @@ if (!$smarty->is_cached('merchants_shop.dwt', $cache_id)) {
 }
 
 $smarty->display('merchants_shop.dwt', $cache_id);
-
-?>

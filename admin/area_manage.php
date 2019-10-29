@@ -282,5 +282,3 @@ else if ($_REQUEST['act'] == 'drop_area') {
 		make_json_error($db->error());
 	}
 }
-
-?>

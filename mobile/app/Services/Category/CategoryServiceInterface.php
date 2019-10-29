@@ -16,6 +16,3 @@ interface CategoryServiceInterface
 
 	public function category();
 }
-
-
-?>

@@ -34,5 +34,3 @@ if (!function_exists('json_decode')) {
 		return $json->decode($json, $um);
 	}
 }
-
-?>

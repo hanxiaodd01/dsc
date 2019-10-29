@@ -43,5 +43,3 @@ class MemberPrice extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

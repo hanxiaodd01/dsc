@@ -9,5 +9,3 @@ class CategoryTransformer extends \App\Api\Foundation\Transformer
 		return array();
 	}
 }
-
-?>

@@ -103,5 +103,3 @@ class ecjia extends ucenter
 		return 'ecjiauc';
 	}
 }
-
-?>

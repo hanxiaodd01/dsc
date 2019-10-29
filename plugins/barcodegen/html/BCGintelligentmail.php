@@ -32,5 +32,3 @@ foreach ($characters as $character) {
 
 echo "</div>\r\n\r\n<div id=\"explanation\">\r\n    <h3>Explanation</h3>\r\n    <ul>\r\n        <li>Used to encode enveloppe in USA.</li>\r\n        <li>\r\n            You can provide\r\n            <br />5 digits (ZIP Code)\r\n            <br />9 digits (ZIP+4 code)\r\n            <br />11 digits (ZIP+4 code+2 digits)\r\n        </li>\r\n        <li>Contains a barcode identifier, service type identifier, mailer id and serial number.</li>\r\n    </ul>\r\n</div>\r\n\r\n<script>\r\n(function(\$) {\r\n    \"use strict\";\r\n\r\n    \$(function() {\r\n        var thickness = \$(\"#thickness\")\r\n            .val(9)\r\n            .removeAttr(\"min step\")\r\n            .prop(\"disabled\", true);\r\n\r\n        \$(\"form\").on(\"submit\", function() {\r\n            thickness.prop(\"disabled\", false);\r\n        });\r\n    });\r\n})(jQuery);\r\n</script>\r\n\r\n";
 include 'include/footer.php';
-
-?>

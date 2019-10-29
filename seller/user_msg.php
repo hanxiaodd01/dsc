@@ -267,5 +267,3 @@ else if ($_REQUEST['act'] == 'drop_file') {
 	ecs_header('Location: user_msg.php?act=view&amp;id=' . $_GET['id'] . "\n");
 	exit();
 }
-
-?>

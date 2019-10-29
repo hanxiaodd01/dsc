@@ -22,5 +22,3 @@ class AclResult extends Result
 		}
 	}
 }
-
-?>

@@ -1148,6 +1148,3 @@ function get_seller_domain_url($ru_id = 0, $build_uri = array())
 
 	return $res;
 }
-
-
-?>

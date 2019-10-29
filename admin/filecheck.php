@@ -141,5 +141,3 @@ else if ($step == 3) {
 	assign_query_info();
 	$smarty->display('filecheck.htm');
 }
-
-?>

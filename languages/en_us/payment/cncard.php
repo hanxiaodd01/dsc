@@ -74,5 +74,3 @@ $_LANG['c_paygate_range'][5] = 'Guangzhou Rural Credit Cooperatives (Canton)';
 $_LANG['c_paygate_range'][5] = 'Shanghai Pudong Development Bank (Canton)';
 $_LANG['account_voucher'] = 'Member Account recharge';
 $_LANG['shop_order_sn'] = 'Mall order number';
-
-?>

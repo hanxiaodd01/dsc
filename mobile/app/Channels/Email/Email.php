@@ -107,5 +107,3 @@ class Email
 
 require_once __DIR__ . '/phpmailer/class.phpmailer.php';
 require_once __DIR__ . '/phpmailer/class.smtp.php';
-
-?>

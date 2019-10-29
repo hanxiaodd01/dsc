@@ -54,5 +54,3 @@ class WholesaleExtend extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

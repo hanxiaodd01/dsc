@@ -9,5 +9,3 @@ class ShopTransformer extends \App\Api\Foundation\Transformer
 		return array('id' => $map['article_id'], 'title' => $map['title']);
 	}
 }
-
-?>

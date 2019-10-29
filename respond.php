@@ -62,5 +62,3 @@ if (defined('THEME_EXTENSION')) {
 $smarty->assign('message', $msg);
 $smarty->assign('shop_url', $ecs->url());
 $smarty->display('respond.dwt');
-
-?>

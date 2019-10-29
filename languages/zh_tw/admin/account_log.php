@@ -26,5 +26,3 @@ $_LANG['js_languages']['user_money_not_number'] = '可用資金不是數值';
 $_LANG['js_languages']['frozen_money_not_number'] = '凍結資金不是數值';
 $_LANG['js_languages']['rank_points_not_int'] = '等級積分不是整數';
 $_LANG['js_languages']['pay_points_not_int'] = '消費積分不是整數';
-
-?>

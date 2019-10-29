@@ -31,5 +31,3 @@ $_LANG['message_type'][4] = 'All readed messages';
 $_LANG['drop_msg'] = 'Delete selected';
 $_LANG['batch_drop_success'] = 'Delete %d records successfully!';
 $_LANG['no_select_msg'] = 'You have no message now.';
-
-?>

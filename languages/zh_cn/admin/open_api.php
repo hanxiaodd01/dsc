@@ -19,5 +19,3 @@ $_LANG['tutorials_bonus_list_one'] = '开放接口配置';
 $_LANG['operation_prompt_content']['info'][0] = '设置商城对外接口配置的信息。';
 $_LANG['operation_prompt_content']['list'][0] = '该页面展示商城对外接口配置的列表信息。';
 $_LANG['operation_prompt_content']['list'][1] = '可以直接在列表页面进行编辑和删除。';
-
-?>

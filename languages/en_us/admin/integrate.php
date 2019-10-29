@@ -154,5 +154,3 @@ $_LANG['uc_lang']['credits'][0][1] = '';
 $_LANG['uc_lang']['credits'][1][0] = 'Consumption points';
 $_LANG['uc_lang']['credits'][1][1] = '';
 $_LANG['uc_lang']['exchange'] = 'UCenterRedeem';
-
-?>

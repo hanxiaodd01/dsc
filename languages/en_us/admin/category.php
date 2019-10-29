@@ -60,5 +60,3 @@ $_LANG['js_languages']['is_leafcat'] = 'You selected category is a bottom class 
 $_LANG['js_languages']['not_leafcat'] = ' You selected category isn\\\'t a bottom class category. \\nThe category of product transfer can just be operated between the bottom class categories.';
 $_LANG['js_languages']['filter_attr_not_repeated'] = 'Filter property can`t be repeated';
 $_LANG['js_languages']['filter_attr_not_selected'] = 'Please select a filter property';
-
-?>

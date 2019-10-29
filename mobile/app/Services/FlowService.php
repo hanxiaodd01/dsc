@@ -1220,6 +1220,3 @@ class FlowService
 		return $list;
 	}
 }
-
-
-?>

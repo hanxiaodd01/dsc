@@ -43,5 +43,3 @@ class OssClientBucketLoggingTest extends TestOssClientBase
 		}
 	}
 }
-
-?>

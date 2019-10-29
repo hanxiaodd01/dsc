@@ -146,5 +146,3 @@ class EditorSellerController extends \App\Modules\Base\Controllers\BackendSeller
 		}
 	}
 }
-
-?>

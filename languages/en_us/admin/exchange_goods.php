@@ -27,5 +27,3 @@ $_LANG['batch_remove_succeed'] = 'You have deleted %d goods successfully.';
 $_LANG['exchange_integral_invalid'] = 'Integral value is empty or not digital';
 $_LANG['js_languages']['no_goods_id'] = 'No choice of goods';
 $_LANG['js_languages']['invalid_exchange_integral'] = 'Integral value is empty or not digital';
-
-?>

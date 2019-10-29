@@ -1853,5 +1853,3 @@ else {
 		exit($json->encode($result));
 	}
 }
-
-?>

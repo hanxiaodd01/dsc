@@ -13,5 +13,3 @@ class ExampleController extends Controller
 		return array('key' => 'example api.');
 	}
 }
-
-?>

@@ -713,5 +713,3 @@ else if ($_REQUEST['act'] == 'product_add_execute') {
 
 	sys_msg($_LANG['save_products'], 0, $link);
 }
-
-?>

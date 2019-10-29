@@ -472,5 +472,3 @@ $_LANG['team_state'] = '团状态';
 $_LANG['ended'] = '已结束';
 $_LANG['became_team'] = '已成团';
 $_LANG['js_languages']['jl_select_team_goods'] = '您没有选拼团商品！';
-
-?>

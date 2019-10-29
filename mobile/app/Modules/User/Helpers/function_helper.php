@@ -1239,6 +1239,3 @@ function get_all_auction($user_id, $type = '')
 
 	return $auction_count;
 }
-
-
-?>

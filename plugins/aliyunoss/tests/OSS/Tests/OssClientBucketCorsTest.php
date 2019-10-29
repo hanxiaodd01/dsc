@@ -77,5 +77,3 @@ class OssClientBucketCorsTest extends TestOssClientBase
 		}
 	}
 }
-
-?>

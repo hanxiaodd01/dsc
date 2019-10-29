@@ -440,6 +440,3 @@ class OrderRepository
 		return $result;
 	}
 }
-
-
-?>

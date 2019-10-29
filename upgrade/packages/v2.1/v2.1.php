@@ -122,6 +122,3 @@ ADD  `reverse_of_id_card` VARCHAR( 60 ) NOT NULL COMMENT  \'身份证反面\';';
 		}
 	}
 }
-
-
-?>

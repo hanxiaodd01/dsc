@@ -35,5 +35,3 @@ class AjaxController extends IndexController
 		}
 	}
 }
-
-?>

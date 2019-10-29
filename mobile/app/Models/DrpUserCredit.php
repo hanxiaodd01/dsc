@@ -42,5 +42,3 @@ class DrpUserCredit extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

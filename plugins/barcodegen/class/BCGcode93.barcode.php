@@ -228,5 +228,3 @@ class BCGcode93 extends BCGBarcode1D
 		}
 	}
 }
-
-?>

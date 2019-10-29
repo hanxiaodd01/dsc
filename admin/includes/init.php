@@ -326,5 +326,3 @@ if ($_CFG['region_store_enabled']) {
 }
 
 $smarty->assign('supplier_enabled', judge_supplier_enabled());
-
-?>

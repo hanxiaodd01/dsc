@@ -809,5 +809,3 @@ else if ($_REQUEST['act'] == 'remove_cat') {
 
 	exit($json->encode($result));
 }
-
-?>

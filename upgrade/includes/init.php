@@ -65,5 +65,3 @@ require ROOT_PATH . 'upgrade/includes/cls_template.php';
 $smarty = new template(ROOT_PATH . 'upgrade/templates/');
 require ROOT_PATH . 'upgrade/includes/lib_updater.php';
 @set_time_limit(360);
-
-?>

@@ -160,5 +160,3 @@ else if ($_REQUEST['act'] == 'edit') {
 		sys_msg($_LANG['edit_languages_success'], 0, $link);
 	}
 }
-
-?>

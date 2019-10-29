@@ -64,5 +64,3 @@ class WechatPoint extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

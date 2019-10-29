@@ -164,5 +164,3 @@ class DiscussCircle extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

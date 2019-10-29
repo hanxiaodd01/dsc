@@ -22,5 +22,3 @@ $_LANG['back_list'] = '返回增票资质列表';
 $_LANG['audit_aptitude_success'] = '审核资质成功！';
 $_LANG['operation_prompt_content']['list'][0] = '该页面展示了会员增票相关信息。';
 $_LANG['operation_prompt_content']['list'][1] = '可查看会员增票详情，在详页进行审核操作。';
-
-?>

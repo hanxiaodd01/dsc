@@ -24,6 +24,3 @@ class HttpdnsGetRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

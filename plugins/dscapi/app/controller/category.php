@@ -316,5 +316,3 @@ class category extends \app\model\categoryModel
 		return \app\model\categoryModel::get_delete($this->table, $this->where, $this->format);
 	}
 }
-
-?>

@@ -31,5 +31,3 @@ $_LANG['upfile_error'] = 'Wrong, please ensure files\\\' writability of data dir
 $_LANG['visibility_notes'] = 'When brand merchandise under no time and the breakdown of home pages of the brand areas will not be displayed to the brand.';
 $_LANG['js_languages']['no_brandname'] = 'Please enter brand name!';
 $_LANG['js_languages']['require_num'] = 'The sort ordinal number must be a figure.';
-
-?>

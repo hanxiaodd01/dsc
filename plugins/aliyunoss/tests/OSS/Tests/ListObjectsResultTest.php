@@ -77,5 +77,3 @@ class ListObjectsResultTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals('Standard', $objectListInfo->getObjectList()[0]->getStorageClass());
 	}
 }
-
-?>

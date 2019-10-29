@@ -9,6 +9,3 @@ class BonusTypeRepository
 		return self::join('user_bonus', 'bonus_type.type_id', '=', 'user_bonus.bonus_type_id')->where('bonus_id', $bonus_id)->first();
 	}
 }
-
-
-?>

@@ -163,5 +163,3 @@ class ArticleXiao extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

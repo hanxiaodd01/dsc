@@ -92,5 +92,3 @@ $_LANG['cannot_write'] = 'Can not Write';
 $_LANG['cannot_add'] = 'Can not Add data';
 $_LANG['cannot_modify'] = 'Can not Modify';
 $_LANG['confirm_remove'] = 'Are you sure delete Items?';
-
-?>

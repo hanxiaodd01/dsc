@@ -112,5 +112,3 @@ class cloud
 defined('EBusinessID') || define('EBusinessID', $GLOBALS['_CFG']['cloud_client_id']);
 defined('AppKey') || define('AppKey', $GLOBALS['_CFG']['cloud_appkey']);
 defined('ReqURL') || define('ReqURL', 'http://api.biz.jioao.cn/gy_api2/');
-
-?>

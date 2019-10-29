@@ -520,6 +520,3 @@ function comment_font($key)
 		return L('low');
 	}
 }
-
-
-?>

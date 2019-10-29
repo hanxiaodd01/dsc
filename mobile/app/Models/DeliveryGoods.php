@@ -142,5 +142,3 @@ class DeliveryGoods extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

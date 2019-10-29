@@ -27,5 +27,3 @@ $_LANG['continue_add_agency'] = '繼續添加新的辦事處';
 $_LANG['back_agency_list'] = '返回辦事處列表';
 $_LANG['js_languages']['region_exists'] = '該地區已存在';
 $_LANG['js_languages']['no_agencyname'] = '沒有填辦事處名稱';
-
-?>

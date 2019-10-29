@@ -64,5 +64,3 @@ class QrpayTag extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

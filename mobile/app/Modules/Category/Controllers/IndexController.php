@@ -660,5 +660,3 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 		$this->assign('display', $this->display);
 	}
 }
-
-?>

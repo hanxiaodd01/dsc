@@ -50,6 +50,3 @@ class post_mail
 		return $proxy->getExpress('youzhengguonei', $invoice_sn);
 	}
 }
-
-
-?>

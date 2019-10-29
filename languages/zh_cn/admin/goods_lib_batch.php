@@ -64,5 +64,3 @@ $_LANG['operation_prompt_content']['batch'][0] = '首先下载csv文件，打开
 $_LANG['operation_prompt_content']['batch'][1] = '上传编辑好的csv文件，选择数据格式、分类、编码进行上传文件。';
 $_LANG['operation_prompt_content']['confirm'][0] = '首先下载csv文件，打开excel表格添加多个商品信息字段。';
 $_LANG['operation_prompt_content']['confirm'][1] = '上传编辑好的csv文件，选择数据格式、分类、编码进行上传文件。';
-
-?>

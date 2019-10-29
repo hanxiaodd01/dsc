@@ -68,5 +68,3 @@ $_LANG['operation_prompt_content']['info'][1] = '具体生成数量根据需求�
 $_LANG['operation_prompt_content']['info'][2] = '注意卡号类型和密码类型的生成位数，越多数量的密码记忆更加困难。';
 $_LANG['operation_prompt_content']['view'][0] = '一种类型下的充值卡列表。';
 $_LANG['operation_prompt_content']['view'][1] = '显示每个充值卡的卡号和密码。';
-
-?>

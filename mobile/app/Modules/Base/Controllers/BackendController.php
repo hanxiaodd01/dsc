@@ -87,5 +87,3 @@ abstract class BackendController extends FoundationController
 		}
 	}
 }
-
-?>

@@ -60,5 +60,3 @@ class BucketCnameTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals('www.qq.com', $ret->getCnames()[0]['Domain']);
 	}
 }
-
-?>

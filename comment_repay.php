@@ -84,5 +84,3 @@ if ($_REQUEST['act'] == 'repay') {
 
 	$smarty->display('comment_repay.dwt');
 }
-
-?>

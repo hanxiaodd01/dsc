@@ -10,5 +10,3 @@ class ArticleController extends Controller
 		return $this->collection($article, new ArticleTransformer());
 	}
 }
-
-?>

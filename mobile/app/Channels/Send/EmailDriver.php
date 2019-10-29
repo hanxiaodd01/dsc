@@ -23,5 +23,3 @@ class EmailDriver implements SendInterface
 		return $this->mail->getError();
 	}
 }
-
-?>

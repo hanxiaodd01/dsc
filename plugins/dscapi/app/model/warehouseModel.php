@@ -135,5 +135,3 @@ abstract class warehouseModel extends \app\func\common
 		return $result;
 	}
 }
-
-?>

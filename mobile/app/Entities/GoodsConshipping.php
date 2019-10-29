@@ -42,5 +42,3 @@ class GoodsConshipping extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

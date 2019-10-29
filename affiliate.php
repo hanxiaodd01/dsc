@@ -50,5 +50,3 @@ if ($display_mode == 'javascript') {
 else if ($display_mode == 'iframe') {
 	echo $output;
 }
-
-?>

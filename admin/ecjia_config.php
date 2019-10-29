@@ -255,5 +255,3 @@ else if ($_REQUEST['act'] == 'search_article') {
 	$result['content'] = $article_str;
 	exit(json_encode($result));
 }
-
-?>

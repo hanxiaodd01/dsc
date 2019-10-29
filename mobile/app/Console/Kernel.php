@@ -15,5 +15,3 @@ class Kernel extends \Laravel\Lumen\Console\Kernel
 	{
 	}
 }
-
-?>

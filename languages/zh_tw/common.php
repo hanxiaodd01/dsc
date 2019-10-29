@@ -619,5 +619,3 @@ $_LANG['label_collection'] = '我的收藏';
 $_LANG['article_list'] = '文章列表';
 $_LANG['Preferences_price'] = '優惠價格';
 $_LANG['divided_into'] = '分成規則';
-
-?>

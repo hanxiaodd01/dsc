@@ -27,5 +27,3 @@ $_LANG['custom_goods_brand'] = 'All brands';
 $_LANG['js_languages']['act_name_not_null'] = 'Please enter the name of the wholesale program';
 $_LANG['pls_set_user_rank'] = 'Please set up the Member Level';
 $_LANG['user_rank_exist'] = 'Already exists in the merchandise for you to choose the level of the wholesale membership package';
-
-?>

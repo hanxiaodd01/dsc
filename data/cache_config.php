@@ -8,4 +8,3 @@ $cache_config = array(
     ),
     'file' => array()
 );
-?>

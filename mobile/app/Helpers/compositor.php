@@ -33,5 +33,3 @@ if (isset($modules)) {
 		}
 	}
 }
-
-?>

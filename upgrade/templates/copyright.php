@@ -5,5 +5,3 @@ echo '<div class="footer">
 echo $lang['copyright'];
 echo '</p>
 </div>';
-
-?>

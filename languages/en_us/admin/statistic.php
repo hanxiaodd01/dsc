@@ -105,5 +105,3 @@ $_LANG['tab_keywords'] = 'Keyword Statistics';
 $_LANG['keywords'] = 'Keyword';
 $_LANG['date'] = 'Date';
 $_LANG['hits'] = 'Search Views';
-
-?>

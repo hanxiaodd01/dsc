@@ -606,5 +606,3 @@ else if ($_REQUEST['act'] == 'download') {
 	echo ecs_iconv(EC_CHARSET, 'GB2312', $data) . '	';
 	exit();
 }
-
-?>

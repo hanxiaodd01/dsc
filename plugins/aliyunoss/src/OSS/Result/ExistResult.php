@@ -19,5 +19,3 @@ class ExistResult extends Result
 		return false;
 	}
 }
-
-?>

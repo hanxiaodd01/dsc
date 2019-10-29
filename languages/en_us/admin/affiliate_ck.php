@@ -37,5 +37,3 @@ $_LANG['separate_by'][-1] = 'Recommend register is divided into';
 $_LANG['separate_by'][-2] = 'Recommend orders into';
 $_LANG['show_affiliate_orders'] = 'This list shows the recommended order information for this user.';
 $_LANG['back_note'] = 'Return to the user-edited page';
-
-?>

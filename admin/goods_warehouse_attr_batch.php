@@ -275,5 +275,3 @@ else if ($_REQUEST['act'] == 'download') {
 		echo 'error: $_LANG[upload_warehouse_attr] not exists';
 	}
 }
-
-?>

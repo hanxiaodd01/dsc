@@ -87,6 +87,3 @@ class AlibabaAliqinFcFlowChargeProvinceRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

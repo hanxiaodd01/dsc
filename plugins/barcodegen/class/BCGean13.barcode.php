@@ -220,5 +220,3 @@ class BCGean13 extends BCGBarcode1D
 		return $text;
 	}
 }
-
-?>

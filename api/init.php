@@ -101,5 +101,3 @@ if (gzip_enabled()) {
 }
 
 header('Content-type: text/html; charset=' . EC_CHARSET);
-
-?>

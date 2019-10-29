@@ -9,5 +9,3 @@ $_LANG['js_languages']['card_vaule_null'] = '请输入优惠券张数';
 $_LANG['js_languages']['card_prefix_null'] = '请输入储值卡前缀';
 $_LANG['operation_prompt_content']['list'][0] = '访问购买率展示某一个分类的商品访问购买率。';
 $_LANG['operation_prompt_content']['list'][1] = '包含商品的人气指数，购买次数和访问购买率（购买次数/访问次数 ）。';
-
-?>

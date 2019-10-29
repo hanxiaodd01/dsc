@@ -109,5 +109,3 @@ class Payment extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

@@ -20,5 +20,3 @@ class SendController extends \App\Modules\Site\Controllers\IndexController
 		}
 	}
 }
-
-?>

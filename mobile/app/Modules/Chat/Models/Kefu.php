@@ -571,5 +571,3 @@ class Kefu extends \Think\Model
 		return $params;
 	}
 }
-
-?>

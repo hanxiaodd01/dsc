@@ -19,5 +19,3 @@ $_LANG['user_order_number'] = '每会员订单数';
 $_LANG['anonymous_user_order'] = '匿名会员平均订单额';
 $_LANG['operation_prompt_content']['list'][0] = '统计商城所有会员消费记录比例。';
 $_LANG['operation_prompt_content']['list'][1] = '会员购买率、平均会员订单数、评价会员购物额、匿名会员评价订单额。';
-
-?>

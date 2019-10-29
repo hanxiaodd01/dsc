@@ -29,5 +29,3 @@ $_LANG['activity_type'] = "优惠方式";
 $_LANG['max_amount'] = "金额限制";
 $_LANG['user_rank'] = "会员等级";
 $_LANG['act_range_type'] = "优惠范围";
-
-?>

@@ -54,5 +54,3 @@ class HomeTemplates extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

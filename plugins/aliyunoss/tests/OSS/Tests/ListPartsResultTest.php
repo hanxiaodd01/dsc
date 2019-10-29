@@ -24,5 +24,3 @@ class ListPartsResultTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals(6291456, $listPartsInfo->getListPart()[0]->getSize());
 	}
 }
-
-?>

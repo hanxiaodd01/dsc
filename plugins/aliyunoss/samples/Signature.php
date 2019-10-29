@@ -113,5 +113,3 @@ Common::println($signedUrl);
 getSignedUrlForPuttingObject($ossClient, $bucket);
 getSignedUrlForPuttingObjectFromFile($ossClient, $bucket);
 getSignedUrlForGettingObject($ossClient, $bucket);
-
-?>

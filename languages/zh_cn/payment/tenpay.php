@@ -24,6 +24,3 @@ $_LANG['pay_button']        = '立即使用财付通支付';
 $_LANG['account_voucher']   = '会员帐户充值';
 $_LANG['shop_order_sn']     = '商城订单号';
 $_LANG['penpay_register']     = "<a href='https://mch.tenpay.com' target=\"_blank\">立即免费申请：单笔费率1%</a>";
-
-
-?>

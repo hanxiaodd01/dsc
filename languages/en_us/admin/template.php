@@ -120,5 +120,3 @@ $_LANG['js_languages']['selectPlease'] = 'Please select...';
 $_LANG['js_languages']['removeConfirm'] = 'Are you sure delete the selected contents?';
 $_LANG['js_languages']['empty_content'] = 'Sorry, library content can\'t be blank.';
 $_LANG['js_languages']['save_confirm'] = 'You have edit template, are you sure don\'t save it?';
-
-?>

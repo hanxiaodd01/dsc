@@ -785,5 +785,3 @@ class OrderController extends \App\Modules\Base\Controllers\FrontendController
 		show_message(L('apply_success'), '', url('user/order/complaint_list'));
 	}
 }
-
-?>

@@ -20,6 +20,3 @@ $_LANG['epay_desc'] = '双乾网络支付是苏州市首家获得<font color="re
 $_LANG['epay_account'] = '帐户id';
 $_LANG['epay_key'] = 'MD5key';
 $_LANG['pay_button']     = '立即使用双乾支付';
-
-
-?>

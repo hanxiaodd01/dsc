@@ -18,5 +18,3 @@ $_LANG['ips_lang_range']['BIG5'] = 'Traditional Chinese';
 $_LANG['ips_lang_range']['JP'] = 'Japanese';
 $_LANG['ips_lang_range']['FR'] = 'French';
 $_LANG['pay_button'] = 'Use IPS payment now';
-
-?>

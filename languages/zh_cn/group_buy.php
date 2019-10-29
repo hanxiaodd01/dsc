@@ -75,5 +75,3 @@ $_LANG['js_languages']['Purchase_quantity'] = '超过限购数量';
 
 $_LANG['js_languages']['common']['Stock_goods_null'] = "您团购的商品暂时缺货，请耐心等待！";
 $_LANG['buy_error'] = "很抱歉，您团购的商品暂时缺货，请及时联系客服！";
-
-?>

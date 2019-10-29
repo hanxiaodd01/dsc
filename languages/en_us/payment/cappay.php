@@ -12,5 +12,3 @@ $_LANG['cappay_button'] = 'PayEase platform';
 $_LANG['cappay_member_button'] = 'PayEase member entry';
 $_LANG['cappay_mobile_button'] = 'PayEase mobile telephone entry';
 $_LANG['cappay_en_button'] = 'Easy-pay online platform';
-
-?>

@@ -32,5 +32,3 @@ class PayRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

@@ -901,5 +901,3 @@ class goods extends \app\model\goodsModel
 		return \app\model\goodsModel::get_goodsnotification_update($this->table, $this->goods_select, $this->format);
 	}
 }
-
-?>

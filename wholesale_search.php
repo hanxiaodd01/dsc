@@ -433,5 +433,3 @@ function get_seachable_attributes($cat_id = 0) {
 
     return $attributes;
 }
-
-?>

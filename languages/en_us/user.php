@@ -545,5 +545,3 @@ $_LANG['passwd_questions']['favorite_food'] = 'My favorite food';
 $_LANG['passwd_questions']['interest'] = 'My best interest';
 $_LANG['passwd_questions']['favorite_novel'] = 'My favorite novel';
 $_LANG['passwd_questions']['favorite_equipe'] = 'My favorite sports team';
-
-?>

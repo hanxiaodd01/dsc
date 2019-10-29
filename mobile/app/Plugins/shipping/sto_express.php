@@ -46,6 +46,3 @@ class sto_express
 		return $proxy->getExpress('shentong', $invoice_sn);
 	}
 }
-
-
-?>

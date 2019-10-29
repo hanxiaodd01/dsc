@@ -57,5 +57,3 @@ $_LANG['pls_set_act_range'] = 'Please set up the scope of concessions';
 $_LANG['amount_error'] = 'The amount of the minimum amount should not exceed the upper limit';
 $_LANG['act_name_exists'] = 'Activity name of the discount already exists, please for a';
 $_LANG['nolimit'] = 'There is no limit';
-
-?>

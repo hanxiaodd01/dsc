@@ -42,5 +42,3 @@ class BargainController extends \App\Modules\Base\Controllers\FrontendController
 		}
 	}
 }
-
-?>

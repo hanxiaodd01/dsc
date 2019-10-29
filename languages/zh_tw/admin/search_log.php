@@ -6,5 +6,3 @@ $_LANG['hits'] = '搜索次數';
 $_LANG['start_date'] = '開始日期';
 $_LANG['end_date'] = '結束日期';
 $_LANG['query'] = '查詢';
-
-?>

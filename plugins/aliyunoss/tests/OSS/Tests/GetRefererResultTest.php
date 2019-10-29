@@ -34,5 +34,3 @@ class GetRefererResultTest extends \PHPUnit_Framework_TestCase
 		}
 	}
 }
-
-?>

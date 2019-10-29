@@ -37,5 +37,3 @@ $_LANG['fail'] = '失败';
 $_LANG['download_fail'] = '下载失败';
 $_LANG['checkcover'] = '升级版本会覆盖老版本代码，请确认是否升级？';
 echo "\r\n";
-
-?>

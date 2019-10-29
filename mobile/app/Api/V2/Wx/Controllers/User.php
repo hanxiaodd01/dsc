@@ -56,5 +56,3 @@ class User extends \app\api\foundation\Controller
 		return $this->apiReturn($userCenterData);
 	}
 }
-
-?>

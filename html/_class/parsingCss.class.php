@@ -1833,6 +1833,3 @@ class HTML2PDF_parsingCss
 		$this->_analyseStyle($style);
 	}
 }
-
-
-?>

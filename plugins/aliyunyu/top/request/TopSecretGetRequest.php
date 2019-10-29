@@ -55,6 +55,3 @@ class TopSecretGetRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

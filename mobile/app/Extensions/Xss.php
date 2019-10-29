@@ -351,6 +351,3 @@ class Xss
 		return html_entity_decode($text, ENT_QUOTES, 'UTF-8');
 	}
 }
-
-
-?>

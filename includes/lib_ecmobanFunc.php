@@ -5585,6 +5585,3 @@ function attr_group($arr = array())
 
 	return $group;
 }
-
-
-?>

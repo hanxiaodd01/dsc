@@ -13,5 +13,3 @@ class DatabaseSeeder extends \Illuminate\Database\Seeder
 		$this->call('OrderRuIdSeeder');
 	}
 }
-
-?>

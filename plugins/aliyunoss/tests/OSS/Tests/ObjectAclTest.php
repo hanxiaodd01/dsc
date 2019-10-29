@@ -21,5 +21,3 @@ class ObjectAclTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals('hello world', $content);
 	}
 }
-
-?>

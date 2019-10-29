@@ -24,6 +24,3 @@ class AppipGetRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

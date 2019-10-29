@@ -32,5 +32,3 @@ class ActivityRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

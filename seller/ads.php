@@ -649,5 +649,3 @@ else if ($_REQUEST['act'] == 'getCatList') {
 	$catList = getCatList($catId);
 	exit(json_encode($catList));
 }
-
-?>

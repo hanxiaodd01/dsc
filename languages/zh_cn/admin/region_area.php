@@ -21,5 +21,3 @@ $_LANG['operation_prompt_content']['info'][0] = '请合理填写区域名称。'
 $_LANG['operation_prompt_content']['list'][0] = '该页面展示了所有区域信息的列表。';
 $_LANG['operation_prompt_content']['list'][1] = '可进行编辑和删除操作。';
 $_LANG['operation_prompt_content']['list'][2] = '主要用途：添加/编辑商品时，选择关联地区使用。';
-
-?>

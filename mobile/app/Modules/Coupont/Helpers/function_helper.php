@@ -137,6 +137,3 @@ function get_coupons_goods_list($num = 10, $page = 1)
 
 	return array('tab' => $cou_goods, 'totalpage' => ceil($total / $num));
 }
-
-
-?>

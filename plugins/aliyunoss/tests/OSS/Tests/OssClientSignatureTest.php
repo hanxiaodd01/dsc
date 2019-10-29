@@ -97,5 +97,3 @@ class OssClientSignatureTest extends TestOssClientBase
 		}
 	}
 }
-
-?>

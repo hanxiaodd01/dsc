@@ -22,5 +22,3 @@ $_LANG['package_number'] = "商品数量";
 $_LANG['package_time'] = "活动时间";
 
 $_LANG['sheng'] = "省";
-
-?>

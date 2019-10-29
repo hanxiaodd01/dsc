@@ -485,6 +485,3 @@ class DrpRepository
 		return \App\Models\Users::where('user_id', $user_id)->value('user_name');
 	}
 }
-
-
-?>

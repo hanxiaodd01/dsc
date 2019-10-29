@@ -13,5 +13,3 @@ $_LANG['tutorials_bonus_list_one'] = '商家二级域名使用说明';
 $_LANG['operation_prompt_content']['list'][0] = '商家二级域名相关信息管理。';
 $_LANG['operation_prompt_content']['list'][1] = '申请二级域名可提高网店的辨识度。';
 $_LANG['operation_prompt_content']['info'][0] = '二级域名需要先解析通过后才能使用。';
-
-?>

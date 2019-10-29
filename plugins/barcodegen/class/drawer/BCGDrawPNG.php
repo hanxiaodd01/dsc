@@ -190,5 +190,3 @@ class BCGDrawPNG extends BCGDraw
 		return self::update_crc(-1, $data, $len) ^ -1;
 	}
 }
-
-?>

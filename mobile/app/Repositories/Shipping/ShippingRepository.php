@@ -221,6 +221,3 @@ class ShippingRepository
 		return array();
 	}
 }
-
-
-?>

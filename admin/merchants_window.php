@@ -378,5 +378,3 @@ else if ($_REQUEST['act'] = 'batch') {
 	$link[0]['href'] = 'merchants_window.php?act=list';
 	sys_msg('删除成功', 0, $link);
 }
-
-?>

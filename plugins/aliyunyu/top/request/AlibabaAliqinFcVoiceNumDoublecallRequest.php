@@ -118,6 +118,3 @@ class AlibabaAliqinFcVoiceNumDoublecallRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

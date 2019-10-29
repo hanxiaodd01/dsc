@@ -147,5 +147,3 @@ class BCGFontFile implements BCGFont
 		return $this->box;
 	}
 }
-
-?>

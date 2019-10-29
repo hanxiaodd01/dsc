@@ -28,5 +28,3 @@ if (!IsAllowedType($sType)) {
 }
 
 FileUpload($sType, $sCurrentFolder, $sCommand);
-
-?>

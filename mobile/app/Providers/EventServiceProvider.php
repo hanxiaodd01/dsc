@@ -13,5 +13,3 @@ class EventServiceProvider extends \Laravel\Lumen\Providers\EventServiceProvider
 		'App\\Events\\ExampleEvent' => array('App\\Listeners\\EventListener')
 		);
 }
-
-?>

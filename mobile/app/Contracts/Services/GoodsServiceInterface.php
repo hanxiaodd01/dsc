@@ -22,6 +22,3 @@ interface GoodsServiceInterface
 
 	public function getOnsale();
 }
-
-
-?>

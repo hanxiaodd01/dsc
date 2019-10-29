@@ -48,5 +48,3 @@ class Goods extends \app\api\foundation\Controller
 		return $this->apiReturn(array('total_price' => $price));
 	}
 }
-
-?>

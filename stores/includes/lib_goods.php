@@ -1443,5 +1443,3 @@ function cat_list_one2($cat_id = 0, $cat_level = 0)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

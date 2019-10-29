@@ -179,5 +179,3 @@ class Paginator implements \ArrayAccess, \Illuminate\Support\Contracts\Arrayable
 		return $this->offsetExists($offset) ? array_get($this->items, $offset) : null;
 	}
 }
-
-?>

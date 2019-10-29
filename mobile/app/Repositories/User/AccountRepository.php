@@ -72,6 +72,3 @@ class AccountRepository
 		return false;
 	}
 }
-
-
-?>

@@ -46,6 +46,3 @@ class tiantian
 		return $proxy->getExpress('tiantian', $invoice_sn);
 	}
 }
-
-
-?>

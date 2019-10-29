@@ -42,5 +42,3 @@ $_LANG['js_languages']['lang_setup'] = 'Setup';
 $_LANG['js_languages']['lang_region'] = 'Region';
 $_LANG['js_languages']['lang_shipping'] = 'Shipping method';
 $_LANG['js_languages']['region_exists'] = 'The region already exists.';
-
-?>

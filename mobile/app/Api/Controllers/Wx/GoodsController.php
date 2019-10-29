@@ -84,5 +84,3 @@ class GoodsController extends \App\Api\Controllers\Controller
 		return $this->apiReturn($result);
 	}
 }
-
-?>

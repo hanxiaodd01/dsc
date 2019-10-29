@@ -50,5 +50,3 @@ $_LANG['js_languages']['invalid_endtime'] = 'The cut-off time format is invalid,
 $_LANG['js_languages']['invalid_gt'] = 'The cut-off time must be more than starting time.';
 $_LANG['js_languages']['invalid_price'] = 'The max price must be more than min price.';
 $_LANG['js_languages']['search_is_null'] = 'Please search again, because the result is blank.';
-
-?>

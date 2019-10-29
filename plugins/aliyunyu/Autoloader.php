@@ -55,5 +55,3 @@ class Autoloader
 }
 
 spl_autoload_register('Autoloader::autoload');
-
-?>

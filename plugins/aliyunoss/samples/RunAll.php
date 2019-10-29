@@ -10,5 +10,3 @@ require_once __DIR__ . '/BucketWebsite.php';
 require_once __DIR__ . '/Signature.php';
 require_once __DIR__ . '/Object.php';
 require_once __DIR__ . '/MultipartUpload.php';
-
-?>

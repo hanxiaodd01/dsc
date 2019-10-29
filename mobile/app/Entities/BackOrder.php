@@ -340,5 +340,3 @@ class BackOrder extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

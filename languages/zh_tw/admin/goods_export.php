@@ -221,5 +221,3 @@ $_LANG['custom_goods_field_not_null'] = '輸出的商品數據列不能為空';
 $_LANG['export_condition'] = '商品數據批量導出';
 $_LANG['export_condition_search'] = '搜 索';
 $_LANG['export_format'] = '數據格式';
-
-?>

@@ -22,6 +22,3 @@ interface BCGFont
 
 	public function draw($im, $x, $y);
 }
-
-
-?>

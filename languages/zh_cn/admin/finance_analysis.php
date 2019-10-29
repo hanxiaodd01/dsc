@@ -35,5 +35,3 @@ $_LANG['operation_prompt_content']['balance_stats'][0] = '消费总金额：所�
 $_LANG['operation_prompt_content']['balance_stats'][1] = '退款总金额：所选时间范围内原路退回余额的资金总计。';
 $_LANG['operation_prompt_content']['balance_stats'][2] = '剩余总余额：所选时间范围内全站余额总计。';
 $_LANG['operation_prompt_content']['balance_stats'][3] = '使用总人数：所选时间范围内使用余额操作的人数总计。';
-
-?>

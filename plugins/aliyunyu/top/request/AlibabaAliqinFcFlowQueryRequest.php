@@ -39,6 +39,3 @@ class AlibabaAliqinFcFlowQueryRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

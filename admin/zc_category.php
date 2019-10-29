@@ -182,5 +182,3 @@ if ($_REQUEST['act'] == 'edit_sort_order') {
 		make_json_error($db->error());
 	}
 }
-
-?>

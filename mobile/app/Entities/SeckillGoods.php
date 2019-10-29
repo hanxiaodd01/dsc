@@ -75,5 +75,3 @@ class SeckillGoods extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

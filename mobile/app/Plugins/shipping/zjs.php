@@ -46,6 +46,3 @@ class zjs
 		return $proxy->getExpress('zhaijisong', $invoice_sn);
 	}
 }
-
-
-?>

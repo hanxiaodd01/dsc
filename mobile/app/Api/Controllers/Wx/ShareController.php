@@ -25,5 +25,3 @@ class ShareController extends \App\Api\Controllers\Controller
 		return $this->apiReturn($share);
 	}
 }
-
-?>

@@ -59,4 +59,3 @@ $GLOBALS['smarty']->assign('amount', $amount);
 $result['content'] = $GLOBALS['smarty']->fetch('library/wholesale_cart_info.lbi');
 $result['cart_content'] = $GLOBALS['smarty']->fetch('library/wholesale_cart_menu_info.lbi');
 exit($json->encode($result));
-?>

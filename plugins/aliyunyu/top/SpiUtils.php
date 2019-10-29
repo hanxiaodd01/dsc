@@ -220,6 +220,3 @@ class SpiUtils
 		return str_replace($replace, $glue, $str);
 	}
 }
-
-
-?>

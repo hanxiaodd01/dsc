@@ -614,5 +614,3 @@ if (!defined('IN_ECS')) {
 define('APPNAME', 'ECMOBAN_DSC');
 define('VERSION', 'v2.7.3.4');
 define('RELEASE', '20190705');
-
-?>

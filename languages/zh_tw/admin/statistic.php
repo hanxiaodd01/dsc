@@ -105,5 +105,3 @@ $_LANG['tab_keywords'] = '關鍵字統計';
 $_LANG['keywords'] = '關鍵字';
 $_LANG['date'] = '日期';
 $_LANG['hits'] = '搜索次數';
-
-?>

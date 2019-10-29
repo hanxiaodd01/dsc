@@ -23,5 +23,3 @@ class WechatDriver implements SendInterface
 		return $this->wechat->getError();
 	}
 }
-
-?>

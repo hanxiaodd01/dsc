@@ -64,5 +64,3 @@ class TemporaryFiles extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

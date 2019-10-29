@@ -31,5 +31,3 @@ $ret_url = get_auth_url($state);
 $back_url = (empty($_GET['callback']) ? '/index.php' : $_GET['callback']);
 $_SESSION['back_url'] = $back_url;
 header('location:' . $ret_url);
-
-?>

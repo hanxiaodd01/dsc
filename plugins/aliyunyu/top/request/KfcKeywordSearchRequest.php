@@ -75,6 +75,3 @@ class KfcKeywordSearchRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

@@ -53,5 +53,3 @@ $_LANG['js_languages']['no_cat'] = 'Please select a category.';
 $_LANG['js_languages']['not_allow_add'] = 'System to retain the classification in the classification does not allow to add article';
 $_LANG['js_languages']['drop_confirm'] = 'Are you sure you want to delete this?';
 $_LANG['all_cat'] = 'All Categories';
-
-?>

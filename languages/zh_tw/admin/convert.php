@@ -31,5 +31,3 @@ $_LANG['js_languages']['host_not_null'] = '主機名稱或地址不能為空';
 $_LANG['js_languages']['db_not_null'] = '數據庫名稱不能為空';
 $_LANG['js_languages']['user_not_null'] = '登錄帳號不能為空';
 $_LANG['js_languages']['path_not_null'] = '原商城根目錄不能為空';
-
-?>

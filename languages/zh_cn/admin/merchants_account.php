@@ -149,5 +149,3 @@ $_LANG['operation_prompt_content']['seller_account'][0] = '商家资金列表。
 $_LANG['operation_prompt_content']['seller_account'][1] = '可对商家资金进行操作。';
 $_LANG['operation_prompt_content']['seller_account'][2] = '可根据关键字进行查询，侧边栏进行高级搜索。';
 $_LANG['label_current_member_money'] = '您当前会员余额：';
-
-?>

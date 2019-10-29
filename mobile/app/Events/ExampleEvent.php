@@ -8,5 +8,3 @@ class ExampleEvent extends Event
 	{
 	}
 }
-
-?>

@@ -149,5 +149,3 @@ $_LANG['please_input_cate_id'] = '请输入分类ID';
 $_LANG['please_select_cate'] = '请选择分类';
 $_LANG['uploading'] = '上传...';
 $_LANG['current_ad_completed_order'] = '当前广告所产生的已完成的有效订单';
-
-?>

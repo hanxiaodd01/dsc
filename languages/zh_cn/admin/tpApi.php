@@ -16,5 +16,3 @@ $_LANG['save_success'] = '保存成功';
 $_LANG['save_failed'] = '保存失败';
 $_LANG['back_list'] = '返回列表';
 $_LANG['back_set'] = '返回设置';
-
-?>

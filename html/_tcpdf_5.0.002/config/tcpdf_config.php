@@ -67,5 +67,3 @@ if (!defined('K_TCPDF_EXTERNAL_CONFIG')) {
 	define('K_THAI_TOPCHARS', true);
 	define('K_TCPDF_CALLS_IN_HTML', true);
 }
-
-?>

@@ -20,5 +20,3 @@ $_LANG['drop_success'] = 'You have delete %d tags.';
 $_LANG['back_list'] = 'Return to tag list.';
 $_LANG['drop_confirm'] = 'Are you sure delete the record?';
 $_LANG['js_languages']['goods_name_not_empty'] = 'goods name can not empty';
-
-?>

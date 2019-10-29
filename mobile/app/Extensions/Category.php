@@ -119,6 +119,3 @@ class Category
 		return 0;
 	}
 }
-
-
-?>

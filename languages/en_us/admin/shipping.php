@@ -61,5 +61,3 @@ $_LANG['js_languages']['no_select_lable'] = 'Operation terminated! You did not c
 $_LANG['js_languages']['no_add_repeat_lable'] = 'Operation failed! Not allowed to add a duplicate label.';
 $_LANG['js_languages']['no_select_lable_del'] = 'Delete Failed! You do not select any label.';
 $_LANG['js_languages']['recovery_default_suer'] = 'To restore the default do you confirm? Restore Default will display the contents of the installation.';
-
-?>

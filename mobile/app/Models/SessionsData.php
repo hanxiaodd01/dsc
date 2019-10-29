@@ -32,5 +32,3 @@ class SessionsData extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

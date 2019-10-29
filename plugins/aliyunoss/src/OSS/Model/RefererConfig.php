@@ -71,5 +71,3 @@ class RefererConfig implements XmlConfig
 		return $this->refererList;
 	}
 }
-
-?>

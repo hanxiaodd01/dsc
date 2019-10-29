@@ -86,5 +86,3 @@ class StoreOrder extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

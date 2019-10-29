@@ -289,5 +289,3 @@ else if ($_REQUEST['act'] == 'edit_pay_order') {
 	$exc->edit('pay_order = \'' . $pay_order . '\'', $code, 'payment', 'pay_code');
 	make_json_result(stripcslashes($pay_order));
 }
-
-?>

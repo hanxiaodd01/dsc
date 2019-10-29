@@ -23,5 +23,3 @@ $_LANG['upload_area']['region_sort'] = '排序';
 $_LANG['save_products'] = '保存商品地区成功';
 $_LANG['add_area_batch'] = '继续批量添加商品地区';
 $_LANG['13_batch_add'] = '商品地区批量上传';
-
-?>

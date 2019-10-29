@@ -266,6 +266,3 @@ function purchase_list()
 
     return array('purchase_list' => $arr, 'filter' => $filter, 'page_count' => $filter['page_count'], 'record_count' => $filter['record_count']);
 }
-
-
-?>

@@ -356,6 +356,3 @@ class TeamRepository
 		\App\Models\TeamGoods::where('id', $id)->where('goods_id', $goods_id)->update(array('limit_num' => $limit_num));
 	}
 }
-
-
-?>

@@ -28,4 +28,3 @@ class Transformer implements \app\contracts\transformer\TransformerInterface
 		return $data;
 	}
 }
-?>

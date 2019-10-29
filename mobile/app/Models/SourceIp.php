@@ -43,5 +43,3 @@ class SourceIp extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

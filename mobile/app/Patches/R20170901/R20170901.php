@@ -96,5 +96,3 @@ class R20170901 implements \App\Patches\Factory\PatchInterface
 		}
 	}
 }
-
-?>

@@ -196,5 +196,3 @@ class WechatMedia extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

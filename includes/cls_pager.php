@@ -317,6 +317,3 @@ class Pager
 		return $fpage;
 	}
 }
-
-
-?>

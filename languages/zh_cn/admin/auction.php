@@ -85,5 +85,3 @@ $_LANG['operation_prompt_content'][4] = '主要展示了买家、出价、时间
 $_LANG['operating_hints'] = '操作提示';
 $_LANG['warn_submit_will_recheck'] = '温馨提示：提交操作将会重新审核，请慎重提交确定。';
 $_LANG['whether_hot'] = '是否热销';
-
-?>

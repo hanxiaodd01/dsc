@@ -19,6 +19,3 @@ class BizResult
 	 **/
 	public $success;
 }
-
-
-?>

@@ -59,4 +59,3 @@ $_LANG['icon']['jucha2'] = '聚茶2';
 $_LANG['icon']['jinkou'] = '进口';
 $_LANG['icon']['shuiguo'] = '水果';
 $_LANG['icon']['jiubei'] = '酒杯';
-?>

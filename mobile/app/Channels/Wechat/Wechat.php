@@ -88,6 +88,3 @@ class Wechat
 		unset($this->wechat);
 	}
 }
-
-
-?>

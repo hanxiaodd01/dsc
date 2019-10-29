@@ -185,5 +185,3 @@ function get_order_goods_list($order_id)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

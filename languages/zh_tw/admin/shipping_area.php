@@ -42,5 +42,3 @@ $_LANG['js_languages']['lang_setup'] = '設置';
 $_LANG['js_languages']['lang_region'] = '地區';
 $_LANG['js_languages']['lang_shipping'] = '配送方式';
 $_LANG['js_languages']['region_exists'] = '選定的地區已經存在。';
-
-?>

@@ -48,6 +48,3 @@ class ApiLogger
 		return $path;
 	}
 }
-
-
-?>

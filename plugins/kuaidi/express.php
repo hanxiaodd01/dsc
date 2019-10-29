@@ -125,5 +125,3 @@ else {
 
 echo $express_info;
 exit();
-
-?>

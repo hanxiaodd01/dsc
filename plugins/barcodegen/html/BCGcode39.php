@@ -17,5 +17,3 @@ foreach ($characters as $character) {
 
 echo "</div>\r\n\r\n<div id=\"explanation\">\r\n    <h3>Explanation</h3>\r\n    <ul>\r\n        <li>Known also as USS Code 39, 3 of 9.</li>\r\n        <li>Code 39 can encode alphanumeric characters.</li>\r\n        <li>The symbology is used in non-retail environment.</li>\r\n        <li>Code 39 is designed to encode 26 upper case letters, 10 digits and 7 special characters.</li>\r\n        <li>Code 39 has a checksum but it's rarely used.</li>\r\n    </ul>\r\n</div>\r\n\r\n";
 include 'include/footer.php';
-
-?>

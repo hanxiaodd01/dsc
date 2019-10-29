@@ -161,5 +161,3 @@ class captcha
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

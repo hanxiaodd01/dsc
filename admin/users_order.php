@@ -118,5 +118,3 @@ else {
 	assign_query_info();
 	$smarty->display('users_order.dwt');
 }
-
-?>

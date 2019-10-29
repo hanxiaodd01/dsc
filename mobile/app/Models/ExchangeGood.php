@@ -10,5 +10,3 @@ class ExchangeGood extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('user_id', 'exchange_integral', 'is_exchange', 'is_hot', 'is_best');
 	protected $guarded = array();
 }
-
-?>

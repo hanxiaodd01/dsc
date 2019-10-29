@@ -32,5 +32,3 @@ class PaymentRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

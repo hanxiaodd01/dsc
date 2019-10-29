@@ -10,6 +10,3 @@ class VolumePriceRepository
 		return $res;
 	}
 }
-
-
-?>

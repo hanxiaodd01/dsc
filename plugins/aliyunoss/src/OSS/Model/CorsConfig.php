@@ -89,5 +89,3 @@ class CorsConfig implements XmlConfig
 		return $this->serializeToXml();
 	}
 }
-
-?>

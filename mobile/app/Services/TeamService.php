@@ -497,6 +497,3 @@ class TeamService
 		return $list;
 	}
 }
-
-
-?>

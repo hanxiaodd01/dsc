@@ -29,5 +29,3 @@ $_LANG['tutorials_bonus_list_one'] = '商城验证码设置操作说明';
 $_LANG['operation_prompt_content'][0] = '该功能可以设置开启验证码的场景。';
 $_LANG['operation_prompt_content'][1] = '可以设置验证码的高度、宽度和大小。';
 $_LANG['operation_prompt_content'][2] = '请按照每个操作下的提示进行设置。';
-
-?>

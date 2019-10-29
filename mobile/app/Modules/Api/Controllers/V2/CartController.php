@@ -60,5 +60,3 @@ class CartController extends \App\Modules\Api\Foundation\Controller
 		return $res;
 	}
 }
-
-?>

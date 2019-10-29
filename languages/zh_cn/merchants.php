@@ -37,5 +37,3 @@ $_LANG['sett_step_four_desc'] = '发布销售';
 $_LANG['hot_recruit'] = '热招类目';
 $_LANG['success_case'] = '成功案例';
 $_LANG['common_problem'] = '常见问题';
-
-?>

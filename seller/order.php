@@ -7735,5 +7735,3 @@ else {
 		make_json_result($content);
 	}
 }
-
-?>

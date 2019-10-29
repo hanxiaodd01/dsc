@@ -264,6 +264,3 @@ class ActivityRepository
 		return $list;
 	}
 }
-
-
-?>

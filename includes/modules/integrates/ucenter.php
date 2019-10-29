@@ -556,5 +556,3 @@ class ucenter extends integrate
 		return $row;
 	}
 }
-
-?>

@@ -504,6 +504,3 @@ function zc_order_fee($order, $goods, $consignee)
 
 	return $total;
 }
-
-
-?>

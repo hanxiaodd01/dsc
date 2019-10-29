@@ -36,5 +36,3 @@ else {
 header('Content-Type: image/png');
 header('Content-Disposition: inline; filename="barcode.png"');
 $drawing->finish(BCGDrawing::IMG_FORMAT_PNG);
-
-?>

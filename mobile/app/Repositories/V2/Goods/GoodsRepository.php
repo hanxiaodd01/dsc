@@ -40,5 +40,3 @@ class GoodsRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

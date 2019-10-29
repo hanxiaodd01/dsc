@@ -40,5 +40,3 @@ class AclResultTest extends \PHPUnit_Framework_TestCase
 		}
 	}
 }
-
-?>

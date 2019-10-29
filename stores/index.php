@@ -89,5 +89,3 @@ else if ($_REQUEST['act'] == 'check_order') {
 	$arr['new_orders'] = $db->getOne($sql);
 	make_json_result('', '', $arr);
 }
-
-?>

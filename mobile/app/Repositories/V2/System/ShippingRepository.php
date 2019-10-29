@@ -32,5 +32,3 @@ class ShippingRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

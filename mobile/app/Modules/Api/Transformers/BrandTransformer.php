@@ -9,6 +9,3 @@ class BrandTransformer
 		return array('id' => $map['article_id'], 'title' => $map['title']);
 	}
 }
-
-
-?>

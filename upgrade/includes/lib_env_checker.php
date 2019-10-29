@@ -82,6 +82,3 @@ function check_rename_priv()
 
 	return $msgs;
 }
-
-
-?>

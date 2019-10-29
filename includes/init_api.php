@@ -142,5 +142,3 @@ else {
 if ((DEBUG_MODE & 4) == 4) {
 	include ROOT_PATH . 'includes/lib.debug.php';
 }
-
-?>

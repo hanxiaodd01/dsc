@@ -10,6 +10,3 @@ interface SendInterface
 
 	public function getError();
 }
-
-
-?>

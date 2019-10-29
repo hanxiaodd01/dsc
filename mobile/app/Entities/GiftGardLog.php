@@ -64,5 +64,3 @@ class GiftGardLog extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

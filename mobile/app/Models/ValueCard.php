@@ -98,5 +98,3 @@ class ValueCard extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

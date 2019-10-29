@@ -124,5 +124,3 @@ class DatabaseController extends \App\Modules\Base\Controllers\BackendController
 		return $info;
 	}
 }
-
-?>

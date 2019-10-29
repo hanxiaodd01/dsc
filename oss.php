@@ -81,5 +81,3 @@ else if ($act == 'list_file') {
 $res['object'] = $object;
 $res['is_delimg'] = $is_delimg;
 exit($json->encode($res));
-
-?>

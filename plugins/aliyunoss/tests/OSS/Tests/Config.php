@@ -9,6 +9,3 @@ final class Config
 	const OSS_ENDPOINT = '';
 	const OSS_TEST_BUCKET = '';
 }
-
-
-?>

@@ -32,5 +32,3 @@ class BrandRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

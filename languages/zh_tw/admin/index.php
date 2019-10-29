@@ -165,5 +165,3 @@ $_LANG['js_languages']['good_category_not_null'] = '商品分類不能為空';
 $_LANG['js_languages']['good_number_not_number'] = '商品數量不是數值';
 $_LANG['js_languages']['good_price_not_number'] = '商品價格不是數值';
 $_LANG['send_mail_off'] = '自動發送郵件關閉';
-
-?>

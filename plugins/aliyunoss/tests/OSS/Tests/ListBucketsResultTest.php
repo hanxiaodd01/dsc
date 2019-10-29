@@ -48,5 +48,3 @@ class ListBucketsResultTest extends \PHPUnit_Framework_TestCase
 		}
 	}
 }
-
-?>

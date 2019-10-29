@@ -614,5 +614,3 @@ else if ($_REQUEST['act'] == 'delete_cart_fav_goods') {
 	$result['content'] = $smarty->fetch('library/coudan_top_list.lbi');
 	exit($json->encode($result));
 }
-
-?>

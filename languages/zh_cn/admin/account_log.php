@@ -39,5 +39,3 @@ $_LANG['set_baitiao'] = '设置白条';
 $_LANG['account_log'] = '账目明细';
 $_LANG['operation_prompt_content']['info'][0] = '管理员对会员账户进行资金、等级积分、消费积分进行调整。';
 $_LANG['operation_prompt_content']['info'][1] = '涉及资金方面管理员要谨慎操作。';
-
-?>

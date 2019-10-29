@@ -193,5 +193,3 @@ if (!defined('WEBSITE')) {
 		}
 	}
 }
-
-?>

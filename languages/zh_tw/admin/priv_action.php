@@ -113,5 +113,3 @@ $_LANG['sms_send'] = '發送短信';
 $_LANG['sms_charge'] = '短信充值';
 $_LANG['send_history'] = '發送記錄';
 $_LANG['charge_history'] = '充值記錄 ';
-
-?>

@@ -38,6 +38,3 @@ class TopLogger
 		fwrite($this->getFileHandle(), $logData);
 	}
 }
-
-
-?>

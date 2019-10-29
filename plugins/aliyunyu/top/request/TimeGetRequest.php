@@ -24,6 +24,3 @@ class TimeGetRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

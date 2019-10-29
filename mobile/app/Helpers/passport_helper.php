@@ -285,6 +285,3 @@ function admin_registered($adminname)
 	$res = $GLOBALS['db']->getOne('SELECT COUNT(*) FROM ' . $GLOBALS['ecs']->table('admin_user') . (' WHERE user_name = \'' . $adminname . '\''));
 	return $res;
 }
-
-
-?>

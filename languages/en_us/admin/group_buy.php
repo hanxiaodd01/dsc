@@ -75,5 +75,3 @@ $_LANG['error_exist_order'] = 'There are orders in the associates, can\'t be del
 $_LANG['batch_drop_success'] = '%s records has be deleted successfully.(You can\'t delete associates with orders)';
 $_LANG['no_select_group_buy'] = 'Events do not buy your records!';
 $_LANG['log_action']['group_buy'] = 'Associates product';
-
-?>

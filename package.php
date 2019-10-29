@@ -74,5 +74,3 @@ $smarty->assign('region_id', $region_id);
 $smarty->assign('area_city', $area_city);
 $smarty->assign('feed_url', $_CFG['rewrite'] == 1 ? 'feed-typepackage.xml' : 'feed.php?type=package');
 $smarty->display('package.dwt');
-
-?>

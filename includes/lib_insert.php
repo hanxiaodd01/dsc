@@ -1883,5 +1883,3 @@ function get_header_region()
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

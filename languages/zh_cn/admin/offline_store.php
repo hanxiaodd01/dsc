@@ -117,5 +117,3 @@ $_LANG['operation_prompt_content']['stat'][1] = '搜索出来的信息只能查�
 $_LANG['operation_prompt_content']['stats'][0] = '门店订单相关信息管理。';
 $_LANG['operation_prompt_content']['stats'][1] = '可对门店订单进行确认、打印订单等操作。';
 $_LANG['operation_prompt_content']['stats'][2] = '门店订单可进行订单查询和合并订单操作。';
-
-?>

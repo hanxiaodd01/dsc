@@ -97,5 +97,3 @@ class UsersAuth extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

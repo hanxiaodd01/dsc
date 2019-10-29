@@ -186,5 +186,3 @@ class ReturnGoods extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

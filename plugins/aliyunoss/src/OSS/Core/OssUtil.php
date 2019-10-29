@@ -346,6 +346,3 @@ class OssUtil
 		}
 	}
 }
-
-
-?>

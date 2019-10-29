@@ -54,5 +54,3 @@ class PayCardType extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

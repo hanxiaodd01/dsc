@@ -185,6 +185,3 @@ function get_activity_goods($filter = array('goods_ids' => '', 'cat_ids' => '', 
 
 	return array('list' => array_values($arr), 'totalpage' => ceil($total / $size));
 }
-
-
-?>

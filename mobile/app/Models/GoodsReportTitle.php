@@ -43,5 +43,3 @@ class GoodsReportTitle extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

@@ -32,5 +32,3 @@ $_LANG['operation_prompt_content']['stats'][3] = '下单量：所选时间段内
 $_LANG['operation_prompt_content']['stats'][4] = '下单会员：所选时间段内所有提交订单的会员数。';
 $_LANG['operation_prompt_content']['stats'][5] = '退款数量：所选时间段内所有申请退款的订单数。';
 $_LANG['operation_prompt_content']['stats'][6] = '退款金额：所选时间段内退款成功的退款总金额。';
-
-?>

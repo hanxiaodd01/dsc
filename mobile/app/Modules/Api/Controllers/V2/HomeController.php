@@ -12,5 +12,3 @@ class HomeController extends \App\Modules\Api\Controllers\Controller
 		$this->result(array('token' => $token, 'data' => $res));
 	}
 }
-
-?>

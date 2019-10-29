@@ -87,5 +87,3 @@ class CouponsUser extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

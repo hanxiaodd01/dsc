@@ -4156,5 +4156,3 @@ function get_goods_attr_id($where_select = array(), $select = array(), $attr_typ
 }
 
 defined('IN_ECTOUCH') || exit('Deny Access');
-
-?>

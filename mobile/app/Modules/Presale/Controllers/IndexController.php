@@ -783,5 +783,3 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 		return array('total' => $total, 'list' => $res);
 	}
 }
-
-?>

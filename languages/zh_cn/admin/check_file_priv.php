@@ -15,5 +15,3 @@ $_LANG['unrename'] = '目录需要执行rename权限';
 $_LANG['tutorials_bonus_list_one'] = '商城文件权限检测说明';
 $_LANG['operation_prompt_content']['list'][0] = '自动检测文件权限功能。';
 $_LANG['operation_prompt_content']['list'][1] = '若服务器未给相应读写编辑权限，则会以打叉形式展示。';
-
-?>

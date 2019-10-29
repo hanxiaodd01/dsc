@@ -45,5 +45,3 @@ class WebsiteConfig implements XmlConfig
 		return $this->errorDocument;
 	}
 }
-
-?>

@@ -136,5 +136,3 @@ abstract class regionModel extends \app\func\common
 		return $result;
 	}
 }
-
-?>

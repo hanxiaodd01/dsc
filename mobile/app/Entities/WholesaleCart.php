@@ -241,5 +241,3 @@ class WholesaleCart extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

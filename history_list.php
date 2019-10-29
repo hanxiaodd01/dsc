@@ -75,5 +75,3 @@ $smarty->assign('goods_list', $goodslist);
 $smarty->assign('dwt_filename', 'history_list');
 assign_pager('history_list', 0, $count, $size, $sort, $order, $page, '', '', '', '', '', '', '', '', '', '', '', '', $ship, $self);
 $smarty->display('history_list.dwt');
-
-?>

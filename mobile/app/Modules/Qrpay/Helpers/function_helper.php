@@ -111,6 +111,3 @@ function insert_seller_account_log($order_id)
 
 	return false;
 }
-
-
-?>

@@ -416,5 +416,3 @@ class AdminController extends \App\Modules\Base\Controllers\FrontendController
 		$this->ajaxReturn($data);
 	}
 }
-
-?>

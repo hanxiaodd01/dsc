@@ -35,6 +35,3 @@ $_LANG['reply_desc'] = "是吗？我试试 ";
 $_LANG['reply_desc_one'] = "回复帖子内容不能为空 ";
 
 $_LANG['sorry_single_sun'] = "抱歉，该主题帖正在被审核 ";
-
-?>
-       

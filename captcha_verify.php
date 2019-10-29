@@ -77,5 +77,3 @@ if (isset($_REQUEST['captcha'])) {
 $identify = isset($_REQUEST['identify']) ? intval($_REQUEST['identify']) : '';
 $img = new Verify($code_config);
 $img->entry($identify);
-
-?>

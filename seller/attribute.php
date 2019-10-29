@@ -359,5 +359,3 @@ else if ($_REQUEST['act'] == 'get_attr_groups') {
 	$groups = get_attr_groups($cat_id);
 	make_json_result($groups);
 }
-
-?>

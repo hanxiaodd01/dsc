@@ -9,5 +9,3 @@ class IndexController extends \App\Modules\Api\Foundation\Controller
 		$this->resp(array('foo' => 'bar'));
 	}
 }
-
-?>

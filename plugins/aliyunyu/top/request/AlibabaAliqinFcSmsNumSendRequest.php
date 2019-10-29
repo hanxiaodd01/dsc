@@ -118,6 +118,3 @@ class AlibabaAliqinFcSmsNumSendRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

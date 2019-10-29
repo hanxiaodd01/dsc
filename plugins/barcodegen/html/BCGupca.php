@@ -12,5 +12,3 @@ foreach ($characters as $character) {
 
 echo "</div>\r\n\r\n<div id=\"explanation\">\r\n    <h3>Explanation</h3>\r\n    <ul>\r\n        <li>Encoded as EAN-13.</li>\r\n        <li>Most common and well-known in the USA.</li>\r\n        <li>There is 1 number system (NS), 5 manufacturer code, 5 product code and 1 check digit.</li>\r\n        <li>\r\n            NS Description :\r\n            <br />0 = Regular UPC Code\r\n            <br />2 = Weight Items\r\n            <br />3 = Drug/Health Items\r\n            <br />4 = In-Store Use on Non-Food Items\r\n            <br />5 = Coupons\r\n            <br />7 = Regular UPC Code\r\n            <br />And other are Reserved.\r\n        </li>\r\n    </ul>\r\n</div>\r\n\r\n";
 include 'include/footer.php';
-
-?>

@@ -75,5 +75,3 @@ class AlidayuConfigure extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

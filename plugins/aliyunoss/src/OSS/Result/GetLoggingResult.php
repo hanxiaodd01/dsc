@@ -22,5 +22,3 @@ class GetLoggingResult extends Result
 		return false;
 	}
 }
-
-?>

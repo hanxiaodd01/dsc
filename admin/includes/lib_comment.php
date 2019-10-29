@@ -155,5 +155,3 @@ function getSslPage($url)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

@@ -338,5 +338,3 @@ $_LANG['operation_prompt_content']['backup'][0] = '选择需要备份的模板�
 $_LANG['operation_prompt_content']['backup'][1] = '备份的记录会显示在页面最下方。';
 $_LANG['operation_prompt_content']['template_list'][0] = '该页面展示了当前模板，可备份当前模板。';
 $_LANG['operation_prompt_content']['template_list'][1] = '可查看当前商城模板大图。';
-
-?>

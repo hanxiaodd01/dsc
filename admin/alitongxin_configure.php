@@ -262,5 +262,3 @@ if ($_REQUEST['act'] == 'sms_template') {
 	$json = new JSON();
 	exit($json->encode($res));
 }
-
-?>

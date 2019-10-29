@@ -345,5 +345,3 @@ else {
 }
 
 $smarty->assign('head_shop_url', $head_shop_url);
-
-?>

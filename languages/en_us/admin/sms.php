@@ -102,5 +102,3 @@ $_LANG['js_languages']['start_date_format_error'] = 'Start time format is invali
 $_LANG['js_languages']['end_date_format_error'] = 'Deadline format is invalid.';
 $_LANG['js_languages']['money_empty_error'] = 'Please enter charge what you want to recharge.';
 $_LANG['js_languages']['money_format_error'] = 'Money format is invalid.';
-
-?>

@@ -42,5 +42,3 @@ class Help extends \app\api\foundation\Controller
 		return $help;
 	}
 }
-
-?>

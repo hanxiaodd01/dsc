@@ -92,5 +92,3 @@ class LiteProject extends \Illuminate\Console\Command
 		closedir($handle);
 	}
 }
-
-?>

@@ -71,5 +71,3 @@ class IndexController extends \App\Modules\Base\Controllers\FrontendController
 		$this->display();
 	}
 }
-
-?>

@@ -30,5 +30,3 @@ $_LANG['paypal_currency_range']['USD'] = '美元';
 $_LANG['paypal_currency_range']['HKD'] = '港元';
 $_LANG['paypal_button']                = '立即使用 paypal 支付';
 $_LANG['paypal_txn_id']                = 'paypal 交易号';
-
-?>

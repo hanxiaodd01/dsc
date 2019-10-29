@@ -21,6 +21,3 @@ class BucketListInfo
 		return $this->bucketList;
 	}
 }
-
-
-?>

@@ -155,6 +155,3 @@ class LocationService
 		return $asc;
 	}
 }
-
-
-?>

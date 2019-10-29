@@ -1594,5 +1594,3 @@ $_LANG['upgrade_tip_5'] = '操作商家商品品牌统一使用平台品牌ID：
 $_LANG['add_group_goods_notic'] = '一组配件只能添加五个商品，如需添加则删除该组其它配件商品';
 $_LANG['accord_input_height_default'] = '根据实际需求自行填写高度，默认为';
 $_LANG['is_return_order_goods'] = '(已申请退换货服务)';
-
-?>

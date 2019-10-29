@@ -13,5 +13,3 @@ if (!defined('TOP_AUTOLOADER_PATH')) {
 }
 
 require 'Autoloader.php';
-
-?>

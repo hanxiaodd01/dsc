@@ -21,5 +21,3 @@ if ($_REQUEST['act'] == 'operate') {
 	$result['content'] = $GLOBALS['smarty']->fetch('dialog.dwt');
 	exit($json->encode($result));
 }
-
-?>

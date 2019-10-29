@@ -142,5 +142,3 @@ class Products extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

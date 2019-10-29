@@ -18,5 +18,3 @@ class TradeController extends \App\Api\Foundation\Controller
 	{
 	}
 }
-
-?>

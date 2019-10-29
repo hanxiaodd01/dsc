@@ -53,5 +53,3 @@ class TouchAuth extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

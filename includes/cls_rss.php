@@ -823,5 +823,3 @@ class RSSItem extends RSSBase
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

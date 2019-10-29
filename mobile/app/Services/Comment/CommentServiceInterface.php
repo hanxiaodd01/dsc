@@ -8,6 +8,3 @@ interface CommentServiceInterface
 
 	public function count();
 }
-
-
-?>

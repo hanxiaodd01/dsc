@@ -32,5 +32,3 @@ class AccountRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

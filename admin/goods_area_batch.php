@@ -221,5 +221,3 @@ else if ($_REQUEST['act'] == 'download') {
 		echo 'error: $_LANG[upload_area] not exists';
 	}
 }
-
-?>

@@ -102,5 +102,3 @@ $_LANG['js_languages']['start_date_format_error'] = '开始日期格式不对。
 $_LANG['js_languages']['end_date_format_error'] = '结束日期格式不对。';
 $_LANG['js_languages']['money_empty_error'] = '请输入您要充值的金额。';
 $_LANG['js_languages']['money_format_error'] = '金额格式不对。';
-
-?>

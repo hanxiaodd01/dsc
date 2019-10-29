@@ -53,5 +53,3 @@ class ImConfigure extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

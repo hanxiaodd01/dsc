@@ -142,5 +142,3 @@ class WholesaleCat extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

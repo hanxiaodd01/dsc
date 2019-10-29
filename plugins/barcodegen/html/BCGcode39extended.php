@@ -24,5 +24,3 @@ for ($i = 0; $i < $c; $i++) {
 
 echo "</div>\r\n\r\n<div id=\"explanation\">\r\n    <h3>Explanation</h3>\r\n    <ul>\r\n        <li>Supports the ASCII 0 to 127.</li>\r\n        <li>This mode is \"optional\" for Code 39, you have to specify your reader that you have extended code.</li>\r\n        <li>Your browser may not be able to write the special characters (NUL, SOH, etc.) but you can write them with the code.</li>\r\n    </ul>\r\n</div>\r\n\r\n";
 include 'include/footer.php';
-
-?>

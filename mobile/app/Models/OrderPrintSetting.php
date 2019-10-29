@@ -75,5 +75,3 @@ class OrderPrintSetting extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

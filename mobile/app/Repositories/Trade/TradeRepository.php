@@ -4,6 +4,3 @@ namespace App\Repositories\Trade;
 
 class TradeRepository
 {}
-
-
-?>

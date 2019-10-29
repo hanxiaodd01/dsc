@@ -800,5 +800,3 @@ else if ($_REQUEST['act'] == 'custom_update') {
 	$links[] = array('text' => $_LANG['back_custom_set'], 'href' => 'flashplay.php?act=custom_list');
 	sys_msg($_LANG['edit_ok'], 0, $links);
 }
-
-?>

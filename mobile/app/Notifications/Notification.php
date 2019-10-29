@@ -12,6 +12,3 @@ abstract class Notification
 		}
 	}
 }
-
-
-?>

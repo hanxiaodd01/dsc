@@ -42,5 +42,3 @@ class WechatUserTag extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

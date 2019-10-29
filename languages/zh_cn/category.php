@@ -49,5 +49,3 @@ $_LANG['have_a_look'] = '随便看看';
 $_LANG['Change_set'] = "换一组";
 $_LANG['Ccearance'] = "清仓";
 //20161214
-
-?>

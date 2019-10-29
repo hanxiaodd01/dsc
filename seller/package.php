@@ -434,5 +434,3 @@ else if ($_REQUEST['act'] == 'edit_package_product') {
 
 	exit(json_encode($result));
 }
-
-?>

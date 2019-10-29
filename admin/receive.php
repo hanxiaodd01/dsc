@@ -63,5 +63,3 @@ if ($mysignMsg == $signMsg) {
 else {
 	echo $_LANG['validation_error'];
 }
-
-?>

@@ -16,5 +16,3 @@ class InitiateMultipartUploadResult extends Result
 		throw new \OSS\Core\OssException('cannot get UploadId');
 	}
 }
-
-?>

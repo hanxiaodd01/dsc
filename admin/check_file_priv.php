@@ -147,5 +147,3 @@ if ($_REQUEST['act'] == 'check') {
 	$smarty->assign('tpl_msg', $tpl_msg);
 	$smarty->display('file_priv.dwt');
 }
-
-?>

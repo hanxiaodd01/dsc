@@ -224,5 +224,3 @@ else {
 	$smarty->assign('ur_here', $_LANG['batch_add_order']);
 	$smarty->display('mc_order.dwt');
 }
-
-?>

@@ -52,5 +52,3 @@ $_LANG['operation_prompt_content']['baitiao_list'][1] = '可查看白条消费�
 $_LANG['operation_prompt_content']['baitiao_list'][2] = '可以输入会员名称关键字进行搜索。';
 $_LANG['operation_prompt_content']['baitiao_log_list'][0] = '该页面展示白条消费订单信息。';
 $_LANG['operation_prompt_content']['baitiao_log_list'][1] = '请谨慎操作白条信息。';
-
-?>

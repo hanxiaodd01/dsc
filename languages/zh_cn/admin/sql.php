@@ -11,5 +11,3 @@ $_LANG['backups'] = '备份';
 $_LANG['js_languages']['sql_not_null'] = 'SQL语句为空';
 $_LANG['operation_prompt_content']['list'][0] = '该功能可进行数据库的管理。';
 $_LANG['operation_prompt_content']['list'][1] = '有一定的程序编程能力的人操作。';
-
-?>

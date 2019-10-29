@@ -67,6 +67,3 @@ class BrandRepository
 		return $goodsNum;
 	}
 }
-
-
-?>

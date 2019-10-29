@@ -20,5 +20,3 @@ class Sku extends \app\api\v2\Controller
 	{
 	}
 }
-
-?>

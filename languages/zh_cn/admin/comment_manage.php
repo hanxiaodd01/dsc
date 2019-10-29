@@ -72,5 +72,3 @@ $_LANG['operation_prompt_content']['list'][0] = '展示了所有用户评论商�
 $_LANG['operation_prompt_content']['list'][1] = '可以屏蔽评论或者删除评论，也可以直接回复评论。';
 $_LANG['operation_prompt_content']['info'][0] = '对用户的评论进行回复。';
 $_LANG['operation_prompt_content']['info'][1] = '如果是邮件订阅用户，可勾选邮件通知。';
-
-?>

@@ -213,6 +213,3 @@ class Page
 		return $fpage;
 	}
 }
-
-
-?>

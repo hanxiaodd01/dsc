@@ -138,6 +138,3 @@ class ShopRepository
 		return $res;
 	}
 }
-
-
-?>

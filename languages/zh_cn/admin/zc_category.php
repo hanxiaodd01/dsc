@@ -20,5 +20,3 @@ $_LANG['no_image'] = '无图片';
 $_LANG['operation_prompt_content']['info'][0] = '请合理填写众筹分类名称并选择合适的上级分类。';
 $_LANG['operation_prompt_content']['list'][0] = '众筹分类信息管理。';
 $_LANG['operation_prompt_content']['list'][1] = '可直接修改排序和添加分类。';
-
-?>

@@ -48,5 +48,3 @@ if ($v_md5str == $md5string) {
 else {
 	echo 'error';
 }
-
-?>

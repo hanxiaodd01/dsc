@@ -62,5 +62,3 @@ if (!$smarty->is_cached('merchants.dwt')) {
 }
 
 $smarty->display('merchants.dwt');
-
-?>

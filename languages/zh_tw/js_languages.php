@@ -468,5 +468,3 @@ $_LANG['js_languages']['gift_gard']['gift_gard_password_null'] = '请输入礼�
 $_LANG['js_languages']['gift_gard']['null_captcha_login'] = '验证码不能为空';
 $_LANG['js_languages']['gift_gard']['Confirmation_delivery'] = '确认提货时间';
 $_LANG['js_languages']['gift_gard']['gift_gard_title'] = '填写提货信息';
-
-?>

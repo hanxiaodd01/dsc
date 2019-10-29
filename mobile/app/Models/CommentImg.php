@@ -97,5 +97,3 @@ class CommentImg extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

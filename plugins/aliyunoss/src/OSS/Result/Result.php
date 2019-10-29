@@ -115,6 +115,3 @@ abstract class Result
 		return $this->rawResponse;
 	}
 }
-
-
-?>

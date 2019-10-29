@@ -59,5 +59,3 @@ if ($GLOBALS['_CFG']['open_oss'] == 1) {
 }
 
 echo '{"url":"' . $info['url'] . '","fileType":"' . $info['type'] . '","original":"' . $info['originalName'] . '","state":"' . $info['state'] . '"}';
-
-?>

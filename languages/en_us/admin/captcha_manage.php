@@ -21,5 +21,3 @@ $_LANG['js_languages']['height_number'] = 'Please enter the picture height numbe
 $_LANG['js_languages']['proper_height'] = 'The height of the picture must between 40 t0 145!';
 $_LANG['save_ok'] = 'Set up to preserve the success of';
 $_LANG['captcha_message'] = 'Message Board Guest Book';
-
-?>

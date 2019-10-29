@@ -52,5 +52,3 @@ $_LANG['js_languages']['no_cat'] = '沒有選擇文章分類';
 $_LANG['js_languages']['not_allow_add'] = '系統保留分類，不允許在該分類添加文章';
 $_LANG['js_languages']['drop_confirm'] = '您確定要刪除文章嗎？';
 $_LANG['all_cat'] = '全部分類';
-
-?>

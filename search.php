@@ -1339,5 +1339,3 @@ else {
 		$smarty->display('merchants_shop_list.dwt');
 	}
 }
-
-?>

@@ -9,5 +9,3 @@ while (1) {
 	echo "\n";
 	$data->ack();
 }
-
-?>

@@ -62,5 +62,3 @@ $_LANG['variable_attr'] = '变量属性';
 $_LANG['tutorials_bonus_list_one'] = '阿里大于短信配置使用说明';
 $_LANG['operation_prompt_content']['info'][0] = '填写短信签名名称和模板ID请与阿里短信申请的保持一致。';
 $_LANG['operation_prompt_content']['info'][1] = '编辑短信内容时请根据提供的模板进行修改，模板内的每个变量是固定的，且不可改变位置。';
-
-?>

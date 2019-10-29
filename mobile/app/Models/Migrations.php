@@ -9,5 +9,3 @@ class Migrations extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('migration', 'batch');
 	protected $guarded = array();
 }
-
-?>

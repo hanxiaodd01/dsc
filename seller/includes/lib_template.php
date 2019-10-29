@@ -206,5 +206,3 @@ $page_libs = array(
 	'merchants_store' => array('/library/ur_here.lbi' => 0, '/library/search_form.lbi' => 0, '/library/member.lbi' => 0, '/library/category_tree.lbi' => 0, '/library/top10.lbi' => 0, '/library/history.lbi' => 0, '/library/recommend_best.lbi' => 3, '/library/recommend_hot.lbi' => 3, '/library/goods_list.lbi' => 0, '/library/pages.lbi' => 0, '/library/recommend_promotion.lbi' => 3, '/library/brands.lbi' => 3, '/library/promotion_info.lbi' => 0, '/library/cart.lbi' => 0, '/library/vote_list.lbi' => 0)
 	);
 $dyna_libs = array('cat_goods', 'brand_goods', 'cat_articles', 'ad_position');
-
-?>

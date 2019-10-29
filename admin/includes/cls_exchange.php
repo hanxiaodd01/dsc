@@ -98,5 +98,3 @@ class exchange
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

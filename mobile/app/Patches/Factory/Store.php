@@ -85,6 +85,3 @@ class Store
 		dao('touch_upgrade')->add($data);
 	}
 }
-
-
-?>

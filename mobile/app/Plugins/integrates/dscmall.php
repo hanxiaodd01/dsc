@@ -86,5 +86,3 @@ class dscmall extends \App\Libraries\Integrate
 		}
 	}
 }
-
-?>

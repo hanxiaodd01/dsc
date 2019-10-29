@@ -153,5 +153,3 @@ class Brand extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

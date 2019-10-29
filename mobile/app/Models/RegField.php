@@ -9,5 +9,3 @@ class RegField extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('reg_field_name', 'dis_order', 'display', 'type', 'is_need');
 	protected $guarded = array();
 }
-
-?>

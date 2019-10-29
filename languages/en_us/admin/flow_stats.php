@@ -17,5 +17,3 @@ $_LANG['start_date'] = 'Start date';
 $_LANG['end_date'] = 'Deadline';
 $_LANG['down_flow_stats'] = 'Download flow statistics';
 $_LANG['flow_statistics'] = 'Flow statistics';
-
-?>

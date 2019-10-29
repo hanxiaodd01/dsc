@@ -237,5 +237,3 @@ class cls_session
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

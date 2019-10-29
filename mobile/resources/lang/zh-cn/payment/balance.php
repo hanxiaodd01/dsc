@@ -22,5 +22,3 @@ class balance implements PaymentInterface
         return;
     }
 }
-
-?>

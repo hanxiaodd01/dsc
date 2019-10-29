@@ -24,5 +24,3 @@ $_LANG['cnbb'] = 'CITIC Industrial Bank';
 $_LANG['gzcb'] = 'Guangzhou Commercial Bank';
 $_LANG['chinapost'] = 'ChinaPost';
 $_LANG['hxb'] = 'HUAXIA Bank';
-
-?>

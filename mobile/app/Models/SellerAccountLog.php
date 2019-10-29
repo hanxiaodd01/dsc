@@ -197,5 +197,3 @@ class SellerAccountLog extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

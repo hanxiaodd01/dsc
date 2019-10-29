@@ -16,5 +16,3 @@ $item = htmlspecialchars($_GET['item']);
 echo 'var cBox = $(\'#';
 echo $item;
 echo "', parent.document);\r\nvar editor = UE.getEditor('container');\r\neditor.addListener('ready', function() {\r\n  \$('#detail-table', parent.document).hide();//先显示再隐藏编辑器，兼容部分浏览在display:none时无法创建的问题\r\n  var content = cBox.val();\r\n  editor.setContent(content);\r\n});\r\n//editor.addListener(\"contentChange\", function(){setSync()});//触发同步\r\n\$(function(){\r\n  window.setInterval(\"setSync()\",1000);//自动同步\r\n})\r\nfunction setSync(){\r\n  var content = editor.getContent();\r\n  cBox.val(content);\r\n}\r\n</script>\r\n</body>\r\n</html>";
-
-?>

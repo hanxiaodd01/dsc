@@ -247,5 +247,3 @@ else if ($_REQUEST['act'] == 'separate') {
 	$links[] = array('text' => $_LANG['affiliate_ck'], 'href' => 'affiliate_ck.php?act=list');
 	sys_msg($_LANG['edit_ok'], 0, $links);
 }
-
-?>

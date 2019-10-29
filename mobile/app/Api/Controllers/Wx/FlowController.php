@@ -93,5 +93,3 @@ class FlowController extends \App\Api\Controllers\Controller
 		return $this->apiReturn($order);
 	}
 }
-
-?>

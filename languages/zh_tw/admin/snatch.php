@@ -50,5 +50,3 @@ $_LANG['js_languages']['invalid_endtime'] = '輸入的結束時間格式不對�
 $_LANG['js_languages']['invalid_gt'] = '輸入的結束時間應大於起始日期';
 $_LANG['js_languages']['invalid_price'] = '輸入的價格上限應大於價格下限。';
 $_LANG['js_languages']['search_is_null'] = '沒有搜索到任何商品，請重新搜索';
-
-?>

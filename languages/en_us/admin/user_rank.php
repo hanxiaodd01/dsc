@@ -23,5 +23,3 @@ $_LANG['js_languages']['integral_max_invalid'] = 'Please enter a max limit of po
 $_LANG['js_languages']['discount_invalid'] = 'Please enter a discount rate, and the number must be more than 100.';
 $_LANG['js_languages']['integral_max_small'] = 'The max limit points must be more than min limit.';
 $_LANG['js_languages']['lang_remove'] = 'Remove';
-
-?>

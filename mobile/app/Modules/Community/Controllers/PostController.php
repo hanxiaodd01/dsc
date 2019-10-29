@@ -98,5 +98,3 @@ class PostController extends \App\Modules\Base\Controllers\FrontendController
 		}
 	}
 }
-
-?>

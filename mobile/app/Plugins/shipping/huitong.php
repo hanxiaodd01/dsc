@@ -46,6 +46,3 @@ class huitong
 		return $proxy->getExpress('huitongkuaidi', $invoice_sn);
 	}
 }
-
-
-?>

@@ -92,5 +92,3 @@ function JSON($array)
 defined('EBusinessID') || define('EBusinessID', $GLOBALS['_CFG']['kdniao_client_id']);
 defined('AppKey') || define('AppKey', $GLOBALS['_CFG']['kdniao_appkey']);
 defined('ReqURL') || define('ReqURL', 'http://api.kdniao.cc/api/Eorderservice');
-
-?>

@@ -35,5 +35,3 @@ $smarty->assign('shop_name', $_CFG['shop_name']);
 $smarty->assign('watermark', str_replace('../', './', $_CFG['watermark']));
 $smarty->assign('gallery', $gallery);
 $smarty->display('gallery.dwt');
-
-?>

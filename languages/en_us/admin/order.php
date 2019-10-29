@@ -324,5 +324,3 @@ $_LANG['return_time'] = 'Returned Time:';
 $_LANG['label_return_time'] = 'Returned Time';
 $_LANG['tips_back_del'] = 'Return a single deletion of success!';
 $_LANG['goods_num_err'] = 'Stocks, please re-select!';
-
-?>

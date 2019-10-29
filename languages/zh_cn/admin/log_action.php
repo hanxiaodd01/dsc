@@ -68,5 +68,3 @@ $_LANG['log_action']['goods_transport'] = '商品运费模板';
 $_LANG['log_action']['supply_login'] = '供应商登陆';
 $_LANG['log_action']['goods_type_cat'] = '属性分类';
 $_LANG['log_action']['gallery_album'] = '图片相册';
-
-?>

@@ -71,5 +71,3 @@ class ecs_error
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

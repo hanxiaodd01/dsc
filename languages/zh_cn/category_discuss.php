@@ -20,5 +20,3 @@ $_LANG['sunburn_port'] = "晒单贴";
 $_LANG['discuss_post'] = "讨论帖";
 $_LANG['interlocution_post'] = "问答帖";
 $_LANG['circle_post'] = "圈子贴";
-
-?>

@@ -135,5 +135,3 @@ else {
 	assign_query_info();
 	$smarty->display('sale_order.dwt');
 }
-
-?>

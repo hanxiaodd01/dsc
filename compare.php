@@ -82,5 +82,3 @@ $smarty->assign('ur_here', $position['ur_here']);
 $smarty->assign('helps', get_shop_help());
 assign_dynamic('compare');
 $smarty->display('compare.dwt');
-
-?>

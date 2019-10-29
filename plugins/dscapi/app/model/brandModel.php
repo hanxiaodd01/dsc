@@ -134,5 +134,3 @@ abstract class brandModel extends \app\func\common
 		return $result;
 	}
 }
-
-?>

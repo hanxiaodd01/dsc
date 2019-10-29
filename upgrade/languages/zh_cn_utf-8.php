@@ -104,5 +104,3 @@ $_LANG['ui_ordinary'] = '普通方式';
 $_LANG['update_v250']['zh_cn'] = array('帐户冲值', '帐户提款', '购买商品', '订单退款', 'init' => '初始化');
 $_LANG['update_v250']['zh_tw'] = array('帳戶沖值', '帳戶提款', '購買商品', '訂單退款', 'init' => '初始化');
 $_LANG['update_v250']['en_us'] = array('saving', 'drawing', 'buying', 'refundment', 'init' => 'initialize');
-
-?>

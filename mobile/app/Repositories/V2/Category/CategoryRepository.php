@@ -32,5 +32,3 @@ class CategoryRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

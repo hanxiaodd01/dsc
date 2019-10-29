@@ -89,6 +89,3 @@ MODIFY COLUMN `user_id`  int(10) UNSIGNED NOT NULL DEFAULT 0 AFTER `snatch_id`;'
 		}
 	}
 }
-
-
-?>

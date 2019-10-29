@@ -775,5 +775,3 @@ $_LANG['operation_prompt_content']['oss'][0] = '检查images下面的文件。';
 $_LANG['operation_prompt_content']['oss'][1] = '同步服务器图片到OSS，根据弹窗提示，耐心等待。';
 $_LANG['operation_prompt_content']['oss'][2] = '由于文件在同步的过程中有部分文件OSS上传会失败，您可以重新按F5刷新再次执行即可。';
 $_LANG['operation_prompt_content']['oss'][3] = '建议：以下两个跳转链接使用右键点击新窗口打开，避免F5刷新页面丢失。';
-
-?>

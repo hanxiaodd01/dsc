@@ -156,5 +156,3 @@ echo "\"></script>\r\n<script language=\"javascript\">\r\nvar suggs = new Array(
 print_textinputs_var();
 print_checker_results();
 echo "\r\nvar wordWindowObj = new wordWindow();\r\nwordWindowObj.originalSpellings = words;\r\nwordWindowObj.suggestions = suggs;\r\nwordWindowObj.textInputs = textinputs;\r\n\r\nfunction init_spell() {\r\n    // check if any error occured during server-side processing\r\n    if( error ) {\r\n        alert( error );\r\n    } else {\r\n        // call the init_spell() function in the parent frameset\r\n        if (parent.frames.length) {\r\n            parent.init_spell( wordWindowObj );\r\n        } else {\r\n            alert('This page was loaded outside of a frameset. It might not display properly');\r\n        }\r\n    }\r\n}\r\n\r\n\r\n\r\n</script>\r\n\r\n</head>\r\n<!-- <body onLoad=\"init_spell();\">        by FredCK -->\r\n<body onLoad=\"init_spell();\" bgcolor=\"#ffffff\">\r\n\r\n<script type=\"text/javascript\">\r\nwordWindowObj.writeBody();\r\n</script>\r\n\r\n</body>\r\n</html>\r\n";
-
-?>

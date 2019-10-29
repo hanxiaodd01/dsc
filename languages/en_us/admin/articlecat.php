@@ -36,5 +36,3 @@ $_LANG['notice_isopen'] = 'Whether display the category in navigation.';
 $_LANG['js_languages']['no_catname'] = 'Please enter article category name.';
 $_LANG['js_languages']['sys_hold'] = 'Retain the classification system is not permitted to add sub-categories';
 $_LANG['js_languages']['remove_confirm'] = 'Are you sure delete the selected category?';
-
-?>

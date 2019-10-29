@@ -9,5 +9,3 @@ class HeaderResult extends Result
 		return empty($this->rawResponse->header) ? array() : $this->rawResponse->header;
 	}
 }
-
-?>

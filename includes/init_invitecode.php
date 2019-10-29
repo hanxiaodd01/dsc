@@ -244,5 +244,3 @@ if (!defined('INIT_NO_SMARTY') && gzip_enabled()) {
 else {
 	ob_start();
 }
-
-?>

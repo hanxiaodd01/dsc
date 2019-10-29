@@ -32,5 +32,3 @@ class GoodsController extends \App\Api\Foundation\Controller
 	{
 	}
 }
-
-?>

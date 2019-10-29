@@ -64,5 +64,3 @@ $GLOBALS['smarty']->assign('cart_info', $cart_info);
 $result['content'] = $GLOBALS['smarty']->fetch('library/cart_info.lbi');
 $result['cart_content'] = $GLOBALS['smarty']->fetch('library/cart_menu_info.lbi');
 exit($json->encode($result));
-
-?>

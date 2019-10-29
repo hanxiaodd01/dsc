@@ -43,5 +43,3 @@ class VoteLog extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

@@ -82,5 +82,3 @@ class CartController extends \App\Api\Controllers\Controller
 		return $res;
 	}
 }
-
-?>

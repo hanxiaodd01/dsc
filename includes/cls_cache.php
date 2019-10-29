@@ -37,6 +37,3 @@ class cls_cache
 		return $this->cache->clear();
 	}
 }
-
-
-?>

@@ -6,5 +6,3 @@ function get_url_val($id)
 }
 
 echo get_url_val(5);
-
-?>

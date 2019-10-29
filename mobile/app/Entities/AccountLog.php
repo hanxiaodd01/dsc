@@ -109,5 +109,3 @@ class AccountLog extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

@@ -96,6 +96,3 @@ class AddressRepository
 		return $arr;
 	}
 }
-
-
-?>

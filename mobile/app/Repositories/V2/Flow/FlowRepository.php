@@ -32,5 +32,3 @@ class FlowRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

@@ -422,5 +422,3 @@ else if ($_REQUEST['act'] == 'drop_logo') {
 		);
 	sys_msg($_LANG['drop_brand_logo_success'], 0, $link);
 }
-
-?>

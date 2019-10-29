@@ -32,5 +32,3 @@ $_LANG['13_batch_add'] = '地区商品货品批量上传';
 $_LANG['notice_select'] = '（导出CSV属性类型）';
 $_LANG['edit_goods'] = '编辑商品信息';
 $_LANG['current_modification_data'] = '当前需要修改的数据有';
-
-?>

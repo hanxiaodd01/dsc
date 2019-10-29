@@ -479,5 +479,3 @@ function get_wholesale_limit() {
 
     return $res;
 }
-
-?>

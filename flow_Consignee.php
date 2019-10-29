@@ -147,5 +147,3 @@ else if ($_REQUEST['step'] == 'delete_Consignee') {
 	$result['content'] = $smarty->fetch('library/consignee_flow.lbi');
 	exit($json->encode($result));
 }
-
-?>

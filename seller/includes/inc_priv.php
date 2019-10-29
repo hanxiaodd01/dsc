@@ -219,5 +219,3 @@ if (!judge_supplier_enabled()) {
 
 $purview['04_goods_lib_list'] = 'goods_lib_list';
 $purview['order_print_setting'] = 'order_print_setting';
-
-?>

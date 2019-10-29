@@ -450,4 +450,3 @@ function get_goods_attr_list($attr_id = 0, $goods_id = 0) {
 }
 
 //商品属性 end
-?>

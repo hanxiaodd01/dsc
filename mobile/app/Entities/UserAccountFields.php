@@ -53,5 +53,3 @@ class UserAccountFields extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

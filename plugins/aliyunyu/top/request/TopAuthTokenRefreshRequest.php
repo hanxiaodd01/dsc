@@ -40,6 +40,3 @@ class TopAuthTokenRefreshRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

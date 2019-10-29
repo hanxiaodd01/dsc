@@ -39,5 +39,3 @@ $enable = true;
 $sess = new cls_session($db, $ecs->table('sessions'), $ecs->table('sessions_data'), 'ECSCP_SELLER_ID');
 $_CFG = load_config();
 require 'Uploader.class.php';
-
-?>

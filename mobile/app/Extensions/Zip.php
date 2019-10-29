@@ -416,6 +416,3 @@ class Zip
 		return true;
 	}
 }
-
-
-?>

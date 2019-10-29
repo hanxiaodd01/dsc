@@ -365,5 +365,3 @@ class order extends \app\model\orderModel
 		return $GLOBALS['db']->getOne($sql);
 	}
 }
-
-?>

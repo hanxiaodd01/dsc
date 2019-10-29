@@ -22,5 +22,3 @@ class Controller extends \App\Modules\Base\Controllers\Frontend
 		}
 	}
 }
-
-?>

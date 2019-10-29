@@ -463,5 +463,3 @@ else if ($_REQUEST['act'] == 'change_amount') {
 
 	exit($json->encode($result));
 }
-
-?>

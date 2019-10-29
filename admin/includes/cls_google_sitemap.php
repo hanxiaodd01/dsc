@@ -60,5 +60,3 @@ class google_sitemap_item
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

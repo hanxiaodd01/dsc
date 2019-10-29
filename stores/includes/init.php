@@ -311,5 +311,3 @@ if (!empty($_SESSION['store_user_id'])) {
 	$store_user_info = $GLOBALS['db']->getRow($sql);
 	$smarty->assign('store_user_info', $store_user_info);
 }
-
-?>

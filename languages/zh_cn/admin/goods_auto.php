@@ -19,5 +19,3 @@ $_LANG['batch_end_succeed'] = '批量下架成功';
 $_LANG['back_list'] = '返回商品自动上下架';
 $_LANG['operation_prompt_content'][0] = '选择商品和需要上下架操作的时间进行批量上下架。';
 $_LANG['operation_prompt_content'][1] = '也可搜索商品名称进行单个上下架。';
-
-?>

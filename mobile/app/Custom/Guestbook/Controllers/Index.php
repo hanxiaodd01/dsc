@@ -21,5 +21,3 @@ class Index extends \App\Http\Base\Controllers\Frontend
 		$this->redirect('index');
 	}
 }
-
-?>

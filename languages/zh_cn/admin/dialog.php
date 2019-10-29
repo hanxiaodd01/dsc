@@ -66,5 +66,3 @@ $_LANG['intelligent_user_attention_number'] = '会员关注此商品数量';
 $_LANG['intelligent_manual_intervention'] = '人工干预值';
 $_LANG['intelligent_notice'][0] = '注意：1、智能权重统计购买数量必须是会员“确认收货”后的订单。';
 $_LANG['intelligent_notice'][1] = '2、智能权重默认不会统计出之前的老数据，在统计过一次后会把老数据统计出来，升级用户会看到第一次统计值不一致，是因为把老数据加载出来了。';
-
-?>

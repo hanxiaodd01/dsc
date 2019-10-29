@@ -806,5 +806,3 @@ if ($_REQUEST['act'] == 'title_remove') {
 	ecs_header('Location: ' . $url . "\n");
 	exit();
 }
-
-?>

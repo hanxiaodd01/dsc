@@ -292,5 +292,3 @@ if (isset($smarty)) {
 	$smarty->assign('json_languages', $json_languages);
 	$smarty->assign('rs_enabled', $_CFG['region_store_enabled']);
 }
-
-?>

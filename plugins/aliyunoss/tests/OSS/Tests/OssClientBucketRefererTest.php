@@ -46,5 +46,3 @@ class OssClientBucketRefererTest extends TestOssClientBase
 		}
 	}
 }
-
-?>

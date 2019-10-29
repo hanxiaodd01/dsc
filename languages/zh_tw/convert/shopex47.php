@@ -9,5 +9,3 @@ $_LANG['step_users'] = '正在轉換會員...';
 $_LANG['step_article'] = '正在轉換文章...';
 $_LANG['step_order'] = '正在轉換訂單...';
 $_LANG['step_config'] = '正在轉換商店設置...';
-
-?>

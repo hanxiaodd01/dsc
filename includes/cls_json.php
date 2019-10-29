@@ -418,5 +418,3 @@ if (!defined('IN_ECS')) {
 if (!defined('EC_CHARSET')) {
 	define('EC_CHARSET', 'utf-8');
 }
-
-?>

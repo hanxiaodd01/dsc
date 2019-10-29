@@ -66,5 +66,3 @@ $_LANG['label_captcha'] = 'Verification Code:';
 $_LANG['click_for_another'] = 'Invisibility? Replace an image.';
 $_LANG['signin_now'] = 'Enter';
 $_LANG['remember'] = 'Remember my login information.';
-
-?>

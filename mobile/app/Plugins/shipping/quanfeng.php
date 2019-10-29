@@ -46,6 +46,3 @@ class quanfeng
 		return $proxy->getExpress('quanfengkuaidi', $invoice_sn);
 	}
 }
-
-
-?>

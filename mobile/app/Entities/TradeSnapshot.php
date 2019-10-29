@@ -197,5 +197,3 @@ class TradeSnapshot extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

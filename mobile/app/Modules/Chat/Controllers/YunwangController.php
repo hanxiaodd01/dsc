@@ -57,5 +57,3 @@ class YunwangController extends \App\Modules\Base\Controllers\FrontendController
 		$resp = $c->execute($req);
 	}
 }
-
-?>

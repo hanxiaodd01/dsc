@@ -98,5 +98,3 @@ class UsersPaypwd extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

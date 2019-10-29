@@ -64,5 +64,3 @@ class DrpType extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

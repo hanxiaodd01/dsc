@@ -262,5 +262,3 @@ else {
 $smarty->assign('basic_info', $basic_info);
 $user_id = isset($_SESSION['user_id']) && !empty($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
 $smarty->assign('user_id', $user_id);
-
-?>

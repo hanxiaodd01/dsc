@@ -434,5 +434,3 @@ else {
 		make_json_result($smarty->fetch('privilege_dialog_list.dwt'), $count);
 	}
 }
-
-?>

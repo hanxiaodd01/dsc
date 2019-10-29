@@ -12,5 +12,3 @@ $_LANG['unread'] = '不可讀';
 $_LANG['unwrite'] = '不可寫';
 $_LANG['unmodify'] = '不可修改';
 $_LANG['unrename'] = '目錄需要執行rename權限';
-
-?>

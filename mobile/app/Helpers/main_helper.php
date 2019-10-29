@@ -1879,6 +1879,3 @@ function drp_rank_info($user_id = 0)
 
 	return $rank_info;
 }*/
-
-
-?>

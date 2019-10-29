@@ -196,5 +196,3 @@ class Topic extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

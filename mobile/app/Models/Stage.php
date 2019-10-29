@@ -10,5 +10,3 @@ class Stage extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('order_sn', 'stages_total', 'stages_one_price', 'yes_num', 'create_date', 'repay_date');
 	protected $guarded = array();
 }
-
-?>

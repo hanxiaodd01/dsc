@@ -137,5 +137,3 @@ else if ($_REQUEST['act'] == 'removeTemplate') {
 
 	exit(json_encode($result));
 }
-
-?>

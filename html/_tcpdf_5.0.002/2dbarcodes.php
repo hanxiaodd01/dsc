@@ -77,6 +77,3 @@ class TCPDF2DBarcode
 		}
 	}
 }
-
-
-?>

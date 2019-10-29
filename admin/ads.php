@@ -755,5 +755,3 @@ else if ($_REQUEST['act'] == 'get_position') {
 	$position_model['ad_name'] = $res[0][0];
 	exit(json_encode($position_model));
 }
-
-?>

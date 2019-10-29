@@ -501,5 +501,3 @@ else if ($_REQUEST['act'] == 'get_childtype') {
 	$result['content'] = $smarty->fetch('library/type_cat.lbi');
 	exit($json->encode($result));
 }
-
-?>

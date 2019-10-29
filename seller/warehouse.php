@@ -781,5 +781,3 @@ else if ($_REQUEST['act'] == 'get_freight_area') {
 	$smarty->assign('return_data', $return_data);
 	make_json_result($smarty->fetch('warehouse_freight_area.dwt'));
 }
-
-?>

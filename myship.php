@@ -54,5 +54,3 @@ foreach ($shipping_list as $key => $val) {
 
 $smarty->assign('shipping_list', $shipping_list);
 $smarty->display('myship.dwt');
-
-?>

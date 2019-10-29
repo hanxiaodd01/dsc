@@ -108,5 +108,3 @@ else if ($_REQUEST['act'] == 'edit_apply_day') {
 		make_json_result(stripslashes($val));
 	}
 }
-
-?>

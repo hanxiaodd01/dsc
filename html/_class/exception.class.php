@@ -111,5 +111,3 @@ class HTML2PDF_exception extends exception
 		return $this->_image;
 	}
 }
-
-?>

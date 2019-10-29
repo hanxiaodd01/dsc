@@ -9,5 +9,3 @@ class LinkAreaGood extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('goods_id', 'region_id', 'ru_id');
 	protected $guarded = array();
 }
-
-?>

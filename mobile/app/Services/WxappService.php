@@ -21,6 +21,3 @@ class WxappService
 		return $this->WxappConfigRepository->getWxappConfigByCode($code);
 	}
 }
-
-
-?>

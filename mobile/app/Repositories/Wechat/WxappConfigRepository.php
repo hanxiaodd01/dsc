@@ -30,6 +30,3 @@ class WxappConfigRepository
 		return \App\Models\WxappTemplate::select('*')->where('wx_code', $code)->first()->toArray();
 	}
 }
-
-
-?>

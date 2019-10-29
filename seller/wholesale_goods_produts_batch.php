@@ -338,4 +338,3 @@ function get_list_download($goods_sn = '', $warehouse_info = array(), $attr_info
 	}
 	return $arr;
 }
-?>

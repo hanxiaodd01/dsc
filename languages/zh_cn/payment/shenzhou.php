@@ -21,5 +21,3 @@ $_LANG['shenzhou_desc']    = '快钱神州行支付（www.99bill.com）是可以
 $_LANG['shenzhou_account'] = '快钱神州行帐号';
 $_LANG['shenzhou_key']     = '商户密钥';
 $_LANG['pay_button'] = '使用神州行卡支付';
-
-?>

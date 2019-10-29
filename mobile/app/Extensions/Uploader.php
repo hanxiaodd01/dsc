@@ -255,6 +255,3 @@ class Uploader
 		return array('state' => $this->stateInfo, 'url' => $this->fullName, 'title' => $this->fileName, 'original' => $this->oriName, 'type' => $this->fileType, 'size' => $this->fileSize);
 	}
 }
-
-
-?>

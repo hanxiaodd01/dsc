@@ -57,5 +57,3 @@ class OrderRuIdSeeder extends \Illuminate\Database\Seeder
 		}
 	}
 }
-
-?>

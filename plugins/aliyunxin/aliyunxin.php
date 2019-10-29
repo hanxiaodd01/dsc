@@ -129,5 +129,3 @@ class aliyunxin
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

@@ -62,5 +62,3 @@ $_LANG['operation_prompt_content']['info'][1] = '点击确定即可创建一个�
 $_LANG['operation_prompt_content']['info'][2] = '在列表页点击查看即可看到前台展示的专题页面。';
 $_LANG['operation_prompt_content']['list'][0] = '展示专题活动的相关信息。';
 $_LANG['operation_prompt_content']['list'][1] = '可进行发布广告、发布Flash播放等操作。';
-
-?>

@@ -2610,5 +2610,3 @@ else if ($_REQUEST['act'] == 'novice_guide') {
 	$smarty->assign('ur_here', $_LANG['03_novice_guide']);
 	$smarty->display('novice_guide.dwt');
 }
-
-?>

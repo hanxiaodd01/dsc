@@ -25,5 +25,3 @@ $_LANG['error_rename'] = 'Error: rename %s to %s';
 $_LANG['js_languages']['no_action'] = 'Please select operation.';
 $_LANG['silent'] = 'Error when ignoring the error, continue to implement procedures';
 $_LANG['no_silent'] = 'Immediately prompted an error and stay of proceedings';
-
-?>

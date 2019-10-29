@@ -38,5 +38,3 @@ class ArticleController extends \App\Api\Controllers\Controller
 		return $this->article->detail(array('cat_id' => '-1'));
 	}
 }
-
-?>

@@ -98,5 +98,3 @@ $_LANG['operation_prompt_content']['restore'][0] = '该页面展示商城所有�
 $_LANG['operation_prompt_content']['restore'][1] = '打钩即是分配权限，请谨慎操作。';
 $_LANG['operation_prompt_content']['optimize'][0] = '手动清理数据表碎片。';
 $_LANG['operation_prompt_content']['optimize'][1] = '定期清理数据表碎片可以提升数据库的查询速度。';
-
-?>

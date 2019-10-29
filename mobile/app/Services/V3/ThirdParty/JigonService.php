@@ -151,6 +151,3 @@ class JigonService
 		return $this->request($this->apiStoreRefundAddress, $request);
 	}
 }
-
-
-?>

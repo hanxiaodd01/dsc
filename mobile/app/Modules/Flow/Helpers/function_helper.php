@@ -181,6 +181,3 @@ function flow_cart_stock($arr, $store_id = 0, $warehouse_id = 0, $area_id = 0, $
 		}
 	}
 }
-
-
-?>

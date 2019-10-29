@@ -16,5 +16,3 @@ $_LANG['language_files']['shopping_flow'] = '購物流程語言包';
 $_LANG['language_files']['user'] = '會員中心語言包';
 $_LANG['handle_tips'] = '請輸入您需要修改的語言關鍵字!';
 $_LANG['file_attribute'] = '當前語言包文件沒有可讀寫的權限！這樣您將不能進行語言項的編輯操作。';
-
-?>

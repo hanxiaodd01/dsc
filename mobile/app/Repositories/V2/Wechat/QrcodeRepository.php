@@ -32,5 +32,3 @@ class QrcodeRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

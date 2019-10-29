@@ -22,5 +22,3 @@ $_LANG['upload_goods_attr']['goods_number'] = '属性库存';
 $_LANG['save_products'] = '保存商品地区属性成功';
 $_LANG['add_area_batch'] = '继续批量添加商品地区属性';
 $_LANG['13_batch_add'] = '批量上传属性价格';
-
-?>

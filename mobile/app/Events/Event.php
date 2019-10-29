@@ -6,5 +6,3 @@ abstract class Event
 {
 	use \Illuminate\Queue\SerializesModels;
 }
-
-?>

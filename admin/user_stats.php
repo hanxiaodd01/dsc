@@ -130,5 +130,3 @@ else if ($_REQUEST['act'] == 'download_rank') {
 	$config = array('filename' => $_LANG['user_consumption_rank'], 'thead' => $thead, 'tbody' => $tbody, 'tdata' => $tdata);
 	list_download($config);
 }
-
-?>

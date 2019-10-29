@@ -233,5 +233,3 @@ class prism_sign_validation implements prism_validation
 	{
 	}
 }
-
-?>

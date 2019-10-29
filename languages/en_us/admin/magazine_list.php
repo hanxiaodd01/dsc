@@ -18,5 +18,3 @@ $_LANG['go_list'] = 'Return list';
 $_LANG['edit_ok'] = 'Operation successful!';
 $_LANG['email_user'] = 'E-mail subscribers';
 $_LANG['user_list'] = 'All Member';
-
-?>

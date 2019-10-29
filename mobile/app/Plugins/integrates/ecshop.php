@@ -86,5 +86,3 @@ class ecshop extends \App\Libraries\Integrate
 		}
 	}
 }
-
-?>

@@ -15,5 +15,3 @@ $_LANG['batch_remove_succeed'] = 'Has been successfully deleted %d E-mail Addres
 $_LANG['batch_unremove_succeed'] = 'Has been successfully confirmed %d E-mail Address';
 $_LANG['batch_exit_succeed'] = 'Has been successfully unsubscribe %d E-mail Address';
 $_LANG['back_list'] = 'Return mailing list';
-
-?>

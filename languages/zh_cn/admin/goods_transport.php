@@ -41,5 +41,3 @@ $_LANG['operation_prompt_content']['list'][1] = '订单运费计算中，该运�
 $_LANG['operation_prompt_content']['list'][2] = '商品选择该运费只有首重，且运费固定，请根据实际需要进行设置。';
 $_LANG['operation_prompt_content']['info'][0] = '编辑模板基本信息。';
 $_LANG['operation_prompt_content']['info'][1] = '注意标题名称尽量简单明了。';
-
-?>

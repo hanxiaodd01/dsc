@@ -419,5 +419,3 @@ $_LANG['sms_url'] = '<a href="' . $url . '" target="_blank">點此注冊手機�
 $_LANG['cfg_name']['editing_tools'] = '內容編輯器';
 $_LANG['cfg_range']['editing_tools']['fckeditor'] = '默認Fckeditor';
 $_LANG['cfg_range']['editing_tools']['ueditor'] = '百度Ueditor(推薦)';
-
-?>

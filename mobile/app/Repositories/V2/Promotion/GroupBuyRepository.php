@@ -32,5 +32,3 @@ class GroupBuyRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

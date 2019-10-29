@@ -399,5 +399,3 @@ if ($_REQUEST['act'] == 'toggle_opennew') {
 		make_json_error($db->error());
 	}
 }
-
-?>

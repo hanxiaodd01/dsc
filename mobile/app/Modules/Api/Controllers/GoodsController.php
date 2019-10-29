@@ -39,5 +39,3 @@ class GoodsController extends \App\Modules\Api\Foundation\Controller
 		return $this->apiReturn($price);
 	}
 }
-
-?>

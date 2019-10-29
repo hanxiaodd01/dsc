@@ -150,5 +150,3 @@ abstract class attributeModel extends \app\func\common
 		return $result;
 	}
 }
-
-?>

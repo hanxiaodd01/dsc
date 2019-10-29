@@ -45,6 +45,3 @@ class BucketInfo
 		return $this->createDate;
 	}
 }
-
-
-?>

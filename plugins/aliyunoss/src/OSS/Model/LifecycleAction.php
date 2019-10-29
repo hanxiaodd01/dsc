@@ -51,6 +51,3 @@ class LifecycleAction
 		$xmlAction->addChild($this->timeSpec, $this->timeValue);
 	}
 }
-
-
-?>

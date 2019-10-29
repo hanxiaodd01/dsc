@@ -131,5 +131,3 @@ class ecshop extends integrate
 		return $row;
 	}
 }
-
-?>

@@ -71,6 +71,3 @@ class Memcached
 		return $this->handler->flush();
 	}
 }
-
-
-?>

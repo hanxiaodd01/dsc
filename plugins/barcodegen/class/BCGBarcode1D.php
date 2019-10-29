@@ -168,5 +168,3 @@ abstract class BCGBarcode1D extends BCGBarcode
 		return false;
 	}
 }
-
-?>

@@ -262,6 +262,3 @@ function article_tree($tree_id = 0)
 
 	return $three_arr;
 }
-
-
-?>

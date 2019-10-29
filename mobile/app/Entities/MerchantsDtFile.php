@@ -76,5 +76,3 @@ class MerchantsDtFile extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

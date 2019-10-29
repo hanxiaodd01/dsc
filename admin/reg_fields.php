@@ -128,5 +128,3 @@ else if ($_REQUEST['act'] == 'toggle_need') {
 		make_json_result($is_need);
 	}
 }
-
-?>

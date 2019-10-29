@@ -57,5 +57,3 @@ $_LANG['calendar_lang']['time_part'] = '(Shift-)click or drag the mouse to chang
 $_LANG['calendar_lang']['calendar_wk'] = 'W';
 $_LANG['calendar_lang']['calendar_day'] = 'D';
 $_LANG['calendar_lang']['calendar_time'] = 'T';
-
-?>

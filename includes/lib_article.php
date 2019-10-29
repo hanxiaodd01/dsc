@@ -53,5 +53,3 @@ function get_article_count($cat_id, $requirement = '')
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

@@ -14,6 +14,3 @@ interface BrandServiceInterface
 
 	public function search();
 }
-
-
-?>

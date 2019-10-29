@@ -991,5 +991,3 @@ else if ($_REQUEST['act'] == 'add_purchase_goods') {
 		exit(json_encode($result));
 	}
 }
-
-?>

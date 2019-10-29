@@ -32,5 +32,3 @@ class VirtualCodeRepository implements \app\classes\interfaces\RepositoryInterfa
 	{
 	}
 }
-
-?>

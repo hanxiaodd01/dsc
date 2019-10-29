@@ -35,6 +35,3 @@ class ShippingService
 		return sprintf($header, time(), time() + rand(1000, 9999));
 	}
 }
-
-
-?>

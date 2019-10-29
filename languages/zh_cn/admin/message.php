@@ -37,5 +37,3 @@ $_LANG['operation_prompt_content']['info'][0] = '管理员留言信箱。';
 $_LANG['operation_prompt_content']['info'][1] = '温馨提示：编辑查看管理员留言信箱。';
 $_LANG['operation_prompt_content']['list'][0] = '该页面展示管理员的留言，可进行操作。';
 $_LANG['operation_prompt_content']['view'][0] = '对管理员留言进行查看与回复。';
-
-?>

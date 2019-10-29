@@ -41,5 +41,3 @@ if (isset($set_modules) && $set_modules == true) {
 	$modules[$i]['config'] = array();
 	return NULL;
 }
-
-?>

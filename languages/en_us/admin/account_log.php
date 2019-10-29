@@ -26,5 +26,3 @@ $_LANG['js_languages']['user_money_not_number'] = 'Available funds rather than n
 $_LANG['js_languages']['frozen_money_not_number'] = 'The freezing of funds is not a numerical';
 $_LANG['js_languages']['rank_points_not_int'] = 'Grade points are not integers';
 $_LANG['js_languages']['pay_points_not_int'] = 'Consumption points is not an integer';
-
-?>

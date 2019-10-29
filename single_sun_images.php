@@ -78,5 +78,3 @@ else if ($_REQUEST['act'] == 'del_pictures') {
 	$result['content'] = $smarty->fetch('library/single_sun_img.lbi');
 	exit($json->encode($result));
 }
-
-?>

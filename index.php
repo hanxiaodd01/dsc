@@ -211,5 +211,3 @@ else {
 
 	$smarty->display('index.dwt', $cache_id);
 }
-
-?>

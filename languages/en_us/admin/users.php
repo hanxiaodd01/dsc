@@ -92,5 +92,3 @@ $_LANG['js_languages']['password_not_same'] = 'the password and the confirm pass
 $_LANG['js_languages']['invalid_pay_points'] = 'The points of payment must be an integer.';
 $_LANG['js_languages']['invalid_rank_points'] = 'The points of rank must be an integer.';
 $_LANG['js_languages']['password_len_err'] = 'New Password and Confirm Password should not less than the length of 6';
-
-?>

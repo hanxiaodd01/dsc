@@ -38,5 +38,3 @@ else if ($_REQUEST['act'] == 'query') {
 	$smarty->assign($sort_flag['tag'], $sort_flag['img']);
 	make_json_result($smarty->fetch('order_goods_size_warehouse_list.htm'), '', array('filter' => $order_goods_list['filter'], 'page_count' => $order_goods_list['page_count']));
 }
-
-?>

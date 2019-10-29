@@ -175,5 +175,3 @@ class Crons extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

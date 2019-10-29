@@ -76,5 +76,3 @@ class Pack extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

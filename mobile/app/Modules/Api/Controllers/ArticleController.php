@@ -77,5 +77,3 @@ class ArticleController extends \App\Modules\Api\Foundation\Controller
 		return $this->article->detail(array('cat_id' => '-1'));
 	}
 }
-
-?>

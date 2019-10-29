@@ -267,5 +267,3 @@ else if (in_array($_REQUEST['act'], array('insert', 'update'))) {
 		sys_msg($_LANG['edit_suppliers_ok'], 0, $links);
 	}
 }
-
-?>

@@ -141,5 +141,3 @@ $discuss_hot = get_discuss_all_list($goods_id, 0, 1, 10, 0, 'dis_browse_num');
 $smarty->assign('hot_list', $discuss_hot);
 $smarty->assign('user_id', $user_id);
 $smarty->display('category_discuss.dwt', $cache_id);
-
-?>

@@ -87,5 +87,3 @@ class SearchKeyword extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

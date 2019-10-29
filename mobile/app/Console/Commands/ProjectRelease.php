@@ -106,5 +106,3 @@ class ProjectRelease extends \Illuminate\Console\Command
 		closedir($handle);
 	}
 }
-
-?>

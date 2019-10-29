@@ -208,5 +208,3 @@ class Complaint extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

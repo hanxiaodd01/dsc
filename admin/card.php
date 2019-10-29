@@ -218,5 +218,3 @@ else if ($_REQUEST['act'] == 'edit_free_money') {
 		make_json_error($db->error());
 	}
 }
-
-?>

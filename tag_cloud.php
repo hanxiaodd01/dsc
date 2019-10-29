@@ -26,5 +26,3 @@ if (!empty($tags)) {
 
 $smarty->assign('tags', $tags);
 $smarty->display('tag_cloud.dwt');
-
-?>

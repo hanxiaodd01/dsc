@@ -30,6 +30,3 @@ class UploadInfo
 		return $this->initiated;
 	}
 }
-
-
-?>

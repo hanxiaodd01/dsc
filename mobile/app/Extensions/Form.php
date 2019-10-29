@@ -268,6 +268,3 @@ class Form
 		return $code;
 	}
 }
-
-
-?>

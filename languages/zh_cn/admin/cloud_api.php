@@ -7,5 +7,3 @@ $_LANG['save_success'] = '保存成功';
 $_LANG['cloud_dsc_appkey'] = '开发接口appkey';
 $_LANG['cloud_dsc_appkey_notice'] = '对应开放对外接口的AppKey，用于贡云数据同步';
 $_LANG['operation_prompt_content']['list'][0] = '配置贡云API信息。';
-
-?>

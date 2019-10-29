@@ -885,5 +885,3 @@ class prism_client extends prism_curl
 
 define('HTTP_TIME_OUT', -3);
 define('PRISM_SDK_VER', '1.0');
-
-?>

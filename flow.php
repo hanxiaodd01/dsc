@@ -6671,5 +6671,3 @@ $smarty->assign('integral_scale', price_format($_CFG['integral_scale']));
 $smarty->assign('step', $_REQUEST['step']);
 assign_dynamic('shopping_flow');
 $smarty->display('flow.dwt');
-
-?>

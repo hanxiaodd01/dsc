@@ -242,5 +242,3 @@ if (!defined('IN_ECS')) {
 
 define('SMTP_STATUS_NOT_CONNECTED', 1, true);
 define('SMTP_STATUS_CONNECTED', 2, true);
-
-?>

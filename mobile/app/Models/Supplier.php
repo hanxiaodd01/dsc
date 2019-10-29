@@ -10,5 +10,3 @@ class Supplier extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('suppliers_name', 'suppliers_desc', 'is_check');
 	protected $guarded = array();
 }
-
-?>

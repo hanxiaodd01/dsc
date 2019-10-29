@@ -335,6 +335,3 @@ function get_con_where($ru_id, $cou_goods, $spec_cat)
 
 	return $cou_where;
 }
-
-
-?>

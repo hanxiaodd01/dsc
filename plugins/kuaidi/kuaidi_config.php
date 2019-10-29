@@ -168,5 +168,3 @@ case 'AAE':
 default:
 	$postcom = '';
 }
-
-?>

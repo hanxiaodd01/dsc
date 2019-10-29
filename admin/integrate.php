@@ -353,5 +353,3 @@ if ($_REQUEST['act'] == 'complete') {
 	array('text' => $_LANG['06_list_integrate'], 'href' => 'integrate.php?act=list')
 	));
 }
-
-?>

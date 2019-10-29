@@ -63,5 +63,3 @@ $_LANG['operation_prompt_content']['list'][0] = '该页面展示了讨论主题�
 $_LANG['operation_prompt_content']['list'][1] = '可查看讨论详情、点击回复查看回复列表。';
 $_LANG['operation_prompt_content']['reply'][0] = '查看用户对讨论主题的回复列表。';
 $_LANG['operation_prompt_content']['reply'][1] = '可进行批量删除的操作。';
-
-?>

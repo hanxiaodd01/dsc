@@ -194,4 +194,3 @@ $modules['19_merchants_store']['order_print_setting'] = 'tp_api.php?act=order_pr
 //b2b
 $modules['supply_and_demand']['01_wholesale']       = 'wholesale.php?act=list';
 $modules['supply_and_demand']['02_wholesale_order'] = 'wholesale_order.php?act=list';
-?>

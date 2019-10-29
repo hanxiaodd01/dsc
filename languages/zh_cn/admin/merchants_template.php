@@ -12,5 +12,3 @@ $_LANG['label_shop_intro'] = '店铺描述：';
 $_LANG['label_developer'] = '开发人员：';
 $_LANG['use_tpl'] = '使用模板';
 $_LANG['js_languages']['sure_use_default_shop_tpl'] = '您确认要使用默认店铺模板吗？';
-
-?>

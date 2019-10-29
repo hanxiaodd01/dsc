@@ -32,5 +32,3 @@ class SmsRepository implements \app\classes\interfaces\RepositoryInterface
 	{
 	}
 }
-
-?>

@@ -90,5 +90,3 @@ case 'DHL':
 default:
 	$postcom = '';
 }
-
-?>

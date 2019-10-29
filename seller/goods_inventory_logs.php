@@ -264,5 +264,3 @@ else if ($_REQUEST['act'] == 'batch_drop') {
 		sys_msg(sprintf($_LANG['batch_drop_success'], $count), 0, $link);
 	}
 }
-
-?>

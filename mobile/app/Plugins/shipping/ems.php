@@ -46,6 +46,3 @@ class ems
 		return $proxy->getExpress('ems', $invoice_sn);
 	}
 }
-
-
-?>

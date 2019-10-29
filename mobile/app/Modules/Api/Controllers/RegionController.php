@@ -21,5 +21,3 @@ class RegionController extends \App\Modules\Api\Foundation\Controller
 		return $this->apiReturn($list);
 	}
 }
-
-?>

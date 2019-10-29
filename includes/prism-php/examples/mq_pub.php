@@ -8,5 +8,3 @@ while (1) {
 	$mq->pub('order.new', 'message hello world: ' . $i++);
 	echo 'send ' . $i . " \n";
 }
-
-?>

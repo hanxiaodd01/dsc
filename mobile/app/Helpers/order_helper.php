@@ -5621,6 +5621,3 @@ function update_cart_goods_fav($rec_id, $act_id)
 	$sql = 'UPDATE ' . $GLOBALS['ecs']->table('cart') . (' SET act_id = \'' . $act_id . '\' WHERE ') . $sess_id . (' AND parent_id = 0 AND group_id = \'\' AND rec_id = \'' . $rec_id . '\' ');
 	return $GLOBALS['db']->query($sql);
 }
-
-
-?>

@@ -119,5 +119,3 @@ class Stats extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

@@ -23,5 +23,3 @@ $_LANG['recomment'] = '用戶評論回復模板';
 $_LANG['subject_empty'] = '對不起，郵件的主題不能為空。';
 $_LANG['content_empty'] = '對不起，郵件的內容不能為空。';
 $_LANG['js_languages']['save_confirm'] = '您已經修改了模板內容，您確定不保存麼？';
-
-?>

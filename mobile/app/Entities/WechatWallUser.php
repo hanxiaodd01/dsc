@@ -141,5 +141,3 @@ class WechatWallUser extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

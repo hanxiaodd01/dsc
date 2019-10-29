@@ -97,5 +97,3 @@ class WxappConfig extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

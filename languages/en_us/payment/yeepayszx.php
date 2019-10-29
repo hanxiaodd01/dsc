@@ -6,5 +6,3 @@ $_LANG['ypszx_desc'] = 'YeePay Epro shengzhouxing are paid as long as they are i
 $_LANG['yp_account'] = 'Merchant Code';
 $_LANG['yp_key'] = 'Key businesses';
 $_LANG['pay_button'] = 'Immediate payment of the use of YeePay Epro';
-
-?>

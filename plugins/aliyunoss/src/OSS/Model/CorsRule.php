@@ -93,6 +93,3 @@ class CorsRule
 		$xmlRule->addChild(CorsConfig::OSS_CORS_MAX_AGE_SECONDS, strval($this->maxAgeSeconds));
 	}
 }
-
-
-?>

@@ -46,6 +46,3 @@ class yunda
 		return $proxy->getExpress('yunda', $invoice_sn);
 	}
 }
-
-
-?>

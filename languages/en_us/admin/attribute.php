@@ -44,5 +44,3 @@ $_LANG['drop_ok'] = 'Delete %d products attribute successfully.';
 $_LANG['js_languages']['name_not_null'] = 'Please enter attribute name.';
 $_LANG['js_languages']['values_not_null'] = 'Please enter the attribute\'s value.';
 $_LANG['js_languages']['cat_id_not_null'] = 'Please select the attribute of product type.';
-
-?>

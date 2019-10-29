@@ -225,5 +225,3 @@ $_LANG['password_null'] = '密码不能为空';
 $_LANG['password_error'] = '密码不能少于6位';
 $_LANG['confirm_pwd_null'] = '确认密码不能为空';
 $_LANG['confirm_pwd_error'] = '两次输入密码不匹配';
-
-?>

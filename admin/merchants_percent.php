@@ -243,5 +243,3 @@ else if (in_array($_REQUEST['act'], array('insert', 'update'))) {
 		sys_msg($_LANG['edit_percent_ok'], 0, $links);
 	}
 }
-
-?>

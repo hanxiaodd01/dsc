@@ -333,6 +333,3 @@ function MoreFileUpload($resourceType, $currentFolder, $sCommand)
 
 	exit();
 }
-
-
-?>

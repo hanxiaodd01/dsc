@@ -34,5 +34,3 @@ $_LANG['js_languages']['invalid_endtime'] = 'Enter the time format is not the en
 $_LANG['js_languages']['invalid_gt'] = 'Enter the end time should be greater than start date';
 $_LANG['js_languages']['search_is_null'] = 'No english to any merchandise, please re-english';
 $_LANG['js_languages']['invalid_package_price'] = 'Package price is empty or is not a figure';
-
-?>

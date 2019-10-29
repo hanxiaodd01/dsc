@@ -287,5 +287,3 @@ class CoudanController extends IndexController
 		exit(json_encode($result));
 	}
 }
-
-?>

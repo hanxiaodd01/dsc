@@ -12,5 +12,3 @@ $_LANG['cappay_button'] = '首信易支付平台';
 $_LANG['cappay_member_button'] = '首信易支付會員通道';
 $_LANG['cappay_mobile_button'] = '首信易支付手機通道';
 $_LANG['cappay_en_button'] = 'Easy-pay online platform';
-
-?>

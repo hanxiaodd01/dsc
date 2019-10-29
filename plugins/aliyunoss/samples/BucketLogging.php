@@ -68,5 +68,3 @@ putBucketLogging($ossClient, $bucket);
 getBucketLogging($ossClient, $bucket);
 deleteBucketLogging($ossClient, $bucket);
 getBucketLogging($ossClient, $bucket);
-
-?>

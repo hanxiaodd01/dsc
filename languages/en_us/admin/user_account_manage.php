@@ -30,5 +30,3 @@ $_LANG['surplus_info'] = 'balance of the use of information';
 $_LANG['order_surplus'] = ' trade balance ';
 $_LANG['integral_money'] = 'points balance';
 $_LANG['view'] = 'Show';
-
-?>

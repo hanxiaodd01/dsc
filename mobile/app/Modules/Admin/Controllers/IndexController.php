@@ -9,6 +9,3 @@ class Index
 		redirect('/');
 	}
 }
-
-
-?>

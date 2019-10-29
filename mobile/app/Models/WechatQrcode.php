@@ -141,5 +141,3 @@ class WechatQrcode extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

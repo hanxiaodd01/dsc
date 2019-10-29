@@ -185,5 +185,3 @@ class OfflineStore extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

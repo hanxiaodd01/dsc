@@ -63,6 +63,3 @@ class Xml
 		return $child;
 	}
 }
-
-
-?>

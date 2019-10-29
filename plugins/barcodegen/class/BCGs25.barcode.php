@@ -117,5 +117,3 @@ class BCGs25 extends BCGBarcode1D
 		return false;
 	}
 }
-
-?>

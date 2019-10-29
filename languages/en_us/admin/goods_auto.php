@@ -16,5 +16,3 @@ $_LANG['no_select_goods'] = 'Not selected merchandise';
 $_LANG['batch_start_succeed'] = 'Volume shelves success';
 $_LANG['batch_end_succeed'] = 'Volume under the plane success';
 $_LANG['back_list'] = 'Merchandise automatically back up and down plane';
-
-?>

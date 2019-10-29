@@ -491,5 +491,3 @@ class Chinese
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

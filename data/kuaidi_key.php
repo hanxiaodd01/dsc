@@ -16,4 +16,3 @@ if(file_exists($shop_config)){
 }
 
 $kuaidi100key = $key;
-?>

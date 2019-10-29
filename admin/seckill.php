@@ -792,5 +792,3 @@ else if ($_REQUEST['act'] == 'edit_sec_limit') {
 		make_json_result($sec_limit);
 	}
 }
-
-?>

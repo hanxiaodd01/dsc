@@ -235,5 +235,3 @@ if ($_REQUEST['act'] == 'batch') {
 		sys_msg($_LANG['back_depreciate_list'], 0, $link);
 	}
 }
-
-?>

@@ -23,6 +23,3 @@ class CategoryService
 		return $list;
 	}
 }
-
-
-?>

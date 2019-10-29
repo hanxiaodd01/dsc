@@ -12,5 +12,3 @@ $_LANG['magic_string'] = 'Custom signatures';
 $_LANG['pay_button'] = 'Qualcomm to pay immediately the use of financial payments';
 $_LANG['account_voucher'] = 'Member Account recharge';
 $_LANG['shop_order_sn'] = 'Mall order number';
-
-?>

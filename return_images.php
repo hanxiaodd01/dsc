@@ -110,5 +110,3 @@ else if ($_REQUEST['act'] == 'clear_pictures') {
 
 	exit($json->encode($result));
 }
-
-?>

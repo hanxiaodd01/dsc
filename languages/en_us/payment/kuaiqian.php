@@ -25,5 +25,3 @@ $_LANG['kq_account'] = '99Bill accounts';
 $_LANG['kq_account_desc'] = 'RMB payment gateway for users of the receivable account in the quick money of the user ID appended figure 01, that is, [the user ID 01]';
 $_LANG['kq_key'] = 'MD5 key';
 $_LANG['pay_button'] = 'Pay in 99Bill immediately.';
-
-?>

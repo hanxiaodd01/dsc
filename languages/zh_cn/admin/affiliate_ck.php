@@ -41,5 +41,3 @@ $_LANG['show_affiliate_orders'] = '此列表显示此用户推荐的订单信息
 $_LANG['back_note'] = '返回会员编辑页面';
 $_LANG['operation_prompt_content'][0] = '分成订单信息管理。';
 $_LANG['operation_prompt_content'][1] = '可搜索分成订单号查询分成订单。';
-
-?>

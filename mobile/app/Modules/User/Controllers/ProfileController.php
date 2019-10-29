@@ -930,5 +930,3 @@ class ProfileController extends \App\Modules\Base\Controllers\FrontendController
 		}
 	}
 }
-
-?>

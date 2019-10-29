@@ -58,6 +58,3 @@ class Scws4
 		return $result;
 	}
 }
-
-
-?>

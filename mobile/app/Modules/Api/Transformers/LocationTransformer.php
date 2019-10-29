@@ -9,6 +9,3 @@ class LocationTransformer
 		return array();
 	}
 }
-
-
-?>

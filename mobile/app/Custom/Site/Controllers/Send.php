@@ -20,5 +20,3 @@ class Send extends \App\Http\Site\Controllers\Index
 		}
 	}
 }
-
-?>

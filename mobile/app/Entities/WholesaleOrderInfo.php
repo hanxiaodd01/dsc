@@ -329,5 +329,3 @@ class WholesaleOrderInfo extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

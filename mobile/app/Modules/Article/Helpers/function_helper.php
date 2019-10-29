@@ -88,6 +88,3 @@ function article_content_html_out($str)
 	$str = stripslashes($str);
 	return $str;
 }
-
-
-?>

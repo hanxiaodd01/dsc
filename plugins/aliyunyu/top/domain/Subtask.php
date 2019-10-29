@@ -15,6 +15,3 @@ class Subtask
 	 **/
 	public $sub_task_result;
 }
-
-
-?>

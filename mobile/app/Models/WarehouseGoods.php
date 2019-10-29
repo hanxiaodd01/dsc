@@ -142,5 +142,3 @@ class WarehouseGoods extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

@@ -30,5 +30,3 @@ function scws($text, $top = 5, $return_array = false, $sep = ',')
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

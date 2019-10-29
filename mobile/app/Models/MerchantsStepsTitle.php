@@ -76,5 +76,3 @@ class MerchantsStepsTitle extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

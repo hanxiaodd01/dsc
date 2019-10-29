@@ -20,5 +20,3 @@ $_LANG['all_send'] = 'All sent';
 $_LANG['mailsend_null'] = 'E-mail list empty!';
 $_LANG['mailsend_finished'] = 'All e-mail to complete!';
 $_LANG['send_end'] = 'Choice of e-mail to complete!';
-
-?>

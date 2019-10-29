@@ -62,5 +62,3 @@ class LoggingConfig implements XmlConfig
 		return $this->targetPrefix;
 	}
 }
-
-?>

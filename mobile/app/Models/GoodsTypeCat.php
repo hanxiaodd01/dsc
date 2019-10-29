@@ -76,5 +76,3 @@ class GoodsTypeCat extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

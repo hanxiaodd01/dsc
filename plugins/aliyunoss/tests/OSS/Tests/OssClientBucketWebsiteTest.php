@@ -43,5 +43,3 @@ class OssClientBucketWebsiteTest extends TestOssClientBase
 		}
 	}
 }
-
-?>

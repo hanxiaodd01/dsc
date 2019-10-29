@@ -30,5 +30,3 @@ class Brand extends \App\Api\Foundation\Controller
 		return $this->apiReturn($data);
 	}
 }
-
-?>

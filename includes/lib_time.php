@@ -84,5 +84,3 @@ if (!function_exists('cal_days_in_month')) {
 		return local_date('t', local_mktime(0, 0, 0, $month, 1, $year));
 	}
 }
-
-?>

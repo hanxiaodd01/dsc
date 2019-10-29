@@ -210,5 +210,3 @@ else if ($_REQUEST['act'] == 'remove') {
 	$_LANG['remove_success'] = $_LANG['carddrop_succeed'];
 	sys_msg(sprintf($_LANG['remove_success'], $username), 0, $link);
 }
-
-?>

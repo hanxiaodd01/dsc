@@ -6,5 +6,3 @@ $_LANG['shenzhou_desc'] = 'shenzhou quick money（www.99bill.com） can be used 
 $_LANG['shenzhou_account'] = 'Quick money shenzhou Account';
 $_LANG['shenzhou_key'] = 'Key businesses';
 $_LANG['pay_button'] = 'Use shenzhou card payment';
-
-?>

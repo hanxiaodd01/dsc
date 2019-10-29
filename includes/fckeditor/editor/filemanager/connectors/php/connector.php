@@ -60,5 +60,3 @@ if (!$Config['Enabled']) {
 }
 
 DoResponse();
-
-?>

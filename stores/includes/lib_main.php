@@ -1744,5 +1744,3 @@ function seller_shop_cat($user_id = 0)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

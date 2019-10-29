@@ -107,5 +107,3 @@ class BCGcode39 extends BCGBarcode1D
 		return false;
 	}
 }
-
-?>

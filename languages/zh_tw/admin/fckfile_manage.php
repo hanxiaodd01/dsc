@@ -23,5 +23,3 @@ $_LANG['ckdel'] = '確認刪除?';
 $_LANG['namecannotnull'] = '請輸入導航欄名稱！';
 $_LANG['linkcannotnull'] = '請輸入鏈接地址！';
 $_LANG['notice_url'] = '如果是本站的網址，可縮寫為與商城根目錄相對地址，如index.php；<br>其他情況都應該輸入完整的網址，如http://www.xxxx.com/';
-
-?>

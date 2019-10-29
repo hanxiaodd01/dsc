@@ -40,5 +40,3 @@ $_LANG['tutorials_bonus_list_one'] = '第三方登录插件（QQ互联）申请�
 $_LANG['operation_prompt_content']['list'][0] = '列表页展示了所有的登录插件名称。';
 $_LANG['operation_prompt_content']['list'][1] = '安装插件时需到各第三方应用中申请ID和KEY方可使用。';
 $_LANG['operation_prompt_content']['install'][0] = '填写在第三方申请的信息参数。';
-
-?>

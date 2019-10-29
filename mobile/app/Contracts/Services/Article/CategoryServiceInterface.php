@@ -8,6 +8,3 @@ interface CategoryServiceInterface
 
 	public function detail($id);
 }
-
-
-?>

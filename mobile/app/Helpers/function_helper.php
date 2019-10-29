@@ -4534,6 +4534,3 @@ function get_goods_attr_id($where_select = array(), $select = array(), $attr_typ
 		return $GLOBALS['db']->getOne($sql, true);
 	}
 }
-
-
-?>

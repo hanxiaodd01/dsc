@@ -87,6 +87,3 @@ class AlibabaAliqinFcVoiceNumSinglecallRequest
 		$this->$key = $value;
 	}
 }
-
-
-?>

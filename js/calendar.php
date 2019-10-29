@@ -14,5 +14,3 @@ foreach ($_LANG['calendar_lang'] as $cal_key => $cal_data) {
 }
 
 include_once './calendar/calendar.min.js';
-
-?>

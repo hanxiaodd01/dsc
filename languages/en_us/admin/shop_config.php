@@ -420,5 +420,3 @@ $_LANG['sms_url'] = '<a href="' . $url . '" target="_blank">Click here to regist
 $_LANG['cfg_name']['editing_tools'] = 'Editing Tools';
 $_LANG['cfg_range']['editing_tools']['fckeditor'] = 'Fckeditor';
 $_LANG['cfg_range']['editing_tools']['ueditor'] = 'Ueditor(Recommend)';
-
-?>

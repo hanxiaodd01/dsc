@@ -363,5 +363,3 @@ if ($_REQUEST['act'] == 'toggle_show_in_nav') {
 		make_json_error($db->error());
 	}
 }
-
-?>

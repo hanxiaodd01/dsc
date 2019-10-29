@@ -34,5 +34,3 @@ $_LANG['js_languages']['criteria_name_null'] = '请输入标准名称';
 $_LANG['operation_prompt_content']['list'][0] = '每一个商家等级都在一个标准之内。';
 $_LANG['operation_prompt_content']['list'][1] = '等级标准相关信息管理。';
 $_LANG['operation_prompt_content']['info'][0] = '请合理添加标准，并和商家协商一致。';
-
-?>

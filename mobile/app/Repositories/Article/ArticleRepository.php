@@ -101,6 +101,3 @@ class ArticleRepository
 		return $result;
 	}
 }
-
-
-?>

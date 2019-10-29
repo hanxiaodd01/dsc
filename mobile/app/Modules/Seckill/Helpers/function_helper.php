@@ -575,6 +575,3 @@ function clear_cart($type = CART_GENERAL_GOODS, $cart_value = '')
 		$sess_id = ' user_id = \'' . real_cart_mac_ip() . '\' ';
 	}
 }
-
-
-?>

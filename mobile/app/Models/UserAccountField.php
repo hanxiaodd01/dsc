@@ -9,5 +9,3 @@ class UserAccountField extends \Illuminate\Database\Eloquent\Model
 	protected $fillable = array('user_id', 'account_id', 'bank_number', 'real_name');
 	protected $guarded = array();
 }
-
-?>

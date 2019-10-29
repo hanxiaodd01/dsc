@@ -538,5 +538,3 @@ if (!$smarty->is_cached('brand_list.dwt', $cache_id)) {
 }
 
 $smarty->display('brand_list.dwt', $cache_id);
-
-?>

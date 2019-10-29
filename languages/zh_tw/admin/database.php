@@ -92,5 +92,3 @@ $_LANG['cannot_write'] = '不可寫';
 $_LANG['cannot_add'] = '追加數據';
 $_LANG['cannot_modify'] = '不能修改文件';
 $_LANG['confirm_remove'] = '你確定要刪除選中數據嗎？';
-
-?>

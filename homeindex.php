@@ -87,5 +87,3 @@ if ($preview == 1) {
 else {
 	$smarty->display('homeindex.dwt', $cache_id);
 }
-
-?>

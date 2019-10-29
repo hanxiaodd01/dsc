@@ -54,5 +54,3 @@ class SnatchLog extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

@@ -1799,5 +1799,3 @@ if ($is_jsonp) {
 else {
 	echo $json->encode($result);
 }
-
-?>

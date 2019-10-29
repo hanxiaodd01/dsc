@@ -251,5 +251,3 @@ class tenpayc2c
         }
     }
 }
-
-?>

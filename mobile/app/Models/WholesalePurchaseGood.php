@@ -87,5 +87,3 @@ class WholesalePurchaseGood extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

@@ -237,6 +237,3 @@ function SendUploadResults($errorNumber, $fileUrl = '', $fileName = '', $customM
 	echo '</script>';
 	exit();
 }
-
-
-?>

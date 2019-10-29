@@ -97,5 +97,3 @@ class ImDialog extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

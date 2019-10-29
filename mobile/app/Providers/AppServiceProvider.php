@@ -8,5 +8,3 @@ class AppServiceProvider extends \Illuminate\Support\ServiceProvider
 	{
 	}
 }
-
-?>

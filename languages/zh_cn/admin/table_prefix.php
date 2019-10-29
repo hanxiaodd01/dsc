@@ -10,5 +10,3 @@ $_LANG['js_languages']['start_response_1'] = '已完成便前缀修改，请关�
 $_LANG['js_languages']['start_response_2'] = '正在修改表前缀中，请勿关闭该窗口！';
 $_LANG['js_languages']['new_prefix_notic'] = '修改表前缀不能为空';
 $_LANG['operation_prompt_content']['list'][0] = '修改表前缀之后，请将根目录下的 data/config.php 文件中的 $prefix 变量的值也改成 "修改后表前缀"';
-
-?>

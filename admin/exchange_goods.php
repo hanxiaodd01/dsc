@@ -313,5 +313,3 @@ else if ($_REQUEST['act'] == 'search_goods') {
 	$arr = get_goods_list($filters);
 	make_json_result($arr);
 }
-
-?>

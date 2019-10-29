@@ -49,5 +49,3 @@ class ArticleService implements \App\Contracts\Services\Article\ArticleServiceIn
 		return 'help';
 	}
 }
-
-?>

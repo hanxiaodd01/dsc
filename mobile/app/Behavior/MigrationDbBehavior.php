@@ -129,6 +129,3 @@ class MigrationDbBehavior
 		return floatval(substr($filename, strlen('migrate-')));
 	}
 }
-
-
-?>

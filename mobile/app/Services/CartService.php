@@ -695,6 +695,3 @@ class CartService
 		return $list['total'];
 	}
 }
-
-
-?>

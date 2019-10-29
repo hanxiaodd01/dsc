@@ -23,5 +23,3 @@ $_LANG['recomment'] = 'Reply to comment template';
 $_LANG['subject_empty'] = 'Sorry, mail subject can\'t be blank.';
 $_LANG['content_empty'] = 'Sorry, mail content can\'t be blank.';
 $_LANG['js_languages']['save_confirm'] = 'You have modified template content, are you sure don\'t save it?';
-
-?>

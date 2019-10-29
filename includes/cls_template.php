@@ -1136,6 +1136,3 @@ class cls_template
 		return $str;
 	}
 }
-
-
-?>

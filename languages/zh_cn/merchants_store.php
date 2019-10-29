@@ -83,5 +83,3 @@ $_LANG['rm_prompt_info'] = '大商创商城网店经营者食品资质信息';
 $_LANG['rm_prompt_help'] = '根据国家相关政策要求对网店经营者资质信息公示如下';
 
 $_LANG['shop_qrcode'] = '扫一扫，进入手机商城';
-
-?>

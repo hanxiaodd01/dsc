@@ -412,6 +412,3 @@ class JSON
 		return $arr;
 	}
 }
-
-
-?>

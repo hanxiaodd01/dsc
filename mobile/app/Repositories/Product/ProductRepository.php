@@ -38,6 +38,3 @@ class ProductRepository
 		return $row[$column];
 	}
 }
-
-
-?>

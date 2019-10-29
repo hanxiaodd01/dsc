@@ -433,5 +433,3 @@ if ($_REQUEST['act'] == 'discuss_reply_query') {
 	$smarty->assign($sort_flag['tag'], $sort_flag['img']);
 	make_json_result($smarty->fetch('discuss_user_reply.dwt'), '', array('filter' => $list['filter'], 'page_count' => $list['page_count']));
 }
-
-?>

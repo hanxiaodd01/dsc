@@ -421,5 +421,3 @@ else if ($_REQUEST['act'] == 'step_up') {
 	assign_query_info();
 	$smarty->display('merchants_step_up.dwt');
 }
-
-?>

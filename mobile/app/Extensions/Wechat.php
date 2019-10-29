@@ -694,5 +694,3 @@ class Wechat extends Wechat\SDK
 		return S($cachename, null);
 	}
 }
-
-?>

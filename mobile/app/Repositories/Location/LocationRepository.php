@@ -51,6 +51,3 @@ class LocationRepository
 		return $name;
 	}
 }
-
-
-?>

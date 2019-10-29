@@ -1771,5 +1771,3 @@ else if ($_REQUEST['act'] == 'chang_replacement_order') {
 	$result['bill_id'] = $bill_id;
 	exit($json->encode($result));
 }
-
-?>

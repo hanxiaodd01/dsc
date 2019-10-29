@@ -84,5 +84,3 @@ class BCGpostnet extends BCGBarcode1D
 		}
 	}
 }
-
-?>

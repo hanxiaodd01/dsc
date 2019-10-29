@@ -405,5 +405,3 @@ else if ($_REQUEST['act'] == 'code_notice') {
 
 	exit(json_encode($error));
 }
-
-?>

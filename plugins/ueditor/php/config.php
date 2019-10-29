@@ -40,5 +40,3 @@ $sess = new cls_session($db, $ecs->table('sessions'), $ecs->table('sessions_data
 define('URL_DATA', $ecs->getUrlData());
 $_CFG = load_config();
 require 'Uploader.class.php';
-
-?>

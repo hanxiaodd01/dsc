@@ -54,5 +54,3 @@ $_LANG['lable_content'] = 'Content:';
 $_LANG['system_set'] = 'Default AD';
 $_LANG['custom_set'] = 'Custom AD';
 $_LANG['js_languages']['setupConfirm'] = 'The opening of the new Flash style will cover the original style. \\n Are you sure you want to enable the selected style it?';
-
-?>

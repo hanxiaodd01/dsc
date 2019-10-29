@@ -33,5 +33,3 @@ $_LANG['reduction_gift'] = " 元可享受减免 ";
 $_LANG['discount_gift'] = " 元可享受折扣";
 
 $_LANG['shopping_list'] = "购物凑单";
-
-?>

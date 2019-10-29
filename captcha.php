@@ -18,5 +18,3 @@ else if (isset($_REQUEST['is_user_comment'])) {
 }
 
 $img->generate_image();
-
-?>

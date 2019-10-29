@@ -16,5 +16,3 @@ $_LANG['language_files']['shopping_flow'] = 'Shopping flow language files';
 $_LANG['language_files']['user'] = 'Member center language files';
 $_LANG['handle_tips'] = 'Please enter the language item keywords what you want to edit!';
 $_LANG['file_attribute'] = 'The language item can\'t be edit, because the current language files has no unreadability and unwritablility.';
-
-?>

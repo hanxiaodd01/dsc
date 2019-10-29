@@ -12,5 +12,3 @@ foreach ($characters as $character) {
 
 echo "</div>\r\n\r\n<div id=\"explanation\">\r\n    <h3>Explanation</h3>\r\n    <ul>\r\n        <li>EAN-8 is a short version of EAN-13.</li>\r\n        <li>Composed by 7 digits and 1 check digit.</li>\r\n        <li>There is no conversion available between EAN-8 and EAN-13.</li>\r\n    </ul>\r\n</div>\r\n\r\n";
 include 'include/footer.php';
-
-?>

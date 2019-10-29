@@ -816,5 +816,3 @@ if ($_REQUEST['act'] == 'buy') {
 	ecs_header("Location: ./flow.php?step=checkout&direct_shopping=3\n");
 	exit();
 }
-
-?>

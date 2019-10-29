@@ -364,5 +364,3 @@ class AdminpController extends \App\Modules\Base\Controllers\FrontendController
 		}
 	}
 }
-
-?>

@@ -76,5 +76,3 @@ class Card extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

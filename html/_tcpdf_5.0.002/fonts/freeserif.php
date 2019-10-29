@@ -12,5 +12,3 @@ $diff = '';
 $file = 'freeserif.z';
 $ctg = 'freeserif.ctg.z';
 $originalsize = 1483772;
-
-?>

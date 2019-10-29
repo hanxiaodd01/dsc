@@ -448,5 +448,3 @@ function wholesale_child_cat($pid){
 	$sql = " SELECT cat_id, cat_name, parent_id, sort_order FROM ".$GLOBALS['ecs']->table('wholesale_cat')." WHERE parent_id = '$pid' ";
 	return $GLOBALS['db']->getAll($sql);
 }
-
-?>

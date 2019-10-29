@@ -34,5 +34,3 @@ $_LANG['close_tj'] = '关闭推荐设置，此功能就不能使用。';
 $_LANG['operation_prompt_content'][0] = '请按照提示填写推荐设置信息。';
 $_LANG['operation_prompt_content'][1] = '请谨慎添加推荐分成百分比，关乎您的销售利润。';
 $_LANG['operation_prompt_content']['list'][0] = '显示推荐会员信息。';
-
-?>

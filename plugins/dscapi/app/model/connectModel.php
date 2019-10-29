@@ -134,5 +134,3 @@ abstract class connectModel extends \app\func\common
 		return $result;
 	}
 }
-
-?>

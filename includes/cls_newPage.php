@@ -202,6 +202,3 @@ class Page
 		return $fpage;
 	}
 }
-
-
-?>

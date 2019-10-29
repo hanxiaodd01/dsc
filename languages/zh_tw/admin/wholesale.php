@@ -28,5 +28,3 @@ $_LANG['custom_goods_brand'] = '所有品牌';
 $_LANG['js_languages']['act_name_not_null'] = '請輸入批發方案名稱';
 $_LANG['pls_set_user_rank'] = '請設置會員等級';
 $_LANG['user_rank_exist'] = '已經存在該商品針對您選擇的會員等級的批發方案了';
-
-?>

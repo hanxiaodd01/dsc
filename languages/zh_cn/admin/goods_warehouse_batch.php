@@ -21,5 +21,3 @@ $_LANG['upload_warehouse']['rank_integral'] = '赠送等级积分数';
 $_LANG['upload_warehouse']['pay_integral'] = '积分购买金额';
 $_LANG['save_products'] = '保存商品仓库成功';
 $_LANG['13_batch_add'] = '仓库库存批量上传';
-
-?>

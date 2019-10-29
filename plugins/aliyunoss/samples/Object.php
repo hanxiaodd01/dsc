@@ -335,5 +335,3 @@ getObjectMeta($ossClient, $bucket);
 deleteObject($ossClient, $bucket);
 deleteObjects($ossClient, $bucket);
 doesObjectExist($ossClient, $bucket);
-
-?>

@@ -42,5 +42,3 @@ class EmailList extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

@@ -22,5 +22,3 @@ $_LANG['filename'] = 'File Name';
 $_LANG['filesize'] = 'File size';
 $_LANG['filemtime'] = 'Last modified';
 $_LANG['filecheck_nofound_md5file'] = 'Check file does not exist and can not do this';
-
-?>

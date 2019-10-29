@@ -22,5 +22,3 @@ $_LANG['mailsend_finished'] = '全部邮件发送完成!';
 $_LANG['send_end'] = '选择邮件发送完成!';
 $_LANG['operation_prompt_content']['list'][0] = '选择需要发送的邮件标题给会员发送订阅信息。';
 $_LANG['operation_prompt_content']['list'][1] = '可进行批量发送，也可删除邮件标题。';
-
-?>

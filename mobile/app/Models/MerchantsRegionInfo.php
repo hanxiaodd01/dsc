@@ -31,5 +31,3 @@ class MerchantsRegionInfo extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

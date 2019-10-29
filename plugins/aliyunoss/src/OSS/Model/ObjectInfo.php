@@ -51,6 +51,3 @@ class ObjectInfo
 		return $this->storageClass;
 	}
 }
-
-
-?>

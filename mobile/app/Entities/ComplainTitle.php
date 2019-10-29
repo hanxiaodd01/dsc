@@ -43,5 +43,3 @@ class ComplainTitle extends \Illuminate\Database\Eloquent\Model
 		return $this;
 	}
 }
-
-?>

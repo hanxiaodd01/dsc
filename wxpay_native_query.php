@@ -62,6 +62,3 @@ $action  = isset($_REQUEST['act']) ? trim($_REQUEST['act']) : 'default';
 	}
 	$result['is_paid'] 	= $row['is_paid'];
     die($json->encode($result));
-
-
-?>

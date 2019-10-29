@@ -2127,5 +2127,3 @@ function get_bill_id($seller_id, $cycle, $day_start, $day_end)
 if (!defined('IN_ECS')) {
 	exit('Hacking attempt');
 }
-
-?>

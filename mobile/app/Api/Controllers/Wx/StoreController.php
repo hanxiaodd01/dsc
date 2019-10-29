@@ -46,5 +46,3 @@ class StoreController extends \App\Api\Controllers\Controller
 		return $this->storeService->attention($request->get('id'), $uid);
 	}
 }
-
-?>

@@ -364,5 +364,3 @@ else if ($_REQUEST['act'] == 'edit_Consignee') {
 
 	exit($json->encode($result));
 }
-
-?>

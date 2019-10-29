@@ -314,5 +314,3 @@ $_LANG['operator'] = '操作员：【';
 $_LANG['operator_two'] = '】，订单退款【';
 $_LANG['operation_prompt_content']['info'][0] = '获取转移的数据库表内容。';
 $_LANG['operation_prompt_content']['config'][0] = '设置导入来源网站数据库配置信息';
-
-?>
