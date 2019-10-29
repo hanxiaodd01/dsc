@@ -506,7 +506,7 @@ if (in_array($get['action'], array(
     'updatecreditsettings'
 ))) {
     $uc_note = new uc_note();
-    exit($uc_note->$get['action']($get, $post));
+    exit($uc_note->{$get['action']}($get, $post));
 } else {
     exit(API_RETURN_FAILED);
 }

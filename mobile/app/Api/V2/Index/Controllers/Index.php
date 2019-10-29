@@ -20,7 +20,7 @@ class Index extends \App\Api\Foundation\Controller
             try {
                 $app = new \Illuminate\Container\Container();
                 $module = $app->build($instance['class']);
-                $data = $module->$instance['method']($params);
+                $data = $module->{$instance['method']}($params);
             } catch (\Exception $e) {
                 $debugLogger = \App\Api\Foundation\ApiLogger::init('Exception', 'debug');
                 $debugLogger->debug('debug :' . ' file:' . json_encode($e->getFile()) . ', line:' . json_encode($e->getLine()) . ', code:' . json_encode($e->getCode()) . ', msg:' . json_encode($e->getMessage()));
