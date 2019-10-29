@@ -5,9 +5,9 @@
 <div class="mc">
 <div class="j-module-one">
 <div class="userDefinedArea">
-<div name="µÍ¼Û´ÙÏú" style="top: 10px; width: 900px;margin-left: 45px;">
+<div name="ï¿½Í¼Û´ï¿½ï¿½ï¿½" style="top: 10px; width: 900px;margin-left: 45px;">
 <a href="#">
-<marquee scrollamount="3"><span style="font-size:30px;height:30px; line-height:30px;color:#ffffff; ">¡¾Áú¾®²èÒµ¡¿£¡£¡£¡£¡·µ³¡ÓÅ»Ý£¬¿ñ»¶¼ÌÐø£¡£¡£¡£¡£¡£¡</span></marquee>
+<marquee scrollamount="3"><span style="font-size:30px;height:30px; line-height:30px;color:#ffffff; ">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å»Ý£ï¿½ï¿½ñ»¶¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</span></marquee>
 </a>
 </div>
 <img src="themes/ecmoban_dsc/store_tpl_10/images/biaoti_1.jpg">
@@ -22,17 +22,17 @@
 <div class="jItem">
 <div class="jPic"><a target="_blank" href="#"><img height="580" width="580" src="themes/ecmoban_dsc/store_tpl_10/images/cuxiao_cp_1.png"></a></div>
 <div class="jGoodsInfo">
-<div class="jDesc"><a target="_blank" href="#">ÁúÑï²èÒ¶ ÐÂ²è°²ÏªÇåÏãÐÍÌú¹ÛÒô Üø²è ÀñºÐÌúºÐ×°250G</a></div>
+<div class="jDesc"><a target="_blank" href="#">ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ ï¿½Â²è°²Ïªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×°250G</a></div>
 <div class="jPrice">
 <div class="jdPrice">
-<span class="jRmb">RMB£¤</span>
+<span class="jRmb">RMBï¿½ï¿½</span>
 <span class="jdNum">98.00</span>
 </div>
 </div>
 </div>
 </div>
 <div class="jBtnArea">
-<a target="_blank" href="#">·ÅÈë¹ºÎï³µ</a>
+<a target="_blank" href="#">ï¿½ï¿½ï¿½ë¹ºï¿½ï³µ</a>
 </div>
 </div>
 </div>

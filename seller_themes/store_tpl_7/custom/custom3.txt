@@ -13,11 +13,11 @@
 </div></div>
 </div>
 <ul class="jbannerTab">
-<li class="show">╥Гпевс</li>
-<li>сТ╫ПоЦ</li>
-<li>уджщк╝ои</li>
-<li>╟ы╨о</li>
-<li>яСк╝ои</li>
+<li class="show">О©╫О©╫О©╫О©╫О©╫О©╫</li>
+<li>О©╫О©╫О©╫О©╫О©╫О©╫</li>
+<li>О©╫О©╫О©╫О©╫к╝О©╫О©╫</li>
+<li>О©╫ы╨О©╫</li>
+<li>О©╫О©╫к╝О©╫О©╫</li>
 </ul>
 </div>
 </div>

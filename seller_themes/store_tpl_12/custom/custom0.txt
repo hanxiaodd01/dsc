@@ -3,18 +3,18 @@
 <div class="jSearchInput">
 <form method="GET" action="merchants_store.php" class="sort" name="listform">
 <div class="ssxx">SEARCH</div>
-<input type="text"  placeholder="╟ы╩ф╚ы╣╪╝№┤╩" class="inputMiddle" style="border:none" name="keyword" />
+<input type="text"  placeholder="я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╪╝я┐╜я┐╜я┐╜" class="inputMiddle" style="border:none" name="keyword" />
 <input type="hidden" value="" id="header_merchant_id" class="merchantId" name="merchant_id">
-<button type="submit" class="submit" >╦╤╦ў</button>
+<button type="submit" class="submit" >я┐╜я┐╜я┐╜я┐╜</button>
 </form>
 </div>
 <div class="jHotwords">
-<strong>╚╚├┼╦╤╦ў:</strong>
-<a href="#" class="tb1" target="_blank">╗ю╢п╟°╫и<em></em></a>
-<a href="#" class="tb2" target="_blank">╚╚╧·╡е╞╖<em></em></a>
-<a href="#" class="tb3" target="_blank">┤┘╧·<em></em></a>
-<a href="#" class="tb4" target="_blank">╨┬╞╖╔╧╩╨<em></em></a>
-<a href="#" class="tb5" target="_blank">╒╞╣ё═╞╝Ў<em></em></a>
+<strong>я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜:</strong>
+<a href="#" class="tb1" target="_blank">я┐╜ю╢пя┐╜я┐╜╫и<em></em></a>
+<a href="#" class="tb2" target="_blank">я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╞╖<em></em></a>
+<a href="#" class="tb3" target="_blank">я┐╜я┐╜я┐╜я┐╜<em></em></a>
+<a href="#" class="tb4" target="_blank">я┐╜я┐╜╞╖я┐╜я┐╜я┐╜я┐╜<em></em></a>
+<a href="#" class="tb5" target="_blank">я┐╜╞╣я┐╜я┐╜╞╝я┐╜<em></em></a>
 </div>
 </div>
 </div>

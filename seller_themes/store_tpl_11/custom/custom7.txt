@@ -21,7 +21,7 @@
 <div class="myhead"><a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_11/images/kefu.jpg" /></a></div>
 </div>
 <div class="myinfo">
-<div style="font-size:12px;font-family:ËÎÌå;line-height:32px;text-align:center;color:#000000;height: 200px;" class="mycontent">YOUAO / ÕÆ¹ñËµ<br>ÔÙ»ªÀö´ÇÔå²»ÈçÂãÉíÏà¼û<br>¾Ü¾ø¸¡¿äµÄ¹ã¸æ´Ê£¬¾Ü¾ø¹ý¶ÈäÖÈ¾<br>²»ÓÃ°ü×°ÌáÉýÉí¼Û£¬È¥µôËùÓÐÔãÆÉ£¬ÓëÄúÂãÉíÏà¼û<br>Õâ¾ÍÊÇ¼òÔ¼´´ÒâÆ·ÅÆ£¬YOUAO/ÓÑ°Ä</div>
+<div style="font-size:12px;font-family:ï¿½ï¿½ï¿½ï¿½;line-height:32px;text-align:center;color:#000000;height: 200px;" class="mycontent">YOUAO / ï¿½Æ¹ï¿½Ëµ<br>ï¿½Ù»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å²»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<br>ï¿½Ü¾ï¿½ï¿½ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½Ê£ï¿½ï¿½Ü¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¾<br>ï¿½ï¿½ï¿½Ã°ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û£ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½ï¿½Ç¼ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½Æ·ï¿½Æ£ï¿½YOUAO/ï¿½Ñ°ï¿½</div>
 </div>
 </div>
 </div>

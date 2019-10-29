@@ -9,7 +9,7 @@ UPDATE `dsc_admin_action` SET `seller_show` = 0 WHERE `action_code` = 'single_ed
 UPDATE `dsc_admin_action` SET `seller_show` = 0 WHERE `action_code` = 'sale_notice';
 
 INSERT INTO `dsc_ad_position` ( `user_id`, `position_name`, `ad_width`, `ad_height`, `position_model`, `position_desc`, `position_style`, `is_public`, `theme`) VALUES
-( 0, '¶¥¼¶·ÖÀàÒ³£¨Ä¬ÈÏ£©Æ·ÅÆÆì½¢', 200, 200, 'category_top_default_brand[num_id]_[cat_id]', 'num_id-ÊýÁ¿ÐòºÅ£¬cat_id-·ÖÀàID', '{foreach from=$ads item=ad}\r\n{$ad}\r\n{/foreach}', 0, 'ecmoban_dsc2017');
+( 0, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½Ä¬ï¿½Ï£ï¿½Æ·ï¿½ï¿½ï¿½ì½¢', 200, 200, 'category_top_default_brand[num_id]_[cat_id]', 'num_id-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å£ï¿½cat_id-ï¿½ï¿½ï¿½ï¿½ID', '{foreach from=$ads item=ad}\r\n{$ad}\r\n{/foreach}', 0, 'ecmoban_dsc2017');
 
 INSERT INTO `dsc_shop_config` (`parent_id`, `code`, `type`, `store_range`, `store_dir`, `value`, `sort_order`) VALUES
 ( 3, 'marticle_index', 'text', '', '', '1,2,3,4', 1);

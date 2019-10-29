@@ -9,9 +9,9 @@
 <a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_3/images/5487ca63Ncf8334d6.jpg" /></a>
 <div class="jInfo">
 <div class="line1">
-<div class="jDesc"><a href="#" target="_blank">жпууCLEC LEDм╡╣ф ож╢З╪Рт╪т║йрнюиЗ╪Д╠з╣ф╩╞в╠╣ф нют║╣ф ╢С╨е╟ви╚</a></div>
+<div class="jDesc"><a href="#" target="_blank">О©╫О©╫О©╫О©╫CLEC LEDм╡О©╫О©╫ О©╫ж╢О©╫О©╫О©╫т╪т║О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫з╣ф╩О©╫в╠О©╫О©╫ О©╫О©╫т║О©╫О©╫ О©╫О©╫е╟О©╫и╚</a></div>
 <div class="jPrice">
-<span class="jRmb">уш©ш╪шё╓</span>
+<span class="jRmb">О©╫ш©ш╪шёО©╫</span>
 <span class="jdNum">69.00</span>
 </div>
 <div class="jBtnArea"><a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_3/images/b-btn.gif" /></a></div>
@@ -22,9 +22,9 @@
 <a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_3/images/5487ca63Ncf8334d6.jpg" /></a>
 <div class="jInfo">
 <div class="line1">
-<div class="jDesc"><a href="#" target="_blank">жпууCLEC LEDм╡╣ф ож╢З╪Рт╪т║йрнюиЗ╪Д╠з╣ф╩╞в╠╣ф нют║╣ф ╢С╨е╟ви╚</a></div>
+<div class="jDesc"><a href="#" target="_blank">О©╫О©╫О©╫О©╫CLEC LEDм╡О©╫О©╫ О©╫ж╢О©╫О©╫О©╫т╪т║О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫з╣ф╩О©╫в╠О©╫О©╫ О©╫О©╫т║О©╫О©╫ О©╫О©╫е╟О©╫и╚</a></div>
 <div class="jPrice">
-<span class="jRmb">уш©ш╪шё╓</span>
+<span class="jRmb">О©╫ш©ш╪шёО©╫</span>
 <span class="jdNum">1800.00</span>
 </div>
 <div class="jBtnArea"><a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_3/images/b-btn.gif" /></a></div>
@@ -35,9 +35,9 @@
 <a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_3/images/5487ca63Ncf8334d6.jpg" /></a>
 <div class="jInfo">
 <div class="line1">
-<div class="jDesc"><a href="#" target="_blank">жпууCLEC LEDм╡╣ф ож╢З╪Рт╪т║йрнюиЗ╪Д╠з╣ф╩╞в╠╣ф нют║╣ф ╢С╨е╟ви╚</a></div>
+<div class="jDesc"><a href="#" target="_blank">О©╫О©╫О©╫О©╫CLEC LEDм╡О©╫О©╫ О©╫ж╢О©╫О©╫О©╫т╪т║О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫з╣ф╩О©╫в╠О©╫О©╫ О©╫О©╫т║О©╫О©╫ О©╫О©╫е╟О©╫и╚</a></div>
 <div class="jPrice">
-<span class="jRmb">уш©ш╪шё╓</span>
+<span class="jRmb">О©╫ш©ш╪шёО©╫</span>
 <span class="jdNum">1080.00</span>
 </div>
 <div class="jBtnArea"><a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_3/images/b-btn.gif" /></a></div>
@@ -48,9 +48,9 @@
 <a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_3/images/5487ca63Ncf8334d6.jpg" /></a>
 <div class="jInfo">
 <div class="line1">
-<div class="jDesc"><a href="#" target="_blank">жпууCLEC LEDм╡╣ф ож╢З╪Рт╪т║йрнюиЗ╪Д╠з╣ф╩╞в╠╣ф нют║╣ф ╢С╨е╟ви╚</a></div>
+<div class="jDesc"><a href="#" target="_blank">О©╫О©╫О©╫О©╫CLEC LEDм╡О©╫О©╫ О©╫ж╢О©╫О©╫О©╫т╪т║О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫з╣ф╩О©╫в╠О©╫О©╫ О©╫О©╫т║О©╫О©╫ О©╫О©╫е╟О©╫и╚</a></div>
 <div class="jPrice">
-<span class="jRmb">уш©ш╪шё╓</span>
+<span class="jRmb">О©╫ш©ш╪шёО©╫</span>
 <span class="jdNum">1080.00</span>
 </div>
 <div class="jBtnArea"><a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_3/images/b-btn.gif" /></a></div>

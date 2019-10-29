@@ -1,7 +1,7 @@
 <div class="fn-clear user-kuaisunav">
 <div class="mc">
 <div class="user_box">
-<div class="stitle">店铺快速导航</div>
+<div class="stitle">锟斤拷锟教匡拷锟劫碉拷锟斤拷</div>
 <div class="navlist">
 <div class="item"><a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_9/images/kuaisunav_1.jpg" /></a></div>
 <div class="item"><a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_9/images/kuaisunav_2.jpg" /></a></div>

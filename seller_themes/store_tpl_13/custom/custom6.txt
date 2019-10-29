@@ -9,10 +9,10 @@
 </div>
 </div>
 <div class="jbannerTab">
-<span class="">¹ã¸æ±­¶¨ÖÆ</span>
-<span class="">²£Á§³å²èÆ÷</span>
-<span class="">¶¨ÖÆ±­Á÷³Ì</span>
-<span class="">×¨Òµ¶¨ÖÆ±­</span>
+<span class="">ï¿½ï¿½æ±­ï¿½ï¿½ï¿½ï¿½</span>
+<span class="">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</span>
+<span class="">ï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½ï¿½ï¿½</span>
+<span class="">×¨Òµï¿½ï¿½ï¿½Æ±ï¿½</span>
 </div>
 </div>
 </div>

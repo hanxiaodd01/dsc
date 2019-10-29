@@ -6,24 +6,24 @@
 <div class="searchArea">
 <div class="jSearchArea">
 <div class="jSearchInput">
-<h3>±¾µêËÑË÷ </h3>
+<h3>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ </h3>
 <form method="GET" action="merchants_store.php" class="sort" name="listform" style="float:left">
-<input type="text" class="inputMiddle" placeholder="·¢ÊÎ¡¢Ê×ÊÎ" name="keyword"  />
+<input type="text" class="inputMiddle" placeholder="ï¿½ï¿½ï¿½Î¡ï¿½ï¿½ï¿½ï¿½ï¿½" name="keyword"  />
 <input type="hidden" value="" id="header_merchant_id" class="merchantId" name="merchant_id">
 <div class="jPriceArea">
-<input type="text" placeholder="£¤" class="inputSmall" name="price_min" />
+<input type="text" placeholder="ï¿½ï¿½" class="inputSmall" name="price_min" />
 <span class="jText">-</span>
-<input type="text" placeholder="£¤" class="inputSmall" name="price_max" />
+<input type="text" placeholder="ï¿½ï¿½" class="inputSmall" name="price_max" />
 </div>
 <button type="submit"><img src="themes/ecmoban_dsc/store_tpl_2/images/search.png" /></button>
 </form>
 </div>
 <div class="jHotwords">
-<a href="#">·¢È¦</a>
-<a href="#">·¢¼Ð</a>
-<a href="#">·¢¹¿</a>
-<a href="#">·¢´ø</a>
-<a href="#">ÏîÁ´</a>
+<a href="#">ï¿½ï¿½È¦</a>
+<a href="#">ï¿½ï¿½ï¿½ï¿½</a>
+<a href="#">ï¿½ï¿½ï¿½ï¿½</a>
+<a href="#">ï¿½ï¿½ï¿½ï¿½</a>
+<a href="#">ï¿½ï¿½ï¿½ï¿½</a>
 </div>
 </div>
 </div>

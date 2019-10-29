@@ -8,17 +8,17 @@
 <div class="jItem">
 <div class="jPic"><a target="_blank" href="#"><img height="580" width="580" src="themes/ecmoban_dsc/store_tpl_10/images/cuxiao_cp_1.png"></a></div>
 <div class="jGoodsInfo">
-<div class="jDesc"><a target="_blank" href="#">ÁúÑï²èÒ¶ ÐÂ²è°²ÏªÇåÏãÐÍÌú¹ÛÒô Üø²è ÀñºÐÌúºÐ×°250G</a></div>
+<div class="jDesc"><a target="_blank" href="#">ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ ï¿½Â²è°²Ïªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×°250G</a></div>
 <div class="jPrice">
 <div class="jdPrice">
-<span class="jRmb">RMB£¤</span>
+<span class="jRmb">RMBï¿½ï¿½</span>
 <span class="jdNum">98.00</span>
 </div>
 </div>
 </div>
 </div>
 <div class="jBtnArea">
-<a target="_blank" href="#">·ÅÈë¹ºÎï³µ</a>
+<a target="_blank" href="#">ï¿½ï¿½ï¿½ë¹ºï¿½ï³µ</a>
 </div>
 </div>
 </div>

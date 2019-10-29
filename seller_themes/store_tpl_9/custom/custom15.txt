@@ -1,8 +1,8 @@
 <div class="fn-clear user_rmtj">
 <div class="mc">
 <div class="user_box">
-<div class="stitle">热销推荐</div>
-<a href="#" class="morelink">查看更多>></a>
+<div class="stitle">锟斤拷锟斤拷锟狡硷拷</div>
+<a href="#" class="morelink">锟介看锟斤拷锟斤拷>></a>
 </div>
 </div>
 </div>

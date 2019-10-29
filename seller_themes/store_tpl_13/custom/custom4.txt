@@ -2,20 +2,20 @@
 <div class="userjSearch">
 <div class="searchArea">
 <div class="jSearchArea">
-<div class="jHotwords"><strong>ÈÈÃÅËÑË÷£º</strong>
-<a style="color: #fff;cursor: pointer;">²£Á§±­</a>
-<a style="color: #fff;cursor: pointer;">ÔË¶¯Ë®ºø</a>
-<a style="color: #fff;cursor: pointer;">Æ®ÒÝ±­</a>
-<a style="color: #fff;cursor: pointer;">²Ëµ¶</a>
-<a style="color: #fff;cursor: pointer;">¶¨ÖÆ</a>
+<div class="jHotwords"><strong>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</strong>
+<a style="color: #fff;cursor: pointer;">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</a>
+<a style="color: #fff;cursor: pointer;">ï¿½Ë¶ï¿½Ë®ï¿½ï¿½</a>
+<a style="color: #fff;cursor: pointer;">Æ®ï¿½Ý±ï¿½</a>
+<a style="color: #fff;cursor: pointer;">ï¿½Ëµï¿½</a>
+<a style="color: #fff;cursor: pointer;">ï¿½ï¿½ï¿½ï¿½</a>
 </div>
 <div class="jSearchInput">
 <div class="jPriceArea">
-<input type="text" value="£¤" class="inputSmall" maxlength="7" size="7">
+<input type="text" value="ï¿½ï¿½" class="inputSmall" maxlength="7" size="7">
 <span class="jText">-</span>
-<input type="text" value="£¤" class="inputSmall" maxlength="7" size="7">
+<input type="text" value="ï¿½ï¿½" class="inputSmall" maxlength="7" size="7">
 </div>
-<input type="text" value="²£Á§±­" d="ÇëÊäÈë¹Ø¼ü´Ê" class="inputMiddle" maxlength="160" size="5">      <button type="button" d="15955781"><s></s></button>
+<input type="text" value="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" d="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½" class="inputMiddle" maxlength="160" size="5">      <button type="button" d="15955781"><s></s></button>
 </div>
 </div>
 </div>

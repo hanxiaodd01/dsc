@@ -1,10 +1,10 @@
 ------tpl_info------------
-tpl name£ºÄ£°åÌÃÉè¼ÆÉÌ¼ÒµêÆÌÄ£°åNO.10
-tpl url£º../seller_themes/store_tpl_10/screenshot.png
-description£ºÇ§´¸°ÙÁ¶£¬ÐÞ³ÉÕý¹û£¬Ö»Îª¶®²èµÄÄã£¡
-version£ºv1.0
-author£ºÄ£°åÌÃ
-author url£ºhttp://www.ecmoban.com/
-tpl_path£ºst_one
-win_goods_type£º3
+tpl nameï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼Òµï¿½ï¿½ï¿½Ä£ï¿½ï¿½NO.10
+tpl urlï¿½ï¿½../seller_themes/store_tpl_10/screenshot.png
+descriptionï¿½ï¿½Ç§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã£¡
+versionï¿½ï¿½v1.0
+authorï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½
+author urlï¿½ï¿½http://www.ecmoban.com/
+tpl_pathï¿½ï¿½st_one
+win_goods_typeï¿½ï¿½3
 ------tpl_info------------

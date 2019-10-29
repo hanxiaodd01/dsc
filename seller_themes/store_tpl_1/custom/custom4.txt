@@ -3,9 +3,9 @@
 </div>
 <div class="module">
 <ul class="jbannerTab">
-<li>═п╚д░╗╚╗</li>
-<li>┴т╕ё├▄╙я</li>
-<li>╗ю┴ж│╚╡ў</li>
+<li>═п╚дя┐╜я┐╜╚╗</li>
+<li>я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜</li>
+<li>я┐╜я┐╜я┐╜я┐╜я┐╜╚╡я┐╜</li>
 </ul>
 <div class="jbannerImg">
 <div class="jImgNodeArea">

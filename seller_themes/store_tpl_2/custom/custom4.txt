@@ -5,8 +5,8 @@
 <div class="mc">
 <div class="jbanner">
 <ul class="jbannerTab">
-<li>ÂÖ²¥Í¼±êÌâ</li>
-<li>ÂÖ²¥Í¼±êÌâ</li>
+<li>ï¿½Ö²ï¿½Í¼ï¿½ï¿½ï¿½ï¿½</li>
+<li>ï¿½Ö²ï¿½Í¼ï¿½ï¿½ï¿½ï¿½</li>
 </ul>
 <div class="jbannerImg">
 <div class="jImgNodeArea">

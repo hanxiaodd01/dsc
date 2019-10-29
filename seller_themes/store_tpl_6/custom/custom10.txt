@@ -3,7 +3,7 @@
 <div class="fn-clear user-4">
 <div class="mc">
 <div class="user-title1">
-<span class="f_l">ÏÞÊ±ÈÈÂô</span>
+<span class="f_l">ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½</span>
 <a href="#" target="_blank" class="f_r">MORE</a>
 </div>
 <div class="user-box">
@@ -11,80 +11,80 @@
 <li>
 <div class="user-image"><a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_6/images/cnxh_product_1.jpg" width="222" height="222" /></a></div>
 <div class="user-info">
-<p class="user-des">³ö¿Úº«¹ú»ÆÌÒ¹ÞÍ· ÐÂÏÊË®¹ûÕûÏäÅú·¢ 425g/¹Þ  Âú12¹Þ½­Õã»¦Íî°üÓÊÃÀÊ³ÁãÊ³</p>
+<p class="user-des">ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¹ï¿½Í· ï¿½ï¿½ï¿½ï¿½Ë®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 425g/ï¿½ï¿½  ï¿½ï¿½12ï¿½Þ½ï¿½ï¿½ã»¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê³ï¿½ï¿½Ê³</p>
 <p class="user-price">
-<span class="user-cx">´ÙÏú¼Û</span>
-<span class="user-rmb">£¤<span class="jdNum">5.00</span></span>
+<span class="user-cx">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</span>
+<span class="user-rmb">ï¿½ï¿½<span class="jdNum">5.00</span></span>
 </p>
 </div>
 </li>
 <li>
 <div class="user-image"><a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_6/images/cnxh_product_1.jpg" width="222" height="222" /></a></div>
 <div class="user-info">
-<p class="user-des">³ö¿Úº«¹ú»ÆÌÒ¹ÞÍ· ÐÂÏÊË®¹ûÕûÏäÅú·¢ 425g/¹Þ  Âú12¹Þ½­Õã»¦Íî°üÓÊÃÀÊ³ÁãÊ³</p>
+<p class="user-des">ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¹ï¿½Í· ï¿½ï¿½ï¿½ï¿½Ë®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 425g/ï¿½ï¿½  ï¿½ï¿½12ï¿½Þ½ï¿½ï¿½ã»¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê³ï¿½ï¿½Ê³</p>
 <p class="user-price">
-<span class="user-cx">´ÙÏú¼Û</span>
-<span class="user-rmb">£¤<span class="jdNum">5.00</span></span>
+<span class="user-cx">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</span>
+<span class="user-rmb">ï¿½ï¿½<span class="jdNum">5.00</span></span>
 </p>
 </div>
 </li>
 <li>
 <div class="user-image"><a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_6/images/cnxh_product_1.jpg" width="222" height="222" /></a></div>
 <div class="user-info">
-<p class="user-des">³ö¿Úº«¹ú»ÆÌÒ¹ÞÍ· ÐÂÏÊË®¹ûÕûÏäÅú·¢ 425g/¹Þ  Âú12¹Þ½­Õã»¦Íî°üÓÊÃÀÊ³ÁãÊ³</p>
+<p class="user-des">ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¹ï¿½Í· ï¿½ï¿½ï¿½ï¿½Ë®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 425g/ï¿½ï¿½  ï¿½ï¿½12ï¿½Þ½ï¿½ï¿½ã»¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê³ï¿½ï¿½Ê³</p>
 <p class="user-price">
-<span class="user-cx">´ÙÏú¼Û</span>
-<span class="user-rmb">£¤<span class="jdNum">5.00</span></span>
+<span class="user-cx">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</span>
+<span class="user-rmb">ï¿½ï¿½<span class="jdNum">5.00</span></span>
 </p>
 </div>
 </li>
 <li>
 <div class="user-image"><a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_6/images/cnxh_product_1.jpg" width="222" height="222" /></a></div>
 <div class="user-info">
-<p class="user-des">³ö¿Úº«¹ú»ÆÌÒ¹ÞÍ· ÐÂÏÊË®¹ûÕûÏäÅú·¢ 425g/¹Þ  Âú12¹Þ½­Õã»¦Íî°üÓÊÃÀÊ³ÁãÊ³</p>
+<p class="user-des">ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¹ï¿½Í· ï¿½ï¿½ï¿½ï¿½Ë®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 425g/ï¿½ï¿½  ï¿½ï¿½12ï¿½Þ½ï¿½ï¿½ã»¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê³ï¿½ï¿½Ê³</p>
 <p class="user-price">
-<span class="user-cx">´ÙÏú¼Û</span>
-<span class="user-rmb">£¤<span class="jdNum">5.00</span></span>
+<span class="user-cx">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</span>
+<span class="user-rmb">ï¿½ï¿½<span class="jdNum">5.00</span></span>
 </p>
 </div>
 </li>
 <li>
 <div class="user-image"><a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_6/images/cnxh_product_1.jpg" width="222" height="222" /></a></div>
 <div class="user-info">
-<p class="user-des">³ö¿Úº«¹ú»ÆÌÒ¹ÞÍ· ÐÂÏÊË®¹ûÕûÏäÅú·¢ 425g/¹Þ  Âú12¹Þ½­Õã»¦Íî°üÓÊÃÀÊ³ÁãÊ³</p>
+<p class="user-des">ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¹ï¿½Í· ï¿½ï¿½ï¿½ï¿½Ë®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 425g/ï¿½ï¿½  ï¿½ï¿½12ï¿½Þ½ï¿½ï¿½ã»¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê³ï¿½ï¿½Ê³</p>
 <p class="user-price">
-<span class="user-cx">´ÙÏú¼Û</span>
-<span class="user-rmb">£¤<span class="jdNum">5.00</span></span>
+<span class="user-cx">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</span>
+<span class="user-rmb">ï¿½ï¿½<span class="jdNum">5.00</span></span>
 </p>
 </div>
 </li>
 <li>
 <div class="user-image"><a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_6/images/cnxh_product_1.jpg" width="222" height="222" /></a></div>
 <div class="user-info">
-<p class="user-des">³ö¿Úº«¹ú»ÆÌÒ¹ÞÍ· ÐÂÏÊË®¹ûÕûÏäÅú·¢ 425g/¹Þ  Âú12¹Þ½­Õã»¦Íî°üÓÊÃÀÊ³ÁãÊ³</p>
+<p class="user-des">ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¹ï¿½Í· ï¿½ï¿½ï¿½ï¿½Ë®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 425g/ï¿½ï¿½  ï¿½ï¿½12ï¿½Þ½ï¿½ï¿½ã»¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê³ï¿½ï¿½Ê³</p>
 <p class="user-price">
-<span class="user-cx">´ÙÏú¼Û</span>
-<span class="user-rmb">£¤<span class="jdNum">5.00</span></span>
+<span class="user-cx">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</span>
+<span class="user-rmb">ï¿½ï¿½<span class="jdNum">5.00</span></span>
 </p>
 </div>
 </li>
 <li>
 <div class="user-image"><a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_6/images/cnxh_product_1.jpg" width="222" height="222" /></a></div>
 <div class="user-info">
-<p class="user-des">³ö¿Úº«¹ú»ÆÌÒ¹ÞÍ· ÐÂÏÊË®¹ûÕûÏäÅú·¢ 425g/¹Þ  Âú12¹Þ½­Õã»¦Íî°üÓÊÃÀÊ³ÁãÊ³</p>
+<p class="user-des">ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¹ï¿½Í· ï¿½ï¿½ï¿½ï¿½Ë®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 425g/ï¿½ï¿½  ï¿½ï¿½12ï¿½Þ½ï¿½ï¿½ã»¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê³ï¿½ï¿½Ê³</p>
 <p class="user-price">
-<span class="user-cx">´ÙÏú¼Û</span>
-<span class="user-rmb">£¤<span class="jdNum">5.00</span></span>
+<span class="user-cx">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</span>
+<span class="user-rmb">ï¿½ï¿½<span class="jdNum">5.00</span></span>
 </p>
 </div>
 </li>
 <li>
 <div class="user-image"><a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_6/images/cnxh_product_1.jpg" width="222" height="222" /></a></div>
 <div class="user-info">
-<p class="user-des">³ö¿Úº«¹ú»ÆÌÒ¹ÞÍ· ÐÂÏÊË®¹ûÕûÏäÅú·¢ 425g/¹Þ  Âú12¹Þ½­Õã»¦Íî°üÓÊÃÀÊ³ÁãÊ³</p>
+<p class="user-des">ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¹ï¿½Í· ï¿½ï¿½ï¿½ï¿½Ë®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 425g/ï¿½ï¿½  ï¿½ï¿½12ï¿½Þ½ï¿½ï¿½ã»¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê³ï¿½ï¿½Ê³</p>
 <p class="user-price">
-<span class="user-cx">´ÙÏú¼Û</span>
-<span class="user-rmb">£¤<span class="jdNum">5.00</span></span>
+<span class="user-cx">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</span>
+<span class="user-rmb">ï¿½ï¿½<span class="jdNum">5.00</span></span>
 </p>
 </div>
 </li>

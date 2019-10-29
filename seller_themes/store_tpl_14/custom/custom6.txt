@@ -6,14 +6,14 @@
 <div class="J-container" style="left: 50%; margin-left: 505px; position: fixed; top: 120px; z-index: 7; overflow: hidden; height: 246px; width: 90px; display: block;">
 <div class="user_xf">
 <ul>
-<li><a href="#" target="_blank">╫╔╤п▀╦▀╦</a></li>
-<li><a href="#" target="_blank">╨┬╞╖╔╧╩╨</a></li>
-<li><a href="#" target="_blank">╒√╠╫▓ш╛▀</a></li>
-<li><a href="#" target="_blank">╡е╠╫▓ш╛▀</a></li>
-<li><a href="#" target="_blank">▓ш┼╠╫и╟°</a></li>
-<li><a href="#" target="_blank">╡е╞╖▓ш╞ў</a></li>
-<li><a href="#" target="_blank">▓ш╡└/┴у┼ф</a></li>
-<li><a href="#" target="_blank">╖╡╗╪╩╫╥│</a></li>
+<li><a href="#" target="_blank">я┐╜я┐╜╤пя┐╜я┐╜я┐╜я┐╜</a></li>
+<li><a href="#" target="_blank">я┐╜я┐╜╞╖я┐╜я┐╜я┐╜я┐╜</a></li>
+<li><a href="#" target="_blank">я┐╜я┐╜я┐╜╫▓я┐╜я┐╜</a></li>
+<li><a href="#" target="_blank">я┐╜я┐╜я┐╜╫▓я┐╜я┐╜</a></li>
+<li><a href="#" target="_blank">я┐╜я┐╜я┐╜я┐╜╫ия┐╜я┐╜</a></li>
+<li><a href="#" target="_blank">я┐╜я┐╜╞╖я┐╜я┐╜я┐╜я┐╜</a></li>
+<li><a href="#" target="_blank">я┐╜я┐╜я┐╜/я┐╜я┐╜я┐╜я┐╜</a></li>
+<li><a href="#" target="_blank">я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╥│</a></li>
 </ul>
 </div>
 </div>

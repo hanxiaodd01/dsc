@@ -1,77 +1,77 @@
 <div class="user-type-nav">
 <div class="type_nav_dl">
 <dl>
-<dt><a href="#" target="_blank">╨┬╞╖╡╜╡ъ</a></dt>
-<dd><a href="#" target="_blank">12╘┬10╚╒</a></dd>
-<dd><a href="#" target="_blank">12╘┬10╚╒</a></dd>
-<dd><a href="#" target="_blank">12╘┬10╚╒</a></dd>
-<dd><a href="#" target="_blank">12╘┬10╚╒</a></dd>
-<dd><a href="#" target="_blank">╚л▓┐╨┬╞╖</a></dd>
+<dt><a href="#" target="_blank">я┐╜я┐╜╞╖я┐╜я┐╜я┐╜я┐╜</a></dt>
+<dd><a href="#" target="_blank">12я┐╜я┐╜10я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">12я┐╜я┐╜10я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">12я┐╜я┐╜10я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">12я┐╜я┐╜10я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">╚ля┐╜я┐╜я┐╜я┐╜╞╖</a></dd>
 </dl>
 <dl>
-<dt><a href="#" target="_blank">╫ю╨┬╙┼╗▌</a></dt>
-<dd><a href="#" target="_blank">9╘┬10╚╒</a></dd>
-<dd><a href="#" target="_blank">9╘┬10╚╒</a></dd>
-<dd><a href="#" target="_blank">9╘┬10╚╒</a></dd>
-<dd><a href="#" target="_blank">9╘┬10╚╒</a></dd>
+<dt><a href="#" target="_blank">я┐╜я┐╜я┐╜я┐╜я┐╜┼╗я┐╜</a></dt>
+<dd><a href="#" target="_blank">9я┐╜я┐╜10я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">9я┐╜я┐╜10я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">9я┐╜я┐╜10я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">9я┐╜я┐╜10я┐╜я┐╜</a></dd>
 </dl>
 <dl>
-<dt><a href="#" target="_blank">─╪┴╧/╤Є╚▐</a></dt>
-<dd class="heart"><a href="#" target="_blank">─╪┴╧═т╠╫</a></dd>
-<dd><a href="#" target="_blank">─╪┴╧┤є╥┬</a></dd>
+<dt><a href="#" target="_blank">я┐╜я┐╜я┐╜я┐╜/я┐╜я┐╜я┐╜я┐╜</a></dt>
+<dd class="heart"><a href="#" target="_blank">я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">я┐╜я┐╜я┐╜╧┤я┐╜я┐╜я┐╜</a></dd>
 </dl>
 <dl>
-<dt><a href="#" target="_blank">╙Ё╚▐</a></dt>
-<dd class="heart"><a href="#" target="_blank">╙Ё╚▐═т╠╫</a></dd>
-<dd><a href="#" target="_blank">╙Ё╚▐┤є╥┬</a></dd>
+<dt><a href="#" target="_blank">я┐╜я┐╜я┐╜я┐╜</a></dt>
+<dd class="heart"><a href="#" target="_blank">я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">я┐╜я┐╜я┐╜▐┤я┐╜я┐╜я┐╜</a></dd>
 </dl>
 <dl>
-<dt><a href="#" target="_blank">═т╠╫</a></dt>
-<dd class="heart"><a href="#" target="_blank">╟я╢м═т╠╫</a></dd>
-<dd><a href="#" target="_blank">╬ў╫░═т╠╫</a></dd>
-<dd><a href="#" target="_blank">╞д╥┬</a></dd>
-<dd><a href="#" target="_blank">╞д▓▌</a></dd>
-</dl>
-<dl>
-<dt><a href="#" target="_blank">├л╓п</a></dt>
-<dd><a href="#" target="_blank">╠╫═╖╔└</a></dd>
-<dd><a href="#" target="_blank">├л╓п═т╠╫</a></dd>
-</dl>
-<dl>
-<dt><a href="#" target="_blank">│─╔└/T╨Ї</a></dt>
-<dd><a href="#" target="_blank">╓╨/│д╨ф│─╔└</a></dd>
-<dd><a href="#" target="_blank">╢╠╨ф│─╔└</a></dd>
+<dt><a href="#" target="_blank">я┐╜я┐╜я┐╜я┐╜</a></dt>
+<dd class="heart"><a href="#" target="_blank">я┐╜я╢мя┐╜я┐╜я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">я┐╜я┐╜╫░я┐╜я┐╜я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">╞дя┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">╞дя┐╜я┐╜</a></dd>
 </dl>
 <dl>
 <dt><a href="#" target="_blank">├л╓п</a></dt>
-<dd><a href="#" target="_blank">╠╫═╖╔└</a></dd>
-<dd><a href="#" target="_blank">├л╓п═т╠╫</a></dd>
+<dd><a href="#" target="_blank">я┐╜я┐╜═╖я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">├л╓пя┐╜я┐╜я┐╜я┐╜</a></dd>
+</dl>
+<dl>
+<dt><a href="#" target="_blank">я┐╜я┐╜я┐╜я┐╜/Tя┐╜я┐╜</a></dt>
+<dd><a href="#" target="_blank">я┐╜я┐╜/я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜</a></dd>
 </dl>
 <dl>
 <dt><a href="#" target="_blank">├л╓п</a></dt>
-<dd><a href="#" target="_blank">╠╫═╖╔└</a></dd>
-<dd><a href="#" target="_blank">├л╓п═т╠╫</a></dd>
-</dl>
-<dl>
-<dt><a href="#" target="_blank">│─╔└/T╨Ї</a></dt>
-<dd><a href="#" target="_blank">╓╨/│д╨ф│─╔└</a></dd>
-<dd><a href="#" target="_blank">╢╠╨ф│─╔└</a></dd>
-<dd><a href="#" target="_blank">╓╨/│д╨ф│─╔└</a></dd>
-<dd><a href="#" target="_blank">╢╠╨ф│─╔└</a></dd>
+<dd><a href="#" target="_blank">я┐╜я┐╜═╖я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">├л╓пя┐╜я┐╜я┐╜я┐╜</a></dd>
 </dl>
 <dl>
 <dt><a href="#" target="_blank">├л╓п</a></dt>
-<dd><a href="#" target="_blank">╠╫═╖╔└</a></dd>
-<dd><a href="#" target="_blank">├л╓п═т╠╫</a></dd>
-<dd><a href="#" target="_blank">╓╨/│д╨ф│─╔└</a></dd>
-<dd><a href="#" target="_blank">╢╠╨ф│─╔└</a></dd>
+<dd><a href="#" target="_blank">я┐╜я┐╜═╖я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">├л╓пя┐╜я┐╜я┐╜я┐╜</a></dd>
+</dl>
+<dl>
+<dt><a href="#" target="_blank">я┐╜я┐╜я┐╜я┐╜/Tя┐╜я┐╜</a></dt>
+<dd><a href="#" target="_blank">я┐╜я┐╜/я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">я┐╜я┐╜/я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜</a></dd>
+</dl>
+<dl>
+<dt><a href="#" target="_blank">├л╓п</a></dt>
+<dd><a href="#" target="_blank">я┐╜я┐╜═╖я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">├л╓пя┐╜я┐╜я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">я┐╜я┐╜/я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜</a></dd>
 </dl>
 <dl>
 <dt><a href="#" target="_blank">SALE</a></dt>
-<dd><a href="#" target="_blank">╛л╤б╝█</a></dd>
-<dd><a href="#" target="_blank">3╒█╫и╟°</a></dd>
-<dd><a href="#" target="_blank">4╒█╫и╟°</a></dd>
-<dd><a href="#" target="_blank">5╒█╫и╟°</a></dd>
+<dd><a href="#" target="_blank">я┐╜я┐╜╤бя┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">3я┐╜я┐╜╫ия┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">4я┐╜я┐╜╫ия┐╜я┐╜</a></dd>
+<dd><a href="#" target="_blank">5я┐╜я┐╜╫ия┐╜я┐╜</a></dd>
 </dl>
 </div>
 </div>

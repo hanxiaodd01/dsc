@@ -5,16 +5,16 @@
 <div class="mc">
 <div class="user_zdzbao">
 <div class="zdzbao_title">
-<h3>ÌØÉ«ÃÀÊ³<span class="yw">CHARACTERISTICS OF FOOD</span></h3>
-<a href="#" target="_blank">¸ü¶àÐÂÏÊ²úÆ·</a>
+<h3>ï¿½ï¿½É«ï¿½ï¿½Ê³<span class="yw">CHARACTERISTICS OF FOOD</span></h3>
+<a href="#" target="_blank">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê²ï¿½Æ·</a>
 </div>
 <div class="tese_items">
 <div class="item">
 <a href="#" target="_blank">
 <div class="item_img"><img src="themes/ecmoban_dsc/store_tpl_6/images/tsms_product_1.jpg" /></div>
 <div class="item_desc">
-<span class="title">½ðË¿Å£Ýò²è ´¿ÊÖ¹¤ÖÆ×÷</span>
-<span class="price"><em>£¤</em>8<span>.00</span></span>
+<span class="title">ï¿½ï¿½Ë¿Å£ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½</span>
+<span class="price"><em>ï¿½ï¿½</em>8<span>.00</span></span>
 </div>
 </a>
 </div>
@@ -22,8 +22,8 @@
 <a href="#" target="_blank">
 <div class="item_img"><img src="themes/ecmoban_dsc/store_tpl_6/images/tsms_product_2.jpg" /></div>
 <div class="item_desc">
-<span class="title">Ð¡¿µ Å£Èâ½´</span>
-<span class="price"><em>£¤</em>7<span>.00</span></span>
+<span class="title">Ð¡ï¿½ï¿½ Å£ï¿½â½´</span>
+<span class="price"><em>ï¿½ï¿½</em>7<span>.00</span></span>
 </div>
 </a>
 </div>
@@ -31,8 +31,8 @@
 <a href="#" target="_blank">
 <div class="item_img"><img src="themes/ecmoban_dsc/store_tpl_6/images/tsms_product_3.jpg" /></div>
 <div class="item_desc">
-<span class="title">Î¬Î¬½ÀÒ»½À ´ó¶¹ÓªÑø´ú²Í°ô</span>
-<span class="price"><em>£¤</em>21<span>.00</span></span>
+<span class="title">Î¬Î¬ï¿½ï¿½Ò»ï¿½ï¿½ ï¿½ï¿½Óªï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½</span>
+<span class="price"><em>ï¿½ï¿½</em>21<span>.00</span></span>
 </div>
 </a>
 </div>
@@ -40,8 +40,8 @@
 <a href="#" target="_blank">
 <div class="item_img"><img src="themes/ecmoban_dsc/store_tpl_6/images/tsms_product_4.jpg" /></div>
 <div class="item_desc">
-<span class="title">ÌØ¼¶Å£Ýò²è Ì¨Íå¿ÚÎ¶</span>
-<span class="price"><em>£¤</em>8<span>.00</span></span>
+<span class="title">ï¿½Ø¼ï¿½Å£ï¿½ï¿½ï¿½ Ì¨ï¿½ï¿½ï¿½Î¶</span>
+<span class="price"><em>ï¿½ï¿½</em>8<span>.00</span></span>
 </div>
 </a>
 </div>
@@ -49,8 +49,8 @@
 <a href="#" target="_blank">
 <div class="item_img"><img src="themes/ecmoban_dsc/store_tpl_6/images/tsms_product_5.jpg" /></div>
 <div class="item_desc">
-<span class="title">½ø¿ÚÒâ´óÀûÃæ ÃæÌõÒâ·Û</span>
-<span class="price"><em>£¤</em>9<span>.00</span></span>
+<span class="title">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</span>
+<span class="price"><em>ï¿½ï¿½</em>9<span>.00</span></span>
 </div>
 </a>
 </div>
@@ -58,8 +58,8 @@
 <a href="#" target="_blank">
 <div class="item_img"><img src="themes/ecmoban_dsc/store_tpl_6/images/tsms_product_6.jpg" /></div>
 <div class="item_desc">
-<span class="title">ÒøÐÓ¹û°×¹ûÈÊ ÎåÏãÎ¶</span>
-<span class="price"><em>£¤</em>45<span>.00</span></span>
+<span class="title">ï¿½ï¿½ï¿½Ó¹ï¿½ï¿½×¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Î¶</span>
+<span class="price"><em>ï¿½ï¿½</em>45<span>.00</span></span>
 </div>
 </a>
 </div>
@@ -67,8 +67,8 @@
 <a href="#" target="_blank">
 <div class="item_img"><img src="themes/ecmoban_dsc/store_tpl_6/images/tsms_product_7.jpg" /></div>
 <div class="item_desc">
-<span class="title">Ô­Î¶»ã¶û¿µ´óÂó²è</span>
-<span class="price"><em>£¤</em>20<span>.00</span></span>
+<span class="title">Ô­Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</span>
+<span class="price"><em>ï¿½ï¿½</em>20<span>.00</span></span>
 </div>
 </a>
 </div>
@@ -76,8 +76,8 @@
 <a href="#" target="_blank">
 <div class="item_img"><img src="themes/ecmoban_dsc/store_tpl_6/images/tsms_product_8.jpg" /></div>
 <div class="item_desc">
-<span class="title">Íú´ï²ÚÃ×²è »îÐÔ·¢Ñ¿²ÚÃ×²è</span>
-<span class="price"><em>£¤</em>30<span>.00</span></span>
+<span class="title">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×²ï¿½ ï¿½ï¿½ï¿½Ô·ï¿½Ñ¿ï¿½ï¿½ï¿½×²ï¿½</span>
+<span class="price"><em>ï¿½ï¿½</em>30<span>.00</span></span>
 </div>
 </a>
 </div>

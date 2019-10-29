@@ -12,22 +12,22 @@
 <li>
 <div class="full-img"><a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_3/images/xilie_1.jpg" /></a></div>
 <div class="full-name">
-<span class="more"><a href="#" target="_blank">²é¿´¸ü¶à</a></span>
-<strong>¶ùÍ¯·¿×ªÇø</strong>
+<span class="more"><a href="#" target="_blank">ï¿½é¿´ï¿½ï¿½ï¿½ï¿½</a></span>
+<strong>ï¿½ï¿½Í¯ï¿½ï¿½×ªï¿½ï¿½</strong>
 </div>
 </li>
 <li>
 <div class="full-img"><a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_3/images/xilie_2.jpg" /></a></div>
 <div class="full-name">
-<span class="more"><a href="#" target="_blank">²é¿´¸ü¶à</a></span>
-<strong>Êé·¿µÆ×ªÇø</strong>
+<span class="more"><a href="#" target="_blank">ï¿½é¿´ï¿½ï¿½ï¿½ï¿½</a></span>
+<strong>ï¿½é·¿ï¿½ï¿½×ªï¿½ï¿½</strong>
 </div>
 </li>
 <li>
 <div class="full-img"><a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_3/images/xilie_3.jpg" /></a></div>
 <div class="full-name">
-<span class="more"><a href="#" target="_blank">²é¿´¸ü¶à</a></span>
-<strong>Îü¶¥µÆ×ªÇø</strong>
+<span class="more"><a href="#" target="_blank">ï¿½é¿´ï¿½ï¿½ï¿½ï¿½</a></span>
+<strong>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½</strong>
 </div>
 </li>
 </ul>

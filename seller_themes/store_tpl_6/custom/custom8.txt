@@ -5,16 +5,16 @@
 <div class="mc">
 <div class="user_zdzbao">
 <div class="zdzbao_title">
-<h3>╗у╢√┐╡╛л╤б<span class="yw">HUIERKANG'S CHOLCE</span></h3>
-<a href="#" target="_blank">╕№╢р═╞╝Ў▓·╞╖</a>
+<h3>я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╤б<span class="yw">HUIERKANG'S CHOLCE</span></h3>
+<a href="#" target="_blank">я┐╜я┐╜я┐╜я┐╜я┐╜╞╝я┐╜я┐╜я┐╜╞╖</a>
 </div>
 <div class="huierk_items">
 <div class="item">
 <a href="#" target="_blank">
 <div class="item_img"><img src="themes/ecmoban_dsc/store_tpl_6/images/huierk_product_1.jpg" /></div>
 <div class="item_desc">
-<span class="title">╠╪╝╢╣┼╥°╨╙ ╘н╔·╠м┼й│б│Ў╞╖</span>
-<span class="description">╟з─ъ╣┼╥°╨╙╩ў ╦│╖с░№╙╩</span>
+<span class="title">я┐╜╪╝я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ ╘ня┐╜я┐╜╠м┼йя┐╜я┐╜я┐╜я┐╜╞╖</span>
+<span class="description">╟зя┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ ╦│я┐╜я┐╜я┐╜я┐╜я┐╜</span>
 </div>
 </a>
 </div>
@@ -22,8 +22,8 @@
 <a href="#" target="_blank">
 <div class="item_img"><img src="themes/ecmoban_dsc/store_tpl_6/images/huierk_product_2.jpg" /></div>
 <div class="item_desc">
-<span class="title">╠╪╝╢╣┼╥°╨╙ ╘н╔·╠м┼й│б│Ў╞╖</span>
-<span class="description">╟з─ъ╣┼╥°╨╙╩ў ╦│╖с░№╙╩</span>
+<span class="title">я┐╜╪╝я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ ╘ня┐╜я┐╜╠м┼йя┐╜я┐╜я┐╜я┐╜╞╖</span>
+<span class="description">╟зя┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ ╦│я┐╜я┐╜я┐╜я┐╜я┐╜</span>
 </div>
 </a>
 </div>
@@ -31,8 +31,8 @@
 <a href="#" target="_blank">
 <div class="item_img"><img src="themes/ecmoban_dsc/store_tpl_6/images/huierk_product_3.jpg" /></div>
 <div class="item_desc">
-<span class="title">╠╪╝╢╣┼╥°╨╙ ╘н╔·╠м┼й│б│Ў╞╖</span>
-<span class="description">╟з─ъ╣┼╥°╨╙╩ў ╦│╖с░№╙╩</span>
+<span class="title">я┐╜╪╝я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ ╘ня┐╜я┐╜╠м┼йя┐╜я┐╜я┐╜я┐╜╞╖</span>
+<span class="description">╟зя┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ ╦│я┐╜я┐╜я┐╜я┐╜я┐╜</span>
 </div>
 </a>
 </div>
@@ -40,8 +40,8 @@
 <a href="#" target="_blank">
 <div class="item_img border_right"><img src="themes/ecmoban_dsc/store_tpl_6/images/huierk_product_4.jpg" /></div>
 <div class="item_desc">
-<span class="title">╠╪╝╢╣┼╥°╨╙ ╘н╔·╠м┼й│б│Ў╞╖</span>
-<span class="description">╟з─ъ╣┼╥°╨╙╩ў ╦│╖с░№╙╩</span>
+<span class="title">я┐╜╪╝я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ ╘ня┐╜я┐╜╠м┼йя┐╜я┐╜я┐╜я┐╜╞╖</span>
+<span class="description">╟зя┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ ╦│я┐╜я┐╜я┐╜я┐╜я┐╜</span>
 </div>
 </a>
 </div>
@@ -49,8 +49,8 @@
 <a href="#" target="_blank">
 <div class="item_img"><img src="themes/ecmoban_dsc/store_tpl_6/images/huierk_product_1.jpg" /></div>
 <div class="item_desc">
-<span class="title">╠╪╝╢╣┼╥°╨╙ ╘н╔·╠м┼й│б│Ў╞╖</span>
-<span class="description">╟з─ъ╣┼╥°╨╙╩ў ╦│╖с░№╙╩</span>
+<span class="title">я┐╜╪╝я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ ╘ня┐╜я┐╜╠м┼йя┐╜я┐╜я┐╜я┐╜╞╖</span>
+<span class="description">╟зя┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ ╦│я┐╜я┐╜я┐╜я┐╜я┐╜</span>
 </div>
 </a>
 </div>
@@ -58,8 +58,8 @@
 <a href="#" target="_blank">
 <div class="item_img"><img src="themes/ecmoban_dsc/store_tpl_6/images/huierk_product_2.jpg" /></div>
 <div class="item_desc">
-<span class="title">╠╪╝╢╣┼╥°╨╙ ╘н╔·╠м┼й│б│Ў╞╖</span>
-<span class="description">╟з─ъ╣┼╥°╨╙╩ў ╦│╖с░№╙╩</span>
+<span class="title">я┐╜╪╝я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ ╘ня┐╜я┐╜╠м┼йя┐╜я┐╜я┐╜я┐╜╞╖</span>
+<span class="description">╟зя┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ ╦│я┐╜я┐╜я┐╜я┐╜я┐╜</span>
 </div>
 </a>
 </div>
@@ -67,8 +67,8 @@
 <a href="#" target="_blank">
 <div class="item_img"><img src="themes/ecmoban_dsc/store_tpl_6/images/huierk_product_3.jpg" /></div>
 <div class="item_desc">
-<span class="title">╠╪╝╢╣┼╥°╨╙ ╘н╔·╠м┼й│б│Ў╞╖</span>
-<span class="description">╟з─ъ╣┼╥°╨╙╩ў ╦│╖с░№╙╩</span>
+<span class="title">я┐╜╪╝я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ ╘ня┐╜я┐╜╠м┼йя┐╜я┐╜я┐╜я┐╜╞╖</span>
+<span class="description">╟зя┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ ╦│я┐╜я┐╜я┐╜я┐╜я┐╜</span>
 </div>
 </a>
 </div>
@@ -76,8 +76,8 @@
 <a href="#" target="_blank">
 <div class="item_img border_right"><img src="themes/ecmoban_dsc/store_tpl_6/images/huierk_product_4.jpg" /></div>
 <div class="item_desc">
-<span class="title">╠╪╝╢╣┼╥°╨╙ ╘н╔·╠м┼й│б│Ў╞╖</span>
-<span class="description">╟з─ъ╣┼╥°╨╙╩ў ╦│╖с░№╙╩</span>
+<span class="title">я┐╜╪╝я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ ╘ня┐╜я┐╜╠м┼йя┐╜я┐╜я┐╜я┐╜╞╖</span>
+<span class="description">╟зя┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ ╦│я┐╜я┐╜я┐╜я┐╜я┐╜</span>
 </div>
 </a>
 </div>

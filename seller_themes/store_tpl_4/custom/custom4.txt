@@ -3,17 +3,17 @@
 <div class="layout-one w990">
 <div class="fn-clear user_search_two-489324">
 <div class="mc">
-<div class="s_title">╡ИурдЗоКр╙╣д</div>
+<div class="s_title">О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫р╙О©╫О©╫</div>
 <div class="s_search">
 <input type="text" class="s_text" />
 <button type="button" class="s_btn"></button>
 </div>
 <div class="s_words">
-<a href="#">╨ию╪еёю╦</a>
-<a href="#">╣б╧З╟╝кШцю</a>
-<a href="#">цю╧З╟╡юШ</a>
-<a href="#">тп╦╬╠╖уМ</a>
-<a href="#">нюиЗ╫М</a>
+<a href="#">О©╫О©╫О©╫О©╫еёО©╫О©╫</a>
+<a href="#">О©╫б╧О©╫О©╫О©╫О©╫О©╫О©╫О©╫</a>
+<a href="#">О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫</a>
+<a href="#">О©╫п╦О©╫О©╫О©╫О©╫О©╫</a>
+<a href="#">О©╫О©╫О©╫О©╫О©╫О©╫</a>
 </div>
 </div>
 </div>

@@ -5,16 +5,16 @@
 <div class="mc">
 <a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_12/images/xsmsha.jpg" /></a>
 <div class="youmi-module" data="2015-1-15 11:30:00">
-<span class="jtitle">╛р└ы╗ю╢п╜с╩°г║</span>
+<span class="jtitle">я┐╜я┐╜я┐╜я┐╜ю╢пя┐╜я┐╜я┐╜я┐╜я┐╜я┐╜</span>
 <span class="jNum">
 <span class="days"></span>
-<span>╠ь</span>
+<span>я┐╜я┐╜</span>
 <span class="hours"></span>
 <span>╩▒</span>
 <span class="minutes"></span>
-<span>╖╓</span>
+<span>я┐╜я┐╜</span>
 <span class="seconds"></span>
-<span>├ы</span>
+<span>я┐╜я┐╜</span>
 </span>
 </div>
 </div>

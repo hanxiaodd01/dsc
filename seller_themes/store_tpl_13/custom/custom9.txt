@@ -4,9 +4,9 @@
 <li>
 <div class="jGoodsInfo">              
 <p class="jSlogan"></p>
-<div class="jDesc"><a href="#" target="_blank">Ô¨Ö®Ô´³øÓÃµ¶¾ß¸ß¼¶ÕýÆ·²»Ðâ¸ÖÊß²Ëµ¶ÇÐÈâÆ¬µ¶³øÊ¦µ¶ÁúÌÚÕ¶ÇÐµ¶°üÓÊ Õ¶ÇÐµ¶K051</a></div>
+<div class="jDesc"><a href="#" target="_blank">Ô¨Ö®Ô´ï¿½ï¿½ï¿½Ãµï¿½ï¿½ß¸ß¼ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß²Ëµï¿½ï¿½ï¿½ï¿½ï¿½Æ¬ï¿½ï¿½ï¿½ï¿½Ê¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ Õ¶ï¿½Ðµï¿½K051</a></div>
 <div class="jPrice">
-<div class="jdPrice">´ÙÏú¼Û£º£¤<span class="jdNum"><span class="jdNum">26.00</span></span></div>
+<div class="jdPrice">ï¿½ï¿½ï¿½ï¿½ï¿½Û£ï¿½ï¿½ï¿½<span class="jdNum"><span class="jdNum">26.00</span></span></div>
 </div>
 <div class="jsalebuy"><a target="_blank" href="#" class="gm"></a></div>
 </div>

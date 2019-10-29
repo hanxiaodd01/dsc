@@ -5,11 +5,11 @@
 <div class="mc">
 <div class="wd-hd" style="background:url(themes/ecmoban_dsc/store_tpl_2/images/category.jpg) no-repeat;">
 <div class="ext-hd">
-<a href="#" class="wd-all">²é¿´ËùÓÐ·ÖÀà>></a>
-<a href="#">°´ÏúÁ¿</a>
-<a href="#">°´ÐÂÆ·</a>
-<a href="#">°´¼Û¸ñ</a>
-<a href="#">°´ÆÀ¼Û</a>
+<a href="#" class="wd-all">ï¿½é¿´ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½>></a>
+<a href="#">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</a>
+<a href="#">ï¿½ï¿½ï¿½ï¿½Æ·</a>
+<a href="#">ï¿½ï¿½ï¿½Û¸ï¿½</a>
+<a href="#">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</a>
 </div>
 </div>
 <div class="bd">
@@ -17,50 +17,50 @@
 <ul class="category-list clear">
 <li>
 <dl class="cate-disp clear">
-<dt><a href="#">·¢ÊÎ</a></dt>
+<dt><a href="#">ï¿½ï¿½ï¿½ï¿½</a></dt>
 <dd>
 <ul class="subcate-disp clear">
-<li><a href="#">·¢È¦/·¢Éþ</a></li>
-<li><a href="#">·¢È¦/·¢Éþ</a></li>
-<li><a href="#">·¢È¦/·¢Éþ</a></li>
-<li><a href="#">·¢È¦/·¢Éþ</a></li>
-<li><a href="#">·¢È¦/·¢Éþ</a></li>
-<li><a href="#">·¢È¦/·¢Éþ</a></li>
-<li><a href="#">·¢È¦/·¢Éþ</a></li>
+<li><a href="#">ï¿½ï¿½È¦/ï¿½ï¿½ï¿½ï¿½</a></li>
+<li><a href="#">ï¿½ï¿½È¦/ï¿½ï¿½ï¿½ï¿½</a></li>
+<li><a href="#">ï¿½ï¿½È¦/ï¿½ï¿½ï¿½ï¿½</a></li>
+<li><a href="#">ï¿½ï¿½È¦/ï¿½ï¿½ï¿½ï¿½</a></li>
+<li><a href="#">ï¿½ï¿½È¦/ï¿½ï¿½ï¿½ï¿½</a></li>
+<li><a href="#">ï¿½ï¿½È¦/ï¿½ï¿½ï¿½ï¿½</a></li>
+<li><a href="#">ï¿½ï¿½È¦/ï¿½ï¿½ï¿½ï¿½</a></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li>
 <dl class="cate-disp clear">
-<dt><a href="#">Ê×ÊÎ</a></dt>
+<dt><a href="#">ï¿½ï¿½ï¿½ï¿½</a></dt>
 <dd>
 <ul class="subcate-disp clear">
-<li><a href="#">·¢È¦/·¢Éþ</a></li>
-<li><a href="#">·¢È¦/·¢Éþ</a></li>
-<li><a href="#">·¢È¦/·¢Éþ</a></li>
-<li><a href="#">·¢È¦/·¢Éþ</a></li>
+<li><a href="#">ï¿½ï¿½È¦/ï¿½ï¿½ï¿½ï¿½</a></li>
+<li><a href="#">ï¿½ï¿½È¦/ï¿½ï¿½ï¿½ï¿½</a></li>
+<li><a href="#">ï¿½ï¿½È¦/ï¿½ï¿½ï¿½ï¿½</a></li>
+<li><a href="#">ï¿½ï¿½È¦/ï¿½ï¿½ï¿½ï¿½</a></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li>
 <dl class="cate-disp clear">
-<dt><a href="#">²úÆ··ç¸ñ</a></dt>
+<dt><a href="#">ï¿½ï¿½Æ·ï¿½ï¿½ï¿½</a></dt>
 <dd>
 <ul class="subcate-disp clear">
-<li><a href="#">·¢È¦/·¢Éþ</a></li>
-<li><a href="#">·¢È¦/·¢Éþ</a></li>
-<li><a href="#">·¢È¦/·¢Éþ</a></li>
-<li><a href="#">·¢È¦/·¢Éþ</a></li>
-<li><a href="#">·¢È¦/·¢Éþ</a></li>
+<li><a href="#">ï¿½ï¿½È¦/ï¿½ï¿½ï¿½ï¿½</a></li>
+<li><a href="#">ï¿½ï¿½È¦/ï¿½ï¿½ï¿½ï¿½</a></li>
+<li><a href="#">ï¿½ï¿½È¦/ï¿½ï¿½ï¿½ï¿½</a></li>
+<li><a href="#">ï¿½ï¿½È¦/ï¿½ï¿½ï¿½ï¿½</a></li>
+<li><a href="#">ï¿½ï¿½È¦/ï¿½ï¿½ï¿½ï¿½</a></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li>
 <dl class="cate-disp clear">
-<dt><a href="#">Ì«Ñô¾µ</a></dt>
+<dt><a href="#">Ì«ï¿½ï¿½ï¿½ï¿½</a></dt>
 <dd>
 <ul class="subcate-disp clear">
 </ul>

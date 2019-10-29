@@ -9,18 +9,18 @@
                                     <span class="user_bgcolor_1 icon3"></span>
                                 </div>
                                 <div class="user-logo">
-                                	<div class="jLogo user_font_1"><span>½ò¹ÁÔ°ÒÕÆì½¢µê</span></div>
-                                    <div class="announce user_font_4"><span>ÓÃÐÄ´´ÔìÆ·ÖÊ£¬¸øÄú×îºÃµÄÌåÑé£¡</span></div>
+                                	<div class="jLogo user_font_1"><span>ï¿½ï¿½ï¿½Ô°ï¿½ï¿½ï¿½ì½¢ï¿½ï¿½</span></div>
+                                    <div class="announce user_font_4"><span>ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½Æ·ï¿½Ê£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½é£¡</span></div>
                                 </div>
                                 <div class="user-search">
                                 	<div class="searchArea">
                                     	<div class="jSearchArea">
                                         	<div class="jSearchInput">
-                                            	<input type="text" placeholder="ÐÂÆ·" class="inputMiddle user_border_search user_font_2" />
+                                            	<input type="text" placeholder="ï¿½ï¿½Æ·" class="inputMiddle user_border_search user_font_2" />
                                             	<button type="button" class="user_bgcolor_1 user_font_3"></button>
                                             </div>
                                         	<div class="jHotwords user_font_1">
-                                            	ÈÈÃÅËÑË÷£º<a href="#" target="_blank" class="user_a_1">ÖÖÇò»¨»Ü</a><a href="#" target="_blank" class="user_a_1">¶àÃÈ¶àÈâ</a><a href="#" target="_blank" class="user_a_1">Çï¶¬ÂÌÖ²</a><a href="#" target="_blank" class="user_a_1">¹¤¾ßÓÃÆ·</a><a href="#" target="_blank" class="user_a_1">»¨·ÊÓªÑøÍÁ</a>
+                                            	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<a href="#" target="_blank" class="user_a_1">ï¿½ï¿½ï¿½ò»¨»ï¿½</a><a href="#" target="_blank" class="user_a_1">ï¿½ï¿½ï¿½È¶ï¿½ï¿½ï¿½</a><a href="#" target="_blank" class="user_a_1">ï¿½ï¶¬ï¿½ï¿½Ö²</a><a href="#" target="_blank" class="user_a_1">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·</a><a href="#" target="_blank" class="user_a_1">ï¿½ï¿½ï¿½ï¿½Óªï¿½ï¿½ï¿½ï¿½</a>
                                             </div>
                                         </div>
                                     </div>

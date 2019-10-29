@@ -1,1 +1,1 @@
-获取支付方式列表  paymentList
+锟斤拷取支锟斤拷锟斤拷式锟叫憋拷  paymentList

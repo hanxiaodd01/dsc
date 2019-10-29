@@ -8,9 +8,9 @@
 </div>
 </div>
 <ul class="jbannerTab">
-<li>�ֲ�ͼ1</li>
-<li>�ֲ�ͼ2</li>
-<li>�ֲ�ͼ3</li>
+<li>�ֲ�ͼ1</li>
+<li>�ֲ�ͼ2</li>
+<li>�ֲ�ͼ3</li>
 </ul>
 </div>
 </div>

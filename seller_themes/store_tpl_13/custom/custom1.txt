@@ -5,28 +5,28 @@
 <a target="_blank" href="#" class="imgbox" style="background-image:url(themes/ecmoban_dsc/store_tpl_13/images/sli_1.jpg);"></a>
 <a target="_blank" href="#" class="textbox">
 <span>NEW PRODUCT</span>
-<em>Ã¿ÖÜ5:00-10:00</em>
+<em>Ã¿ï¿½ï¿½5:00-10:00</em>
 </a>
 </li>
 <li class="img-2">
 <a target="_blank" href="#" class="imgbox" style="background-image:url(themes/ecmoban_dsc/store_tpl_13/images/sli_2.jpg);"></a>
 <a target="_blank" href="#" class="textbox">
 <span>HOT SALE WEEK</span>
-<em>²»¶¨ÆÚ¸üÐÂÕÛ¿Û±¦±´</em>
+<em>ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½Û¿Û±ï¿½ï¿½ï¿½</em>
 </a>
 </li>
 <li class="img-3">
 <a target="_blank" href="#" class="imgbox" style="background-image:url(themes/ecmoban_dsc/store_tpl_13/images/sli_3.jpg);"></a>
 <a target="_blank" href="#" class="textbox">
 <span>BEST PRODUCT GOODS</span>
-<em>ÕÆ¹ñ×ÔÁô¿î</em>
+<em>ï¿½Æ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</em>
 </a>
 </li>
 <li class="img-4">
 <a target="_blank" href="#" class="imgbox" style="background-image:url(themes/ecmoban_dsc/store_tpl_13/images/sli_4.jpg);"></a>
 <a target="_blank" href="#" class="textbox">
 <span>BOOKMARK</span>
-<em>ÊÕ²ØÓÐ¾ªÏ²</em>
+<em>ï¿½Õ²ï¿½ï¿½Ð¾ï¿½Ï²</em>
 </a>
 </li>
 </ul>

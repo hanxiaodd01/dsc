@@ -1,286 +1,287 @@
 setField()
 
-ÉèÖÃ×Ö¶Î   
+ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½   
 
 
 
 getField($field)
 
-»ñÈ¡×Ö¶Î   
+ï¿½ï¿½È¡ï¿½Ö¶ï¿½   
 
 
 
 find($goods_id)
 
-$goods_id = ÉÌÆ·id
+$goods_id = ï¿½ï¿½Æ·id
 
-»ñÈ¡µ¥¸öÉÌÆ·   
+ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·   
 
 
   
 findBy($field, $value, $page=1, $size=10, $columns = ['*'], $keywords='', $sortKey = '', $sortVal = '')
 
-ÉÌÆ·ÁĞ±í
+ï¿½ï¿½Æ·ï¿½Ğ±ï¿½
  
 
 
 findByType($type = 'best', $size = 10)
 
-$type = ÉÌÆ·ÀàĞÍ
+$type = ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
 
-²éÑ¯ÈÈÃÅ¡¢ĞÂÆ·¡¢ÍÆ¼öµÈÉÌÆ·   
+ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Å¡ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½Æ·   
 
 
 
 goodsInfo($id)
 
-$id = ÉÌÆ·ID
+$id = ï¿½ï¿½Æ·ID
 
-ÉÌÆ·ÏêÇé   
+ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½   
 
 
 
 goodsProperties($goods_id, $warehouse_id = 0, $area_id = 0)
 
-$goods_id = ÉÌÆ·ID
+$goods_id = ï¿½ï¿½Æ·ID
 
-$warehouse_id = µØÇøID
+$warehouse_id = ï¿½ï¿½ï¿½ï¿½ID
 
-$area_id = ÇøÓòID
+$area_id = ï¿½ï¿½ï¿½ï¿½ID
 
-ÉÌÆ·ÊôĞÔ   
+ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½   
 
 
 
 goodsGallery($id)
 
-$id = ÉÌÆ·ID
+$id = ï¿½ï¿½Æ·ID
 
-ÉÌÆ·Ïà²á   
+ï¿½ï¿½Æ·ï¿½ï¿½ï¿½   
 
 
 
 goodsComment($id)
 
-$id = ÉÌÆ·ID
+$id = ï¿½ï¿½Æ·ID
 
-ÉÌÆ·ÆÀÂÛ   
+ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½   
 
 
 
 getGoodsCommentUser($user_id)
 
-$user_id = ÓÃ»§ID
+$user_id = ï¿½Ã»ï¿½ID
 
-µÃµ½ÆÀÂÛÓÃ»§êÇ³Æ   
+ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ç³ï¿½   
 
 
 
 getProductByGoods($goodsId, $goodsAttr)
 
-$goodsId = ÉÌÆ·ID
+$goodsId = ï¿½ï¿½Æ·ID
 
-$goodsAttr = ÉÌÆ·ÊôĞÔ
+$goodsAttr = ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
 
-¸ù¾İÉÌÆ· »ñÈ¡»õÆ·ĞÅÏ¢   
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ· ï¿½ï¿½È¡ï¿½ï¿½Æ·ï¿½ï¿½Ï¢   
 
 
 
 cartGoods($rec_id)
 
-$rec_id = ¹ºÎï³µID
+$rec_id = ï¿½ï¿½ï¿½ï³µID
 
-»ñÈ¡¹ºÎï³µ ÉÌÆ·ĞÅÏ¢   
+ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï³µ ï¿½ï¿½Æ·ï¿½ï¿½Ï¢   
 
 
    
 getFinalPrice($goods_id, $goods_num = '1', $is_spec_price = false, $property = [], $warehouse_id = 0, $area_id = 0)
 
-$goods_id = ÉÌÆ·ID
+$goods_id = ï¿½ï¿½Æ·ID
 
-$goods_num = ÉÌÆ·ÊıÁ¿
+$goods_num = ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
 
-$warehouse_id = µØÇøID
+$warehouse_id = ï¿½ï¿½ï¿½ï¿½ID
 
-$area_id = ÇøÓòID
+$area_id = ï¿½ï¿½ï¿½ï¿½ID
 
-È¡µÃÉÌÆ·×îÖÕÊ¹ÓÃ¼Û¸ñ
+È¡ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã¼Û¸ï¿½
 
 
 
 getVolumePriceList($goods_id, $price_type = '1')
 
-$goods_id = ÉÌÆ·ID
+$goods_id = ï¿½ï¿½Æ·ID
 
-$price_type = ¼Û¸ñÀàĞÍ
+$price_type = ï¿½Û¸ï¿½ï¿½ï¿½ï¿½ï¿½
 
-È¡µÃÉÌÆ·ÓÅ»İ¼Û¸ñÁĞ±í   
+È¡ï¿½ï¿½ï¿½ï¿½Æ·ï¿½Å»İ¼Û¸ï¿½ï¿½Ğ±ï¿½   
 
 
 
 bargainPrice($price, $start, $end)
 
-$price = ¼Û¸ñ
+$price = ï¿½Û¸ï¿½
 
-$start = ¿ªÊ¼Ê±¼ä
+$start = ï¿½ï¿½Ê¼Ê±ï¿½ï¿½
 
-$end = ½áÊøÊ±¼ä
+$end = ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 
-ÅĞ¶ÏÄ³¸öÉÌÆ·ÊÇ·ñÕıÔÚÌØ¼Û´ÙÏúÆÚ   
+
+ï¿½Ğ¶ï¿½Ä³ï¿½ï¿½ï¿½ï¿½Æ·ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼Û´ï¿½ï¿½ï¿½ï¿½ï¿½   
 
 
 
 getBrandIdByGoodsId($goodsId)
 
-$goodsId = ÉÌÆ·ID
+$goodsId = ï¿½ï¿½Æ·ID
 
-¸ù¾İÉÌÆ·ID²éÕÒÆ·ÅÆID   
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·IDï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ID   
 
 
 
 goodsAttrNumber($goods_id, $attr_id, $warehouse_id = 0, $area_id = 0, $store_id = 0)
 
-$goods_id = ÉÌÆ·ID
+$goods_id = ï¿½ï¿½Æ·ID
 
-$attr_id = ÉÌÆ·ÊôĞÔID
+$attr_id = ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ID
 
-»ñÈ¡ÉÌÆ·ÊôĞÔ¿â´æ   
+ï¿½ï¿½È¡ï¿½ï¿½Æ·ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½   
 
 
    
 getProductsAttrNumber($goods_id, $attr_id, $warehouse_id, $area_id, $model_attr = 0, $store_id = 0)
 
-$goods_id = ÉÌÆ·ID
+$goods_id = ï¿½ï¿½Æ·ID
 
-$attr_id = ÉÌÆ·ÊôĞÔID
+$attr_id = ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ID
 
-$warehouse_id = µØÇøID
+$warehouse_id = ï¿½ï¿½ï¿½ï¿½ID
 
-$area_id = ÇøÓòID
+$area_id = ï¿½ï¿½ï¿½ï¿½ID
 
-$model_attr = ÊôĞÔID
+$model_attr = ï¿½ï¿½ï¿½ï¿½ID
 
-$store_id = µêÆÌID
+$store_id = ï¿½ï¿½ï¿½ï¿½ID
 
-²éÑ¯ÊôĞÔÉÌÆ·²Ö¿â¿â´æ
+ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½Ö¿ï¿½ï¿½ï¿½
 
 
 
 
 goodsWarehouseNumber($goods_id, $warehouse_id, $area_id, $model_attr = 0, $store_id = 0)
 
-$goods_id = ÉÌÆ·ID
+$goods_id = ï¿½ï¿½Æ·ID
 
-$warehouse_id = µØÇøID
+$warehouse_id = ï¿½ï¿½ï¿½ï¿½ID
 
-$area_id = ÇøÓòID
+$area_id = ï¿½ï¿½ï¿½ï¿½ID
 
-$model_attr = ÊôĞÔID
+$model_attr = ï¿½ï¿½ï¿½ï¿½ID
 
-$store_id = µêÆÌID
+$store_id = ï¿½ï¿½ï¿½ï¿½ID
 
-ÎŞÊôĞÔ¿â´æ   
+ï¿½ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½   
 
 
 
 
 goodsPropertyPrice($goods_id, $attr_id, $warehouse_id = 0, $area_id = 0, $field = '')
 
-$goods_id = ÉÌÆ·ID
+$goods_id = ï¿½ï¿½Æ·ID
 
-$warehouse_id = µØÇøID
+$warehouse_id = ï¿½ï¿½ï¿½ï¿½ID
 
-$area_id = ÇøÓòID
+$area_id = ï¿½ï¿½ï¿½ï¿½ID
 
-$model_attr = ÊôĞÔID
+$model_attr = ï¿½ï¿½ï¿½ï¿½ID
 
-ÉÌÆ·ÊôĞÔ¼Û¸ñ¡¢´ÙÏú¼Û¸ñ   
+ï¿½ï¿½Æ·ï¿½ï¿½ï¿½Ô¼Û¸ñ¡¢´ï¿½ï¿½ï¿½ï¿½Û¸ï¿½   
 
 
 
 goodsMarketPrice($goods_id, $attr_id, $warehouse_id = 0, $area_id = 0)
 
-$goods_id = ÉÌÆ·ID
+$goods_id = ï¿½ï¿½Æ·ID
 
-$warehouse_id = µØÇøID
+$warehouse_id = ï¿½ï¿½ï¿½ï¿½ID
 
-$area_id = ÇøÓòID
+$area_id = ï¿½ï¿½ï¿½ï¿½ID
 
-$model_attr = ÊôĞÔID
+$model_attr = ï¿½ï¿½ï¿½ï¿½ID
 
-ÉÌÆ·ÊĞ³¡¼Û¸ñ£¨¶àÄ£Ê½ÏÂ£©   
+ï¿½ï¿½Æ·ï¿½Ğ³ï¿½ï¿½Û¸ñ£¨¶ï¿½Ä£Ê½ï¿½Â£ï¿½   
 
 
 
 getProductsAttrPrice($goods_id, $attr_id, $warehouse_id, $area_id, $model_attr = 0)
 
-$goods_id = ÉÌÆ·ID
+$goods_id = ï¿½ï¿½Æ·ID
 
-$warehouse_id = µØÇøID
+$warehouse_id = ï¿½ï¿½ï¿½ï¿½ID
 
-$area_id = ÇøÓòID
+$area_id = ï¿½ï¿½ï¿½ï¿½ID
 
-$attr_id, = ÊôĞÔID
+$attr_id, = ï¿½ï¿½ï¿½ï¿½ID
 
-²éÑ¯ÊôĞÔÉÌÆ·²Ö¿â¼Û¸ñ   
+ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½Ö¿ï¿½Û¸ï¿½   
 
 
 
 
 goodsWarehousePrice($goods_id, $warehouse_id, $area_id, $model_attr = 0)
 
-$goods_id = ÉÌÆ·ID
+$goods_id = ï¿½ï¿½Æ·ID
 
-$warehouse_id = µØÇøID
+$warehouse_id = ï¿½ï¿½ï¿½ï¿½ID
 
-$area_id = ÇøÓòID
+$area_id = ï¿½ï¿½ï¿½ï¿½ID
 
-$model_attr = ÊôĞÔID
+$model_attr = ï¿½ï¿½ï¿½ï¿½ID
 
-ÎŞÊôĞÔÉÌÆ·¼Û¸ñ   
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½Û¸ï¿½   
 
 
 
 getGoodsAttrId($goods_attr_id)
 
-$goods_attr_id = ÊôĞÔID
+$goods_attr_id = ï¿½ï¿½ï¿½ï¿½ID
 
-ÑéÖ¤ÊôĞÔÊÇ¶àÑ¡£¬µ¥Ñ¡   
+ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ñ¡   
 
 
 
 
 getAttrImgFlie($goods_id, $attr_id = 0)
 
-$goods_id = ÉÌÆ·ID
+$goods_id = ï¿½ï¿½Æ·ID
 
-$attr_id, = ÊôĞÔID
+$attr_id, = ï¿½ï¿½ï¿½ï¿½ID
 
-ÉÌÆ·ÊôĞÔÍ¼Æ¬   
+ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½Í¼Æ¬   
 
 
 
 getGoodsTransport ($tid)
 
-$tid = ÔË·ÑÄ£±¾ID
+$tid = ï¿½Ë·ï¿½Ä£ï¿½ï¿½ID
 
-²éÑ¯µ¥¸öÔË·ÑÄ£°å   
+ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½Ë·ï¿½Ä£ï¿½ï¿½   
 
 
 
 getTransport ($tid)
 
-$tid = ÔË·ÑÄ£±¾ID
+$tid = ï¿½Ë·ï¿½Ä£ï¿½ï¿½ID
 
-²éÑ¯ÔË·ÑÄ£°å   
+ï¿½ï¿½Ñ¯ï¿½Ë·ï¿½Ä£ï¿½ï¿½   
 
 
 
 getGoodsOneAttrPrice($goods_id)
 
-$goods_id = ÉÌÆ·ID
+$goods_id = ï¿½ï¿½Æ·ID
 
-ÖØ¶¨ÒåÉÌÆ·¼Û¸ñ   
+ï¿½Ø¶ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½Û¸ï¿½   
 
 
 

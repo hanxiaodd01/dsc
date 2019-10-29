@@ -1,6 +1,6 @@
-ALTER TABLE  `dsc_merchants_shop_information` ADD  `self_run` TINYINT( 1 ) UNSIGNED NOT NULL DEFAULT  '0' COMMENT  '×ÔÓªµêÆÌ';
+ALTER TABLE  `dsc_merchants_shop_information` ADD  `self_run` TINYINT( 1 ) UNSIGNED NOT NULL DEFAULT  '0' COMMENT  'ï¿½ï¿½Óªï¿½ï¿½ï¿½ï¿½';
 
-ALTER TABLE `dsc_goods` ADD `goods_unit` VARCHAR( 15 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '¸ö';
+ALTER TABLE `dsc_goods` ADD `goods_unit` VARCHAR( 15 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'ï¿½ï¿½';
 
 ALTER TABLE `dsc_goods_transport` ADD `freight_type` TINYINT( 1 ) UNSIGNED NOT NULL DEFAULT '0' AFTER `type` ;
 
@@ -17,8 +17,8 @@ CREATE TABLE IF NOT EXISTS `dsc_goods_transport_tpl` (
 CREATE TABLE IF NOT EXISTS `dsc_source_ip` (
   `ipid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `storeid` int(10) NOT NULL,
-  `ipdata` varchar(16) NOT NULL COMMENT '·ÃÎÊÕßµÄIP',
-  `iptime` varchar(30) NOT NULL COMMENT '·ÃÎÊÊ±¼ä',
+  `ipdata` varchar(16) NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ßµï¿½IP',
+  `iptime` varchar(30) NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½',
   PRIMARY KEY (`ipid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 

@@ -66,7 +66,7 @@ function fSetHtmlContent(){
 				}
 				if(CM["compose"].htext.trim() != ""){
 					f.document.getElementsByTagName("BODY")[0].innerHTML = CM["compose"].htext;
-					window.parent.parent.parent.status = "Íê³É.";
+					window.parent.parent.parent.status = "ï¿½ï¿½ï¿½.";
 				}
 			}catch(e){
 				window.setTimeout("fSetHtmlContent()",1500);
@@ -112,7 +112,7 @@ function fSetSign(){
 	}
 	// window.frames["HtmlEditor"].focus();
 }
-function Request(name) {//»ñÈ¡Ò³ÃæID²ÎÊý
+function Request(name) {//ï¿½ï¿½È¡Ò³ï¿½ï¿½IDï¿½ï¿½ï¿½ï¿½
 var reg = new RegExp("(^|\\?|&)"+ name +"=([^&]*)(\\s|&|$)", "i");
 if (reg.test(location.href))
 return unescape(RegExp.$2.replace(/\+/g, " "));
@@ -258,13 +258,13 @@ function format(type, para){
 	if(!gIsIE){
 		switch(type){
 			case "Cut":
-				sAlert = "ÄãµÄä¯ÀÀÆ÷°²È«ÉèÖÃ²»ÔÊÐí±à¼­Æ÷×Ô¶¯Ö´ÐÐ¼ôÇÐ²Ù×÷,ÇëÊ¹ÓÃ¼üÅÌ¿ì½Ý¼ü(Ctrl+X)À´Íê³É";
+				sAlert = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½à¼­ï¿½ï¿½ï¿½Ô¶ï¿½Ö´ï¿½Ð¼ï¿½ï¿½Ð²ï¿½ï¿½ï¿½,ï¿½ï¿½Ê¹ï¿½Ã¼ï¿½ï¿½Ì¿ï¿½Ý¼ï¿½(Ctrl+X)ï¿½ï¿½ï¿½ï¿½ï¿½";
 				break;
 			case "Copy":
-				sAlert = "ÄãµÄä¯ÀÀÆ÷°²È«ÉèÖÃ²»ÔÊÐí±à¼­Æ÷×Ô¶¯Ö´ÐÐ¿½±´²Ù×÷,ÇëÊ¹ÓÃ¼üÅÌ¿ì½Ý¼ü(Ctrl+C)À´Íê³É";
+				sAlert = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½à¼­ï¿½ï¿½ï¿½Ô¶ï¿½Ö´ï¿½Ð¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Ê¹ï¿½Ã¼ï¿½ï¿½Ì¿ï¿½Ý¼ï¿½(Ctrl+C)ï¿½ï¿½ï¿½ï¿½ï¿½";
 				break;
 			case "Paste":
-				sAlert = "ÄãµÄä¯ÀÀÆ÷°²È«ÉèÖÃ²»ÔÊÐí±à¼­Æ÷×Ô¶¯Ö´ÐÐÕ³Ìù²Ù×÷,ÇëÊ¹ÓÃ¼üÅÌ¿ì½Ý¼ü(Ctrl+V)À´Íê³É";
+				sAlert = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½à¼­ï¿½ï¿½ï¿½Ô¶ï¿½Ö´ï¿½ï¿½Õ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Ê¹ï¿½Ã¼ï¿½ï¿½Ì¿ï¿½Ý¼ï¿½(Ctrl+V)ï¿½ï¿½ï¿½ï¿½ï¿½";
 				break;
 		}
 	}
@@ -346,7 +346,7 @@ function createLink() {
 	}
 }
 function createImg()	{
-	var sPhoto=prompt("ÇëÊäÈëÍ¼Æ¬Î»ÖÃ:", "http://");
+	var sPhoto=prompt("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬Î»ï¿½ï¿½:", "http://");
 	if ((sPhoto!=null) && (sPhoto!="http://")){
 		format("InsertImage", sPhoto);
 	}
@@ -507,7 +507,7 @@ function fSetModeTip(obj){
 		dv.style.border = "1px #000000 solid";
 		dv.style.backgroundColor = "#FFFFCC";
 		dv.style.height = "12px";
-		dv.innerHTML = "±à¼­Ô´Âë";
+		dv.innerHTML = "ï¿½à¼­Ô´ï¿½ï¿½";
 		document.body.appendChild(dv);
 	}else{
 		dvModeTip.style.display = "";

@@ -1,4 +1,4 @@
-ALTER TABLE `dsc_cart` ADD COLUMN `is_checked`  tinyint(1) NOT NULL DEFAULT 1 COMMENT 'Ñ¡ÖÐ×´Ì¬£¬0Î´Ñ¡ÖÐ£¬1Ñ¡ÖÐ';
+ALTER TABLE `dsc_cart` ADD COLUMN `is_checked`  tinyint(1) NOT NULL DEFAULT 1 COMMENT 'Ñ¡ï¿½ï¿½×´Ì¬ï¿½ï¿½0Î´Ñ¡ï¿½Ð£ï¿½1Ñ¡ï¿½ï¿½';
 
 ALTER TABLE  `dsc_order_return` ADD  `return_time` VARCHAR( 120 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL AFTER  `apply_time`;
 

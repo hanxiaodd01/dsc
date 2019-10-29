@@ -1,11 +1,11 @@
 CREATE TABLE IF NOT EXISTS `dsc_seckill` (
-  `sec_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ÃëÉ±»î¶¯×ÔÔöID',
-  `acti_title` varchar(50) NOT NULL COMMENT 'ÃëÉ±»î¶¯±êÌâ',
-  `acti_goods` varchar(255) NOT NULL COMMENT '»î¶¯ÉÌÆ·ID ¼Û¸ñ ÊýÁ¿',
-  `is_putaway` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'ÉÏÏÂ¼Ü',
-  `begin_time` int(11) NOT NULL COMMENT 'ÃëÉ±»î¶¯¿ªÊ¼Ê±¼ä',
-  `end_time` int(11) NOT NULL COMMENT 'ÃëÉ±»î¶¯½áÊøÊ±¼ä',
-  `add_time` int(11) NOT NULL COMMENT 'ÃëÉ±»î¶¯Ìí¼ÓÊ±¼ä',
+  `sec_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ï¿½ï¿½É±ï¿½î¶¯ï¿½ï¿½ï¿½ï¿½ID',
+  `acti_title` varchar(50) NOT NULL COMMENT 'ï¿½ï¿½É±ï¿½î¶¯ï¿½ï¿½ï¿½ï¿½',
+  `acti_goods` varchar(255) NOT NULL COMMENT 'ï¿½î¶¯ï¿½ï¿½Æ·ID ï¿½Û¸ï¿½ ï¿½ï¿½ï¿½ï¿½',
+  `is_putaway` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'ï¿½ï¿½ï¿½Â¼ï¿½',
+  `begin_time` int(11) NOT NULL COMMENT 'ï¿½ï¿½É±ï¿½î¶¯ï¿½ï¿½Ê¼Ê±ï¿½ï¿½',
+  `end_time` int(11) NOT NULL COMMENT 'ï¿½ï¿½É±ï¿½î¶¯ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½',
+  `add_time` int(11) NOT NULL COMMENT 'ï¿½ï¿½É±ï¿½î¶¯ï¿½ï¿½ï¿½Ê±ï¿½ï¿½',
   PRIMARY KEY (`sec_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -23,7 +23,7 @@ ALTER TABLE `dsc_ad` ADD  `ad_bg_code` TEXT CHARACTER SET utf8 COLLATE utf8_gene
 
 ALTER TABLE `dsc_ad` ADD  `b_title` VARCHAR( 60 ) NOT NULL AFTER  `link_color` , ADD  `s_title` VARCHAR( 60 ) NOT NULL AFTER  `b_title`;
 
-ALTER TABLE `dsc_template` ADD  `floor_tpl` SMALLINT( 5 ) NOT NULL DEFAULT  '0' COMMENT  'Ê×Ò³Â¥²ãÄ£°å';
+ALTER TABLE `dsc_template` ADD  `floor_tpl` SMALLINT( 5 ) NOT NULL DEFAULT  '0' COMMENT  'ï¿½ï¿½Ò³Â¥ï¿½ï¿½Ä£ï¿½ï¿½';
 
 ALTER TABLE `dsc_brand` ADD  `index_img` VARCHAR( 80 ) NOT NULL AFTER  `brand_logo`;
 
@@ -38,9 +38,9 @@ CHANGE `grade_id` `grade_id` INT( 10 ) UNSIGNED NOT NULL DEFAULT '0';
 
 ALTER TABLE `dsc_merchants_grade` CHANGE `ru_id` `ru_id` MEDIUMINT( 10 ) UNSIGNED NOT NULL DEFAULT '0';
 
-ALTER TABLE  `dsc_seckill_goods` ADD  `tb_id` INT( 10 ) NOT NULL COMMENT  'ÃëÉ±Ê±¶ÎID' AFTER  `sec_id`;
+ALTER TABLE  `dsc_seckill_goods` ADD  `tb_id` INT( 10 ) NOT NULL COMMENT  'ï¿½ï¿½É±Ê±ï¿½ï¿½ID' AFTER  `sec_id`;
 
-ALTER TABLE  `dsc_seckill` ADD  `acti_time` INT( 11 ) NOT NULL COMMENT  'ÃëÉ±»î¶¯ÈÕÆÚ' AFTER  `is_putaway`;
+ALTER TABLE  `dsc_seckill` ADD  `acti_time` INT( 11 ) NOT NULL COMMENT  'ï¿½ï¿½É±ï¿½î¶¯ï¿½ï¿½ï¿½ï¿½' AFTER  `is_putaway`;
 
 ALTER TABLE  `dsc_seckill` DROP  `begin_time` ;
 
@@ -49,10 +49,10 @@ ALTER TABLE  `dsc_seckill` DROP  `end_time` ;
 ALTER TABLE  `dsc_seckill` DROP  `acti_goods`;
 
 CREATE TABLE IF NOT EXISTS `dsc_seckill_time_bucket` (
-  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '×ÔÔöID',
-  `begin_time` time NOT NULL COMMENT '¿ªÊ¼Ê±¼ä¶Î',
-  `end_time` time NOT NULL COMMENT '½áÊøÊ±¼ä¶Î',
-  `title` varchar(50) NOT NULL COMMENT 'ÃëÉ±Ê±¶Î±êÌâ',
+  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'ï¿½ï¿½ï¿½ï¿½ID',
+  `begin_time` time NOT NULL COMMENT 'ï¿½ï¿½Ê¼Ê±ï¿½ï¿½ï¿½',
+  `end_time` time NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½',
+  `title` varchar(50) NOT NULL COMMENT 'ï¿½ï¿½É±Ê±ï¿½Î±ï¿½ï¿½ï¿½',
   PRIMARY KEY (`id`),
   UNIQUE KEY `begin_time` (`begin_time`,`end_time`),
   UNIQUE KEY `title` (`title`)

@@ -11,30 +11,30 @@
 <div class="jPic">
 <div class="jCountdown user_font_3 user_bgcolor_1">
 <div data="2015-11-15 11:30:00" class="youmi-module">
-<span class="jtitle user_font_3">┤┘╧·╩г╙рг║</span>
+<span class="jtitle user_font_3">я┐╜я┐╜я┐╜я┐╜╩гя┐╜рг║</span>
 <span class="days user_font_3">133</span>
-<span>╠ь</span>
+<span>я┐╜я┐╜</span>
 <span class="hours user_font_3">16</span>
 <span>╩▒</span>
 <span class="minutes user_font_3">46</span>
-<span>╖╓</span>
+<span>я┐╜я┐╜</span>
 <span class="seconds user_font_3">10</span>
-<span>├ы</span>
+<span>я┐╜я┐╜</span>
 </div>
 </div>
 <a target="_blank" href="#"><img height="392" width="392" src="themes/ecmoban_dsc/store_tpl_7/images/chuxiao_1.jpg" /></a>
 </div>
 <div class="jGoodsInfo user_bgcolor_3">
 <div class="jbuy user_bgcolor_7">
-<div class="jTitle"><a target="_blank" href="#">╜Є╣┴╘░╥╒┬╠╓▓┼ш╘╘ ╖в▓╞╩ў╫▓╔л╠я╘░╖ч┼ш╘╘ ░ь╣л╩╥╫└├ц╓▓╬я ╩╥─┌╗и╗▄┬╠╓▓ ╛╗╗п┐╒╞°╬№╝╫╚й 1╠╫</a></div>
-<div class="jPrice user_font_price">гд<span class="jdNum">38.00</span></div>
+<div class="jTitle"><a target="_blank" href="#">я┐╜я┐╜я┐╜╘░я┐╜я┐╜я┐╜я┐╜╓▓я┐╜я┐╜я┐╜я┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╫▓╔ля┐╜я┐╜╘░я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜ь╣ля┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╓▓я┐╜я┐╜ я┐╜я┐╜я┐╜┌╗я┐╜я┐╜я┐╜я┐╜я┐╜╓▓ я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╚й 1я┐╜я┐╜</a></div>
+<div class="jPrice user_font_price">я┐╜я┐╜<span class="jdNum">38.00</span></div>
 </div>
 <div class="buybtn">
 <span class="user_bgcolor_but2 user_font_3 arrival">NEW ARRIVAL</span>
-<span class="jbuybtn user_bgcolor_but"><a target="_blank" href="#">┴в╝┤╟└╣║</a></span>
+<span class="jbuybtn user_bgcolor_but"><a target="_blank" href="#">я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜</a></span>
 </div>
 <div class="share">
-<div class="fx">╖╓╧э╡╜:</div>
+<div class="fx">я┐╜я┐╜я┐╜я┐╜:</div>
 <a onclick="window.location.href='http://service.weibo.com/share/share.php?url=http://item.jd.com/1211317095.html'" class="sina" target="_blank" style="margin-left:43px;"><img class="" src="http://img11.360buyimg.com/cms/jfs/t772/280/77496154/1515/719ed6c5/54856198N0d98568c.png" /></a>
 <a onclick="window.location.href='http://share.v.t.qq.com/index.php?c=share&amp;a=index&amp;url=http://item.jd.com/1211317095.html'" class="qq" target="_blank"><img class="" src="http://img11.360buyimg.com/cms/jfs/t532/138/748555517/1522/324a9882/54856198Ndf532b1c.png" /></a>
 <a onclick="window.location.href='http://t.sohu.com/third/post.jsp?url=http://item.jd.com/1211317095.html'" class="sohu" target="_blank"><img class="" src="http://img11.360buyimg.com/cms/jfs/t703/243/85090232/1415/75ebe2c6/54856198N81c4358c.png" /></a>
@@ -52,30 +52,30 @@
 <div class="jPic">
 <div class="jCountdown user_font_3 user_bgcolor_1">
 <div data="2015-11-15 11:30:00" class="youmi-module">
-<span class="jtitle user_font_3">┤┘╧·╩г╙рг║</span>
+<span class="jtitle user_font_3">я┐╜я┐╜я┐╜я┐╜╩гя┐╜рг║</span>
 <span class="days user_font_3">133</span>
-<span>╠ь</span>
+<span>я┐╜я┐╜</span>
 <span class="hours user_font_3">16</span>
 <span>╩▒</span>
 <span class="minutes user_font_3">46</span>
-<span>╖╓</span>
+<span>я┐╜я┐╜</span>
 <span class="seconds user_font_3">10</span>
-<span>├ы</span>
+<span>я┐╜я┐╜</span>
 </div>
 </div>
 <a target="_blank" href="#"><img height="392" width="392" src="themes/ecmoban_dsc/store_tpl_7/images/chuxiao_1.jpg" /></a>
 </div>
 <div class="jGoodsInfo user_bgcolor_3">
 <div class="jbuy user_bgcolor_7">
-<div class="jTitle"><a target="_blank" href="#">╜Є╣┴╘░╥╒┬╠╓▓┼ш╘╘ ╖в▓╞╩ў╫▓╔л╠я╘░╖ч┼ш╘╘ ░ь╣л╩╥╫└├ц╓▓╬я ╩╥─┌╗и╗▄┬╠╓▓ ╛╗╗п┐╒╞°╬№╝╫╚й 1╠╫</a></div>
-<div class="jPrice user_font_price">гд<span class="jdNum">38.00</span></div>
+<div class="jTitle"><a target="_blank" href="#">я┐╜я┐╜я┐╜╘░я┐╜я┐╜я┐╜я┐╜╓▓я┐╜я┐╜я┐╜я┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╫▓╔ля┐╜я┐╜╘░я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜ь╣ля┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╓▓я┐╜я┐╜ я┐╜я┐╜я┐╜┌╗я┐╜я┐╜я┐╜я┐╜я┐╜╓▓ я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╚й 1я┐╜я┐╜</a></div>
+<div class="jPrice user_font_price">я┐╜я┐╜<span class="jdNum">38.00</span></div>
 </div>
 <div class="buybtn">
 <span class="user_bgcolor_but2 user_font_3 arrival">NEW ARRIVAL</span>
-<span class="jbuybtn user_bgcolor_but"><a target="_blank" href="#">┴в╝┤╟└╣║</a></span>
+<span class="jbuybtn user_bgcolor_but"><a target="_blank" href="#">я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜</a></span>
 </div>
 <div class="share">
-<div class="fx">╖╓╧э╡╜:</div>
+<div class="fx">я┐╜я┐╜я┐╜я┐╜:</div>
 <a onclick="window.location.href='http://service.weibo.com/share/share.php?url=http://item.jd.com/1211317095.html'" class="sina" target="_blank" style="margin-left:43px;"><img class="" src="http://img11.360buyimg.com/cms/jfs/t772/280/77496154/1515/719ed6c5/54856198N0d98568c.png" /></a>
 <a onclick="window.location.href='http://share.v.t.qq.com/index.php?c=share&amp;a=index&amp;url=http://item.jd.com/1211317095.html'" class="qq" target="_blank"><img class="" src="http://img11.360buyimg.com/cms/jfs/t532/138/748555517/1522/324a9882/54856198Ndf532b1c.png" /></a>
 <a onclick="window.location.href='http://t.sohu.com/third/post.jsp?url=http://item.jd.com/1211317095.html'" class="sohu" target="_blank"><img class="" src="http://img11.360buyimg.com/cms/jfs/t703/243/85090232/1415/75ebe2c6/54856198N81c4358c.png" /></a>
@@ -93,30 +93,30 @@
 <div class="jPic">
 <div class="jCountdown user_font_3 user_bgcolor_1">
 <div data="2015-11-15 11:30:00" class="youmi-module">
-<span class="jtitle user_font_3">┤┘╧·╩г╙рг║</span>
+<span class="jtitle user_font_3">я┐╜я┐╜я┐╜я┐╜╩гя┐╜рг║</span>
 <span class="days user_font_3">133</span>
-<span>╠ь</span>
+<span>я┐╜я┐╜</span>
 <span class="hours user_font_3">16</span>
 <span>╩▒</span>
 <span class="minutes user_font_3">46</span>
-<span>╖╓</span>
+<span>я┐╜я┐╜</span>
 <span class="seconds user_font_3">10</span>
-<span>├ы</span>
+<span>я┐╜я┐╜</span>
 </div>
 </div>
 <a target="_blank" href="#"><img height="392" width="392" src="themes/ecmoban_dsc/store_tpl_7/images/chuxiao_1.jpg" /></a>
 </div>
 <div class="jGoodsInfo user_bgcolor_3">
 <div class="jbuy user_bgcolor_7">
-<div class="jTitle"><a target="_blank" href="#">╜Є╣┴╘░╥╒┬╠╓▓┼ш╘╘ ╖в▓╞╩ў╫▓╔л╠я╘░╖ч┼ш╘╘ ░ь╣л╩╥╫└├ц╓▓╬я ╩╥─┌╗и╗▄┬╠╓▓ ╛╗╗п┐╒╞°╬№╝╫╚й 1╠╫</a></div>
-<div class="jPrice user_font_price">гд<span class="jdNum">38.00</span></div>
+<div class="jTitle"><a target="_blank" href="#">я┐╜я┐╜я┐╜╘░я┐╜я┐╜я┐╜я┐╜╓▓я┐╜я┐╜я┐╜я┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╫▓╔ля┐╜я┐╜╘░я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜ь╣ля┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╓▓я┐╜я┐╜ я┐╜я┐╜я┐╜┌╗я┐╜я┐╜я┐╜я┐╜я┐╜╓▓ я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╚й 1я┐╜я┐╜</a></div>
+<div class="jPrice user_font_price">я┐╜я┐╜<span class="jdNum">38.00</span></div>
 </div>
 <div class="buybtn">
 <span class="user_bgcolor_but2 user_font_3 arrival">NEW ARRIVAL</span>
-<span class="jbuybtn user_bgcolor_but"><a target="_blank" href="#">┴в╝┤╟└╣║</a></span>
+<span class="jbuybtn user_bgcolor_but"><a target="_blank" href="#">я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜</a></span>
 </div>
 <div class="share">
-<div class="fx">╖╓╧э╡╜:</div>
+<div class="fx">я┐╜я┐╜я┐╜я┐╜:</div>
 <a onclick="window.location.href='http://service.weibo.com/share/share.php?url=http://item.jd.com/1211317095.html'" class="sina" target="_blank" style="margin-left:43px;"><img class="" src="http://img11.360buyimg.com/cms/jfs/t772/280/77496154/1515/719ed6c5/54856198N0d98568c.png" /></a>
 <a onclick="window.location.href='http://share.v.t.qq.com/index.php?c=share&amp;a=index&amp;url=http://item.jd.com/1211317095.html'" class="qq" target="_blank"><img class="" src="http://img11.360buyimg.com/cms/jfs/t532/138/748555517/1522/324a9882/54856198Ndf532b1c.png" /></a>
 <a onclick="window.location.href='http://t.sohu.com/third/post.jsp?url=http://item.jd.com/1211317095.html'" class="sohu" target="_blank"><img class="" src="http://img11.360buyimg.com/cms/jfs/t703/243/85090232/1415/75ebe2c6/54856198N81c4358c.png" /></a>

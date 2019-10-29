@@ -18,8 +18,8 @@
 <div class="mc">
 <div class="jbanner">
 <ul class="jbannerTab">
-<li>�ֲ�ͼ1</li>
-<li>�ֲ�ͼ2</li>
+<li>�ֲ�ͼ1</li>
+<li>�ֲ�ͼ2</li>
 </ul>
 <div class="jbannerImg">
 <div class="jImgNodeArea">

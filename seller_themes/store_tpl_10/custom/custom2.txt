@@ -9,10 +9,10 @@
 <div class="jItem">
 <div class="jPic"><a target="_blank" href="#"><img height="237" width="237" src="themes/ecmoban_dsc/store_tpl_10/images/cuxiao_cp_2.png"></a></div>
 <div class="jGoodsInfo">
-<div class="jDesc"><a target="_blank" href="#">ÁúÑï²èÒ¶ ÂÌ²è2014ÄêÐÂ²è±ÌÂÝ´º¡¾Ó¡¼£¡¿ÀñºÐ×°264¿Ë</a></div>
+<div class="jDesc"><a target="_blank" href="#">ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ ï¿½Ì²ï¿½2014ï¿½ï¿½ï¿½Â²ï¿½ï¿½ï¿½Ý´ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×°264ï¿½ï¿½</a></div>
 <div class="jPrice">
 <div class="jdPrice">
-<span class="jRmb">RMB£¤</span>
+<span class="jRmb">RMBï¿½ï¿½</span>
 <span class="jdNum">268.00</span>
 </div>
 </div>
@@ -27,10 +27,10 @@
 <div class="jItem">
 <div class="jPic"><a target="_blank" href="#"><img height="237" width="237" src="themes/ecmoban_dsc/store_tpl_10/images/cuxiao_cp_3.png"></a></div>
 <div class="jGoodsInfo">
-<div class="jDesc"><a target="_blank" href="#">ÁúÑï²èÒ¶ ÎäÒÄÜø²èÌØ¼¶ºì²è ½ð¿¥Ã¼ ¡¾Ó¡¼£¡¿ÀñºÐ×° 300¿Ë</a></div>
+<div class="jDesc"><a target="_blank" href="#">ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×° 300ï¿½ï¿½</a></div>
 <div class="jPrice">
 <div class="jdPrice">
-<span class="jRmb">RMB£¤</span>
+<span class="jRmb">RMBï¿½ï¿½</span>
 <span class="jdNum">288.00</span>
 </div>
 </div>
@@ -45,10 +45,10 @@
 <div class="jItem">
 <div class="jPic"><a target="_blank" href="#"><img height="237" width="237" src="themes/ecmoban_dsc/store_tpl_10/images/cuxiao_cp_4.png"></a></div>
 <div class="jGoodsInfo">
-<div class="jDesc"><a target="_blank" href="#">ÁúÑï²èÒ¶ ÎäÒÄÜø²èÌØ¼¶ºì²è ÕýÉ½Ð¡ÖÖ¡¾Ó¡¼£¡¿ÀñºÐ×° 300¿Ë</a></div>
+<div class="jDesc"><a target="_blank" href="#">ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½É½Ð¡ï¿½Ö¡ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×° 300ï¿½ï¿½</a></div>
 <div class="jPrice">
 <div class="jdPrice">
-<span class="jRmb">RMB£¤</span>
+<span class="jRmb">RMBï¿½ï¿½</span>
 <span class="jdNum">278.00</span>
 </div>
 </div>
@@ -63,10 +63,10 @@
 <div class="jItem">
 <div class="jPic"><a target="_blank" href="#"><img height="237" width="237" src="themes/ecmoban_dsc/store_tpl_10/images/cuxiao_cp_5.png"></a></div>
 <div class="jGoodsInfo">
-<div class="jDesc"><a target="_blank" href="#">ÁúÑï²èÒ¶ Áú¾®2014ÐÂ²è Ã÷Ç°ÂÌ²è¡¾Ó¡¼£¡¿ÀñºÐ×° 240¿Ë</a></div>
+<div class="jDesc"><a target="_blank" href="#">ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ ï¿½ï¿½ï¿½ï¿½2014ï¿½Â²ï¿½ ï¿½ï¿½Ç°ï¿½Ì²è¡¾Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×° 240ï¿½ï¿½</a></div>
 <div class="jPrice">
 <div class="jdPrice">
-<span class="jRmb">RMB£¤</span>
+<span class="jRmb">RMBï¿½ï¿½</span>
 <span class="jdNum">289.00</span>
 </div>
 </div>

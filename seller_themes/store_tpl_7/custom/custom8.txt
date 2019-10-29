@@ -5,8 +5,8 @@
 <div class="user_main">
 <div class="user_main_box user_bgcolor_3">
 <div class="cont user_bgcolor_1">
-<span class="user_font_1">¶àÈâ±Ø±¸°Ú¼þ</span>
-<a class="user_a_3" target="_blank" href="#">²é¿´¸ü¶à&gt;&gt;</a>
+<span class="user_font_1">ï¿½ï¿½ï¿½ï¿½Ø±ï¿½ï¿½Ú¼ï¿½</span>
+<a class="user_a_3" target="_blank" href="#">ï¿½é¿´ï¿½ï¿½ï¿½ï¿½&gt;&gt;</a>
 </div>
 <div class="user_kf1200 peijian">
 <div class="user_item_box">

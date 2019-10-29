@@ -8,17 +8,17 @@
 <div class="header_gz"><a href="#" target="_blank"><img src="themes/ecmoban_dsc/store_tpl_13/images/gz.gif" /></a></div>
 <div class="searchArea">
 <div class="jSearchArea">
-<strong>ÈÈÃÅËÑË÷£º</strong>
+<strong>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</strong>
 <div class="jHotwords">
-<a href="#">Ë«²ã²£Á§±­</a>
-<a href="#">Æ®ÒÝ±­</a>
-<a href="#">¹ã¸æ±­</a>
-<a href="#">¶¨ÖÆ</a>
-<a href="#">µ¶¾ß</a>
+<a href="#">Ë«ï¿½ã²£ï¿½ï¿½ï¿½ï¿½</a>
+<a href="#">Æ®ï¿½Ý±ï¿½</a>
+<a href="#">ï¿½ï¿½æ±­</a>
+<a href="#">ï¿½ï¿½ï¿½ï¿½</a>
+<a href="#">ï¿½ï¿½ï¿½ï¿½</a>
 </div>
 <div class="jSearchInput">
 <form method="GET" action="merchants_store.php" name="listform">
-<input type="text"  placeholder="ÇëÊäÈë¹Ø¼ü´Ê" class="inputMiddle" style="border:none" name="keyword" />
+<input type="text"  placeholder="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½" class="inputMiddle" style="border:none" name="keyword" />
 <input type="hidden" value="" id="header_merchant_id" class="merchantId" name="merchant_id">
 <button type="button" ></button>
 </form>
