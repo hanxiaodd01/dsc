@@ -1,4 +1,5 @@
 <?php
+
 //zend by 多点乐  禁止倒卖 一经发现停止任何服务
 function get_attr_value($goods_id, $attr_id)
 {
