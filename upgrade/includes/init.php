@@ -29,15 +29,20 @@ require ROOT_PATH . 'includes/cls_ecshop.php';
 require ROOT_PATH . 'includes/cls_mysql.php';
 $ecs = new ECS($db_name, $prefix);
 $mysql_charset = $ecshop_charset = '';
-$tmp_link = @mysql_connect($db_host, $db_user, $db_pass);
+// @louv mysqli upgrade
+//$tmp_link = @mysql_connect($db_host, $db_user, $db_pass);
+$tmp_link = @mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
 if (!$tmp_link) {
 	exit('Can\'t pConnect MySQL Server(' . $db_host . ')!');
 }
 else {
-	mysql_select_db($db_name);
-	($query = mysql_query(' SHOW CREATE TABLE ' . $ecs->table('users'), $tmp_link)) || exit(mysql_error());
-	$tablestruct = mysql_fetch_row($query);
+	// @louv mysqli upgrade
+//	mysql_select_db($db_name);
+//	($query = mysql_query(' SHOW CREATE TABLE ' . $ecs->table('users'), $tmp_link)) || exit(mysql_error());
+	($query = mysqli_query($tmp_link, ' SHOW CREATE TABLE ' . $ecs->table('users'))) || exit(mysqli_error($tmp_link));
+//	$tablestruct = mysql_fetch_row($query);
+	$tablestruct = mysqli_fetch_row($query);
 	preg_match('/CHARSET=(\\w+)/', $tablestruct[1], $m);
 
 	if (strpos($m[1], 'utf') === 0) {
