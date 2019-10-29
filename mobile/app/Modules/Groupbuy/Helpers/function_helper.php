@@ -267,7 +267,7 @@ function get_good_comment($id, $rank = null, $hasgoods = 0, $start = 0, $size = 
                             $goods[$k]['goods_attr'] = str_replace('\\r\\n', '<br />', $ping);
 
                             if ($ping === false) {
-                                $$v['goods_attr'] = $$v['goods_attr'];
+//                                $$v['goods_attr'] = $$v['goods_attr'];
                                 $goods[$k]['goods_attr'] = str_replace('\\r\\n', '<br />', $v['goods_attr']);
                             }
                         }

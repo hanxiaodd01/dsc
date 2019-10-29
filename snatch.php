@@ -193,7 +193,8 @@ function get_snatch($id)
                 $goods['kf_qq'] = '';
             }
         } else {
-            $$goods['kf_qq'] = '';
+            ${$goods['kf_qq']} = '';
+//            $$goods['kf_qq'] = '';
         }
 
         if ($basic_info['kf_ww']) {
