@@ -21,7 +21,7 @@ try {
         'db_name' => $db_name,
         'db_prefix' => $prefix,
         'db_port' => $db_port,
-        'db_charset' => 'utf8',
+        'db_charset' => 'utf8mb4',
         // 分布式数据库配置项
         'DB_DEPLOY_TYPE' => 0, // 数据库部署方式:0 集中式(单一服务器),1 分布式(主从服务器)
         'DB_RW_SEPARATE' => true, // 数据库读写是否分离 主从式有效
