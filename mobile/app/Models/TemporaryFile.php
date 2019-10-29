@@ -4,63 +4,63 @@ namespace App\Models;
 
 class TemporaryFile extends \Illuminate\Database\Eloquent\Model
 {
-	protected $table = 'temporary_files';
-	public $timestamps = false;
-	protected $fillable = array('type', 'path', 'add_time', 'identity', 'user_id');
-	protected $guarded = array();
+    protected $table = 'temporary_files';
+    public $timestamps = false;
+    protected $fillable = array('type', 'path', 'add_time', 'identity', 'user_id');
+    protected $guarded = array();
 
-	public function getType()
-	{
-		return $this->type;
-	}
+    public function getType()
+    {
+        return $this->type;
+    }
 
-	public function getPath()
-	{
-		return $this->path;
-	}
+    public function getPath()
+    {
+        return $this->path;
+    }
 
-	public function getAddTime()
-	{
-		return $this->add_time;
-	}
+    public function getAddTime()
+    {
+        return $this->add_time;
+    }
 
-	public function getIdentity()
-	{
-		return $this->identity;
-	}
+    public function getIdentity()
+    {
+        return $this->identity;
+    }
 
-	public function getUserId()
-	{
-		return $this->user_id;
-	}
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
 
-	public function setType($value)
-	{
-		$this->type = $value;
-		return $this;
-	}
+    public function setType($value)
+    {
+        $this->type = $value;
+        return $this;
+    }
 
-	public function setPath($value)
-	{
-		$this->path = $value;
-		return $this;
-	}
+    public function setPath($value)
+    {
+        $this->path = $value;
+        return $this;
+    }
 
-	public function setAddTime($value)
-	{
-		$this->add_time = $value;
-		return $this;
-	}
+    public function setAddTime($value)
+    {
+        $this->add_time = $value;
+        return $this;
+    }
 
-	public function setIdentity($value)
-	{
-		$this->identity = $value;
-		return $this;
-	}
+    public function setIdentity($value)
+    {
+        $this->identity = $value;
+        return $this;
+    }
 
-	public function setUserId($value)
-	{
-		$this->user_id = $value;
-		return $this;
-	}
+    public function setUserId($value)
+    {
+        $this->user_id = $value;
+        return $this;
+    }
 }

@@ -12,7 +12,7 @@ echo getCheckboxHtml('checksum', $checksum, array('value' => 1));
 echo "        </div>\r\n    </li>\r\n</ul>\r\n\r\n<div id=\"validCharacters\">\r\n    <h3>Valid Characters</h3>\r\n    ";
 
 foreach ($characters as $character) {
-	echo getButton($character);
+    echo getButton($character);
 }
 
 echo "</div>\r\n\r\n<div id=\"explanation\">\r\n    <h3>Explanation</h3>\r\n    <ul>\r\n        <li>Interleaved 2 of 5 is based on Standard 2 of 5 symbology.</li>\r\n        <li>There is an optional checksum.</li>\r\n    </ul>\r\n</div>\r\n\r\n";

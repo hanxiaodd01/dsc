@@ -37,10 +37,10 @@ class IndexController extends FrontendController
         $drp_id = $drp['id'];
         $shop_name = $drp['shop_name'];
         $isbuy = $drp['isbuy'];
-        $sql = "SELECT value FROM {pre}drp_config WHERE code='isbuy'";
+        $sql = "SELECT value FROM {pre}drp_config WHERE CODE='isbuy'";
         $code = $this->db->getOne($sql);
         if ($code == 1) {
-            $sql = "SELECT value FROM {pre}drp_config WHERE code='buy_money'";
+            $sql = "SELECT value FROM {pre}drp_config WHERE CODE='buy_money'";
             $value = $this->db->getOne($sql);
         }
         if (empty($drp_id) && empty($code)) {
@@ -103,7 +103,7 @@ class IndexController extends FrontendController
                 }
 
                 $data['create_time'] = gmtime();
-                $sql = "SELECT value FROM {pre}drp_config WHERE code='ischeck'";
+                $sql = "SELECT value FROM {pre}drp_config WHERE CODE='ischeck'";
                 $ischeck = $this->db->getOne($sql);
                 if ($ischeck == 1) {
                     $data['audit'] = 0;
@@ -125,7 +125,7 @@ class IndexController extends FrontendController
             ecs_header("Location: " . url('drp/user/index'));
         }
         //温馨提示
-        $sql = "SELECT value FROM {pre}drp_config WHERE code='notice'";
+        $sql = "SELECT value FROM {pre}drp_config WHERE CODE='notice'";
         $notic = $this->db->getOne($sql);
         $notice = $this->htmlout($notic);
         $this->assign('notice', nl2br($notice));
@@ -142,7 +142,7 @@ class IndexController extends FrontendController
         if (IS_AJAX) {
             $page = I('page', '1', 'intval');
             $offset = 20;
-            $sql = "SELECT count(goods_id) as max FROM {pre}goods WHERE dis_commission>0 and is_distribution=1 ";
+            $sql = "SELECT count(goods_id) AS max FROM {pre}goods WHERE dis_commission>0 AND is_distribution=1 ";
             $count = $this->db->getOne($sql);
             $page_size = ceil($count / $offset);
             $limit = ' LIMIT ' . ($page - 1) * $offset . ',' . $offset;
@@ -161,7 +161,7 @@ class IndexController extends FrontendController
             $this->model->table('drp_shop')->data($data)->where($where)->save();
             redirect(url('drp/index/finish'));
         }
-        $sql = "SELECT value FROM {pre}drp_config WHERE code='notice'";
+        $sql = "SELECT value FROM {pre}drp_config WHERE CODE='notice'";
         $notic = $this->db->getOne($sql);
         $notice = $this->htmlout($notic);
         $this->assign('notice', nl2br($notice));
@@ -216,7 +216,7 @@ class IndexController extends FrontendController
             }
         }
         //新手必读
-        $sql = "SELECT value FROM {pre}drp_config WHERE code='novice'";
+        $sql = "SELECT value FROM {pre}drp_config WHERE CODE='novice'";
         $novice = $this->db->getOne($sql);
         $novice = $this->htmlout($novice);
         $this->assign('novice', nl2br($novice));
@@ -231,7 +231,7 @@ class IndexController extends FrontendController
      */
     public function actionPurchase()
     {
-        $sql = "SELECT value FROM {pre}drp_config WHERE code='isbuy'";
+        $sql = "SELECT value FROM {pre}drp_config WHERE CODE='isbuy'";
         $code = $this->db->getOne($sql);
         if ($code != 1) {
             ecs_header("Location: " . url('drp/index/index'));
@@ -295,7 +295,8 @@ class IndexController extends FrontendController
             $order['user_name'] = $_SESSION['user_name'];
             $payment['pay_fee'] = pay_fee($pay_id, $price, 0);
             $order['order_amount'] = $price + $payment['pay_fee']; //计算此次预付款需要支付的总金额
-            $order['log_id'] = insert_pay_log($order['order_sn'], $order['order_amount'], $type = PAY_REGISTERED, 0); //记录支付log
+            $order['log_id'] = insert_pay_log($order['order_sn'], $order['order_amount'], $type = PAY_REGISTERED,
+                0); //记录支付log
             $order['pay_code'] = $payment['pay_code'];
             if ($order['order_amount'] > 0) {
                 include_once(ADDONS_PATH . 'payment/' . $payment['pay_code'] . '.php');

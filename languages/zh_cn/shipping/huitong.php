@@ -11,11 +11,11 @@
  * ============================================================================
  * $Author: DSC TEAM $
  * $Id: huitong.php $
-*/
+ */
 
-$_LANG['huitong']          = '百世汇通快递';
+$_LANG['huitong'] = '百世汇通快递';
 //$_LANG['huitong_desc']     = '首重为5元/KG，续重为5元/KG。';
-$_LANG['huitong_desc']     = '<a href="http://www.htky365.com" target="_blank">http://www.htky365.com</a>';
+$_LANG['huitong_desc'] = '<a href="http://www.htky365.com" target="_blank">http://www.htky365.com</a>';
 $_LANG['item_fee'] = '单件商品费用：';
 $_LANG['base_fee'] = '首重1KG以内费用';
 $_LANG['step_fee'] = '续重每1KG或其零数的费用';

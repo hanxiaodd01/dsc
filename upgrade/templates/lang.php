@@ -40,20 +40,19 @@ echo '：</div>
 				';
 
 foreach ($lang['lang_charset'] as $key => $val) {
-	if ($updater_lang . '_' . $ec_charset == $key) {
-		$lang_selected = 'selected="selected" ';
-	}
-	else {
-		$lang_selected = '';
-	}
+    if ($updater_lang . '_' . $ec_charset == $key) {
+        $lang_selected = 'selected="selected" ';
+    } else {
+        $lang_selected = '';
+    }
 
-	echo '                		<option ';
-	echo $lang_selected;
-	echo 'value="';
-	echo $key;
-	echo '">';
-	echo $val;
-	echo '</option>
+    echo '                		<option ';
+    echo $lang_selected;
+    echo 'value="';
+    echo $key;
+    echo '">';
+    echo $val;
+    echo '</option>
                 ';
 }
 
@@ -94,12 +93,12 @@ echo '<i class="r"></i><i class="b"></i></legend>
 $i = 1;
 
 foreach ($lang['lang_desc'] as $desc) {
-	echo '            <li>';
-	echo $i;
-	$i++;
-	echo '、';
-	echo $desc;
-	echo '</li>
+    echo '            <li>';
+    echo $i;
+    $i++;
+    echo '、';
+    echo $desc;
+    echo '</li>
             ';
 }
 

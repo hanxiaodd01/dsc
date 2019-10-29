@@ -76,7 +76,8 @@ class ShopController extends FrontendController
         if (IS_AJAX) {
             $this->order = C('shop.sort_order_method') == '0' ? 'desc' : 'asc';
             $this->sort = C('shop.sort_order_type') == '0' ? 'goods_id' : (C('shop.sort_order_type') == '1' ? 'shop_price' : 'last_update');
-            $goodslist = get_goods($where, $this->region_id, $this->area_id, $size, $page, $status, $type, $this->sort, $this->order, $this->cat_id);
+            $goodslist = get_goods($where, $this->region_id, $this->area_id, $size, $page, $status, $type, $this->sort,
+                $this->order, $this->cat_id);
             exit(json_encode(['list' => $goodslist['list'], 'totalPage' => $goodslist['totalpage']]));
         }
 
@@ -99,10 +100,10 @@ class ShopController extends FrontendController
             'img' => $shop_info['headimgurl'],
         ];
         $this->assign('share_data', $this->get_wechat_share_content($share_data));
-		$this->drp = get_drp($_SESSION['user_id']);
-		if($this->drp){
-			$this->assign('is_drp', '1');
-		}
+        $this->drp = get_drp($_SESSION['user_id']);
+        if ($this->drp) {
+            $this->assign('is_drp', '1');
+        }
         $this->assign('page_title', $shop_info['shop_name']);
         $this->assign('description', $description);
         $this->display();

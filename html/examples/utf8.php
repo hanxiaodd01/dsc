@@ -5,12 +5,11 @@ $content = file_get_contents(dirname(__FILE__) . '/../_tcpdf_' . HTML2PDF_USED_T
 $content = '<page style="font-family: freeserif"><br />' . nl2br($content) . '</page>';
 
 try {
-	$html2pdf = new HTML2PDF('P', 'A4', 'fr');
-	$html2pdf->pdf->SetDisplayMode('real');
-	$html2pdf->writeHTML($content, isset($_GET['vuehtml']));
-	$html2pdf->Output('utf8.pdf');
-}
-catch (HTML2PDF_exception $e) {
-	echo $e;
-	exit();
+    $html2pdf = new HTML2PDF('P', 'A4', 'fr');
+    $html2pdf->pdf->SetDisplayMode('real');
+    $html2pdf->writeHTML($content, isset($_GET['vuehtml']));
+    $html2pdf->Output('utf8.pdf');
+} catch (HTML2PDF_exception $e) {
+    echo $e;
+    exit();
 }

@@ -4,17 +4,17 @@ namespace App\Contracts\Repository\Goods;
 
 interface GoodsRepositoryInterface
 {
-	public function create(array $data);
+    public function create(array $data);
 
-	public function get($id);
+    public function get($id);
 
-	public function update(array $data);
+    public function update(array $data);
 
-	public function delete($id);
+    public function delete($id);
 
-	public function search(array $data);
+    public function search(array $data);
 
-	public function sku($id);
+    public function sku($id);
 
-	public function skuAdd();
+    public function skuAdd();
 }

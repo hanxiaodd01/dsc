@@ -103,8 +103,8 @@ class UserController extends FrontendController
 
     public function actionIndex()
     {
-        if(empty($this->drp['shop_name']) || empty($this->drp['real_name'])){
-             show_message('请补全店铺信息 ', '店铺设置', url('drp/user/shopconfig'), 'warning');
+        if (empty($this->drp['shop_name']) || empty($this->drp['real_name'])) {
+            show_message('请补全店铺信息 ', '店铺设置', url('drp/user/shopconfig'), 'warning');
         }
         $sql = "SELECT shop_money FROM " . $GLOBALS['ecs']->table('drp_shop') .
             " WHERE user_id = '$this->user_id'";
@@ -118,7 +118,7 @@ class UserController extends FrontendController
         $this->assign('draw_money_value', $this->drp['draw_money_value']);
         $this->assign('select_url', url('drp/index/category'));
         $this->assign('url', url('drp/shop/index', ['id' => $this->drp['drp_id'], 'd' => $_SESSION['user_id']]));//我的微店
-        $sql = "SELECT value FROM {pre}drp_config WHERE code='withdraw'";
+        $sql = "SELECT value FROM {pre}drp_config WHERE CODE='withdraw'";
         $withdraw = $this->db->getOne($sql);
         $this->assign('withdraw', $this->htmlOut($withdraw));
         $this->assign('totals', $totals[0]['totals'] ? $totals[0]['totals'] : 0);
@@ -229,7 +229,8 @@ class UserController extends FrontendController
                     $setpoint = round($point * $per, 0);//积分
                     //插入drp_log
                     if ($setmoney > 0 && $row['user_id'] > 0) {
-                        $this->writeDrpLog($vv['order_id'], $row['user_id'], $row['user_name'], $setmoney, $setpoint, $i, $is, 0);
+                        $this->writeDrpLog($vv['order_id'], $row['user_id'], $row['user_name'], $setmoney, $setpoint,
+                            $i, $is, 0);
                     }
                 }
             }
@@ -405,7 +406,8 @@ class UserController extends FrontendController
                 $goods_list[$key]['dis_commission'] = $row['dis_commission'];
                 $goods_list[$key]['goods_thumb'] = get_image_path($row['goods_thumb']);
                 $goods_list[$key]['shop_price'] = price_format($row['shop_price']);
-                $goods_list[$key]['url'] = url('goods/index/index', ['id' => $row['goods_id'], 'u' => $_SESSION['user_id']]);
+                $goods_list[$key]['url'] = url('goods/index/index',
+                    ['id' => $row['goods_id'], 'u' => $_SESSION['user_id']]);
             }
             exit(json_encode(['list' => $goods_list, 'totalPage' => ceil($total / $size)]));
         }
@@ -458,7 +460,8 @@ class UserController extends FrontendController
                 $goods_list[$key]['dis_commission'] = $row['dis_commission'];
                 $goods_list[$key]['goods_thumb'] = get_image_path($row['goods_thumb']);
                 $goods_list[$key]['shop_price'] = price_format($row['shop_price']);
-                $goods_list[$key]['url'] = url('goods/index/index', ['id' => $row['goods_id'], 'u' => $_SESSION['user_id']]);
+                $goods_list[$key]['url'] = url('goods/index/index',
+                    ['id' => $row['goods_id'], 'u' => $_SESSION['user_id']]);
             }
             exit(json_encode(['list' => $goods_list, 'totalPage' => ceil($total / $size), 'type' => $type]));
         }
@@ -483,7 +486,8 @@ class UserController extends FrontendController
             $goods_list[$key]['dis_commission'] = $row['dis_commission'];
             $goods_list[$key]['goods_thumb'] = get_image_path($row['goods_thumb']);
             $goods_list[$key]['shop_price'] = price_format($row['shop_price']);
-            $goods_list[$key]['url'] = url('goods/index/index', ['id' => $row['goods_id'], 'u' => $_SESSION['user_id']]);
+            $goods_list[$key]['url'] = url('goods/index/index',
+                ['id' => $row['goods_id'], 'u' => $_SESSION['user_id']]);
         }
         return ($goods_list);
     }
@@ -579,7 +583,8 @@ class UserController extends FrontendController
                     $av_top = !empty($qrcode_config['av_position']['top']) ? $qrcode_config['av_position']['top'] : 24;
 
                     // 替换内容里的昵称
-                    $text_description = !empty($qrcode_config['text']['description']) ? str_replace('[$nickname]', $info['nickname'], $qrcode_config['text']['description']) : $info['nickname'];
+                    $text_description = !empty($qrcode_config['text']['description']) ? str_replace('[$nickname]',
+                        $info['nickname'], $qrcode_config['text']['description']) : $info['nickname'];
                     // 换行
                     $text_description = str_replace(['\r\n', '\n', '\r'], PHP_EOL, htmlspecialchars($text_description));
                     // 文字颜色、大小
@@ -624,16 +629,19 @@ class UserController extends FrontendController
 
                 if ($is_show_avatar == false) {
                     // 生成背景图加二维码
-                    $img->open($outImg)->text($text_description, dirname(ROOT_PATH) . '/data/attached/fonts/msyh.ttf', $font_size, $text_color, [$av_left + 100 + 20, $av_top + 10])->save($outImg);
+                    $img->open($outImg)->text($text_description, dirname(ROOT_PATH) . '/data/attached/fonts/msyh.ttf',
+                        $font_size, $text_color, [$av_left + 100 + 20, $av_top + 10])->save($outImg);
                 } else {
                     // 生成背景图加二维码+微信头像
-                    $img->open($outImg)->water($avatar, [$av_left, $av_top], 100)->text($text_description, dirname(ROOT_PATH) . '/data/attached/fonts/msyh.ttf', $font_size, $text_color, [$av_left + 100 + 20, $av_top + 10])->save($outImg);
+                    $img->open($outImg)->water($avatar, [$av_left, $av_top], 100)->text($text_description,
+                        dirname(ROOT_PATH) . '/data/attached/fonts/msyh.ttf', $font_size, $text_color,
+                        [$av_left + 100 + 20, $av_top + 10])->save($outImg);
                 }
             }
-       
+
         }
 
-        $image_name =  __HOST__ .'/data/attached/qrcode/' . basename($outImg);
+        $image_name = __HOST__ . '/data/attached/qrcode/' . basename($outImg);
         $outImg = get_image_path($image_name);
 
         $this->assign('ewm', $outImg);

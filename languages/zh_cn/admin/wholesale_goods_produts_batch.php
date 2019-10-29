@@ -18,11 +18,11 @@ $_LANG['notice_file'] = '（CSV文件中一次上传商品数量最好不要超�
 $_LANG['file_charset'] = '文件编码：';
 $_LANG['download_file'] = '下载批量CSV文件（%s）';
 $_LANG['use_help'] = '<h4>使用说明：</h4>' .
-        '<ul>' .
-            '<li>根据使用习惯，下载相应语言的csv文件，例如中国内地用户下载简体中文语言的文件，港台用户下载繁体语言的文件；</li>' .
-            '<li>选择所上传商品的分类以及文件编码，上传csv文件</li>' .
-            '<li>建议安装<a href="http://www.wps.cn/product/" target="_blank"><em class="red">WPS</em></a>软件，避免编码问题</li>' .
-        '</ul>';
+    '<ul>' .
+    '<li>根据使用习惯，下载相应语言的csv文件，例如中国内地用户下载简体中文语言的文件，港台用户下载繁体语言的文件；</li>' .
+    '<li>选择所上传商品的分类以及文件编码，上传csv文件</li>' .
+    '<li>建议安装<a href="http://www.wps.cn/product/" target="_blank"><em class="red">WPS</em></a>软件，避免编码问题</li>' .
+    '</ul>';
 
 $_LANG['goods_name'] = '商品名称：';
 $_LANG['js_languages']['please_select_goods'] = '请您选择商品';
@@ -40,7 +40,7 @@ $_LANG['upload_product']['seller_id'] = '商家ID';
 $_LANG['upload_product']['warehouse_id'] = '商品模式';
 
 $_LANG['save_products'] = '保存货品成功';
- 
+
 $_LANG['13_batch_add'] = '商品货品批量上传';
 $_LANG['notice_select'] = '（导出CSV属性类型）';
 

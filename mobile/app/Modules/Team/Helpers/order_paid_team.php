@@ -4,9 +4,9 @@
  * 修改拼团订单的支付状态
  *
  * @access  public
- * @param   string $log_id 支付编号
- * @param   integer $pay_status 状态
- * @param   string $note 备注
+ * @param string  $log_id     支付编号
+ * @param integer $pay_status 状态
+ * @param string  $note       备注
  * @return  void
  */
 function order_paid_team($log_id, $pay_status = PS_PAYED, $note = '')
@@ -125,7 +125,10 @@ function order_paid_team($log_id, $pay_status = PS_PAYED, $note = '')
                         'keyword2' => array('value' => '已付款', 'color' => '#173177'),
                         'keyword3' => array('value' => date('Y-m-d', gmtime()), 'color' => '#173177'),
                         'keyword4' => array('value' => $GLOBALS['_CFG']['shop_name'], 'color' => '#173177'),
-                        'keyword5' => array('value' => number_format($pay_log['order_amount'], 2, '.', ''), 'color' => '#173177')
+                        'keyword5' => array(
+                            'value' => number_format($pay_log['order_amount'], 2, '.', ''),
+                            'color' => '#173177'
+                        )
                     );
                     $order_url = __HOST__ . url('user/order/detail', array('order_id' => $order_id));
                     $url = str_replace('public/notify/wxpay.php', 'index.php', $order_url);
@@ -149,9 +152,12 @@ function order_paid_team($log_id, $pay_status = PS_PAYED, $note = '')
                         $GLOBALS['db']->query($sql);
 
                         /* 记录订单操作记录 */
-                        order_action($order_sn, OS_CONFIRMED, SS_SHIPPED, $pay_status, $note, $GLOBALS['_LANG']['buyer']);
+                        order_action($order_sn, OS_CONFIRMED, SS_SHIPPED, $pay_status, $note,
+                            $GLOBALS['_LANG']['buyer']);
                         $integral = integral_to_give($order);
-                        log_account_change($order['user_id'], 0, 0, intval($integral['rank_points']), intval($integral['custom_points']), sprintf($GLOBALS['_LANG']['order_gift_integral'], $order['order_sn']));
+                        log_account_change($order['user_id'], 0, 0, intval($integral['rank_points']),
+                            intval($integral['custom_points']),
+                            sprintf($GLOBALS['_LANG']['order_gift_integral'], $order['order_sn']));
                     }
                 }
             }

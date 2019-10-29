@@ -10,7 +10,6 @@
 $_LANG['group_purchase_index'] = '团购首页';
 
 
-
 /*  oauth 认证权限  */
 
 $_LANG['msg_ins_success'] = '安装成功';
@@ -31,8 +30,6 @@ $_LANG['msg_author_register_error'] = '授权注册失败';
 $_LANG['msg_re_registration'] = '重新注册';
 $_LANG['publish_product'] = '预售新品发布';
 $_LANG['gb_error_restrict_amount'] = '对不起，您购买的商品数量已达到限购数量！';
-
-
 
 
 /* region 地区  */
@@ -72,8 +69,6 @@ $_LANG['nearby_shop'] = '附近商家';
 
 /* topic 主题 */
 $_LANG['special'] = '专题';
-
-
 
 
 return $_LANG;

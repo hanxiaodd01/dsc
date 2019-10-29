@@ -10,15 +10,14 @@ $action = (!empty($_REQUEST['act']) ? trim($_REQUEST['act']) : '');
 $arr['regions'] = get_regions($type, $parent);
 
 if ($action == 'consigne') {
-	$arr['type'] = $type + 1;
-	$smarty->assign('type', $arr['type']);
-	$smarty->assign('regions_list', $arr['regions']);
-	$arr['content'] = $smarty->fetch('library/dialog.lbi');
-}
-else {
-	$arr['type'] = $type;
-	$arr['target'] = !empty($_REQUEST['target']) ? stripslashes(trim($_REQUEST['target'])) : '';
-	$arr['target'] = htmlspecialchars($arr['target']);
+    $arr['type'] = $type + 1;
+    $smarty->assign('type', $arr['type']);
+    $smarty->assign('regions_list', $arr['regions']);
+    $arr['content'] = $smarty->fetch('library/dialog.lbi');
+} else {
+    $arr['type'] = $type;
+    $arr['target'] = !empty($_REQUEST['target']) ? stripslashes(trim($_REQUEST['target'])) : '';
+    $arr['target'] = htmlspecialchars($arr['target']);
 }
 
 $json = new JSON();

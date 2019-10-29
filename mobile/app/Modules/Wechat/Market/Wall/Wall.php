@@ -49,7 +49,11 @@ class Wall extends PluginController
     public function actionWallMsg()
     {
         //活动内容
-        $wall = dao('wechat_marketing')->field('id, name, logo, background, starttime, endtime, config, description, support')->where(array('id' => $this->market_id, 'marketing_type' => 'wall', 'wechat_id' => $this->wechat_id))->find();
+        $wall = dao('wechat_marketing')->field('id, name, logo, background, starttime, endtime, config, description, support')->where(array(
+            'id' => $this->market_id,
+            'marketing_type' => 'wall',
+            'wechat_id' => $this->wechat_id
+        ))->find();
 
         $wall['status'] = get_status($wall['starttime'], $wall['endtime']); // 活动状态
 
@@ -94,7 +98,11 @@ class Wall extends PluginController
     public function actionWallUser()
     {
         //活动内容
-        $wall = dao('wechat_marketing')->field('id, name, logo, background, starttime, endtime, config, description, support,status')->where(array('id' => $this->market_id, 'marketing_type' => 'wall', 'wechat_id' => $this->wechat_id))->find();
+        $wall = dao('wechat_marketing')->field('id, name, logo, background, starttime, endtime, config, description, support,status')->where(array(
+            'id' => $this->market_id,
+            'marketing_type' => 'wall',
+            'wechat_id' => $this->wechat_id
+        ))->find();
 
         $wall['status'] = get_status($wall['starttime'], $wall['endtime']); // 活动状态
 
@@ -102,7 +110,11 @@ class Wall extends PluginController
         $wall['background'] = get_wechat_image_path($wall['background']);
 
         //用户
-        $list = dao('wechat_wall_user')->field('nickname, headimg')->where(array('wall_id' => $this->market_id, 'status' => 1, 'wechat_id' => $this->wechat_id))->order('addtime desc')->select();
+        $list = dao('wechat_wall_user')->field('nickname, headimg')->where(array(
+            'wall_id' => $this->market_id,
+            'status' => 1,
+            'wechat_id' => $this->wechat_id
+        ))->order('addtime desc')->select();
         /*$sql = "SELECT u.nickname, u.headimg FROM {pre}wechat_wall_msg m LEFT JOIN {pre}wechat_wall_user u ON m.user_id = u.id WHERE u.wall_id = '$wall_id' AND m.status = 1 GROUP BY m.user_id ORDER BY u.addtime DESC";
         $list = $this->model->query($sql);*/
 
@@ -117,7 +129,11 @@ class Wall extends PluginController
     public function actionWallPrize()
     {
         //活动内容
-        $wall = dao('wechat_marketing')->field('id, name, logo, background, starttime, endtime, config, description, support')->where(array('id' => $this->market_id, 'marketing_type' => 'wall', 'wechat_id' => $this->wechat_id))->find();
+        $wall = dao('wechat_marketing')->field('id, name, logo, background, starttime, endtime, config, description, support')->where(array(
+            'id' => $this->market_id,
+            'marketing_type' => 'wall',
+            'wechat_id' => $this->wechat_id
+        ))->find();
         if ($wall) {
             $wall['config'] = unserialize($wall['config']);
             $wall['logo'] = get_wechat_image_path($wall['logo']);
@@ -189,7 +205,12 @@ class Wall extends PluginController
                 $result['errMsg'] = url('index/index');
                 exit(json_encode($result));
             }
-            $wall = dao('wechat_marketing')->field('id, name, starttime, endtime, config')->where(array('id' => $this->market_id, 'marketing_type' => 'wall', 'status' => 1, 'wechat_id' => $this->wechat_id))->find();
+            $wall = dao('wechat_marketing')->field('id, name, starttime, endtime, config')->where(array(
+                'id' => $this->market_id,
+                'marketing_type' => 'wall',
+                'status' => 1,
+                'wechat_id' => $this->wechat_id
+            ))->find();
 
             if (empty($wall)) {
                 $result['errCode'] = 1;
@@ -220,7 +241,11 @@ class Wall extends PluginController
                     foreach ($prize as $key => $val) {
                         // 删除数量不足的奖品
                         $count = dao('wechat_prize')
-                            ->where(array('wechat_id' => $this->wechat_id, 'prize_name' => $val['prize_name'], 'activity_type' => 'wall'))
+                            ->where(array(
+                                'wechat_id' => $this->wechat_id,
+                                'prize_name' => $val['prize_name'],
+                                'activity_type' => 'wall'
+                            ))
                             ->count();
                         if ($count >= $val['prize_count']) {
                             unset($prize[$key]);
@@ -257,7 +282,12 @@ class Wall extends PluginController
                 dao('wechat_prize')->data($data)->add();
 
                 //中奖人数
-                $rs['prize_num'] = dao('wechat_prize')->where(array('market_id' => $wall_id, 'wechat_id' => $this->wechat_id, 'activity_type' => 'wall', 'prize_type' => 1))->count();
+                $rs['prize_num'] = dao('wechat_prize')->where(array(
+                    'market_id' => $wall_id,
+                    'wechat_id' => $this->wechat_id,
+                    'activity_type' => 'wall',
+                    'prize_type' => 1
+                ))->count();
                 // 奖品名称
                 $rs['prize_name'] = $data['prize_name'];
 
@@ -290,9 +320,17 @@ class Wall extends PluginController
                 exit(json_encode($result));
             }
             //删除中奖的用户
-            dao('wechat_prize')->where(array('market_id' => $wall_id, 'activity_type'=>'wall', 'wechat_id' => $this->wechat_id))->delete();
+            dao('wechat_prize')->where(array(
+                'market_id' => $wall_id,
+                'activity_type' => 'wall',
+                'wechat_id' => $this->wechat_id
+            ))->delete();
             //不显示在中奖池
-            dao('wechat_prize')->data(array('prize_type' => 0))->where(array('market_id' => $wall_id, 'activity_type' => 'wall', 'wechat_id' => $this->wechat_id))->save();
+            dao('wechat_prize')->data(array('prize_type' => 0))->where(array(
+                'market_id' => $wall_id,
+                'activity_type' => 'wall',
+                'wechat_id' => $this->wechat_id
+            ))->save();
             exit(json_encode($result));
         }
         $result['errCode'] = 2;
@@ -324,12 +362,21 @@ class Wall extends PluginController
                 $data['wechat_id'] = $this->wechat_id;
                 $data['addtime'] = gmtime();
 
-                $wechat_user = dao('wechat_wall_user')->where(array('wall_id' => $wall_id, 'openid' => $_SESSION['openid'], 'wechat_id' => $this->wechat_id))->find();
+                $wechat_user = dao('wechat_wall_user')->where(array(
+                    'wall_id' => $wall_id,
+                    'openid' => $_SESSION['openid'],
+                    'wechat_id' => $this->wechat_id
+                ))->find();
                 if (empty($wechat_user)) {
                     dao('wechat_wall_user')->data($data)->add();
                 }
                 // 进入聊天室
-                show_message('确认成功', '进入聊天室', url('wechat/index/market_show', array('type' => 'wall', 'function' => 'wall_msg_wechat', 'wall_id' => $wall_id, 'ru_id' => $this->ru_id)), 'success');
+                show_message('确认成功', '进入聊天室', url('wechat/index/market_show', array(
+                    'type' => 'wall',
+                    'function' => 'wall_msg_wechat',
+                    'wall_id' => $wall_id,
+                    'ru_id' => $this->ru_id
+                )), 'success');
                 exit;
             }
             // 显示页面
@@ -338,7 +385,11 @@ class Wall extends PluginController
                 $_SESSION['wechat_user']['openid'] = 'o1UgVuKGG67Y1Yoy_zC1JqoYSH54';
             }*/
             //更改过头像跳到聊天页面
-            $wechat_user = dao('wechat_wall_user')->where(array('wall_id' => $wall_id, 'openid' => $_SESSION['openid'], 'wechat_id' => $this->wechat_id))->find();
+            $wechat_user = dao('wechat_wall_user')->where(array(
+                'wall_id' => $wall_id,
+                'openid' => $_SESSION['openid'],
+                'wechat_id' => $this->wechat_id
+            ))->find();
 
             if (empty($wechat_user)) {
                 $wechat_user = array(
@@ -349,7 +400,12 @@ class Wall extends PluginController
                 );
             } else {
                 // 进入聊天室
-                $this->redirect(url('wechat/index/market_show', array('type' => 'wall', 'function' => 'wall_msg_wechat', 'wall_id' => $wall_id, 'ru_id' => $this->ru_id)));
+                $this->redirect(url('wechat/index/market_show', array(
+                    'type' => 'wall',
+                    'function' => 'wall_msg_wechat',
+                    'wall_id' => $wall_id,
+                    'ru_id' => $this->ru_id
+                )));
             }
 
             $this->assign('user', $wechat_user);
@@ -391,10 +447,17 @@ class Wall extends PluginController
                 $_SESSION['openid'] = 'o1UgVuKGG67Y1Yoy_zC1JqoYSH54';
             }*/
             $openid = $_SESSION['openid'];
-            $wechat_user = dao('wechat_wall_user')->field('id, status')->where(array('openid' => $openid, 'wall_id' => $wall_id, 'wechat_id' => $this->wechat_id))->find();
+            $wechat_user = dao('wechat_wall_user')->field('id, status')->where(array(
+                'openid' => $openid,
+                'wall_id' => $wall_id,
+                'wechat_id' => $this->wechat_id
+            ))->find();
 
             //聊天室人数
-            $user_num = dao('wechat_wall_msg')->field("COUNT(DISTINCT user_id) as num")->where(array('wall_id' => $wall_id, 'wechat_id' => $this->wechat_id))->find();
+            $user_num = dao('wechat_wall_msg')->field("COUNT(DISTINCT user_id) as num")->where(array(
+                'wall_id' => $wall_id,
+                'wechat_id' => $this->wechat_id
+            ))->find();
 
             //初始缓存
             $cache_key = md5('cache_wechat_0');
@@ -459,7 +522,10 @@ class Wall extends PluginController
                 }
 
                 // 聊天室人数
-                $user_num = dao('wechat_wall_msg')->field("COUNT(DISTINCT user_id) as num")->where(array('wall_id' => $wall_id, 'wechat_id' => $this->wechat_id))->find();
+                $user_num = dao('wechat_wall_msg')->field("COUNT(DISTINCT user_id) as num")->where(array(
+                    'wall_id' => $wall_id,
+                    'wechat_id' => $this->wechat_id
+                ))->find();
                 $result = array('code' => 0, 'user_num' => $user_num, 'data' => $list);
                 exit(json_encode($result));
             }

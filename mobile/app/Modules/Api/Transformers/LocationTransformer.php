@@ -4,8 +4,8 @@ namespace App\Modules\Api\Transformers;
 
 class LocationTransformer
 {
-	public function transform()
-	{
-		return array();
-	}
+    public function transform()
+    {
+        return array();
+    }
 }

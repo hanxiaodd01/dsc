@@ -11,11 +11,11 @@
  * ============================================================================
  * $Author: DSC TEAM $
  * $Id: quanfeng.php $
-*/
+ */
 
-$_LANG['quanfeng']          = '全峰快递';
+$_LANG['quanfeng'] = '全峰快递';
 //$_LANG['quanfeng_desc']     = '首重为5元/KG，续重为5元/KG。';
-$_LANG['quanfeng_desc']     = '<a href="http://www.qfkd.com.cn" target="_blank">http://www.qfkd.com.cn</a>';
+$_LANG['quanfeng_desc'] = '<a href="http://www.qfkd.com.cn" target="_blank">http://www.qfkd.com.cn</a>';
 $_LANG['item_fee'] = '单件商品费用：';
 $_LANG['base_fee'] = '首重1KG以内费用';
 $_LANG['step_fee'] = '续重每1KG或其零数的费用';

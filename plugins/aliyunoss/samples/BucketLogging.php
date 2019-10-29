@@ -2,52 +2,49 @@
 //多点乐资源
 function putBucketLogging($ossClient, $bucket)
 {
-	$option = array();
-	$targetBucket = $bucket;
-	$targetPrefix = 'access.log';
+    $option = array();
+    $targetBucket = $bucket;
+    $targetPrefix = 'access.log';
 
-	try {
-		$ossClient->putBucketLogging($bucket, $targetBucket, $targetPrefix, $option);
-	}
-	catch (\OSS\Core\OssException $e) {
-		printf('putBucketLogging' . ": FAILED\n");
-		printf($e->getMessage() . "\n");
-		return NULL;
-	}
+    try {
+        $ossClient->putBucketLogging($bucket, $targetBucket, $targetPrefix, $option);
+    } catch (\OSS\Core\OssException $e) {
+        printf('putBucketLogging' . ": FAILED\n");
+        printf($e->getMessage() . "\n");
+        return null;
+    }
 
-	print('putBucketLogging' . ': OK' . "\n");
+    print('putBucketLogging' . ': OK' . "\n");
 }
 
 function getBucketLogging($ossClient, $bucket)
 {
-	$loggingConfig = NULL;
-	$options = array();
+    $loggingConfig = null;
+    $options = array();
 
-	try {
-		$loggingConfig = $ossClient->getBucketLogging($bucket, $options);
-	}
-	catch (\OSS\Core\OssException $e) {
-		printf('getBucketLogging' . ": FAILED\n");
-		printf($e->getMessage() . "\n");
-		return NULL;
-	}
+    try {
+        $loggingConfig = $ossClient->getBucketLogging($bucket, $options);
+    } catch (\OSS\Core\OssException $e) {
+        printf('getBucketLogging' . ": FAILED\n");
+        printf($e->getMessage() . "\n");
+        return null;
+    }
 
-	print('getBucketLogging' . ': OK' . "\n");
-	print($loggingConfig->serializeToXml() . "\n");
+    print('getBucketLogging' . ': OK' . "\n");
+    print($loggingConfig->serializeToXml() . "\n");
 }
 
 function deleteBucketLogging($ossClient, $bucket)
 {
-	try {
-		$ossClient->deleteBucketLogging($bucket);
-	}
-	catch (\OSS\Core\OssException $e) {
-		printf('deleteBucketLogging' . ": FAILED\n");
-		printf($e->getMessage() . "\n");
-		return NULL;
-	}
+    try {
+        $ossClient->deleteBucketLogging($bucket);
+    } catch (\OSS\Core\OssException $e) {
+        printf('deleteBucketLogging' . ": FAILED\n");
+        printf($e->getMessage() . "\n");
+        return null;
+    }
 
-	print('deleteBucketLogging' . ': OK' . "\n");
+    print('deleteBucketLogging' . ': OK' . "\n");
 }
 
 require_once __DIR__ . '/Common.php';
@@ -55,7 +52,7 @@ $bucket = Common::getBucketName();
 $ossClient = Common::getOssClient();
 
 if (is_null($ossClient)) {
-	exit(1);
+    exit(1);
 }
 
 $ossClient->putBucketLogging($bucket, $bucket, 'access.log', array());

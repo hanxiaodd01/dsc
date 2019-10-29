@@ -20,10 +20,10 @@ require(ROOT_PATH . '/includes/lib_area.php');  //ecmoban模板堂 --zhuo
 require(ROOT_PATH . '/includes/lib_wholesale.php');
 require(ROOT_PATH . '/includes/lib_publicfunc.php');
 
-if($GLOBALS['_CFG']['wholesale_user_rank'] == 0){
+if ($GLOBALS['_CFG']['wholesale_user_rank'] == 0) {
     $is_seller = get_is_seller();
-    if($is_seller == 0){
-        ecs_header("Location: " .$ecs->url(). "\n");
+    if ($is_seller == 0) {
+        ecs_header("Location: " . $ecs->url() . "\n");
     }
 }
 
@@ -112,7 +112,8 @@ if (!empty($_REQUEST['act']) && $_REQUEST['act'] == 'price') {
     $goods_id = (isset($_REQUEST['id'])) ? intval($_REQUEST['id']) : 0;
     $onload = (isset($_REQUEST['onload'])) ? trim($_REQUEST['onload']) : ''; //仓库管理的地区ID
 
-    $goods_attr = isset($_REQUEST['goods_attr']) && !empty($_REQUEST['goods_attr']) ? explode(',', $_REQUEST['goods_attr']) : array();
+    $goods_attr = isset($_REQUEST['goods_attr']) && !empty($_REQUEST['goods_attr']) ? explode(',',
+        $_REQUEST['goods_attr']) : array();
     $attr_ajax = get_wholesale_goods_attr_ajax($goods_id, $goods_attr, $attr_id);
 
     //获取主属性列表
@@ -121,7 +122,7 @@ if (!empty($_REQUEST['act']) && $_REQUEST['act'] == 'price') {
     $main_attr_list = get_wholesale_main_attr_list($goods_id, $attr_id);
     $smarty->assign('main_attr_list', $main_attr_list);
     $res['main_attr_list'] = $smarty->fetch('library/wholesale_main_attr_list.lbi');
-    
+
     die($json->encode($res));
 }
 
@@ -135,8 +136,8 @@ $properties = get_wholesale_goods_properties($goods['goods_id'], $region_id, $ar
 $basic_info = get_shop_info_content($goods['user_id']);
 $wholesale_rank = get_user_wholesale_rank($goods['rank_ids']);
 
-$smarty->assign('wholesale_rank',$wholesale_rank);
-/*  @author-bylu 判断当前商家是否允许"在线客服" start  */
+$smarty->assign('wholesale_rank', $wholesale_rank);
+/*  @author-bylu 判断当前商家是否允许"在线客服" start */
 $shop_information = get_shop_name($goods['user_id']);
 $shop_information['kf_tel'] = $db->getOne("SELECT kf_tel FROM " . $ecs->table('seller_shopinfo') . "WHERE ru_id = '" . $goods['user_id'] . "'");
 $business_practice = $db->getOne("SELECT business_practice FROM " . $ecs->table('seller_shopinfo') . "WHERE ru_id = '" . $goods['user_id'] . "'");
@@ -163,7 +164,7 @@ $smarty->assign('get_wholsale_navigator', $get_wholsale_navigator);
 $smarty->assign('shop_information', $shop_information);
 $smarty->assign('kf_appkey', $basic_info['kf_appkey']); //应用appkey;
 $smarty->assign('im_user_id', 'dsc' . $_SESSION['user_id']); //登入用户ID;
-/*  @author-bylu  end  */
+/*  @author-bylu  end */
 
 $basic_date = array('region_name');
 $basic_info['province'] = get_table_date('region', "region_id = '" . $basic_info['province'] . "'", $basic_date, 2);
@@ -181,10 +182,11 @@ $smarty->assign('adress', $adress);
 
 $goods_price = " IF(w.price_model=0, w.goods_price, (SELECT MIN(vp.volume_price) FROM " . $GLOBALS['ecs']->table('wholesale_volume_price') . " AS vp WHERE vp.goods_id = '$goods_id')) AS price ";
 $sql = " SELECT g.goods_thumb, g.goods_name, w.act_id, $goods_price FROM " . $ecs->table('wholesale') . " AS w LEFT JOIN " .
-        $ecs->table('goods') . " AS g ON g.goods_id = w.goods_id WHERE w.is_recommend = 1 AND g.user_id = '$goods[user_id]' ";
+    $ecs->table('goods') . " AS g ON g.goods_id = w.goods_id WHERE w.is_recommend = 1 AND g.user_id = '$goods[user_id]' ";
 $seller_recommend = $db->getRow($sql);
 if ($seller_recommend) {
-    $seller_recommend['goods_url'] = build_uri('wholesale_goods', array('aid' => $seller_recommend['act_id']), $seller_recommend['goods_name']);
+    $seller_recommend['goods_url'] = build_uri('wholesale_goods', array('aid' => $seller_recommend['act_id']),
+        $seller_recommend['goods_name']);
     $smarty->assign('seller_recommend', $seller_recommend);
 }
 
@@ -210,10 +212,10 @@ $area = array(
     'merchant_id' => $goods['user_id'],
 );
 
-if(defined('THEME_EXTENSION')){
-		$wholesale_cat = get_wholesale_child_cat();
-		$smarty->assign('wholesale_cat', $wholesale_cat);
-	}
+if (defined('THEME_EXTENSION')) {
+    $wholesale_cat = get_wholesale_child_cat();
+    $smarty->assign('wholesale_cat', $wholesale_cat);
+}
 
 $smarty->assign('properties', $properties['pro']);      // 商品规格	
 $smarty->assign('specification', $properties['spe']);      // 商品属性	
@@ -228,7 +230,7 @@ $smarty->assign('wholesale_param', $goods['price_ladder']);
 $smarty->assign('area', $area);
 $smarty->assign('act_id', $act_id);
 $pictures = get_goods_gallery($goods['goods_id']);
-$smarty->assign('pictures',            $pictures);                    // 商品相册
+$smarty->assign('pictures', $pictures);                    // 商品相册
 
 //属性列表 by wu
 $main_attr_list = get_wholesale_main_attr_list($goods['goods_id']);

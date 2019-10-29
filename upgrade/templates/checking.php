@@ -21,11 +21,11 @@ var $_LANG = {};
 ';
 
 foreach ($lang['js_languages'] as $key => $item) {
-	echo '$_LANG["';
-	echo $key;
-	echo '"] = "';
-	echo $item;
-	echo '";
+    echo '$_LANG["';
+    echo $key;
+    echo '"] = "';
+    echo $item;
+    echo '";
 ';
 }
 
@@ -45,13 +45,13 @@ echo '<i class="r"></i><i class="b"></i></legend>
 			';
 
 foreach ($config_info as $config_item) {
-	echo '            <li>
+    echo '            <li>
 				<span class="detail">';
-	echo $config_item[0];
-	echo '</span>
+    echo $config_item[0];
+    echo '</span>
                 <span class="route green">';
-	echo $config_item[1];
-	echo '</span>
+    echo $config_item[1];
+    echo '</span>
             </li>
 			';
 }
@@ -67,26 +67,25 @@ echo '<i class="r"></i><i class="b"></i></legend>
 			';
 
 foreach ($dir_checking as $checking_item) {
-	echo '            <li>
+    echo '            <li>
 				<span class="detail">';
-	echo $checking_item[0];
-	echo '</span>
+    echo $checking_item[0];
+    echo '</span>
 				';
 
-	if ($checking_item[1] == $lang['can_write']) {
-		echo '                <span class="route green">';
-		echo $checking_item[1];
-		echo '</span>
+    if ($checking_item[1] == $lang['can_write']) {
+        echo '                <span class="route green">';
+        echo $checking_item[1];
+        echo '</span>
                 ';
-	}
-	else {
-		echo '                <span class="route red">';
-		echo $checking_item[1];
-		echo '</span>
+    } else {
+        echo '                <span class="route red">';
+        echo $checking_item[1];
+        echo '</span>
                 ';
-	}
+    }
 
-	echo '            </li>
+    echo '            </li>
             ';
 }
 
@@ -101,24 +100,23 @@ echo '<i class="r"></i><i class="b"></i></legend>
 			';
 
 if ($has_unwritable_tpl == 'yes') {
-	echo '            ';
+    echo '            ';
 
-	foreach ($template_checking as $checking_item) {
-		echo '            <li>
+    foreach ($template_checking as $checking_item) {
+        echo '            <li>
             	<span class="route red">';
-		echo $checking_item;
-		echo '</span>
+        echo $checking_item;
+        echo '</span>
             </li>    
             ';
-	}
+    }
 
-	echo '            ';
-}
-else {
-	echo '            <li class="success">
+    echo '            ';
+} else {
+    echo '            <li class="success">
             	<span class="green">';
-	echo $template_checking;
-	echo '</span>
+    echo $template_checking;
+    echo '</span>
             </li>
             ';
 }
@@ -129,21 +127,21 @@ echo '        </ul>
     ';
 
 if (!empty($rename_priv)) {
-	echo '    <fieldset>
+    echo '    <fieldset>
         <legend>';
-	echo $lang['rename_priv_checking'];
-	echo '<i class="r"></i><i class="b"></i></legend>
+    echo $lang['rename_priv_checking'];
+    echo '<i class="r"></i><i class="b"></i></legend>
         <ul class="list">
 			';
 
-	foreach ($rename_priv as $checking_item) {
-		echo '            <li><span class="route red">';
-		echo $checking_item;
-		echo '</span></li>
+    foreach ($rename_priv as $checking_item) {
+        echo '            <li><span class="route red">';
+        echo $checking_item;
+        echo '</span></li>
             ';
-	}
+    }
 
-	echo '        </ul>
+    echo '        </ul>
     </fieldset> 
     ';
 }

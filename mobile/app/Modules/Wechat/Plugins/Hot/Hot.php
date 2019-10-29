@@ -65,7 +65,8 @@ class Hot extends PluginController
             foreach ($data as $key => $val) {
                 $articles['content'][$key]['PicUrl'] = get_wechat_image_path($val['goods_img']);
                 $articles['content'][$key]['Title'] = $val['goods_name'];
-                $articles['content'][$key]['Url'] = __HOST__ . url('goods/index/index', array('id' => $val['goods_id'], 'ru_id' => $this->ru_id));
+                $articles['content'][$key]['Url'] = __HOST__ . url('goods/index/index',
+                        array('id' => $val['goods_id'], 'ru_id' => $this->ru_id));
             }
             // 积分赠送
             if ($this->ru_id == 0) {

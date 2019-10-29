@@ -11,7 +11,7 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: calendar.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 $_LANG['evaluate_count'] = "累计评价";
 $_LANG['Sales_count'] = "累计销量";
 $_LANG['Exchange'] = "兑　　换";
@@ -39,7 +39,7 @@ $_LANG['Comment'] = '发表评论';
 $_LANG['Rate_praise'] = '好评率';
 $_LANG['Rate'] = '好评';
 $_LANG['zhong_p'] = '中评';
-$_LANG['Bad'] = '差评'; 
+$_LANG['Bad'] = '差评';
 $_LANG['Buyer_impression'] = '买家印象';
 $_LANG['theme'] = '主题';
 $_LANG['Reply_browse'] = '回复/浏览';
@@ -60,7 +60,7 @@ $_LANG['Exchange_integral'] = "换购积分";
 $_LANG['shop_process'] = "购物流程";
 $_LANG['order_process'] = "订购方式";
 $_LANG['Hot_exchange'] = "热门兑换";
-$_LANG['Novice_road'] = "新手上路"; 
+$_LANG['Novice_road'] = "新手上路";
 $_LANG['Privacy_statement'] = "隐私声明";
 $_LANG['Mobile_sense'] = "手机常识";
 
@@ -91,7 +91,7 @@ $_LANG['js_languages']['data_not_complete'] = "数据格式不完整";
 $_LANG['js_languages']['understock'] = "库存不足，请选择其他商品";
 
 $_LANG['js_languages']['shiping_prompt'] = "暂不支持配送";
-$_LANG['js_languages']['Have_goods'] = "有货"; 
+$_LANG['js_languages']['Have_goods'] = "有货";
 $_LANG['js_languages']['No_goods'] = "无货";
 $_LANG['js_languages']['Deliver_back_order'] = "下单后立即发货";
 $_LANG['js_languages']['goods_over'] = "此商品暂时售完";

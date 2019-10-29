@@ -11,11 +11,11 @@
  * ============================================================================
  * $Author: DSC TEAM $
  * $Id: tiantian.php $
-*/
+ */
 
-$_LANG['tiantian']          = '天天快递';
+$_LANG['tiantian'] = '天天快递';
 //$_LANG['tiantian_desc']     = '首重为5元/KG，续重为5元/KG。';
-$_LANG['tiantian_desc']     = '<a href="http://www.ttkdex.com" target="_blank">http://www.ttkdex.com</a>';
+$_LANG['tiantian_desc'] = '<a href="http://www.ttkdex.com" target="_blank">http://www.ttkdex.com</a>';
 $_LANG['item_fee'] = '单件商品费用：';
 $_LANG['base_fee'] = '首重1KG以内费用';
 $_LANG['step_fee'] = '续重每1KG或其零数的费用';

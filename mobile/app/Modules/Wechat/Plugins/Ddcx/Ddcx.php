@@ -77,7 +77,8 @@ class Ddcx extends PluginController
                 $articles['type'] = 'news';
                 $articles['content'][0]['Title'] = '订单号：' . $order['order_sn'];
                 $articles['content'][0]['Description'] = '商品信息：' . $goods . "\r\n" . '总金额：' . $order['total_fee'] . "\r\n" . '订单状态：' . $order['order_status'] . '-' . $order['pay_status'] . '-' . $order['shipping_status'] . "\r\n" . '快递公司：' . $order['shipping_name'] . "\r\n" . '物流单号：' . $order['invoice_no'];
-                $articles['content'][0]['Url'] = __HOST__ . url('user/order/detail', array('order_id' => $order['order_id']));
+                $articles['content'][0]['Url'] = __HOST__ . url('user/order/detail',
+                        array('order_id' => $order['order_id']));
                 // 积分赠送
                 $this->updatePoint($fromusername, $info);
             }

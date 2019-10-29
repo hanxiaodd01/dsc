@@ -274,7 +274,10 @@ class AdminController extends BackendController
         $id = I('get.id');
         $info = array();
         // 顶级菜单
-        $top_menu = $this->model->table('wechat_menu')->where(array('pid' => 0, 'wechat_id' => $this->wechat_id))->select();
+        $top_menu = $this->model->table('wechat_menu')->where(array(
+            'pid' => 0,
+            'wechat_id' => $this->wechat_id
+        ))->select();
         if (!empty($id)) {
             $info = $this->model->table('wechat_menu')->where(array('id' => $id))->find();
             // 顶级菜单
@@ -321,7 +324,10 @@ class AdminController extends BackendController
         // 自定义菜单权限
         $this->admin_priv('menu');
 
-        $list = $this->model->table('wechat_menu')->where(array('status' => 1, 'wechat_id' => $this->wechat_id))->order('sort asc')->select();
+        $list = $this->model->table('wechat_menu')->where(array(
+            'status' => 1,
+            'wechat_id' => $this->wechat_id
+        ))->order('sort asc')->select();
         if (empty($list)) {
             $this->message(L('menu_empty'), null, 2);
         }
@@ -512,7 +518,10 @@ class AdminController extends BackendController
                     // 微信端移动用户
                     $this->weObj->updateGroupMembers($group_id, $v);
                     // 数据处理
-                    $this->model->table('wechat_user')->data(array('groupid' => $group_id))->where(array('openid' => $v, 'wechat_id' => $this->wechat_id))->save();
+                    $this->model->table('wechat_user')->data(array('groupid' => $group_id))->where(array(
+                        'openid' => $v,
+                        'wechat_id' => $this->wechat_id
+                    ))->save();
                 }
                 $this->message(L('sub_move_sucess'), url('subscribe_list'));
             } else {
@@ -615,7 +624,13 @@ class AdminController extends BackendController
             $totalpage = $pager['page_count'];
             $persent = intval($page / $totalpage * 100); // 进度百分比
 
-            exit(json_encode(array('status' => 0, 'msg' => 'success', 'persent' => $persent, 'next_page' => $next_page, 'totalpage' => $totalpage)));
+            exit(json_encode(array(
+                'status' => 0,
+                'msg' => 'success',
+                'persent' => $persent,
+                'next_page' => $next_page,
+                'totalpage' => $totalpage
+            )));
         }
 
         $this->assign('request_url', url('subscribe_update')); // 请求URL
@@ -710,13 +725,16 @@ class AdminController extends BackendController
                             $articles[$key]['title'] = $artinfo['title'];
                             $articles[$key]['description'] = empty($artinfo['digest']) ? $artinfo['content'] : $artinfo['digest'];
                             $articles[$key]['picurl'] = get_wechat_image_path($artinfo['file']);
-                            $articles[$key]['url'] = empty($artinfo['link']) ? __HOST__ . url('article/index/wechat', array('id' => $artinfo['id'])) : strip_tags(html_out($artinfo['link']));
+                            $articles[$key]['url'] = empty($artinfo['link']) ? __HOST__ . url('article/index/wechat',
+                                    array('id' => $artinfo['id'])) : strip_tags(html_out($artinfo['link']));
                         }
                     } else {
                         $articles[0]['title'] = $mediaInfo['title'];
-                        $articles[0]['description'] = empty($mediaInfo['digest']) ? sub_str(strip_tags(html_out($mediaInfo['content'])), 100) : $mediaInfo['digest'];
+                        $articles[0]['description'] = empty($mediaInfo['digest']) ? sub_str(strip_tags(html_out($mediaInfo['content'])),
+                            100) : $mediaInfo['digest'];
                         $articles[0]['picurl'] = get_wechat_image_path($mediaInfo['file']);
-                        $articles[0]['url'] = empty($mediaInfo['link']) ? __HOST__ . url('article/index/wechat', array('id' => $mediaInfo['id'])) : strip_tags(html_out($mediaInfo['link']));
+                        $articles[0]['url'] = empty($mediaInfo['link']) ? __HOST__ . url('article/index/wechat',
+                                array('id' => $mediaInfo['id'])) : strip_tags(html_out($mediaInfo['link']));
                     }
 
                     // 图文消息（点击跳转到外链）
@@ -774,7 +792,7 @@ class AdminController extends BackendController
         $info = dao('wechat_user')->field('uid, headimgurl, nickname, openid')->where($where)->find();
         // 将大图转成64小图 0、46、64、96、132
         $n = strlen($info['headimgurl']) - strrpos($info['headimgurl'], '/') - 1;
-        $info['headimgurl'] = substr($info['headimgurl'], 0, - $n) . '64';
+        $info['headimgurl'] = substr($info['headimgurl'], 0, -$n) . '64';
 
         // 最新发送的消息6条
         $list = dao('wechat_custom_message')
@@ -806,11 +824,17 @@ class AdminController extends BackendController
         if (empty($uid)) {
             $this->message(L('select_openid'), null, 2);
         }
-        $nickname = $this->model->table('wechat_user')->where(array('uid' => $uid, 'wechat_id' => $this->wechat_id))->getField('nickname');
+        $nickname = $this->model->table('wechat_user')->where(array(
+            'uid' => $uid,
+            'wechat_id' => $this->wechat_id
+        ))->getField('nickname');
         // 分页
         $filter['uid'] = $uid;
         $offset = $this->pageLimit(url('custom_message_list', $filter), $this->page_num);
-        $total = $this->model->table('wechat_custom_message')->where(array('uid' => $uid, 'wechat_id' => $this->wechat_id))->order('send_time desc')->count();
+        $total = $this->model->table('wechat_custom_message')->where(array(
+            'uid' => $uid,
+            'wechat_id' => $this->wechat_id
+        ))->order('send_time desc')->count();
         $list = $this->model->table('wechat_custom_message')
             ->field('msg, send_time, wechat_id')
             ->where(array('uid' => $uid, 'wechat_id' => $this->wechat_id))
@@ -912,7 +936,13 @@ class AdminController extends BackendController
             $totalpage = $pager['page_count'];
             $persent = intval($page / $totalpage * 100); // 进度百分比
 
-            exit(json_encode(array('status' => 0, 'msg' => 'success', 'persent' => $persent, 'next_page' => $next_page, 'totalpage' => $totalpage)));
+            exit(json_encode(array(
+                'status' => 0,
+                'msg' => 'success',
+                'persent' => $persent,
+                'next_page' => $next_page,
+                'totalpage' => $totalpage
+            )));
         }
 
         $this->assign('request_url', url('user_tag_update')); // 请求URL
@@ -941,7 +971,10 @@ class AdminController extends BackendController
                 // 微信端编辑标签名称
                 $rs = $this->weObj->updateTags($tag_id, $name);
                 if (empty($rs)) {
-                    exit(json_encode(array('status' => 0, 'msg' => L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg)));
+                    exit(json_encode(array(
+                        'status' => 0,
+                        'msg' => L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg
+                    )));
                 }
                 // 本地数据更新
                 $where['id'] = $id;
@@ -955,7 +988,10 @@ class AdminController extends BackendController
                 // 微信端新增创建标签
                 $rs = $this->weObj->createTags($name);
                 if (empty($rs)) {
-                    exit(json_encode(array('status' => 0, 'msg' => L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg)));
+                    exit(json_encode(array(
+                        'status' => 0,
+                        'msg' => L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg
+                    )));
                 }
 
                 // 本地数据新增
@@ -999,7 +1035,10 @@ class AdminController extends BackendController
                 // 微信端编辑标签名称
                 $rs = $this->weObj->deleteTags($tag_id);
                 if (empty($rs)) {
-                    exit(json_encode(array('status' => 0, 'msg' => L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg)));
+                    exit(json_encode(array(
+                        'status' => 0,
+                        'msg' => L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg
+                    )));
                 }
                 // 本地标签数据删除
                 $where['wechat_id'] = $this->wechat_id;
@@ -1029,7 +1068,8 @@ class AdminController extends BackendController
                 // 微信端打标签
                 $rs = $this->weObj->batchtaggingTagsMembers($tag_id, $openlist);
                 if (empty($rs)) {
-                    $this->message(L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg, url('subscribe_list'), 2);
+                    $this->message(L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg,
+                        url('subscribe_list'), 2);
                     // exit(json_encode(array('status' => 0, 'msg' => L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg)));
                 }
                 // 本地数据处理
@@ -1087,7 +1127,10 @@ class AdminController extends BackendController
                 // 微信端取消标签
                 $rs = $this->weObj->batchuntaggingTagsMembers($tag_id, $openlist);
                 if (empty($rs)) {
-                    exit(json_encode(array('status' => 0, 'msg' => L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg)));
+                    exit(json_encode(array(
+                        'status' => 0,
+                        'msg' => L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg
+                    )));
                 }
                 // 本地数据处理 删除标签
                 foreach ($openlist as $v) {
@@ -1119,12 +1162,21 @@ class AdminController extends BackendController
             $uid = input('uid', 0, 'intval');
 
             if (!empty($remark)) {
-                $openid = dao('wechat_user')->where(array('uid' => $uid, 'wechat_id' => $this->wechat_id))->getField('openid');
+                $openid = dao('wechat_user')->where(array(
+                    'uid' => $uid,
+                    'wechat_id' => $this->wechat_id
+                ))->getField('openid');
                 $rs = $this->weObj->updateUserRemark($openid, $remark);
                 if (empty($rs)) {
-                    exit(json_encode(array('status' => 0, 'msg' => L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg)));
+                    exit(json_encode(array(
+                        'status' => 0,
+                        'msg' => L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg
+                    )));
                 }
-                dao('wechat_user')->data(array('remark' => $remark))->where(array('openid' => $openid, 'wechat_id' => $this->wechat_id))->save();
+                dao('wechat_user')->data(array('remark' => $remark))->where(array(
+                    'openid' => $openid,
+                    'wechat_id' => $this->wechat_id
+                ))->save();
                 exit(json_encode(array('status' => 1, 'msg' => '修改备注名成功')));
             } else {
                 exit(json_encode(array('status' => 0, 'msg' => L('empty'))));
@@ -1186,7 +1238,10 @@ class AdminController extends BackendController
                 // 微信端更新
                 $rs = $this->weObj->updateGroup($group_id, $name);
                 if (empty($rs)) {
-                    exit(json_encode(array('status' => 0, 'msg' => L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg)));
+                    exit(json_encode(array(
+                        'status' => 0,
+                        'msg' => L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg
+                    )));
                 }
                 // 数据更新
                 $where['id'] = $id;
@@ -1199,7 +1254,10 @@ class AdminController extends BackendController
                 // 微信端新增
                 $rs = $this->weObj->createGroup($name);
                 if (empty($rs)) {
-                    exit(json_encode(array('status' => 0, 'msg' => L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg)));
+                    exit(json_encode(array(
+                        'status' => 0,
+                        'msg' => L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg
+                    )));
                 }
                 // 数据新增
                 $data['wechat_id'] = $this->wechat_id;
@@ -1373,7 +1431,7 @@ class AdminController extends BackendController
                 $where = array(
                     'id' => $id,
                     'wechat_id' => $this->wechat_id
-                    );
+                );
                 $this->model->table('wechat_qrcode')->data($data)->where($where)->save();
                 exit(json_encode(array('status' => 1)));
             } else {
@@ -1394,7 +1452,7 @@ class AdminController extends BackendController
             $where = array(
                 'id' => $id,
                 'wechat_id' => $this->wechat_id
-                );
+            );
             $info = $this->model->table('wechat_qrcode')->where($where)->find();
         }
         $this->assign('info', $info);
@@ -1470,7 +1528,10 @@ class AdminController extends BackendController
                 $ticket = $this->weObj->getQRCode((int)$rs['scene_id'], $rs['type'], $rs['expire_seconds']);
             }
             if (empty($ticket)) {
-                exit(json_encode(array('status' => 0, 'msg' => L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg)));
+                exit(json_encode(array(
+                    'status' => 0,
+                    'msg' => L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg
+                )));
             }
             $data['ticket'] = $ticket['ticket'];
             $data['expire_seconds'] = $ticket['expire_seconds'];
@@ -1532,7 +1593,8 @@ class AdminController extends BackendController
             } else {
                 $list[$key]['is_prize'] = 1;
             }
-            $list[$key]['content'] = empty($val['digest']) ? sub_str(strip_tags(html_out($val['content'])), 50) : $val['digest'];
+            $list[$key]['content'] = empty($val['digest']) ? sub_str(strip_tags(html_out($val['content'])),
+                50) : $val['digest'];
         }
         $this->assign('page', $this->pageShow($total));
         $this->assign('list', $list);
@@ -1647,7 +1709,7 @@ class AdminController extends BackendController
         // 素材管理权限
         $this->admin_priv('media');
 
-        $cache_key = md5('gallery_album0'.$this->ru_id);
+        $cache_key = md5('gallery_album0' . $this->ru_id);
         $gallery_album = S($cache_key);
         if (!$gallery_album) {
             $gallery_album = get_gallery_album_tree(0, $this->ru_id);
@@ -1665,7 +1727,10 @@ class AdminController extends BackendController
 
         $total = dao('pic_album')->where(array('album_id' => $album_id, $ru_id => $this->ru_id))->count();
 
-        $pic_album_list = dao('pic_album')->where(array('album_id' => $album_id, $ru_id => $this->ru_id))->limit($offset)->order('pic_id DESC')->select();
+        $pic_album_list = dao('pic_album')->where(array(
+            'album_id' => $album_id,
+            $ru_id => $this->ru_id
+        ))->limit($offset)->order('pic_id DESC')->select();
         foreach ($pic_album_list as $key => $value) {
             $pic_album_list[$key]['pic_file'] = get_image_path($value['pic_file']);
         }
@@ -1745,13 +1810,14 @@ class AdminController extends BackendController
         // 分页
         $this->page_num = isset($_COOKIE['ECSCP']['page_size']) && !empty($_COOKIE['ECSCP']['page_size']) ? $_COOKIE['ECSCP']['page_size'] : 4;
         $offset = $this->pageLimit(url('articles_list'), $this->page_num);
-        $total =  $this->model->query("SELECT count(*) as count  FROM {pre}wechat_media WHERE wechat_id =  $this->wechat_id  and type = 'news' and (article_id is NULL or article_id = '') ");
+        $total = $this->model->query("SELECT count(*) as count  FROM {pre}wechat_media WHERE wechat_id =  $this->wechat_id  and type = 'news' and (article_id is NULL or article_id = '') ");
         // 图文信息
         $article = $this->model->query("SELECT id, title, file, digest, content, add_time FROM {pre}wechat_media WHERE wechat_id =  $this->wechat_id  and type = 'news' and (article_id is NULL or article_id = '') ORDER BY sort DESC, add_time DESC limit $offset");
         if (!empty($article)) {
             foreach ($article as $k => $v) {
                 $article[$k]['file'] = get_wechat_image_path($v['file']);
-                $article[$k]['content'] = empty($v['digest']) ? sub_str(strip_tags(html_out($v['content'])), 50) : $v['digest'];
+                $article[$k]['content'] = empty($v['digest']) ? sub_str(strip_tags(html_out($v['content'])),
+                    50) : $v['digest'];
             }
         }
 
@@ -2162,7 +2228,8 @@ class AdminController extends BackendController
                 $artinfo['type'] = '图文消息';
             }
             $artinfo['file'] = get_wechat_image_path($artinfo['file']);
-            $artinfo['content'] = empty($artinfo['digest']) ? sub_str(strip_tags(html_out($artinfo['content'])), 50) : $artinfo['digest'];
+            $artinfo['content'] = empty($artinfo['digest']) ? sub_str(strip_tags(html_out($artinfo['content'])),
+                50) : $artinfo['digest'];
             $list[$key]['artinfo'] = $artinfo;
         }
 
@@ -2214,7 +2281,8 @@ class AdminController extends BackendController
 
                     $rs = $this->weObj->uploadMedia(array('media' => realpath_wechat($filename)), 'image');
                     if (empty($rs)) {
-                        $this->message(L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg, null, 2);
+                        $this->message(L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg, null,
+                            2);
                     }
 
                     // 删除从oss下载的本地图片
@@ -2392,7 +2460,8 @@ class AdminController extends BackendController
                 foreach ($article as $key => $val) {
                     $article[$key]['file'] = get_wechat_image_path($val['file']);
                     $article[$key]['add_time'] = date('Y年m月d日', $val['add_time']);
-                    $article[$key]['content'] = empty($val['digest']) ? sub_str(strip_tags(html_out($val['content'])), 50) : $val['digest'];
+                    $article[$key]['content'] = empty($val['digest']) ? sub_str(strip_tags(html_out($val['content'])),
+                        50) : $val['digest'];
                 }
             }
             exit(json_encode($article));
@@ -2445,7 +2514,8 @@ class AdminController extends BackendController
                             $list[$key]['articles'][$k]['file'] = get_wechat_image_path($list[$key]['articles'][$k]['file']);
                         }
                     }
-                    $list[$key]['content'] = empty($val['digest']) ? sub_str(strip_tags(html_out($val['content'])), 50) : $val['digest'];
+                    $list[$key]['content'] = empty($val['digest']) ? sub_str(strip_tags(html_out($val['content'])),
+                        50) : $val['digest'];
                 }
             }
 
@@ -2604,7 +2674,8 @@ class AdminController extends BackendController
                     ->where(array('id' => $val['media_id'], 'wechat_id' => $this->wechat_id))
                     ->find();
                 $media['file'] = get_wechat_image_path($media['file']);
-                $media['content'] = empty($media['digest']) ? sub_str(strip_tags(html_out($media['content'])), 50) : $media['digest'];
+                $media['content'] = empty($media['digest']) ? sub_str(strip_tags(html_out($media['content'])),
+                    50) : $media['digest'];
                 if (!empty($media['article_id'])) {
                     $artids = explode(',', $media['article_id']);
                     foreach ($artids as $k => $v) {
@@ -3028,7 +3099,10 @@ class AdminController extends BackendController
                         $json_result['msg'] = L('errcode') . $this->weObj->errCode . L('errmsg') . $this->weObj->errMsg;
                         exit(json_encode($json_result));
                     }
-                    dao('wechat_template')->data(array('template_id' => '', 'status' => 0))->where(array('id' => $id))->save();
+                    dao('wechat_template')->data(array(
+                        'template_id' => '',
+                        'status' => 0
+                    ))->where(array('id' => $id))->save();
                     $json_result['msg'] = '重置成功！';
                     exit(json_encode($json_result));
                 }
@@ -3167,7 +3241,10 @@ class AdminController extends BackendController
                 } else {
                     //缺少素材
                     if (empty($cfg_value['media_id'])) {
-                        $media_id = $this->model->table('wechat_media')->where(array('command' => $this->plugin_name, 'wechat_id' => $this->wechat_id))->getField('id');
+                        $media_id = $this->model->table('wechat_media')->where(array(
+                            'command' => $this->plugin_name,
+                            'wechat_id' => $this->wechat_id
+                        ))->getField('id');
                         if ($media_id) {
                             $cfg_value['media_id'] = $media_id;
                         } else {
@@ -3176,10 +3253,18 @@ class AdminController extends BackendController
                             if (file_exists($sql_file)) {
                                 //添加素材
                                 $sql = file_get_contents($sql_file);
-                                $sql = str_replace(array('ecs_wechat_media', '(0', 'http://', 'views/images'), array('{pre}wechat_media', '(' . $this->wechat_id, __HOST__ . url('wechat/index/plugin_show', array('name' => $this->plugin_name)), 'public/assets/wechat/' . $this->plugin_name . '/images'), $sql);
+                                $sql = str_replace(array('ecs_wechat_media', '(0', 'http://', 'views/images'), array(
+                                    '{pre}wechat_media',
+                                    '(' . $this->wechat_id,
+                                    __HOST__ . url('wechat/index/plugin_show', array('name' => $this->plugin_name)),
+                                    'public/assets/wechat/' . $this->plugin_name . '/images'
+                                ), $sql);
                                 $this->model->query($sql);
                                 //获取素材id
-                                $cfg_value['media_id'] = $this->model->table('wechat_media')->where(array('command' => $this->plugin_name, 'wechat_id' => $this->wechat_id))->getField('id');
+                                $cfg_value['media_id'] = $this->model->table('wechat_media')->where(array(
+                                    'command' => $this->plugin_name,
+                                    'wechat_id' => $this->wechat_id
+                                ))->getField('id');
                             }
                         }
                     }
@@ -3197,10 +3282,18 @@ class AdminController extends BackendController
                 if (file_exists($sql_file)) {
                     //添加素材
                     $sql = file_get_contents($sql_file);
-                    $sql = str_replace(array('ecs_wechat_media', '(0', 'http://', 'views/images'), array('{pre}wechat_media', '(' . $this->wechat_id, __HOST__ . url('wechat/index/plugin_show', array('name' => $this->plugin_name)), 'public/assets/wechat/' . $this->plugin_name . '/images'), $sql);
+                    $sql = str_replace(array('ecs_wechat_media', '(0', 'http://', 'views/images'), array(
+                        '{pre}wechat_media',
+                        '(' . $this->wechat_id,
+                        __HOST__ . url('wechat/index/plugin_show', array('name' => $this->plugin_name)),
+                        'public/assets/wechat/' . $this->plugin_name . '/images'
+                    ), $sql);
                     $this->model->query($sql);
                     //获取素材id
-                    $cfg_value['media_id'] = $this->model->table('wechat_media')->where(array('command' => $this->plugin_name, 'wechat_id' => $this->wechat_id))->getField('id');
+                    $cfg_value['media_id'] = $this->model->table('wechat_media')->where(array(
+                        'command' => $this->plugin_name,
+                        'wechat_id' => $this->wechat_id
+                    ))->getField('id');
                 }
                 $data['config'] = serialize($cfg_value);
                 $data['enable'] = 1;
@@ -3238,8 +3331,10 @@ class AdminController extends BackendController
             }
             // 设置初始起止时间 默认当前时间后一个月
             $current_time = gmtime();
-            $config['config']['starttime'] = empty($config['config']['starttime']) ? date('Y-m-d', $current_time) : $config['config']['starttime'];
-            $config['config']['endtime'] = empty($config['config']['endtime']) ? date('Y-m-d', strtotime("+1 months")) : $config['config']['endtime'];
+            $config['config']['starttime'] = empty($config['config']['starttime']) ? date('Y-m-d',
+                $current_time) : $config['config']['starttime'];
+            $config['config']['endtime'] = empty($config['config']['endtime']) ? date('Y-m-d',
+                strtotime("+1 months")) : $config['config']['endtime'];
             $obj = new $plugin($config);
             $obj->install();
         }
@@ -3268,9 +3363,15 @@ class AdminController extends BackendController
             ->where(array('command' => $keywords, 'wechat_id' => $this->wechat_id))
             ->save();
         //删除素材
-        $media_count = $this->model->table('wechat_media')->where(array('command' => $keywords, 'wechat_id' => $this->wechat_id))->count();
+        $media_count = $this->model->table('wechat_media')->where(array(
+            'command' => $keywords,
+            'wechat_id' => $this->wechat_id
+        ))->count();
         if ($media_count > 0) {
-            $this->model->table('wechat_media')->where(array('command' => $keywords, 'wechat_id' => $this->wechat_id))->delete();
+            $this->model->table('wechat_media')->where(array(
+                'command' => $keywords,
+                'wechat_id' => $this->wechat_id
+            ))->delete();
         }
 
         $this->message('卸载成功', url('extend_index'));
@@ -3337,12 +3438,18 @@ class AdminController extends BackendController
         }
         if (!empty($cancel)) {
             $data['issue_status'] = 0;
-            $this->model->table('wechat_prize')->data($data)->where(array('id' => $id, 'wechat_id' => $this->wechat_id))->save();
+            $this->model->table('wechat_prize')->data($data)->where(array(
+                'id' => $id,
+                'wechat_id' => $this->wechat_id
+            ))->save();
 
             $this->message('取消成功', url('winner_list', array('ks' => $activity_type)));
         } else {
             $data['issue_status'] = 1;
-            $this->model->table('wechat_prize')->data($data)->where(array('id' => $id, 'wechat_id' => $this->wechat_id))->save();
+            $this->model->table('wechat_prize')->data($data)->where(array(
+                'id' => $id,
+                'wechat_id' => $this->wechat_id
+            ))->save();
 
             $this->message('发放成功', url('winner_list', array('ks' => $activity_type)));
         }
@@ -3447,7 +3554,10 @@ class AdminController extends BackendController
             $config['wechat_id'] = $this->wechat_id;
 
             // 取得当前活动条数 作为关键词后缀 如wall1
-            $key = dao('wechat_marketing')->where(array('marketing_type' => $this->market_type, 'wechat_id' => $this->wechat_id))->count();
+            $key = dao('wechat_marketing')->where(array(
+                'marketing_type' => $this->market_type,
+                'wechat_id' => $this->wechat_id
+            ))->count();
             $key = !empty($key) ? $key + 1 : 1;
             $config['command'] = $this->market_type . $this->wechat_id . $key;
 

@@ -21,11 +21,11 @@ var $_LANG = {};
 ';
 
 foreach ($lang['js_languages'] as $key => $item) {
-	echo '$_LANG["';
-	echo $key;
-	echo '"] = "';
-	echo $item;
-	echo '";
+    echo '$_LANG["';
+    echo $key;
+    echo '"] = "';
+    echo $item;
+    echo '";
 ';
 }
 
@@ -39,49 +39,48 @@ echo '<form id="js-setup" method="post" onsubmit="return setupUCenter()">
 ';
 
 if ($not_match) {
-	echo '<table border="0" cellpadding="0" cellspacing="0" class="uc_table">
+    echo '<table border="0" cellpadding="0" cellspacing="0" class="uc_table">
 <tr>
 <td>';
-	echo $lang['ucenter_not_match'];
-	echo '</td>
+    echo $lang['ucenter_not_match'];
+    echo '</td>
 </tr>
 </table>
 ';
-}
-else if ($noucdb) {
-	echo '<table border="0" cellpadding="0" cellspacing="0" class="uc_table">
+} else {
+    if ($noucdb) {
+        echo '<table border="0" cellpadding="0" cellspacing="0" class="uc_table">
 <tr>
 <td>';
-	echo $lang['ucenter_no_database'];
-	echo '</td>
+        echo $lang['ucenter_no_database'];
+        echo '</td>
 </tr>
 </table>
 ';
-}
-else {
-	echo '<table border="0" cellpadding="0" cellspacing="0" class="uc_table">
+    } else {
+        echo '<table border="0" cellpadding="0" cellspacing="0" class="uc_table">
 <tr>
 <td valign="top">
 <div id="wrapper">
   <h3>';
-	echo $lang['users_importto_ucenter'];
-	echo '</h3>
+        echo $lang['users_importto_ucenter'];
+        echo '</h3>
 
 <table width="550" class="list">
 <tr>
     <td colspan="2">';
-	printf($lang['user_startid_intro'], $maxuid, $maxuid);
-	echo '</td>
+        printf($lang['user_startid_intro'], $maxuid, $maxuid);
+        echo '</td>
 </tr>
 <tr>
     <td width="125" align="left">';
-	echo $lang['user_merge_method'];
-	echo '</td>
+        echo $lang['user_merge_method'];
+        echo '</td>
     <td align="left"><input type="radio" name="js-merge" id="js-merge-1" value="1" checked="true" /><label for="js-merge-1">';
-	echo $lang['user_merge_method_1'];
-	echo '</label><br /><input name="js-merge" type="radio" value="2" id="js-merge-2" /><label for="js-merge-2">';
-	echo $lang['user_merge_method_2'];
-	echo '</label>
+        echo $lang['user_merge_method_1'];
+        echo '</label><br /><input name="js-merge" type="radio" value="2" id="js-merge-2" /><label for="js-merge-2">';
+        echo $lang['user_merge_method_2'];
+        echo '</label>
       <span id="notice" style="color:#FF0000"></span></td>
 </tr>
 <tr><td>&nbsp;</td><td></td></tr>
@@ -90,24 +89,25 @@ else {
 
   </div></td>
 <td width="227" valign="top" background="images/install-step3-';
-	echo $installer_lang;
-	echo '.gif">&nbsp;</td>
+        echo $installer_lang;
+        echo '.gif">&nbsp;</td>
 </tr>
 <tr>
   <td>
   <div id="install-btn">
   <input type="button" class="button" id="js-pre-step" class="button" value="';
-	echo $lang['prev_step'];
-	echo '" />
+        echo $lang['prev_step'];
+        echo '" />
   <input id="js-submit-uc" type="button" class="button" value="';
-	echo $lang['next_step'];
-	echo $lang['ucenter_import_members'];
-	echo '" />
+        echo $lang['next_step'];
+        echo $lang['ucenter_import_members'];
+        echo '" />
 </div>
   </td><td></td>
 </tr>
 </table>
 ';
+    }
 }
 
 echo '<div id="js-monitor" style="display:none;text-align:left;position:absolute;top:45%;left:35%;width:300px;z-index:1000;border:1px solid #000;">

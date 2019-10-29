@@ -11,7 +11,7 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: calendar.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 
 $_LANG['been_evaluated'] = "您已评价过.";
 $_LANG['Add_success'] = "添加成功.";
@@ -24,7 +24,7 @@ $_LANG['comment_delete'] = "此条评论可能已经被删除";
 $_LANG['comment_null'] = "回复内容不能为空";
 $_LANG['comment_self'] = "不能对自己评论";
 $_LANG['comment_fail'] = "评论未成功，请检查网络。";
-$_LANG['price_notice'] = '降价通知'; 
+$_LANG['price_notice'] = '降价通知';
 $_LANG['Cumulative_evaluation'] = '累计评价';
 $_LANG['Cumulative_Sales'] = '累计销量';
 $_LANG['remaining'] = '剩余';
@@ -93,7 +93,7 @@ $_LANG['delivery_speed'] = '发货速度';
 $_LANG['Rate_praise'] = '好评率';
 $_LANG['Rate'] = '好评';
 $_LANG['zhong_p'] = '中评';
-$_LANG['Bad'] = '差评'; 
+$_LANG['Bad'] = '差评';
 $_LANG['Buyer_impression'] = '买家印象';
 $_LANG['theme'] = '主题';
 $_LANG['Reply_browse'] = '回复/浏览';
@@ -103,7 +103,7 @@ $_LANG['conversation_count_one'] = "共";
 $_LANG['conversation_count_two'] = "个话题";
 $_LANG['browse_all'] = "点击浏览全部";
 $_LANG['Change_set'] = "换一组";
-$_LANG['price_notice_desc'] = '一旦商品在30日内降价，您将收到邮件、短信和手机推送消息！通过手机客户端消息提醒，购买更便捷~'; 
+$_LANG['price_notice_desc'] = '一旦商品在30日内降价，您将收到邮件、短信和手机推送消息！通过手机客户端消息提醒，购买更便捷~';
 $_LANG['Price_below'] = "价格低于";
 $_LANG['Price_below_one'] = "时，通知我";
 $_LANG['label_mobile'] = '手机号码：';
@@ -168,7 +168,7 @@ $_LANG['js_languages']['understock'] = "库存不足，请选择其他商品";
 $_LANG['js_languages']['see_store'] = '查看门店';
 $_LANG['js_languages']['Purchase_quantity'] = '超过限购数量';
 $_LANG['js_languages']['shiping_prompt'] = "暂不支持配送";
-$_LANG['js_languages']['Have_goods'] = "有货"; 
+$_LANG['js_languages']['Have_goods'] = "有货";
 $_LANG['js_languages']['No_goods'] = "无货";
 $_LANG['js_languages']['Deliver_back_order'] = "下单后立即发货";
 $_LANG['js_languages']['goods_over'] = "此商品暂时售完";

@@ -2,49 +2,46 @@
 //多点乐资源
 function putBucketWebsite($ossClient, $bucket)
 {
-	$websiteConfig = new \OSS\Model\WebsiteConfig('index.html', 'error.html');
+    $websiteConfig = new \OSS\Model\WebsiteConfig('index.html', 'error.html');
 
-	try {
-		$ossClient->putBucketWebsite($bucket, $websiteConfig);
-	}
-	catch (\OSS\Core\OssException $e) {
-		printf('putBucketWebsite' . ": FAILED\n");
-		printf($e->getMessage() . "\n");
-		return NULL;
-	}
+    try {
+        $ossClient->putBucketWebsite($bucket, $websiteConfig);
+    } catch (\OSS\Core\OssException $e) {
+        printf('putBucketWebsite' . ": FAILED\n");
+        printf($e->getMessage() . "\n");
+        return null;
+    }
 
-	print('putBucketWebsite' . ': OK' . "\n");
+    print('putBucketWebsite' . ': OK' . "\n");
 }
 
 function getBucketWebsite($ossClient, $bucket)
 {
-	$websiteConfig = NULL;
+    $websiteConfig = null;
 
-	try {
-		$websiteConfig = $ossClient->getBucketWebsite($bucket);
-	}
-	catch (\OSS\Core\OssException $e) {
-		printf('getBucketWebsite' . ": FAILED\n");
-		printf($e->getMessage() . "\n");
-		return NULL;
-	}
+    try {
+        $websiteConfig = $ossClient->getBucketWebsite($bucket);
+    } catch (\OSS\Core\OssException $e) {
+        printf('getBucketWebsite' . ": FAILED\n");
+        printf($e->getMessage() . "\n");
+        return null;
+    }
 
-	print('getBucketWebsite' . ': OK' . "\n");
-	print($websiteConfig->serializeToXml() . "\n");
+    print('getBucketWebsite' . ': OK' . "\n");
+    print($websiteConfig->serializeToXml() . "\n");
 }
 
 function deleteBucketWebsite($ossClient, $bucket)
 {
-	try {
-		$ossClient->deleteBucketWebsite($bucket);
-	}
-	catch (\OSS\Core\OssException $e) {
-		printf('deleteBucketWebsite' . ": FAILED\n");
-		printf($e->getMessage() . "\n");
-		return NULL;
-	}
+    try {
+        $ossClient->deleteBucketWebsite($bucket);
+    } catch (\OSS\Core\OssException $e) {
+        printf('deleteBucketWebsite' . ": FAILED\n");
+        printf($e->getMessage() . "\n");
+        return null;
+    }
 
-	print('deleteBucketWebsite' . ': OK' . "\n");
+    print('deleteBucketWebsite' . ': OK' . "\n");
 }
 
 require_once __DIR__ . '/Common.php';
@@ -52,7 +49,7 @@ $bucket = Common::getBucketName();
 $ossClient = Common::getOssClient();
 
 if (is_null($ossClient)) {
-	exit(1);
+    exit(1);
 }
 
 $websiteConfig = new \OSS\Model\WebsiteConfig('index.html', 'error.html');

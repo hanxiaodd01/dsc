@@ -11,9 +11,10 @@
 ini_set('display_errors', 'Off');
 
 //setup
-define('PATH', __DIR__.'/storage/framework');         //relative folder where the images are saved
+define('PATH', __DIR__ . '/storage/framework');         //relative folder where the images are saved
 define('PATH_PERMISSION', 0666);  //use 644 or 666 for remove execution for prevent sploits
-define('CCACHE', 60 * 5 * 1000);  //Limit access-control and cache, define 0/false/null/-1 to not use "http header cache"
+define('CCACHE',
+    60 * 5 * 1000);  //Limit access-control and cache, define 0/false/null/-1 to not use "http header cache"
 define('TIMEOUT', 20);            //Timeout from load Socket
 define('MAX_LOOP', 10);           //Configure loop limit for redirects (location header)
 define('CROSS_DOMAIN', false);    //Enable use of "data URI scheme"
@@ -36,7 +37,7 @@ define('GMDATECACHE', gmdate('D, d M Y H:i:s'));
 If execution has reached the time limit prevents page goes blank (off errors)
 or generate an error in PHP, which does not work with the DEBUG (from html2canvas.js)
 */
-$maxExec = (int) ini_get('max_execution_time');
+$maxExec = (int)ini_get('max_execution_time');
 define('MAX_EXEC', $maxExec < 1 ? 0 : ($maxExec - 5));//reduces 5 seconds to ensure the execution of the DEBUG
 
 define('INIT_EXEC', time());
@@ -49,7 +50,7 @@ $response = array();
 
 /**
  * For show ASCII documents with "data uri scheme"
- * @param string $s    to encode
+ * @param string $s to encode
  * @return string      always return string
  */
 function asciiToInline($str)
@@ -75,7 +76,7 @@ function asciiToInline($str)
 /**
  * Detect SSL stream transport
  * @return boolean|string        If returns string has an problem, returns true if ok
-*/
+ */
 function supportSSL()
 {
     if (defined('SOCKET_SSL_STREAM')) {
@@ -148,7 +149,7 @@ function getError()
 
 /**
  * Detect if content-type is valid and get charset if available
- * @param string $content    content-type
+ * @param string $content content-type
  * @return array             always return array
  */
 function checkContentType($content)
@@ -170,31 +171,39 @@ function checkContentType($content)
     );
 
     if (in_array($mime, array(
-        'image/bmp', 'image/windows-bmp', 'image/ms-bmp',
-        'image/jpeg', 'image/jpg', 'image/png', 'image/gif',
-        'text/html', 'application/xhtml', 'application/xhtml+xml',
-        'image/svg+xml', //SVG image
-        'image/svg-xml' //Old servers (bug)
-    )) === false) {
+            'image/bmp',
+            'image/windows-bmp',
+            'image/ms-bmp',
+            'image/jpeg',
+            'image/jpg',
+            'image/png',
+            'image/gif',
+            'text/html',
+            'application/xhtml',
+            'application/xhtml+xml',
+            'image/svg+xml', //SVG image
+            'image/svg-xml' //Old servers (bug)
+        )) === false) {
         return array('error' => $mime . ' mimetype is invalid');
     }
 
     return array(
-        'mime' => $mime, 'encode' => $encode
+        'mime' => $mime,
+        'encode' => $encode
     );
 }
 
 /**
  * enconde string in "json" (only strings), json_encode (native in php) don't support for php4
- * @param string $s    to encode
+ * @param string $s to encode
  * @return string      always return string
  */
-function JsonEncodeString($s, $onlyEncode=false)
+function JsonEncodeString($s, $onlyEncode = false)
 {
     $vetor = array();
-    $vetor[0]  = '\\0';
-    $vetor[8]  = '\\b';
-    $vetor[9]  = '\\t';
+    $vetor[0] = '\\0';
+    $vetor[8] = '\\b';
+    $vetor[9] = '\\t';
     $vetor[10] = '\\n';
     $vetor[12] = '\\f';
     $vetor[13] = '\\r';
@@ -233,7 +242,7 @@ function JsonEncodeString($s, $onlyEncode=false)
 
 /**
  * set headers in document
- * @param boolean $nocache      If false set cache (if CCACHE > 0), If true set no-cache in document
+ * @param boolean $nocache If false set cache (if CCACHE > 0), If true set no-cache in document
  * @return void                 return always void
  */
 function setHeaders($nocache)
@@ -249,7 +258,7 @@ function setHeaders($nocache)
         //no-cache
         header('Pragma: no-cache');
         header('Cache-Control: no-cache');
-        header('Expires: '. GMDATECACHE .' GMT');
+        header('Expires: ' . GMDATECACHE . ' GMT');
     }
 
     //set access-control
@@ -261,10 +270,10 @@ function setHeaders($nocache)
 
 /**
  * Converte relative-url to absolute-url
- * @param string $u       set base url
- * @param string $m       set relative url
+ * @param string $u set base url
+ * @param string $m set relative url
  * @return string         return always string, if have an error, return blank string (scheme invalid)
-*/
+ */
 function relativeToAbsolute($u, $m)
 {
     if (strpos($m, '//') === 0) {//http link //site.com/test
@@ -330,7 +339,7 @@ function relativeToAbsolute($u, $m)
         }
     }
 
-    $m  = $pu['scheme'] . '://' . $pu['host'] . '/' . implode('/', $nw) . ($isPath === true ? '/' : '');
+    $m = $pu['scheme'] . '://' . $pu['host'] . '/' . implode('/', $nw) . ($isPath === true ? '/' : '');
 
     if (isset($pm['query'])) {
         $m .= '?' . $pm['query'];
@@ -350,9 +359,9 @@ function relativeToAbsolute($u, $m)
 
 /**
  * validate url
- * @param string $u  set base url
+ * @param string $u set base url
  * @return boolean   return always boolean
-*/
+ */
 function isHttpUrl($u)
 {
     return preg_match('#^http(|s)[:][/][/][a-z0-9]#i', $u) !== 0;
@@ -361,7 +370,7 @@ function isHttpUrl($u)
 /**
  * create folder for images download
  * @return boolean      return always boolean
-*/
+ */
 function createFolder()
 {
     if (file_exists(PATH) === false || is_dir(PATH) === false) {
@@ -372,10 +381,10 @@ function createFolder()
 
 /**
  * create temp file which will receive the download
- * @param string  $basename        set url
- * @param boolean $isEncode        If true uses the "first" temporary name
+ * @param string  $basename set url
+ * @param boolean $isEncode If true uses the "first" temporary name
  * @return boolean|array           If you can not create file return false, If create file return array
-*/
+ */
 function createTmpFile($basename, $isEncode)
 {
     $folder = preg_replace('#[/]$#', '', PATH) . '/';
@@ -385,7 +394,7 @@ function createTmpFile($basename, $isEncode)
     }
 
     //$basename .= $basename;
-    $tmpMime  = '.' . mt_rand(0, 1000) . '_';
+    $tmpMime = '.' . mt_rand(0, 1000) . '_';
     $tmpMime .= $isEncode === true ? time() : INIT_EXEC;
 
     if (file_exists($folder . $basename . $tmpMime)) {
@@ -409,10 +418,10 @@ function curlDownloadSource($url, $toSource)
     $uri = parse_url($url);
 
     //Reformat url
-    $currentUrl  = (empty($uri['scheme']) ? 'http': $uri['scheme']) . '://';
-    $currentUrl .= empty($uri['host'])    ? '': $uri['host'];
-    $currentUrl .= empty($uri['path'])    ? '/': $uri['path'];
-    $currentUrl .= empty($uri['query'])   ? '': ('?' . $uri['query']);
+    $currentUrl = (empty($uri['scheme']) ? 'http' : $uri['scheme']) . '://';
+    $currentUrl .= empty($uri['host']) ? '' : $uri['host'];
+    $currentUrl .= empty($uri['path']) ? '/' : $uri['path'];
+    $currentUrl .= empty($uri['query']) ? '' : ('?' . $uri['query']);
 
     $ch = curl_init();
 
@@ -494,10 +503,10 @@ function curlDownloadSource($url, $toSource)
 
 /**
  * download http request recursive (If found HTTP 3xx)
- * @param string $url               to download
- * @param resource $toSource        to download
+ * @param string   $url      to download
+ * @param resource $toSource to download
  * @return array                    retuns array
-*/
+ */
 function downloadSource($url, $toSource, $caller)
 {
     $errno = 0;
@@ -520,7 +529,7 @@ function downloadSource($url, $toSource, $caller)
         }
     }
 
-    $port = empty($uri['port']) ? ($secure === true ? 443 : 80) : ((int) $uri['port']);
+    $port = empty($uri['port']) ? ($secure === true ? 443 : 80) : ((int)$uri['port']);
     $host = ($secure ? 'ssl://' : '') . $uri['host'];
 
     $fp = fsockopen($host, $port, $errno, $errstr, TIMEOUT);
@@ -530,9 +539,9 @@ function downloadSource($url, $toSource, $caller)
     } else {
         fwrite(
             $fp, 'GET ' . (
-                empty($uri['path'])  ? '/' : $uri['path']
+            empty($uri['path']) ? '/' : $uri['path']
             ) . (
-                empty($uri['query']) ? '' : ('?' . $uri['query'])
+            empty($uri['query']) ? '' : ('?' . $uri['query'])
             ) . ' HTTP/1.0' . WOL . EOL
         );
 
@@ -691,25 +700,29 @@ if (empty($_SERVER['HTTP_HOST'])) {
     $response = array('error' => 'Only http scheme and https scheme are allowed');
 } elseif (createFolder() === false) {
     $err = getError();
-    $response = array('error' => 'Can not create directory'. (
-        $err !== null && empty($err['message']) ? '' : (': ' . $err['message'])
-    ));
+    $response = array(
+        'error' => 'Can not create directory' . (
+            $err !== null && empty($err['message']) ? '' : (': ' . $err['message'])
+            )
+    );
     $err = null;
 } else {
-    $http_port = (int) $_SERVER['SERVER_PORT'];
+    $http_port = (int)$_SERVER['SERVER_PORT'];
 
     $tmp = createTmpFile($_GET['url'], false);
 
     if ($tmp === false) {
         $err = getError();
-        $response = array('error' => 'Can not create file'. (
-            $err !== null && empty($err['message']) ? '' : (': ' . $err['message'])
-        ));
+        $response = array(
+            'error' => 'Can not create file' . (
+                $err !== null && empty($err['message']) ? '' : (': ' . $err['message'])
+                )
+        );
         $err = null;
     } else {
         $response = PREFER_CURL && function_exists('curl_init') ?
-                        curlDownloadSource($_GET['url'], $tmp['source']) :
-                            downloadSource($_GET['url'], $tmp['source'], 0);
+            curlDownloadSource($_GET['url'], $tmp['source']) :
+            downloadSource($_GET['url'], $tmp['source'], 0);
 
         fclose($tmp['source']);
     }
@@ -760,13 +773,13 @@ if (is_array($response) && false === empty($response['mime'])) {
 
                 if (strpos($mime, 'image/svg') !== 0 && strpos($mime, 'image/') === 0) {
                     echo JSONP_CALLBACK, '("data:', $mime, ';base64,',
-                        base64_encode(
-                            file_get_contents($locationFile)
-                        ),
+                    base64_encode(
+                        file_get_contents($locationFile)
+                    ),
                     '");';
                 } else {
                     echo JSONP_CALLBACK, '("data:', $mime, ',',
-                        asciiToInline(file_get_contents($locationFile)),
+                    asciiToInline(file_get_contents($locationFile)),
                     '");';
                 }
             } else {
@@ -781,15 +794,15 @@ if (is_array($response) && false === empty($response['mime'])) {
                 }
 
                 echo JSONP_CALLBACK, '(',
-                    JsonEncodeString(
-                        ($http_port === 443 ? 'https://' : 'http://') .
-                        preg_replace('#:[0-9]+$#', '', $_SERVER['HTTP_HOST']) .
-                        ($http_port === 80 || $http_port === 443 ? '' : (
-                            ':' . $_SERVER['SERVER_PORT']
-                        )) .
-                        $dir_name. '/' .
-                        $locationFile
-                    ),
+                JsonEncodeString(
+                    ($http_port === 443 ? 'https://' : 'http://') .
+                    preg_replace('#:[0-9]+$#', '', $_SERVER['HTTP_HOST']) .
+                    ($http_port === 80 || $http_port === 443 ? '' : (
+                        ':' . $_SERVER['SERVER_PORT']
+                    )) .
+                    $dir_name . '/' .
+                    $locationFile
+                ),
                 ');';
             }
             exit;
@@ -812,7 +825,7 @@ header('Content-Type: application/javascript');
 removeOldFiles();
 
 echo JSONP_CALLBACK, '(',
-    JsonEncodeString(
-        'error: html2canvas-proxy-php: ' . $response['error']
-    ),
+JsonEncodeString(
+    'error: html2canvas-proxy-php: ' . $response['error']
+),
 ');';

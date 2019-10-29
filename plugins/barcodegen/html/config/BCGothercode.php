@@ -2,9 +2,9 @@
 //多点乐资源
 function customSetup($barcode, $get)
 {
-	if (isset($get['label'])) {
-		$barcode->setLabel($get['label']);
-	}
+    if (isset($get['label'])) {
+        $barcode->setLabel($get['label']);
+    }
 }
 
 $classFile = 'BCGothercode.barcode.php';

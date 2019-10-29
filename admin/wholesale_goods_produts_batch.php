@@ -21,18 +21,19 @@ require(ROOT_PATH . '/includes/lib_wholesale.php');
 /* ------------------------------------------------------ */
 //-- 批量上传
 /* ------------------------------------------------------ */
- 
+
 if ($_REQUEST['act'] == 'add') {
     /* 检查权限 */
     admin_priv('goods_manage');
-    
+
     $smarty->assign('menu_select', array('action' => '02_cat_and_goods', 'current' => 'produts_batch'));
     $goods_id = isset($_REQUEST['goods_id']) ? intval($_REQUEST['goods_id']) : 0;
     $model = isset($_REQUEST['model']) ? intval($_REQUEST['model']) : 0;
     $warehouse_id = isset($_REQUEST['warehouse_id']) ? intval($_REQUEST['warehouse_id']) : 0;
 
     if ($goods_id > 0) {
-        $smarty->assign('action_link', array('text' => '返回商品货品详细页', 'href' => 'goods.php?act=product_list&goods_id=' . $goods_id));
+        $smarty->assign('action_link',
+            array('text' => '返回商品货品详细页', 'href' => 'goods.php?act=product_list&goods_id=' . $goods_id));
     }
 
     /* 取得可选语言 */
@@ -45,7 +46,8 @@ if ($_REQUEST['act'] == 'add') {
     $download_list = array();
     while (@$file = readdir($dir)) {
         if ($file != '.' && $file != '..' && $file != ".svn" && $file != "_svn" && is_dir('../languages/' . $file) == true) {
-            $download_list[$file] = sprintf($_LANG['download_file'], isset($_LANG['charset'][$file]) ? $_LANG['charset'][$file] : $file);
+            $download_list[$file] = sprintf($_LANG['download_file'],
+                isset($_LANG['charset'][$file]) ? $_LANG['charset'][$file] : $file);
         }
     }
     @closedir($dir);
@@ -74,11 +76,11 @@ if ($_REQUEST['act'] == 'add') {
 
 /* ------------------------------------------------------ */
 //-- 批量上传：处理
-/* ------------------------------------------------------ */ 
+/* ------------------------------------------------------ */
 elseif ($_REQUEST['act'] == 'upload') {
     /* 检查权限 */
     admin_priv('goods_manage');
-    
+
     $smarty->assign('menu_select', array('action' => '02_cat_and_goods', 'current' => 'produts_area_batch'));
 
     //ecmoban模板堂 --zhuo start 仓库
@@ -87,21 +89,21 @@ elseif ($_REQUEST['act'] == 'upload') {
         //获得属性的个数 bylu;
         $attr_names = file($_FILES['file']['tmp_name']);
         $attr_names = explode(',', $attr_names[0]);
-   
+
         /*if ($GLOBALS['_CFG']['goods_attr_price'] == 1) {
             $end = -5;
         }else{
             $end = -4;
         }*/
-		$end = -2;
+        $end = -2;
 
         $attr_names = array_slice($attr_names, 6, $end);
         foreach ($attr_names as $k => $v) {
             $attr_names[$k] = ecs_iconv('GBK', 'UTF8', $v);
         }
-        
+
         $attr_num = count($attr_names);
-        
+
         $line_number = 0;
         $arr = array();
         $goods_list = array();
@@ -109,7 +111,7 @@ elseif ($_REQUEST['act'] == 'upload') {
         for ($i = 0; $i < $attr_num; $i++) {
             $field_list[] = 'goods_attr' . $i;
         }
-        
+
         /*if ($GLOBALS['_CFG']['goods_attr_price'] == 1) {
             $field_list[] = 'product_price';
         }*/
@@ -193,7 +195,7 @@ elseif ($_REQUEST['act'] == 'upload') {
                 }
                 $goods_list[] = $arr;
             }
-            
+
             //格式化商品数据 bylu;
             $goods_list = get_wholesale_produts_list2($goods_list, $attr_num);
         }
@@ -214,14 +216,14 @@ elseif ($_REQUEST['act'] == 'upload') {
 
 /* ------------------------------------------------------ */
 //-- 动态添加数据入库;
-/* ------------------------------------------------------ */ 
+/* ------------------------------------------------------ */
 elseif ($_REQUEST['act'] == 'ajax_insert') {
     /* 检查权限 */
     admin_priv('goods_manage');
 
     include_once(ROOT_PATH . 'includes/cls_json.php');
     $json = new JSON();
-    
+
     $result = array('list' => array(), 'is_stop' => 0);
     $page = !empty($_REQUEST['page']) ? intval($_REQUEST['page']) : 1;
     $page_size = isset($_REQUEST['page_size']) ? intval($_REQUEST['page_size']) : 1;
@@ -255,18 +257,19 @@ elseif ($_REQUEST['act'] == 'ajax_insert') {
         //$other['product_warn_number'] = $result['list']['product_warn_number'];
         $other['product_sn'] = $result['list']['product_sn'];
         //$other['bar_code'] = $result['list']['bar_code'];
-        
+
         //查询数据是否已经存在;
         $sql = "SELECT product_id FROM " . $GLOBALS['ecs']->table('wholesale_products') . " WHERE goods_id = '" . $result['list']['goods_id'] . "'" .
-                " AND goods_attr = '" . $result['list']['goods_attr'] . "'";
-        
+            " AND goods_attr = '" . $result['list']['goods_attr'] . "'";
+
         if ($GLOBALS['db']->getOne($sql, true)) {
-            $db->autoExecute($ecs->table('wholesale_products'), $other, 'UPDATE', "goods_id = '" . $result['list']['goods_id'] . "' AND goods_attr = '" . $result['list']['goods_attr'] . "'");
+            $db->autoExecute($ecs->table('wholesale_products'), $other, 'UPDATE',
+                "goods_id = '" . $result['list']['goods_id'] . "' AND goods_attr = '" . $result['list']['goods_attr'] . "'");
             $result['status_lang'] = '<span style="color: red;">已更新数据成功</span>';
         } else {
-            
+
             $other['admin_id'] = $_SESSION['admin_id'];
-            
+
             $db->autoExecute($ecs->table('wholesale_products'), $other, 'INSERT');
             $result['status_lang'] = '<span style="color: red;">已添加数据成功</span>';
         }
@@ -276,7 +279,7 @@ elseif ($_REQUEST['act'] == 'ajax_insert') {
 
 /* ------------------------------------------------------ */
 //-- 下载文件
-/* ------------------------------------------------------ */ 
+/* ------------------------------------------------------ */
 elseif ($_REQUEST['act'] == 'download') {
     /* 检查权限 */
     admin_priv('goods_manage');
@@ -289,7 +292,7 @@ elseif ($_REQUEST['act'] == 'download') {
     // 文件标签
     // Header("Content-type: application/octet-stream");
     header("Content-type: application/vnd.ms-excel; charset=utf-8");
-    Header("Content-Disposition: attachment; filename=goods_produts_list" .$goods_id. ".csv");
+    Header("Content-Disposition: attachment; filename=goods_produts_list" . $goods_id . ".csv");
 
     // 下载
     if ($_GET['charset'] != $_CFG['lang']) {
@@ -318,28 +321,28 @@ elseif ($_REQUEST['act'] == 'download') {
                 $_attribute[$attribute_value['attr_id']]['attr_name'] = $attribute_value['attr_name'];
             }
             $attribute_count = count($_attribute);
-            
+
             //获取属性名称 bylu;
             foreach ($_attribute as $k => $v) {
                 $data .= ',' . $v['attr_name'];
             }
-            
+
             /*if($GLOBALS['_CFG']['goods_attr_price'] == 1){
                 $data .= ",本店价格";
             }*/
 
-            $data.= ",库存";
+            $data .= ",库存";
             //$data.= ",预警值";
             //$data.= ",货号";
-            $data.= ",货号\t\n";
+            $data .= ",货号\t\n";
             //$data.= ",条形码\t\n";
-            
-            if($goods_id){
+
+            if ($goods_id) {
                 $goods_info = get_admin_goods_info($goods_id, array('goods_name', 'goods_sn', 'user_id'));
                 $goods_info['shop_name'] = get_shop_name($goods_info['user_id'], 1);
-            }else{
+            } else {
                 $adminru = get_admin_ru_id();
-                
+
                 $goods_info['user_id'] = $adminru['ru_id'];
                 $goods_info['shop_name'] = get_shop_name($adminru['ru_id'], 1);
             }
@@ -356,7 +359,7 @@ elseif ($_REQUEST['act'] == 'download') {
                 /*if($GLOBALS['_CFG']['goods_attr_price'] == 1){
                     $data .= $attr_info[$k]['product_price'] . ',';
                 }*/
-                
+
                 $data .= $attr_info[$k]['product_number'] . ',';
                 //$data .= $attr_info[$k]['product_warn_number'] . ',';
                 //$data .= $attr_info[$k]['product_sn'] . ',';
@@ -373,7 +376,8 @@ elseif ($_REQUEST['act'] == 'download') {
     }
 }
 
-function get_list_download($goods_sn = '', $warehouse_info = array(), $attr_info, $attr_num, $model = 0) {
+function get_list_download($goods_sn = '', $warehouse_info = array(), $attr_info, $attr_num, $model = 0)
+{
 
     $arr = array();
     //0:默认模式 1:仓库模式 2:地区模式
@@ -388,7 +392,7 @@ function get_list_download($goods_sn = '', $warehouse_info = array(), $attr_info
                 }
             }
         }
-        
+
         if ($attr) {
             $comb = combination(array_keys($attr), $attr_num);
             $res = array();
@@ -421,10 +425,11 @@ function get_list_download($goods_sn = '', $warehouse_info = array(), $attr_info
 }
 
 //商品属性 start
-function get_attribute_list($goods_id = 0) {
+function get_attribute_list($goods_id = 0)
+{
     $sql = "SELECT a.attr_id, a.attr_name FROM " . $GLOBALS['ecs']->table('goods_attr') . " AS ga " .
-            " LEFT JOIN " . $GLOBALS['ecs']->table('attribute') . " as a ON ga.attr_id = a.attr_id" .
-            " WHERE ga.goods_id = '$goods_id' group by ga.attr_id ORDER BY a.sort_order, ga.attr_id ASC";
+        " LEFT JOIN " . $GLOBALS['ecs']->table('attribute') . " as a ON ga.attr_id = a.attr_id" .
+        " WHERE ga.goods_id = '$goods_id' group by ga.attr_id ORDER BY a.sort_order, ga.attr_id ASC";
     $res = $GLOBALS['db']->getAll($sql);
 
     $arr = array();
@@ -436,7 +441,8 @@ function get_attribute_list($goods_id = 0) {
     return $arr;
 }
 
-function get_goods_attr_list($attr_id = 0, $goods_id = 0) {
+function get_goods_attr_list($attr_id = 0, $goods_id = 0)
+{
     $sql = "select goods_attr_id, attr_value from " . $GLOBALS['ecs']->table('goods_attr') . " where goods_id = '$goods_id' and attr_id = '$attr_id' order by goods_attr_id asc";
     $res = $GLOBALS['db']->getAll($sql);
 

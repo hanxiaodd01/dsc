@@ -11,7 +11,7 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: calendar.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 $_LANG['recommended_host'] = "热拍推荐";
 $_LANG['residue_time'] = "剩余时间：";
 $_LANG['offer_my'] = "我要出价";
@@ -49,7 +49,7 @@ $_LANG['auction_strategy_notic'] = "此活动当前未设置竞拍攻略哟~";
 $_LANG['buy_error'] = "很抱歉，您拍卖的商品暂时缺货，请及时联系客服！";
 
 //js语言项
-$_LANG['js_languages']['Service_hotline'] = '服务热线：'; 
+$_LANG['js_languages']['Service_hotline'] = '服务热线：';
 $_LANG['js_languages']['day'] = '天';
 $_LANG['js_languages']['hour'] = '小时';
 $_LANG['js_languages']['hour_two'] = '时';

@@ -11,7 +11,7 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: calendar.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 $_LANG['login_again'] = "您需要重新登录！";
 $_LANG['brand_not'] = "不存在";
 $_LANG['brand_in'] = "已存在";
@@ -24,16 +24,16 @@ $_LANG['merchants_step_four'] = "等待审核";
 $_LANG['merchants_step_five'] = "协议确定";
 $_LANG['merchants_step_six'] = "同意以上协议，下一步";
 $_LANG['merchants_step_Seven'] = "上一步";
-$_LANG['under_review_one']  =  '正在审核中...';
-$_LANG['under_review_two']  =  '审核已通过...';
-$_LANG['under_review_three']  =  '未审核通过...';
+$_LANG['under_review_one'] = '正在审核中...';
+$_LANG['under_review_two'] = '审核已通过...';
+$_LANG['under_review_three'] = '未审核通过...';
 $_LANG['Preservation'] = '保存';
 $_LANG['merchants_step_complete_one'] = "感谢您在本店申请商家入驻！";
 $_LANG['merchants_step_complete_two'] = "您的商家入驻管理中心登录账号";
 $_LANG['merchants_step_complete_three'] = "已发送手机短信，请您查收";
-$_LANG['audit_shop_one']='期望店铺名称';
-$_LANG['audit_shop_two']='店铺描述';
-$_LANG['seller_Grade']='商家等级';
+$_LANG['audit_shop_one'] = '期望店铺名称';
+$_LANG['audit_shop_two'] = '店铺描述';
+$_LANG['seller_Grade'] = '商家等级';
 $_LANG['Serial_number'] = "序号";
 $_LANG['brand_zh'] = "品牌中文名";
 $_LANG['input_brand_zh'] = "输入品牌中文名称";
@@ -123,7 +123,7 @@ $_LANG['select_brand_name'] = "选择品牌名";
 $_LANG['select_brand_name_two'] = '请选择品牌名称';
 $_LANG['category_desc_key'] = '类目描述关键词';
 $_LANG['select_shop_suffix'] = '选择店铺后缀';
-$_LANG['audit_shop_login']='期望店铺登录用户名';
+$_LANG['audit_shop_login'] = '期望店铺登录用户名';
 $_LANG['subShoprz_type'][0] = '厂商直营旗舰店';
 $_LANG['subShoprz_type'][1] = '厂商授权旗舰店';
 $_LANG['subShoprz_type'][2] = '卖场型旗舰店';

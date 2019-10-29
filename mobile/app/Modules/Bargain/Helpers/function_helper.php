@@ -2,16 +2,17 @@
 /**
  * 砍价活动商品详情
  */
-function get_bargain_goods_info($bargain_id =0){
+function get_bargain_goods_info($bargain_id = 0)
+{
     $time = gmtime();
     $where .= " g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 AND g.review_status>2 and bg.status != 1 and bg.is_delete !=1 and bg.is_audit = 2 and $time > bg.start_time and $time < bg.end_time ";
 
     $sql = 'SELECT bg.id,bg.bargain_name,bg.goods_id,bg.goods_price,bg.start_time,bg.end_time,bg.target_price,bg.total_num,g.user_id,g.goods_sn, g.goods_name,g.is_real,g.is_shipping, g.market_price,g.goods_thumb, g.goods_img,g.goods_number,g.goods_type,g.goods_brief,g.model_attr,g.review_status FROM ' . $GLOBALS['ecs']->table('bargain_goods') . 'AS bg LEFT JOIN ' . $GLOBALS['ecs']->table('goods') . ' AS g ON bg.goods_id = g.goods_id ' .
-                "WHERE $where and bg.id = $bargain_id";
+        "WHERE $where and bg.id = $bargain_id";
 
     $bargain = $GLOBALS['db']->getRow($sql);
 
-    if($bargain){
+    if ($bargain) {
         $bargain['goods_img'] = get_image_path($bargain['goods_img']);
         $bargain['goods_thumb'] = get_image_path($bargain['goods_thumb']);
         $bargain['rz_shopName'] = get_shop_name($bargain['user_id'], 1); //店铺名称
@@ -39,7 +40,7 @@ function bargain_is_failure($bargain_id = 0)
 /**
  * 验证是否参与当前活动
  */
-function is_add_bargain($bargain_id = 0,$user_id = 0)
+function is_add_bargain($bargain_id = 0, $user_id = 0)
 {
     $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('bargain_statistics_log') . " WHERE bargain_id = $bargain_id and user_id =$user_id and status != 1 ";
     $bargain = $GLOBALS['db']->getRow($sql);
@@ -49,11 +50,11 @@ function is_add_bargain($bargain_id = 0,$user_id = 0)
 /**
  * 验证是否砍价
  */
-function is_bargain_join($bs_id = 0,$user_id = 0)
+function is_bargain_join($bs_id = 0, $user_id = 0)
 {
     $sql = 'SELECT user_id,subtract_price FROM ' . $GLOBALS['ecs']->table('bargain_statistics') . " WHERE bs_id = $bs_id and user_id =$user_id ";
     $bargain = $GLOBALS['db']->getRow($sql);
-    if($bargain){
+    if ($bargain) {
         //用户名、头像
         $user_nick = get_user_default($bargain['user_id']);
         $bargain['user_name'] = $user_nick['nick_name'];
@@ -94,13 +95,12 @@ function get_bargain_graph_list($bs_id = 0)
     $graph_list = $GLOBALS['db']->getAll($sql);
 
     foreach ($graph_list as $key => $val) {
-        $str.=$val['subtract_price'].',';
+        $str .= $val['subtract_price'] . ',';
     }
-    $graph = substr($str,0,-1) ;
+    $graph = substr($str, 0, -1);
 
     return $graph;
 }
-
 
 
 /**
@@ -112,7 +112,7 @@ function get_bargain_goods_ranking($bargain_id = 0)
                 IFNULL((select sum(subtract_price) from {pre}bargain_statistics where bs_id = bsl.id),0) as money
                 FROM {pre}bargain_statistics_log as bsl
                 LEFT JOIN {pre}bargain_statistics as bs on bsl.id = bs.bs_id
-                WHERE bsl.bargain_id = '".$bargain_id."'
+                WHERE bsl.bargain_id = '" . $bargain_id . "'
                 GROUP BY bsl.id
                 order by money desc ";
 
@@ -149,7 +149,7 @@ function get_bargain_goods_hot()
     $where .= " g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 AND g.review_status>2 and bg.status != 1 and bg.is_delete !=1 and bg.is_audit = 2 and $time > bg.start_time and $time < bg.end_time ";
 
     $sql = 'SELECT bg.id,bg.bargain_name,bg.goods_id,bg.start_time,bg.end_time,bg.target_price,bg.total_num,g.user_id, g.goods_name, g.shop_price, g.market_price, g.goods_thumb , g.goods_img,g.goods_brief FROM ' . $GLOBALS['ecs']->table('bargain_goods') . 'AS bg LEFT JOIN ' . $GLOBALS['ecs']->table('goods') . ' AS g ON bg.goods_id = g.goods_id ' .
-                "WHERE $where limit 0,6";
+        "WHERE $where limit 0,6";
     $bargain_list = $GLOBALS['db']->getAll($sql);
     foreach ($bargain_list as $key => $val) {
         $arr[$key]['url'] = $val['goods_name'];
@@ -176,7 +176,6 @@ function get_bargain_target_price($bargain_id = 0)
 }
 
 
-
 /*二维数组转一维数组*/
 function copy_array_column($input, $columnKey, $indexKey = null)
 {
@@ -192,10 +191,10 @@ function copy_array_column($input, $columnKey, $indexKey = null)
         } else {
             $tmp = isset($row[$columnKey]) ? $row[$columnKey] : null;
         }
-        if (! $indexKeyIsNull) {
+        if (!$indexKeyIsNull) {
             if ($indexKeyIsNumber) {
                 $key = array_slice($row, $indexKey, 1);
-                $key = (is_array($key) && ! empty($key)) ? current($key) : null;
+                $key = (is_array($key) && !empty($key)) ? current($key) : null;
                 $key = is_null($key) ? 0 : $key;
             } else {
                 $key = isset($row[$indexKey]) ? $row[$indexKey] : 0;
@@ -235,7 +234,6 @@ function get_array_category_info($arr = [])
         return false;
     }
 }
-
 
 
 /*
@@ -443,11 +441,11 @@ function get_select_category($cat_id = 0, $relation = 0, $self = true)
 }
 
 
-
-function get_attr_values_arr($attr_values){
+function get_attr_values_arr($attr_values)
+{
     $str = '';
-    if($attr_values){
-        foreach($attr_values as $key=>$row){
+    if ($attr_values) {
+        foreach ($attr_values as $key => $row) {
             $str .= $row['attr_value'] . ",";
         }
 
@@ -461,17 +459,18 @@ function get_attr_values_arr($attr_values){
 /**
  * 重组属性数组
  */
-function get_new_goods_attr($attribute_list){
+function get_new_goods_attr($attribute_list)
+{
 
     $arr = [];
     $arr['attr'] = '';         //属性
     $arr['spec'] = '';     //规格
 
-    if($attribute_list){
-        foreach($attribute_list as $key=>$val){
-            if($val['attr_type'] == 0){
+    if ($attribute_list) {
+        foreach ($attribute_list as $key => $val) {
+            if ($val['attr_type'] == 0) {
                 $arr['attr'][$key] = $val;
-            }else{
+            } else {
                 $arr['spec'][$key] = $val;
             }
         }
@@ -549,10 +548,12 @@ function bargain_get_goods_attr_id($where_select = [], $select = [], $attr_type 
         return $GLOBALS['db']->getOne($sql, true);
     }
 }
+
 /**
  * 删除商品复选属性ID
  */
-function get_goods_unset_attr($goods_id = 0, $attr_arr = []) {
+function get_goods_unset_attr($goods_id = 0, $attr_arr = [])
+{
 
     $arr = [];
 
@@ -565,7 +566,8 @@ function get_goods_unset_attr($goods_id = 0, $attr_arr = []) {
         foreach ($attr_arr AS $key => $row) {
             if ($row) {
                 $where_select['attr_value'] = $row[0];
-                $attr_info = bargain_get_goods_attr_id($where_select, ['ga.goods_id', 'ga.attr_value', 'a.attr_id', 'a.attr_type'], 2, 1);
+                $attr_info = bargain_get_goods_attr_id($where_select,
+                    ['ga.goods_id', 'ga.attr_value', 'a.attr_id', 'a.attr_type'], 2, 1);
                 if ($attr_info && $row[0] == $attr_info['attr_value']) {
                     unset($row);
                 } else {
@@ -582,27 +584,37 @@ function get_goods_unset_attr($goods_id = 0, $attr_arr = []) {
 /**
  * 商品属性组合 bylu
  */
-function attr_group() {
+function attr_group()
+{
     $t = func_get_args();
-    if(func_num_args() == 1) return call_user_func_array( __FUNCTION__, $t[0] );
+    if (func_num_args() == 1) {
+        return call_user_func_array(__FUNCTION__, $t[0]);
+    }
     $a = array_shift($t);
-    if(! is_array($a)) $a = [$a];
+    if (!is_array($a)) {
+        $a = [$a];
+    }
     $a = array_chunk($a, 1);
     do {
         $r = [];
         $b = array_shift($t);
-        if(! is_array($b)) $b = [$b];
-        foreach($a as $p)
-            foreach(array_chunk($b, 1) as $q)
+        if (!is_array($b)) {
+            $b = [$b];
+        }
+        foreach ($a as $p) {
+            foreach (array_chunk($b, 1) as $q) {
                 $r[] = array_merge($p, $q);
+            }
+        }
         $a = $r;
-    }while($t);
+    } while ($t);
     return $r;
 }
 
 
 //通过一组属性获取货品的相关信息 by wu
-function get_product_info_by_attr($bargain_id = 0,$goods_id = 0, $attr_arr = [], $goods_model = 0, $region_id = 0) {
+function get_product_info_by_attr($bargain_id = 0, $goods_id = 0, $attr_arr = [], $goods_model = 0, $region_id = 0)
+{
     if (!empty($attr_arr)) {
         $where = "";
         //判断商品类型
@@ -625,7 +637,7 @@ function get_product_info_by_attr($bargain_id = 0,$goods_id = 0, $attr_arr = [],
             $where_select['attr_value'] = $val;
             $goods_attr_id = bargain_get_goods_attr_id($where_select, ['ga.goods_attr_id'], 1);
 
-            if($goods_attr_id){
+            if ($goods_attr_id) {
                 $attr[] = $goods_attr_id;
             }
         }
@@ -636,8 +648,8 @@ function get_product_info_by_attr($bargain_id = 0,$goods_id = 0, $attr_arr = [],
         }
         $sql = " SELECT * FROM " . $GLOBALS['ecs']->table($table) . " WHERE 1 $set AND goods_id = '$goods_id' " . $where . " LIMIT 1 ";
         $product_info = $GLOBALS['db']->getRow($sql);
-        if($bargain_id > 0){
-            $sql = " SELECT * FROM " . $GLOBALS['ecs']->table('activity_goods_attr') . " WHERE bargain_id = '$bargain_id'  AND goods_id = '$goods_id' and product_id = '".$product_info['product_id']."'  LIMIT 1 ";
+        if ($bargain_id > 0) {
+            $sql = " SELECT * FROM " . $GLOBALS['ecs']->table('activity_goods_attr') . " WHERE bargain_id = '$bargain_id'  AND goods_id = '$goods_id' and product_id = '" . $product_info['product_id'] . "'  LIMIT 1 ";
             $attr_info = $GLOBALS['db']->getRow($sql);
             $product_info['goods_attr_id'] = $attr_info['id'];
             $product_info['target_price'] = $attr_info['target_price'];
@@ -647,7 +659,6 @@ function get_product_info_by_attr($bargain_id = 0,$goods_id = 0, $attr_arr = [],
         return false;
     }
 }
-
 
 
 /**
@@ -716,12 +727,10 @@ function bargain_get_table_date($goods_id, $attr_id)
 }
 
 
-
-
 /**
  * 获得指定商品属性活动最低价
  */
-function bargain_target_price($bargain_id =0,$goods_id=0,$spec = [], $warehouse_id=0, $area_id=0)
+function bargain_target_price($bargain_id = 0, $goods_id = 0, $spec = [], $warehouse_id = 0, $area_id = 0)
 {
     if (!empty($spec)) {
         if (is_array($spec)) {
@@ -750,7 +759,7 @@ function bargain_target_price($bargain_id =0,$goods_id=0,$spec = [], $warehouse_
 
             $sql = 'SELECT product_id FROM ' . $GLOBALS['ecs']->table($table) . " WHERE $where";
             $product_id = $GLOBALS['db']->getOne($sql);
-            if($product_id){
+            if ($product_id) {
                 $sql = 'SELECT target_price FROM ' . $GLOBALS['ecs']->table('activity_goods_attr') . " WHERE bargain_id = '$bargain_id' and goods_id = '$goods_id' and product_id = '$product_id' ";
                 $price = $GLOBALS['db']->getOne($sql);
             }
@@ -768,7 +777,7 @@ function bargain_target_price($bargain_id =0,$goods_id=0,$spec = [], $warehouse_
 /**
  * 获得指定商品属性活动的属性价格（原价）
  */
-function bargain_goods_price($bargain_id =0,$goods_id=0,$spec = [], $warehouse_id=0, $area_id=0)
+function bargain_goods_price($bargain_id = 0, $goods_id = 0, $spec = [], $warehouse_id = 0, $area_id = 0)
 {
     if (!empty($spec)) {
         if (is_array($spec)) {

@@ -116,7 +116,10 @@ class AdminController extends BackendController
             $data['goods_id'] = I('goods_id', '', 'intval');
             $id = I('id', '', 'intval');
             if (!$id) {//添加
-                $count = $this->model->table('team_goods')->where(array('goods_id' => $data['goods_id'],'is_team' => '1'))->count();
+                $count = $this->model->table('team_goods')->where(array(
+                    'goods_id' => $data['goods_id'],
+                    'is_team' => '1'
+                ))->count();
                 if ($count >= 1) {
                     exit(json_encode(array('status' => 'n', 'info' => '该拼团商品活动结束之前，不可添加新的活动')));
                 }

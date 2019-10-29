@@ -7,7 +7,7 @@ require_once ROOT_PATH . ADMIN_PATH . '/includes/lib_goods.php';
 require_once ROOT_PATH . 'languages/' . $_CFG['lang'] . '/user.php';
 
 if ((DEBUG_MODE & 2) != 2) {
-	$smarty->caching = true;
+    $smarty->caching = true;
 }
 
 $act = isset($_REQUEST['act']) ? trim($_REQUEST['act']) : 'repay';
@@ -38,49 +38,50 @@ $comment_all = get_conments_stars($mc_all, $mc_one, $mc_two, $mc_three, $mc_four
 $smarty->assign('comment_all', $comment_all);
 
 if (defined('THEME_EXTENSION')) {
-	$categories_pro = get_category_tree_leve_one();
-	$smarty->assign('categories_pro', $categories_pro);
+    $categories_pro = get_category_tree_leve_one();
+    $smarty->assign('categories_pro', $categories_pro);
 }
 
 if ($_REQUEST['act'] == 'repay') {
-	$cache_id = $comment_id . '-' . $_SESSION['user_rank'] . '-' . $_CFG['lang'];
-	$cache_id = sprintf('%X', crc32($cache_id));
+    $cache_id = $comment_id . '-' . $_SESSION['user_rank'] . '-' . $_CFG['lang'];
+    $cache_id = sprintf('%X', crc32($cache_id));
 
-	if (!$smarty->is_cached('goods_discuss_show.dwt', $cache_id)) {
-		if (empty($comment_id)) {
-			ecs_header('Location: ./
+    if (!$smarty->is_cached('goods_discuss_show.dwt', $cache_id)) {
+        if (empty($comment_id)) {
+            ecs_header('Location: ./
 ');
-			exit();
-		}
+            exit();
+        }
 
-		if (empty($comment)) {
-			ecs_header('location: ./
+        if (empty($comment)) {
+            ecs_header('location: ./
 ');
-			exit();
-		}
+            exit();
+        }
 
-		$sql = 'SELECT user_picture from ' . $ecs->table('users') . ' WHERE user_id = \'' . $comment['user_id'] . '\'';
-		$user_picture = $db->getOne($sql);
-		$smarty->assign('user_picture', $user_picture);
-		$comment['add_time'] = local_date($GLOBALS['_CFG']['time_format'], $comment['add_time']);
-		$smarty->assign('comment', $comment);
-		$buy_goods = get_user_buy_goods_order($comment['id_value'], $comment['user_id'], $comment['order_id']);
-		$smarty->assign('buy_goods', $buy_goods);
-		$img_list = get_img_list($comment['id_value'], $comment['comment_id']);
-		$smarty->assign('img_list', $img_list);
-		$position = assign_ur_here($goodsInfo['cat_id'], $goodsInfo['goods_name'], array($comment['content']), $goodsInfo['goods_url']);
-		$smarty->assign('ip', real_ip());
-		$smarty->assign('goods', $goods);
-		$smarty->assign('page_title', $position['title']);
-		$smarty->assign('ur_here', $position['ur_here']);
-		$type = 0;
-		$reply_page = 1;
-		$libType = 1;
-		$size = 10;
-		$reply = get_reply_list($comment['id_value'], $comment['comment_id'], $type, $reply_page, $libType, $size);
-		$smarty->assign('reply', $reply);
-		$smarty->assign('now_time', gmtime());
-	}
+        $sql = 'SELECT user_picture from ' . $ecs->table('users') . ' WHERE user_id = \'' . $comment['user_id'] . '\'';
+        $user_picture = $db->getOne($sql);
+        $smarty->assign('user_picture', $user_picture);
+        $comment['add_time'] = local_date($GLOBALS['_CFG']['time_format'], $comment['add_time']);
+        $smarty->assign('comment', $comment);
+        $buy_goods = get_user_buy_goods_order($comment['id_value'], $comment['user_id'], $comment['order_id']);
+        $smarty->assign('buy_goods', $buy_goods);
+        $img_list = get_img_list($comment['id_value'], $comment['comment_id']);
+        $smarty->assign('img_list', $img_list);
+        $position = assign_ur_here($goodsInfo['cat_id'], $goodsInfo['goods_name'], array($comment['content']),
+            $goodsInfo['goods_url']);
+        $smarty->assign('ip', real_ip());
+        $smarty->assign('goods', $goods);
+        $smarty->assign('page_title', $position['title']);
+        $smarty->assign('ur_here', $position['ur_here']);
+        $type = 0;
+        $reply_page = 1;
+        $libType = 1;
+        $size = 10;
+        $reply = get_reply_list($comment['id_value'], $comment['comment_id'], $type, $reply_page, $libType, $size);
+        $smarty->assign('reply', $reply);
+        $smarty->assign('now_time', gmtime());
+    }
 
-	$smarty->display('comment_repay.dwt');
+    $smarty->display('comment_repay.dwt');
 }

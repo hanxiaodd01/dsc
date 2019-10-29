@@ -4,70 +4,69 @@ namespace OSS\Model;
 
 class RefererConfig implements XmlConfig
 {
-	private $allowEmptyReferer = true;
-	private $refererList = array();
+    private $allowEmptyReferer = true;
+    private $refererList = array();
 
-	public function parseFromXml($strXml)
-	{
-		$xml = simplexml_load_string($strXml);
+    public function parseFromXml($strXml)
+    {
+        $xml = simplexml_load_string($strXml);
 
-		if (!isset($xml->AllowEmptyReferer)) {
-			return NULL;
-		}
+        if (!isset($xml->AllowEmptyReferer)) {
+            return null;
+        }
 
-		if (!isset($xml->RefererList)) {
-			return NULL;
-		}
+        if (!isset($xml->RefererList)) {
+            return null;
+        }
 
-		$this->allowEmptyReferer = (strval($xml->AllowEmptyReferer) === 'TRUE') || (strval($xml->AllowEmptyReferer) === 'true') ? true : false;
+        $this->allowEmptyReferer = (strval($xml->AllowEmptyReferer) === 'TRUE') || (strval($xml->AllowEmptyReferer) === 'true') ? true : false;
 
-		foreach ($xml->RefererList->Referer as $key => $refer) {
-			$this->refererList[] = strval($refer);
-		}
-	}
+        foreach ($xml->RefererList->Referer as $key => $refer) {
+            $this->refererList[] = strval($refer);
+        }
+    }
 
-	public function serializeToXml()
-	{
-		$xml = new \SimpleXMLElement('<?xml version="1.0" encoding="utf-8"?><RefererConfiguration></RefererConfiguration>');
+    public function serializeToXml()
+    {
+        $xml = new \SimpleXMLElement('<?xml version="1.0" encoding="utf-8"?><RefererConfiguration></RefererConfiguration>');
 
-		if ($this->allowEmptyReferer) {
-			$xml->addChild('AllowEmptyReferer', 'true');
-		}
-		else {
-			$xml->addChild('AllowEmptyReferer', 'false');
-		}
+        if ($this->allowEmptyReferer) {
+            $xml->addChild('AllowEmptyReferer', 'true');
+        } else {
+            $xml->addChild('AllowEmptyReferer', 'false');
+        }
 
-		$refererList = $xml->addChild('RefererList');
+        $refererList = $xml->addChild('RefererList');
 
-		foreach ($this->refererList as $referer) {
-			$refererList->addChild('Referer', $referer);
-		}
+        foreach ($this->refererList as $referer) {
+            $refererList->addChild('Referer', $referer);
+        }
 
-		return $xml->asXML();
-	}
+        return $xml->asXML();
+    }
 
-	public function __toString()
-	{
-		return $this->serializeToXml();
-	}
+    public function __toString()
+    {
+        return $this->serializeToXml();
+    }
 
-	public function setAllowEmptyReferer($allowEmptyReferer)
-	{
-		$this->allowEmptyReferer = $allowEmptyReferer;
-	}
+    public function setAllowEmptyReferer($allowEmptyReferer)
+    {
+        $this->allowEmptyReferer = $allowEmptyReferer;
+    }
 
-	public function addReferer($referer)
-	{
-		$this->refererList[] = $referer;
-	}
+    public function addReferer($referer)
+    {
+        $this->refererList[] = $referer;
+    }
 
-	public function isAllowEmptyReferer()
-	{
-		return $this->allowEmptyReferer;
-	}
+    public function isAllowEmptyReferer()
+    {
+        return $this->allowEmptyReferer;
+    }
 
-	public function getRefererList()
-	{
-		return $this->refererList;
-	}
+    public function getRefererList()
+    {
+        return $this->refererList;
+    }
 }

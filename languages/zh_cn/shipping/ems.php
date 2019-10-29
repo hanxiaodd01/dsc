@@ -11,15 +11,15 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: ems.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 
-$_LANG['ems']                   = 'EMS 国内邮政特快专递';
+$_LANG['ems'] = 'EMS 国内邮政特快专递';
 //$_LANG['ems_express_desc']      = 'EMS 国内邮政特快专递描述内容';
-$_LANG['ems_express_desc']      = '<a href="http://www.ems.com.cn" target="_blank">http://www.ems.com.cn</a>';
+$_LANG['ems_express_desc'] = '<a href="http://www.ems.com.cn" target="_blank">http://www.ems.com.cn</a>';
 //$_LANG['fee_compute_mode'] = '费用计算方式';
-$_LANG['item_fee']              = '单件商品费用';
-$_LANG['base_fee']              = '500克以内费用';
-$_LANG['step_fee']              = '续重每500克或其零数的费用';
+$_LANG['item_fee'] = '单件商品费用';
+$_LANG['base_fee'] = '500克以内费用';
+$_LANG['step_fee'] = '续重每500克或其零数的费用';
 $_LANG['shipping_print'] = '<table style="width:18.8cm" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td style="height:3.2cm;">&nbsp;</td>

@@ -3,4 +3,5 @@
 namespace App\Services\V3\Goods;
 
 class GoodsService
-{}
+{
+}

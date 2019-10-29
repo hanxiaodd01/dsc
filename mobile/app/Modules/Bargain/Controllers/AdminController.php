@@ -79,9 +79,9 @@ class AdminController extends BackendController
             $list[$key]['user_name'] = get_shop_name($val['user_id'], 1);//商家名称
             $list[$key]['shop_price'] = price_format($val['shop_price']);
             $target_price = get_bargain_target_price($val['id']);
-            if($target_price){
+            if ($target_price) {
                 $list[$key]['target_price'] = price_format($target_price);
-            }else{
+            } else {
                 $list[$key]['target_price'] = price_format($val['target_price']);
             }
             $list[$key]['goods_number'] = $val['goods_number'];
@@ -131,7 +131,10 @@ class AdminController extends BackendController
 
 
             if (!$id) {//添加
-                $count = $this->model->table('bargain_goods')->where(['goods_id' => $data['goods_id'],'status' => '1'])->count();
+                $count = $this->model->table('bargain_goods')->where([
+                    'goods_id' => $data['goods_id'],
+                    'status' => '1'
+                ])->count();
                 if ($count >= 1) {
                     exit(json_encode(['status' => 'n', 'info' => '该砍价商品活动结束之前，不可添加新的活动']));
                 }
@@ -143,8 +146,7 @@ class AdminController extends BackendController
                 $bargain_id = $this->model->table('bargain_goods')->data($data)->add();
 
                 if ($bargain_id) {
-                    foreach($product_id as $key => $value)
-                    {
+                    foreach ($product_id as $key => $value) {
                         $attr_data['bargain_id'] = $bargain_id;
                         $attr_data['goods_id'] = $data['goods_id'];
                         $attr_data['product_id'] = $value;
@@ -167,10 +169,13 @@ class AdminController extends BackendController
 
                 if ($bargain) {
 
-                    foreach($product_id as $key => $value)
-                    {
+                    foreach ($product_id as $key => $value) {
                         $attr_data['target_price'] = $target_price[$key];
-                        $this->model->table('activity_goods_attr')->data($attr_data)->where(['id' => $activity_goods_attr[$key],'goods_id' => $data['goods_id'],'product_id' =>$value  ])->save();
+                        $this->model->table('activity_goods_attr')->data($attr_data)->where([
+                            'id' => $activity_goods_attr[$key],
+                            'goods_id' => $data['goods_id'],
+                            'product_id' => $value
+                        ])->save();
                     }
 
                     exit(json_encode(['status' => 'y', 'info' => '修改成功', 'url' => url('index')]));
@@ -187,17 +192,19 @@ class AdminController extends BackendController
             $goods = $this->model->table('goods')->field('goods_name,user_id')->where(['goods_id' => $info['goods_id']])->find();//商品
             $info['goods_name'] = $goods['goods_name'];
             $info['ru_id'] = $goods['user_id'];
-            $info['start_time'] = isset($info['start_time']) ? local_date('Y-m-d H:i:s', $info['start_time']) : local_date('Y-m-d H:i:s', $nowtime);
-            $info['end_time'] = isset($info['end_time']) ? local_date('Y-m-d H:i:s', $info['end_time']) : local_date('Y-m-d H:i:s', local_strtotime("+1 months", $nowtime));
+            $info['start_time'] = isset($info['start_time']) ? local_date('Y-m-d H:i:s',
+                $info['start_time']) : local_date('Y-m-d H:i:s', $nowtime);
+            $info['end_time'] = isset($info['end_time']) ? local_date('Y-m-d H:i:s',
+                $info['end_time']) : local_date('Y-m-d H:i:s', local_strtotime("+1 months", $nowtime));
             $this->assign('info', $info);
-        }else{
+        } else {
             // 默认开始与结束时间
             $info = [
-            'start_time'    => local_date('Y-m-d H:i:s', $nowtime),
-            'end_time'      => local_date('Y-m-d H:i:s', local_strtotime("+1 months", $nowtime)),
-            'min_price'      => 0,
-            'max_price'      =>10
-        ];
+                'start_time' => local_date('Y-m-d H:i:s', $nowtime),
+                'end_time' => local_date('Y-m-d H:i:s', local_strtotime("+1 months", $nowtime)),
+                'min_price' => 0,
+                'max_price' => 10
+            ];
             $this->assign('info', $info);
         }
 
@@ -227,9 +234,9 @@ class AdminController extends BackendController
         exit(json_encode(['content' => array_values($row)]));
     }
 
-     /**
-      * 获取选中商品详情
-      */
+    /**
+     * 获取选中商品详情
+     */
     public function actionGoodsinfo()
     {
         $goods_id = I('goods_id', 0, 'intval');
@@ -238,21 +245,21 @@ class AdminController extends BackendController
         /* 取得数据 */
         $sql = "SELECT shop_price,goods_type,model_attr FROM {pre}goods as g  where $where ";
         $row = $GLOBALS['db']->getRow($sql);
-        $goods_type =$row['goods_type'];
-        $goods_model =$row['model_attr'];
+        $goods_type = $row['goods_type'];
+        $goods_model = $row['model_attr'];
 
         //$attribute = bargain_set_goods_attribute($row['goods_type'], $goods_id, $row['model_attr']);
 
         //获取属性列表
         $sql = " SELECT a.attr_id, a.attr_name, a.attr_input_type, a.attr_type, a.attr_values " .
-                " FROM " . $GLOBALS['ecs']->table('attribute') . " AS a " .
-                " WHERE a.cat_id = " . intval($goods_type) . " AND a.cat_id <> 0 " .
-                " ORDER BY a.sort_order, a.attr_type, a.attr_id ";
+            " FROM " . $GLOBALS['ecs']->table('attribute') . " AS a " .
+            " WHERE a.cat_id = " . intval($goods_type) . " AND a.cat_id <> 0 " .
+            " ORDER BY a.sort_order, a.attr_type, a.attr_id ";
         $attribute_list = $GLOBALS['db']->getAll($sql);
         //获取商品属性
         $sql = " SELECT v.goods_attr_id, v.attr_id, v.attr_value, v.attr_price, v.attr_sort, v.attr_checked, v.attr_img_flie, v.attr_gallery_flie  " .
-                " FROM " . $GLOBALS['ecs']->table('goods_attr') . " AS v " .
-                " WHERE v.goods_id = '$goods_id' ORDER BY v.attr_sort, v.goods_attr_id ";
+            " FROM " . $GLOBALS['ecs']->table('goods_attr') . " AS v " .
+            " WHERE v.goods_id = '$goods_id' ORDER BY v.attr_sort, v.goods_attr_id ";
         $attr_list = $GLOBALS['db']->getAll($sql);
 
         foreach ($attribute_list as $key => $val) {
@@ -260,10 +267,10 @@ class AdminController extends BackendController
             $this_value = ""; //唯一属性的值
 
             if ($val['attr_type'] > 0) {
-                if($val['attr_values']){
+                if ($val['attr_values']) {
                     $attr_values = preg_replace("/\r\n/", ",", $val['attr_values']); //替换空格回车换行符为英文逗号
                     $attr_values = explode(',', $attr_values);
-                }else{
+                } else {
                     $sql = "SELECT attr_value FROM " . $GLOBALS['ecs']->table('goods_attr') . " WHERE goods_id = '$goods_id' AND attr_id = '" . $val['attr_id'] . "' ORDER BY attr_sort, goods_attr_id";
                     $attr_values = $GLOBALS['db']->getAll($sql);
                     $attribute_list[$key]['attr_values'] = get_attr_values_arr($attr_values);
@@ -273,7 +280,13 @@ class AdminController extends BackendController
                 $attr_values_arr = [];
                 for ($i = 0; $i < count($attr_values); $i++) {
                     $goods_attr = $GLOBALS['db']->getRow("SELECT goods_attr_id, attr_price, attr_sort FROM " . $GLOBALS['ecs']->table('goods_attr') . " WHERE goods_id = '$goods_id' AND attr_value = '" . $attr_values[$i] . "' AND attr_id = '" . $val['attr_id'] . "' LIMIT 1");
-                    $attr_values_arr[$i] = ['is_selected' => 0, 'goods_attr_id' => $goods_attr['goods_attr_id'], 'attr_value' => $attr_values[$i], 'attr_price' => $goods_attr['attr_price'], 'attr_sort' => $goods_attr['attr_sort']];
+                    $attr_values_arr[$i] = [
+                        'is_selected' => 0,
+                        'goods_attr_id' => $goods_attr['goods_attr_id'],
+                        'attr_value' => $attr_values[$i],
+                        'attr_price' => $goods_attr['attr_price'],
+                        'attr_sort' => $goods_attr['attr_sort']
+                    ];
                 }
                 $attribute_list[$key]['attr_values_arr'] = $attr_values_arr;
             }
@@ -383,7 +396,8 @@ class AdminController extends BackendController
                 /* 处理属性图片 start */
                 $attr_values_arr = [];
                 foreach ($val as $k => $v) {
-                    $data = bargain_get_goods_attr_id(['attr_id' => $key, 'attr_value' => $v, 'goods_id' => $goods_id], ['ga.*, a.attr_type'], [1, 2], 1);
+                    $data = bargain_get_goods_attr_id(['attr_id' => $key, 'attr_value' => $v, 'goods_id' => $goods_id],
+                        ['ga.*, a.attr_type'], [1, 2], 1);
 
                     $data['attr_id'] = $key;
                     $data['attr_value'] = $v;
@@ -396,7 +410,7 @@ class AdminController extends BackendController
 
                 $attribute_array[$i]['attr_values_arr'] = $attr_values_arr;
 
-                if($attr_info['attr_type'] == 2){
+                if ($attr_info['attr_type'] == 2) {
                     unset($attribute_array[$i]);
                 }
                 /* 处理属性图片 end */
@@ -405,7 +419,7 @@ class AdminController extends BackendController
 
             //删除复选属性后重设键名
             $new_attribute_array = [];
-            foreach($attribute_array as $key=>$val){
+            foreach ($attribute_array as $key => $val) {
                 $new_attribute_array[] = $val;
             }
             $attribute_array = $new_attribute_array;
@@ -425,21 +439,21 @@ class AdminController extends BackendController
                 $group = [];
 
                 //货品信息
-                $product_info = get_product_info_by_attr($bargain_id,$goods_id, $val, $goods_model, $region_id);
+                $product_info = get_product_info_by_attr($bargain_id, $goods_id, $val, $goods_model, $region_id);
                 if (!empty($product_info)) {
                     $group = $product_info;
                 }
                 //组合信息
                 foreach ($val as $k => $v) {
-                    if($v){
+                    if ($v) {
                         $group['attr_info'][$k]['attr_id'] = $attribute_array[$k]['attr_id'];
                         $group['attr_info'][$k]['attr_value'] = $v;
                     }
                 }
 
-                if($group){
+                if ($group) {
                     $attr_group[$key] = $group;
-                }else{
+                } else {
                     $attr_group = [];
                 }
             }
@@ -554,10 +568,10 @@ class AdminController extends BackendController
         if (empty($id)) {
             $this->message(L('select_shop'), null, 2);
         }
-        if($type == 'status'){
+        if ($type == 'status') {
             $sql = 'UPDATE {pre}bargain_goods' . " SET status = 1 " . " WHERE id = $id ";
             $this->model->query($sql);
-        }else{
+        } else {
             $sql = 'UPDATE {pre}bargain_goods' . " SET is_delete = 1 " . " WHERE id = $id ";
             $this->model->query($sql);
         }
@@ -586,30 +600,30 @@ class AdminController extends BackendController
                 $where .= " and bs.status = 1 ";//成功活动
                 break;
             case '4':
-                $where .=  " and bs.status != 1 and '" . gmtime() . "'> bg.end_time ";//失败活动
+                $where .= " and bs.status != 1 and '" . gmtime() . "'> bg.end_time ";//失败活动
                 break;
             default:
                 $where .= '';
         }
 
-        $sql_count = "select count(*) as count from {pre}bargain_statistics_log as bs LEFT JOIN {pre}bargain_goods as bg ON bs.bargain_id =  bg.id where bg.id ='".$bargain_id."' $where ";
+        $sql_count = "select count(*) as count from {pre}bargain_statistics_log as bs LEFT JOIN {pre}bargain_goods as bg ON bs.bargain_id =  bg.id where bg.id ='" . $bargain_id . "' $where ";
         $total = $this->model->getOne($sql_count);
         $offset = $this->pageLimit(url('teaminfo'), $this->page_num);
         $this->assign('page', $this->pageShow($total));
 
-        $sql = "select bg.goods_id,bg.target_price,bg.start_time,bg.end_time,bs.id,bs.bargain_id,bs.goods_attr_id, bs.user_id,bs.final_price,bs.add_time,bs.count_num,bs.status from {pre}bargain_statistics_log as bs LEFT JOIN {pre}bargain_goods as bg ON  bs.bargain_id = bg.id  where bg.id ='".$bargain_id."'
+        $sql = "select bg.goods_id,bg.target_price,bg.start_time,bg.end_time,bs.id,bs.bargain_id,bs.goods_attr_id, bs.user_id,bs.final_price,bs.add_time,bs.count_num,bs.status from {pre}bargain_statistics_log as bs LEFT JOIN {pre}bargain_goods as bg ON  bs.bargain_id = bg.id  where bg.id ='" . $bargain_id . "'
         $where order by bs.add_time desc LIMIT " . $offset;
         $list = $this->model->query($sql);
-        $time =  gmtime();
+        $time = gmtime();
         foreach ($list as $key => $val) {
             $list[$key]['add_time'] = local_date($GLOBALS['_CFG']['time_format'], $val['add_time']);
 
             //获取选中活动属性原价，底价
-            if($val['goods_attr_id']){
+            if ($val['goods_attr_id']) {
                 $spec = explode(",", $val['goods_attr_id']);
-                $target_price = bargain_target_price($val['bargain_id'],$val['goods_id'],$spec);//底价
-                $list[$key]['target_price'] =  price_format($target_price);
-            }else{
+                $target_price = bargain_target_price($val['bargain_id'], $val['goods_id'], $spec);//底价
+                $list[$key]['target_price'] = price_format($target_price);
+            } else {
                 $list[$key]['target_price'] = price_format($val['target_price']);//底价
             }
 
@@ -619,11 +633,11 @@ class AdminController extends BackendController
             $list[$key]['user_name'] = $user_nick['nick_name'];
             $list[$key]['count_num'] = $val['count_num'];
             //团状态
-            if ($val['status'] == 1 ) {
+            if ($val['status'] == 1) {
                 $list[$key]['status'] = '活动成功';
-            } elseif($val['status'] != 1 and $time >= $val['start_time'] and $time <= $val['end_time'] ) {
+            } elseif ($val['status'] != 1 and $time >= $val['start_time'] and $time <= $val['end_time']) {
                 $list[$key]['status'] = '活动进行中';
-            }elseif($val['status'] != 1 and $time > $val['end_time']) {
+            } elseif ($val['status'] != 1 and $time > $val['end_time']) {
                 $list[$key]['status'] = '活动失败';
             }
 
@@ -645,7 +659,7 @@ class AdminController extends BackendController
 
         $id = I('id', 0, 'intval');
 
-        $sql = "select * from {pre}bargain_statistics  where bs_id = $id order by add_time desc  " ;
+        $sql = "select * from {pre}bargain_statistics  where bs_id = $id order by add_time desc  ";
         $list = $this->model->query($sql);
         foreach ($list as $key => $val) {
             $list[$key]['add_time'] = local_date($GLOBALS['_CFG']['time_format'], $val['add_time']);
@@ -656,23 +670,6 @@ class AdminController extends BackendController
         $this->assign('list', $list);
         $this->display();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

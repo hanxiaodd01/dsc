@@ -18,64 +18,64 @@ $file = '';
 $is_delimg = isset($_REQUEST['is_delimg']) && !empty($_REQUEST['is_delimg']) ? intval($_REQUEST['is_delimg']) : 0;
 
 if ($is_cname == 1) {
-	$is_cname = true;
-}
-else {
-	$is_cname = false;
+    $is_cname = true;
+} else {
+    $is_cname = false;
 }
 
 $ossClient = new \OSS\OssClient($keyid, $keysecret, $endpoint, $is_cname);
 
 if ($act == 'upload') {
-	if ($object) {
-		if (is_array($object)) {
-			foreach ($object as $key => $row) {
-				if ($row) {
-					$row = trim($row);
-					$file = $rootPath . $row;
-					$objects = $row;
-					$ossClient->putObject($bucket, $objects, '{$row}');
-					$res_oss = $ossClient->uploadFile($bucket, $objects, $file);
-				}
-			}
-		}
-		else {
-			$object = trim($object);
-			$file = $rootPath . $object;
-			$ossClient->putObject($bucket, $object, '{$object}');
-			$res_oss = $ossClient->uploadFile($bucket, $object, $file);
-		}
-	}
-}
-else if ($act == 'del_file') {
-	if ($object) {
-		if (is_array($object)) {
-			foreach ($object as $key => $row) {
-				$object[$key] = trim($row);
-			}
-		}
+    if ($object) {
+        if (is_array($object)) {
+            foreach ($object as $key => $row) {
+                if ($row) {
+                    $row = trim($row);
+                    $file = $rootPath . $row;
+                    $objects = $row;
+                    $ossClient->putObject($bucket, $objects, '{$row}');
+                    $res_oss = $ossClient->uploadFile($bucket, $objects, $file);
+                }
+            }
+        } else {
+            $object = trim($object);
+            $file = $rootPath . $object;
+            $ossClient->putObject($bucket, $object, '{$object}');
+            $res_oss = $ossClient->uploadFile($bucket, $object, $file);
+        }
+    }
+} else {
+    if ($act == 'del_file') {
+        if ($object) {
+            if (is_array($object)) {
+                foreach ($object as $key => $row) {
+                    $object[$key] = trim($row);
+                }
+            }
 
-		$ossClient->deleteObjects($bucket, $object);
-	}
-}
-else if ($act == 'list_file') {
-	$list = $ossClient->listObjects($bucket, $object);
-	$list = object_array($list);
-	$arr = array();
+            $ossClient->deleteObjects($bucket, $object);
+        }
+    } else {
+        if ($act == 'list_file') {
+            $list = $ossClient->listObjects($bucket, $object);
+            $list = object_array($list);
+            $arr = array();
 
-	foreach ($list as $key => $row) {
-		if (is_array($row)) {
-			$key = str_replace(array('OSS\\Model\\ObjectListInfo', 'List'), '', $key);
+            foreach ($list as $key => $row) {
+                if (is_array($row)) {
+                    $key = str_replace(array('OSS\\Model\\ObjectListInfo', 'List'), '', $key);
 
-			foreach ($row as $kr => $krow) {
-				$row[$kr] = array_values($krow);
-			}
+                    foreach ($row as $kr => $krow) {
+                        $row[$kr] = array_values($krow);
+                    }
 
-			$arr[$key] = $row;
-		}
-	}
+                    $arr[$key] = $row;
+                }
+            }
 
-	$res['list'] = $arr;
+            $res['list'] = $arr;
+        }
+    }
 }
 
 $res['object'] = $object;

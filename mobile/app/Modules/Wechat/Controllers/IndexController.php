@@ -113,7 +113,10 @@ class IndexController extends FrontendController
                     $data['sentcount'] = $wedata['SentCount'];
                     $data['errorcount'] = $wedata['ErrorCount'];
                     // 更新群发结果
-                    dao('wechat_mass_history')->data($data)->where(array('msg_id' => $wedata['MsgID'], 'wechat_id' => $this->wechat_id))->save();
+                    dao('wechat_mass_history')->data($data)->where(array(
+                        'msg_id' => $wedata['MsgID'],
+                        'wechat_id' => $this->wechat_id
+                    ))->save();
                     exit();
                 } elseif ($wedata['Event'] == 'TEMPLATESENDJOBFINISH') {
                     // 模板消息发送结束事件
@@ -128,7 +131,11 @@ class IndexController extends FrontendController
                         $data = array('status' => 0); // status 0 发送失败，1 发送与接收成功，2 用户拒收
                     }
                     // 更新模板消息发送状态
-                    dao('wechat_template_log')->data($data)->where(array('msgid' => $wedata['MsgID'], 'openid' => $wedata['FromUserName'], 'wechat_id' => $this->wechat_id))->save();
+                    dao('wechat_template_log')->data($data)->where(array(
+                        'msgid' => $wedata['MsgID'],
+                        'openid' => $wedata['FromUserName'],
+                        'wechat_id' => $this->wechat_id
+                    ))->save();
                     exit();
                 }
                 break;
@@ -326,9 +333,15 @@ class IndexController extends FrontendController
                         update_connnect_user($res, 'wechat');
                         // 首次注册 更新推荐二维码扫描量
                         if ($is_drp == false && !empty($parent_id)) {
-                            $qrcode = dao('wechat_qrcode')->field('username')->where(array('scene_id' => $parent_id, 'wechat_id' => $this->wechat_id))->find();
+                            $qrcode = dao('wechat_qrcode')->field('username')->where(array(
+                                'scene_id' => $parent_id,
+                                'wechat_id' => $this->wechat_id
+                            ))->find();
                             if (!empty($qrcode['username'])) {
-                                dao('wechat_qrcode')->where(array('scene_id' => $parent_id, 'wechat_id' => $this->wechat_id))->setInc('scan_num', 1);
+                                dao('wechat_qrcode')->where(array(
+                                    'scene_id' => $parent_id,
+                                    'wechat_id' => $this->wechat_id
+                                ))->setInc('scan_num', 1);
                             }
                         }
                         // 注册微信资料
@@ -403,10 +416,16 @@ class IndexController extends FrontendController
             $scene_id = str_replace('u=', '', $scene_id);
         }
         $scene_id = intval($scene_id);
-        $qrcode = dao('wechat_qrcode')->field('function, username')->where(array('scene_id' => $scene_id, 'wechat_id' => $this->wechat_id))->find();
+        $qrcode = dao('wechat_qrcode')->field('function, username')->where(array(
+            'scene_id' => $scene_id,
+            'wechat_id' => $this->wechat_id
+        ))->find();
         // 增加渠道二维码的扫描量
         if (empty($qrcode['username'])) {
-            dao('wechat_qrcode')->where(array('scene_id' => $scene_id, 'wechat_id' => $this->wechat_id))->setInc('scan_num', 1);
+            dao('wechat_qrcode')->where(array(
+                'scene_id' => $scene_id,
+                'wechat_id' => $this->wechat_id
+            ))->setInc('scan_num', 1);
         }
         return $qrcode['function'];
     }
@@ -434,7 +453,8 @@ class IndexController extends FrontendController
                 }
                 // 上传多媒体文件
                 $filename = !empty($replyInfo['media']['command']) ? dirname(ROOT_PATH) . '/mobile/' . $replyInfo['media']['file'] : dirname(ROOT_PATH) . '/' . $replyInfo['media']['file'];
-                $rs = $this->weObj->uploadMedia(array('media' => realpath_wechat($filename)), $replyInfo['media']['type']);
+                $rs = $this->weObj->uploadMedia(array('media' => realpath_wechat($filename)),
+                    $replyInfo['media']['type']);
                 if (empty($rs)) {
                     logResult($this->weObj->errMsg);
                 }
@@ -501,7 +521,8 @@ class IndexController extends FrontendController
                 if ($result[0]['reply_type'] == 'image' || $result[0]['reply_type'] == 'voice') {
                     // 上传多媒体文件
                     $filename = !empty($mediaInfo['command']) ? dirname(ROOT_PATH) . '/mobile/' . $mediaInfo['file'] : dirname(ROOT_PATH) . '/' . $mediaInfo['file'];
-                    $rs = $this->weObj->uploadMedia(array('media' => realpath_wechat($filename)), $result[0]['reply_type']);
+                    $rs = $this->weObj->uploadMedia(array('media' => realpath_wechat($filename)),
+                        $result[0]['reply_type']);
                     if (empty($rs)) {
                         logResult($this->weObj->errMsg);
                     }
@@ -521,7 +542,8 @@ class IndexController extends FrontendController
                 } elseif ('video' == $result[0]['reply_type']) {
                     // 上传多媒体文件
                     $filename = !empty($mediaInfo['command']) ? dirname(ROOT_PATH) . '/mobile/' . $mediaInfo['file'] : dirname(ROOT_PATH) . '/' . $mediaInfo['file'];
-                    $rs = $this->weObj->uploadMedia(array('media' => realpath_wechat($filename)), $result[0]['reply_type']);
+                    $rs = $this->weObj->uploadMedia(array('media' => realpath_wechat($filename)),
+                        $result[0]['reply_type']);
                     if (empty($rs)) {
                         logResult($this->weObj->errMsg);
                     }
@@ -555,13 +577,16 @@ class IndexController extends FrontendController
                             $articles[$key]['Title'] = $artinfo['title'];
                             $articles[$key]['Description'] = empty($artinfo['digest']) ? $artinfo['content'] : $artinfo['digest'];
                             $articles[$key]['PicUrl'] = get_wechat_image_path($artinfo['file']);
-                            $articles[$key]['Url'] = empty($artinfo['link']) ? __HOST__ . url('article/index/wechat', array('id' => $artinfo['id'])) : strip_tags(html_out($artinfo['link']));
+                            $articles[$key]['Url'] = empty($artinfo['link']) ? __HOST__ . url('article/index/wechat',
+                                    array('id' => $artinfo['id'])) : strip_tags(html_out($artinfo['link']));
                         }
                     } else {
                         $articles[0]['Title'] = $mediaInfo['title'];
-                        $articles[0]['Description'] = empty($mediaInfo['digest']) ? sub_str(strip_tags(html_out($mediaInfo['content'])), 100) : $mediaInfo['digest'];
+                        $articles[0]['Description'] = empty($mediaInfo['digest']) ? sub_str(strip_tags(html_out($mediaInfo['content'])),
+                            100) : $mediaInfo['digest'];
                         $articles[0]['PicUrl'] = get_wechat_image_path($mediaInfo['file']);
-                        $articles[0]['Url'] = empty($mediaInfo['link']) ? __HOST__ . url('article/index/wechat', array('id' => $mediaInfo['id'])) : strip_tags(html_out($mediaInfo['link']));
+                        $articles[0]['Url'] = empty($mediaInfo['link']) ? __HOST__ . url('article/index/wechat',
+                                array('id' => $mediaInfo['id'])) : strip_tags(html_out($mediaInfo['link']));
                     }
                     // 回复
                     $this->weObj->news($articles)->reply();
@@ -743,9 +768,16 @@ class IndexController extends FrontendController
         // 是否处在多客服流程
         $kfsession = $this->weObj->getKFSession($fromusername);
         if (empty($kfsession) || empty($kfsession['kf_account'])) {
-            $kefu = dao('wechat_user')->where(array('openid' => $fromusername, 'wechat_id' => $this->wechat_id))->getField('openid');
+            $kefu = dao('wechat_user')->where(array(
+                'openid' => $fromusername,
+                'wechat_id' => $this->wechat_id
+            ))->getField('openid');
             if ($kefu && $keywords == 'kefu') {
-                $rs = $this->db->table('wechat_extend')->where(array('command' => 'kefu', 'enable' => 1, 'wechat_id' => $this->wechat_id))->getField('config');
+                $rs = $this->db->table('wechat_extend')->where(array(
+                    'command' => 'kefu',
+                    'enable' => 1,
+                    'wechat_id' => $this->wechat_id
+                ))->getField('config');
                 if (!empty($rs)) {
                     $config = unserialize($rs);
                     $msg = array(
@@ -783,7 +815,10 @@ class IndexController extends FrontendController
      */
     public function close_kf($openid, $keywords)
     {
-        $openid = $this->model->table('wechat_user')->where(array('openid' => $openid, 'wechat_id' => $this->wechat_id))->getField('openid');
+        $openid = $this->model->table('wechat_user')->where(array(
+            'openid' => $openid,
+            'wechat_id' => $this->wechat_id
+        ))->getField('openid');
         if ($openid) {
             $kfsession = $this->weObj->getKFSession($openid);
             if ($keywords == 'q' && isset($kfsession['kf_account']) && !empty($kfsession['kf_account'])) {
@@ -809,7 +844,10 @@ class IndexController extends FrontendController
      */
     public function record_msg($fromusername, $keywords, $is_wechat_admin = 0)
     {
-        $uid = dao('wechat_user')->where(array('openid' => $fromusername, 'wechat_id' => $this->wechat_id))->getField('uid');
+        $uid = dao('wechat_user')->where(array(
+            'openid' => $fromusername,
+            'wechat_id' => $this->wechat_id
+        ))->getField('uid');
         if ($uid) {
             $data['uid'] = $uid;
             $data['msg'] = $keywords;
@@ -949,7 +987,7 @@ class IndexController extends FrontendController
 
     /**
      * 微信静默授权方法
-     * @param  integer $ru_id
+     * @param integer $ru_id
      * @return
      */
     public static function snsapi_base($ru_id = 0)
@@ -966,7 +1004,7 @@ class IndexController extends FrontendController
             // 去除微信授权code、state防止重复跳转
             unset($param['code']);
             unset($param['state']);
-            $back_url .= '?'. http_build_query($param, '', '&');
+            $back_url .= '?' . http_build_query($param, '', '&');
         }
 
         if (!empty($wxinfo) && !empty($wxinfo['appid']) && is_wechat_browser() && (empty($_SESSION['openid']) || empty($_COOKIE['openid']))) {

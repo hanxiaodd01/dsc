@@ -381,11 +381,11 @@ $_LANG['18_value_card'] = '储值卡';
 $_LANG['time_limit_promotion'] = '限时促销';
 
 if (file_exists(MOBILE_TEAM)) {
-	$_LANG['18_team'] = '拼团活动';
+    $_LANG['18_team'] = '拼团活动';
 }
 
 if (file_exists(MOBILE_BARGAIN)) {
-	$_LANG['19_bargain'] = '砍价活动';
+    $_LANG['19_bargain'] = '砍价活动';
 }
 
 $_LANG['03_seckill_list'] = '秒杀活动';
@@ -454,10 +454,9 @@ $_LANG['admin_edit_role'] = '修改角色';
 $_LANG['admin_logs'] = '管理员日志';
 $_LANG['agency_list'] = '办事处列表';
 if (function_exists('judge_supplier_enabled') && judge_supplier_enabled()) {
-	$_LANG['01_suppliers_list'] = '供应商列表';
-}
-else {
-	$_LANG['suppliers_list'] = '供货商列表';
+    $_LANG['01_suppliers_list'] = '供应商列表';
+} else {
+    $_LANG['suppliers_list'] = '供货商列表';
 }
 
 $_LANG['admin_message'] = '管理员留言';
@@ -784,33 +783,33 @@ $_LANG['03_touch_ads'] = '广告管理';
 $_LANG['04_touch_ad_position'] = '广告位管理';
 
 if (file_exists(MOBILE_WECHAT)) {
-	$_LANG['22_wechat'] = '微信通管理';
-	$_LANG['01_wechat_admin'] = '公众号设置';
-	$_LANG['02_mass_message'] = '群发消息';
-	$_LANG['03_auto_reply'] = '自动回复';
-	$_LANG['04_menu'] = '自定义菜单';
-	$_LANG['05_fans'] = '粉丝管理';
-	$_LANG['06_media'] = '素材管理';
-	$_LANG['07_qrcode'] = '二维码管理';
-	$_LANG['08_share'] = '扫码引荐';
-	$_LANG['09_extend'] = '功能扩展';
-	$_LANG['10_market'] = '营销中心';
-	$_LANG['11_template'] = '消息提醒';
+    $_LANG['22_wechat'] = '微信通管理';
+    $_LANG['01_wechat_admin'] = '公众号设置';
+    $_LANG['02_mass_message'] = '群发消息';
+    $_LANG['03_auto_reply'] = '自动回复';
+    $_LANG['04_menu'] = '自定义菜单';
+    $_LANG['05_fans'] = '粉丝管理';
+    $_LANG['06_media'] = '素材管理';
+    $_LANG['07_qrcode'] = '二维码管理';
+    $_LANG['08_share'] = '扫码引荐';
+    $_LANG['09_extend'] = '功能扩展';
+    $_LANG['10_market'] = '营销中心';
+    $_LANG['11_template'] = '消息提醒';
 }
 
 if (function_exists('wxapp_enabled') && wxapp_enabled()) {
-	$_LANG['24_wxapp'] = '小程序管理';
-	$_LANG['01_wxapp_wechat_config'] = '小程序设置';
-	$_LANG['02_wxapp_wechat_template'] = '消息提醒';
+    $_LANG['24_wxapp'] = '小程序管理';
+    $_LANG['01_wxapp_wechat_config'] = '小程序设置';
+    $_LANG['02_wxapp_wechat_template'] = '消息提醒';
 }
 
 if (file_exists(MOBILE_DRP)) {
-	$_LANG['23_drp'] = '分销管理';
-	$_LANG['01_drp_config'] = '店铺设置';
-	$_LANG['02_drp_shop'] = '分销商管理';
-	$_LANG['03_drp_list'] = '分销排行';
-	$_LANG['04_drp_order_list'] = '分销订单操作';
-	$_LANG['05_drp_set_config'] = '分销比例设置';
+    $_LANG['23_drp'] = '分销管理';
+    $_LANG['01_drp_config'] = '店铺设置';
+    $_LANG['02_drp_shop'] = '分销商管理';
+    $_LANG['03_drp_list'] = '分销排行';
+    $_LANG['04_drp_order_list'] = '分销订单操作';
+    $_LANG['05_drp_set_config'] = '分销比例设置';
 }
 
 $_LANG['operating_hints'] = '操作提示';
@@ -856,29 +855,28 @@ $_LANG['13_complaint'] = '投诉管理';
 $_LANG['complain_conf'] = '投诉设置';
 $_LANG['complain_conf_success'] = '投诉设置成功';
 if (function_exists('judge_supplier_enabled') && judge_supplier_enabled()) {
-	$_LANG['standard_goods_lib'] = '供应商商品库';
-	$_LANG['02_suppliers_commission'] = '供应商结算';
-	$_LANG['suppliers_stats'] = '订单统计';
-	$_LANG['suppliers_sale_list'] = '销售明细';
-	$_LANG['23_suppliers'] = '供应商';
-	$_LANG['10_account_manage'] = '供应商账户';
-	$_LANG['supply_and_demand'] = '供求';
-	$_LANG['01_wholesale_purchase'] = '求购列表';
-	$_LANG['02_wholesale_order'] = '采购订单';
-	$_LANG['03_wholesale_purchase'] = '求购列表';
-	$_LANG['01_wholesale'] = '商品列表';
-	$_LANG['01_wholesale_cat'] = '商品分类';
-	$_LANG['05_wholesale_delivery'] = '发货单列表';
-	$_LANG['12_wholesale_back_apply'] = '采购退货单';
-}
-else {
-	$_LANG['supply_and_demand'] = '供求';
-	$_LANG['01_wholesale_purchase'] = '求购列表';
-	$_LANG['02_wholesale_order'] = '采购订单';
-	$_LANG['03_wholesale_purchase'] = '求购列表';
-	$_LANG['wholesale_purchase'] = '求购列表';
-	$_LANG['wholesale_order'] = '采购订单';
-	$_LANG['01_wholesale'] = '批发管理';
+    $_LANG['standard_goods_lib'] = '供应商商品库';
+    $_LANG['02_suppliers_commission'] = '供应商结算';
+    $_LANG['suppliers_stats'] = '订单统计';
+    $_LANG['suppliers_sale_list'] = '销售明细';
+    $_LANG['23_suppliers'] = '供应商';
+    $_LANG['10_account_manage'] = '供应商账户';
+    $_LANG['supply_and_demand'] = '供求';
+    $_LANG['01_wholesale_purchase'] = '求购列表';
+    $_LANG['02_wholesale_order'] = '采购订单';
+    $_LANG['03_wholesale_purchase'] = '求购列表';
+    $_LANG['01_wholesale'] = '商品列表';
+    $_LANG['01_wholesale_cat'] = '商品分类';
+    $_LANG['05_wholesale_delivery'] = '发货单列表';
+    $_LANG['12_wholesale_back_apply'] = '采购退货单';
+} else {
+    $_LANG['supply_and_demand'] = '供求';
+    $_LANG['01_wholesale_purchase'] = '求购列表';
+    $_LANG['02_wholesale_order'] = '采购订单';
+    $_LANG['03_wholesale_purchase'] = '求购列表';
+    $_LANG['wholesale_purchase'] = '求购列表';
+    $_LANG['wholesale_order'] = '采购订单';
+    $_LANG['01_wholesale'] = '批发管理';
 }
 
 $_LANG['24_sms'] = '短信管理';

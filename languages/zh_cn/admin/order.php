@@ -1,5 +1,5 @@
 <?php
- //大商创网络
+//大商创网络
 $_LANG['admin_order_list_motion'] = '后台订单列表补记录日志';
 $_LANG['update_shipping'] = '将【%s】配送方式修改为【%s】';
 $_LANG['self_motion_goods'] = '自动确认收货';

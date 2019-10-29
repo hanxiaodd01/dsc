@@ -7,42 +7,40 @@ $CONFIG = json_decode(preg_replace('/\\/\\*[\\s\\S]+?\\*\\//', '', file_get_cont
 $action = $_GET['action'];
 
 switch ($action) {
-case 'config':
-	$result = json_encode($CONFIG);
-	break;
+    case 'config':
+        $result = json_encode($CONFIG);
+        break;
 
-case 'uploadimage':
-case 'uploadscrawl':
-case 'uploadvideo':
-case 'uploadfile':
-	$result = include 'action_upload.php';
-	break;
+    case 'uploadimage':
+    case 'uploadscrawl':
+    case 'uploadvideo':
+    case 'uploadfile':
+        $result = include 'action_upload.php';
+        break;
 
-case 'listimage':
-	$result = include 'action_list.php';
-	break;
+    case 'listimage':
+        $result = include 'action_list.php';
+        break;
 
-case 'listfile':
-	$result = include 'action_list.php';
-	break;
+    case 'listfile':
+        $result = include 'action_list.php';
+        break;
 
-case 'catchimage':
-	$result = include 'action_crawler.php';
-	break;
+    case 'catchimage':
+        $result = include 'action_crawler.php';
+        break;
 
-default:
-	$result = json_encode(array('state' => '请求地址出错'));
-	break;
+    default:
+        $result = json_encode(array('state' => '请求地址出错'));
+        break;
 }
 
 if (isset($_GET['callback'])) {
-	if (preg_match('/^[\\w_]+$/', $_GET['callback'])) {
-		echo htmlspecialchars($_GET['callback']) . '(' . $result . ')';
-	}
-	else {
-		echo json_encode(array('state' => 'callback参数不合法'));
-	}
-}
-else {
-	echo $result;
+    if (preg_match('/^[\\w_]+$/', $_GET['callback'])) {
+        echo htmlspecialchars($_GET['callback']) . '(' . $result . ')';
+    } else {
+        echo json_encode(array('state' => 'callback参数不合法'));
+    }
+} else {
+    echo $result;
 }

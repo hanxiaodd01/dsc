@@ -227,7 +227,8 @@ class AdminController extends BackendController
             $info['backbround'] = '/data/attached/qrcode/drp_bg.png';
         }
         // 预览文字效果
-        $text_description = nl2br(str_replace(['\r\n', '\n', '\r'], '<br />', htmlspecialchars($info['text']['description'])));
+        $text_description = nl2br(str_replace(['\r\n', '\n', '\r'], '<br />',
+            htmlspecialchars($info['text']['description'])));
         $this->assign('show_text_desc', $text_description);
 
         // 获得目录下所有图片列表
@@ -292,10 +293,10 @@ class AdminController extends BackendController
 
             $path = "data/attached/qrcode/themes/";
 
-            $file_list = scandir(dirname(ROOT_PATH) .'/'. $path);
+            $file_list = scandir(dirname(ROOT_PATH) . '/' . $path);
             // 获得文件列表
             if ($file_list) {
-                $file_list = array_values(array_diff($file_list, ['..','.']));
+                $file_list = array_values(array_diff($file_list, ['..', '.']));
                 foreach ($file_list as $key => $file) {
                     if (!is_dir($file)) {
                         $file = iconv("gbk", "utf-8", $file);
@@ -691,7 +692,7 @@ class AdminController extends BackendController
         }
         $filter['where'] = $act;
         $offset = $this->pageLimit(url('drp_list', $filter), $this->page_num);
-        $sql = "SELECT count(id) as num FROM {pre}drp_shop as d LEFT JOIN {pre}users as u ON d.user_id=u.user_id WHERE d.audit=1 and d.status=1 ";
+        $sql = "SELECT count(id) AS num FROM {pre}drp_shop AS d LEFT JOIN {pre}users AS u ON d.user_id=u.user_id WHERE d.audit=1 AND d.status=1 ";
         $count = $this->model->query($sql);
         $this->assign('page', $this->pageShow($count[0]['num']));
         $sql = "SELECT d.id, d.user_id, IFNULL(w.nickname,u.user_name) as  name, d.shop_name, d.mobile, d.credit_id, d.create_time,
@@ -835,9 +836,12 @@ class AdminController extends BackendController
                         if (empty($users['user_id']) || empty($users['user_name'])) {
                             break;
                         } else {
-                            $change_desc = sprintf(L('drp_separate_info'), $users['user_name'], $order_sn, $setmoney, $setpoint);
-                            drp_log_account_change($users['user_id'], $setmoney, 0, 0, $setpoint, $change_desc, ACT_SEPARATE);
-                            $this->write_drp_affiliate_log($oid, $users['user_id'], $users['user_name'], $setmoney, $setpoint, 0);
+                            $change_desc = sprintf(L('drp_separate_info'), $users['user_name'], $order_sn, $setmoney,
+                                $setpoint);
+                            drp_log_account_change($users['user_id'], $setmoney, 0, 0, $setpoint, $change_desc,
+                                ACT_SEPARATE);
+                            $this->write_drp_affiliate_log($oid, $users['user_id'], $users['user_name'], $setmoney,
+                                $setpoint, 0);
                             //获得佣金，发送模版消息 start
                             $pushData = [
                                 'keyword1' => ['value' => $setmoney],
@@ -911,7 +915,8 @@ class AdminController extends BackendController
             $stat = $GLOBALS['db']->getRow("SELECT * FROM " . $GLOBALS['ecs']->table('drp_affiliate_log') . " WHERE log_id = '$logid'");
             if (!empty($stat)) {
                 $flag = -1;
-                drp_log_account_change($stat['user_id'], -$stat['money'], 0, 0, -$stat['point'], L('loginfo_cancel'), ACT_SEPARATE);
+                drp_log_account_change($stat['user_id'], -$stat['money'], 0, 0, -$stat['point'], L('loginfo_cancel'),
+                    ACT_SEPARATE);
                 $sql = "UPDATE " . $GLOBALS['ecs']->table('drp_affiliate_log') .
                     " SET separate_type = '$flag'" .
                     " WHERE log_id = '$logid'";

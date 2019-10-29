@@ -48,7 +48,7 @@ class GoodsController extends FrontendController
         }
         //商品信息
         $goods = get_bargain_goods_info($this->bargain_id);
-        if(empty($goods)){
+        if (empty($goods)) {
             show_message('活动审核中或者已关闭，去查看新的活动吧', '查看新的活动', url('bargain/index/index'), 'success');
         }
         //验证砍价活动是否结束
@@ -61,21 +61,21 @@ class GoodsController extends FrontendController
 
         //验证是否参与当前活动跳转url && $this->bs_id
         if ($this->bargain_id) {
-            $add_bargain = is_add_bargain($this->bargain_id,$this->user_id);
+            $add_bargain = is_add_bargain($this->bargain_id, $this->user_id);
             if ($add_bargain && $add_bargain['id'] != $this->bs_id) {
-                $this->redirect('bargain/goods/index', ['id' => $this->bargain_id,'bs_id' =>$add_bargain['id']]);
+                $this->redirect('bargain/goods/index', ['id' => $this->bargain_id, 'bs_id' => $add_bargain['id']]);
             }
         }
 
         //验证是否参与当前活动标示
-        $add_bargain = is_add_bargain($this->bargain_id,$this->user_id);
-        if($add_bargain){
+        $add_bargain = is_add_bargain($this->bargain_id, $this->user_id);
+        if ($add_bargain) {
             $this->assign('add_bargain', 1);//已参加
         }
 
         /* --验证是否砍价-- */
-        if(!empty($this->bs_id)){
-            $bargain_info = is_bargain_join($this->bs_id,$this->user_id);
+        if (!empty($this->bs_id)) {
+            $bargain_info = is_bargain_join($this->bs_id, $this->user_id);
             if ($bargain_info) {
                 $this->assign('bargain_join', 1);//已砍价标示
                 $this->assign('bargain_info', $bargain_info); //砍价记录
@@ -90,21 +90,22 @@ class GoodsController extends FrontendController
             $this->assign('graph', $graph_list);//曲线图
 
             //砍后价格,选择属性
-            $bargain_log = $this->db->table('bargain_statistics_log')->field('goods_attr_id,final_price')->where(['id' =>$this->bs_id])->find();
+            $bargain_log = $this->db->table('bargain_statistics_log')->field('goods_attr_id,final_price')->where(['id' => $this->bs_id])->find();
             $this->assign('final_price', $bargain_log['final_price']);//已砍价
 
             //获取选中活动属性原价，底价
-            if($bargain_log['goods_attr_id']){
+            if ($bargain_log['goods_attr_id']) {
                 $spec = explode(",", $bargain_log['goods_attr_id']);
                 //$goods['goods_price'] = bargain_goods_price($this->bargain_id,$goods['goods_id'],$spec);//原价
-                $goods['goods_price'] = get_final_price($goods['goods_id'], 1, true, $spec, $warehouse_id, $area_id);//原价
-                $goods['target_price'] = bargain_target_price($this->bargain_id,$goods['goods_id'],$spec);//底价
+                $goods['goods_price'] = get_final_price($goods['goods_id'], 1, true, $spec, $warehouse_id,
+                    $area_id);//原价
+                $goods['target_price'] = bargain_target_price($this->bargain_id, $goods['goods_id'], $spec);//底价
             }
 
             //进度条
             $surplus = $goods['goods_price'] - $goods['target_price'];//差价
             //已砍价
-            $subtract = $this->db->table('bargain_statistics')->where(['bs_id' =>$this->bs_id])->sum('subtract_price');
+            $subtract = $this->db->table('bargain_statistics')->where(['bs_id' => $this->bs_id])->sum('subtract_price');
             $bargain_bar = round($subtract * 100 / $surplus, 0);//百分比
             $this->assign('bargain_bar', $bargain_bar);//进度条
         }
@@ -112,7 +113,7 @@ class GoodsController extends FrontendController
         $bargain_ranking = get_bargain_goods_ranking($this->bargain_id);
         $rank = copy_array_column($bargain_ranking, 'user_id');
         $rank = array_search($this->user_id, $rank);
-        $rank = $rank+1;
+        $rank = $rank + 1;
         $this->assign('rank', $rank);//排行名次
         $this->assign('bargain_ranking', $bargain_ranking);//排行榜
 
@@ -149,8 +150,10 @@ class GoodsController extends FrontendController
         }
 
         $basic_date = ['region_name'];
-        $basic_info['province'] = get_table_date('region', "region_id = '" . $basic_info['province'] . "'", $basic_date, 2);
-        $basic_info['city'] = get_table_date('region', "region_id= '" . $basic_info['city'] . "'", $basic_date, 2) . "市";
+        $basic_info['province'] = get_table_date('region', "region_id = '" . $basic_info['province'] . "'", $basic_date,
+            2);
+        $basic_info['city'] = get_table_date('region', "region_id= '" . $basic_info['city'] . "'", $basic_date,
+                2) . "市";
         $this->assign('basic_info', $basic_info);
 
         //生成二维码链接
@@ -189,9 +192,11 @@ class GoodsController extends FrontendController
                 $bucket_info = get_bucket_info();
                 $bucket_info['endpoint'] = empty($bucket_info['endpoint']) ? $bucket_info['outside_site'] : $bucket_info['endpoint'];
                 $desc_preg = get_goods_desc_images_preg($bucket_info['endpoint'], $info['desc_mobile'], 'desc_mobile');
-                $goods_desc = preg_replace('/<div[^>]*(tools)[^>]*>(.*?)<\/div>(.*?)<\/div>/is', '', $desc_preg['desc_mobile']);
+                $goods_desc = preg_replace('/<div[^>]*(tools)[^>]*>(.*?)<\/div>(.*?)<\/div>/is', '',
+                    $desc_preg['desc_mobile']);
             } else {
-                $goods_desc = preg_replace('/<div[^>]*(tools)[^>]*>(.*?)<\/div>(.*?)<\/div>/is', '', $info['desc_mobile']);
+                $goods_desc = preg_replace('/<div[^>]*(tools)[^>]*>(.*?)<\/div>(.*?)<\/div>/is', '',
+                    $info['desc_mobile']);
             }
         }
 
@@ -199,12 +204,14 @@ class GoodsController extends FrontendController
             if (C('shop.open_oss') == 1) {
                 $bucket_info = get_bucket_info();
                 $bucket_info['endpoint'] = empty($bucket_info['endpoint']) ? $bucket_info['outside_site'] : $bucket_info['endpoint'];
-                $goods_desc = str_replace(['src="/images/upload', 'src="images/upload'], 'src="' . $bucket_info['endpoint'] . 'images/upload', $info['goods_desc']);
+                $goods_desc = str_replace(['src="/images/upload', 'src="images/upload'],
+                    'src="' . $bucket_info['endpoint'] . 'images/upload', $info['goods_desc']);
 
                 // $desc_preg = get_goods_desc_images_preg($bucket_info['endpoint'], $info['goods_desc']);
                 // $goods_desc = $desc_preg['goods_desc'];
             } else {
-                $goods_desc = str_replace(['src="/images/upload', 'src="images/upload'], 'src="' . __STATIC__ . '/images/upload', $info['goods_desc']);
+                $goods_desc = str_replace(['src="/images/upload', 'src="images/upload'],
+                    'src="' . __STATIC__ . '/images/upload', $info['goods_desc']);
             }
         }
         if (empty($info['desc_mobile']) && empty($info['goods_desc'])) {
@@ -268,13 +275,13 @@ class GoodsController extends FrontendController
         $specs = trim($specs, ',');
         $spec = explode(",", $specs);
         //获取砍价商品价格
-        $bargain_goods = $this->db->table('bargain_goods')->field('goods_price,total_num')->where(['id' =>$bargain_id])->find();
+        $bargain_goods = $this->db->table('bargain_goods')->field('goods_price,total_num')->where(['id' => $bargain_id])->find();
 
         //获取砍价商品属性价格
-        if($specs){
+        if ($specs) {
             //$goods_price = bargain_goods_price($bargain_id,$goods_id,$spec);//原价
             $goods_price = get_final_price($goods_id, $number, true, $spec, $warehouse_id, $area_id);
-        }else{
+        } else {
             $goods_price = $bargain_goods['goods_price'];
         }
 
@@ -288,16 +295,16 @@ class GoodsController extends FrontendController
         $bargain_log_id = $this->db->table('bargain_statistics_log')->data($new_bargain)->add();
 
         //更新活动参与人数
-        $total_num = $bargain_goods['total_num'] +1;
-        $this->db->table('bargain_goods')->data(['total_num' => $total_num])->where(['id' =>$bargain_id])->save();
+        $total_num = $bargain_goods['total_num'] + 1;
+        $this->db->table('bargain_goods')->data(['total_num' => $total_num])->where(['id' => $bargain_id])->save();
 
-        $this->redirect('bargain/goods/index', ['id' => $bargain_id,'bs_id' =>$bargain_log_id]);
+        $this->redirect('bargain/goods/index', ['id' => $bargain_id, 'bs_id' => $bargain_log_id]);
     }
 
 
-     /**
-      * 去砍价
-      */
+    /**
+     * 去砍价
+     */
     public function actionGobargain()
     {
         $result = [
@@ -306,7 +313,7 @@ class GoodsController extends FrontendController
         ];
         $bs_id = I('bs_id', 0, 'intval');//活动id
         $bargain_id = I('id', 0, 'intval');//发起活动id
-        $goods_id =  I('goods_id', 0, 'intval');//商品id
+        $goods_id = I('goods_id', 0, 'intval');//商品id
 
         if (!isset($this->user_id) || $this->user_id == 0) {
             $result['error'] = 1;
@@ -317,17 +324,20 @@ class GoodsController extends FrontendController
         //砍掉价格计算模式
 
         //活动砍价信息
-        $bargain = $this->db->table('bargain_goods')->field('goods_price,target_price,min_price,max_price')->where(['id' =>$bargain_id])->find();
+        $bargain = $this->db->table('bargain_goods')->field('goods_price,target_price,min_price,max_price')->where(['id' => $bargain_id])->find();
         //参与活动记录
-        $bs_log = $this->db->table('bargain_statistics_log')->field('goods_attr_id,final_price,count_num')->where(['id' =>$bs_id])->find();
+        $bs_log = $this->db->table('bargain_statistics_log')->field('goods_attr_id,final_price,count_num')->where(['id' => $bs_id])->find();
         //获取选中活动属性原价，底价
-        if($bs_log['goods_attr_id']){
+        if ($bs_log['goods_attr_id']) {
             $spec = explode(",", $bs_log['goods_attr_id']);
-            $bargain['target_price'] = bargain_target_price($bargain_id,$goods_id,$spec);//底价
+            $bargain['target_price'] = bargain_target_price($bargain_id, $goods_id, $spec);//底价
         }
         //验证是否重复参与砍价
-        $number = $this->db->table('bargain_statistics')->where(array('user_id' =>$this->user_id,'bs_id' =>$bs_id))->count();
-        if($number){
+        $number = $this->db->table('bargain_statistics')->where(array(
+            'user_id' => $this->user_id,
+            'bs_id' => $bs_id
+        ))->count();
+        if ($number) {
             $result = [
                 'error' => 3,
                 'message' => '您已参与砍价，参加新的活动吧！'
@@ -335,17 +345,17 @@ class GoodsController extends FrontendController
             die(json_encode($result));
         }
         //砍价规则
-        if($bargain['target_price'] == $bs_log['final_price']){
+        if ($bargain['target_price'] == $bs_log['final_price']) {
             $result = [
                 'error' => 3,
                 'message' => '已砍至最低价格，参加新的活动吧！'
             ];
             die(json_encode($result));
-        }else{
+        } else {
             $subtract_price = rand($bargain['min_price'], $bargain['max_price']);//砍掉价格区间
             $subtract = $bs_log['final_price'] - $subtract_price;//已砍价到
 
-            if($subtract < $bargain['target_price']){
+            if ($subtract < $bargain['target_price']) {
                 $subtract_price = $bs_log['final_price'] - $bargain['target_price'];
             }
         }
@@ -353,17 +363,20 @@ class GoodsController extends FrontendController
         $data['user_id'] = $this->user_id;
         $data['subtract_price'] = $subtract_price;//砍掉价格
         $data['add_time'] = gmtime();
-        $subtract_price =price_format($data['subtract_price']);
-        if($this->db->table('bargain_statistics')->data($data)->add() === false){
+        $subtract_price = price_format($data['subtract_price']);
+        if ($this->db->table('bargain_statistics')->data($data)->add() === false) {
             $result = [
                 'error' => 2,
                 'message' => '砍价失败'
             ];
-        }else{
+        } else {
             //更新参与砍价人数 和砍后最终购买价
-            $count_num = $bs_log['count_num']+1;
+            $count_num = $bs_log['count_num'] + 1;
             $final_price = $bs_log['final_price'] - $data['subtract_price']; //砍后价格
-            $this->db->table('bargain_statistics_log')->data(['final_price' => $final_price,'count_num' => $count_num])->where(['id' =>$bs_id])->save();
+            $this->db->table('bargain_statistics_log')->data([
+                'final_price' => $final_price,
+                'count_num' => $count_num
+            ])->where(['id' => $bs_id])->save();
             $result = [
                 'error' => 4,
                 'subtract_price' => $subtract_price,
@@ -404,7 +417,8 @@ class GoodsController extends FrontendController
                 $res['qty'] = $number;
             }
             //ecmoban模板堂 --zhuo start
-            $products = get_warehouse_id_attr_number($goods['goods_id'], $_REQUEST['attr'], $goods['user_id'], $warehouse_id, $area_id);
+            $products = get_warehouse_id_attr_number($goods['goods_id'], $_REQUEST['attr'], $goods['user_id'],
+                $warehouse_id, $area_id);
             $attr_number = $products['product_number'];
             if ($goods['model_attr'] == 1) {
                 $table_products = "products_warehouse";
@@ -417,7 +431,7 @@ class GoodsController extends FrontendController
                 $type_files = "";
             }
 
-            $sql = "SELECT * FROM " . $GLOBALS['ecs']->table($table_products) . " WHERE goods_id = '".$goods['goods_id']."'" . $type_files . " LIMIT 0, 1";
+            $sql = "SELECT * FROM " . $GLOBALS['ecs']->table($table_products) . " WHERE goods_id = '" . $goods['goods_id'] . "'" . $type_files . " LIMIT 0, 1";
             $prod = $GLOBALS['db']->getRow($sql);
 
             if ($goods['goods_type'] == 0) {
@@ -438,7 +452,7 @@ class GoodsController extends FrontendController
             $res['attr_number'] = $attr_number;
 
             //限制用户购买的数量 bywanglu
-            if($attr_id){
+            if ($attr_id) {
                 $shop_price = get_final_price($goods['goods_id'], $number, true, $attr_id, $warehouse_id, $area_id);
                 //ecmoban模板堂 --zhuo end
                 $res['shop_price'] = price_format($shop_price);
@@ -452,7 +466,8 @@ class GoodsController extends FrontendController
                     }
                 }
                 //属性价格
-                $spec_price = get_final_price($goods['goods_id'], $number, true, $attr_id, $warehouse_id, $area_id, 1, 0, 0, $res['show_goods']);
+                $spec_price = get_final_price($goods['goods_id'], $number, true, $attr_id, $warehouse_id, $area_id, 1,
+                    0, 0, $res['show_goods']);
 
                 if ($GLOBALS['_CFG']['add_shop_price'] == 0 && empty($spec_price)) {
                     $spec_price = $shop_price;
@@ -465,9 +480,10 @@ class GoodsController extends FrontendController
                 $res['discount'] = round($shop_price / $martetprice_amount, 2) * 10;
                 $res['result'] = price_format($shop_price);//商品价格不跟随增加数量而增加，之前代码 $res['result'] = price_format($shop_price * $number);
                 //砍价最低价
-                $target_price =  bargain_target_price($bargain_id,$goods['goods_id'],$attr_id, $warehouse_id, $area_id);
+                $target_price = bargain_target_price($bargain_id, $goods['goods_id'], $attr_id, $warehouse_id,
+                    $area_id);
                 $res['target_price'] = price_format($target_price);
-            }else{
+            } else {
                 $res['result'] = price_format($goods['goods_price']);
                 $res['target_price'] = price_format($goods['target_price']);
             }
@@ -490,13 +506,16 @@ class GoodsController extends FrontendController
             for ($i = 0; $i < count($fitts); $i++) {
                 $fittings_interval = $fitts[$i]['fittings_interval'];
 
-                $res['fittings_interval'][$i]['fittings_minMax'] = price_format($fittings_interval['fittings_min']) . "-" . number_format($fittings_interval['fittings_max'], 2, '.', '');
-                $res['fittings_interval'][$i]['market_minMax'] = price_format($fittings_interval['market_min']) . "-" . number_format($fittings_interval['market_max'], 2, '.', '');
+                $res['fittings_interval'][$i]['fittings_minMax'] = price_format($fittings_interval['fittings_min']) . "-" . number_format($fittings_interval['fittings_max'],
+                        2, '.', '');
+                $res['fittings_interval'][$i]['market_minMax'] = price_format($fittings_interval['market_min']) . "-" . number_format($fittings_interval['market_max'],
+                        2, '.', '');
 
                 if ($fittings_interval['save_minPrice'] == $fittings_interval['save_maxPrice']) {
                     $res['fittings_interval'][$i]['save_minMaxPrice'] = price_format($fittings_interval['save_minPrice']);
                 } else {
-                    $res['fittings_interval'][$i]['save_minMaxPrice'] = price_format($fittings_interval['save_minPrice']) . "-" . number_format($fittings_interval['save_maxPrice'], 2, '.', '');
+                    $res['fittings_interval'][$i]['save_minMaxPrice'] = price_format($fittings_interval['save_minPrice']) . "-" . number_format($fittings_interval['save_maxPrice'],
+                            2, '.', '');
                 }
 
                 $res['fittings_interval'][$i]['groupId'] = $fittings_interval['groupId'];
@@ -522,9 +541,9 @@ class GoodsController extends FrontendController
         die(json_encode($res));
     }
 
-     /*
-    *拼团商品 --> 购买
-    */
+    /*
+   *拼团商品 --> 购买
+   */
 
     public function actionBargainbuy()
     {
@@ -548,10 +567,10 @@ class GoodsController extends FrontendController
         //砍价商品信息
         $goods = get_bargain_goods_info($bargain_id);
         //参与活动记录
-        $bs_log = $this->db->table('bargain_statistics_log')->field('goods_attr_id,final_price,count_num')->where(['id' =>$bs_id])->find();
+        $bs_log = $this->db->table('bargain_statistics_log')->field('goods_attr_id,final_price,count_num')->where(['id' => $bs_id])->find();
         $specs = $bs_log['goods_attr_id'];
 
-        $products = get_warehouse_id_attr_number($goods_id, $specs , $goods['user_id'], $warehouse_id, $area_id);
+        $products = get_warehouse_id_attr_number($goods_id, $specs, $goods['user_id'], $warehouse_id, $area_id);
         $attr_number = $products['product_number'];
         if ($goods['model_attr'] == 1) {
             $table_products = "products_warehouse";
@@ -622,7 +641,7 @@ class GoodsController extends FrontendController
         }
 
         //购买最终价格
-        $bs_log =  dao('bargain_statistics_log')->field('final_price')->where(['id' =>$bs_id])->find();//参与活动记录
+        $bs_log = dao('bargain_statistics_log')->field('final_price')->where(['id' => $bs_id])->find();//参与活动记录
         $goods_price = $bs_log['final_price'];
 
         /* 更新：加入购物车 */

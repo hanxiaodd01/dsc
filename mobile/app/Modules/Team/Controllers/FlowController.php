@@ -188,7 +188,8 @@ class FlowController extends FrontendController
         $this->assign('consignee', $consignee);
 
         /* 对商品信息赋值 */
-        $cart_goods_list = cart_goods($flow_type, $cart_value, 1, $this->region_id, $this->area_id, '', $store_id); // 取得商品列表，计算合计
+        $cart_goods_list = cart_goods($flow_type, $cart_value, 1, $this->region_id, $this->area_id, '',
+            $store_id); // 取得商品列表，计算合计
         if (empty($cart_goods_list)) {
             $this->redirect('/cart');
         }
@@ -210,7 +211,8 @@ class FlowController extends FrontendController
                     $store_goods_id = $v['goods_id'];
                 }
                 $cart_goods_list[$key]['amount'] = $amount ? price_format($amount, false) : 0;
-                $cart_goods_list[$key]['goods_price_amount'] = $goods_price_amount ? price_format($goods_price_amount, false) : 0;
+                $cart_goods_list[$key]['goods_price_amount'] = $goods_price_amount ? price_format($goods_price_amount,
+                    false) : 0;
             }
         }
 
@@ -244,15 +246,19 @@ class FlowController extends FrontendController
             $discount = compute_discount(3, $cart_value);
             $this->assign('discount', $discount['discount']);
             $favour_name = empty($discount['name']) ? '' : join(',', $discount['name']);
-            $this->assign('your_discount', sprintf(L('your_discount'), $favour_name, price_format($discount['discount'])));
+            $this->assign('your_discount',
+                sprintf(L('your_discount'), $favour_name, price_format($discount['discount'])));
         }
         /*
          * 计算订单的费用
          */
-        $total = order_fee($order, $cart_goods, $consignee, 0, $cart_value, 0, $cart_goods_list, 0, 0, $store_id, $store_seller);
+        $total = order_fee($order, $cart_goods, $consignee, 0, $cart_value, 0, $cart_goods_list, 0, 0, $store_id,
+            $store_seller);
         $this->assign('total', $total);
         $this->assign('shopping_money', sprintf(L('shopping_money'), $total['formated_goods_price']));
-        $this->assign('market_price_desc', sprintf(L('than_market_price'), $total['formated_market_price'], $total['formated_saving'], $total['save_rate']));
+        $this->assign('market_price_desc',
+            sprintf(L('than_market_price'), $total['formated_market_price'], $total['formated_saving'],
+                $total['save_rate']));
 
         //配送时间
         $days = array();
@@ -373,7 +379,8 @@ class FlowController extends FrontendController
         if ($order['pay_id']) {
             $payment_selected = payment_info($order['pay_id']);
             if (file_exists(ADDONS_PATH . 'payment/' . $payment_selected['pay_code'] . '.php') && $payment_selected['pay_code'] != 'cod') {
-                $payment_selected['format_pay_fee'] = strpos($payment_selected['pay_fee'], '%') !== false ? $payment_selected['pay_fee'] : price_format($payment_selected['pay_fee'], false);
+                $payment_selected['format_pay_fee'] = strpos($payment_selected['pay_fee'],
+                    '%') !== false ? $payment_selected['pay_fee'] : price_format($payment_selected['pay_fee'], false);
                 $this->assign('payment_selected', $payment_selected);
             }
         }
@@ -451,7 +458,8 @@ class FlowController extends FrontendController
         /*  @author-bylu 优惠券 start */
         // 取得用户可用优惠券
         if ((!isset($_CFG['use_coupons']) || $_CFG['use_coupons'] == '1') && ($flow_type != CART_GROUP_BUY_GOODS && $flow_type != CART_EXCHANGE_GOODS) && $flow_type != CART_PRESALE_GOODS && $flow_type != CART_EXCHANGE_GOODS && $flow_type != CART_AUCTION_GOODS) {
-            $user_coupons_count = get_user_coupons_list($_SESSION['user_id'], true, $total['goods_price'], $cart_goods, true, 0);
+            $user_coupons_count = get_user_coupons_list($_SESSION['user_id'], true, $total['goods_price'], $cart_goods,
+                true, 0);
             $this->assign('user_coupons', $user_coupons_count);
 
             if ($order['cou_id']) {
@@ -488,7 +496,10 @@ class FlowController extends FrontendController
             $this->assign('invoice_list_company', $invoice_list_company);
         }
         //能否使用增值发票
-        $invoice_list = dao('users_vat_invoices_info')->where(array('user_id' => $_SESSION[user_id], 'audit_status' => 1))->find();
+        $invoice_list = dao('users_vat_invoices_info')->where(array(
+            'user_id' => $_SESSION[user_id],
+            'audit_status' => 1
+        ))->find();
         $invoice_list = !empty($invoice_list) ? $invoice_list['id'] : 0;
         $this->assign('users_vat_invoices_id', $invoice_list);
         //dump($order);
@@ -726,7 +737,12 @@ class FlowController extends FrontendController
             'order_status' => OS_UNCONFIRMED,
             'shipping_status' => SS_UNSHIPPED,
             'pay_status' => PS_UNPAYED,
-            'agency_id' => get_agency_by_regions(array($consignee['country'], $consignee['province'], $consignee['city'], $consignee['district'])),
+            'agency_id' => get_agency_by_regions(array(
+                $consignee['country'],
+                $consignee['province'],
+                $consignee['city'],
+                $consignee['district']
+            )),
             'point_id' => $point_id,
             'shipping_dateStr' => $shipping_dateStr,
             'uc_id' => isset($_POST['uc_id']) ? $_POST['uc_id'] : 0,
@@ -768,14 +784,16 @@ class FlowController extends FrontendController
         if ($order['bonus_id'] > 0) {
             $bonus = bonus_info($order['bonus_id']);
 
-            if (empty($bonus) || $bonus['user_id'] != $user_id || $bonus['order_id'] > 0 || $bonus['min_goods_amount'] > cart_amount(true, $flow_type)) {
+            if (empty($bonus) || $bonus['user_id'] != $user_id || $bonus['order_id'] > 0 || $bonus['min_goods_amount'] > cart_amount(true,
+                    $flow_type)) {
                 $order['bonus_id'] = 0;
             }
         } elseif (isset($_POST['bonus_sn'])) {
             $bonus_sn = trim($_POST['bonus_sn']);
             $bonus = bonus_info(0, $bonus_sn);
             $now = gmtime();
-            if (empty($bonus) || $bonus['user_id'] > 0 || $bonus['order_id'] > 0 || $bonus['min_goods_amount'] > cart_amount(true, $flow_type) || $now > $bonus['use_end_date']) {
+            if (empty($bonus) || $bonus['user_id'] > 0 || $bonus['order_id'] > 0 || $bonus['min_goods_amount'] > cart_amount(true,
+                    $flow_type) || $now > $bonus['use_end_date']) {
             } else {
                 if ($user_id > 0) {
                     $sql = "UPDATE {pre}user_bonus  SET user_id = '$user_id' WHERE bonus_id = '$bonus[bonus_id]' LIMIT 1";
@@ -786,7 +804,8 @@ class FlowController extends FrontendController
             }
         }
 
-        $cart_goods_list = cart_goods($flow_type, $_SESSION['cart_value'], 1, $this->region_id, $this->area_id); // 取得商品列表，计算合计
+        $cart_goods_list = cart_goods($flow_type, $_SESSION['cart_value'], 1, $this->region_id,
+            $this->area_id); // 取得商品列表，计算合计
         /* 订单中的商品 */
         $cart_goods = cart_goods($flow_type, $_SESSION['cart_value']);
         if (empty($cart_goods)) {
@@ -1056,7 +1075,8 @@ class FlowController extends FrontendController
         /* 处理余额、积分、红包、优惠券 */
         if ($order['user_id'] > 0 && $order['surplus'] > 0) {
             //log_account_change($order['user_id'], $order['surplus'] * (-1), 0, 0, 0, sprintf($GLOBALS['LANG']['pay_order'], $order['order_sn']));
-            log_account_change($order['user_id'], $order['surplus'] * (-1), 0, 0, 0, '订单:' . $order['order_sn'], $order['order_sn']);
+            log_account_change($order['user_id'], $order['surplus'] * (-1), 0, 0, 0, '订单:' . $order['order_sn'],
+                $order['order_sn']);
 
             //余额付款更新拼团信息记录
             if (!empty($order['team_id']) && $order['team_id'] > 0) {
@@ -1064,7 +1084,8 @@ class FlowController extends FrontendController
             }
         }
         if ($order['user_id'] > 0 && $order['integral'] > 0) {
-            log_account_change($order['user_id'], 0, 0, 0, $order['integral'] * (-1), sprintf(L('pay_order'), $order['order_sn']));
+            log_account_change($order['user_id'], 0, 0, 0, $order['integral'] * (-1),
+                sprintf(L('pay_order'), $order['order_sn']));
         }
 
 
@@ -1100,7 +1121,11 @@ class FlowController extends FrontendController
 
             $virtual_goods = array();
             foreach ($res as $row) {
-                $virtual_goods['virtual_card'][] = array('goods_id' => $row['goods_id'], 'goods_name' => $row['goods_name'], 'num' => $row['num']);
+                $virtual_goods['virtual_card'][] = array(
+                    'goods_id' => $row['goods_id'],
+                    'goods_name' => $row['goods_name'],
+                    'num' => $row['num']
+                );
             }
 
             if ($virtual_goods and $flow_type != CART_GROUP_BUY_GOODS) {
@@ -1113,7 +1138,8 @@ class FlowController extends FrontendController
                         " AND is_real = 1";
                     if ($this->db->getOne($sql) <= 0) {
                         /* 修改订单状态 */
-                        update_order($order['order_id'], array('shipping_status' => SS_SHIPPED, 'shipping_time' => gmtime()));
+                        update_order($order['order_id'],
+                            array('shipping_status' => SS_SHIPPED, 'shipping_time' => gmtime()));
 
                         /* 如果订单用户不为空，计算积分，并发给用户；发红包 */
                         if ($order['user_id'] > 0) {
@@ -1122,7 +1148,9 @@ class FlowController extends FrontendController
 
                             /* 计算并发放积分 */
                             $integral = integral_to_give($order);
-                            log_account_change($order['user_id'], 0, 0, intval($integral['rank_points']), intval($integral['custom_points']), sprintf($GLOBALS['LANG']['order_gift_integral'], $order['order_sn']));
+                            log_account_change($order['user_id'], 0, 0, intval($integral['rank_points']),
+                                intval($integral['custom_points']),
+                                sprintf($GLOBALS['LANG']['order_gift_integral'], $order['order_sn']));
 
                             /* 发放红包 */
                             send_order_bonus($order['order_id']);
@@ -1162,7 +1190,8 @@ class FlowController extends FrontendController
         $this->assign('order', $order);
         $this->assign('total', $total);
         $this->assign('goods_list', $cart_goods);
-        $this->assign('order_submit_back', sprintf($GLOBALS['LANG']['order_submit_back'], $GLOBALS['LANG']['back_home'], $GLOBALS['LANG']['goto_user_center'])); // 返回提示
+        $this->assign('order_submit_back', sprintf($GLOBALS['LANG']['order_submit_back'], $GLOBALS['LANG']['back_home'],
+            $GLOBALS['LANG']['goto_user_center'])); // 返回提示
 
         user_uc_call('add_feed', array($order['order_id'], BUY_GOODS)); //推送feed到uc
         unset($_SESSION['flow_consignee']); // 清除session中保存的收货人信息
@@ -1367,7 +1396,8 @@ class FlowController extends FrontendController
                 $result['pay_code'] = $payment_info['pay_code'];
                 $result['pay_name'] = $payment_info['pay_name'];
                 $result['pay_fee'] = $payment_info['pay_fee'];
-                $result['format_pay_fee'] = strpos($payment_info['pay_fee'], '%') !== false ? $payment_info['pay_fee'] : price_format($payment_info['pay_fee'], false);
+                $result['format_pay_fee'] = strpos($payment_info['pay_fee'],
+                    '%') !== false ? $payment_info['pay_fee'] : price_format($payment_info['pay_fee'], false);
                 $result['pay_id'] = $payment_info['pay_id'];
 
                 /* 保存 session */
@@ -1464,7 +1494,8 @@ class FlowController extends FrontendController
                 //ecmoban模板堂 --zhuo end
 
                 /* 取得可以得到的积分和红包 */
-                $this->assign('total_integral', cart_amount(false, $flow_type) - $total['bonus'] - $total['integral_money']);
+                $this->assign('total_integral',
+                    cart_amount(false, $flow_type) - $total['bonus'] - $total['integral_money']);
                 $this->assign('total_bonus', price_format(get_total_bonus(), false));
 
                 /* 团购标志 */
@@ -1838,7 +1869,8 @@ class FlowController extends FrontendController
             }
 
             /* 计算订单的费用 */
-            $total = order_fee($order, $cart_goods, $consignee, 0, $_SESSION['cart_value'], 0, $cart_goods_list, 0, 0, $store_id);
+            $total = order_fee($order, $cart_goods, $consignee, 0, $_SESSION['cart_value'], 0, $cart_goods_list, 0, 0,
+                $store_id);
             $this->assign('total', $total);
 
             //ecmoban模板堂 --zhuo end
@@ -1872,7 +1904,12 @@ class FlowController extends FrontendController
                 $consignee_list[] = array('country' => C('shop.shop_country'));
             }
         }
-        $this->assign('name_of_region', array(C('shop.name_of_region_1'), C('shop.name_of_region_2'), C('shop.name_of_region_3'), C('shop.name_of_region_4')));
+        $this->assign('name_of_region', array(
+            C('shop.name_of_region_1'),
+            C('shop.name_of_region_2'),
+            C('shop.name_of_region_3'),
+            C('shop.name_of_region_4')
+        ));
         if ($consignee_list) {
             foreach ($consignee_list as $k => $v) {
                 $address = '';
@@ -2168,7 +2205,8 @@ class FlowController extends FrontendController
                 $result['message'] = L('invalid_number');
             } else {
                 /* 添加到购物车 */
-                if (add_package_to_cart($package->package_id, $package->number, $package->warehouse_id, $package->area_id)) {
+                if (add_package_to_cart($package->package_id, $package->number, $package->warehouse_id,
+                    $package->area_id)) {
                     if (C('shop.cart_confirm') > 2) {
                         $result['message'] = '';
                     } else {
@@ -2223,8 +2261,8 @@ class FlowController extends FrontendController
 
     /**
      * 设置优惠券为已使用
-     * @param   int $bonus_id 优惠券id
-     * @param   int $order_id 订单id
+     * @param int $bonus_id 优惠券id
+     * @param int $order_id 订单id
      * @return  bool
      */
     public function use_coupons($cou_id, $order_id)

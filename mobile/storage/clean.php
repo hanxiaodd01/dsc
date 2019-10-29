@@ -21,10 +21,12 @@ function clean_delete($file = '')
     $suffix = substr($file, -2);
     if ($suffix == '/*') {
         clean_del_dir(STORAGE_PATH . substr($file, 0, -1));
-    } else if ($suffix == '_*') {
-        clean_del_pre(STORAGE_PATH . substr($file, 0, -1));
     } else {
-        unlink(STORAGE_PATH . $file);
+        if ($suffix == '_*') {
+            clean_del_pre(STORAGE_PATH . substr($file, 0, -1));
+        } else {
+            unlink(STORAGE_PATH . $file);
+        }
     }
 }
 

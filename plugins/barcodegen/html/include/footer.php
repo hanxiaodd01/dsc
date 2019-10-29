@@ -1,29 +1,28 @@
 <?php
 //多点乐资源
 if (!defined('IN_CB')) {
-	exit('You are not allowed to access to this page.');
+    exit('You are not allowed to access to this page.');
 }
 
 echo "\r\n            <div class=\"output\">\r\n                <section class=\"output\">\r\n                    <h3>Output</h3>\r\n                    ";
 $finalRequest = '';
 
 foreach (getImageKeys() as $key => $value) {
-	$finalRequest .= '&' . $key . '=' . urlencode($value);
+    $finalRequest .= '&' . $key . '=' . urlencode($value);
 }
 
 if (0 < strlen($finalRequest)) {
-	$finalRequest[0] = '?';
+    $finalRequest[0] = '?';
 }
 
 echo "                    <div id=\"imageOutput\">\r\n                        ";
 
 if ($imageKeys['text'] !== '') {
-	echo '<img src="image.php';
-	echo $finalRequest;
-	echo '" alt="Barcode Image" />';
-}
-else {
-	echo 'Fill the form to generate a barcode.';
+    echo '<img src="image.php';
+    echo $finalRequest;
+    echo '" alt="Barcode Image" />';
+} else {
+    echo 'Fill the form to generate a barcode.';
 }
 
 echo "                    </div>\r\n                </section>\r\n            </div>\r\n        </form>\r\n\r\n        <div class=\"footer\">\r\n            <footer>\r\n            All Rights Reserved &copy; ";

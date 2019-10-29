@@ -12,17 +12,17 @@ require ROOT_PATH . 'includes/lib_time.php';
 clear_all_files();
 
 if (file_exists(ROOT_PATH . 'data/config.php')) {
-	include ROOT_PATH . 'data/config.php';
-}
-else if (file_exists(ROOT_PATH . 'includes/config.php')) {
-	if (!rename(ROOT_PATH . 'includes/config.php', ROOT_PATH . 'data/config.php')) {
-		exit('Can\'t move config.php, please move it from includes/ to data/ manually!');
-	}
+    include ROOT_PATH . 'data/config.php';
+} else {
+    if (file_exists(ROOT_PATH . 'includes/config.php')) {
+        if (!rename(ROOT_PATH . 'includes/config.php', ROOT_PATH . 'data/config.php')) {
+            exit('Can\'t move config.php, please move it from includes/ to data/ manually!');
+        }
 
-	include ROOT_PATH . 'data/config.php';
-}
-else {
-	exit('Can\'t find config.php!');
+        include ROOT_PATH . 'data/config.php';
+    } else {
+        exit('Can\'t find config.php!');
+    }
 }
 
 require ROOT_PATH . 'includes/cls_ecshop.php';
@@ -34,27 +34,25 @@ $mysql_charset = $ecshop_charset = '';
 $tmp_link = @mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
 if (!$tmp_link) {
-	exit('Can\'t pConnect MySQL Server(' . $db_host . ')!');
-}
-else {
-	// @louv mysqli upgrade
+    exit('Can\'t pConnect MySQL Server(' . $db_host . ')!');
+} else {
+    // @louv mysqli upgrade
 //	mysql_select_db($db_name);
 //	($query = mysql_query(' SHOW CREATE TABLE ' . $ecs->table('users'), $tmp_link)) || exit(mysql_error());
-	($query = mysqli_query($tmp_link, ' SHOW CREATE TABLE ' . $ecs->table('users'))) || exit(mysqli_error($tmp_link));
+    ($query = mysqli_query($tmp_link, ' SHOW CREATE TABLE ' . $ecs->table('users'))) || exit(mysqli_error($tmp_link));
 //	$tablestruct = mysql_fetch_row($query);
-	$tablestruct = mysqli_fetch_row($query);
-	preg_match('/CHARSET=(\\w+)/', $tablestruct[1], $m);
+    $tablestruct = mysqli_fetch_row($query);
+    preg_match('/CHARSET=(\\w+)/', $tablestruct[1], $m);
 
-	if (strpos($m[1], 'utf') === 0) {
-		$mysql_charset = str_replace('utf', 'utf-', $m[1]);
-	}
-	else {
-		$mysql_charset = $m[1];
-	}
+    if (strpos($m[1], 'utf') === 0) {
+        $mysql_charset = str_replace('utf', 'utf-', $m[1]);
+    } else {
+        $mysql_charset = $m[1];
+    }
 }
 
 if (defined('EC_CHARSET')) {
-	$ecshop_charset = EC_CHARSET;
+    $ecshop_charset = EC_CHARSET;
 }
 
 $db = new cls_mysql($db_host, $db_user, $db_pass, $db_name, $ecshop_charset);

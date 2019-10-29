@@ -2,62 +2,59 @@
 //多点乐资源
 function putBucketCors($ossClient, $bucket)
 {
-	$corsConfig = new \OSS\Model\CorsConfig();
-	$rule = new \OSS\Model\CorsRule();
-	$rule->addAllowedHeader('x-oss-header');
-	$rule->addAllowedOrigin('http://www.b.com');
-	$rule->addAllowedMethod('POST');
-	$rule->setMaxAgeSeconds(10);
-	$corsConfig->addRule($rule);
+    $corsConfig = new \OSS\Model\CorsConfig();
+    $rule = new \OSS\Model\CorsRule();
+    $rule->addAllowedHeader('x-oss-header');
+    $rule->addAllowedOrigin('http://www.b.com');
+    $rule->addAllowedMethod('POST');
+    $rule->setMaxAgeSeconds(10);
+    $corsConfig->addRule($rule);
 
-	try {
-		$ossClient->putBucketCors($bucket, $corsConfig);
-	}
-	catch (\OSS\Core\OssException $e) {
-		printf('putBucketCors' . ": FAILED\n");
-		printf($e->getMessage() . "\n");
-		return NULL;
-	}
+    try {
+        $ossClient->putBucketCors($bucket, $corsConfig);
+    } catch (\OSS\Core\OssException $e) {
+        printf('putBucketCors' . ": FAILED\n");
+        printf($e->getMessage() . "\n");
+        return null;
+    }
 
-	print('putBucketCors' . ': OK' . "\n");
+    print('putBucketCors' . ': OK' . "\n");
 }
 
 function getBucketCors($ossClient, $bucket)
 {
-	$corsConfig = NULL;
+    $corsConfig = null;
 
-	try {
-		$corsConfig = $ossClient->getBucketCors($bucket);
-	}
-	catch (\OSS\Core\OssException $e) {
-		printf('getBucketCors' . ": FAILED\n");
-		printf($e->getMessage() . "\n");
-		return NULL;
-	}
+    try {
+        $corsConfig = $ossClient->getBucketCors($bucket);
+    } catch (\OSS\Core\OssException $e) {
+        printf('getBucketCors' . ": FAILED\n");
+        printf($e->getMessage() . "\n");
+        return null;
+    }
 
-	print('getBucketCors' . ': OK' . "\n");
-	print($corsConfig->serializeToXml() . "\n");
+    print('getBucketCors' . ': OK' . "\n");
+    print($corsConfig->serializeToXml() . "\n");
 }
 
 function deleteBucketCors($ossClient, $bucket)
 {
-	try {
-		$ossClient->deleteBucketCors($bucket);
-	}
-	catch (\OSS\Core\OssException $e) {
-		printf('deleteBucketCors' . ": FAILED\n");
-		printf($e->getMessage() . "\n");
-		return NULL;
-	}
+    try {
+        $ossClient->deleteBucketCors($bucket);
+    } catch (\OSS\Core\OssException $e) {
+        printf('deleteBucketCors' . ": FAILED\n");
+        printf($e->getMessage() . "\n");
+        return null;
+    }
 
-	print('deleteBucketCors' . ': OK' . "\n");
+    print('deleteBucketCors' . ': OK' . "\n");
 }
 
 require_once __DIR__ . '/Common.php';
 $ossClient = Common::getOssClient();
 
 if (is_null($ossClient)) {
-	exit(1);
+    exit(1);
 }
 
 $bucket = Common::getBucketName();

@@ -1,5 +1,5 @@
 <?php
- //大商创网络
+//大商创网络
 define('IN_ECS', true);
 require dirname(__FILE__) . '/includes/init.php';
 require ROOT_PATH . '/includes/lib_area.php';
@@ -9,8 +9,8 @@ $id = isset($_REQUEST['id']) ? strtolower($_REQUEST['id']) : 0;
 $id = !empty($id) ? preg_replace($preg, '', stripslashes($id)) : 0;
 
 if (empty($id)) {
-	ecs_header("Location: ./\n");
-	exit();
+    ecs_header("Location: ./\n");
+    exit();
 }
 
 $goods_id = intval($id);
@@ -28,11 +28,11 @@ $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('presale_activity') . (' WHERE 
 $presale = $GLOBALS['db']->getAll($sql);
 
 if ($presale) {
-	foreach ($presale as $row) {
-		$goodsInfo['goods_url'] = build_uri('presale', array('act' => 'view', 'presaleid' => $row['act_id']));
-	}
+    foreach ($presale as $row) {
+        $goodsInfo['goods_url'] = build_uri('presale', array('act' => 'view', 'presaleid' => $row['act_id']));
+    }
 
-	$smarty->assign('is_presale', $presale);
+    $smarty->assign('is_presale', $presale);
 }
 
 $smarty->assign('goodsInfo', $goodsInfo);
@@ -46,82 +46,78 @@ $comment_all = get_conments_stars($mc_all, $mc_one, $mc_two, $mc_three, $mc_four
 $smarty->assign('comment_all', $comment_all);
 
 if (!$smarty->is_cached('category_discuss.dwt', $cache_id)) {
-	if (defined('THEME_EXTENSION')) {
-		$smarty->assign('user_info', get_user_default($_SESSION['user_id']));
-		$goods = get_goods_info($goods_id);
+    if (defined('THEME_EXTENSION')) {
+        $smarty->assign('user_info', get_user_default($_SESSION['user_id']));
+        $goods = get_goods_info($goods_id);
 
-		if (defined('THEME_EXTENSION')) {
-			$sql = 'SELECT rec_id FROM ' . $ecs->table('collect_store') . ' WHERE user_id = \'' . $_SESSION['user_id'] . ('\' AND ru_id = \'' . $goods['user_id'] . '\' ');
-			$rec_id = $db->getOne($sql);
+        if (defined('THEME_EXTENSION')) {
+            $sql = 'SELECT rec_id FROM ' . $ecs->table('collect_store') . ' WHERE user_id = \'' . $_SESSION['user_id'] . ('\' AND ru_id = \'' . $goods['user_id'] . '\' ');
+            $rec_id = $db->getOne($sql);
 
-			if (0 < $rec_id) {
-				$goods['error'] = '1';
-			}
-			else {
-				$goods['error'] = '2';
-			}
-		}
+            if (0 < $rec_id) {
+                $goods['error'] = '1';
+            } else {
+                $goods['error'] = '2';
+            }
+        }
 
-		$smarty->assign('goods', $goods);
+        $smarty->assign('goods', $goods);
 
-		if (0 < $goods['user_id']) {
-			$merchants_goods_comment = get_merchants_goods_comment($goods['user_id']);
-			$smarty->assign('merch_cmt', $merchants_goods_comment);
-		}
+        if (0 < $goods['user_id']) {
+            $merchants_goods_comment = get_merchants_goods_comment($goods['user_id']);
+            $smarty->assign('merch_cmt', $merchants_goods_comment);
+        }
 
-		if ($GLOBALS['_CFG']['customer_service'] == 0) {
-			$goods_user_id = 0;
-		}
-		else {
-			$goods_user_id = $goods['user_id'];
-		}
+        if ($GLOBALS['_CFG']['customer_service'] == 0) {
+            $goods_user_id = 0;
+        } else {
+            $goods_user_id = $goods['user_id'];
+        }
 
-		$basic_info = get_shop_info_content($goods_user_id);
-		$shop_information = get_shop_name($goods_user_id);
+        $basic_info = get_shop_info_content($goods_user_id);
+        $shop_information = get_shop_name($goods_user_id);
 
-		if ($goods_user_id == 0) {
-			if ($db->getOne('SELECT kf_im_switch FROM ' . $ecs->table('seller_shopinfo') . 'WHERE ru_id = 0')) {
-				$shop_information['is_dsc'] = true;
-			}
-			else {
-				$shop_information['is_dsc'] = false;
-			}
-		}
-		else {
-			$shop_information['is_dsc'] = false;
-		}
+        if ($goods_user_id == 0) {
+            if ($db->getOne('SELECT kf_im_switch FROM ' . $ecs->table('seller_shopinfo') . 'WHERE ru_id = 0')) {
+                $shop_information['is_dsc'] = true;
+            } else {
+                $shop_information['is_dsc'] = false;
+            }
+        } else {
+            $shop_information['is_dsc'] = false;
+        }
 
-		$smarty->assign('shop_information', $shop_information);
-		$smarty->assign('kf_appkey', $basic_info['kf_appkey']);
-		$smarty->assign('im_user_id', 'dsc' . $_SESSION['user_id']);
-	}
+        $smarty->assign('shop_information', $shop_information);
+        $smarty->assign('kf_appkey', $basic_info['kf_appkey']);
+        $smarty->assign('im_user_id', 'dsc' . $_SESSION['user_id']);
+    }
 
-	if ($db->getOne(' SELECT rec_id FROM ' . $ecs->table('collect_store') . ' WHERE user_id = \'user_id\' AND ru_id = \'goods_user_id\' ')) {
-		$smarty->assign('is_collected', true);
-	}
+    if ($db->getOne(' SELECT rec_id FROM ' . $ecs->table('collect_store') . ' WHERE user_id = \'user_id\' AND ru_id = \'goods_user_id\' ')) {
+        $smarty->assign('is_collected', true);
+    }
 
-	$smarty->assign('goods_id', $goods_id);
-	assign_template();
-	$position = assign_ur_here($goodsInfo['cat_id'], $goodsInfo['goods_name'], array(), '', $goodsInfo['user_id']);
-	$smarty->assign('page_title', $position['title']);
-	$smarty->assign('ur_here', $position['ur_here']);
+    $smarty->assign('goods_id', $goods_id);
+    assign_template();
+    $position = assign_ur_here($goodsInfo['cat_id'], $goodsInfo['goods_name'], array(), '', $goodsInfo['user_id']);
+    $smarty->assign('page_title', $position['title']);
+    $smarty->assign('ur_here', $position['ur_here']);
 
-	if (!defined('THEME_EXTENSION')) {
-		$categories_pro = get_category_tree_leve_one();
-		$smarty->assign('categories_pro', $categories_pro);
-	}
+    if (!defined('THEME_EXTENSION')) {
+        $categories_pro = get_category_tree_leve_one();
+        $smarty->assign('categories_pro', $categories_pro);
+    }
 
-	$smarty->assign('keywords', htmlspecialchars($_CFG['shop_keywords']));
-	$smarty->assign('description', htmlspecialchars($_CFG['shop_desc']));
-	$smarty->assign('flash_theme', $_CFG['flash_theme']);
-	$smarty->assign('feed_url', $_CFG['rewrite'] == 1 ? 'feed.xml' : 'feed.php');
-	$smarty->assign('helps', get_shop_help());
-	if (intval($_CFG['captcha']) & CAPTCHA_COMMENT && 0 < gd_version()) {
-		$smarty->assign('enabled_captcha', 1);
-		$smarty->assign('rand', mt_rand());
-	}
+    $smarty->assign('keywords', htmlspecialchars($_CFG['shop_keywords']));
+    $smarty->assign('description', htmlspecialchars($_CFG['shop_desc']));
+    $smarty->assign('flash_theme', $_CFG['flash_theme']);
+    $smarty->assign('feed_url', $_CFG['rewrite'] == 1 ? 'feed.xml' : 'feed.php');
+    $smarty->assign('helps', get_shop_help());
+    if (intval($_CFG['captcha']) & CAPTCHA_COMMENT && 0 < gd_version()) {
+        $smarty->assign('enabled_captcha', 1);
+        $smarty->assign('rand', mt_rand());
+    }
 
-	$smarty->assign('shop_notice', $_CFG['shop_notice']);
+    $smarty->assign('shop_notice', $_CFG['shop_notice']);
 }
 
 $discuss_list = get_discuss_all_list($goods_id);

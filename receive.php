@@ -10,22 +10,25 @@ $sql = 'SELECT * FROM ' . $ecs->table('order_info') . (' WHERE order_id = \'' . 
 $order = $db->getRow($sql);
 
 if (empty($order)) {
-	$msg = $_LANG['order_not_exists'];
-}
-else if ($order['shipping_status'] == SS_RECEIVED) {
-	$msg = $_LANG['order_already_received'];
-}
-else if ($order['shipping_status'] != SS_SHIPPED) {
-	$msg = $_LANG['order_invalid'];
-}
-else if ($order['consignee'] != $consignee) {
-	$msg = $_LANG['order_invalid'];
-}
-else {
-	$sql = 'UPDATE ' . $ecs->table('order_info') . ' SET shipping_status = \'' . SS_RECEIVED . ('\' WHERE order_id = \'' . $order_id . '\'');
-	$db->query($sql);
-	order_action($order['order_sn'], $order['order_status'], SS_RECEIVED, $order['pay_status'], '', $_LANG['buyer']);
-	$msg = $_LANG['act_ok'];
+    $msg = $_LANG['order_not_exists'];
+} else {
+    if ($order['shipping_status'] == SS_RECEIVED) {
+        $msg = $_LANG['order_already_received'];
+    } else {
+        if ($order['shipping_status'] != SS_SHIPPED) {
+            $msg = $_LANG['order_invalid'];
+        } else {
+            if ($order['consignee'] != $consignee) {
+                $msg = $_LANG['order_invalid'];
+            } else {
+                $sql = 'UPDATE ' . $ecs->table('order_info') . ' SET shipping_status = \'' . SS_RECEIVED . ('\' WHERE order_id = \'' . $order_id . '\'');
+                $db->query($sql);
+                order_action($order['order_sn'], $order['order_status'], SS_RECEIVED, $order['pay_status'], '',
+                    $_LANG['buyer']);
+                $msg = $_LANG['act_ok'];
+            }
+        }
+    }
 }
 
 assign_template();

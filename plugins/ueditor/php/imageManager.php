@@ -1,59 +1,60 @@
 <?php
- //大商创网络
+//大商创网络
 function getfiles($path, &$files = array())
 {
-	if (!is_dir($path)) {
-		return NULL;
-	}
+    if (!is_dir($path)) {
+        return null;
+    }
 
-	$handle = opendir($path);
+    $handle = opendir($path);
 
-	while (false !== ($file = readdir($handle))) {
-		if ($file != '.' && $file != '..') {
-			$path2 = $path . '/' . $file;
+    while (false !== ($file = readdir($handle))) {
+        if ($file != '.' && $file != '..') {
+            $path2 = $path . '/' . $file;
 
-			if (is_dir($path2)) {
-				getfiles($path2, $files);
-			}
-			else if (preg_match('/\\.(gif|jpeg|jpg|png|bmp)$/i', $file)) {
-				$files[] = $path2;
-			}
-		}
-	}
+            if (is_dir($path2)) {
+                getfiles($path2, $files);
+            } else {
+                if (preg_match('/\\.(gif|jpeg|jpg|png|bmp)$/i', $file)) {
+                    $files[] = $path2;
+                }
+            }
+        }
+    }
 
-	return $files;
+    return $files;
 }
 
 require 'config.php';
 
 if (!$enable) {
-	exit('没有显示权限');
+    exit('没有显示权限');
 }
 
 $paths = array($root_path_relative . IMAGE_DIR . '/upload/');
 $action = htmlspecialchars($_POST['action']);
 
 if ($action == 'get') {
-	$files = array();
+    $files = array();
 
-	foreach ($paths as $path) {
-		$tmp = getfiles($path);
+    foreach ($paths as $path) {
+        $tmp = getfiles($path);
 
-		if ($tmp) {
-			$files = array_merge($files, $tmp);
-		}
-	}
+        if ($tmp) {
+            $files = array_merge($files, $tmp);
+        }
+    }
 
-	if (!count($files)) {
-		return NULL;
-	}
+    if (!count($files)) {
+        return null;
+    }
 
-	rsort($files, SORT_STRING);
-	$str = '';
+    rsort($files, SORT_STRING);
+    $str = '';
 
-	foreach ($files as $file) {
-		$str .= $file . 'ue_separate_ue';
-	}
+    foreach ($files as $file) {
+        $str .= $file . 'ue_separate_ue';
+    }
 
-	echo $str;
+    echo $str;
 }

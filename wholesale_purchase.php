@@ -11,7 +11,7 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: wholesale_purchase.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 
 define('IN_ECS', true);
 
@@ -20,10 +20,10 @@ require(dirname(__FILE__) . '/includes/init.php');
 require(ROOT_PATH . '/includes/lib_area.php');  //ecmoban模板堂 --zhuo
 require(ROOT_PATH . '/includes/lib_wholesale.php');
 
-if($GLOBALS['_CFG']['wholesale_user_rank'] == 0){
+if ($GLOBALS['_CFG']['wholesale_user_rank'] == 0) {
     $is_seller = get_is_seller();
-    if($is_seller == 0){
-        ecs_header("Location: " .$ecs->url(). "\n");
+    if ($is_seller == 0) {
+        ecs_header("Location: " . $ecs->url() . "\n");
     }
 }
 
@@ -44,11 +44,11 @@ if ($action == 'list') {
         $query_array['is_finished'] = $is_finished;
         $filter_array['is_finished'] = $is_finished;
     }
-    if($keyword){
+    if ($keyword) {
         $filter_array['keyword'] = $keyword;
         $query_array['keyword'] = $keyword;
     }
-    
+
     $size = 6;
     $page = isset($_REQUEST['page']) ? intval($_REQUEST['page']) : 1;
     $purchase_list = get_purchase_list($filter_array, $size, $page);
@@ -56,10 +56,10 @@ if ($action == 'list') {
     $smarty->assign('pager', $pager);
     $smarty->assign('purchase_list', $purchase_list['purchase_list']);
     $smarty->assign('is_finished', $is_finished);
-	
-	$get_wholsale_navigator = get_wholsale_navigator();
-	$smarty->assign('get_wholsale_navigator', $get_wholsale_navigator);
-	
+
+    $get_wholsale_navigator = get_wholsale_navigator();
+    $smarty->assign('get_wholsale_navigator', $get_wholsale_navigator);
+
     //今日发布
     $today_start = local_strtotime(local_date('Y-m-d'), gmtime());
     $today_end = $today_start + 86400;
@@ -71,9 +71,7 @@ if ($action == 'list') {
     $deal_count = $GLOBALS['db']->getOne($sql);
     $smarty->assign('deal_count', $deal_count);
     $smarty->assign('buy', $action);
-}
-
-//求购单详情页
+} //求购单详情页
 elseif ($action == 'info') {
     $page_title = '求购单详情';
     $purchase_id = empty($_REQUEST['id']) ? 0 : intval($_REQUEST['id']);
@@ -85,23 +83,19 @@ elseif ($action == 'info') {
     $smarty->assign('purchase_info', $purchase_info);
     //是否是商家
     $smarty->assign('is_merchant', check_user_is_merchant($_SESSION['user_id']));
-}
-
-//求购单发布页
+} //求购单发布页
 elseif ($action == 'release') {
-    $page_title = '发布求购单';	
+    $page_title = '发布求购单';
     if (empty($_SESSION['user_id']) || !check_user_is_merchant($_SESSION['user_id'])) {
         show_message('您不是商家无法发布求购单', '前去入驻', 'merchants.php', 'info');
     }
-	
-	$get_wholsale_navigator = get_wholsale_navigator();
-	$smarty->assign('get_wholsale_navigator', $get_wholsale_navigator);
-	
+
+    $get_wholsale_navigator = get_wholsale_navigator();
+    $smarty->assign('get_wholsale_navigator', $get_wholsale_navigator);
+
     $smarty->assign('country_list', get_regions());
     $smarty->assign('province_list', get_regions(1, 1));
-}
-
-//求购单提交
+} //求购单提交
 elseif ($action == 'do_release') {
     //求购数据
     $data = array();
@@ -156,9 +150,7 @@ elseif ($action == 'do_release') {
     } else {
         show_message('求购单发布失败', '返回上页', 'javascript:history.go(-1);', 'info');
     }
-}
-
-//求购单发布页
+} //求购单发布页
 elseif ($action == 'upload_pic') {
     include_once(ROOT_PATH . '/includes/cls_image.php');
     $image = new cls_image($_CFG['bgcolor']);
@@ -185,18 +177,18 @@ elseif ($action == 'upload_pic') {
     die(json_encode($result));
 }
 
-if(defined('THEME_EXTENSION')){
-	$wholesale_cat = get_wholesale_child_cat();
-	$smarty->assign('wholesale_cat', $wholesale_cat);
+if (defined('THEME_EXTENSION')) {
+    $wholesale_cat = get_wholesale_child_cat();
+    $smarty->assign('wholesale_cat', $wholesale_cat);
 }
 
 //页面基本信息
 assign_template();
 $position = assign_ur_here(0, $page_title);
 $smarty->assign('page_title', $position['title']);    // 页面标题
-$smarty->assign('ur_here',    $position['ur_here']);  // 当前位置
+$smarty->assign('ur_here', $position['ur_here']);  // 当前位置
 
 $smarty->assign('categories', get_categories_tree()); // 分类树
-$smarty->assign('helps',      get_shop_help());       // 网店帮助
+$smarty->assign('helps', get_shop_help());       // 网店帮助
 
 $smarty->display('wholesale_purchase.dwt');

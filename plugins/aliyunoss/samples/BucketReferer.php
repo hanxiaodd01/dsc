@@ -2,54 +2,51 @@
 //多点乐资源
 function putBucketReferer($ossClient, $bucket)
 {
-	$refererConfig = new \OSS\Model\RefererConfig();
-	$refererConfig->setAllowEmptyReferer(true);
-	$refererConfig->addReferer('www.aliiyun.com');
-	$refererConfig->addReferer('www.aliiyuncs.com');
+    $refererConfig = new \OSS\Model\RefererConfig();
+    $refererConfig->setAllowEmptyReferer(true);
+    $refererConfig->addReferer('www.aliiyun.com');
+    $refererConfig->addReferer('www.aliiyuncs.com');
 
-	try {
-		$ossClient->putBucketReferer($bucket, $refererConfig);
-	}
-	catch (\OSS\Core\OssException $e) {
-		printf('putBucketReferer' . ": FAILED\n");
-		printf($e->getMessage() . "\n");
-		return NULL;
-	}
+    try {
+        $ossClient->putBucketReferer($bucket, $refererConfig);
+    } catch (\OSS\Core\OssException $e) {
+        printf('putBucketReferer' . ": FAILED\n");
+        printf($e->getMessage() . "\n");
+        return null;
+    }
 
-	print('putBucketReferer' . ': OK' . "\n");
+    print('putBucketReferer' . ': OK' . "\n");
 }
 
 function getBucketReferer($ossClient, $bucket)
 {
-	$refererConfig = NULL;
+    $refererConfig = null;
 
-	try {
-		$refererConfig = $ossClient->getBucketReferer($bucket);
-	}
-	catch (\OSS\Core\OssException $e) {
-		printf('getBucketReferer' . ": FAILED\n");
-		printf($e->getMessage() . "\n");
-		return NULL;
-	}
+    try {
+        $refererConfig = $ossClient->getBucketReferer($bucket);
+    } catch (\OSS\Core\OssException $e) {
+        printf('getBucketReferer' . ": FAILED\n");
+        printf($e->getMessage() . "\n");
+        return null;
+    }
 
-	print('getBucketReferer' . ': OK' . "\n");
-	print($refererConfig->serializeToXml() . "\n");
+    print('getBucketReferer' . ': OK' . "\n");
+    print($refererConfig->serializeToXml() . "\n");
 }
 
 function deleteBucketReferer($ossClient, $bucket)
 {
-	$refererConfig = new \OSS\Model\RefererConfig();
+    $refererConfig = new \OSS\Model\RefererConfig();
 
-	try {
-		$ossClient->putBucketReferer($bucket, $refererConfig);
-	}
-	catch (\OSS\Core\OssException $e) {
-		printf('deleteBucketReferer' . ": FAILED\n");
-		printf($e->getMessage() . "\n");
-		return NULL;
-	}
+    try {
+        $ossClient->putBucketReferer($bucket, $refererConfig);
+    } catch (\OSS\Core\OssException $e) {
+        printf('deleteBucketReferer' . ": FAILED\n");
+        printf($e->getMessage() . "\n");
+        return null;
+    }
 
-	print('deleteBucketReferer' . ': OK' . "\n");
+    print('deleteBucketReferer' . ': OK' . "\n");
 }
 
 require_once __DIR__ . '/Common.php';
@@ -57,7 +54,7 @@ $bucket = Common::getBucketName();
 $ossClient = Common::getOssClient();
 
 if (is_null($ossClient)) {
-	exit(1);
+    exit(1);
 }
 
 $refererConfig = new \OSS\Model\RefererConfig();

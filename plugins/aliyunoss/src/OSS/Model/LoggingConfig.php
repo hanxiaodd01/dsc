@@ -4,61 +4,62 @@ namespace OSS\Model;
 
 class LoggingConfig implements XmlConfig
 {
-	private $targetBucket = '';
-	private $targetPrefix = '';
+    private $targetBucket = '';
+    private $targetPrefix = '';
 
-	public function __construct($targetBucket = NULL, $targetPrefix = NULL)
-	{
-		$this->targetBucket = $targetBucket;
-		$this->targetPrefix = $targetPrefix;
-	}
+    public function __construct($targetBucket = null, $targetPrefix = null)
+    {
+        $this->targetBucket = $targetBucket;
+        $this->targetPrefix = $targetPrefix;
+    }
 
-	public function parseFromXml($strXml)
-	{
-		$xml = simplexml_load_string($strXml);
+    public function parseFromXml($strXml)
+    {
+        $xml = simplexml_load_string($strXml);
 
-		if (!isset($xml->LoggingEnabled)) {
-			return NULL;
-		}
+        if (!isset($xml->LoggingEnabled)) {
+            return null;
+        }
 
-		foreach ($xml->LoggingEnabled as $status) {
-			foreach ($status as $key => $value) {
-				if ($key === 'TargetBucket') {
-					$this->targetBucket = strval($value);
-				}
-				else if ($key === 'TargetPrefix') {
-					$this->targetPrefix = strval($value);
-				}
-			}
+        foreach ($xml->LoggingEnabled as $status) {
+            foreach ($status as $key => $value) {
+                if ($key === 'TargetBucket') {
+                    $this->targetBucket = strval($value);
+                } else {
+                    if ($key === 'TargetPrefix') {
+                        $this->targetPrefix = strval($value);
+                    }
+                }
+            }
 
-			break;
-		}
-	}
+            break;
+        }
+    }
 
-	public function serializeToXml()
-	{
-		$xml = new \SimpleXMLElement('<?xml version="1.0" encoding="utf-8"?><BucketLoggingStatus></BucketLoggingStatus>');
-		if (isset($this->targetBucket) && isset($this->targetPrefix)) {
-			$loggingEnabled = $xml->addChild('LoggingEnabled');
-			$loggingEnabled->addChild('TargetBucket', $this->targetBucket);
-			$loggingEnabled->addChild('TargetPrefix', $this->targetPrefix);
-		}
+    public function serializeToXml()
+    {
+        $xml = new \SimpleXMLElement('<?xml version="1.0" encoding="utf-8"?><BucketLoggingStatus></BucketLoggingStatus>');
+        if (isset($this->targetBucket) && isset($this->targetPrefix)) {
+            $loggingEnabled = $xml->addChild('LoggingEnabled');
+            $loggingEnabled->addChild('TargetBucket', $this->targetBucket);
+            $loggingEnabled->addChild('TargetPrefix', $this->targetPrefix);
+        }
 
-		return $xml->asXML();
-	}
+        return $xml->asXML();
+    }
 
-	public function __toString()
-	{
-		return $this->serializeToXml();
-	}
+    public function __toString()
+    {
+        return $this->serializeToXml();
+    }
 
-	public function getTargetBucket()
-	{
-		return $this->targetBucket;
-	}
+    public function getTargetBucket()
+    {
+        return $this->targetBucket;
+    }
 
-	public function getTargetPrefix()
-	{
-		return $this->targetPrefix;
-	}
+    public function getTargetPrefix()
+    {
+        return $this->targetPrefix;
+    }
 }

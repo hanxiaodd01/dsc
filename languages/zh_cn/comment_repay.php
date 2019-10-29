@@ -11,7 +11,7 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: calendar.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 $_LANG['tips'] = "心　　得：";
 $_LANG['single'] = "晒　　单：";
 $_LANG['see_single'] = "查看晒单";
@@ -20,7 +20,7 @@ $_LANG['published_data'] = "发表时间：";
 
 //js语言项
 $_LANG['js_languages']['comm_content'] = '评论内容不能为空';
-$_LANG['js_languages']['login_content'] = '请您登录商城会员'; 
+$_LANG['js_languages']['login_content'] = '请您登录商城会员';
 $_LANG['js_languages']['go_login'] = '去登陆';
 $_LANG['js_languages']['have_said'] = '您已评价过.';
 $_LANG['Share_to'] = "分享到";

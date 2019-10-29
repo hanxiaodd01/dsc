@@ -29,18 +29,18 @@ $_LANG['already_out_goods'] = '商家已发送出换货商品';
 $_LANG['have_refound'] = "商家已退款";
 $_LANG['rf'][RF_RETURNMON] = '仅退款';
 $_LANG['rf'][RF_APPLICATION] = '由买家寄回';
-$_LANG['rf'][RF_RECEIVE] =  '收到退换货';
-$_LANG['rf'][RF_SWAPPED_OUT_SINGLE] =  '换出商品寄出【分单】';
-$_LANG['rf'][RF_SWAPPED_OUT] =  '换出商品寄出';
-$_LANG['rf'][RF_COMPLETE] =  '完成';
+$_LANG['rf'][RF_RECEIVE] = '收到退换货';
+$_LANG['rf'][RF_SWAPPED_OUT_SINGLE] = '换出商品寄出【分单】';
+$_LANG['rf'][RF_SWAPPED_OUT] = '换出商品寄出';
+$_LANG['rf'][RF_COMPLETE] = '完成';
 $_LANG['rf'][RF_AGREE_APPLY] = '同意申请';
-$_LANG['rf'][REFUSE_APPLY] =  '申请被拒';
+$_LANG['rf'][REFUSE_APPLY] = '申请被拒';
 $_LANG['ff'][FF_REFOUND] = '已退款';
 $_LANG['ff'][FF_NOREFOUND] = '未退款';
-$_LANG['ff'][FF_NOMAINTENANCE] =  '未维修';
-$_LANG['ff'][FF_MAINTENANCE] =  '已维修';
-$_LANG['ff'][FF_NOEXCHANGE] =  '未换货';
-$_LANG['ff'][FF_EXCHANGE] =  '已换货';
+$_LANG['ff'][FF_NOMAINTENANCE] = '未维修';
+$_LANG['ff'][FF_MAINTENANCE] = '已维修';
+$_LANG['ff'][FF_NOEXCHANGE] = '未换货';
+$_LANG['ff'][FF_EXCHANGE] = '已换货';
 $_LANG['return_info'] = "退换货申请已提交";
 $_LANG['pay_who_order'] = '支付批发订单';
 //退换货 end
@@ -1012,7 +1012,7 @@ $_LANG['return_two'] = "件，已退";
 $_LANG['change_two'] = "件，已换";
 $_LANG['Application_credentials'] = "申请凭据";
 $_LANG['has_Test_Report'] = "有检测报告";
-$_LANG['return_reason']='退换货原因';
+$_LANG['return_reason'] = '退换货原因';
 $_LANG['problem_desc'] = '问题描述';
 $_LANG['pic_info'] = '图片信息';
 $_LANG['upload_pic'] = '上传凭证';
@@ -1035,11 +1035,11 @@ $_LANG['Logistics_company'] = "物流公司";
 $_LANG['Express_info'] = "快递信息";
 $_LANG['Express_company'] = "快递公司";
 $_LANG['select_Express_company'] = "请选择快递公司";
-$_LANG['other_express'] ='其他快递';
+$_LANG['other_express'] = '其他快递';
 $_LANG['User_sent'] = "用户寄出";
-$_LANG['courier_sz'] ='快递单号';
+$_LANG['courier_sz'] = '快递单号';
 $_LANG['Express_info_two'] = "请填写您寄回商品的快递信息";
-$_LANG['seller_shipping'] ='商家发货';
+$_LANG['seller_shipping'] = '商家发货';
 $_LANG['modify'] = "修改";
 $_LANG['Newly'] = "新增";
 $_LANG['consignee_empty'] = "收货人信息不为空";
@@ -1060,7 +1060,6 @@ $_LANG['return_order_user_desc'] = '<h5>提示</h5>
 
 // 增值发票
 $_LANG['inv_info'] = '增值发票';
-
 
 
 return $_LANG;

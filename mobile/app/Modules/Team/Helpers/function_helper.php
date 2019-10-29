@@ -5,7 +5,7 @@
  */
 function team_categories()
 {
-    $sql = 'SELECT c.id,c.name,c.parent_id,c.sort_order,c.status FROM {pre}team_category as c ' .
+    $sql = 'SELECT c.id,c.name,c.parent_id,c.sort_order,c.status FROM {pre}team_category AS c ' .
         "WHERE c.parent_id = 0 AND c.status = 1 ORDER BY c.sort_order ASC, c.id ASC";
 
     $res = $GLOBALS['db']->getAll($sql);
@@ -47,8 +47,18 @@ function team_get_child_tree($id = 0)
 /**
  * 拼团子频道商品列表
  */
-function team_category_goods($tc_id = 0, $keywords = '', $size = 10, $page = 1, $intro = '', $sort, $order, $brand, $min, $max)
-{
+function team_category_goods(
+    $tc_id = 0,
+    $keywords = '',
+    $size = 10,
+    $page = 1,
+    $intro = '',
+    $sort,
+    $order,
+    $brand,
+    $min,
+    $max
+) {
     //频道id
     $where .= " g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 AND g.review_status>2 and tg.is_team = 1 and tg.is_audit = 2 ";
     if ($tc_id > 0) {
@@ -203,10 +213,10 @@ function team_new_goods($type, $ru_id = 0)
 
 /**
  * 查询商品评论
- * @param $id
+ * @param        $id
  * @param string $rank
- * @param int $start
- * @param int $size
+ * @param int    $start
+ * @param int    $size
  * @return bool
  */
 function get_good_comment($id, $rank = null, $hasgoods = 0, $start = 0, $size = 10)
@@ -245,7 +255,8 @@ function get_good_comment($id, $rank = null, $hasgoods = 0, $start = 0, $size = 
             $arr[$row['comment_id']]['id'] = $row['comment_id'];
             $arr[$row['comment_id']]['email'] = $row['email'];
             $arr[$row['comment_id']]['content'] = str_replace('\r\n', '<br />', $row['content']);
-            $arr[$row['comment_id']]['content'] = nl2br(str_replace('\n', '<br />', $arr[$row['comment_id']]['content']));
+            $arr[$row['comment_id']]['content'] = nl2br(str_replace('\n', '<br />',
+                $arr[$row['comment_id']]['content']));
             $arr[$row['comment_id']]['rank'] = $row['comment_rank'];
             $arr[$row['comment_id']]['add_time'] = local_date($GLOBALS['_CFG']['time_format'], $row['add_time']);
 
@@ -283,7 +294,8 @@ function get_good_comment($id, $rank = null, $hasgoods = 0, $start = 0, $size = 
             $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('comment') . " WHERE parent_id IN( $ids )";
             $res = $GLOBALS['db']->query($sql);
             foreach ($res as $row) {
-                $arr[$row['parent_id']]['re_content'] = nl2br(str_replace('\n', '<br />', htmlspecialchars($row['content'])));
+                $arr[$row['parent_id']]['re_content'] = nl2br(str_replace('\n', '<br />',
+                    htmlspecialchars($row['content'])));
                 $arr[$row['parent_id']]['re_add_time'] = local_date($GLOBALS['_CFG']['time_format'], $row['add_time']);
                 $arr[$row['parent_id']]['re_email'] = $row['email'];
                 $arr[$row['parent_id']]['re_username'] = $row['user_name'];
@@ -346,7 +358,8 @@ function get_good_comment_as($id, $rank = null, $hasgoods = 0, $start = 0, $size
             $arr[$row['comment_id']]['user_picture'] = get_image_path($users['user_picture']);
 
             $arr[$row['comment_id']]['content'] = str_replace('\r\n', '<br />', $row['content']);
-            $arr[$row['comment_id']]['content'] = nl2br(str_replace('\n', '<br />', $arr[$row['comment_id']]['content']));
+            $arr[$row['comment_id']]['content'] = nl2br(str_replace('\n', '<br />',
+                $arr[$row['comment_id']]['content']));
             $arr[$row['comment_id']]['rank'] = $row['comment_rank'];
             $arr[$row['comment_id']]['add_time'] = local_date($GLOBALS['_CFG']['time_format'], $row['add_time']);
             if ($row['order_id'] && $hasgoods) {
@@ -377,7 +390,8 @@ function get_good_comment_as($id, $rank = null, $hasgoods = 0, $start = 0, $size
             $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('comment') . " WHERE parent_id IN( $ids )";
             $res = $GLOBALS['db']->query($sql);
             foreach ($res as $row) {
-                $arr[$row['parent_id']]['re_content'] = nl2br(str_replace('\n', '<br />', htmlspecialchars($row['content'])));
+                $arr[$row['parent_id']]['re_content'] = nl2br(str_replace('\n', '<br />',
+                    htmlspecialchars($row['content'])));
                 $arr[$row['parent_id']]['re_add_time'] = local_date($GLOBALS['_CFG']['time_format'], $row['add_time']);
                 $arr[$row['parent_id']]['re_email'] = $row['email'];
                 $arr[$row['parent_id']]['re_username'] = $row['user_name'];
@@ -480,17 +494,27 @@ function get_goods_attr_ajax($goods_id, $goods_attr, $goods_attr_id)
 /**
  * 取得商品最终使用价格
  *
- * @param   string $goods_id 商品编号
- * @param   string $goods_num 购买数量
- * @param   boolean $is_spec_price 是否加入规格价格
- * @param   mix $spec 规格ID的数组或者逗号分隔的字符串
- * @param   intval $add_tocart 0,1  1代表非购物车进入该方法（SKU价格）
- * @param   intval $show_goods 0,1  商品详情页ajax，1代表SKU价格开启（SKU价格）
+ * @param string  $goods_id      商品编号
+ * @param string  $goods_num     购买数量
+ * @param boolean $is_spec_price 是否加入规格价格
+ * @param mix     $spec          规格ID的数组或者逗号分隔的字符串
+ * @param intval  $add_tocart    0,1  1代表非购物车进入该方法（SKU价格）
+ * @param intval  $show_goods    0,1  商品详情页ajax，1代表SKU价格开启（SKU价格）
  *
  * @return  商品最终购买价格
  */
-function tean_get_final_price($goods_id, $goods_num = '1', $is_spec_price = false, $spec = array(), $warehouse_id = 0, $area_id = 0, $type = 0, $presale = 0, $add_tocart = 1, $show_goods = 0)
-{
+function tean_get_final_price(
+    $goods_id,
+    $goods_num = '1',
+    $is_spec_price = false,
+    $spec = array(),
+    $warehouse_id = 0,
+    $area_id = 0,
+    $type = 0,
+    $presale = 0,
+    $add_tocart = 1,
+    $show_goods = 0
+) {
     $spec_price = 0;
     $warehouse_area['warehouse_id'] = $warehouse_id;
     $warehouse_area['area_id'] = $area_id;
@@ -512,7 +536,10 @@ function tean_get_final_price($goods_id, $goods_num = '1', $is_spec_price = fals
 
     $goods = $GLOBALS['db']->getRow($sql);
     //拼团商品信息
-    $team = dao('team_goods')->field('team_price,team_num,astrict_num')->where(array('goods_id' => $goods_id,'is_team' => '1'))->find();
+    $team = dao('team_goods')->field('team_price,team_num,astrict_num')->where(array(
+        'goods_id' => $goods_id,
+        'is_team' => '1'
+    ))->find();
     if ($GLOBALS['_CFG']['add_shop_price'] == 1) {//商品SKU价格模式如果开启 “SKU价格（属性货品价格）”则不计算属性价格
         $final_price = $team['team_price'];
         $final_price += $spec_price;
@@ -532,6 +559,7 @@ function team_goods_info($goods = 0, $t_id = 0)
     $goods = $GLOBALS['db']->getRow($sql);
     return $goods;
 }
+
 /**
  * 验证参团活动是否结束
  */
@@ -541,7 +569,6 @@ function team_is_failure($team_id = 0)
     $team = $GLOBALS['db']->getRow($sql);
     return $team;
 }
-
 
 
 /**
@@ -555,7 +582,8 @@ function team_goods_log($goods_id = 0)
         $validity_time = $vo['start_time'] + ($vo['validity_time'] * 3600);
         $goods[$key]['team_id'] = $vo['team_id'];//开团id
         $goods[$key]['user_id'] = $vo['team_parent_id'];//开团id
-        $goods[$key]['end_time'] = local_date($GLOBALS['_CFG']['time_format'], $vo['start_time']+($vo['validity_time']*3600));//剩余时间
+        $goods[$key]['end_time'] = local_date($GLOBALS['_CFG']['time_format'],
+            $vo['start_time'] + ($vo['validity_time'] * 3600));//剩余时间
         $goods[$key]['end_time'] = local_date('Y/m/d H:i:s', $vo['start_time'] + ($vo['validity_time'] * 3600));//剩余时间
         $goods[$key]['surplus'] = $vo['team_num'] - surplus_num($vo['team_id']);//还差几人
 
@@ -637,7 +665,8 @@ function my_team_goods($user_id, $type = 1, $page = 1, $size = 10)
         $goods[$key]['team_price'] = $vo['team_price'];
         $goods[$key]['url'] = url('goods/index', array('id' => $vo['goods_id']));
         $goods[$key]['order_url'] = url('user/order/detail', array('order_id' => $vo['order_id']));//查看订单
-        $goods[$key]['team_url'] = url('team/goods/teamwait', array('team_id' => $vo['team_id'], 'user_id' => $_SESSION['user_id']));//查看团
+        $goods[$key]['team_url'] = url('team/goods/teamwait',
+            array('team_id' => $vo['team_id'], 'user_id' => $_SESSION['user_id']));//查看团
         if ($vo['status'] == 1) {
             $goods[$key]['status'] = 1;//成功
         }
@@ -1060,7 +1089,7 @@ function team_get_tree($tree_id = 0)
  * 检查订单中商品库存
  *
  * @access  public
- * @param   array $arr
+ * @param array $arr
  *
  * @return  void
  */
@@ -1144,7 +1173,8 @@ function flow_cart_stock($arr, $store_id = 0)
             $sql = "SELECT goods_number,ru_id FROM" . $GLOBALS['ecs']->table("store_goods") . " WHERE store_id = '$store_id' AND goods_id = '" . $row['goods_id'] . "' ";
             $goodsInfo = $GLOBALS['db']->getRow($sql);
 
-            $products = get_warehouse_id_attr_number($row['goods_id'], $goods['goods_attr_id'], $goodsInfo['ru_id'], 0, 0, '', $store_id);//获取属性库存
+            $products = get_warehouse_id_attr_number($row['goods_id'], $goods['goods_attr_id'], $goodsInfo['ru_id'], 0,
+                0, '', $store_id);//获取属性库存
 
             $attr_number = $products['product_number'];
             if ($goods['goods_attr_id']) { //当商品没有属性库存时
@@ -1174,10 +1204,10 @@ function flow_cart_stock($arr, $store_id = 0)
  * 获得指定拼团分类下的子分类的数组
  *
  * @access  public
- * @param   int $cat_id 分类的ID
- * @param   int $selected 当前选中分类的ID
- * @param   boolean $re_type 返回的类型: 值为真时返回下拉列表,否则返回数组
- * @param   int $level 限定返回的级数。为0时返回所有级数
+ * @param int     $cat_id   分类的ID
+ * @param int     $selected 当前选中分类的ID
+ * @param boolean $re_type  返回的类型: 值为真时返回下拉列表,否则返回数组
+ * @param int     $level    限定返回的级数。为0时返回所有级数
  * @return  mix
  */
 function team_cat_list($cat_id = 0, $selected = 0, $re_type = true, $level = 0)
@@ -1259,9 +1289,9 @@ function team_cat_list($cat_id = 0, $selected = 0, $re_type = true, $level = 0)
  * 过滤和排序所有拼团，返回一个带有缩进级别的数组
  *
  * @access  private
- * @param   int $cat_id 上级分类ID
- * @param   array $arr 含有所有分类的数组
- * @param   int $level 级别
+ * @param int   $cat_id 上级分类ID
+ * @param array $arr    含有所有分类的数组
+ * @param int   $level  级别
  * @return  void
  */
 function team_cat_options($spec_cat_id, $arr)

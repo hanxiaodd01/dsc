@@ -42,9 +42,15 @@ class Admin extends PluginController
         $filter['type'] = $this->marketing_type;
         $offset = $this->pageLimit(url('market_list', $filter), $this->page_num);
 
-        $total = dao('wechat_marketing')->where(array('marketing_type' => $this->marketing_type, 'wechat_id' => $this->wechat_id))->count();
+        $total = dao('wechat_marketing')->where(array(
+            'marketing_type' => $this->marketing_type,
+            'wechat_id' => $this->wechat_id
+        ))->count();
 
-        $list = dao('wechat_marketing')->field('id, name, command, starttime, endtime, status')->where(array('marketing_type' => $this->marketing_type, 'wechat_id' => $this->wechat_id))->order('id DESC')->limit($offset)->select();
+        $list = dao('wechat_marketing')->field('id, name, command, starttime, endtime, status')->where(array(
+            'marketing_type' => $this->marketing_type,
+            'wechat_id' => $this->wechat_id
+        ))->order('id DESC')->limit($offset)->select();
         if ($list[0]['id']) {
             foreach ($list as $k => $v) {
                 $list[$k]['starttime'] = local_date('Y-m-d', $v['starttime']);
@@ -107,8 +113,10 @@ class Admin extends PluginController
             //上传logo, 背景图片
             if ($_FILES['logo']['name'] || $_FILES['background']['name']) {
                 // 判断类型
-                $type = array('image/jpeg','image/png');
-                if (($_FILES['logo']['type'] && !in_array($_FILES['logo']['type'], $type)) || ($_FILES['background']['type'] && !in_array($_FILES['background']['type'], $type))) {
+                $type = array('image/jpeg', 'image/png');
+                if (($_FILES['logo']['type'] && !in_array($_FILES['logo']['type'],
+                            $type)) || ($_FILES['background']['type'] && !in_array($_FILES['background']['type'],
+                            $type))) {
                     // $this->message(L('not_file_type'), NULL, 2);
                     $json_result = array('error' => 1, 'msg' => L('not_file_type'), 'url' => '');
                     exit(json_encode($json_result));
@@ -130,7 +138,7 @@ class Admin extends PluginController
             if ($_FILES['background']['name'] && $result['url']['background']['url']) {
                 $data['background'] = $result['url']['background']['url'];
             } else {
-                $data['background'] =  $background_path;
+                $data['background'] = $background_path;
             }
 
             if (!$form->isEmpty($data['logo'], 1)) {
@@ -175,20 +183,29 @@ class Admin extends PluginController
                 }
                 // 删除原背景图片
                 if ($data['background'] && $background_path != $data['background']) {
-                    $background_path = strpos($background_path, 'no_image') == false ? $background_path : '';  // 不删除默认空图片
+                    $background_path = strpos($background_path,
+                        'no_image') == false ? $background_path : '';  // 不删除默认空图片
                     $this->remove($background_path);
                 }
                 $where = array('id' => $id, 'wechat_id' => $this->wechat_id);
                 dao('wechat_marketing')->data($data)->where($where)->save();
                 // $this->message(L('market_edit') . L('success'), url('list', array('type' => $this->market_type)));
-                $json_result = array('error' => 0, 'msg' => L('market_edit') . L('success'), 'url' => url('market_list', array('type' => $data['marketing_type'])));
+                $json_result = array(
+                    'error' => 0,
+                    'msg' => L('market_edit') . L('success'),
+                    'url' => url('market_list', array('type' => $data['marketing_type']))
+                );
                 exit(json_encode($json_result));
             } else {
                 //添加活动
                 $data['addtime'] = gmtime();
                 $id = dao('wechat_marketing')->data($data)->add();
                 // $this->message(L('market_add') . L('success'), url('list', array('type' => $this->market_type)));
-                $json_result = array('error' => 0, 'msg' => L('market_add') . L('success'), 'url' => url('market_list', array('type' => $data['marketing_type'])));
+                $json_result = array(
+                    'error' => 0,
+                    'msg' => L('market_add') . L('success'),
+                    'url' => url('market_list', array('type' => $data['marketing_type']))
+                );
                 exit(json_encode($json_result));
             }
         }
@@ -198,10 +215,16 @@ class Admin extends PluginController
         $info = array();
         if (!empty($this->cfg['market_id'])) {
             $market_id = $this->cfg['market_id'];
-            $info = dao('wechat_marketing')->field('id, name, command, logo, background, starttime, endtime, config, description, support')->where(array('id' => $market_id, 'marketing_type' => $this->marketing_type, 'wechat_id' => $this->wechat_id))->find();
+            $info = dao('wechat_marketing')->field('id, name, command, logo, background, starttime, endtime, config, description, support')->where(array(
+                'id' => $market_id,
+                'marketing_type' => $this->marketing_type,
+                'wechat_id' => $this->wechat_id
+            ))->find();
             if ($info) {
-                $info['starttime'] = isset($info['starttime']) ? local_date('Y-m-d H:i:s', $info['starttime']) : local_date('Y-m-d H:i:s', $nowtime);
-                $info['endtime'] = isset($info['endtime']) ? local_date('Y-m-d H:i:s', $info['endtime']) : local_date('Y-m-d H:i:s', local_strtotime("+1 months", $nowtime));
+                $info['starttime'] = isset($info['starttime']) ? local_date('Y-m-d H:i:s',
+                    $info['starttime']) : local_date('Y-m-d H:i:s', $nowtime);
+                $info['endtime'] = isset($info['endtime']) ? local_date('Y-m-d H:i:s',
+                    $info['endtime']) : local_date('Y-m-d H:i:s', local_strtotime("+1 months", $nowtime));
                 $info['prize_arr'] = unserialize($info['config']);
                 $info['logo'] = get_wechat_image_path($info['logo']);
                 $info['background'] = get_wechat_image_path($info['background']);
@@ -219,7 +242,12 @@ class Admin extends PluginController
         }
 
         // 微信素材所需活动链接
-        $info['url'] = __HOST__ . url('wechat/index/market_show', array('type' => 'wall', 'function' => 'wall_user_wechat', 'wall_id' => $market_id, 'ru_id' => $this->ru_id));
+        $info['url'] = __HOST__ . url('wechat/index/market_show', array(
+                'type' => 'wall',
+                'function' => 'wall_user_wechat',
+                'wall_id' => $market_id,
+                'ru_id' => $this->ru_id
+            ));
 
         $this->assign('info', $info);
         $this->plugin_display('market_edit', $this->cfg);
@@ -243,8 +271,8 @@ class Admin extends PluginController
             $where = " AND m.status = 0";
         }
 
-        $sql = "SELECT COUNT(*) as num FROM {pre}wechat_wall_msg m LEFT JOIN {pre}wechat_wall_user u ON m.user_id = u.id LEFT JOIN {pre}wechat_marketing mk ON m.wall_id = mk.id WHERE m.wall_id = ".$market_id . $where;
-        $num  = $this->model->query($sql);
+        $sql = "SELECT COUNT(*) as num FROM {pre}wechat_wall_msg m LEFT JOIN {pre}wechat_wall_user u ON m.user_id = u.id LEFT JOIN {pre}wechat_marketing mk ON m.wall_id = mk.id WHERE m.wall_id = " . $market_id . $where;
+        $num = $this->model->query($sql);
         //分页
         $filter['type'] = $this->marketing_type;
         $filter['function'] = $function;
@@ -255,17 +283,26 @@ class Admin extends PluginController
         // $page = $this->pageShow($total);
         $this->assign('page', $this->pageShow($total));
 
-        $sql = "SELECT m.id, m.user_id, m.content, m.addtime, m.checktime, m.status, u.nickname FROM {pre}wechat_wall_msg m LEFT JOIN {pre}wechat_wall_user u ON m.user_id = u.id LEFT JOIN {pre}wechat_marketing mk ON m.wall_id = mk.id WHERE m.wall_id = " .$market_id . $where . " ORDER BY m.addtime ASC LIMIT $offset";
+        $sql = "SELECT m.id, m.user_id, m.content, m.addtime, m.checktime, m.status, u.nickname FROM {pre}wechat_wall_msg m LEFT JOIN {pre}wechat_wall_user u ON m.user_id = u.id LEFT JOIN {pre}wechat_marketing mk ON m.wall_id = mk.id WHERE m.wall_id = " . $market_id . $where . " ORDER BY m.addtime ASC LIMIT $offset";
 
-        $list =  $this->model->query($sql);
+        $list = $this->model->query($sql);
         if ($list) {
-            foreach ($list as $k=>$v) {
+            foreach ($list as $k => $v) {
                 if ($v['status'] == 1) {
                     $list[$k]['status'] = L('is_checked');
                     $list[$k]['handler'] = '';
                 } else {
                     $list[$k]['status'] = L('no_check');
-                    $list[$k]['handler'] = '<a class="button btn-info bg-green check" data-href="'.url('market_action', array('type' => $this->marketing_type, 'function' => 'messages', 'handler' => 'check','market_id' => $market_id, 'msg_id' => $v['id'], 'user_id' => $v['user_id'], 'status' => $status)).'" href="javascript:;" >' . L('check') . '</a>';
+                    $list[$k]['handler'] = '<a class="button btn-info bg-green check" data-href="' . url('market_action',
+                            array(
+                                'type' => $this->marketing_type,
+                                'function' => 'messages',
+                                'handler' => 'check',
+                                'market_id' => $market_id,
+                                'msg_id' => $v['id'],
+                                'user_id' => $v['user_id'],
+                                'status' => $status
+                            )) . '" href="javascript:;" >' . L('check') . '</a>';
                 }
                 $list[$k]['addtime'] = $v['addtime'] ? local_date('Y-m-d H:i:s', $v['addtime']) : '';
                 $list[$k]['checktime'] = $v['checktime'] ? local_date('Y-m-d H:i:s', $v['checktime']) : '';
@@ -294,12 +331,15 @@ class Admin extends PluginController
             $filter['function'] = $function;
             $filter['id'] = $market_id;
             $offset = $this->pageLimit(url('data_list', $filter), $this->page_num);
-            $total = dao('wechat_wall_user')->where(array('wall_id' => $market_id, 'wechat_id' => $this->wechat_id))->count();
+            $total = dao('wechat_wall_user')->where(array(
+                'wall_id' => $market_id,
+                'wechat_id' => $this->wechat_id
+            ))->count();
             // $page = $this->pageShow($total);
             $this->assign('page', $this->pageShow($total));
 
             //$list = $this->model->table('wechat_wall_user')->field('id, nickname, sex, headimg, status, addtime')->where(array('wall_id'=>$id))->order('addtime desc, id desc')->limit($offset)->select();
-            $sql = "SELECT id, nickname, sex, headimg, status, addtime FROM {pre}wechat_wall_user WHERE wall_id = '" . $market_id . "' AND wechat_id = '" .$this->wechat_id. "'  ORDER BY addtime DESC limit $offset";
+            $sql = "SELECT id, nickname, sex, headimg, status, addtime FROM {pre}wechat_wall_user WHERE wall_id = '" . $market_id . "' AND wechat_id = '" . $this->wechat_id . "'  ORDER BY addtime DESC limit $offset";
             $list = $this->model->query($sql);
             if ($list[0]['id']) {
                 foreach ($list as $k => $v) {
@@ -315,9 +355,21 @@ class Admin extends PluginController
                         $list[$k]['handler'] = '';
                     } else {
                         $list[$k]['status'] = L('no_check'); // 审核会员
-                        $list[$k]['handler'] = '<a class="button btn-info bg-green check" data-href="'.url('market_action', array('type' => $this->marketing_type, 'function' => 'users', 'handler' => 'check', 'market_id' => $market_id, 'user_id' => $v['id'])).'" href="javascript:;" >' . L('check') . '</a>';
+                        $list[$k]['handler'] = '<a class="button btn-info bg-green check" data-href="' . url('market_action',
+                                array(
+                                    'type' => $this->marketing_type,
+                                    'function' => 'users',
+                                    'handler' => 'check',
+                                    'market_id' => $market_id,
+                                    'user_id' => $v['id']
+                                )) . '" href="javascript:;" >' . L('check') . '</a>';
                     }
-                    $list[$k]['nocheck'] = dao('wechat_wall_msg')->where(array('wall_id' => $market_id, 'wechat_id' => $this->wechat_id, 'status' => 0, 'user_id' => $v['id']))->count();
+                    $list[$k]['nocheck'] = dao('wechat_wall_msg')->where(array(
+                        'wall_id' => $market_id,
+                        'wechat_id' => $this->wechat_id,
+                        'status' => 0,
+                        'user_id' => $v['id']
+                    ))->count();
                     $list[$k]['addtime'] = $v['addtime'] ? local_date('Y-m-d H:i:s', $v['addtime']) : '';
                 }
             }
@@ -331,11 +383,19 @@ class Admin extends PluginController
             $filter['wall_id'] = $market_id;
             $filter['user_id'] = $user_id;
             $offset = $this->pageLimit(url('data_list', $filter), $this->page_num);
-            $total = dao('wechat_wall_msg')->where(array('wall_id' => $market_id, 'wechat_id' => $this->wechat_id, 'user_id' => $user_id))->count();
+            $total = dao('wechat_wall_msg')->where(array(
+                'wall_id' => $market_id,
+                'wechat_id' => $this->wechat_id,
+                'user_id' => $user_id
+            ))->count();
             // $page = $this->pageShow($total);
             $this->assign('page', $this->pageShow($total));
 
-            $list = dao('wechat_wall_msg')->field('id, content, addtime, checktime, status')->where(array('wall_id' => $market_id, 'wechat_id' => $this->wechat_id, 'user_id' => $user_id))->order('addtime DESC, checktime DESC')->limit($offset)->select();
+            $list = dao('wechat_wall_msg')->field('id, content, addtime, checktime, status')->where(array(
+                'wall_id' => $market_id,
+                'wechat_id' => $this->wechat_id,
+                'user_id' => $user_id
+            ))->order('addtime DESC, checktime DESC')->limit($offset)->select();
             if ($list) {
                 foreach ($list as $k => $v) {
                     if ($v['status'] == 1) {
@@ -343,7 +403,15 @@ class Admin extends PluginController
                         $list[$k]['handler'] = '';
                     } else {
                         $list[$k]['status'] = L('no_check'); // 审核会员
-                        $list[$k]['handler'] = '<a class="button btn-info bg-green check" data-href="'.url('market_action', array('type' => $this->marketing_type, 'function' => 'users', 'handler' => 'check','market_id' => $market_id, 'msg_id'=> $v['id'], 'user_id' => $user_id)).'" href="javascript:;" >' .L('check'). '</a>';
+                        $list[$k]['handler'] = '<a class="button btn-info bg-green check" data-href="' . url('market_action',
+                                array(
+                                    'type' => $this->marketing_type,
+                                    'function' => 'users',
+                                    'handler' => 'check',
+                                    'market_id' => $market_id,
+                                    'msg_id' => $v['id'],
+                                    'user_id' => $user_id
+                                )) . '" href="javascript:;" >' . L('check') . '</a>';
                     }
                     $list[$k]['addtime'] = $v['addtime'] ? local_date('Y-m-d H:i:s', $v['addtime']) : '';
                     $list[$k]['checktime'] = $v['checktime'] ? local_date('Y-m-d H:i:s', $v['checktime']) : '';
@@ -370,12 +438,12 @@ class Admin extends PluginController
 
         $offset = $this->pageLimit(url('data_list', $filter), $this->page_num);
 
-        $sql_count = 'SELECT count(*) as number FROM {pre}wechat_prize p LEFT JOIN {pre}wechat_user u ON p.openid = u.openid WHERE p.activity_type = "' . $this->marketing_type . '" and p.prize_type = 1 AND p.market_id = ' .$market_id. ' and u.subscribe = 1 and u.wechat_id = ' . $this->wechat_id . ' ORDER BY dateline desc ';
+        $sql_count = 'SELECT count(*) as number FROM {pre}wechat_prize p LEFT JOIN {pre}wechat_user u ON p.openid = u.openid WHERE p.activity_type = "' . $this->marketing_type . '" and p.prize_type = 1 AND p.market_id = ' . $market_id . ' and u.subscribe = 1 and u.wechat_id = ' . $this->wechat_id . ' ORDER BY dateline desc ';
         $total = $this->model->query($sql_count);
         // $page = $this->pageShow($total[0]['number']);
         $this->assign('page', $this->pageShow($total[0]['number']));
 
-        $sql = 'SELECT p.id, p.prize_name, p.issue_status, p.winner, p.dateline, p.openid, u.nickname FROM {pre}wechat_prize p LEFT JOIN {pre}wechat_user u ON p.openid = u.openid WHERE p.activity_type = "' . $this->marketing_type . '" and u.wechat_id = ' . $this->wechat_id . ' and p.prize_type = 1 AND p.market_id = ' .$market_id. ' and u.subscribe = 1 ORDER BY dateline desc  limit ' . $offset;
+        $sql = 'SELECT p.id, p.prize_name, p.issue_status, p.winner, p.dateline, p.openid, u.nickname FROM {pre}wechat_prize p LEFT JOIN {pre}wechat_user u ON p.openid = u.openid WHERE p.activity_type = "' . $this->marketing_type . '" and u.wechat_id = ' . $this->wechat_id . ' and p.prize_type = 1 AND p.market_id = ' . $market_id . ' and u.subscribe = 1 ORDER BY dateline desc  limit ' . $offset;
         $list = $this->model->query($sql);
         if (!empty($list)) {
             foreach ($list as $key => $val) {
@@ -383,10 +451,19 @@ class Admin extends PluginController
                 $list[$key]['dateline'] = local_date(C('shop.time_format'), $val['dateline']);
                 if ($val['issue_status'] == 1) {
                     $list[$key]['issue_status'] = L('is_sended');
-                    $list[$key]['handler'] = '<a href="javascript:;"  data-href="'.url('market_action', array('type' => $this->marketing_type, 'handler' => 'winner_issue','id' => $val['id'], 'cancel' => 1)).'" class="btn_region winner_issue" ><i class="fa fa-send-o"></i>'.L('cancle_send').'</a>';
+                    $list[$key]['handler'] = '<a href="javascript:;"  data-href="' . url('market_action', array(
+                            'type' => $this->marketing_type,
+                            'handler' => 'winner_issue',
+                            'id' => $val['id'],
+                            'cancel' => 1
+                        )) . '" class="btn_region winner_issue" ><i class="fa fa-send-o"></i>' . L('cancle_send') . '</a>';
                 } else {
                     $list[$key]['issue_status'] = L('no_send');
-                    $list[$key]['handler'] = '<a href="javascript:;"  data-href="'.url('market_action', array('type' => $this->marketing_type, 'handler' => 'winner_issue','id' => $val['id'])).'" class="btn_region winner_issue" ><i class="fa fa-send-o"></i>'.L('send').'</a>';
+                    $list[$key]['handler'] = '<a href="javascript:;"  data-href="' . url('market_action', array(
+                            'type' => $this->marketing_type,
+                            'handler' => 'winner_issue',
+                            'id' => $val['id']
+                        )) . '" class="btn_region winner_issue" ><i class="fa fa-send-o"></i>' . L('send') . '</a>';
                 }
             }
         }
@@ -403,9 +480,18 @@ class Admin extends PluginController
         $market_id = I('get.id', 0, 'intval');
 
         if (!empty($market_id)) {
-            $url = __HOST__ . url('wechat/index/market_show', array('type' => 'wall', 'function' => 'wall_user', 'wall_id' => $market_id, 'ru_id' => $this->ru_id));
+            $url = __HOST__ . url('wechat/index/market_show', array(
+                    'type' => 'wall',
+                    'function' => 'wall_user',
+                    'wall_id' => $market_id,
+                    'ru_id' => $this->ru_id
+                ));
 
-            $wall = dao('wechat_marketing')->field('qrcode')->where(array('id'=> $market_id, 'marketing_type' => $this->marketing_type, 'wechat_id' => $this->wechat_id))->find();
+            $wall = dao('wechat_marketing')->field('qrcode')->where(array(
+                'id' => $market_id,
+                'marketing_type' => $this->marketing_type,
+                'wechat_id' => $this->wechat_id
+            ))->find();
 
             // 生成二维码
             // 纠错级别：L、M、Q、H
@@ -413,13 +499,13 @@ class Admin extends PluginController
             // 点的大小：1到10
             $matrixPointSize = 8;
             // 生成的文件位置
-            $path = dirname(ROOT_PATH) .'/data/attached/wall/';
+            $path = dirname(ROOT_PATH) . '/data/attached/wall/';
             // 水印logo
             $water_logo = ROOT_PATH . 'public/img/shop_app_icon.png';
-            $water_logo_out = $path . 'water_logo' .$market_id. '.png';
+            $water_logo_out = $path . 'water_logo' . $market_id . '.png';
 
             // 输出二维码路径
-            $filename = $path . $errorCorrectionLevel . $matrixPointSize . $market_id. '.png';
+            $filename = $path . $errorCorrectionLevel . $matrixPointSize . $market_id . '.png';
 
             if (!is_dir($path)) {
                 @mkdir($path);
@@ -433,7 +519,7 @@ class Admin extends PluginController
             // 生成原图+水印
             $img->open($filename)->water($water_logo_out, 5, 100)->save($filename);
 
-            $qrcode_url = __STATIC__ . '/data/attached/wall/' .basename($filename).'?t='.time();
+            $qrcode_url = __STATIC__ . '/data/attached/wall/' . basename($filename) . '?t=' . time();
             $this->cfg['qrcode_url'] = $qrcode_url;
         }
 
@@ -447,7 +533,7 @@ class Admin extends PluginController
      */
     private function get_user_msg_count($wall_id)
     {
-        $sql = "SELECT count(DISTINCT u.id) as user_count, count(m.id) as msg_count FROM {pre}wechat_wall_user u LEFT JOIN {pre}wechat_wall_msg m ON u.id = m.user_id WHERE m.wall_id = '" .$wall_id. "' AND u.wechat_id = '" .$this->wechat_id. "' ";
+        $sql = "SELECT count(DISTINCT u.id) as user_count, count(m.id) as msg_count FROM {pre}wechat_wall_user u LEFT JOIN {pre}wechat_wall_msg m ON u.id = m.user_id WHERE m.wall_id = '" . $wall_id . "' AND u.wechat_id = '" . $this->wechat_id . "' ";
         $res = $this->model->query($sql);
         return $res[0];
     }
@@ -473,22 +559,44 @@ class Admin extends PluginController
                 $data = array('status' => 1, 'checktime' => $checktime);
                 //用户审核
                 if (!empty($market_id) && !empty($user_id) && empty($msg_id)) {
-                    dao('wechat_wall_user')->data($data)->where(array('wall_id' => $market_id, 'wechat_id' => $this->wechat_id, 'id' => $user_id, 'status' => 0))->save();
+                    dao('wechat_wall_user')->data($data)->where(array(
+                        'wall_id' => $market_id,
+                        'wechat_id' => $this->wechat_id,
+                        'id' => $user_id,
+                        'status' => 0
+                    ))->save();
                     $json_result['msg'] = '用户审核成功';
-                    $json_result['url'] = url('data_list', array('type' => $this->marketing_type, 'function' => $function, 'id' => $market_id));
+                    $json_result['url'] = url('data_list',
+                        array('type' => $this->marketing_type, 'function' => $function, 'id' => $market_id));
                     exit(json_encode($json_result));
                 }
 
                 //留言审核
                 if (!empty($market_id) && !empty($user_id) && !empty($msg_id)) {
-                    dao('wechat_wall_msg')->data($data)->where(array('wall_id' => $market_id, 'wechat_id' => $this->wechat_id, 'user_id' => $user_id, 'id' => $msg_id, 'status' => 0))->save();
+                    dao('wechat_wall_msg')->data($data)->where(array(
+                        'wall_id' => $market_id,
+                        'wechat_id' => $this->wechat_id,
+                        'user_id' => $user_id,
+                        'id' => $msg_id,
+                        'status' => 0
+                    ))->save();
                     //审核用户
-                    dao('wechat_wall_user')->data($data)->where(array('wall_id' => $market_id, 'wechat_id' => $this->wechat_id, 'id' => $user_id, 'status' => 0))->save();
+                    dao('wechat_wall_user')->data($data)->where(array(
+                        'wall_id' => $market_id,
+                        'wechat_id' => $this->wechat_id,
+                        'id' => $user_id,
+                        'status' => 0
+                    ))->save();
 
                     $json_result['msg'] = '留言审核成功';
                     if (isset($_GET['status'])) {
                         $status = I('get.status');
-                        $json_result['url'] = url('data_list', array('type' => $this->marketing_type, 'function' => $function, 'id' => $market_id, 'status' => $status));
+                        $json_result['url'] = url('data_list', array(
+                            'type' => $this->marketing_type,
+                            'function' => $function,
+                            'id' => $market_id,
+                            'status' => $status
+                        ));
                     }
                     exit(json_encode($json_result));
                 }
@@ -500,14 +608,30 @@ class Admin extends PluginController
                 $data = array('status' => 0, 'checktime' => $checktime);
                 // 留言移除审核
                 if (!empty($market_id) && !empty($user_id) && !empty($msg_id)) {
-                    dao('wechat_wall_msg')->data($data)->where(array('wall_id' => $market_id, 'wechat_id' => $this->wechat_id, 'user_id' => $user_id, 'id' => $msg_id, 'status' => 1))->save();
+                    dao('wechat_wall_msg')->data($data)->where(array(
+                        'wall_id' => $market_id,
+                        'wechat_id' => $this->wechat_id,
+                        'user_id' => $user_id,
+                        'id' => $msg_id,
+                        'status' => 1
+                    ))->save();
                     // 移除审核用户
-                    dao('wechat_wall_user')->data($data)->where(array('wall_id' => $market_id, 'wechat_id' => $this->wechat_id, 'id' => $user_id, 'status' => 1))->save();
+                    dao('wechat_wall_user')->data($data)->where(array(
+                        'wall_id' => $market_id,
+                        'wechat_id' => $this->wechat_id,
+                        'id' => $user_id,
+                        'status' => 1
+                    ))->save();
 
                     $json_result['msg'] = '移除审核成功';
                     if (isset($_GET['status'])) {
                         $status = I('get.status');
-                        $json_result['url'] = url('data_list', array('type' => $this->marketing_type, 'function' => $function, 'id' => $market_id, 'status' => $status));
+                        $json_result['url'] = url('data_list', array(
+                            'type' => $this->marketing_type,
+                            'function' => $function,
+                            'id' => $market_id,
+                            'status' => $status
+                        ));
                         exit(json_encode($json_result));
                     }
                     exit(json_encode($json_result));
@@ -519,14 +643,26 @@ class Admin extends PluginController
 
                 // 删除消息记录
                 if (!empty($market_id) && !empty($msg_id)) {
-                    dao('wechat_wall_msg')->where(array('wall_id' => $market_id, 'wechat_id' => $this->wechat_id, 'id' => $msg_id))->delete();
+                    dao('wechat_wall_msg')->where(array(
+                        'wall_id' => $market_id,
+                        'wechat_id' => $this->wechat_id,
+                        'id' => $msg_id
+                    ))->delete();
                     $json_result['msg'] = '删除消息成功';
                     exit(json_encode($json_result));
                 }
                 // 删除会员以及消息数据
                 if (!empty($market_id) && !empty($user_id) && empty($msg_id)) {
-                    dao('wechat_wall_user')->where(array('wall_id' => $market_id, 'wechat_id' => $this->wechat_id, 'id' => $user_id))->delete();
-                    dao('wechat_wall_msg')->where(array('wall_id' => $market_id, 'wechat_id' => $this->wechat_id, 'user_id' => $user_id))->delete();
+                    dao('wechat_wall_user')->where(array(
+                        'wall_id' => $market_id,
+                        'wechat_id' => $this->wechat_id,
+                        'id' => $user_id
+                    ))->delete();
+                    dao('wechat_wall_msg')->where(array(
+                        'wall_id' => $market_id,
+                        'wechat_id' => $this->wechat_id,
+                        'user_id' => $user_id
+                    ))->delete();
                     $json_result['msg'] = '删除会员以及消息成功';
                     exit(json_encode($json_result));
                 }
@@ -540,12 +676,18 @@ class Admin extends PluginController
                 if (!empty($id)) {
                     if (!empty($cancel)) {
                         $data['issue_status'] = 0;
-                        dao('wechat_prize')->data($data)->where(array('id' => $id, 'wechat_id' => $this->wechat_id))->save();
+                        dao('wechat_prize')->data($data)->where(array(
+                            'id' => $id,
+                            'wechat_id' => $this->wechat_id
+                        ))->save();
                         $json_result['msg'] = '已取消';
                         exit(json_encode($json_result));
                     } else {
                         $data['issue_status'] = 1;
-                        dao('wechat_prize')->data($data)->where(array('id' => $id, 'wechat_id' => $this->wechat_id))->save();
+                        dao('wechat_prize')->data($data)->where(array(
+                            'id' => $id,
+                            'wechat_id' => $this->wechat_id
+                        ))->save();
                         $json_result['msg'] = '发放标记成功';
                         exit(json_encode($json_result));
                     }

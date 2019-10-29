@@ -1,15 +1,15 @@
 <?php
 //多点乐资源
 if (!defined('IN_CB')) {
-	exit('You are not allowed to access to this page.');
+    exit('You are not allowed to access to this page.');
 }
 
 if (version_compare(phpversion(), '5.0.0', '>=') !== true) {
-	exit('Sorry, but you have to run this script with PHP5... You currently have the version <b>' . phpversion() . '</b>.');
+    exit('Sorry, but you have to run this script with PHP5... You currently have the version <b>' . phpversion() . '</b>.');
 }
 
 if (!function_exists('imagecreate')) {
-	exit('Sorry, make sure you have the GD extension installed before running this script.');
+    exit('Sorry, make sure you have the GD extension installed before running this script.');
 }
 
 include_once 'function.php';
@@ -21,7 +21,7 @@ $barcodeName = findValueFromKey($availableBarcodes, $filename);
 $code = $system_temp_array2[0];
 
 if (file_exists('config' . DIRECTORY_SEPARATOR . $code . '.php')) {
-	include_once 'config' . DIRECTORY_SEPARATOR . $code . '.php';
+    include_once 'config' . DIRECTORY_SEPARATOR . $code . '.php';
 }
 
 echo "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>";
@@ -62,18 +62,23 @@ echo $_SERVER['REQUEST_URI'];
 echo "\" method=\"post\">\r\n    <h1>Barcode Generator</h1>\r\n    <h2>";
 echo $barcodeName;
 echo "</h2>\r\n    <div class=\"configurations\">\r\n        <section class=\"configurations\">\r\n            <h3>Configurations</h3>\r\n            <table>\r\n                <colgroup>\r\n                    <col class=\"col1\" />\r\n                    <col class=\"col2\" />\r\n                </colgroup>\r\n                <tbody>\r\n                    <tr>\r\n                        <td><label for=\"filetype\">File type</label></td>\r\n                        <td>";
-echo getSelectHtml('filetype', $filetype, array('PNG' => 'PNG - Portable Network Graphics', 'JPEG' => 'JPEG - Joint Photographic Experts Group', 'GIF' => 'GIF - Graphics Interchange Format'));
+echo getSelectHtml('filetype', $filetype, array(
+    'PNG' => 'PNG - Portable Network Graphics',
+    'JPEG' => 'JPEG - Joint Photographic Experts Group',
+    'GIF' => 'GIF - Graphics Interchange Format'
+));
 echo "</td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td><label for=\"dpi\">DPI</label></td>\r\n                        <td>";
 echo getInputTextHtml('dpi', $dpi, array('type' => 'number', 'min' => 72, 'max' => 300, 'required' => 'required'));
 echo " <span id=\"dpiUnavailable\">DPI is available only for PNG and JPEG.</span></td>\r\n                    </tr>\r\n";
 if (isset($baseClassFile) && file_exists('include' . DIRECTORY_SEPARATOR . $baseClassFile)) {
-	include_once 'include' . DIRECTORY_SEPARATOR . $baseClassFile;
+    include_once 'include' . DIRECTORY_SEPARATOR . $baseClassFile;
 }
 
 echo "                    <tr>\r\n                        <td><label for=\"scale\">Scale</label></td>\r\n                        <td>";
 echo getInputTextHtml('scale', $scale, array('type' => 'number', 'min' => 1, 'max' => 4, 'required' => 'required'));
 echo "</td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td><label for=\"rotation\">Rotation</label></td>\r\n                        <td>";
-echo getSelectHtml('rotation', $rotation, array(0 => 'No rotation', 90 => '90&deg; clockwise', 180 => '180&deg; clockwise', 270 => '270&deg; clockwise'));
+echo getSelectHtml('rotation', $rotation,
+    array(0 => 'No rotation', 90 => '90&deg; clockwise', 180 => '180&deg; clockwise', 270 => '270&deg; clockwise'));
 echo "</td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td><label for=\"font_family\">Font</label></td>\r\n                        <td>";
 echo getSelectHtml('font_family', $font_family, listfonts('../font'));
 echo ' ';

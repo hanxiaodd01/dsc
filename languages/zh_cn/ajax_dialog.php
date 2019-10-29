@@ -11,11 +11,11 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: calendar.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 $_LANG['Parameter_error'] = "参数错误";
 $_LANG['Can_get_attr'] = "获取不到属性值";
 $_LANG['exchange_number'] = "换货数量：";
-$_LANG['address'] = "地址："; 
+$_LANG['address'] = "地址：";
 $_LANG['Since_lift_new'] = "马上自提";
 $_LANG['Please_store'] = "请选择门店..";
 
@@ -40,7 +40,7 @@ $_LANG['zhekouxianzhi'] = "元， 即可享受折扣";
 $_LANG['percent_off_Discount'] = "折优惠";
 $_LANG['folw_sub_null'] = "下手慢了~部分商品被抢空，继续结算其它商品？";
 $_LANG['flow_no_shipping'] = "对不起，您选择的收货地址暂时无法进行配送";
-$_LANG['Have_goods'] = "有货"; 
+$_LANG['Have_goods'] = "有货";
 $_LANG['No_goods'] = "无货";
 $_LANG['go_pay'] = "去结算";
 $_LANG['Preservation'] = '保存';
@@ -48,7 +48,7 @@ $_LANG['add_invoice'] = '新增单位发票';
 $_LANG['invoice_desc_one'] = '温馨提示：发票的开票金额不包括消费卡、优惠券和支付部分';
 $_LANG['invoice_desc_two'] = '发票信息相关问题';
 $_LANG['label_coupons'] = '使用优惠券';
-$_LANG['submit_order'] ='提交订单';
+$_LANG['submit_order'] = '提交订单';
 $_LANG['rmb_pay'] = "RMB支付";
 $_LANG['integral_pay'] = '积分支付';
 $_LANG['choose'] = "已选择";

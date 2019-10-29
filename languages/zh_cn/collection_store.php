@@ -11,7 +11,7 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: calendar.php 17217 2011-01-19 06:29:08Z liubo $20161214
-*/
+ */
 $_LANG['Popularity_follow'] = "关注人气";
 $_LANG['Service_evaluation'] = "服务评价";
 $_LANG['follow_time'] = "关注时间";

@@ -19,7 +19,7 @@ $api = app('Dingo\Api\Routing\Router');
 $api->version('v2', ['namespace' => 'App\Api\Controllers'], function ($api) {
 
     /** 小程序接口 */
-    $api->group(['prefix' => 'wx', 'namespace' => 'Wx'] , function ($api) {
+    $api->group(['prefix' => 'wx', 'namespace' => 'Wx'], function ($api) {
 
         /** 首页 */
         $api->post('/', 'IndexController@index');
@@ -149,7 +149,7 @@ $api->version('v2', ['namespace' => 'App\Api\Controllers'], function ($api) {
         $api->post('activity/coudanList', 'ActivityController@coudanList');  //优惠活动 - 活动商品凑单
         $api->post('cart/addGiftCart', 'CartController@addGiftCart'); //优惠活动 - 添加赠品
 
-	    /** 分销 */
+        /** 分销 */
         $api->post('drp', 'DrpController@index');//分销首页
         $api->post('drp/con', 'DrpController@con');//购买分销模式
         $api->post('drp/settings', 'DrpController@settings');//分销设置

@@ -5,7 +5,7 @@ require dirname(__FILE__) . '/includes/init.php';
 require ROOT_PATH . '/includes/lib_visual.php';
 
 if ((DEBUG_MODE & 2) != 2) {
-	$smarty->caching = true;
+    $smarty->caching = true;
 }
 
 require ROOT_PATH . '/includes/lib_area.php';
@@ -19,15 +19,15 @@ $preview = !empty($_REQUEST['preview']) ? $_REQUEST['preview'] : 0;
 $where = '';
 
 if ($preview != 1) {
-	$where = 'AND  ' . gmtime() . ' >= start_time AND ' . gmtime() . '<= end_time AND review_status = 3';
+    $where = 'AND  ' . gmtime() . ' >= start_time AND ' . gmtime() . '<= end_time AND review_status = 3';
 }
 
 $sql = 'SELECT topic_id, user_id FROM ' . $ecs->table('topic') . ('WHERE topic_id = \'' . $topic_id . '\'') . $where;
 $topic = $db->getRow($sql);
 
 if (empty($topic)) {
-	ecs_header("Location: ./\n");
-	exit();
+    ecs_header("Location: ./\n");
+    exit();
 }
 
 get_down_topictemplates($topic['topic_id'], $topic['user_id']);
@@ -35,11 +35,11 @@ $pc_page['tem'] = 'topic_' . $topic_id;
 $filename = ROOT_PATH . 'data/topic' . '/topic_' . $topic['user_id'] . '/' . $pc_page['tem'];
 
 if ($preview == 1) {
-	$preview_dir = ROOT_PATH . 'data/topic' . '/topic_' . $topic['user_id'] . '/' . $pc_page['tem'] . '/temp';
+    $preview_dir = ROOT_PATH . 'data/topic' . '/topic_' . $topic['user_id'] . '/' . $pc_page['tem'] . '/temp';
 
-	if (is_dir($preview_dir)) {
-		$filename = $preview_dir;
-	}
+    if (is_dir($preview_dir)) {
+        $filename = $preview_dir;
+    }
 }
 
 $pc_page['out'] = get_html_file($filename . '/pc_html.php');
@@ -49,16 +49,15 @@ $pc_page['out'] = str_replace('../data/seller_templates/', 'data/seller_template
 $pc_page['out'] = str_replace('../data/topic/', 'data/topic/', $pc_page['out'], $i);
 
 if ($GLOBALS['_CFG']['open_oss'] == 1) {
-	$bucket_info = get_bucket_info();
-	$endpoint = $bucket_info['endpoint'];
-}
-else {
-	$endpoint = !empty($GLOBALS['_CFG']['site_domain']) ? $GLOBALS['_CFG']['site_domain'] : '';
+    $bucket_info = get_bucket_info();
+    $endpoint = $bucket_info['endpoint'];
+} else {
+    $endpoint = !empty($GLOBALS['_CFG']['site_domain']) ? $GLOBALS['_CFG']['site_domain'] : '';
 }
 
 if ($pc_page['out'] && $endpoint) {
-	$desc_preg = get_goods_desc_images_preg($endpoint, $pc_page['out']);
-	$pc_page['out'] = $desc_preg['goods_desc'];
+    $desc_preg = get_goods_desc_images_preg($endpoint, $pc_page['out']);
+    $pc_page['out'] = $desc_preg['goods_desc'];
 }
 
 $sql = 'SELECT * FROM ' . $ecs->table('topic') . (' WHERE topic_id = \'' . $topic_id . '\'');

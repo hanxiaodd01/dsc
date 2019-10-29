@@ -1,3 +1,3 @@
 <?php
 
-$_LANG['jdpay']     = '京东支付';
+$_LANG['jdpay'] = '京东支付';

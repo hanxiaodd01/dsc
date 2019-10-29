@@ -18,10 +18,10 @@ require(ROOT_PATH . '/includes/lib_area.php');  //ecmoban模板堂 --zhuo
 require(ROOT_PATH . 'includes/lib_publicfunc.php'); //ecmoban模板堂 --zhuo
 require(ROOT_PATH . 'includes/lib_wholesale.php'); //ecmoban模板堂 --zhuo
 
-if($GLOBALS['_CFG']['wholesale_user_rank'] == 0){
+if ($GLOBALS['_CFG']['wholesale_user_rank'] == 0) {
     $is_seller = get_is_seller();
-    if($is_seller == 0){
-        ecs_header("Location: " .$ecs->url(). "\n");
+    if ($is_seller == 0) {
+        ecs_header("Location: " . $ecs->url() . "\n");
     }
 }
 
@@ -48,9 +48,8 @@ if ($_REQUEST['act'] == 'index') {
     $smarty->assign('page_title', $position['title']);    // 页面标题
     $smarty->assign('ur_here', $position['ur_here']);  // 当前位置
     $smarty->assign('index', $_REQUEST['act']);
-	
-	
-	
+
+
     if (defined('THEME_EXTENSION')) {
         $wholesale_cat = get_wholesale_child_cat();
         $smarty->assign('wholesale_cat', $wholesale_cat);
@@ -64,9 +63,9 @@ if ($_REQUEST['act'] == 'index') {
     $res = get_purchase_list();
     $purchase_list = $res['purchase_list'];
     $smarty->assign('purchase', $purchase_list);
-	
-	$get_wholsale_navigator = get_wholsale_navigator();
-	$smarty->assign('get_wholsale_navigator', $get_wholsale_navigator);
+
+    $get_wholsale_navigator = get_wholsale_navigator();
+    $smarty->assign('get_wholsale_navigator', $get_wholsale_navigator);
 
     if (defined('THEME_EXTENSION')) {
         /* 广告位 */
@@ -86,19 +85,19 @@ if ($_REQUEST['act'] == 'index') {
 
 /* ------------------------------------------------------ */
 //-- 下载价格单
-/* ------------------------------------------------------ */ 
+/* ------------------------------------------------------ */
 
 elseif ($_REQUEST['act'] == 'price_list') {
     $data = $_LANG['goods_name'] . "\t" . $_LANG['goods_attr'] . "\t" . $_LANG['number'] . "\t" . $_LANG['ws_price'] . "\t\n";
     $sql = "SELECT * FROM " . $ecs->table('wholesale') .
-            "WHERE enabled = 1 AND review_status = 3 AND CONCAT(',', rank_ids, ',') LIKE '" . '%,' . $_SESSION['user_rank'] . ',%' . "'";
+        "WHERE enabled = 1 AND review_status = 3 AND CONCAT(',', rank_ids, ',') LIKE '" . '%,' . $_SESSION['user_rank'] . ',%' . "'";
     $res = $db->query($sql);
     while ($row = $db->fetchRow($res)) {
         $price_list = unserialize($row['prices']);
         foreach ($price_list as $attr_price) {
             if ($attr_price['attr']) {
                 $sql = "SELECT attr_value FROM " . $ecs->table('goods_attr') .
-                        " WHERE goods_attr_id " . db_create_in($attr_price['attr']);
+                    " WHERE goods_attr_id " . db_create_in($attr_price['attr']);
                 $goods_attr = join(',', $db->getCol($sql));
             } else {
                 $goods_attr = '';
@@ -120,7 +119,7 @@ elseif ($_REQUEST['act'] == 'price_list') {
 
 /* ------------------------------------------------------ */
 //-- 加入购物车
-/* ------------------------------------------------------ */ 
+/* ------------------------------------------------------ */
 
 elseif ($_REQUEST['act'] == 'add_to_cart') {
     /* 取得参数 */
@@ -177,8 +176,7 @@ elseif ($_REQUEST['act'] == 'add_to_cart') {
             $attr_matching = true;
             $goods_list[0]['qp_list'] = $attr_price['qp_list'];
             break;
-        }
-        // 有属性
+        } // 有属性
         elseif (($key = is_attr_matching($goods_list, $attr_price['attr'])) !== false) {
             $attr_matching = true;
             $goods_list[$key]['qp_list'] = $attr_price['qp_list'];
@@ -244,7 +242,7 @@ elseif ($_REQUEST['act'] == 'add_to_cart') {
 
 /* ------------------------------------------------------ */
 //-- 从购物车删除
-/* ------------------------------------------------------ */ 
+/* ------------------------------------------------------ */
 
 elseif ($_REQUEST['act'] == 'drop_goods') {
     $key = intval($_REQUEST['key']);
@@ -259,7 +257,7 @@ elseif ($_REQUEST['act'] == 'drop_goods') {
 
 /* ------------------------------------------------------ */
 //-- 提交订单
-/* ------------------------------------------------------ */ 
+/* ------------------------------------------------------ */
 
 elseif ($_REQUEST['act'] == 'submit_order') {
     include_once(ROOT_PATH . 'includes/lib_order.php');
@@ -325,12 +323,12 @@ elseif ($_REQUEST['act'] == 'submit_order') {
         }
 
         $sql = "INSERT INTO " . $ecs->table('order_goods') . "( " .
-                "order_id, goods_id, goods_name, goods_sn, product_id, goods_number, market_price, " .
-                "goods_price, goods_attr, is_real, extension_code, parent_id, is_gift, ru_id) " .
-                " SELECT '$new_order_id', goods_id, goods_name, goods_sn, '$product_id','$goods[goods_number]', market_price, " .
-                "'$goods[goods_price]', '$goods[goods_attr]', is_real, extension_code, 0, 0 , user_id " .
-                " FROM " . $ecs->table('goods') .
-                " WHERE goods_id = '$goods[goods_id]'";
+            "order_id, goods_id, goods_name, goods_sn, product_id, goods_number, market_price, " .
+            "goods_price, goods_attr, is_real, extension_code, parent_id, is_gift, ru_id) " .
+            " SELECT '$new_order_id', goods_id, goods_name, goods_sn, '$product_id','$goods[goods_number]', market_price, " .
+            "'$goods[goods_price]', '$goods[goods_attr]', is_real, extension_code, 0, 0 , user_id " .
+            " FROM " . $ecs->table('goods') .
+            " WHERE goods_id = '$goods[goods_id]'";
         $db->query($sql);
     }
 
@@ -367,7 +365,7 @@ elseif ($_REQUEST['act'] == 'submit_order') {
         if ($GLOBALS['_CFG']['sms_type'] == 0) {
 
             huyi_sms($smsParams, 'sms_order_placed');
-        } elseif ($GLOBALS['_CFG']['sms_type'] >=1) {
+        } elseif ($GLOBALS['_CFG']['sms_type'] >= 1) {
             $result = sms_ali($smsParams, 'sms_order_placed'); //阿里大鱼短信变量传值，发送时机传值
             $resp = $GLOBALS['ecs']->ali_yu($result);
         }
@@ -377,16 +375,18 @@ elseif ($_REQUEST['act'] == 'submit_order') {
     unset($_SESSION['wholesale_goods']);
 
     /* 提示 */
-    show_message(sprintf($_LANG['ws_order_submitted'], $order['order_sn']), $_LANG['ws_return_wholesale'], 'wholesale.php');
+    show_message(sprintf($_LANG['ws_order_submitted'], $order['order_sn']), $_LANG['ws_return_wholesale'],
+        'wholesale.php');
 }
 
 /**
  * 商品属性是否匹配
- * @param   array   $goods_list     用户选择的商品
- * @param   array   $reference      参照的商品属性
+ * @param array $goods_list 用户选择的商品
+ * @param array $reference  参照的商品属性
  * @return  bool
  */
-function is_attr_matching(&$goods_list, $reference) {
+function is_attr_matching(&$goods_list, $reference)
+{
     foreach ($goods_list as $key => $goods) {
         // 需要相同的元素个数
         if (count($goods['goods_attr']) != count($reference)) {
@@ -397,7 +397,8 @@ function is_attr_matching(&$goods_list, $reference) {
         $is_check = true;
         if (is_array($goods['goods_attr'])) {
             foreach ($goods['goods_attr'] as $attr) {
-                if (!(array_key_exists($attr['attr_id'], $reference) && $attr['attr_val_id'] == $reference[$attr['attr_id']])) {
+                if (!(array_key_exists($attr['attr_id'],
+                        $reference) && $attr['attr_val_id'] == $reference[$attr['attr_id']])) {
                     $is_check = false;
                     break;
                 }
@@ -416,27 +417,31 @@ function is_attr_matching(&$goods_list, $reference) {
  * 获得批发分类商品
  *
  */
-function get_wholesale_cat() {
+function get_wholesale_cat()
+{
     $sql = "SELECT * FROM " . $GLOBALS['ecs']->table('wholesale_cat') . "WHERE parent_id = 0 ORDER BY sort_order ASC ";
     $cat_res = $GLOBALS['db']->getAll($sql);
 
     foreach ($cat_res as $key => $row) {
         $cat_res[$key]['goods'] = get_business_goods($row['cat_id']);
         $cat_res[$key]['count_goods'] = count(get_business_goods($row['cat_id']));
-        $cat_res[$key]['cat_url'] = build_uri('wholesale_cat', array('act' => 'list', 'cid' => $row['cat_id']), $row['cat_name']);
+        $cat_res[$key]['cat_url'] = build_uri('wholesale_cat', array('act' => 'list', 'cid' => $row['cat_id']),
+            $row['cat_name']);
     }
     return $cat_res;
 }
 
 //获取分类下批发商品，并且进行分组
-function get_business_goods($cat_id) {
+function get_business_goods($cat_id)
+{
     $table = 'wholesale_cat';
     $type = 4;
     $children = get_children($cat_id, $type, 0, $table);
     $sql = "SELECT w.*, g.goods_thumb, g.goods_img, MIN(wvp.volume_number) AS volume_number, MAX(wvp.volume_price) AS volume_price, g.goods_unit FROM " . $GLOBALS['ecs']->table('wholesale') . " AS w "
-            . " LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " AS g ON w.goods_id = g.goods_id "
-            . " LEFT JOIN " . $GLOBALS['ecs']->table('wholesale_volume_price') . " AS wvp ON wvp.goods_id = g.goods_id "
-            . " WHERE ($children OR " . get_wholesale_extension_goods($children, 'w.') . ") AND w.enabled = 1 AND w.review_status = 3 GROUP BY goods_id";
+        . " LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " AS g ON w.goods_id = g.goods_id "
+        . " LEFT JOIN " . $GLOBALS['ecs']->table('wholesale_volume_price') . " AS wvp ON wvp.goods_id = g.goods_id "
+        . " WHERE ($children OR " . get_wholesale_extension_goods($children,
+            'w.') . ") AND w.enabled = 1 AND w.review_status = 3 GROUP BY goods_id";
     $res = $GLOBALS['db']->getAll($sql);
     foreach ($res as $key => $row) {
         $res[$key]['goods_extend'] = get_wholesale_extend($row['goods_id']);
@@ -445,7 +450,7 @@ function get_business_goods($cat_id) {
         $res[$key]['moq'] = $row['moq'];
         $res[$key]['volume_number'] = $row['volume_number'];
         $res[$key]['volume_price'] = $row['volume_price'];
-		$res[$key]['goods_unit'] = $row['goods_unit'];
+        $res[$key]['goods_unit'] = $row['goods_unit'];
         $res[$key]['goods_name'] = $row['goods_name'];
         $res[$key]['thumb'] = get_image_path($row['goods_id'], $row['goods_thumb'], true);
         $res[$key]['goods_img'] = get_image_path($row['goods_id'], $row['goods_img']);
@@ -456,12 +461,13 @@ function get_business_goods($cat_id) {
 }
 
 //获取限时抢购
-function get_wholesale_limit() {
+function get_wholesale_limit()
+{
     $now = gmtime();
     $sql = "SELECT w.*, g.goods_name, g.goods_thumb, g.goods_img, MIN(wvp.volume_number) AS volume_number, MAX(wvp.volume_price) AS volume_price, g.goods_unit FROM " . $GLOBALS['ecs']->table('wholesale') . " AS w"
-            . " LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " AS g ON w.goods_id = g.goods_id "
-            . " LEFT JOIN " . $GLOBALS['ecs']->table('wholesale_volume_price') . " AS wvp ON wvp.goods_id = g.goods_id "
-            . " WHERE w.enabled = 1 AND w.review_status = 3 AND w.is_promote = 1 AND '$now' BETWEEN w.start_time AND w.end_time GROUP BY goods_id";
+        . " LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " AS g ON w.goods_id = g.goods_id "
+        . " LEFT JOIN " . $GLOBALS['ecs']->table('wholesale_volume_price') . " AS wvp ON wvp.goods_id = g.goods_id "
+        . " WHERE w.enabled = 1 AND w.review_status = 3 AND w.is_promote = 1 AND '$now' BETWEEN w.start_time AND w.end_time GROUP BY goods_id";
     $res = $GLOBALS['db']->getAll($sql);
     foreach ($res as $key => $row) {
         $res[$key]['formated_end_date'] = local_date($GLOBALS['_CFG']['date_format'], $row['end_time']);
@@ -471,7 +477,7 @@ function get_wholesale_limit() {
         $res[$key]['moq'] = $row['moq'];
         $res[$key]['volume_number'] = $row['volume_number'];
         $res[$key]['volume_price'] = $row['volume_price'];
-		$res[$key]['goods_unit'] = $row['goods_unit'];
+        $res[$key]['goods_unit'] = $row['goods_unit'];
         $res[$key]['thumb'] = get_image_path($row['goods_id'], $row['goods_thumb'], true);
         $res[$key]['goods_img'] = get_image_path($row['goods_id'], $row['goods_img']);
         $res[$key]['url'] = build_uri('wholesale_goods', array('aid' => $row['act_id']), $row['goods_name']);

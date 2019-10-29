@@ -11,7 +11,7 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: calendar.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 
 $_LANG['flow_salve_error'] = "海量用户正在同一时刻下单，请返回重新下单";
 
@@ -45,7 +45,7 @@ $_LANG['Coupon_null'] = '您选择的优惠券不存在！';
 $_LANG['Ious_error_one'] = "您未被授权使用会员白条支付，请选择其他支付方式";
 $_LANG['Ious_error_two'] = "会员白条余额不足，请选择其他支付方式";
 $_LANG['Ious_error_Three'] = "您有过期未付款金融，不可以用会员白条支付，请选择其他支付方式";
-$_LANG['pay_password_packup_error'] = '您的支付密码有误！'; 
+$_LANG['pay_password_packup_error'] = '您的支付密码有误！';
 $_LANG['have_no_store_goods'] = '没有找到门店商品，请重新选择！';
 $_LANG['balance_pay'] = "余额支付";
 $_LANG['ious_pay'] = "白条支付";
@@ -53,7 +53,7 @@ $_LANG['store_msg'] = "尊敬的 %s 用户，您的门店订单 %s 提货码是�
 $_LANG['purchasing_prompt'] = "该 '%s' 商品已经累计超过限购数量";
 $_LANG['purchase_Prompt'] = "该 %s 商品您已购买过，无法再购买";
 $_LANG['youhui'] = "优惠";
-$_LANG['Distribution_exists'] = "配送信息已存在"; 
+$_LANG['Distribution_exists'] = "配送信息已存在";
 $_LANG['add_success_one'] = '信息添加成功，待审核...';
 $_LANG['edit_success_one'] = '信息编辑成功，待审核...';
 $_LANG['add_success_two'] = '信息添加成功';
@@ -88,7 +88,7 @@ $_LANG['percent_off_Discount'] = "折优惠";
 $_LANG['percent_off'] = "折";
 $_LANG['by_stages'] = "分期";
 $_LANG['seller_store'] = "门店取货";
-$_LANG['Have_goods'] = "有货"; 
+$_LANG['Have_goods'] = "有货";
 $_LANG['No_goods'] = "无货";
 $_LANG['Move_my_collection'] = "移到我的收藏";
 $_LANG['remove_checked_goods'] = "删除选中的商品";
@@ -112,8 +112,8 @@ $_LANG['pay_code_notic_two'] = "您选择的是线下转账请转账后联系客
 $_LANG['pay_code_notic_three'] = "您选择在线支付，请查看订单继续完成支付订单";
 
 /*新版前台新增*/
-$_LANG['buy_more'] = '最多领取';  
-$_LANG['a_goods'] = '个商品'; 
+$_LANG['buy_more'] = '最多领取';
+$_LANG['a_goods'] = '个商品';
 
 //结算页面
 $_LANG['order_confirm'] = "填写并核对订单信息";
@@ -215,10 +215,10 @@ $_LANG['freight_flow'] = "运&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;费
 $_LANG['Free_shipping'] = "免运费";
 $_LANG['Place_reference'] = "自提地点";
 $_LANG['select_Place_reference'] = "选择自提点";
-$_LANG['Self_mentioning_date'] ="自提日期";
-$_LANG['order_Remarks_flow'] ="添加订单备注";
-$_LANG['order_Remarks_desc'] ="订单备注 限60个字";
-$_LANG['order_Remarks_desc_one'] ="提示：请勿填写有关支付、收货、发票方面的信息";
+$_LANG['Self_mentioning_date'] = "自提日期";
+$_LANG['order_Remarks_flow'] = "添加订单备注";
+$_LANG['order_Remarks_desc'] = "订单备注 限60个字";
+$_LANG['order_Remarks_desc_one'] = "提示：请勿填写有关支付、收货、发票方面的信息";
 $_LANG['Match_price'] = "搭配价";
 $_LANG['sheng'] = "省";
 $_LANG['combo_markPrice'] = "参考价";
@@ -234,7 +234,7 @@ $_LANG['confirm_buy'] = "确定购买套餐";
 $_LANG['confirm_cart'] = "确定加入购物车";
 $_LANG['confirm_cart_two'] = "请重新核对您的商品信息";
 $_LANG['select_combination'] = "请选择组合商品";
-$_LANG['submit_order'] ='提交订单';
+$_LANG['submit_order'] = '提交订单';
 $_LANG['rmb_pay'] = "RMB支付";
 $_LANG['integral_pay'] = '积分支付';
 $_LANG['jian_goods'] = "件商品";
@@ -254,7 +254,7 @@ $_LANG['Optional'] = "可选";
 $_LANG['wu'] = "无";
 $_LANG['available'] = "有可用";
 $_LANG['add_stored_value_card'] = "去添加储值卡";
-$_LANG['Invoice_information_notice'] = "开企业抬头发票须填写纳税人识别号，以免影响报销";	
+$_LANG['Invoice_information_notice'] = "开企业抬头发票须填写纳税人识别号，以免影响报销";
 
 $_LANG['js_languages']['Parameter_error'] = "参数错误";
 $_LANG['js_languages']['Purchase_restrictions'] = "购买数量不能少于1件";

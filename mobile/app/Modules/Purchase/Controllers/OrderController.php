@@ -8,9 +8,7 @@ class OrderController extends FrontendController
 {
     public $user_id;
 
-    
 
-    
     public function __construct()
     {
         parent::__construct();
@@ -20,7 +18,7 @@ class OrderController extends FrontendController
         L(require(LANG_PATH . C('shop.lang') . '/flow.php'));
     }
 
-    
+
     public function actionIndex()
     {
         $size = 10;
@@ -32,7 +30,7 @@ class OrderController extends FrontendController
         $this->assign('page_title', '我的采购单');
         $this->display();
     }
-     
+
     public function actionReceived()
     {
         $order_id = I('order_id');
@@ -43,7 +41,7 @@ class OrderController extends FrontendController
         }
     }
 
-    
+
     public function actionDelOrder()
     {
         $order_id = I('order_id');
@@ -55,7 +53,6 @@ class OrderController extends FrontendController
     }
 
 
-    
     public function actionchecklogin()
     {
         if (!$this->user_id) {
@@ -67,7 +64,6 @@ class OrderController extends FrontendController
             exit;
         }
     }
-
 
 
 }

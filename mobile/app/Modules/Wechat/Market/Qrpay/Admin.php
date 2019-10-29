@@ -96,14 +96,22 @@ class Admin extends PluginController
             //更新
             if ($id) {
                 dao('qrpay_manage')->data($data)->where(array('id' => $id, 'ru_id' => $this->ru_id))->save();
-                $json_result = array('error' => 0, 'msg' => L('market_edit') . L('success'), 'url' => url('market_list', array('type' => $data['marketing_type'])));
+                $json_result = array(
+                    'error' => 0,
+                    'msg' => L('market_edit') . L('success'),
+                    'url' => url('market_list', array('type' => $data['marketing_type']))
+                );
                 exit(json_encode($json_result));
             } else {
                 //添加活动
                 $data['add_time'] = gmtime();
                 $data['ru_id'] = $this->ru_id;
                 dao('qrpay_manage')->data($data)->add();
-                $json_result = array('error' => 0, 'msg' => L('market_add') . L('success'), 'url' => url('market_list', array('type' => $data['marketing_type'])));
+                $json_result = array(
+                    'error' => 0,
+                    'msg' => L('market_add') . L('success'),
+                    'url' => url('market_list', array('type' => $data['marketing_type']))
+                );
                 exit(json_encode($json_result));
             }
         }
@@ -112,7 +120,10 @@ class Admin extends PluginController
         $info = array();
         $id = $this->cfg['market_id'];
         if (!empty($id)) {
-            $info = dao('qrpay_manage')->field('id, qrpay_name, type, amount, discount_id, tag_id, qrpay_status, qrpay_code, add_time')->where(array('id' => $id, 'ru_id' => $this->ru_id))->find();
+            $info = dao('qrpay_manage')->field('id, qrpay_name, type, amount, discount_id, tag_id, qrpay_status, qrpay_code, add_time')->where(array(
+                'id' => $id,
+                'ru_id' => $this->ru_id
+            ))->find();
             if ($info) {
                 $info['add_time'] = local_date('Y-m-d H:i:s', $info['add_time']);
             } else {
@@ -141,7 +152,7 @@ class Admin extends PluginController
     public function creatQrpayCode($id = 0)
     {
         $lastId = dao('qrpay_manage')->order('id DESC')->getField('id');
-        $id = $id > 0 ?  $id : $lastId + 1;
+        $id = $id > 0 ? $id : $lastId + 1;
 
         //二维码内容
         $url = url('qrpay/index/index', array('id' => $id), true, true);
@@ -185,7 +196,10 @@ class Admin extends PluginController
     {
         if (IS_AJAX) {
             $id = I('get.id', 0, 'intval');
-            $res = dao('qrpay_manage')->field('qrpay_code, qrpay_name')->where(array('id' => $id, 'ru_id' => $this->ru_id))->find();
+            $res = dao('qrpay_manage')->field('qrpay_code, qrpay_name')->where(array(
+                'id' => $id,
+                'ru_id' => $this->ru_id
+            ))->find();
             if (!empty($res['qrpay_code'])) {
                 // 删除原二维码
                 $this->remove($res['qrpay_code']);
@@ -205,7 +219,10 @@ class Admin extends PluginController
     public function marketDownloadQrpay()
     {
         $id = I('get.id', 0, 'intval');
-        $res = dao('qrpay_manage')->field('qrpay_code, qrpay_name')->where(array('id' => $id, 'ru_id' => $this->ru_id))->find();
+        $res = dao('qrpay_manage')->field('qrpay_code, qrpay_name')->where(array(
+            'id' => $id,
+            'ru_id' => $this->ru_id
+        ))->find();
 
         if (empty($res)) {
             $this->message('数据不存在', null, 2, $this->ru_id);
@@ -226,7 +243,7 @@ class Admin extends PluginController
      */
     public function marketQrpayLogList()
     {
-        $id =  input('id', 0, 'intval');
+        $id = input('id', 0, 'intval');
         $handler = input('get.handler', '', 'trim');
         $function = input('get.function', '', 'trim');
 
@@ -234,7 +251,7 @@ class Admin extends PluginController
             // 搜索
             $keyword = input('keyword', '', 'trim');
             if ($keyword) {
-                $map['pay_order_sn'] = array('like',array('%'.$keyword.'%'));
+                $map['pay_order_sn'] = array('like', array('%' . $keyword . '%'));
             }
         }
 
@@ -260,17 +277,17 @@ class Admin extends PluginController
         }
 
         $total = dao('qrpay_log')->alias('l')
-                ->join('LEFT JOIN '.C('DB_PREFIX').'qrpay_manage m on l.qrpay_id = m.id')
-                ->where($map)
-                ->count();
+            ->join('LEFT JOIN ' . C('DB_PREFIX') . 'qrpay_manage m on l.qrpay_id = m.id')
+            ->where($map)
+            ->count();
 
         $list = dao('qrpay_log')->alias('l')
-                ->join('LEFT JOIN '.C('DB_PREFIX').'qrpay_manage m on l.qrpay_id = m.id')
-                ->field('l.id, l.pay_order_sn, l.pay_amount, l.qrpay_id, l.add_time, l.pay_user_id, l.openid, l.payment_code, l.pay_status, m.type, m.tag_id, l.is_settlement, l.pay_desc')
-                ->where($map)
-                ->order('l.id desc, l.add_time desc')
-                ->limit($offset)
-                ->select();
+            ->join('LEFT JOIN ' . C('DB_PREFIX') . 'qrpay_manage m on l.qrpay_id = m.id')
+            ->field('l.id, l.pay_order_sn, l.pay_amount, l.qrpay_id, l.add_time, l.pay_user_id, l.openid, l.payment_code, l.pay_status, m.type, m.tag_id, l.is_settlement, l.pay_desc')
+            ->where($map)
+            ->order('l.id desc, l.add_time desc')
+            ->limit($offset)
+            ->select();
         foreach ($list as $key => $value) {
             // $list[$key]['qrpay_name'] = $this->get_qrpay_name($value['qrpay_id']);
             $list[$key]['add_time'] = local_date('Y-m-d H:i', $value['add_time']);
@@ -327,7 +344,7 @@ class Admin extends PluginController
         if (IS_POST) {
             $starttime = I('post.starttime', '', 'local_strtotime');
             $endtime = I('post.endtime', '', 'local_strtotime');
-            $this->ru_id  = I('post.ru_id', 0, 'intval');
+            $this->ru_id = I('post.ru_id', 0, 'intval');
             if (empty($starttime) || empty($endtime)) {
                 $this->message('选择时间不能为空', null, 2, $this->ru_id);
             }
@@ -341,10 +358,10 @@ class Admin extends PluginController
             $map['l.add_time'] = array('between', array($starttime, $endtime));
 
             $list = dao('qrpay_log')->alias('l')
-                    ->join('LEFT JOIN '.C('DB_PREFIX').'qrpay_manage m on l.qrpay_id = m.id')
-                    ->field('l.id, l.pay_order_sn, l.pay_amount, l.qrpay_id, l.add_time, l.pay_user_id, l.openid, l.payment_code, l.pay_status, m.type, m.tag_id')
-                    ->where($map)
-                    ->select();
+                ->join('LEFT JOIN ' . C('DB_PREFIX') . 'qrpay_manage m on l.qrpay_id = m.id')
+                ->field('l.id, l.pay_order_sn, l.pay_amount, l.qrpay_id, l.add_time, l.pay_user_id, l.openid, l.payment_code, l.pay_status, m.type, m.tag_id')
+                ->where($map)
+                ->select();
             if ($list) {
                 foreach ($list as $key => $value) {
                     // $list[$key]['qrpay_name'] = $this->get_qrpay_name($value['qrpay_id']);
@@ -501,7 +518,9 @@ class Admin extends PluginController
             $info = dao('qrpay_discounts')->where(array('id' => $id, 'ru_id' => $this->ru_id))->find();
             if (!empty($id)) {
                 if (empty($info)) {
-                    $this->message('数据不存在', url('data_list', array('type' => $this->marketing_type, 'function' => $function)), 2, $this->ru_id);
+                    $this->message('数据不存在',
+                        url('data_list', array('type' => $this->marketing_type, 'function' => $function)), 2,
+                        $this->ru_id);
                 }
             }
             $info['ru_id'] = $this->ru_id;
@@ -575,7 +594,9 @@ class Admin extends PluginController
             $info = dao('qrpay_tag')->field('id, tag_name')->where(array('id' => $id, 'ru_id' => $this->ru_id))->find();
             if (!empty($id)) {
                 if (empty($info)) {
-                    $this->message('数据不存在', url('data_list', array('type' => $this->marketing_type, 'function' => $function)), 2, $this->ru_id);
+                    $this->message('数据不存在',
+                        url('data_list', array('type' => $this->marketing_type, 'function' => $function)), 2,
+                        $this->ru_id);
                 }
             }
             $info['ru_id'] = $this->ru_id;
@@ -629,7 +650,10 @@ class Admin extends PluginController
             if ($handler && $handler == 'disabled') {
                 $id = I('get.id', 0, 'intval');
                 if (!empty($id)) {
-                    dao('qrpay_discounts')->data(array('status' => 0))->where(array('id' => $id, 'ru_id' => $this->ru_id))->save();
+                    dao('qrpay_discounts')->data(array('status' => 0))->where(array(
+                        'id' => $id,
+                        'ru_id' => $this->ru_id
+                    ))->save();
                     exit(json_encode($json_result));
                 }
             }
@@ -665,7 +689,7 @@ class Admin extends PluginController
                 $log_id = I('get.log_id', 0, 'intval');
                 if (!empty($log_id)) {
                     $re = insert_seller_account_log($log_id);
-                    $json_result['msg'] = $re == true ? '结算成功！' : '结算失败！' ;
+                    $json_result['msg'] = $re == true ? '结算成功！' : '结算失败！';
                     exit(json_encode($json_result));
                 } else {
                     $json_result['msg'] = '结算失败！';
@@ -725,7 +749,7 @@ class Admin extends PluginController
 
     /**
      * 相关自助收款码数量
-     * @param  integer $tag_id
+     * @param integer $tag_id
      * @return
      */
     public function get_self_qrpay_num($tag_id = 0)
@@ -736,7 +760,7 @@ class Admin extends PluginController
 
     /**
      * 相关指定金额收款码数量
-     * @param  integer $tag_id
+     * @param integer $tag_id
      * @return
      */
     public function get_fixed_qrpay_num($tag_id = 0)
@@ -755,7 +779,7 @@ class Admin extends PluginController
     {
         if (!empty($openid)) {
             $users = dao('users')->alias('u')
-                ->join(C('DB_PREFIX').'wechat_user w ON w.ect_uid = u.user_id')
+                ->join(C('DB_PREFIX') . 'wechat_user w ON w.ect_uid = u.user_id')
                 ->field('user_name, nickname')
                 ->where(array('openid' => $openid))
                 ->find();

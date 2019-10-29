@@ -12,38 +12,38 @@ class IndexController extends FrontendController
     {
         parent::__construct();
 
-        
+
         if ($GLOBALS['_CFG']['wholesale_user_rank'] == 0 && !$this->isSeller()) {
             $this->redirect(U('/'));
         }
     }
 
-    
+
     public function actionIndex()
     {
         $this->assign('page_title', '批发首页');
         $this->assign('action', 'index');
 
-        
+
         $banners = Purchase::get_banner(1025, 55);
         $this->assign('banners', $banners);
 
-        
+
         $wholesale_cat = Purchase::get_wholesale_child_cat();
         $this->assign('wholesale_cat', $wholesale_cat);
 
-        
+
         $wholesale_limit = Purchase::get_wholesale_limit();
         $this->assign('wholesale_limit', $wholesale_limit);
 
-        
+
         $goodsList = Purchase::get_wholesale_cat();
         $this->assign('get_wholesale_cat', $goodsList);
 
         $this->display();
     }
 
-    
+
     public function actionList()
     {
         $page = I('page', 1, 'intval');
@@ -54,13 +54,13 @@ class IndexController extends FrontendController
         $this->assign('page_title', '批发列表');
         $this->assign('action', 'list');
 
-        
+
         $cat_id = I('id', 0, 'intval');
         if ($cat_id) {
             $this->assign('cat_name', Purchase::getCatName($cat_id));
         }
 
-        
+
         $wholesale_cat = Purchase::get_wholesale_child_cat();
         $this->assign('wholesale_cat', $wholesale_cat);
         $this->assign('cat_id', $cat_id);
@@ -68,10 +68,10 @@ class IndexController extends FrontendController
         $this->display();
     }
 
-    
+
     public function actionGoodsList()
     {
-        
+
         $act_id = I('id', 0, 'intval');
         $page = I('page', 1, 'intval');
         $size = I('size', 10, 'intval');
@@ -81,21 +81,21 @@ class IndexController extends FrontendController
         $this->ajaxReturn($result);
     }
 
-    
+
     public function actionSearch()
     {
         $this->assign('page_title', '搜索页面');
 
-        
+
         $_REQUEST['keywords'] = !empty($_REQUEST['keywords']) ? strip_tags(htmlspecialchars(trim($_REQUEST['keywords']))) : '';
         $_REQUEST['keywords'] = !empty($_REQUEST['keywords']) ? addslashes_deep(trim($_REQUEST['keywords'])) : '';
 
-        
+
         $this->assign('keyword', $_REQUEST['keywords']);
         $this->display();
     }
 
-    
+
     public function actionAsyncSearchList()
     {
         $page = !empty($_REQUEST['page']) && intval($_REQUEST['page']) > 0 ? intval($_REQUEST['page']) : 1;
@@ -106,34 +106,33 @@ class IndexController extends FrontendController
         $this->ajaxReturn($list);
     }
 
-    
+
     public function actionGoods()
     {
         $this->assign('page_title', '批发详情');
         $this->assign('action', 'goods');
 
-        
+
         $act_id = isset($_REQUEST['id']) ? intval($_REQUEST['id']) : 0;
         $goods = Purchase::get_wholesale_goods_info($act_id);
 
-        
+
         $area_info = get_area_info($this->province_id);
         $area_id = $area_info['region_id'];
 
         $where = "regionId = '$this->province_id'";
         $date = ['parent_id'];
         $region_id = get_table_date('region_warehouse', $where, $date, 2);
-        
 
-        
+
         $pictures = get_goods_gallery($goods['goods_id']);
-        $this->assign('pictures', $pictures);                    
+        $this->assign('pictures', $pictures);
 
-        
+
         $goods['goods_desc'] = preg_replace('/src=\"/', 'src="', $goods['goods_desc']);
         $this->assign('goods', $goods);
 
-        
+
         $min = 0;
         foreach ($goods['volume_price'] as $list) {
 
@@ -143,25 +142,23 @@ class IndexController extends FrontendController
         }
         $this->assign('min', $min);
 
-        
-        $properties = Purchase::get_wholesale_goods_properties($goods['goods_id'], $region_id, $area_id);  
-        $this->assign('specification', $properties['spe']);      
+
+        $properties = Purchase::get_wholesale_goods_properties($goods['goods_id'], $region_id, $area_id);
+        $this->assign('specification', $properties['spe']);
 
         $main_attr_list = Purchase::get_wholesale_main_attr_list($goods['goods_id']);
         $this->assign('main_attr_list', $main_attr_list);
 
-        $this->assign('properties', $properties['pro']);      
+        $this->assign('properties', $properties['pro']);
 
-        
+
         $is_jurisdiction = Purchase::isJurisdiction($goods);
         $this->assign('is_jurisdiction', $is_jurisdiction);
 
 
-        
         $cartInfo = Purchase::get_wholesale_cart_info();
         $this->assign('cart_number', $cartInfo['cart_number']);
 
-        
 
         $back_url = url('user/login/index', ['back_act' => urlencode(__SELF__)]);
 
@@ -171,14 +168,14 @@ class IndexController extends FrontendController
         $this->display();
     }
 
-    
+
     public function actionAddToCart()
     {
         $result = ['error' => 0, 'message' => '', 'content' => ''];
 
-        
+
         $goods_id = I('goods_id', 0, 'intval');
-        
+
         $goods_type = get_table_date('wholesale', "goods_id='$goods_id'", ['goods_type'], 2);
 
         if ($goods_type > 0) {
@@ -194,13 +191,13 @@ class IndexController extends FrontendController
         $rank_ids = get_table_date('wholesale', "goods_id='$goods_id'", ['rank_ids'], 2);
         $is_jurisdiction = 0;
         if ($_SESSION['user_id'] > 0) {
-            
+
             $sql = "SELECT user_id FROM " . $GLOBALS['ecs']->table('admin_user') . " WHERE ru_id = '" . $_SESSION['user_id'] . "'";
             $seller_id = $GLOBALS['db']->getOne($sql, true);
             if ($seller_id > 0) {
                 $is_jurisdiction = 1;
             } else {
-                
+
                 if ($rank_ids) {
                     $rank_arr = explode(',', $rank_ids);
                     if (in_array($_SESSION['user_rank'], $rank_arr)) {
@@ -209,7 +206,7 @@ class IndexController extends FrontendController
                 }
             }
         } else {
-            
+
             $back_act = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : __HOST__ . $_SERVER['REQUEST_URI'];
 
             $result['error'] = 2;
@@ -218,7 +215,7 @@ class IndexController extends FrontendController
             $this->ajaxReturn($result);
         }
         if ($is_jurisdiction == 0) {
-            
+
             $back_act = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : __HOST__ . $_SERVER['REQUEST_URI'];
 
             $result['error'] = 1;
@@ -227,11 +224,11 @@ class IndexController extends FrontendController
             $this->ajaxReturn($result);
 
         }
-        
+
         $price_info = calculate_goods_price($goods_id, $total_number);
-        
+
         $goods_info = get_table_date('goods', "goods_id='$goods_id'", ['goods_name, goods_sn, user_id']);
-        
+
         $common_data = [];
         $common_data['user_id'] = $_SESSION['user_id'];
         $common_data['session_id'] = SESS_ID;
@@ -245,7 +242,7 @@ class IndexController extends FrontendController
         $common_data['ru_id'] = $goods_info['user_id'];
         $common_data['add_time'] = gmtime();
 
-        
+
         if ($_SESSION['user_id']) {
             $sess_id = " user_id = '" . $_SESSION['user_id'] . "' ";
         } else {
@@ -253,9 +250,9 @@ class IndexController extends FrontendController
         }
         if ($goods_type > 0) {
             foreach ($attr_array as $key => $val) {
-                
+
                 $attr = explode(',', $val);
-                
+
                 $data = $common_data;
                 $gooda_attr = get_goods_attr_array($val);
                 foreach ($gooda_attr as $v) {
@@ -263,12 +260,12 @@ class IndexController extends FrontendController
                 }
                 $data['goods_attr_id'] = $val;
                 $data['goods_number'] = $num_array[$key];
-                
+
                 $set = get_find_in_set($attr, 'goods_attr', ',');
                 $sql = " SELECT * FROM " . $GLOBALS['ecs']->table('wholesale_products') . " WHERE goods_id = '$goods_id' $set ";
                 $product_info = $GLOBALS['db']->getRow($sql);
                 $data['goods_sn'] = $product_info['product_sn'];
-                
+
                 $set = get_find_in_set($attr, 'goods_attr_id', ',');
 
                 $sql = " SELECT rec_id FROM " . $GLOBALS['ecs']->table('wholesale_cart') . " WHERE {$sess_id} AND goods_id = '$goods_id' $set ";
@@ -276,7 +273,8 @@ class IndexController extends FrontendController
                 $rec_id = $GLOBALS['db']->getOne($sql);
 
                 if (!empty($rec_id)) {
-                    $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('wholesale_cart'), $data, 'UPDATE', "rec_id='$rec_id'");
+                    $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('wholesale_cart'), $data, 'UPDATE',
+                        "rec_id='$rec_id'");
                 } else {
                     $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('wholesale_cart'), $data, 'INSERT');
                 }
@@ -284,22 +282,22 @@ class IndexController extends FrontendController
         } else {
             $data = $common_data;
             $data['goods_number'] = $goods_number;
-            
+
             $sql = " SELECT rec_id FROM " . $GLOBALS['ecs']->table('wholesale_cart') . " WHERE {$sess_id} AND goods_id = '$goods_id' ";
             $rec_id = $GLOBALS['db']->getOne($sql);
             if (!empty($rec_id)) {
-                $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('wholesale_cart'), $data, 'UPDATE', "rec_id='$rec_id'");
+                $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('wholesale_cart'), $data, 'UPDATE',
+                    "rec_id='$rec_id'");
             } else {
                 $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('wholesale_cart'), $data, 'INSERT');
             }
         }
 
-        
+
         calculate_cart_goods_price($goods_id);
         $goods_data = Purchase::get_count_cart();
 
 
-        
         $result['message'] = '商品已添加';
         $result['content'] = $goods_data;
 
@@ -307,10 +305,10 @@ class IndexController extends FrontendController
 
     }
 
-    
+
     public function actionDown()
     {
-        
+
         $common_data['consignee'] = empty($_REQUEST['consignee']) ? '' : trim($_REQUEST['consignee']);
         $common_data['mobile'] = empty($_REQUEST['mobile']) ? '' : trim($_REQUEST['mobile']);
         $common_data['address'] = empty($_REQUEST['address']) ? '' : trim($_REQUEST['address']);
@@ -319,56 +317,57 @@ class IndexController extends FrontendController
         $common_data['postscript'] = empty($_REQUEST['postscript']) ? '' : trim($_REQUEST['postscript']);
         $common_data['inv_payee'] = empty($_REQUEST['inv_payee']) ? '' : trim($_REQUEST['inv_payee']);
         $common_data['tax_id'] = empty($_REQUEST['tax_id']) ? '' : trim($_REQUEST['tax_id']);
-        
+
         $main_order = $common_data;
-        $main_order['order_sn'] = get_order_sn(); 
-        $main_order['main_order_id'] = 0; 
+        $main_order['order_sn'] = get_order_sn();
+        $main_order['main_order_id'] = 0;
         $main_order['user_id'] = $_SESSION['user_id'];
         $main_order['add_time'] = gmtime();
         $main_order['order_amount'] = 0;
-        
+
         $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('wholesale_order_info'), $main_order, 'INSERT');
-        $main_order_id = $GLOBALS['db']->getLastInsID(); 
-        
+        $main_order_id = $GLOBALS['db']->getLastInsID();
+
         $rec_ids = empty($_REQUEST['rec_ids']) ? '' : implode(',', $_REQUEST['rec_ids']);
         $where = " WHERE user_id = '$_SESSION[user_id]' AND rec_id IN ($rec_ids) ";
         if (empty($rec_ids)) {
-            
+
         }
         $sql = " SELECT DISTINCT ru_id FROM " . $GLOBALS['ecs']->table('wholesale_cart') . $where;
         $ru_ids = $GLOBALS['db']->getCol($sql);
         foreach ($ru_ids as $key => $val) {
-            
+
             $child_order = $common_data;
-            $child_order['order_sn'] = get_order_sn(); 
-            $child_order['main_order_id'] = $main_order_id; 
+            $child_order['order_sn'] = get_order_sn();
+            $child_order['main_order_id'] = $main_order_id;
             $child_order['user_id'] = $_SESSION['user_id'];
             $child_order['add_time'] = gmtime();
             $child_order['order_amount'] = 0;
-            
+
             $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('wholesale_order_info'), $child_order, 'INSERT');
-            $child_order_id = $GLOBALS['db']->getLastInsID(); 
-            
+            $child_order_id = $GLOBALS['db']->getLastInsID();
+
             $sql = " SELECT goods_id, goods_name, goods_sn, goods_number, goods_price, goods_attr, goods_attr_id, ru_id FROM " .
                 $GLOBALS['ecs']->table('wholesale_cart') . $where . " AND ru_id = '$val' ";
             $cart_goods = $GLOBALS['db']->getAll($sql);
             foreach ($cart_goods as $k => $v) {
-                
+
                 $v['order_id'] = $child_order_id;
                 $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('wholesale_order_goods'), $v, 'INSERT');
-                
+
                 $child_order['order_amount'] += $v['goods_price'] * $v['goods_number'];
             }
-            
-            $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('wholesale_order_info'), $child_order, 'update', "order_id ='$child_order_id'");
-            
+
+            $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('wholesale_order_info'), $child_order, 'update',
+                "order_id ='$child_order_id'");
+
             $main_order['order_amount'] += $child_order['order_amount'];
         }
-        
-        $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('wholesale_order_info'), $main_order, 'update', "order_id ='$main_order_id'");
-        
 
-        
+        $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('wholesale_order_info'), $main_order, 'update',
+            "order_id ='$main_order_id'");
+
+
         $sql = " DELETE FROM " . $GLOBALS['ecs']->table('wholesale_cart') . $where;
         $GLOBALS['db']->query($sql);
 
@@ -379,7 +378,7 @@ class IndexController extends FrontendController
         $this->ajaxReturn($result);
     }
 
-    
+
     public function actionCart()
     {
         $this->assign('page_title', '进货单');
@@ -395,23 +394,24 @@ class IndexController extends FrontendController
         $this->display();
     }
 
-    
+
     public function actionUpdateCartGoods()
     {
         $result = ['error' => 0, 'message' => '', 'content' => ''];
 
         $rec_id = empty($_REQUEST['rec_id']) ? 0 : intval($_REQUEST['rec_id']);
         $rec_num = empty($_REQUEST['rec_num']) ? 0 : intval($_REQUEST['rec_num']);
-        $rec_ids = I('rec_ids','');
+        $rec_ids = I('rec_ids', '');
         $rec_ids = implode(',', $rec_ids);
 
-        
+
         $cart_info = get_table_date('wholesale_cart', "rec_id='$rec_id'", ['goods_id', 'goods_attr_id']);
         if (empty($cart_info['goods_attr_id'])) {
             $goods_number = get_table_date('wholesale', "goods_id='$cart_info[goods_id]'", ['goods_number'], 2);
         } else {
             $set = get_find_in_set(explode(',', $cart_info['goods_attr_id']));
-            $goods_number = get_table_date('wholesale_products', "goods_id='$cart_info[goods_id]' $set", ['product_number'], 2);
+            $goods_number = get_table_date('wholesale_products', "goods_id='$cart_info[goods_id]' $set",
+                ['product_number'], 2);
         }
         $result['goods_number'] = $goods_number;
 
@@ -423,18 +423,18 @@ class IndexController extends FrontendController
         $sql = " UPDATE " . $GLOBALS['ecs']->table('wholesale_cart') . " SET goods_number = '$rec_num' WHERE rec_id = '$rec_id' ";
         $GLOBALS['db']->query($sql);
 
-        
+
         $cart_goods = Purchase:: wholesale_cart_goods(0, $rec_ids);
         $goods_list = array();
-        foreach($cart_goods as $key=>$val){
-            foreach($val['goods_list'] as $k=>$g){
-                
-                
+        foreach ($cart_goods as $key => $val) {
+            foreach ($val['goods_list'] as $k => $g) {
+
+
                 $goods_list[$g['goods_id']] = $g;
             }
         }
         $result['goods_list'] = $goods_list;
-        
+
 
         $cart_info = Purchase::wholesale_cart_info(0, $rec_ids);
 
@@ -444,7 +444,7 @@ class IndexController extends FrontendController
         $this->ajaxReturn($result);
     }
 
-    
+
     public function actionRemove()
     {
         $result = ['error' => 0, 'message' => '', 'content' => ''];
@@ -464,7 +464,7 @@ class IndexController extends FrontendController
         $this->ajaxReturn($result);
     }
 
-    
+
     public function actionInfo()
     {
         $this->assign('title', '批发首页');
@@ -474,7 +474,7 @@ class IndexController extends FrontendController
         $this->ajaxReturn($result);
     }
 
-    
+
     public function actionShow()
     {
         $this->assign('page_title', '求购信息');
@@ -499,14 +499,17 @@ class IndexController extends FrontendController
         $size = 10;
         if (IS_AJAX) {
             $purchase_list = Purchase::get_purchase_list($filter_array, $size, $page);
-            exit(json_encode(['list' => array_values($purchase_list['purchase_list']), 'totalPage' => $purchase_list['page_count']]));
+            exit(json_encode([
+                'list' => array_values($purchase_list['purchase_list']),
+                'totalPage' => $purchase_list['page_count']
+            ]));
         }
 
         $this->assign('is_finished', $is_finished);
         $this->display();
     }
 
-    
+
     public function actionShowDetail()
     {
         $this->assign('page_title', '求购详情');
@@ -518,20 +521,20 @@ class IndexController extends FrontendController
         $this->display();
     }
 
-    
+
     private function isSeller()
     {
         $user_id = isset($_SESSION['user_id']) && !empty($_SESSION['user_id']) ? intval($_SESSION['user_id']) : 0;
 
         $is_jurisdiction = 0;
         if ($user_id > 0) {
-            
+
             $sql = "SELECT id FROM " . $GLOBALS['ecs']->table('seller_shopinfo') . " WHERE ru_id = '$user_id'";
             if ($GLOBALS['db']->getOne($sql, true)) {
                 $is_jurisdiction = 1;
             }
 
-            
+
             $sql = "SELECT fid FROM " . $GLOBALS['ecs']->table('merchants_steps_fields') . " WHERE user_id = '$user_id' AND company_type = '厂商'";
             $is_chang = $GLOBALS['db']->getOne($sql, true);
 

@@ -1,7 +1,7 @@
 <?php
 //zend by 多点乐  禁止倒卖 一经发现停止任何服务
 if (!defined('IN_ECS')) {
-	exit('Hacking attempt');
+    exit('Hacking attempt');
 }
 
 $modules['04_order']['11_order_detection'] = 'order.php?act=order_detection';
@@ -19,14 +19,13 @@ $modules['17_merchants']['04_create_seller_grade'] = 'merchants_users_list.php?a
 $modules['17_merchants']['09_seller_domain'] = 'seller_domain.php?act=list';
 
 if (!isset($_REQUEST['act_type'])) {
-	$modules['17_merchants']['10_account_manage'] = 'merchants_account.php?act=account_manage&act_type=account';
-}
-else {
-	if (isset($_REQUEST['log_id'])) {
-		$address_account = '&log_id=' . $_REQUEST['log_id'];
-	}
+    $modules['17_merchants']['10_account_manage'] = 'merchants_account.php?act=account_manage&act_type=account';
+} else {
+    if (isset($_REQUEST['log_id'])) {
+        $address_account = '&log_id=' . $_REQUEST['log_id'];
+    }
 
-	$modules['17_merchants']['10_account_manage'] = 'merchants_account.php?act=account_manage&act_type=' . $_REQUEST['act_type'] . $address_account;
+    $modules['17_merchants']['10_account_manage'] = 'merchants_account.php?act=account_manage&act_type=' . $_REQUEST['act_type'] . $address_account;
 }
 
 $modules['11_system']['09_warehouse_management'] = 'warehouse.php?act=list';
@@ -34,26 +33,26 @@ $modules['11_system']['09_region_area_management'] = 'region_area.php?act=list';
 $modules['19_merchants_store']['01_merchants_basic_info'] = 'index.php?act=merchants_first';
 
 if ($templates_mode != 1) {
-	$modules['19_merchants_store']['02_merchants_ad'] = 'seller_shop_slide.php?act=list';
-	$modules['19_merchants_store']['03_merchants_shop_top'] = 'index.php?act=shop_top';
+    $modules['19_merchants_store']['02_merchants_ad'] = 'seller_shop_slide.php?act=list';
+    $modules['19_merchants_store']['03_merchants_shop_top'] = 'index.php?act=shop_top';
 }
 
 $modules['19_merchants_store']['04_merchants_basic_nav'] = 'merchants_navigator.php?act=list';
 
 if ($templates_mode != 1) {
-	$modules['19_merchants_store']['05_merchants_shop_bg'] = 'seller_shop_bg.php?act=first';
-	$modules['19_merchants_store']['07_merchants_window'] = 'merchants_window.php?act=list';
-	$modules['19_merchants_store']['08_merchants_template'] = 'merchants_template.php?act=list';
+    $modules['19_merchants_store']['05_merchants_shop_bg'] = 'seller_shop_bg.php?act=first';
+    $modules['19_merchants_store']['07_merchants_window'] = 'merchants_window.php?act=list';
+    $modules['19_merchants_store']['08_merchants_template'] = 'merchants_template.php?act=list';
 }
 
 $modules['19_merchants_store']['09_merchants_upgrade'] = 'merchants_upgrade.php?act=list';
 
 if (judge_supplier_enabled()) {
-	$modules['19_merchants_store']['12_apply_suppliers'] = 'merchants_upgrade.php?act=suppliers_apply';
+    $modules['19_merchants_store']['12_apply_suppliers'] = 'merchants_upgrade.php?act=suppliers_apply';
 }
 
 if ($templates_mode == 1) {
-	$modules['19_merchants_store']['10_visual_editing'] = 'visual_editing.php?act=templates';
+    $modules['19_merchants_store']['10_visual_editing'] = 'visual_editing.php?act=templates';
 }
 
 $modules['19_merchants_store']['11_touch_dashboard'] = '../mobile/index.php?m=admin&c=editor_seller';
@@ -92,11 +91,11 @@ $modules['02_promotion']['15_exchange_goods'] = 'exchange_goods.php?act=list';
 $modules['02_promotion']['17_coupons'] = 'coupons.php?act=list';
 
 if (is_dir(MOBILE_TEAM)) {
-	$modules['02_promotion']['18_team'] = 'team.php?act=list';
+    $modules['02_promotion']['18_team'] = 'team.php?act=list';
 }
 
 if (is_dir(MOBILE_BARGAIN)) {
-	$modules['02_promotion']['19_bargain'] = 'bargain.php?act=list';
+    $modules['02_promotion']['19_bargain'] = 'bargain.php?act=list';
 }
 
 $modules['02_promotion']['gift_gard_list'] = 'gift_gard.php?act=list';
@@ -134,7 +133,7 @@ $modules['10_priv_admin']['admin_logs'] = 'admin_logs.php?act=list';
 $modules['10_priv_admin']['02_admin_seller'] = 'privilege_seller.php?act=list';
 
 if (is_dir(MOBILE_KEFU)) {
-	$modules['10_priv_admin']['services_list'] = 'privilege_kefu.php?act=list';
+    $modules['10_priv_admin']['services_list'] = 'privilege_kefu.php?act=list';
 }
 
 $modules['10_priv_admin']['privilege_seller'] = 'privilege.php?act=modif';
@@ -142,10 +141,9 @@ $modules['10_priv_admin']['admin_role'] = 'role.php?act=list';
 $modules['10_priv_admin']['agency_list'] = 'agency.php?act=list';
 
 if (judge_supplier_enabled()) {
-	$modules['10_priv_admin']['01_suppliers_list'] = 'suppliers.php?act=list';
-}
-else {
-	$modules['10_priv_admin']['suppliers_list'] = 'suppliers.php?act=list';
+    $modules['10_priv_admin']['01_suppliers_list'] = 'suppliers.php?act=list';
+} else {
+    $modules['10_priv_admin']['suppliers_list'] = 'suppliers.php?act=list';
 }
 
 $modules['10_priv_admin']['admin_message'] = 'message.php?act=list';
@@ -178,19 +176,19 @@ $modules['10_offline_store']['12_offline_store'] = 'offline_store.php?act=list';
 $modules['10_offline_store']['2_order_stats'] = 'offline_store.php?act=order_stats';
 
 if (file_exists(MOBILE_WECHAT)) {
-	$modules['22_wechat']['01_wechat_admin'] = '../mobile/index.php?m=wechat&c=seller&a=modify';
-	$modules['22_wechat']['02_mass_message'] = '../mobile/index.php?m=wechat&c=seller&a=mass_message';
-	$modules['22_wechat']['03_auto_reply'] = '../mobile/index.php?m=wechat&c=seller&a=reply_subscribe';
-	$modules['22_wechat']['04_menu'] = '../mobile/index.php?m=wechat&c=seller&a=menu_list';
-	$modules['22_wechat']['05_fans'] = '../mobile/index.php?m=wechat&c=seller&a=subscribe_list';
-	$modules['22_wechat']['06_media'] = '../mobile/index.php?m=wechat&c=seller&a=article';
-	$modules['22_wechat']['07_qrcode'] = '../mobile/index.php?m=wechat&c=seller&a=qrcode_list';
-	$modules['22_wechat']['09_extend'] = '../mobile/index.php?m=wechat&c=seller&a=extend_index';
-	$modules['22_wechat']['10_market'] = '../mobile/index.php?m=wechat&c=seller&a=market_index';
+    $modules['22_wechat']['01_wechat_admin'] = '../mobile/index.php?m=wechat&c=seller&a=modify';
+    $modules['22_wechat']['02_mass_message'] = '../mobile/index.php?m=wechat&c=seller&a=mass_message';
+    $modules['22_wechat']['03_auto_reply'] = '../mobile/index.php?m=wechat&c=seller&a=reply_subscribe';
+    $modules['22_wechat']['04_menu'] = '../mobile/index.php?m=wechat&c=seller&a=menu_list';
+    $modules['22_wechat']['05_fans'] = '../mobile/index.php?m=wechat&c=seller&a=subscribe_list';
+    $modules['22_wechat']['06_media'] = '../mobile/index.php?m=wechat&c=seller&a=article';
+    $modules['22_wechat']['07_qrcode'] = '../mobile/index.php?m=wechat&c=seller&a=qrcode_list';
+    $modules['22_wechat']['09_extend'] = '../mobile/index.php?m=wechat&c=seller&a=extend_index';
+    $modules['22_wechat']['10_market'] = '../mobile/index.php?m=wechat&c=seller&a=market_index';
 }
 
 $modules['19_merchants_store']['order_print_setting'] = 'tp_api.php?act=order_print_setting';
 
 //b2b
-$modules['supply_and_demand']['01_wholesale']       = 'wholesale.php?act=list';
+$modules['supply_and_demand']['01_wholesale'] = 'wholesale.php?act=list';
 $modules['supply_and_demand']['02_wholesale_order'] = 'wholesale_order.php?act=list';

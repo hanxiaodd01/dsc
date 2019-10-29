@@ -47,7 +47,7 @@ $api_data = array(
             )
         )
     ),
-	array(
+    array(
         'name' => '收货地址',
         'cat' => 'address',
         'list' => array(
@@ -118,7 +118,8 @@ $api_data = array(
                 'val' => 'dsc.category.seller.del.get'
             )
         )
-    ), array(
+    ),
+    array(
         'name' => '商品',
         'cat' => 'goods',
         'list' => array(

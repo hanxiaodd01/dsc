@@ -15,9 +15,9 @@
 
 global $_LANG;
 
-$_LANG['ipdel']            = '浏览日志删除';
-$_LANG['ipdel_desc']       = '删除数据库浏览日志';
-$_LANG['ipdel_day']   = '删除几天前浏览日志';
+$_LANG['ipdel'] = '浏览日志删除';
+$_LANG['ipdel_desc'] = '删除数据库浏览日志';
+$_LANG['ipdel_day'] = '删除几天前浏览日志';
 $_LANG['ipdel_day_range']['7'] = '7天';
 $_LANG['ipdel_day_range']['15'] = '15天';
 $_LANG['ipdel_day_range']['30'] = '30天';

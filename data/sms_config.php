@@ -11,10 +11,9 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: lib_common.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 
-if (!defined('IN_ECS'))
-{
+if (!defined('IN_ECS')) {
     die('Hacking attempt');
 }
 
@@ -35,7 +34,8 @@ if (!defined('IN_ECS'))
 function get_seller_edit_info_lang($str_centent = array())
 {
     //可根据需要使用格式修改 --start
-    $content = sprintf($GLOBALS['_LANG']['edit_seller_info'], $str_centent['seller_name'], $str_centent['seller_password'], $str_centent['current_admin_name'], $str_centent['edit_time']);
+    $content = sprintf($GLOBALS['_LANG']['edit_seller_info'], $str_centent['seller_name'],
+        $str_centent['seller_password'], $str_centent['current_admin_name'], $str_centent['edit_time']);
 
     //短信内容参数（注意短信模板参数要和此参数名称一致）
     $smsParams = array(
@@ -46,16 +46,16 @@ function get_seller_edit_info_lang($str_centent = array())
 
     $result = array(
         'SmsType' => 'normal', //短信类型，一般默认
-        
+
         //接口调用对应修改部分 start
         'SignName' => '注册验证',       //短信签名
         'SmsCdoe' => 'SMS_12811399',     //短信模板ID
         //接口调用对应修改部分 end
-        
+
         'smsParams' => json_encode($smsParams),
         'mobile_phone' => $str_centent['mobile_phone'],
     );
-    
+
     return $result;
 }
 
@@ -71,25 +71,25 @@ function get_register_lang($str_centent = array())
 {
     //短信内容参数（注意短信模板参数要和此参数名称一致）
     $smsParams = array(
-        'code'    => $str_centent['mobile_code']
+        'code' => $str_centent['mobile_code']
     );
-    
-    if($str_centent['user_name']){
+
+    if ($str_centent['user_name']) {
         $smsParams['product'] = $str_centent['user_name'];
     }
 
     $result = array(
         'SmsType' => 'normal', //短信类型，一般默认
-        
+
         //接口调用对应修改部分 start
         'SignName' => '注册验证',       //短信签名
         'SmsCdoe' => 'SMS_12465179',     //短信模板ID
         //接口调用对应修改部分 end
-        
+
         'smsParams' => json_encode($smsParams),
         'mobile_phone' => $str_centent['mobile_phone']
     );
-    
+
     return $result;
 }
 
@@ -102,28 +102,27 @@ function get_register_lang($str_centent = array())
  */
 function get_order_info_lang($str_centent = array())
 {
-    if ($str_centent['shop_name'])
-    {
-        $str_centent['shop_name'] = "【" .$str_centent['shop_name'] ."】";
+    if ($str_centent['shop_name']) {
+        $str_centent['shop_name'] = "【" . $str_centent['shop_name'] . "】";
     }
     //短信内容参数（注意短信模板参数要和此参数名称一致）
     $smsParams = array(
         'shop_name' => $str_centent['shop_name'],
         'user_name' => $str_centent['user_name'],
-        'content'   => $str_centent['order_msg']
+        'content' => $str_centent['order_msg']
     );
-    
+
     $result = array(
         'SmsType' => 'normal', //短信类型，一般默认
-        
+
         //接口调用对应修改部分 start
         'SignName' => '变更验证',       //短信签名
         'SmsCdoe' => 'SMS_12826146',     //短信模板ID
         //接口调用对应修改部分 end
-        
+
         'smsParams' => json_encode($smsParams),
         'mobile_phone' => $str_centent['mobile_phone'],
     );
-    
+
     return $result;
 }

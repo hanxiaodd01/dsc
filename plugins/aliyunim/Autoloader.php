@@ -1,57 +1,58 @@
 <?php
+
 //多点乐资源
 class Autoloader
 {
-	static public function autoload($class)
-	{
-		$name = $class;
+    static public function autoload($class)
+    {
+        $name = $class;
 
-		if (false !== strpos($name, '\\')) {
-			$name = strstr($class, '\\', true);
-		}
+        if (false !== strpos($name, '\\')) {
+            $name = strstr($class, '\\', true);
+        }
 
-		$filename = TOP_AUTOLOADER_PATH . '/top/' . $name . '.php';
+        $filename = TOP_AUTOLOADER_PATH . '/top/' . $name . '.php';
 
-		if (is_file($filename)) {
-			include $filename;
-			return NULL;
-		}
+        if (is_file($filename)) {
+            include $filename;
+            return null;
+        }
 
-		$filename = TOP_AUTOLOADER_PATH . '/top/request/' . $name . '.php';
+        $filename = TOP_AUTOLOADER_PATH . '/top/request/' . $name . '.php';
 
-		if (is_file($filename)) {
-			include $filename;
-			return NULL;
-		}
+        if (is_file($filename)) {
+            include $filename;
+            return null;
+        }
 
-		$filename = TOP_AUTOLOADER_PATH . '/top/domain/' . $name . '.php';
+        $filename = TOP_AUTOLOADER_PATH . '/top/domain/' . $name . '.php';
 
-		if (is_file($filename)) {
-			include $filename;
-			return NULL;
-		}
+        if (is_file($filename)) {
+            include $filename;
+            return null;
+        }
 
-		$filename = TOP_AUTOLOADER_PATH . '/aliyun/' . $name . '.php';
+        $filename = TOP_AUTOLOADER_PATH . '/aliyun/' . $name . '.php';
 
-		if (is_file($filename)) {
-			include $filename;
-			return NULL;
-		}
+        if (is_file($filename)) {
+            include $filename;
+            return null;
+        }
 
-		$filename = TOP_AUTOLOADER_PATH . '/aliyun/request/' . $name . '.php';
+        $filename = TOP_AUTOLOADER_PATH . '/aliyun/request/' . $name . '.php';
 
-		if (is_file($filename)) {
-			include $filename;
-			return NULL;
-		}
+        if (is_file($filename)) {
+            include $filename;
+            return null;
+        }
 
-		$filename = TOP_AUTOLOADER_PATH . '/aliyun/domain/' . $name . '.php';
+        $filename = TOP_AUTOLOADER_PATH . '/aliyun/domain/' . $name . '.php';
 
-		if (is_file($filename)) {
-			include $filename;
-			return NULL;
-		}
-	}
+        if (is_file($filename)) {
+            include $filename;
+            return null;
+        }
+    }
 }
 
 spl_autoload_register('Autoloader::autoload');

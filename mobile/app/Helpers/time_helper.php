@@ -2,116 +2,118 @@
 //zend 多点乐资源
 function gmtime()
 {
-	return time() - date('Z');
+    return time() - date('Z');
 }
 
 function server_timezone()
 {
-	if (function_exists('date_default_timezone_get')) {
-		return date_default_timezone_get();
-	}
-	else {
-		return date('Z') / 3600;
-	}
+    if (function_exists('date_default_timezone_get')) {
+        return date_default_timezone_get();
+    } else {
+        return date('Z') / 3600;
+    }
 }
 
-function local_mktime($hour = NULL, $minute = NULL, $second = NULL, $month = NULL, $day = NULL, $year = NULL)
+function local_mktime($hour = null, $minute = null, $second = null, $month = null, $day = null, $year = null)
 {
-	$timezone = isset($_SESSION['timezone']) ? $_SESSION['timezone'] : $GLOBALS['_CFG']['timezone'];
-	$time = mktime($hour, $minute, $second, $month, $day, $year) - $timezone * 3600;
-	return $time;
+    $timezone = isset($_SESSION['timezone']) ? $_SESSION['timezone'] : $GLOBALS['_CFG']['timezone'];
+    $time = mktime($hour, $minute, $second, $month, $day, $year) - $timezone * 3600;
+    return $time;
 }
 
-function local_date($format, $time = NULL)
+function local_date($format, $time = null)
 {
-	$timezone = isset($_SESSION['timezone']) ? $_SESSION['timezone'] : $GLOBALS['_CFG']['timezone'];
+    $timezone = isset($_SESSION['timezone']) ? $_SESSION['timezone'] : $GLOBALS['_CFG']['timezone'];
 
-	if ($time === NULL) {
-		$time = gmtime();
-	}
-	else if ($time <= 0) {
-		return '';
-	}
+    if ($time === null) {
+        $time = gmtime();
+    } else {
+        if ($time <= 0) {
+            return '';
+        }
+    }
 
-	$time += $timezone * 3600;
-	return date($format, $time);
+    $time += $timezone * 3600;
+    return date($format, $time);
 }
 
 function gmstr2time($str)
 {
-	$time = strtotime($str);
+    $time = strtotime($str);
 
-	if (0 < $time) {
-		$time -= date('Z');
-	}
+    if (0 < $time) {
+        $time -= date('Z');
+    }
 
-	return $time;
+    return $time;
 }
 
 function local_strtotime($str)
 {
-	$timezone = isset($_SESSION['timezone']) ? $_SESSION['timezone'] : $GLOBALS['_CFG']['timezone'];
-	$time = strtotime($str) - $timezone * 3600;
-	return $time;
+    $timezone = isset($_SESSION['timezone']) ? $_SESSION['timezone'] : $GLOBALS['_CFG']['timezone'];
+    $time = strtotime($str) - $timezone * 3600;
+    return $time;
 }
 
-function local_gettime($timestamp = NULL)
+function local_gettime($timestamp = null)
 {
-	$tmp = local_getdate($timestamp);
-	return $tmp[0];
+    $tmp = local_getdate($timestamp);
+    return $tmp[0];
 }
 
-function local_getdate($timestamp = NULL)
+function local_getdate($timestamp = null)
 {
-	$timezone = isset($_SESSION['timezone']) ? $_SESSION['timezone'] : $GLOBALS['_CFG']['timezone'];
+    $timezone = isset($_SESSION['timezone']) ? $_SESSION['timezone'] : $GLOBALS['_CFG']['timezone'];
 
-	if ($timestamp === NULL) {
-		$timestamp = time();
-	}
+    if ($timestamp === null) {
+        $timestamp = time();
+    }
 
-	$gmt = $timestamp - date('Z');
-	$local_time = $gmt + $timezone * 3600;
-	return getdate($local_time);
+    $gmt = $timestamp - date('Z');
+    $local_time = $gmt + $timezone * 3600;
+    return getdate($local_time);
 }
+
 function get_status1($starttime, $endtime)
 {
-	$nowtime = gmtime();
-	if (!empty($starttime) && !empty($endtime)) {
-		if ($nowtime < $starttime) {
-			$result = 0;
-		}
-		else {
-			if ($starttime < $nowtime && $nowtime < $endtime) {
-				$result = 1;
-			}
-			else if ($endtime < $nowtime) {
-				$result = 2;
-			}
-		}
+    $nowtime = gmtime();
+    if (!empty($starttime) && !empty($endtime)) {
+        if ($nowtime < $starttime) {
+            $result = 0;
+        } else {
+            if ($starttime < $nowtime && $nowtime < $endtime) {
+                $result = 1;
+            } else {
+                if ($endtime < $nowtime) {
+                    $result = 2;
+                }
+            }
+        }
 
-		return $result;
-	}
+        return $result;
+    }
 
-	return 0;
-} 
+    return 0;
+}
+
 function get_status($starttime, $endtime)
 {
-	$nowtime = gmtime();
-	if (!empty($starttime) && !empty($endtime)) {
-		if ($nowtime < $starttime) {
-			$result = 0;
-		}
-		else {
-			if ($starttime < $nowtime && $nowtime < $endtime) {
-				$result = 1;
-			}
-			else if ($endtime < $nowtime) {
-				$result = 2;
-			}
-		}
+    $nowtime = gmtime();
+    if (!empty($starttime) && !empty($endtime)) {
+        if ($nowtime < $starttime) {
+            $result = 0;
+        } else {
+            if ($starttime < $nowtime && $nowtime < $endtime) {
+                $result = 1;
+            } else {
+                if ($endtime < $nowtime) {
+                    $result = 2;
+                }
+            }
+        }
 
-		return $result;
-	}
+        return $result;
+    }
 
-	return 0;
+    return 0;
 } 

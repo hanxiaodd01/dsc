@@ -4,30 +4,30 @@ namespace App\Models;
 
 class TouchUpgrade extends \Illuminate\Database\Eloquent\Model
 {
-	protected $table = 'touch_upgrade';
-	public $timestamps = false;
-	protected $fillable = array('upgrade', 'time');
-	protected $guarded = array();
+    protected $table = 'touch_upgrade';
+    public $timestamps = false;
+    protected $fillable = array('upgrade', 'time');
+    protected $guarded = array();
 
-	public function getUpgrade()
-	{
-		return $this->upgrade;
-	}
+    public function getUpgrade()
+    {
+        return $this->upgrade;
+    }
 
-	public function getTime()
-	{
-		return $this->time;
-	}
+    public function getTime()
+    {
+        return $this->time;
+    }
 
-	public function setUpgrade($value)
-	{
-		$this->upgrade = $value;
-		return $this;
-	}
+    public function setUpgrade($value)
+    {
+        $this->upgrade = $value;
+        return $this;
+    }
 
-	public function setTime($value)
-	{
-		$this->time = $value;
-		return $this;
-	}
+    public function setTime($value)
+    {
+        $this->time = $value;
+        return $this;
+    }
 }

@@ -45,10 +45,10 @@ return [
     ],
     'console' => [
         // styles
-        '../../'.ADMIN_PATH.'/css/main.css',
-        '../../'.ADMIN_PATH.'/css/font-awesome.min.css',
+        '../../' . ADMIN_PATH . '/css/main.css',
+        '../../' . ADMIN_PATH . '/css/font-awesome.min.css',
         '../../js/perfect-scrollbar/perfect-scrollbar.min.css',
-        '../../'.ADMIN_PATH.'/css/purebox.css',
+        '../../' . ADMIN_PATH . '/css/purebox.css',
         '../../js/jquery-ui/jquery-ui.min.css',
         '../../js/calendar/calendar.min.css',
         '../../js/spectrum-master/spectrum.css',
@@ -111,7 +111,7 @@ return [
         'vendor/common/validform.js',
         'vendor/layer/mobile/layer.m.js',
     ],
-	 'bargain' => [
+    'bargain' => [
         // styles
         'vendor/bootstrap/css/bootstrap.min.css',
         'vendor/font-awesome/css/font-awesome.min.css',

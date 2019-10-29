@@ -2,49 +2,49 @@
 //多点乐资源
 function DoResponse()
 {
-	if (!isset($_GET)) {
-		global $_GET;
-	}
+    if (!isset($_GET)) {
+        global $_GET;
+    }
 
-	if (!isset($_GET['Command']) || !isset($_GET['Type']) || !isset($_GET['CurrentFolder'])) {
-		return NULL;
-	}
+    if (!isset($_GET['Command']) || !isset($_GET['Type']) || !isset($_GET['CurrentFolder'])) {
+        return null;
+    }
 
-	$sCommand = $_GET['Command'];
-	$sResourceType = $_GET['Type'];
-	$sCurrentFolder = GetCurrentFolder();
+    $sCommand = $_GET['Command'];
+    $sResourceType = $_GET['Type'];
+    $sCurrentFolder = GetCurrentFolder();
 
-	if (!IsAllowedCommand($sCommand)) {
-		SendError(1, 'The "' . $sCommand . '" command isn\'t allowed');
-	}
+    if (!IsAllowedCommand($sCommand)) {
+        SendError(1, 'The "' . $sCommand . '" command isn\'t allowed');
+    }
 
-	if (!IsAllowedType($sResourceType)) {
-		SendError(1, 'Invalid type specified');
-	}
+    if (!IsAllowedType($sResourceType)) {
+        SendError(1, 'Invalid type specified');
+    }
 
-	if ($sCommand == 'FileUpload') {
-		FileUpload($sResourceType, $sCurrentFolder, $sCommand);
-		return NULL;
-	}
+    if ($sCommand == 'FileUpload') {
+        FileUpload($sResourceType, $sCurrentFolder, $sCommand);
+        return null;
+    }
 
-	CreateXmlHeader($sCommand, $sResourceType, $sCurrentFolder);
+    CreateXmlHeader($sCommand, $sResourceType, $sCurrentFolder);
 
-	switch ($sCommand) {
-	case 'GetFolders':
-		GetFolders($sResourceType, $sCurrentFolder);
-		break;
+    switch ($sCommand) {
+        case 'GetFolders':
+            GetFolders($sResourceType, $sCurrentFolder);
+            break;
 
-	case 'GetFoldersAndFiles':
-		GetFoldersAndFiles($sResourceType, $sCurrentFolder);
-		break;
+        case 'GetFoldersAndFiles':
+            GetFoldersAndFiles($sResourceType, $sCurrentFolder);
+            break;
 
-	case 'CreateFolder':
-		CreateFolder($sResourceType, $sCurrentFolder);
-		break;
-	}
+        case 'CreateFolder':
+            CreateFolder($sResourceType, $sCurrentFolder);
+            break;
+    }
 
-	CreateXmlFooter();
-	exit();
+    CreateXmlFooter();
+    exit();
 }
 
 ob_start();
@@ -56,7 +56,7 @@ require './commands.php';
 require './phpcompat.php';
 
 if (!$Config['Enabled']) {
-	SendError(1, 'This connector is disabled. Please check the "editor/filemanager/connectors/php/config.php" file');
+    SendError(1, 'This connector is disabled. Please check the "editor/filemanager/connectors/php/config.php" file');
 }
 
 DoResponse();

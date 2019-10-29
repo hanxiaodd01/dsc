@@ -20,77 +20,105 @@ $end_take_time = isset($_REQUEST['end_take_time']) ? $base->get_addslashes($_REQ
 $order_status = isset($_REQUEST['order_status']) ? $base->get_intval($_REQUEST['order_status']) : -1;
 $shipping_status = isset($_REQUEST['shipping_status']) ? $base->get_intval($_REQUEST['shipping_status']) : -1;
 $pay_status = isset($_REQUEST['pay_status']) ? $base->get_intval($_REQUEST['pay_status']) : -1;
-$val = array('method' => $method, 'seller_id' => $seller_id, 'order_id' => $order_id, 'order_sn' => $order_sn, 'start_add_time' => $start_add_time, 'end_add_time' => $end_add_time, 'start_confirm_time' => $start_onfirm_time, 'end_confirm_time' => $end_confirm_time, 'start_pay_time' => $start_pay_time, 'end_pay_time' => $end_pay_time, 'start_shipping_time' => $start_shipping_time, 'end_shipping_time' => $end_shipping_time, 'start_take_time' => $start_take_time, 'end_take_time' => $end_take_time, 'order_status' => $order_status, 'shipping_status' => $shipping_status, 'pay_status' => $pay_status, 'mobile' => $mobile, 'rec_id' => $rec_id, 'goods_id' => $goods_id, 'goods_sn' => $goods_sn, 'order_select' => $data, 'page_size' => $page_size, 'page' => $page, 'sort_by' => $sort_by, 'sort_order' => $sort_order, 'format' => $format);
+$val = array(
+    'method' => $method,
+    'seller_id' => $seller_id,
+    'order_id' => $order_id,
+    'order_sn' => $order_sn,
+    'start_add_time' => $start_add_time,
+    'end_add_time' => $end_add_time,
+    'start_confirm_time' => $start_onfirm_time,
+    'end_confirm_time' => $end_confirm_time,
+    'start_pay_time' => $start_pay_time,
+    'end_pay_time' => $end_pay_time,
+    'start_shipping_time' => $start_shipping_time,
+    'end_shipping_time' => $end_shipping_time,
+    'start_take_time' => $start_take_time,
+    'end_take_time' => $end_take_time,
+    'order_status' => $order_status,
+    'shipping_status' => $shipping_status,
+    'pay_status' => $pay_status,
+    'mobile' => $mobile,
+    'rec_id' => $rec_id,
+    'goods_id' => $goods_id,
+    'goods_sn' => $goods_sn,
+    'order_select' => $data,
+    'page_size' => $page_size,
+    'page' => $page,
+    'sort_by' => $sort_by,
+    'sort_order' => $sort_order,
+    'format' => $format
+);
 $order = new \app\controller\order($val);
 
 switch ($method) {
-case 'dsc.order.list.get':
-	$table = array('order' => 'order_info');
-	$result = $order->get_order_list($table);
-	exit($result);
-	break;
+    case 'dsc.order.list.get':
+        $table = array('order' => 'order_info');
+        $result = $order->get_order_list($table);
+        exit($result);
+        break;
 
-case 'dsc.order.info.get':
-	$table = array('order' => 'order_info');
-	$result = $order->get_order_info($table);
-	exit($result);
-	break;
+    case 'dsc.order.info.get':
+        $table = array('order' => 'order_info');
+        $result = $order->get_order_info($table);
+        exit($result);
+        break;
 
-case 'dsc.order.insert.post':
-	$table = array('order' => 'order_info');
-	$result = $order->get_order_insert($table);
-	exit($result);
-	break;
+    case 'dsc.order.insert.post':
+        $table = array('order' => 'order_info');
+        $result = $order->get_order_insert($table);
+        exit($result);
+        break;
 
-case 'dsc.order.update.post':
-	$table = array('order' => 'order_info');
-	$result = $order->get_order_update($table);
-	exit($result);
-	break;
+    case 'dsc.order.update.post':
+        $table = array('order' => 'order_info');
+        $result = $order->get_order_update($table);
+        exit($result);
+        break;
 
-case 'dsc.order.del.get':
-	$table = array('order' => 'order_info');
-	$result = $order->get_order_delete($table);
-	exit($result);
-	break;
+    case 'dsc.order.del.get':
+        $table = array('order' => 'order_info');
+        $result = $order->get_order_delete($table);
+        exit($result);
+        break;
 
-case 'dsc.order.goods.list.get':
-	$table = array('goods' => 'order_goods', 'order' => 'order_info');
-	$result = $order->get_order_goods_list($table);
-	exit($result);
-	break;
+    case 'dsc.order.goods.list.get':
+        $table = array('goods' => 'order_goods', 'order' => 'order_info');
+        $result = $order->get_order_goods_list($table);
+        exit($result);
+        break;
 
-case 'dsc.order.goods.info.get':
-	$table = array('goods' => 'order_goods', 'order' => 'order_info');
-	$result = $order->get_order_goods_info($table);
-	exit($result);
-	break;
+    case 'dsc.order.goods.info.get':
+        $table = array('goods' => 'order_goods', 'order' => 'order_info');
+        $result = $order->get_order_goods_info($table);
+        exit($result);
+        break;
 
-case 'dsc.order.goods.insert.post':
-	$table = array('goods' => 'order_goods', 'order' => 'order_info');
-	$result = $order->get_order_goods_insert($table);
-	exit($result);
-	break;
+    case 'dsc.order.goods.insert.post':
+        $table = array('goods' => 'order_goods', 'order' => 'order_info');
+        $result = $order->get_order_goods_insert($table);
+        exit($result);
+        break;
 
-case 'dsc.order.goods.update.post':
-	$table = array('goods' => 'order_goods', 'order' => 'order_info');
-	$result = $order->get_order_goods_update($table);
-	exit($result);
-	break;
+    case 'dsc.order.goods.update.post':
+        $table = array('goods' => 'order_goods', 'order' => 'order_info');
+        $result = $order->get_order_goods_update($table);
+        exit($result);
+        break;
 
-case 'dsc.order.goods.del.get':
-	$table = array('goods' => 'order_goods', 'order' => 'order_info');
-	$result = $order->get_order_goods_delete($table);
-	exit($result);
-	break;
+    case 'dsc.order.goods.del.get':
+        $table = array('goods' => 'order_goods', 'order' => 'order_info');
+        $result = $order->get_order_goods_delete($table);
+        exit($result);
+        break;
 
-case 'dsc.order.confirmorder.post':
-	$table = array('order' => 'order_info');
-	$result = $order->get_order_confirmorder($table);
-	exit($result);
-	break;
+    case 'dsc.order.confirmorder.post':
+        $table = array('order' => 'order_info');
+        $result = $order->get_order_confirmorder($table);
+        exit($result);
+        break;
 
-default:
-	echo '非法接口连接';
-	break;
+    default:
+        echo '非法接口连接';
+        break;
 }

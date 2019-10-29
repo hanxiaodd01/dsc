@@ -150,7 +150,6 @@ $_LANG['label_area'] = '所在地区：';
 $_LANG['label_time'] = '下单时间：';
 
 
-
 //b2b
 $_LANG['os'][0] = '未完成';
 $_LANG['os'][1] = '已完成';

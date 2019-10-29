@@ -8,23 +8,23 @@ $produits = array();
 $total = 0;
 
 for ($k = 0; $k < $nb; $k++) {
-	$num = rand(100000, 999999);
-	$nom = 'le produit n°' . rand(1, 100);
-	$qua = rand(1, 20);
-	$prix = rand(100, 9999) / 100;
-	$total += $prix * $qua;
-	$produits[] = array($num, $nom, $qua, $prix, rand(0, $qua));
-	echo "    <table cellspacing=\"0\" style=\"width: 100%; border: solid 1px black; background: #F7F7F7; text-align: center; font-size: 10pt;\">\n        <tr>\n            <td style=\"width: 12%; text-align: left\">";
-	echo $num;
-	echo "</td>\n            <td style=\"width: 52%; text-align: left\">";
-	echo $nom;
-	echo "</td>\n            <td style=\"width: 13%; text-align: right\">";
-	echo number_format($prix, 2, ',', ' ');
-	echo " &euro;</td>\n            <td style=\"width: 10%\">";
-	echo $qua;
-	echo "</td>\n            <td style=\"width: 13%; text-align: right;\">";
-	echo number_format($prix * $qua, 2, ',', ' ');
-	echo " &euro;</td>\n        </tr>\n    </table>\n";
+    $num = rand(100000, 999999);
+    $nom = 'le produit n°' . rand(1, 100);
+    $qua = rand(1, 20);
+    $prix = rand(100, 9999) / 100;
+    $total += $prix * $qua;
+    $produits[] = array($num, $nom, $qua, $prix, rand(0, $qua));
+    echo "    <table cellspacing=\"0\" style=\"width: 100%; border: solid 1px black; background: #F7F7F7; text-align: center; font-size: 10pt;\">\n        <tr>\n            <td style=\"width: 12%; text-align: left\">";
+    echo $num;
+    echo "</td>\n            <td style=\"width: 52%; text-align: left\">";
+    echo $nom;
+    echo "</td>\n            <td style=\"width: 13%; text-align: right\">";
+    echo number_format($prix, 2, ',', ' ');
+    echo " &euro;</td>\n            <td style=\"width: 10%\">";
+    echo $qua;
+    echo "</td>\n            <td style=\"width: 13%; text-align: right;\">";
+    echo number_format($prix * $qua, 2, ',', ' ');
+    echo " &euro;</td>\n        </tr>\n    </table>\n";
 }
 
 echo "    <table cellspacing=\"0\" style=\"width: 100%; border: solid 1px black; background: #E7E7E7; text-align: center; font-size: 10pt;\">\n        <tr>\n            <th style=\"width: 87%; text-align: right;\">Total : </th>\n            <th style=\"width: 13%; text-align: right;\">";

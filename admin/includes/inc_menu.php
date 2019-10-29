@@ -1,7 +1,7 @@
 <?php
 //zend by   禁止倒卖 一经发现停止任何服务
 if (!defined('IN_ECS')) {
-	exit('Hacking attempt');
+    exit('Hacking attempt');
 }
 
 $modules['02_cat_and_goods']['sale_notice'] = 'sale_notice.php?act=list';
@@ -52,11 +52,11 @@ $modules['02_promotion']['17_coupons'] = 'coupons.php?act=list';
 $modules['02_promotion']['18_value_card'] = 'value_card.php?act=list';
 
 if (file_exists(MOBILE_TEAM)) {
-	$modules['02_promotion']['18_team'] = '../mobile/index.php?r=team/admin/index';
+    $modules['02_promotion']['18_team'] = '../mobile/index.php?r=team/admin/index';
 }
 
 if (file_exists(MOBILE_BARGAIN)) {
-	$modules['02_promotion']['19_bargain'] = '../mobile/index.php?r=bargain/admin/index';
+    $modules['02_promotion']['19_bargain'] = '../mobile/index.php?r=bargain/admin/index';
 }
 
 $modules['02_promotion']['gift_gard_list'] = 'gift_gard.php?act=list';
@@ -106,7 +106,7 @@ $modules['10_priv_admin']['admin_role'] = 'role.php?act=list';
 $modules['10_priv_admin']['agency_list'] = 'agency.php?act=list';
 
 if (file_exists(MOBILE_KEFU)) {
-	$modules['10_priv_admin']['services_list'] = 'services.php?act=list';
+    $modules['10_priv_admin']['services_list'] = 'services.php?act=list';
 }
 
 $modules['10_priv_admin']['admin_message'] = 'message.php?act=list';
@@ -125,7 +125,7 @@ $modules['01_system']['seo'] = 'seo.php?act=index';
 //$modules['01_system']['upgrade'] = 'upgrade.php?act=index';
 
 if ($_CFG['openvisual'] == 1) {
-	$modules['12_template']['01_visualhome'] = 'visualhome.php?act=list';
+    $modules['12_template']['01_visualhome'] = 'visualhome.php?act=list';
 }
 
 $modules['12_template']['03_template_setup'] = 'template.php?act=setup';
@@ -174,29 +174,29 @@ $modules['20_ectouch']['03_touch_ads'] = 'touch_ads.php?act=list';
 $modules['20_ectouch']['04_touch_ad_position'] = 'touch_ad_position.php?act=list';
 
 if (file_exists(MOBILE_WECHAT)) {
-	$modules['22_wechat']['01_wechat_admin'] = '../mobile/index.php?r=wechat/admin/modify';
-	$modules['22_wechat']['02_mass_message'] = '../mobile/index.php?r=wechat/admin/mass_message';
-	$modules['22_wechat']['03_auto_reply'] = '../mobile/index.php?r=wechat/admin/reply_subscribe';
-	$modules['22_wechat']['04_menu'] = '../mobile/index.php?r=wechat/admin/menu_list';
-	$modules['22_wechat']['05_fans'] = '../mobile/index.php?r=wechat/admin/subscribe_list';
-	$modules['22_wechat']['06_media'] = '../mobile/index.php?r=wechat/admin/article';
-	$modules['22_wechat']['07_qrcode'] = '../mobile/index.php?r=wechat/admin/qrcode_list';
-	$modules['22_wechat']['09_extend'] = '../mobile/index.php?r=wechat/admin/extend_index';
-	$modules['22_wechat']['10_market'] = '../mobile/index.php?m=wechat&c=admin&a=market_index';
-	$modules['22_wechat']['11_template'] = '../mobile/index.php?r=wechat/admin/template';
+    $modules['22_wechat']['01_wechat_admin'] = '../mobile/index.php?r=wechat/admin/modify';
+    $modules['22_wechat']['02_mass_message'] = '../mobile/index.php?r=wechat/admin/mass_message';
+    $modules['22_wechat']['03_auto_reply'] = '../mobile/index.php?r=wechat/admin/reply_subscribe';
+    $modules['22_wechat']['04_menu'] = '../mobile/index.php?r=wechat/admin/menu_list';
+    $modules['22_wechat']['05_fans'] = '../mobile/index.php?r=wechat/admin/subscribe_list';
+    $modules['22_wechat']['06_media'] = '../mobile/index.php?r=wechat/admin/article';
+    $modules['22_wechat']['07_qrcode'] = '../mobile/index.php?r=wechat/admin/qrcode_list';
+    $modules['22_wechat']['09_extend'] = '../mobile/index.php?r=wechat/admin/extend_index';
+    $modules['22_wechat']['10_market'] = '../mobile/index.php?m=wechat&c=admin&a=market_index';
+    $modules['22_wechat']['11_template'] = '../mobile/index.php?r=wechat/admin/template';
 }
 
 //if (wxapp_enabled()) {
 //	$modules['24_wxapp']['01_wxapp_wechat_config'] = '../mobile/index.php?r=wechat/wxapp/index';
-	//$modules['24_wxapp']['02_wxapp_wechat_template'] = '../mobile/index.php?r=wechat/wxapp/template';
+//$modules['24_wxapp']['02_wxapp_wechat_template'] = '../mobile/index.php?r=wechat/wxapp/template';
 //}
 
 if (file_exists(MOBILE_DRP)) {
-	$modules['23_drp']['01_drp_config'] = '../mobile/index.php?r=drp/admin/config';
-	$modules['23_drp']['02_drp_shop'] = '../mobile/index.php?r=drp/admin/shop';
-	$modules['23_drp']['03_drp_list'] = '../mobile/index.php?r=drp/admin/drplist';
-	$modules['23_drp']['04_drp_order_list'] = '../mobile/index.php?r=drp/admin/drporderlist';
-	$modules['23_drp']['05_drp_set_config'] = '../mobile/index.php?r=drp/admin/drpsetconfig';
+    $modules['23_drp']['01_drp_config'] = '../mobile/index.php?r=drp/admin/config';
+    $modules['23_drp']['02_drp_shop'] = '../mobile/index.php?r=drp/admin/shop';
+    $modules['23_drp']['03_drp_list'] = '../mobile/index.php?r=drp/admin/drplist';
+    $modules['23_drp']['04_drp_order_list'] = '../mobile/index.php?r=drp/admin/drporderlist';
+    $modules['23_drp']['05_drp_set_config'] = '../mobile/index.php?r=drp/admin/drpsetconfig';
 }
 
 $modules['16_email_manage']['01_mail_settings'] = 'shop_config.php?act=mail_settings';
@@ -221,16 +221,16 @@ $modules['00_home']['02_operation_flow'] = 'index.php?act=operation_flow';
 $modules['00_home']['03_novice_guide'] = 'index.php?act=novice_guide';
 
 if ($_CFG['region_store_enabled']) {
-	$modules['18_region_store']['01_region_store_manage'] = 'region_store.php?act=list';
+    $modules['18_region_store']['01_region_store_manage'] = 'region_store.php?act=list';
 
-	if (!isset($adminru)) {
-		$adminru = get_admin_ru_id();
-	}
+    if (!isset($adminru)) {
+        $adminru = get_admin_ru_id();
+    }
 
-	if (isset($adminru['rs_id']) && 0 < $adminru['rs_id']) {
-		unset($modules['02_cat_and_goods']['001_goods_setting']);
-		unset($modules['04_order']['08_add_order']);
-	}
+    if (isset($adminru['rs_id']) && 0 < $adminru['rs_id']) {
+        unset($modules['02_cat_and_goods']['001_goods_setting']);
+        unset($modules['04_order']['08_add_order']);
+    }
 }
 
 $menu_top['home'] = '00_home';
@@ -242,20 +242,20 @@ $menu_top['third_party'] = '24_sms,25_file,26_login,27_interface';
 $menu_top['ectouch'] = '20_ectouch,22_wechat,23_drp,24_wxapp';
 
 if (judge_supplier_enabled()) {
-	$modules['18_suppliers']['01_suppliers_list'] = 'suppliers.php?act=list';
-	$modules['18_suppliers']['02_suppliers_commission'] = 'suppliers_commission.php?act=list';
-	$modules['18_suppliers']['10_account_manage'] = 'suppliers_account.php?act=list&act_type=suppliers_seller_account';
-	$modules['19_suppliers_goods']['standard_goods_lib'] = 'wholesale.php?act=list&standard_goods=1';
-	$modules['19_suppliers_goods']['01_wholesale'] = 'wholesale.php?act=list';
-	$modules['19_suppliers_goods']['01_wholesale_cat'] = 'wholesale_cat.php?act=list';
-	$modules['21_suppliers_order']['03_wholesale_purchase'] = 'wholesale_purchase.php?act=list';
-	$modules['21_suppliers_order']['02_wholesale_order'] = 'wholesale_order.php?act=list';
-	$modules['21_suppliers_order']['05_wholesale_delivery'] = 'wholesale_order.php?act=delivery_list';
-	$modules['21_suppliers_order']['12_wholesale_back_apply'] = 'wholesale_order.php?act=return_list';
-	$modules['22_suppliers_stats']['suppliers_stats'] = 'suppliers_stats.php?act=list';
-	$modules['22_suppliers_stats']['suppliers_sale_list'] = 'suppliers_sale_list.php?act=list';
+    $modules['18_suppliers']['01_suppliers_list'] = 'suppliers.php?act=list';
+    $modules['18_suppliers']['02_suppliers_commission'] = 'suppliers_commission.php?act=list';
+    $modules['18_suppliers']['10_account_manage'] = 'suppliers_account.php?act=list&act_type=suppliers_seller_account';
+    $modules['19_suppliers_goods']['standard_goods_lib'] = 'wholesale.php?act=list&standard_goods=1';
+    $modules['19_suppliers_goods']['01_wholesale'] = 'wholesale.php?act=list';
+    $modules['19_suppliers_goods']['01_wholesale_cat'] = 'wholesale_cat.php?act=list';
+    $modules['21_suppliers_order']['03_wholesale_purchase'] = 'wholesale_purchase.php?act=list';
+    $modules['21_suppliers_order']['02_wholesale_order'] = 'wholesale_order.php?act=list';
+    $modules['21_suppliers_order']['05_wholesale_delivery'] = 'wholesale_order.php?act=delivery_list';
+    $modules['21_suppliers_order']['12_wholesale_back_apply'] = 'wholesale_order.php?act=return_list';
+    $modules['22_suppliers_stats']['suppliers_stats'] = 'suppliers_stats.php?act=list';
+    $modules['22_suppliers_stats']['suppliers_sale_list'] = 'suppliers_sale_list.php?act=list';
 }
 //b2b
 $modules['supply_and_demand']['03_wholesale_purchase'] = 'wholesale_purchase.php?act=list';
 $modules['supply_and_demand']['02_wholesale_order'] = 'wholesale_order.php?act=list';
-$modules['supply_and_demand']['01_wholesale']            = 'wholesale.php?act=list';
+$modules['supply_and_demand']['01_wholesale'] = 'wholesale.php?act=list';

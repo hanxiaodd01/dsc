@@ -2,16 +2,17 @@
 //zend by 多点乐  禁止倒卖 一经发现停止任何服务
 function appendParam($returnStr, $paramId, $paramValue)
 {
-	if ($returnStr != '') {
-		if ($paramValue != '') {
-			$returnStr .= '&' . $paramId . '=' . $paramValue;
-		}
-	}
-	else if ($paramValue != '') {
-		$returnStr = $paramId . '=' . $paramValue;
-	}
+    if ($returnStr != '') {
+        if ($paramValue != '') {
+            $returnStr .= '&' . $paramId . '=' . $paramValue;
+        }
+    } else {
+        if ($paramValue != '') {
+            $returnStr = $paramId . '=' . $paramValue;
+        }
+    }
 
-	return $returnStr;
+    return $returnStr;
 }
 
 $_GET = get_request_filter($_GET, 2);
@@ -46,20 +47,19 @@ $signMsgVal = appendparam($signMsgVal, 'key', $key);
 $mysignMsg = strtoupper(md5($signMsgVal));
 
 if ($mysignMsg == $signMsg) {
-	$status = '1';
-	$signMsgVal = '';
-	$signMsgVal = appendparam($signMsgVal, 'version', $version);
-	$signMsgVal = appendparam($signMsgVal, 'signType', $signType);
-	$signMsgVal = appendparam($signMsgVal, 'merchantMbrCode', $merchantMbrCode);
-	$signMsgVal = appendparam($signMsgVal, 'requestId', $requestId);
-	$signMsgVal = appendparam($signMsgVal, 'userId', $userId);
-	$signMsgVal = appendparam($signMsgVal, 'status', $status);
-	$reParam = $signMsgVal;
-	$signMsgVal = appendparam($signMsgVal, 'key', key);
-	$signMsg = strtoupper(md5($signMsgVal));
-	$reParam .= '&signMsg=' . $signMsg;
-	echo $reParam;
-}
-else {
-	echo $_LANG['validation_error'];
+    $status = '1';
+    $signMsgVal = '';
+    $signMsgVal = appendparam($signMsgVal, 'version', $version);
+    $signMsgVal = appendparam($signMsgVal, 'signType', $signType);
+    $signMsgVal = appendparam($signMsgVal, 'merchantMbrCode', $merchantMbrCode);
+    $signMsgVal = appendparam($signMsgVal, 'requestId', $requestId);
+    $signMsgVal = appendparam($signMsgVal, 'userId', $userId);
+    $signMsgVal = appendparam($signMsgVal, 'status', $status);
+    $reParam = $signMsgVal;
+    $signMsgVal = appendparam($signMsgVal, 'key', key);
+    $signMsg = strtoupper(md5($signMsgVal));
+    $reParam .= '&signMsg=' . $signMsg;
+    echo $reParam;
+} else {
+    echo $_LANG['validation_error'];
 }

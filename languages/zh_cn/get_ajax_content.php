@@ -11,7 +11,7 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: calendar.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 $_LANG['vouchers_all'] = "全场券";
 $_LANG['vouchers_user'] = "会员券";
 $_LANG['vouchers_shoping'] = "购物券";
@@ -43,7 +43,7 @@ $_LANG['man'] = "满";
 $_LANG['zhi'] = "至";
 $_LANG['Use'] = "使用";
 $_LANG['Credit_Card_Number'] = "卡号";
-$_LANG['valid_time']='有效期';
+$_LANG['valid_time'] = '有效期';
 $_LANG['voucher_tobe_received'] = "可领取的券";
 $_LANG['available_full'] = "元可用";
 $_LANG['receive_now'] = "立即领取";

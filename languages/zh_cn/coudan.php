@@ -11,7 +11,7 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: calendar.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 $_LANG['activity_error'] = "活动不存在";
 $_LANG['shiping_prompt'] = "暂不支持配送";
 $_LANG['shelves_goods'] = "该商品已下架";

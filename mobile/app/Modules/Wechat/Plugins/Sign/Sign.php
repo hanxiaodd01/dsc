@@ -61,7 +61,8 @@ class Sign extends PluginController
                 if (empty($result) || $createtime != $nowtime_format) {
                     if (!empty($config['rank_point_value']) || !empty($config['pay_point_value'])) {
                         // 积分赠送
-                        $rs = $this->updatePoint($fromusername, $info, $config['rank_point_value'], $config['pay_point_value']);
+                        $rs = $this->updatePoint($fromusername, $info, $config['rank_point_value'],
+                            $config['pay_point_value']);
                         if ($rs == true) {
                             $tips = "系统赠送您 ";
                             $tips .= !empty($config['rank_point_value']) ? $config['rank_point_value'] . " 等级积分 " : '';

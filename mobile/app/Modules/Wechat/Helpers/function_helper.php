@@ -19,62 +19,60 @@ function get_admin_ru_id_seller()
 
 function judge_supplier_enabled()
 {
-	if (file_exists(ROOT_PATH . 'suppliers')) {
-		return true;
-	}
-	else {
-		return false;
-	}
+    if (file_exists(ROOT_PATH . 'suppliers')) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function judge_wholesale_use($return_type = 0)
 {
-	if ($_SESSION['user_id']) {
-		if ($GLOBALS['_CFG']['wholesale_user_rank'] == 0) {
-			$is_seller = get_is_seller();
+    if ($_SESSION['user_id']) {
+        if ($GLOBALS['_CFG']['wholesale_user_rank'] == 0) {
+            $is_seller = get_is_seller();
 
-			if ($is_seller == 0) {
-				if ($return_type == 1) {
-					return false;
-				}
-				else {
-					show_message($GLOBALS['_LANG']['not_seller_user']);
-				}
-			}
-		}
-	}
-	else if ($return_type == 1) {
-		return false;
-	}
-	else {
-		show_message($GLOBALS['_LANG']['not_login_user']);
-	}
+            if ($is_seller == 0) {
+                if ($return_type == 1) {
+                    return false;
+                } else {
+                    show_message($GLOBALS['_LANG']['not_seller_user']);
+                }
+            }
+        }
+    } else {
+        if ($return_type == 1) {
+            return false;
+        } else {
+            show_message($GLOBALS['_LANG']['not_login_user']);
+        }
+    }
 
-	return true;
+    return true;
 }
 
 
 function set_seller_menu()
 {
     define('IN_ECS', true);
-    define('MOBILE_WECHAT', APP_PATH . 'Wechat'); 
+    define('MOBILE_WECHAT', APP_PATH . 'Wechat');
     include_once(dirname(ROOT_PATH) . '/' . SELLER_PATH . '/' . 'includes/inc_priv.php');
     include_once(dirname(ROOT_PATH) . '/' . SELLER_PATH . '/' . 'includes/inc_menu.php');
     $lang = str_replace('-', '_', C('shop.lang'));
     require(dirname(ROOT_PATH) . '/' . 'languages/' . $lang . '/' . ADMIN_PATH . '/common_merchants.php');
 
-    
+
     foreach ($modules as $key => $value) {
         ksort($modules[$key]);
     }
     ksort($modules);
 
-    
+
     $condition['user_id'] = isset($_SESSION['seller_id']) ? intval($_SESSION['seller_id']) : 0;
     $seller_action_list = dao('admin_user')->where($condition)->getField('action_list');
     $action_list = explode(',', $seller_action_list);
 
-    
+
     $action_menu = [];
     foreach ($purview as $key => $val) {
         if (is_array($val)) {
@@ -90,7 +88,7 @@ function set_seller_menu()
         }
     }
 
-    
+
     foreach ($modules as $key => $val) {
         foreach ($val as $k => $v) {
             if (!array_key_exists($k, $action_menu)) {
@@ -103,7 +101,7 @@ function set_seller_menu()
         }
     }
 
-    
+
     $menu = [];
     $i = 0;
     foreach ($modules as $key => $val) {
@@ -145,7 +143,7 @@ function set_seller_menu()
     }
 
 
-    unset($modules, $purview); 
+    unset($modules, $purview);
     return $menu;
 }
 
@@ -258,7 +256,7 @@ function get_select_menu()
 
     $url = isset($_SERVER["QUERY_STRING"]) ? trim($_SERVER["QUERY_STRING"]) : '';
 
-    
+
     $info = get_url_query($url);
     $url = match_url($url, $info['a']);
 
@@ -290,7 +288,7 @@ function get_menu_arr($url = '', $list = [])
             if ($val == $url) {
                 $menu_arr['action'] = $menu_key;
                 $menu_arr['current'] = $key;
-                
+
                 $key_2 = substr($key, 0, -3);
                 $menu_arr['current_2'] = $key_2;
             }
@@ -305,7 +303,7 @@ function edit_upload_image($url = '', $no_path = 'public/assets/wechat')
     if (strpos($url, $no_path)) {
         $prex_patch = __HOST__ . __ROOT__;
     } else {
-        $prex_patch = __HOST__ ;
+        $prex_patch = __HOST__;
     }
 
     $prex_patch = rtrim($prex_patch, '/') . '/';
@@ -317,17 +315,17 @@ function edit_upload_image($url = '', $no_path = 'public/assets/wechat')
 
 function add_url_suffix($url = '', $vars = '')
 {
-    
+
     $info = parse_url($url);
     $path = !empty($info['path']) ? $info['path'] : '';
-    
-    if (is_string($vars)) { 
+
+    if (is_string($vars)) {
         parse_str($vars, $vars);
     } elseif (!is_array($vars)) {
         $vars = [];
     }
-    if (isset($info['query'])) { 
-        $info['query'] = htmlspecialchars_decode($info['query']); 
+    if (isset($info['query'])) {
+        $info['query'] = htmlspecialchars_decode($info['query']);
         parse_str($info['query'], $params);
         $vars = array_merge($params, $vars);
     }
@@ -337,8 +335,8 @@ function add_url_suffix($url = '', $vars = '')
         $path .= $depr . $vars;
     }
     $url = $info['host'] . $path;
-    
-    
+
+
     if (!preg_match("/^(http|https):/", $url)) {
         $url = (is_ssl() ? 'https://' : 'http://') . $url;
     }
@@ -346,10 +344,9 @@ function add_url_suffix($url = '', $vars = '')
 }
 
 
-
 function file_write($filename, $content = '')
 {
-    $fp = fopen(ROOT_PATH . 'storage/app/certs/' . $filename, "w+"); 
+    $fp = fopen(ROOT_PATH . 'storage/app/certs/' . $filename, "w+");
     flock($fp, LOCK_EX);
     fwrite($fp, $content);
     flock($fp, LOCK_UN);
@@ -360,7 +357,7 @@ function file_write($filename, $content = '')
 function new_html_in($str)
 {
     $str = htmlspecialchars($str);
-    
+
     if (get_magic_quotes_gpc()) {
         $str = stripslashes($str);
     }
@@ -426,9 +423,13 @@ function realpath_wechat($file)
 
 function check_template_log($openid = '', $wechat_id = 0, $weObj)
 {
-    $logs = dao('wechat_template_log')->field('wechat_id, code, openid, data, url')->where(['openid' => $openid, 'wechat_id' => $wechat_id, 'status' => 0])->order('id desc')->find();
+    $logs = dao('wechat_template_log')->field('wechat_id, code, openid, data, url')->where([
+        'openid' => $openid,
+        'wechat_id' => $wechat_id,
+        'status' => 0
+    ])->order('id desc')->find();
     if (!empty($logs)) {
-        
+
         $message_data['touser'] = $logs['openid'];
         $message_data['template_id'] = dao('wechat_template')->where(['code' => $logs['code']])->getField('template_id');
         $message_data['url'] = $logs['url'];
@@ -436,19 +437,23 @@ function check_template_log($openid = '', $wechat_id = 0, $weObj)
         $message_data['data'] = unserialize($logs['data']);
         $rs = $weObj->sendTemplateMessage($message_data);
         if (empty($rs)) {
-            
-            
+
+
             exit('null');
         }
-        
-        dao('wechat_template_log')->data(['msgid' => $rs['msgid']])->where(['code' => $logs['code'], 'openid' => $logs['openid'], 'wechat_id' => $wechat_id])->save();
+
+        dao('wechat_template_log')->data(['msgid' => $rs['msgid']])->where([
+            'code' => $logs['code'],
+            'openid' => $logs['openid'],
+            'wechat_id' => $wechat_id
+        ])->save();
     }
 }
 
 
 function message_log_alignment_add($wedata = [], $wechat_id = 0)
 {
-    
+
     if ($wedata['MsgType'] == 'event') {
         $data = [
             'wechat_id' => $wechat_id,
@@ -457,7 +462,7 @@ function message_log_alignment_add($wedata = [], $wechat_id = 0)
             'msgtype' => $wedata['MsgType'],
             'keywords' => $wedata['EventKey'],
         ];
-        
+
         $where = [
             'wechat_id' => $wechat_id,
             'fromusername' => $wedata['FromUserName'],
@@ -473,14 +478,14 @@ function message_log_alignment_add($wedata = [], $wechat_id = 0)
             'keywords' => $wedata['Content'],
             'msgid' => $wedata['MsgId'],
         ];
-        
+
         $where = [
             'wechat_id' => $wechat_id,
             'msgid' => $data['msgid'],
             'keywords' => $data['keywords'],
         ];
     }
-    
+
     $rs = dao('wechat_message_log')->where($where)->find();
     if (empty($rs)) {
         dao('wechat_message_log')->data($data)->add();
@@ -490,9 +495,9 @@ function message_log_alignment_add($wedata = [], $wechat_id = 0)
 
 function message_log_alignment_send($contents, $wechat_id = 0)
 {
-    
+
     if ($contents['msgtype'] == 'event') {
-        
+
         $where = [
             'wechat_id' => $wechat_id,
             'fromusername' => $contents['fromusername'],
@@ -501,7 +506,7 @@ function message_log_alignment_send($contents, $wechat_id = 0)
             'is_send' => 0
         ];
     } else {
-        
+
         $where = [
             'wechat_id' => $wechat_id,
             'msgid' => $contents['msgid'],
@@ -510,7 +515,7 @@ function message_log_alignment_send($contents, $wechat_id = 0)
         ];
     }
     dao('wechat_message_log')->data(['is_send' => 1])->where($where)->save();
-    
+
     $map['fromusername'] = $contents['fromusername'];
     $map['keywords'] = $contents['keywords'];
     $lastId = dao('wechat_message_log')->where($map)->order('id desc')->getField('id');
@@ -530,9 +535,15 @@ function update_wechatuser_subscribe($openid, $wechat_id = 0, $weObj)
             'subscribe' => $userinfo['subscribe'],
             'subscribe_time' => $userinfo['subscribe_time'],
         ];
-        $res = dao('wechat_user')->field('openid, unionid')->where(['unionid' => $userinfo['unionid'], 'wechat_id' => $wechat_id])->find();
+        $res = dao('wechat_user')->field('openid, unionid')->where([
+            'unionid' => $userinfo['unionid'],
+            'wechat_id' => $wechat_id
+        ])->find();
         if (!empty($res)) {
-            dao('wechat_user')->data($user_data)->where(['unionid' => $userinfo['unionid'], 'wechat_id' => $wechat_id])->save();
+            dao('wechat_user')->data($user_data)->where([
+                'unionid' => $userinfo['unionid'],
+                'wechat_id' => $wechat_id
+            ])->save();
         }
     }
 }
@@ -581,7 +592,7 @@ function return_is_drp($scene_id)
     ];
 
     if (strpos($scene_id, 'u') === 0) {
-        
+
         $scene_uid = str_replace('u=', '', $scene_id);
         $parent_id = intval($scene_uid);
 
@@ -593,7 +604,7 @@ function return_is_drp($scene_id)
         $scenes['is_drp'] = false;
 
     } elseif (strpos($scene_id, 'd') === 0 && is_dir(APP_DRP_PATH)) {
-        
+
         $scene_did = str_replace('d=', '', $scene_id);
         $drp_parent_id = intval($scene_did);
 
@@ -614,9 +625,12 @@ function get_gallery_album_tree($tree_id = 0, $ru_id = 0)
     $three_arr = [];
     $count = dao('gallery_album')->where(['parent_album_id' => $tree_id, 'ru_id' => $ru_id])->count();
     if ($count > 0 || $tree_id == 0) {
-        $res =  dao('gallery_album')->where(['parent_album_id' => $tree_id, 'ru_id' => $ru_id])->order('album_id DESC')->select();
+        $res = dao('gallery_album')->where([
+            'parent_album_id' => $tree_id,
+            'ru_id' => $ru_id
+        ])->order('album_id DESC')->select();
         foreach ($res as $k => $row) {
-            $three_arr[$k]['id']   = $row['album_id'];
+            $three_arr[$k]['id'] = $row['album_id'];
             $three_arr[$k]['name'] = $row['album_mame'];
             $three_arr[$k]['haschild'] = 0;
             if (isset($row['album_id'])) {

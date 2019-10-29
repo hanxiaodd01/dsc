@@ -146,8 +146,8 @@ abstract class PluginController extends FrontendController
 
     /**
      * 显示插件模板（后端）
-     * @param  string $tpl
-     * @param  array $config
+     * @param string $tpl
+     * @param array  $config
      * @return
      */
     public function plugin_display($tpl = '', $config = array())
@@ -176,8 +176,8 @@ abstract class PluginController extends FrontendController
 
     /**
      * 显示插件模板（前端）
-     * @param  string $tpl
-     * @param  array $config
+     * @param string $tpl
+     * @param array  $config
      * @return
      */
     public function show_display($tpl = '', $config = array())
@@ -205,8 +205,8 @@ abstract class PluginController extends FrontendController
      *
      * @param unknown $msg
      * @param unknown $url
-     * @param string $type
-     * @param number $waitSecond
+     * @param string  $type
+     * @param number  $waitSecond
      */
     protected function message($msg, $url = null, $type = '1', $ru_id = 0, $waitSecond = 3)
     {

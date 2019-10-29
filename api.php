@@ -16,10 +16,10 @@ $sort_by = isset($_REQUEST['sort_by']) ? $base->get_addslashes($_REQUEST['sort_b
 $sort_order = isset($_REQUEST['sort_order']) ? $base->get_addslashes($_REQUEST['sort_order']) : 'ASC';
 
 if ($interface_type == 1) {
-	$raw_post_data = file_get_contents('php://input', 'r');
-	$raw_post_data = json_decode($raw_post_data, true);
-	$data = $raw_post_data['data'];
-	$data = base64_decode($data);
+    $raw_post_data = file_get_contents('php://input', 'r');
+    $raw_post_data = json_decode($raw_post_data, true);
+    $data = $raw_post_data['data'];
+    $data = base64_decode($data);
 }
 
 $record = false;
@@ -27,79 +27,99 @@ $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('open_api') . (' WHERE app_key 
 $open_api = $GLOBALS['db']->getRow($sql);
 
 if ($app_key) {
-	if (!$open_api) {
-		exit($_LANG['not_interface_power']);
-	}
-	else {
-		$action_code = isset($open_api['action_code']) && !empty($open_api['action_code']) ? explode(',', $open_api['action_code']) : array();
+    if (!$open_api) {
+        exit($_LANG['not_interface_power']);
+    } else {
+        $action_code = isset($open_api['action_code']) && !empty($open_api['action_code']) ? explode(',',
+            $open_api['action_code']) : array();
 
-		if (empty($action_code)) {
-			exit($_LANG['not_interface_power']);
-		}
-		else if (!in_array($method, $action_code)) {
-			exit($_LANG['not_interface_power']);
-		}
-	}
-}
-else {
-	exit($_LANG['secret_key_not_null']);
+        if (empty($action_code)) {
+            exit($_LANG['not_interface_power']);
+        } else {
+            if (!in_array($method, $action_code)) {
+                exit($_LANG['not_interface_power']);
+            }
+        }
+    }
+} else {
+    exit($_LANG['secret_key_not_null']);
 }
 
 if ($format == 'json' && $data) {
-	if ($interface_type == 0) {
-		$data = stripslashes($data);
-		$data = stripslashes($data);
-	}
+    if ($interface_type == 0) {
+        $data = stripslashes($data);
+        $data = stripslashes($data);
+    }
 
-	$data = json_decode($data, true);
-}
-else {
-	$data = htmlspecialchars_decode($data);
-	$data = json_decode(json_encode(simplexml_load_string($data, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
+    $data = json_decode($data, true);
+} else {
+    $data = htmlspecialchars_decode($data);
+    $data = json_decode(json_encode(simplexml_load_string($data, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
 }
 
-$interface = array('goods', 'product', 'order', 'user', 'region', 'warehouse', 'attribute', 'category', 'brand', 'shipping', 'connect');
+$interface = array(
+    'goods',
+    'product',
+    'order',
+    'user',
+    'region',
+    'warehouse',
+    'attribute',
+    'category',
+    'brand',
+    'shipping',
+    'connect'
+);
 $interface = $base->get_interface_file(dirname(__FILE__), $interface);
 
 foreach ($interface as $key => $row) {
-	require $row;
+    require $row;
 }
 
 if (in_array($method, $goods_action)) {
-	$file_type = 'goods';
-}
-else if (in_array($method, $product_action)) {
-	$file_type = 'product';
-}
-else if (in_array($method, $order_action)) {
-	$file_type = 'order';
-}
-else if (in_array($method, $user_action)) {
-	$file_type = 'user';
-}
-else if (in_array($method, $region_action)) {
-	$file_type = 'region';
-}
-else if (in_array($method, $warehouse_action)) {
-	$file_type = 'warehouse';
-}
-else if (in_array($method, $attribute_action)) {
-	$file_type = 'attribute';
-}
-else if (in_array($method, $category_action)) {
-	$file_type = 'category';
-}
-else if (in_array($method, $brand_action)) {
-	$file_type = 'brand';
-}
-else if (in_array($method, $shipping_action)) {
-	$file_type = 'shipping';
-}
-else if (in_array($method, $connect_action)) {
-	$file_type = 'connect';
-}
-else {
-	exit($_LANG['illegal_entrance']);
+    $file_type = 'goods';
+} else {
+    if (in_array($method, $product_action)) {
+        $file_type = 'product';
+    } else {
+        if (in_array($method, $order_action)) {
+            $file_type = 'order';
+        } else {
+            if (in_array($method, $user_action)) {
+                $file_type = 'user';
+            } else {
+                if (in_array($method, $region_action)) {
+                    $file_type = 'region';
+                } else {
+                    if (in_array($method, $warehouse_action)) {
+                        $file_type = 'warehouse';
+                    } else {
+                        if (in_array($method, $attribute_action)) {
+                            $file_type = 'attribute';
+                        } else {
+                            if (in_array($method, $category_action)) {
+                                $file_type = 'category';
+                            } else {
+                                if (in_array($method, $brand_action)) {
+                                    $file_type = 'brand';
+                                } else {
+                                    if (in_array($method, $shipping_action)) {
+                                        $file_type = 'shipping';
+                                    } else {
+                                        if (in_array($method, $connect_action)) {
+                                            $file_type = 'connect';
+                                        } else {
+                                            exit($_LANG['illegal_entrance']);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 require dirname(__FILE__) . '/plugins/dscapi/view/' . $file_type . '.php';

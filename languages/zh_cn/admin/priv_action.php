@@ -209,33 +209,33 @@ $_LANG['ecjia_feedback'] = 'APP留言反馈';
 $_LANG['ecjia_marketing'] = 'APP营销顾问';
 
 if (file_exists(MOBILE_WECHAT)) {
-	$_LANG['wechat'] = '微信通管理';
-	$_LANG['wechat_admin'] = '公众号设置';
-	$_LANG['mass_message'] = '群发消息';
-	$_LANG['auto_reply'] = '自动回复';
-	$_LANG['menu'] = '自定义菜单';
-	$_LANG['fans'] = '粉丝管理';
-	$_LANG['media'] = '素材管理';
-	$_LANG['qrcode'] = '二维码管理';
-	$_LANG['share'] = '扫码引荐';
-	$_LANG['extend'] = '功能扩展';
-	$_LANG['market'] = '营销中心';
-	$_LANG['template'] = '消息提醒';
+    $_LANG['wechat'] = '微信通管理';
+    $_LANG['wechat_admin'] = '公众号设置';
+    $_LANG['mass_message'] = '群发消息';
+    $_LANG['auto_reply'] = '自动回复';
+    $_LANG['menu'] = '自定义菜单';
+    $_LANG['fans'] = '粉丝管理';
+    $_LANG['media'] = '素材管理';
+    $_LANG['qrcode'] = '二维码管理';
+    $_LANG['share'] = '扫码引荐';
+    $_LANG['extend'] = '功能扩展';
+    $_LANG['market'] = '营销中心';
+    $_LANG['template'] = '消息提醒';
 }
 
 if (wxapp_enabled()) {
-	$_LANG['wxapp'] = '小程序管理';
-	$_LANG['wxapp_wechat_config'] = '小程序设置';
-	$_LANG['wxapp_template'] = '消息提醒';
+    $_LANG['wxapp'] = '小程序管理';
+    $_LANG['wxapp_wechat_config'] = '小程序设置';
+    $_LANG['wxapp_template'] = '消息提醒';
 }
 
 if (file_exists(MOBILE_DRP)) {
-	$_LANG['drp'] = '分销管理';
-	$_LANG['drp_config'] = '店铺设置';
-	$_LANG['drp_shop'] = '分销商管理';
-	$_LANG['drp_list'] = '分销排行';
-	$_LANG['drp_order_list'] = '分销订单操作';
-	$_LANG['drp_set_config'] = '分销比例设置';
+    $_LANG['drp'] = '分销管理';
+    $_LANG['drp_config'] = '店铺设置';
+    $_LANG['drp_shop'] = '分销商管理';
+    $_LANG['drp_list'] = '分销排行';
+    $_LANG['drp_order_list'] = '分销订单操作';
+    $_LANG['drp_set_config'] = '分销比例设置';
 }
 
 $_LANG['gallery_album'] = '图片库管理';

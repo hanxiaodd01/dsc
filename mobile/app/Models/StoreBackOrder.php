@@ -4,30 +4,30 @@ namespace App\Models;
 
 class StoreBackOrder extends \Illuminate\Database\Eloquent\Model
 {
-	protected $table = 'store_back_order';
-	public $timestamps = false;
-	protected $fillable = array('store_id', 'order_id');
-	protected $guarded = array();
+    protected $table = 'store_back_order';
+    public $timestamps = false;
+    protected $fillable = array('store_id', 'order_id');
+    protected $guarded = array();
 
-	public function getStoreId()
-	{
-		return $this->store_id;
-	}
+    public function getStoreId()
+    {
+        return $this->store_id;
+    }
 
-	public function getOrderId()
-	{
-		return $this->order_id;
-	}
+    public function getOrderId()
+    {
+        return $this->order_id;
+    }
 
-	public function setStoreId($value)
-	{
-		$this->store_id = $value;
-		return $this;
-	}
+    public function setStoreId($value)
+    {
+        $this->store_id = $value;
+        return $this;
+    }
 
-	public function setOrderId($value)
-	{
-		$this->order_id = $value;
-		return $this;
-	}
+    public function setOrderId($value)
+    {
+        $this->order_id = $value;
+        return $this;
+    }
 }

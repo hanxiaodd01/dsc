@@ -7,6 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class ChangeTouchAdPositionTableAdType extends Migration
 {
     protected $tableName = 'touch_ad_position';
+
     /**
      * 运行数据库迁移
      *

@@ -4,6 +4,7 @@ namespace App\Modules\Wechat\Market\Redpack;
 
 use App\Modules\Wechat\Controllers\PluginController;
 use App\Extensions\Wechat;
+
 // use App\Extensions\WxHongbao;
 
 /**
@@ -48,7 +49,11 @@ class Redpack extends PluginController
         $this->assign('plugin_themes', $this->plugin_themes);
 
         //活动配置
-        $data = dao('wechat_marketing')->field('name, starttime, endtime, config')->where(array('id' => $this->market_id, 'marketing_type' => 'redpack', 'wechat_id' => $this->wechat_id))->find();
+        $data = dao('wechat_marketing')->field('name, starttime, endtime, config')->where(array(
+            'id' => $this->market_id,
+            'marketing_type' => 'redpack',
+            'wechat_id' => $this->wechat_id
+        ))->find();
 
         $this->config['config'] = unserialize($data['config']);
         $this->config['config']['act_name'] = $data['name'];
@@ -62,7 +67,11 @@ class Redpack extends PluginController
     public function actionActivity()
     {
         // 页面显示
-        $info = dao('wechat_marketing')->field('id, name, logo, background, description, support')->where(array('id' => $this->market_id, 'marketing_type' => 'redpack', 'wechat_id' => $this->wechat_id))->find();
+        $info = dao('wechat_marketing')->field('id, name, logo, background, description, support')->where(array(
+            'id' => $this->market_id,
+            'marketing_type' => 'redpack',
+            'wechat_id' => $this->wechat_id
+        ))->find();
 
         if (!empty($info)) {
             $info['background'] = get_wechat_image_path($info['background']); // 背景图片
@@ -79,14 +88,18 @@ class Redpack extends PluginController
                 $flag = "活动已结束"; // 已结束
             }
 
-            $is_subscribe = dao('wechat_user')->where(array('openid' => $_SESSION['openid'], 'wechat_id' => $this->wechat_id))->getField('subscribe');
+            $is_subscribe = dao('wechat_user')->where(array(
+                'openid' => $_SESSION['openid'],
+                'wechat_id' => $this->wechat_id
+            ))->getField('subscribe');
             if ($is_subscribe == 0) {
                 $flag = "请先关注微信公众号！";
             }
             $this->assign('flag', $flag);
             $this->assign('is_subscribe', $is_subscribe);
 
-            $shake_url = __HOST__ . url('wechat/index/market_show', array('type' => 'redpack', 'function' => 'shake', 'market_id' => $this->market_id)); // 摇一摇页面地址
+            $shake_url = __HOST__ . url('wechat/index/market_show',
+                    array('type' => 'redpack', 'function' => 'shake', 'market_id' => $this->market_id)); // 摇一摇页面地址
             $this->assign('shake_url', $shake_url);
 
             // 分享
@@ -162,7 +175,11 @@ class Redpack extends PluginController
                     );
                     exit(json_encode($result));
                 } else {
-                    $log = dao('wechat_redpack_log')->field('hassub')->where(array('wechat_id' => $this->wechat_id, 'market_id' => $this->market_id, 'openid' => $openid))->find();
+                    $log = dao('wechat_redpack_log')->field('hassub')->where(array(
+                        'wechat_id' => $this->wechat_id,
+                        'market_id' => $this->market_id,
+                        'openid' => $openid
+                    ))->find();
                     if (count($log) == 1) {
                         // 已领取过红包
                         if ($log['hassub'] == 1) {
@@ -206,7 +223,10 @@ class Redpack extends PluginController
                 }
             } else {
                 // 当用户没有摇到红包时展示广告内容
-                $total = dao('wechat_redpack_advertice')->where(array('wechat_id' => $this->wechat_id, 'market_id' => $this->market_id))->count();
+                $total = dao('wechat_redpack_advertice')->where(array(
+                    'wechat_id' => $this->wechat_id,
+                    'market_id' => $this->market_id
+                ))->count();
                 if ($total == 0) {
                     $result = array(
                         'icon' => $this->plugin_themes . "/images/icon.jpg",
@@ -217,7 +237,10 @@ class Redpack extends PluginController
                 }
                 // 随机一张广告
                 $pageindex = rand(0, $total - 1);
-                $temp = dao('wechat_redpack_advertice')->field('icon, content, url')->where(array('wechat_id' => $this->wechat_id, 'market_id' => $this->market_id))->limit($pageindex, 1)->select();
+                $temp = dao('wechat_redpack_advertice')->field('icon, content, url')->where(array(
+                    'wechat_id' => $this->wechat_id,
+                    'market_id' => $this->market_id
+                ))->limit($pageindex, 1)->select();
                 $temp = reset($temp);
                 $temp['icon'] = get_wechat_image_path($temp['icon']);
 
@@ -230,7 +253,8 @@ class Redpack extends PluginController
             }
         }
 
-        $this->assign('back_url', __HOST__ . url('wechat/index/market_show', array('type' => 'redpack', 'function' => 'activity', 'market_id' => $this->market_id)));
+        $this->assign('back_url', __HOST__ . url('wechat/index/market_show',
+                array('type' => 'redpack', 'function' => 'activity', 'market_id' => $this->market_id)));
         $this->assign('market_id', $this->market_id);
         $this->assign('page_title', "微信摇一摇");
         $this->show_display('shake', $this->config);
@@ -239,7 +263,7 @@ class Redpack extends PluginController
     /**
      * 发送红包
      * @param $param_openid  用户openid
-     * @param $hb_type  发送红包类型 0 普通、1 裂变
+     * @param $hb_type       发送红包类型 0 普通、1 裂变
      * @return
      */
     public function sendRedpack($param_openid, $hb_type = 0)
@@ -263,10 +287,10 @@ class Redpack extends PluginController
         if ($isInclude) {
             // 调用红包类
             $options = array(
-                 'appid' => $payment['wxpay_appid'],
-                 'mch_id' => $payment['wxpay_mchid'],
-                 'key' => $payment['wxpay_key']
-             );
+                'appid' => $payment['wxpay_appid'],
+                'mch_id' => $payment['wxpay_mchid'],
+                'key' => $payment['wxpay_key']
+            );
             $WxHongbao = new Wechat($options); //new WxHongbao($configure);
             // 证书
             $sslcert = ROOT_PATH . "storage/app/certs/wxpay/" . md5($payment['wxpay_appsecret']) . "_apiclient_cert.pem";

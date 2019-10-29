@@ -16,7 +16,8 @@ define('IN_ECS', true);
 
 if (!function_exists("htmlspecialchars_decode")) {
 
-    function htmlspecialchars_decode($string, $quote_style = ENT_COMPAT) {
+    function htmlspecialchars_decode($string, $quote_style = ENT_COMPAT)
+    {
         return strtr($string, array_flip(get_html_translation_table(HTML_SPECIALCHARS, $quote_style)));
     }
 
@@ -59,10 +60,10 @@ require(dirname(__FILE__) . '/includes/init.php');
 require(ROOT_PATH . '/includes/lib_area.php');
 require(ROOT_PATH . '/includes/lib_wholesale.php');
 
-if($GLOBALS['_CFG']['wholesale_user_rank'] == 0){
+if ($GLOBALS['_CFG']['wholesale_user_rank'] == 0) {
     $is_seller = get_is_seller();
-    if($is_seller == 0){
-        ecs_header("Location: " .$ecs->url(). "\n");
+    if ($is_seller == 0) {
+        ecs_header("Location: " . $ecs->url() . "\n");
     }
 }
 
@@ -78,7 +79,7 @@ get_request_filter();
 /* ------------------------------------------------------ */
 
 $_REQUEST['keywords'] = !empty($_REQUEST['keywords']) ? strip_tags(htmlspecialchars(trim($_REQUEST['keywords']))) : '';
-$_REQUEST['keywords'] = !empty($_REQUEST['keywords'])   ? addslashes_deep(trim($_REQUEST['keywords'])) : '';
+$_REQUEST['keywords'] = !empty($_REQUEST['keywords']) ? addslashes_deep(trim($_REQUEST['keywords'])) : '';
 $_REQUEST['category'] = !empty($_REQUEST['category']) ? intval($_REQUEST['category']) : 0;
 $_REQUEST['goods_type'] = !empty($_REQUEST['goods_type']) ? intval($_REQUEST['goods_type']) : 0;
 $action = '';
@@ -101,7 +102,7 @@ if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'form') {
         }
     }
 
-	
+
     $smarty->assign('adv_val', $adv_value);
     $smarty->assign('goods_type_list', $attributes['cate']);
     $smarty->assign('goods_attributes', $attributes['attr']);
@@ -117,7 +118,7 @@ if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'form') {
 $keywords = '';
 $tag_where = '';
 if (!empty($_REQUEST['keywords'])) {
-    
+
     $scws_res = scws($_REQUEST['keywords']); //这里可以把关键词分词：诺基亚，耳机
     $arr = explode(',', $scws_res);
 
@@ -135,8 +136,12 @@ if (!empty($_REQUEST['keywords'])) {
             $goods_ids[] = $row['goods_id'];
         }
 
-        $db->autoReplace($ecs->table('keywords'), array('date' => local_date('Y-m-d'),
-            'searchengine' => 'ecshop', 'keyword' => addslashes(str_replace('%', '', $val)), 'count' => 1), array('count' => 1));
+        $db->autoReplace($ecs->table('keywords'), array(
+            'date' => local_date('Y-m-d'),
+            'searchengine' => 'ecshop',
+            'keyword' => addslashes(str_replace('%', '', $val)),
+            'count' => 1
+        ), array('count' => 1));
     }
 
     $goods_ids = array_unique($goods_ids);
@@ -154,9 +159,15 @@ $default_display_type = $_CFG['show_order_type'] == '0' ? 'list' : ($_CFG['show_
 $default_sort_order_method = $_CFG['sort_order_method'] == '0' ? 'DESC' : 'ASC';
 $default_sort_order_type = $_CFG['sort_order_type'] == '0' ? 'goods_id' : ($_CFG['sort_order_type'] == '1' ? 'shop_price' : 'last_update');
 
-$sort = (isset($_REQUEST['sort']) && in_array(trim(strtolower($_REQUEST['sort'])), array('goods_id', 'shop_price', 'last_update'))) ? trim($_REQUEST['sort']) : $default_sort_order_type;
-$order = (isset($_REQUEST['order']) && in_array(trim(strtoupper($_REQUEST['order'])), array('ASC', 'DESC'))) ? trim($_REQUEST['order']) : $default_sort_order_method;
-$display = (isset($_REQUEST['display']) && in_array(trim(strtolower($_REQUEST['display'])), array('list', 'grid', 'text'))) ? trim($_REQUEST['display']) : (isset($_SESSION['display_search']) ? $_SESSION['display_search'] : $default_display_type);
+$sort = (isset($_REQUEST['sort']) && in_array(trim(strtolower($_REQUEST['sort'])),
+        array('goods_id', 'shop_price', 'last_update'))) ? trim($_REQUEST['sort']) : $default_sort_order_type;
+$order = (isset($_REQUEST['order']) && in_array(trim(strtoupper($_REQUEST['order'])),
+        array('ASC', 'DESC'))) ? trim($_REQUEST['order']) : $default_sort_order_method;
+$display = (isset($_REQUEST['display']) && in_array(trim(strtolower($_REQUEST['display'])), array(
+        'list',
+        'grid',
+        'text'
+    ))) ? trim($_REQUEST['display']) : (isset($_SESSION['display_search']) ? $_SESSION['display_search'] : $default_display_type);
 
 $_SESSION['display_search'] = $display;
 
@@ -232,8 +243,8 @@ if (!empty($_REQUEST['attr'])) {
 
 /* 获得符合条件的商品总数 */
 $sql = "SELECT COUNT(*) FROM " . $ecs->table('wholesale') . " AS w " .
-        "WHERE w.enabled = 1 AND w.review_status = 3 $attr_in " .
-        $categories . $keywords . $tag_where;
+    "WHERE w.enabled = 1 AND w.review_status = 3 $attr_in " .
+    $categories . $keywords . $tag_where;
 $count = $db->getOne($sql);
 
 $max_page = ($count > 0) ? ceil($count / $size) : 1;
@@ -243,12 +254,12 @@ if ($page > $max_page) {
 
 /* 查询商品 */
 $sql = "SELECT w.*, g.goods_thumb, g.goods_img, MIN(wvp.volume_number) AS volume_number, wvp.volume_price " .
-        "FROM " . $ecs->table('wholesale') . " AS w "
-        . " LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " AS g ON w.goods_id = g.goods_id "
-        . " LEFT JOIN " . $GLOBALS['ecs']->table('wholesale_volume_price') . " AS wvp ON wvp.goods_id = g.goods_id "
-        . "WHERE w.enabled = 1 AND w.review_status = 3 $attr_in " .
-        $categories . $keywords . $tag_where .
-        " GROUP BY w.goods_id ORDER BY w.goods_id DESC ";
+    "FROM " . $ecs->table('wholesale') . " AS w "
+    . " LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " AS g ON w.goods_id = g.goods_id "
+    . " LEFT JOIN " . $GLOBALS['ecs']->table('wholesale_volume_price') . " AS wvp ON wvp.goods_id = g.goods_id "
+    . "WHERE w.enabled = 1 AND w.review_status = 3 $attr_in " .
+    $categories . $keywords . $tag_where .
+    " GROUP BY w.goods_id ORDER BY w.goods_id DESC ";
 $res = $db->SelectLimit($sql, $size, ($page - 1) * $size);
 $arr = array();
 while ($row = $db->FetchRow($res)) {
@@ -261,7 +272,8 @@ while ($row = $db->FetchRow($res)) {
 
     $arr[$row['goods_id']]['goods_id'] = $row['goods_id'];
     if ($display == 'grid') {
-        $arr[$row['goods_id']]['goods_name'] = $GLOBALS['_CFG']['goods_name_length'] > 0 ? sub_str($row['goods_name'], $GLOBALS['_CFG']['goods_name_length']) : $row['goods_name'];
+        $arr[$row['goods_id']]['goods_name'] = $GLOBALS['_CFG']['goods_name_length'] > 0 ? sub_str($row['goods_name'],
+            $GLOBALS['_CFG']['goods_name_length']) : $row['goods_name'];
     } else {
         $arr[$row['goods_id']]['goods_name'] = $row['goods_name'];
     }
@@ -366,7 +378,8 @@ $smarty->display('wholesale_search.dwt');
  *
  * @return void
  */
-function is_not_null($value) {
+function is_not_null($value)
+{
     if (is_array($value)) {
         return (!empty($value['from'])) || (!empty($value['to']));
     } else {
@@ -381,7 +394,8 @@ function is_not_null($value) {
  * @params  integer $cat_id
  * @return  void
  */
-function get_seachable_attributes($cat_id = 0) {
+function get_seachable_attributes($cat_id = 0)
+{
     $attributes = array(
         'cate' => array(),
         'attr' => array()
@@ -389,8 +403,8 @@ function get_seachable_attributes($cat_id = 0) {
 
     /* 获得可用的商品类型 */
     $sql = "SELECT t.cat_id, cat_name FROM " . $GLOBALS['ecs']->table('goods_type') . " AS t, " .
-            $GLOBALS['ecs']->table('attribute') . " AS a" .
-            " WHERE t.cat_id = a.cat_id AND t.enabled = 1 AND a.attr_index > 0 ";
+        $GLOBALS['ecs']->table('attribute') . " AS a" .
+        " WHERE t.cat_id = a.cat_id AND t.enabled = 1 AND a.attr_index > 0 ";
     $cat = $GLOBALS['db']->getAll($sql);
 
     /* 获取可以检索的属性 */
@@ -401,9 +415,9 @@ function get_seachable_attributes($cat_id = 0) {
         $where = $cat_id > 0 ? ' AND a.cat_id = ' . $cat_id : " AND a.cat_id = " . $cat[0]['cat_id'];
 
         $sql = 'SELECT attr_id, attr_name, attr_input_type, attr_type, attr_values, attr_index, sort_order ' .
-                ' FROM ' . $GLOBALS['ecs']->table('attribute') . ' AS a ' .
-                ' WHERE a.attr_index > 0 ' . $where .
-                ' ORDER BY cat_id, sort_order ASC';
+            ' FROM ' . $GLOBALS['ecs']->table('attribute') . ' AS a ' .
+            ' WHERE a.attr_index > 0 ' . $where .
+            ' ORDER BY cat_id, sort_order ASC';
         $res = $GLOBALS['db']->query($sql);
 
         while ($row = $GLOBALS['db']->FetchRow($res)) {

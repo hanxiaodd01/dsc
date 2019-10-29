@@ -3,7 +3,7 @@
 require 'php/config.php';
 
 if (!$enable) {
-	exit('没有编辑器使用权限');
+    exit('没有编辑器使用权限');
 }
 
 $lang = ($_CFG['lang'] == 'en_us' ? 'en' : 'zh-cn');

@@ -3,12 +3,12 @@
 $url = $_SERVER['REQUEST_URI'];
 
 if (substr($url, 0, 7) !== 'http://') {
-	$url = 'http://' . $_SERVER['HTTP_HOST'];
-	if (isset($_SERVER['SERVER_PORT']) && ($_SERVER['SERVER_PORT'] != 80)) {
-		$url .= ':' . $_SERVER['SERVER_PORT'];
-	}
+    $url = 'http://' . $_SERVER['HTTP_HOST'];
+    if (isset($_SERVER['SERVER_PORT']) && ($_SERVER['SERVER_PORT'] != 80)) {
+        $url .= ':' . $_SERVER['SERVER_PORT'];
+    }
 
-	$url .= $_SERVER['REQUEST_URI'];
+    $url .= $_SERVER['REQUEST_URI'];
 }
 
 echo "<style type=\"text/css\">\nli\n{ font-size: 10pt; }\n\ninput, textarea, select\n{\n    border: dashed 1mm red;\n    background: #FCC;\n    color: #400;\n    text-align: left;\n    font-size: 11pt;\n}\n</style>\n<page footer=\"form\">\n    <h1>Test de formulaire</h1><br>\n    <br>\n    <form action=\"";

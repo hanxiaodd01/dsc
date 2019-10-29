@@ -11,11 +11,11 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: yto.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 
-$_LANG['yunda']          = '韵达速递';
+$_LANG['yunda'] = '韵达速递';
 //$_LANG['yunda_desc']     = '首重为5元/KG，续重为5元/KG。';
-$_LANG['yunda_desc']     = '<a href="http://www.yundaex.com" target="_blank">http://www.yundaex.com</a>';
+$_LANG['yunda_desc'] = '<a href="http://www.yundaex.com" target="_blank">http://www.yundaex.com</a>';
 $_LANG['item_fee'] = '单件商品费用：';
 $_LANG['base_fee'] = '首重1KG以内费用';
 $_LANG['step_fee'] = '续重每1KG或其零数的费用';

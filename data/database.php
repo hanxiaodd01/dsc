@@ -9,16 +9,16 @@ $db_host_conf = isset($db_hosts[0]) ? $db_hosts[0] : 'localhost';
 $db_port_conf = isset($db_hosts[1]) ? $db_hosts[1] : '3306';
 
 $capsule->addConnection([
-    'driver'    => 'mysql',
-    'host'      => $db_host_conf,
-    'port'      => $db_port_conf,
-    'database'  => $db_name,
-    'username'  => $db_user,
-    'password'  => $db_pass,
-    'charset'   => 'utf8',
+    'driver' => 'mysql',
+    'host' => $db_host_conf,
+    'port' => $db_port_conf,
+    'database' => $db_name,
+    'username' => $db_user,
+    'password' => $db_pass,
+    'charset' => 'utf8',
     'collation' => 'utf8_unicode_ci',
-    'prefix'    => $prefix,
-    'strict'    => false,
+    'prefix' => $prefix,
+    'strict' => false,
 ]);
 
 try {

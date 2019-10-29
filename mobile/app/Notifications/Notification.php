@@ -4,11 +4,11 @@ namespace App\Notifications;
 
 abstract class Notification
 {
-	protected $via = array();
+    protected $via = array();
 
-	public function send()
-	{
-		foreach ($this->via as $via) {
-		}
-	}
+    public function send()
+    {
+        foreach ($this->via as $via) {
+        }
+    }
 }

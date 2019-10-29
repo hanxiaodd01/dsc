@@ -11,11 +11,11 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: yto.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 
-$_LANG['yto']          = '圆通速递';
+$_LANG['yto'] = '圆通速递';
 //$_LANG['yto_desc']     = '上海圆通物流（速递）有限公司经过多年的网络快速发展，在中国速递行业中一直处于领先地位。为了能更好的发展国际快件市场，加快与国际市场的接轨，强化圆通的整体实力，圆通已在东南亚、欧美、中东、北美洲、非洲等许多城市运作国际快件业务';
-$_LANG['yto_desc']     = '<a href="http://www.yto.net.cn" target="_blank">http://www.yto.net.cn</a>';
+$_LANG['yto_desc'] = '<a href="http://www.yto.net.cn" target="_blank">http://www.yto.net.cn</a>';
 $_LANG['item_fee'] = '单件商品费用';
 $_LANG['base_fee'] = '首重1KG以内费用';
 $_LANG['step_fee'] = '续重每1KG或其零数的费用';

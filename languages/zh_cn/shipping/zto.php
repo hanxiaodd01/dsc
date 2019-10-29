@@ -11,11 +11,11 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: zto.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 
-$_LANG['zto']          = '中通速递';
+$_LANG['zto'] = '中通速递';
 //$_LANG['zto_desc']     = '中通快递的相关说明。保价费按照申报价值的2％交纳，但是，保价费不低于100元，保价金额不得高于10000元，保价金额超过10000元的，超过的部分无效';
-$_LANG['zto_desc']     = '<a href="http://www.zto.cn" target="_blank">http://www.zto.cn</a>';
+$_LANG['zto_desc'] = '<a href="http://www.zto.cn" target="_blank">http://www.zto.cn</a>';
 $_LANG['item_fee'] = '单件商品费用';
 $_LANG['base_fee'] = '首重1KG以内费用';
 $_LANG['step_fee'] = '续重每1KG或其零数的费用';

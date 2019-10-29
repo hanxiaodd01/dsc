@@ -2,9 +2,9 @@
 //多点乐资源
 function customSetup($barcode, $get)
 {
-	if (isset($get['start'])) {
-		$barcode->setStart($get['start'] === 'NULL' ? NULL : $get['start']);
-	}
+    if (isset($get['start'])) {
+        $barcode->setStart($get['start'] === 'NULL' ? null : $get['start']);
+    }
 }
 
 $classFile = 'BCGgs1128.barcode.php';

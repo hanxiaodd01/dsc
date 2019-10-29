@@ -11,7 +11,7 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: calendar.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 $_LANG['Coupon_redemption_task'] = "领券中心-任务集市";
 $_LANG['Coupon_redemption_failure'] = "领取失败,券已经被领完了";
 $_LANG['Coupon_redemption_limit'] = "领取失败,您已经领取过该券了!每人限领取 %s 张";
@@ -32,14 +32,14 @@ $_LANG['remaining'] = '剩余';
 $_LANG['Coupon_kill'] = '优惠券秒杀';
 $_LANG['pic_kill_goods'] = '秒杀商品图';
 $_LANG['page_title_Coupon'] = "首页-领券中心";
-$_LANG['consumption_full'] = "消费满"; 
+$_LANG['consumption_full'] = "消费满";
 $_LANG['available_full'] = "元可用";
 $_LANG['Activities_end'] = "活动已抢完";
 $_LANG['receive_now'] = "立即领取";
 $_LANG['redemption_task'] = "任务集市";
 $_LANG['coupons_prompt'] = "买好货送实惠";
 $_LANG['always_you'] = "总有你想要的";
-$_LANG['full'] = "满"; 
+$_LANG['full'] = "满";
 $_LANG['permissions_buy'] = "仅可购买指定商品";
 $_LANG['category'] = '全品类';
 $_LANG['Take_up'] = "已抢完";

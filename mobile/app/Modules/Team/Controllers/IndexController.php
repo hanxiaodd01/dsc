@@ -50,7 +50,7 @@ class IndexController extends FrontendController
         $this->display();
     }
 
-     /**
+    /**
      * 拼团频道
      */
     public function actionList()
@@ -164,7 +164,8 @@ class IndexController extends FrontendController
     {
         $this->init_params();
         if (IS_AJAX) {
-            $goods_list = team_category_goods($this->tc_id, $this->keywords, $this->size, $this->page, $this->intro, $this->sort, $this->order, $this->brand, $this->price_min, $this->price_max);
+            $goods_list = team_category_goods($this->tc_id, $this->keywords, $this->size, $this->page, $this->intro,
+                $this->sort, $this->order, $this->brand, $this->price_min, $this->price_max);
             exit(json_encode(array('list' => $goods_list['list'], 'totalPage' => $goods_list['totalpage'])));
         }
         // 获取频道名称
@@ -225,7 +226,12 @@ class IndexController extends FrontendController
                 /**
                  * 处理关键字查询次数
                  */
-                $data = array('date' => local_date('Y-m-d'), 'searchengine' => 'ECTouch', 'keyword' => addslashes(str_replace('%', '', $val)), 'count' => 1);
+                $data = array(
+                    'date' => local_date('Y-m-d'),
+                    'searchengine' => 'ECTouch',
+                    'keyword' => addslashes(str_replace('%', '', $val)),
+                    'count' => 1
+                );
                 $condition['date'] = local_date('Y-m-d');
                 $condition['searchengine'] = 'ECTouch';
                 $condition['keyword'] = addslashes(str_replace('%', '', $val));
@@ -296,7 +302,8 @@ class IndexController extends FrontendController
         $goods_display = I('request.display');
         $this->sort = in_array($goods_sort, $sort_array) ? $goods_sort : $default_sort_order_type;
         $this->order = in_array($goods_order, $order_array) ? $goods_order : $default_sort_order_method;
-        $this->display = in_array($goods_display, $display_array) ? $goods_display : (isset($_COOKIE['ECS']['display']) ? $_COOKIE['ECS']['display'] : $default_display_type);
+        $this->display = in_array($goods_display,
+            $display_array) ? $goods_display : (isset($_COOKIE['ECS']['display']) ? $_COOKIE['ECS']['display'] : $default_display_type);
         cookie('ECS[display]', $this->display);
         //ecmoban模板堂 --zhuo start
         $sql = "select parent_id from " . $this->ecs->table('category') . " where cat_id = '$this->cat_id'";
@@ -389,12 +396,18 @@ class IndexController extends FrontendController
                 $dx = $price_grade;
             }
 
-            for ($i = 1; $row['min'] > $dx * $i; $i++) ;
+            for ($i = 1; $row['min'] > $dx * $i; $i++) {
+                ;
+            }
 
-            for ($j = 1; $row['min'] > $dx * ($i - 1) + $price_grade * $j; $j++) ;
+            for ($j = 1; $row['min'] > $dx * ($i - 1) + $price_grade * $j; $j++) {
+                ;
+            }
             $row['min'] = $dx * ($i - 1) + $price_grade * ($j - 1);
 
-            for (; $row['max'] >= $dx * $i; $i++) ;
+            for (; $row['max'] >= $dx * $i; $i++) {
+                ;
+            }
             $row['max'] = $dx * ($i) + $price_grade * ($j - 1);
 
             $sql = "SELECT (FLOOR((IF(g.model_price < 1, g.shop_price, IF(g.model_price < 2, wg.warehouse_price, wag.region_price)) - $row[min]) / $dx)) AS sn, COUNT(*) AS goods_num  " .
@@ -412,7 +425,13 @@ class IndexController extends FrontendController
                     $price_grade[$temp_key]['price_range'] = $price_grade[$temp_key]['start'] . '&nbsp;-&nbsp;' . $price_grade[$temp_key]['end'];
                     $price_grade[$temp_key]['formated_start'] = price_format($price_grade[$temp_key]['start']);
                     $price_grade[$temp_key]['formated_end'] = price_format($price_grade[$temp_key]['end']);
-                    $price_grade[$temp_key]['url'] = build_uri('category', array('id' => $this->cat_id, 'bid' => $this->brand, 'price_min' => $price_grade[$temp_key]['start'], 'price_max' => $price_grade[$temp_key]['end'], 'filter_attr' => $filter_attr_str), $this->cat['cat_name']);
+                    $price_grade[$temp_key]['url'] = build_uri('category', array(
+                        'id' => $this->cat_id,
+                        'bid' => $this->brand,
+                        'price_min' => $price_grade[$temp_key]['start'],
+                        'price_max' => $price_grade[$temp_key]['end'],
+                        'filter_attr' => $filter_attr_str
+                    ), $this->cat['cat_name']);
 
                     /* 判断价格区间是否被选中 */
                     if (isset($_REQUEST['price_min']) && $price_grade[$temp_key]['start'] == $this->price_min && $price_grade[$temp_key]['end'] == $this->price_max) {

@@ -4,19 +4,19 @@ namespace App\Custom\Site\Controllers;
 
 class SendController extends \App\Modules\Site\Controllers\IndexController
 {
-	public function actionTest()
-	{
-		$message = array('code' => '1234', 'product' => 'sitename');
-		$res = send_sms('10086', 'sms_signin', $message);
+    public function actionTest()
+    {
+        $message = array('code' => '1234', 'product' => 'sitename');
+        $res = send_sms('10086', 'sms_signin', $message);
 
-		if ($res !== true) {
-			exit($res);
-		}
+        if ($res !== true) {
+            exit($res);
+        }
 
-		$res = send_mail('xxx', 'admin@admin.com', 'title', 'content');
+        $res = send_mail('xxx', 'admin@admin.com', 'title', 'content');
 
-		if ($res !== true) {
-			exit($res);
-		}
-	}
+        if ($res !== true) {
+            exit($res);
+        }
+    }
 }

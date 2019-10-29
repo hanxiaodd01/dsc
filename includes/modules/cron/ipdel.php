@@ -1,27 +1,27 @@
 <?php
 //多点乐资源
 if (!defined('IN_ECS')) {
-	exit('Hacking attempt');
+    exit('Hacking attempt');
 }
 
 $cron_lang = ROOT_PATH . 'languages/' . $GLOBALS['_CFG']['lang'] . '/cron/ipdel.php';
 
 if (file_exists($cron_lang)) {
-	global $_LANG;
-	include_once $cron_lang;
+    global $_LANG;
+    include_once $cron_lang;
 }
 
 if (isset($set_modules) && ($set_modules == true)) {
-	$i = (isset($modules) ? count($modules) : 0);
-	$modules[$i]['code'] = basename(__FILE__, '.php');
-	$modules[$i]['desc'] = 'ipdel_desc';
-	$modules[$i]['author'] = 'ECSHOP TEAM';
-	$modules[$i]['website'] = 'http://www.ecmoban.com';
-	$modules[$i]['version'] = '1.0.0';
-	$modules[$i]['config'] = array(
-	array('name' => 'ipdel_day', 'type' => 'select', 'value' => '30')
-	);
-	return NULL;
+    $i = (isset($modules) ? count($modules) : 0);
+    $modules[$i]['code'] = basename(__FILE__, '.php');
+    $modules[$i]['desc'] = 'ipdel_desc';
+    $modules[$i]['author'] = 'ECSHOP TEAM';
+    $modules[$i]['website'] = 'http://www.ecmoban.com';
+    $modules[$i]['version'] = '1.0.0';
+    $modules[$i]['config'] = array(
+        array('name' => 'ipdel_day', 'type' => 'select', 'value' => '30')
+    );
+    return null;
 }
 
 empty($cron['ipdel_day']) && $cron['ipdel_day'] = 7;

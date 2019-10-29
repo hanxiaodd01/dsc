@@ -1,7 +1,7 @@
 <?php
 //zend by 多点乐  禁止倒卖 一经发现停止任何服务
 if (!defined('IN_ECS')) {
-	exit('Hacking attempt');
+    exit('Hacking attempt');
 }
 
 $purview['set_gcolor'] = 'set_gcolor';
@@ -53,11 +53,11 @@ $purview['16_presale'] = 'presale';
 $purview['17_coupons'] = 'coupons_manage';
 
 if (file_exists(MOBILE_TEAM)) {
-	$purview['18_team'] = 'team_manage';
+    $purview['18_team'] = 'team_manage';
 }
 
 if (file_exists(MOBILE_BARGAIN)) {
-	$purview['19_bargain'] = 'bargain_manage';
+    $purview['19_bargain'] = 'bargain_manage';
 }
 
 $purview['02_articlecat_list'] = 'article_cat';
@@ -79,16 +79,15 @@ $purview['01_admin_list'] = array('admin_manage', 'admin_drop', 'allot_priv');
 $purview['02_admin_seller'] = array('seller_manage', 'seller_drop', 'seller_allot');
 
 if (is_dir(MOBILE_KEFU)) {
-	$purview['services_list'] = 'services_list';
+    $purview['services_list'] = 'services_list';
 }
 
 $purview['agency_list'] = 'agency_manage';
 
 if (judge_supplier_enabled()) {
-	$purview['01_suppliers_list'] = 'suppliers_manage';
-}
-else {
-	$purview['suppliers_list'] = 'suppliers_manage';
+    $purview['01_suppliers_list'] = 'suppliers_manage';
+} else {
+    $purview['suppliers_list'] = 'suppliers_manage';
 }
 
 $purview['admin_role'] = 'role_manage';
@@ -189,32 +188,32 @@ $purview['12_offline_store'] = 'offline_store';
 $purview['2_order_stats'] = 'offline_store';
 
 
-	$purview['01_wxapp_wechat_config'] = 'wxapp_wechat_config';
-	$purview['02_wxapp_wechat_template'] = 'wxapp_template';
+$purview['01_wxapp_wechat_config'] = 'wxapp_wechat_config';
+$purview['02_wxapp_wechat_template'] = 'wxapp_template';
 
 if (file_exists(MOBILE_DRP)) {
-	$purview['01_drp_config'] = 'drp_config';
-	$purview['02_drp_shop'] = 'drp_shop';
-	$purview['03_drp_list'] = 'drp_list';
-	$purview['04_drp_order_list'] = 'drp_order_list';
-	$purview['05_drp_set_config'] = 'drp_set_config';
+    $purview['01_drp_config'] = 'drp_config';
+    $purview['02_drp_shop'] = 'drp_shop';
+    $purview['03_drp_list'] = 'drp_list';
+    $purview['04_drp_order_list'] = 'drp_order_list';
+    $purview['05_drp_set_config'] = 'drp_set_config';
 }
 if (file_exists(MOBILE_WECHAT)) {
-	$purview['01_wechat_admin'] = 'wechat_admin';
-	$purview['02_mass_message'] = 'mass_message';
-	$purview['03_auto_reply'] = 'auto_reply';
-	$purview['04_menu'] = 'menu';
-	$purview['05_fans'] = 'fans';
-	$purview['06_media'] = 'media';
-	$purview['07_qrcode'] = 'qrcode';
-	$purview['09_extend'] = 'extend';
-	$purview['10_market'] = 'market';
+    $purview['01_wechat_admin'] = 'wechat_admin';
+    $purview['02_mass_message'] = 'mass_message';
+    $purview['03_auto_reply'] = 'auto_reply';
+    $purview['04_menu'] = 'menu';
+    $purview['05_fans'] = 'fans';
+    $purview['06_media'] = 'media';
+    $purview['07_qrcode'] = 'qrcode';
+    $purview['09_extend'] = 'extend';
+    $purview['10_market'] = 'market';
 }
 
 if (!judge_supplier_enabled()) {
-	$purview['supply_and_demand'] = 'supply_and_demand';
-	$purview['02_wholesale_order'] = 'wholesale_order';
-	$purview['01_wholesale'] = 'whole_sale';
+    $purview['supply_and_demand'] = 'supply_and_demand';
+    $purview['02_wholesale_order'] = 'wholesale_order';
+    $purview['01_wholesale'] = 'whole_sale';
 }
 
 $purview['04_goods_lib_list'] = 'goods_lib_list';

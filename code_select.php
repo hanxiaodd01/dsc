@@ -2,22 +2,22 @@
 //zend by 商创商城  禁止倒卖 一经发现停止任何服务
 function createParam($paramArr, $showapi_secret)
 {
-	$paraStr = '';
-	$signStr = '';
-	ksort($paramArr);
+    $paraStr = '';
+    $signStr = '';
+    ksort($paramArr);
 
-	foreach ($paramArr as $key => $val) {
-		if ($key != '' && $val != '') {
-			$signStr .= $key . $val;
-			$paraStr .= $key . '=' . urlencode($val) . '&';
-		}
-	}
+    foreach ($paramArr as $key => $val) {
+        if ($key != '' && $val != '') {
+            $signStr .= $key . $val;
+            $paraStr .= $key . '=' . urlencode($val) . '&';
+        }
+    }
 
-	$signStr .= $showapi_secret;
-	$sign = strtolower(md5($signStr));
-	$paraStr .= 'showapi_sign=' . $sign;
-	echo $_LANG['sort_parameter'] . $signStr . "<br>\r\n";
-	return $paraStr;
+    $signStr .= $showapi_secret;
+    $sign = strtolower(md5($signStr));
+    $paraStr .= 'showapi_sign=' . $sign;
+    echo $_LANG['sort_parameter'] . $signStr . "<br>\r\n";
+    return $paraStr;
 }
 
 header('Content-Type:text/html;charset=UTF-8');

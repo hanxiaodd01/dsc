@@ -21,5 +21,4 @@ $_LANG['please_select_group'] = '请选择配件';
 $_LANG['group_max_number'] = '不能超出套餐组最大限购数量';
 
 
-
 return $_LANG;

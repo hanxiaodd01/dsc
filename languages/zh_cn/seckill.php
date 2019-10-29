@@ -11,7 +11,7 @@
  * ============================================================================
  * $Author: liu $
  * $Id: calendar.php 17217 2017-03-13 11:16:08Z liu $
-*/
+ */
 $_LANG['seckill'] = "秒杀";
 $_LANG['Group_purchase_title'] = "精品质 惠生活";
 $_LANG['day'] = '天';
@@ -43,11 +43,11 @@ $_LANG['captcha_comment'] = '发表评论';
 $_LANG['Rate_praise'] = '好评率';
 $_LANG['Rate'] = '好评';
 $_LANG['zhong_p'] = '中评';
-$_LANG['Bad'] = '差评'; 
+$_LANG['Bad'] = '差评';
 $_LANG['go_see'] = "去看看";
 $_LANG['Buyer_impression'] = '买家印象';
 $_LANG['default'] = "默认";
-$_LANG['Newest'] = "最新"; 
+$_LANG['Newest'] = "最新";
 $_LANG['Comment_number'] = "评论数";
 $_LANG['Activity_name'] = "活动名称";
 $_LANG['people_participate'] = "人已参加";
@@ -78,7 +78,7 @@ $_LANG['login_please'] = "请先登录";
 $_LANG['js_languages']['see_store'] = '查看门店';
 $_LANG['js_languages']['Purchase_quantity'] = '超过限购数量';
 $_LANG['js_languages']['shiping_prompt'] = "暂不支持配送";
-$_LANG['js_languages']['Have_goods'] = "有货"; 
+$_LANG['js_languages']['Have_goods'] = "有货";
 $_LANG['js_languages']['No_goods'] = "无货";
 $_LANG['js_languages']['Deliver_back_order'] = "下单后立即发货";
 $_LANG['js_languages']['goods_over'] = "此商品暂时售完";
@@ -89,7 +89,7 @@ $_LANG['js_languages']['Already_buy'] = '已购买';
 $_LANG['js_languages']['Already_buy_two'] = '件商品达到限购条件,无法再购买';
 $_LANG['js_languages']['bid_prompt_error'] = '价格输入格式不正确！';
 $_LANG['js_languages']['mobile_error_goods'] = '&nbsp;&nbsp;手机格式不正确！';
-$_LANG['js_languages']['null_email_goods'] = '邮箱不能为空'; 
+$_LANG['js_languages']['null_email_goods'] = '邮箱不能为空';
 
 $_LANG['js_languages']['common']['Stock_goods_null'] = "您秒杀的商品暂时缺货，请耐心等待！";
 $_LANG['buy_error'] = "很抱歉，您秒杀的商品暂时缺货，请及时联系客服！";

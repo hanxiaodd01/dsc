@@ -74,7 +74,8 @@ class Zjd extends PluginController
             $articles = array();
             $articles['type'] = 'news';
             $articles['content'][0]['Title'] = $config['media']['title'];
-            $articles['content'][0]['Description'] = empty($config['media']['digest']) ? sub_str($config['media']['content'], 100) : $config['media']['digest'];
+            $articles['content'][0]['Description'] = empty($config['media']['digest']) ? sub_str($config['media']['content'],
+                100) : $config['media']['digest'];
             $articles['content'][0]['PicUrl'] = get_wechat_image_path($config['media']['file']);
             $articles['content'][0]['Url'] = html_out($config['media']['link']);
         }
@@ -159,7 +160,8 @@ class Zjd extends PluginController
         $sql_one = 'SELECT u.nickname, p.prize_name, p.id, p.winner  FROM {pre}wechat_prize p LEFT JOIN {pre}wechat_user u ON p.openid = u.openid WHERE p.wechat_id = "' . $this->wechat_id . '" and p.openid = "' . $openid . '"  and dateline between "' . $starttime . '" and "' . $endtime . '" and p.prize_type = 1 and p.activity_type = "' . $this->plugin_name . '" ORDER BY dateline desc limit 1';
         $list_oneself = $GLOBALS['db']->query($sql_one);
         if (!empty($list_oneself)) {
-            $list_oneself[0]['winner_url'] = url('wechat/index/plugin_action', array('name' => $this->plugin_name, 'id' => $list_oneself[0]['id'], 'ru_id' => $this->ru_id));
+            $list_oneself[0]['winner_url'] = url('wechat/index/plugin_action',
+                array('name' => $this->plugin_name, 'id' => $list_oneself[0]['id'], 'ru_id' => $this->ru_id));
         }
         $this->assign('list_oneself', $list_oneself);
 
@@ -205,7 +207,8 @@ class Zjd extends PluginController
             $winner['winner'] = serialize($data);
 
             dao('wechat_prize')->data($winner)->where(array('id' => $id, 'wechat_id' => $this->wechat_id))->save();
-            show_message('资料提交成功，请等待发放奖品', '继续抽奖', url('wechat/index/plugin_show', array('name' => $this->plugin_name, 'ru_id' => $this->ru_id)));
+            show_message('资料提交成功，请等待发放奖品', '继续抽奖',
+                url('wechat/index/plugin_show', array('name' => $this->plugin_name, 'ru_id' => $this->ru_id)));
             exit();
         }
         // 获奖用户资料填写页面
@@ -221,7 +224,13 @@ class Zjd extends PluginController
             }
             $rs = dao('wechat_prize')
                 ->field('winner,issue_status')
-                ->where(array('openid' => $openid, 'id' => $id, 'wechat_id' => $this->wechat_id, 'prize_type' => 1, 'activity_type' => $this->plugin_name))
+                ->where(array(
+                    'openid' => $openid,
+                    'id' => $id,
+                    'wechat_id' => $this->wechat_id,
+                    'prize_type' => 1,
+                    'activity_type' => $this->plugin_name
+                ))
                 ->find();
             $winner_result = array();
 
@@ -341,7 +350,11 @@ class Zjd extends PluginController
                 foreach ($prize as $key => $val) {
                     // 删除数量不足的奖品
                     $count = dao('wechat_prize')
-                        ->where(array('wechat_id' => $this->wechat_id, 'prize_name' => $val['prize_name'], 'activity_type' => $this->plugin_name))
+                        ->where(array(
+                            'wechat_id' => $this->wechat_id,
+                            'prize_name' => $val['prize_name'],
+                            'activity_type' => $this->plugin_name
+                        ))
                         ->count();
                     if ($count >= $val['prize_count']) {
                         unset($prize[$key]);
@@ -379,17 +392,26 @@ class Zjd extends PluginController
                 $id = dao('wechat_prize')->data($data)->add();
 
                 //参与人数增加
-                $extend_cfg = dao('wechat_extend')->where(array('wechat_id' => $this->wechat_id, 'command' => $this->plugin_name, 'enable' => 1))->getField('config');
+                $extend_cfg = dao('wechat_extend')->where(array(
+                    'wechat_id' => $this->wechat_id,
+                    'command' => $this->plugin_name,
+                    'enable' => 1
+                ))->getField('config');
                 if ($extend_cfg) {
                     $cfg_new = unserialize($extend_cfg);
                 }
                 $cfg_new['people_num'] = $cfg_new['people_num'] + 1;
                 $cfg['config'] = serialize($cfg_new);
-                dao('wechat_extend')->where(array('wechat_id' => $this->wechat_id, 'command' => $this->plugin_name, 'enable' => 1))->data($cfg)->save();
+                dao('wechat_extend')->where(array(
+                    'wechat_id' => $this->wechat_id,
+                    'command' => $this->plugin_name,
+                    'enable' => 1
+                ))->data($cfg)->save();
 
                 if ($level != $lastarr['prize_level'] && !empty($id)) {
                     // 获奖链接
-                    $rs['link'] = url('wechat/index/plugin_action', array('name' => $this->plugin_name, 'id' => $id, 'ru_id' => $this->ru_id));
+                    $rs['link'] = url('wechat/index/plugin_action',
+                        array('name' => $this->plugin_name, 'id' => $id, 'ru_id' => $this->ru_id));
                     $rs['link'] = str_replace('&amp;', '&', $rs['link']);
                 }
             }
@@ -420,7 +442,11 @@ class Zjd extends PluginController
         }
         $this->wechat_id = dao('wechat')->where($map)->getField('id');
         if (!empty($this->wechat_id)) {
-            $plugin_config = dao('wechat_extend')->field('name, command, config')->where(array('wechat_id' => $this->wechat_id, 'command' => $code, 'enable' => 1))->find();
+            $plugin_config = dao('wechat_extend')->field('name, command, config')->where(array(
+                'wechat_id' => $this->wechat_id,
+                'command' => $code,
+                'enable' => 1
+            ))->find();
             if (!empty($plugin_config)) {
                 $config = unserialize($plugin_config['config']);
                 $config['name'] = $plugin_config['name'];

@@ -49,9 +49,9 @@ class IndexController extends FrontendController
                 $arr[$key]['bargain_name'] = $val['bargain_name'];
                 $arr[$key]['shop_price'] = price_format($val['shop_price']);
                 $target_price = get_bargain_target_price($val['id']);
-                if($target_price){
+                if ($target_price) {
                     $arr[$key]['target_price'] = price_format($target_price);
-                }else{
+                } else {
                     $arr[$key]['target_price'] = price_format($val['target_price']);
                 }
                 $arr[$key]['goods_img'] = get_image_path($val['goods_img']);

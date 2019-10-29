@@ -11,12 +11,12 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: calendar.php 17217 2011-01-19 06:29:08Z liubo $20161214
-*/
+ */
 $_LANG['Selected_condition'] = "已选条件";
 $_LANG['All_undo'] = "全部撤销";
 $_LANG['Other'] = '其他';
 $_LANG['close'] = '关闭';
-$_LANG['multi_select'] = '多选'; 
+$_LANG['multi_select'] = '多选';
 $_LANG['Min_price'] = "最低价";
 $_LANG['Max_price'] = "最高价";
 $_LANG['More_options'] = "更多选项";

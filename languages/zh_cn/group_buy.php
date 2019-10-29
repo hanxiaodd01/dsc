@@ -11,7 +11,7 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: calendar.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 $_LANG['summary_phone'] = '手机购买';
 $_LANG['Group_purchase'] = "团购";
 $_LANG['group_buy_price'] = "团购价";
@@ -42,11 +42,11 @@ $_LANG['captcha_comment'] = '发表评论';
 $_LANG['Rate_praise'] = '好评率';
 $_LANG['Rate'] = '好评';
 $_LANG['zhong_p'] = '中评';
-$_LANG['Bad'] = '差评'; 
+$_LANG['Bad'] = '差评';
 $_LANG['go_see'] = "去看看";
 $_LANG['Buyer_impression'] = '买家印象';
 $_LANG['default'] = "默认";
-$_LANG['Newest'] = "最新"; 
+$_LANG['Newest'] = "最新";
 $_LANG['Comment_number'] = "评论数";
 $_LANG['Activity_name'] = "活动名称";
 $_LANG['people_participate'] = "人已参加";
@@ -62,7 +62,7 @@ $_LANG['all_group_buy'] = "全部团购";
 $_LANG['other_group_buy'] = "其他团购";
 
 $_LANG['js_languages']['shiping_prompt'] = "暂不支持配送";
-$_LANG['js_languages']['Have_goods'] = "有货"; 
+$_LANG['js_languages']['Have_goods'] = "有货";
 $_LANG['js_languages']['No_goods'] = "无货";
 $_LANG['js_languages']['Deliver_back_order'] = "下单后立即发货";
 $_LANG['js_languages']['goods_over'] = "此商品暂时售完";

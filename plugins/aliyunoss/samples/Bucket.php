@@ -2,108 +2,101 @@
 //多点乐资源
 function createBucket($ossClient, $bucket)
 {
-	try {
-		$ossClient->createBucket($bucket, \OSS\OssClient::OSS_ACL_TYPE_PUBLIC_READ_WRITE);
-	}
-	catch (\OSS\Core\OssException $e) {
-		printf('createBucket' . ": FAILED\n");
-		printf($e->getMessage() . "\n");
-		return NULL;
-	}
+    try {
+        $ossClient->createBucket($bucket, \OSS\OssClient::OSS_ACL_TYPE_PUBLIC_READ_WRITE);
+    } catch (\OSS\Core\OssException $e) {
+        printf('createBucket' . ": FAILED\n");
+        printf($e->getMessage() . "\n");
+        return null;
+    }
 
-	print('createBucket' . ': OK' . "\n");
+    print('createBucket' . ': OK' . "\n");
 }
 
 function doesBucketExist($ossClient, $bucket)
 {
-	try {
-		$res = $ossClient->doesBucketExist($bucket);
-	}
-	catch (\OSS\Core\OssException $e) {
-		printf('doesBucketExist' . ": FAILED\n");
-		printf($e->getMessage() . "\n");
-		return NULL;
-	}
+    try {
+        $res = $ossClient->doesBucketExist($bucket);
+    } catch (\OSS\Core\OssException $e) {
+        printf('doesBucketExist' . ": FAILED\n");
+        printf($e->getMessage() . "\n");
+        return null;
+    }
 
-	if ($res === true) {
-		print('doesBucketExist' . ': OK' . "\n");
-	}
-	else {
-		print('doesBucketExist' . ': FAILED' . "\n");
-	}
+    if ($res === true) {
+        print('doesBucketExist' . ': OK' . "\n");
+    } else {
+        print('doesBucketExist' . ': FAILED' . "\n");
+    }
 }
 
 function deleteBucket($ossClient, $bucket)
 {
-	try {
-		$ossClient->deleteBucket($bucket);
-	}
-	catch (\OSS\Core\OssException $e) {
-		printf('deleteBucket' . ": FAILED\n");
-		printf($e->getMessage() . "\n");
-		return NULL;
-	}
+    try {
+        $ossClient->deleteBucket($bucket);
+    } catch (\OSS\Core\OssException $e) {
+        printf('deleteBucket' . ": FAILED\n");
+        printf($e->getMessage() . "\n");
+        return null;
+    }
 
-	print('deleteBucket' . ': OK' . "\n");
+    print('deleteBucket' . ': OK' . "\n");
 }
 
 function putBucketAcl($ossClient, $bucket)
 {
-	$acl = \OSS\OssClient::OSS_ACL_TYPE_PRIVATE;
+    $acl = \OSS\OssClient::OSS_ACL_TYPE_PRIVATE;
 
-	try {
-		$ossClient->putBucketAcl($bucket, $acl);
-	}
-	catch (\OSS\Core\OssException $e) {
-		printf('putBucketAcl' . ": FAILED\n");
-		printf($e->getMessage() . "\n");
-		return NULL;
-	}
+    try {
+        $ossClient->putBucketAcl($bucket, $acl);
+    } catch (\OSS\Core\OssException $e) {
+        printf('putBucketAcl' . ": FAILED\n");
+        printf($e->getMessage() . "\n");
+        return null;
+    }
 
-	print('putBucketAcl' . ': OK' . "\n");
+    print('putBucketAcl' . ': OK' . "\n");
 }
 
 function getBucketAcl($ossClient, $bucket)
 {
-	try {
-		$res = $ossClient->getBucketAcl($bucket);
-	}
-	catch (\OSS\Core\OssException $e) {
-		printf('getBucketAcl' . ": FAILED\n");
-		printf($e->getMessage() . "\n");
-		return NULL;
-	}
+    try {
+        $res = $ossClient->getBucketAcl($bucket);
+    } catch (\OSS\Core\OssException $e) {
+        printf('getBucketAcl' . ": FAILED\n");
+        printf($e->getMessage() . "\n");
+        return null;
+    }
 
-	print('getBucketAcl' . ': OK' . "\n");
-	print('acl: ' . $res);
+    print('getBucketAcl' . ': OK' . "\n");
+    print('acl: ' . $res);
 }
 
 function listBuckets($ossClient)
 {
-	$bucketList = NULL;
+    $bucketList = null;
 
-	try {
-		$bucketListInfo = $ossClient->listBuckets();
-	}
-	catch (\OSS\Core\OssException $e) {
-		printf('listBuckets' . ": FAILED\n");
-		printf($e->getMessage() . "\n");
-		return NULL;
-	}
+    try {
+        $bucketListInfo = $ossClient->listBuckets();
+    } catch (\OSS\Core\OssException $e) {
+        printf('listBuckets' . ": FAILED\n");
+        printf($e->getMessage() . "\n");
+        return null;
+    }
 
-	print('listBuckets' . ': OK' . "\n");
-	$bucketList = $bucketListInfo->getBucketList();
+    print('listBuckets' . ': OK' . "\n");
+    $bucketList = $bucketListInfo->getBucketList();
 
-	foreach ($bucketList as $bucket) {
-		print($bucket->getLocation() . '	' . $bucket->getName() . '	' . $bucket->getCreatedate() . "\n");
-	}
+    foreach ($bucketList as $bucket) {
+        print($bucket->getLocation() . '	' . $bucket->getName() . '	' . $bucket->getCreatedate() . "\n");
+    }
 }
 
 require_once __DIR__ . '/Common.php';
 $ossClient = Common::getOssClient();
 
 if (is_null($ossClient)) {
-	exit(1);
+    exit(1);
 }
 
 $bucket = Common::getBucketName();

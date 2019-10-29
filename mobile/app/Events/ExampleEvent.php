@@ -4,7 +4,7 @@ namespace App\Events;
 
 class ExampleEvent extends Event
 {
-	public function __construct()
-	{
-	}
+    public function __construct()
+    {
+    }
 }

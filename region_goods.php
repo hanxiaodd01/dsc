@@ -20,24 +20,22 @@ $user_address = get_user_address_region($user_id);
 $user_address = explode(',', $user_address['region_address']);
 
 if (in_array($parent, $user_address)) {
-	$arr['isRegion'] = 1;
-}
-else {
-	$arr['isRegion'] = 88;
-	$arr['message'] = $_LANG['region_message'];
-	$arr['province'] = $_COOKIE['province'];
-	$arr['city'] = $_COOKIE['city'];
+    $arr['isRegion'] = 1;
+} else {
+    $arr['isRegion'] = 88;
+    $arr['message'] = $_LANG['region_message'];
+    $arr['province'] = $_COOKIE['province'];
+    $arr['city'] = $_COOKIE['city'];
 }
 
 if (empty($arr['regions'])) {
-	$arr['empty_type'] = 1;
-}
-else {
-	$shipping_area = read_static_cache('shipping_area_' . $ru_id, 'data/sc_file/shiping_area/');
+    $arr['empty_type'] = 1;
+} else {
+    $shipping_area = read_static_cache('shipping_area_' . $ru_id, 'data/sc_file/shiping_area/');
 
-	foreach ($arr['regions'] as $k => $v) {
-		$arr['regions'][$k]['choosable'] = true;
-	}
+    foreach ($arr['regions'] as $k => $v) {
+        $arr['regions'][$k]['choosable'] = true;
+    }
 }
 
 $json = new JSON();

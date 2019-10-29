@@ -178,6 +178,6 @@ $_LANG['not_exist_address'] = '您没有此收货地址';
 $_LANG['edit_address'] = '修改收货地址';
 $_LANG['success_address'] = '添加收货地址成功';
 $_LANG['error_address'] = '添加收货地址失败';
-$_LANG['no_address']= '没有此收货地址';
+$_LANG['no_address'] = '没有此收货地址';
 $_LANG['stock_store_shortage'] = "非常抱歉，您选择的商品 %s 的门店库存数量只有 %d，您最多只能购买 %d 件。";
 return $_LANG;

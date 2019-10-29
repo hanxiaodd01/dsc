@@ -4,15 +4,15 @@ namespace App\Contracts\Services;
 
 interface CategoryServiceInterface
 {
-	public function create();
+    public function create();
 
-	public function get();
+    public function get();
 
-	public function update();
+    public function update();
 
-	public function delete();
+    public function delete();
 
-	public function search();
+    public function search();
 
-	public function category();
+    public function category();
 }

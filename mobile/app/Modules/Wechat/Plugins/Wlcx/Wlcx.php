@@ -54,7 +54,8 @@ class Wlcx extends PluginController
                     $articles['type'] = 'news';
                     $articles['content'][0]['Title'] = '物流信息';
                     $articles['content'][0]['Description'] = '快递公司：' . $order_arr[0]['shipping_name'] . "\r\n" . '物流单号：' . $order_arr[0]['invoice_no'];
-                    $articles['content'][0]['Url'] = __HOST__ . url('user/order/order_tracking', array('order_id' => $order_arr[0]['order_id']));
+                    $articles['content'][0]['Url'] = __HOST__ . url('user/order/order_tracking',
+                            array('order_id' => $order_arr[0]['order_id']));
                 }
             }
             // 积分赠送

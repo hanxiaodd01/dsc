@@ -3,4 +3,5 @@
 namespace App\Notifications;
 
 class UserForgotPassword
-{}
+{
+}

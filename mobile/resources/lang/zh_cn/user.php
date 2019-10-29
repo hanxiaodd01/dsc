@@ -9,7 +9,7 @@ $_LANG['shot_message'] = "短消息";
 
 //退换货 start
 $_LANG['return'] = '售后申请';
-$_LANG['user_return'] ='由用户寄回';
+$_LANG['user_return'] = '由用户寄回';
 $_LANG['get_goods'] = '退换商品已收到';
 $_LANG['send_alone'] = '换货商品寄出(分单)';
 $_LANG['send'] = '换货商品寄出';
@@ -23,16 +23,16 @@ $_LANG['return_info'] = '返回退换货信息';
 $_LANG['return_list_lnk'] = '我的售后申请';
 $_LANG['return_exist'] = '该订单不存在！';
 $_LANG['return_not_unconfirmed'] = '当前订单状态不是“用户寄回”。';
-$_LANG['current_os_already_receive'] ='商家已收到退换货商品';
-$_LANG['already_out_goods'] ='商家已发送出换货商品';
+$_LANG['current_os_already_receive'] = '商家已收到退换货商品';
+$_LANG['already_out_goods'] = '商家已发送出换货商品';
 $_LANG['have_refound'] = "商家已退款";
 
 $_LANG['rf'][RF_RETURNMON] = '仅退款';
 $_LANG['rf'][RF_APPLICATION] = '由用户寄回';
-$_LANG['rf'][RF_RECEIVE] =  '收到退换货';
-$_LANG['rf'][RF_SWAPPED_OUT_SINGLE] =  '换出商品寄出【分单】';
-$_LANG['rf'][RF_SWAPPED_OUT] =  '换出商品寄出';
-$_LANG['rf'][RF_COMPLETE] =  '完成';
+$_LANG['rf'][RF_RECEIVE] = '收到退换货';
+$_LANG['rf'][RF_SWAPPED_OUT_SINGLE] = '换出商品寄出【分单】';
+$_LANG['rf'][RF_SWAPPED_OUT] = '换出商品寄出';
+$_LANG['rf'][RF_COMPLETE] = '完成';
 $_LANG['ff'][FF_REFOUND] = '已退款';
 $_LANG['ff'][FF_NOREFOUND] = '未退款';
 $_LANG['return_info'] = "退换货申请已提交";
@@ -383,7 +383,7 @@ $_LANG['confirm_received'] = '你确认已经收到货物了吗？';
 
 /* 合并订单及订单详情 */
 $_LANG['merge_order_success'] = '合并的订单的操作已成功！';
-$_LANG['merge_order_failed']  = '合并的订单的操作失败！请返回重试！';
+$_LANG['merge_order_failed'] = '合并的订单的操作失败！请返回重试！';
 $_LANG['order_sn_not_null'] = '请填写要合并的订单号';
 $_LANG['two_order_sn_same'] = '要合并的两个订单号不能相同';
 $_LANG['order_not_exist'] = "订单 %s 不存在";
@@ -747,13 +747,13 @@ $_LANG['add_bonus'] = '添加优惠券';
 
 /* 密码找回问题 */
 $_LANG['passwd_questions']['friend_birthday'] = '我最好朋友的生日？';
-$_LANG['passwd_questions']['old_address']     = '我儿时居住地的地址？';
-$_LANG['passwd_questions']['motto']           = '我的座右铭是？';
-$_LANG['passwd_questions']['favorite_movie']  = '我最喜爱的电影？';
-$_LANG['passwd_questions']['favorite_song']   = '我最喜爱的歌曲？';
-$_LANG['passwd_questions']['favorite_food']   = '我最喜爱的食物？';
-$_LANG['passwd_questions']['interest']        = '我最大的爱好？';
-$_LANG['passwd_questions']['favorite_novel']  = '我最喜欢的小说？';
+$_LANG['passwd_questions']['old_address'] = '我儿时居住地的地址？';
+$_LANG['passwd_questions']['motto'] = '我的座右铭是？';
+$_LANG['passwd_questions']['favorite_movie'] = '我最喜爱的电影？';
+$_LANG['passwd_questions']['favorite_song'] = '我最喜爱的歌曲？';
+$_LANG['passwd_questions']['favorite_food'] = '我最喜爱的食物？';
+$_LANG['passwd_questions']['interest'] = '我最大的爱好？';
+$_LANG['passwd_questions']['favorite_novel'] = '我最喜欢的小说？';
 $_LANG['passwd_questions']['favorite_equipe'] = '我最喜欢的运动队？';
 
 $_LANG['forget_email_check'] = '用户名邮箱不匹配';

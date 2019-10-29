@@ -8,9 +8,9 @@ define('ROOT_PATH', str_replace('data/kuaidi_key.php', '', str_replace('\\', '/'
 $shop_config = ROOT_PATH . "temp/static_caches/shop_config.php";
 
 $key = 'a630e858517211a5';
-if(file_exists($shop_config)){
+if (file_exists($shop_config)) {
     include_once($shop_config);
-    if ($data !== false){
+    if ($data !== false) {
         $key = $data['kuaidi100_key'];
     }
 }

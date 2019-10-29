@@ -21,11 +21,11 @@ var $_LANG = {};
 ';
 
 foreach ($lang['js_languages'] as $key => $item) {
-	echo '$_LANG["';
-	echo $key;
-	echo '"] = "';
-	echo $item;
-	echo '";
+    echo '$_LANG["';
+    echo $key;
+    echo '"] = "';
+    echo $item;
+    echo '";
 ';
 }
 

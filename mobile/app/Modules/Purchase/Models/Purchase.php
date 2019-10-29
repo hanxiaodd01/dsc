@@ -6,10 +6,12 @@ use Think\Model;
 use App\Extensions\Scws4;
 use App\Models\WholesaleCat;
 
-class Purchase extends Model {
+class Purchase extends Model
+{
 
 
-    public static function get_banner ($id, $num){
+    public static function get_banner($id, $num)
+    {
         $time = gmtime();
 
         $arr = [
@@ -26,14 +28,15 @@ class Purchase extends Model {
             'ORDER BY rnd LIMIT ' . $arr['num'];
         $res = $GLOBALS['db']->GetAll($sql);
 
-        foreach ($res as $key=>$row) {
+        foreach ($res as $key => $row) {
             if ($row['position_id'] != $arr['id']) {
                 continue;
             }
 
             switch ($row['media_type']) {
-                case 0: 
-                    $src = (strpos($row['ad_code'], 'http://') === false && strpos($row['ad_code'], 'https://') === false) ?
+                case 0:
+                    $src = (strpos($row['ad_code'], 'http://') === false && strpos($row['ad_code'],
+                            'https://') === false) ?
                         get_data_path($row['ad_code'], 'afficheimg') : $row['ad_code'];
 
                     $ads[] = $src;
@@ -45,14 +48,15 @@ class Purchase extends Model {
     }
 
 
-    public static function get_wholesale_child_cat($cat_id = 0, $type = 0) {
+    public static function get_wholesale_child_cat($cat_id = 0, $type = 0)
+    {
         if ($cat_id > 0) {
 
             $parent_id = WholesaleCat::select('parent_id')
                 ->where('cat_id', $cat_id)
                 ->limit(1)
                 ->first();
-            if ( $parent_id != [] ) {
+            if ($parent_id != []) {
                 $parent_id = $parent_id->toArray();
                 $parent_id = $parent_id['parent_id'];
             }
@@ -60,20 +64,20 @@ class Purchase extends Model {
             $parent_id = 0;
         }
 
-        
+
         $cat_id = WholesaleCat::select('cat_id')
             ->where('parent_id', $parent_id)
             ->where('is_show', 1)
             ->limit(1)
             ->first();
-        if ( $cat_id != [] ) {
+        if ($cat_id != []) {
             $cat_id = $cat_id->toArray();
             $cat_id = $cat_id['cat_id'];
         }
-        
 
-        if ( !empty($cat_id) || $parent_id == 0) {
-            
+
+        if (!empty($cat_id) || $parent_id == 0) {
+
             $res = WholesaleCat::select('cat_id', 'cat_name', 'parent_id', 'is_show', 'style_icon')
                 ->where('parent_id', $parent_id)
                 ->where('is_show', 1)
@@ -90,7 +94,7 @@ class Purchase extends Model {
 
                 $cat_arr[$row['cat_id']]['url'] = url('purchase/index/list', ['id' => $row['cat_id']]);
 
-                if (isset($row['cat_id']) != NULL) {
+                if (isset($row['cat_id']) != null) {
                     $cat_arr[$row['cat_id']]['cat_id'] = self::get_wholesale_child_tree($row['cat_id']);
                 }
             }
@@ -99,13 +103,14 @@ class Purchase extends Model {
     }
 
 
-    private static function get_wholesale_child_tree($tree_id = 0, $ru_id = 0) {
+    private static function get_wholesale_child_tree($tree_id = 0, $ru_id = 0)
+    {
         $three_arr = [];
         $res = WholesaleCat::where('parent_id', $tree_id)
             ->where('is_show', 1)
             ->count();
 
-        if ( !empty($res) || $tree_id == 0 ) {
+        if (!empty($res) || $tree_id == 0) {
             $res = WholesaleCat::select('cat_id', 'cat_name', 'parent_id', 'is_show')
                 ->where('parent_id', $tree_id)
                 ->where('is_show', 1)
@@ -115,8 +120,9 @@ class Purchase extends Model {
                 ->toArray();
 
             foreach ($res AS $row) {
-                if ($row['is_show'])
+                if ($row['is_show']) {
                     $three_arr[$row['cat_id']]['id'] = $row['cat_id'];
+                }
                 $three_arr[$row['cat_id']]['name'] = $row['cat_name'];
 
                 if ($ru_id) {
@@ -134,7 +140,7 @@ class Purchase extends Model {
                     $three_arr[$row['cat_id']]['url'] = url('purchase/index/list', ['id' => $row['cat_id']]);
                 }
 
-                if (isset($row['cat_id']) != NULL) {
+                if (isset($row['cat_id']) != null) {
                     $three_arr[$row['cat_id']]['cat_id'] = self::get_wholesale_child_tree($row['cat_id']);
                 }
             }
@@ -143,7 +149,8 @@ class Purchase extends Model {
     }
 
 
-    public static function get_wholesale_limit() {
+    public static function get_wholesale_limit()
+    {
         $now = gmtime();
         $sql = "SELECT w.*, g.goods_name, g.goods_thumb, g.goods_img, MIN(wvp.volume_number) AS volume_number, MAX(wvp.volume_price) AS volume_price, g.goods_unit FROM " . $GLOBALS['ecs']->table('wholesale') . " AS w"
             . " LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " AS g ON w.goods_id = g.goods_id "
@@ -157,11 +164,11 @@ class Purchase extends Model {
             $res[$key]['goods_name'] = $row['goods_name'];
             $res[$key]['goods_price'] = $row['goods_price'];
             $res[$key]['moq'] = $row['moq'];
-            $res[$key]['volume_number'] = empty($row['volume_number']) ? $row['moq'] : $row['volume_number'] ;
-            $res[$key]['volume_price'] =empty($row['volume_price']) ? $row['goods_price'] : $row['volume_price'];
+            $res[$key]['volume_number'] = empty($row['volume_number']) ? $row['moq'] : $row['volume_number'];
+            $res[$key]['volume_price'] = empty($row['volume_price']) ? $row['goods_price'] : $row['volume_price'];
             $res[$key]['goods_unit'] = $row['goods_unit'];
             $res[$key]['thumb'] = get_image_path($row['goods_thumb'], true);
-            $res[$key]['goods_thumb'] =get_image_path($row['goods_thumb']);
+            $res[$key]['goods_thumb'] = get_image_path($row['goods_thumb']);
             $res[$key]['goods_img'] = get_image_path($row['goods_img']);
             $res[$key]['url'] = url('purchase/index/goods', ['id' => $row['act_id']]);
         }
@@ -170,7 +177,8 @@ class Purchase extends Model {
     }
 
 
-    public static function get_wholesale_cat() {
+    public static function get_wholesale_cat()
+    {
         $sql = "SELECT * FROM " . $GLOBALS['ecs']->table('wholesale_cat') . "WHERE parent_id = 0 ORDER BY sort_order ASC ";
         $cat_res = $GLOBALS['db']->getAll($sql);
 
@@ -183,7 +191,8 @@ class Purchase extends Model {
     }
 
 
-    public static function get_business_goods($cat_id) {
+    public static function get_business_goods($cat_id)
+    {
         $table = 'wholesale_cat';
         $type = 4;
         $children = get_children($cat_id, $type, 0, $table);
@@ -191,7 +200,8 @@ class Purchase extends Model {
         $sql = "SELECT w.*, g.goods_thumb, g.goods_img, MIN(wvp.volume_number) AS volume_number, MAX(wvp.volume_price) AS volume_price, g.goods_unit FROM " . $GLOBALS['ecs']->table('wholesale') . " AS w "
             . " LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " AS g ON w.goods_id = g.goods_id "
             . " LEFT JOIN " . $GLOBALS['ecs']->table('wholesale_volume_price') . " AS wvp ON wvp.goods_id = g.goods_id "
-            . " WHERE ($children OR " . self::get_wholesale_extension_goods($children, 'w.') . ") AND w.enabled = 1 AND w.review_status = 3 GROUP BY goods_id";
+            . " WHERE ($children OR " . self::get_wholesale_extension_goods($children,
+                'w.') . ") AND w.enabled = 1 AND w.review_status = 3 GROUP BY goods_id";
         $res = $GLOBALS['db']->getAll($sql);
         foreach ($res as $key => $row) {
             $res[$key]['goods_extend'] = self::get_wholesale_extend($row['goods_id']);
@@ -213,13 +223,15 @@ class Purchase extends Model {
     }
 
 
-    public static function get_wholesale_extend($goods_id) {
+    public static function get_wholesale_extend($goods_id)
+    {
 
         $extend_sql = "SELECT * FROM " . $GLOBALS['ecs']->table('wholesale_extend') . " WHERE goods_id = '$goods_id'";
         return $GLOBALS['db']->getRow($extend_sql);
     }
 
-    public static function get_wholesale_extension_goods($cats, $alias = 'w.') {
+    public static function get_wholesale_extension_goods($cats, $alias = 'w.')
+    {
         $extension_goods_array = '';
         $sql = 'SELECT goods_id FROM ' . $GLOBALS['ecs']->table('wholesale') . " AS w WHERE $cats";
         $extension_goods_array = $GLOBALS['db']->getCol($sql);
@@ -227,7 +239,8 @@ class Purchase extends Model {
         return db_create_in($extension_goods_array, $alias . 'goods_id');
     }
 
-    public static function get_sale($goods_id = 0) {
+    public static function get_sale($goods_id = 0)
+    {
         $sql = "SELECT SUM(og.goods_number) FROM " . $GLOBALS['ecs']->table('wholesale_order_info') . " AS oi "
             . " LEFT JOIN " . $GLOBALS['ecs']->table('wholesale_order_goods') . " AS og ON og.order_id = oi.order_id "
             . " WHERE oi.main_order_id > 0 AND oi.is_delete = 0 AND oi.main_order_id > 0 AND og.goods_id=" . $goods_id;
@@ -236,14 +249,16 @@ class Purchase extends Model {
     }
 
 
-    public static function getCatName ($cat_id) {
+    public static function getCatName($cat_id)
+    {
         $sql = " SELECT cat_name FROM " . $GLOBALS['ecs']->table('wholesale_cat') . " WHERE cat_id = '$cat_id' ";
-        $res =  $GLOBALS['db']->getOne($sql);
+        $res = $GLOBALS['db']->getOne($sql);
         return $res;
     }
 
 
-    public static function get_wholesale_list($cat_id, $size, $page) {
+    public static function get_wholesale_list($cat_id, $size, $page)
+    {
         $list = [];
         $where = " WHERE 1 ";
         $table = 'wholesale_cat';
@@ -253,7 +268,7 @@ class Purchase extends Model {
             $where .= " AND ($children OR " . self::get_wholesale_extension_goods($children) . ") ";
         }
 
-        $sqlFrom =  "FROM " . $GLOBALS['ecs']->table('wholesale') . " AS w, " .
+        $sqlFrom = "FROM " . $GLOBALS['ecs']->table('wholesale') . " AS w, " .
             $GLOBALS['ecs']->table('goods') . " AS g "
             . " LEFT JOIN " . $GLOBALS['ecs']->table('wholesale_volume_price') . " AS wvp ON wvp.goods_id = g.goods_id "
             . $where
@@ -261,22 +276,23 @@ class Purchase extends Model {
 
         $sql = "SELECT w.*, g.goods_thumb, g.user_id,g.goods_name as goods_name, g.shop_price, market_price, MIN(wvp.volume_number) AS volume_number, MAX(wvp.volume_price) AS volume_price " . $sqlFrom . " GROUP BY g.goods_id ";
 
-        $sqlCount = "SELECT COUNT('w') ".$sqlFrom;
+        $sqlCount = "SELECT COUNT('w') " . $sqlFrom;
 
         $count = $GLOBALS['db']->getOne($sqlCount);
         $res = $GLOBALS['db']->selectLimit($sql, $size, ($page - 1) * $size);
 
-        foreach ( $res as $row ) {
+        foreach ($res as $row) {
 
-            $row['goods_thumb'] = get_image_path($row['goods_thumb']); 
+            $row['goods_thumb'] = get_image_path($row['goods_thumb']);
 
 
-            $shop_information = get_shop_name($row['user_id']); 
-            $row['is_IM'] = empty($shop_information['is_im']) ? 0 : (int)$shop_information['is_im']; 
+            $shop_information = get_shop_name($row['user_id']);
+            $row['is_IM'] = empty($shop_information['is_im']) ? 0 : (int)$shop_information['is_im'];
 
             if ($row['user_id'] == 0) {
 
-                if ($GLOBALS['db']->getOne("SELECT kf_im_switch FROM " . $GLOBALS['ecs']->table('seller_shopinfo') . "WHERE ru_id = 0", true)) {
+                if ($GLOBALS['db']->getOne("SELECT kf_im_switch FROM " . $GLOBALS['ecs']->table('seller_shopinfo') . "WHERE ru_id = 0",
+                    true)) {
                     $row['is_dsc'] = true;
                 } else {
                     $row['is_dsc'] = false;
@@ -290,11 +306,11 @@ class Purchase extends Model {
             $properties = get_goods_properties($row['goods_id']);
             $row['goods_attr'] = $properties['pro'];
             $row['goods_sale'] = get_sale($row['goods_id']);
-            $row['goods_extend'] = get_wholesale_extend($row['goods_id']); 
-            $row['rz_shopName'] = get_shop_name($row['user_id'], 1); 
+            $row['goods_extend'] = get_wholesale_extend($row['goods_id']);
+            $row['rz_shopName'] = get_shop_name($row['user_id'], 1);
             $build_uri = [
-                'urid' 		=> $row['user_id'],
-                'append' 	=> $row['rz_shopName']
+                'urid' => $row['user_id'],
+                'append' => $row['rz_shopName']
             ];
 
             $domain_url = get_seller_domain_url($row['user_id'], $build_uri);
@@ -303,12 +319,12 @@ class Purchase extends Model {
             $row['market_price'] = price_format($row['market_price']);
             $list[] = $row;
         }
-        return ['list' => $list, 'totalPage' => ceil($count/$size)];
+        return ['list' => $list, 'totalPage' => ceil($count / $size)];
     }
 
 
-
-    public static function get_search_goods_list ($keyword, $page = 1, $size = 10) {
+    public static function get_search_goods_list($keyword, $page = 1, $size = 10)
+    {
 
         $keywords = '';
         $tag_where = '';
@@ -328,13 +344,17 @@ class Purchase extends Model {
                 $keywords .= " AND w.goods_name LIKE '%$val%' OR w.goods_price LIKE '%$val%' ";
 
                 $sql = 'SELECT DISTINCT goods_id FROM ' . $GLOBALS['ecs']->table('tag') . " WHERE tag_words LIKE '%$val%' ";
-                $res =  $GLOBALS['db']->query($sql);
+                $res = $GLOBALS['db']->query($sql);
                 foreach ($res as $row) {
                     $goods_ids[] = $row['goods_id'];
                 }
 
-                $GLOBALS['db']->autoReplace($GLOBALS['ecs']->table('keywords'), ['date' => local_date('Y-m-d'),
-                    'searchengine' => 'ecshop', 'keyword' => addslashes(str_replace('%', '', $val)), 'count' => 1], ['count' => 1]);
+                $GLOBALS['db']->autoReplace($GLOBALS['ecs']->table('keywords'), [
+                    'date' => local_date('Y-m-d'),
+                    'searchengine' => 'ecshop',
+                    'keyword' => addslashes(str_replace('%', '', $val)),
+                    'count' => 1
+                ], ['count' => 1]);
             }
 
             $goods_ids = array_unique($goods_ids);
@@ -363,7 +383,7 @@ class Purchase extends Model {
         $res = $GLOBALS['db']->SelectLimit($sql, $size, ($page - 1) * $size);
         $arr = [];
 
-        foreach ( $res as $row ) {
+        foreach ($res as $row) {
 
             $watermark_img = '';
 
@@ -373,7 +393,8 @@ class Purchase extends Model {
 
             $arr[$row['goods_id']]['goods_id'] = $row['goods_id'];
             if ($display == 'grid') {
-                $arr[$row['goods_id']]['goods_name'] = $GLOBALS['_CFG']['goods_name_length'] > 0 ? sub_str($row['goods_name'], $GLOBALS['_CFG']['goods_name_length']) : $row['goods_name'];
+                $arr[$row['goods_id']]['goods_name'] = $GLOBALS['_CFG']['goods_name_length'] > 0 ? sub_str($row['goods_name'],
+                    $GLOBALS['_CFG']['goods_name_length']) : $row['goods_name'];
             } else {
                 $arr[$row['goods_id']]['goods_name'] = $row['goods_name'];
             }
@@ -384,7 +405,7 @@ class Purchase extends Model {
             $arr[$row]['moq'] = $row['moq'];
             $arr[$row]['volume_number'] = $row['volume_number'];
             $arr[$row]['volume_price'] = $row['volume_price'];
-            $arr[$row['goods_id']]['rz_shopName'] = get_shop_name($row['user_id'], 1); 
+            $arr[$row['goods_id']]['rz_shopName'] = get_shop_name($row['user_id'], 1);
             $build_uri = [
                 'urid' => $row['user_id'],
                 'append' => $row['rz_shopName']
@@ -404,15 +425,15 @@ class Purchase extends Model {
 
             $arr[$row['goods_id']]['goods_thumb'] = get_image_path($row['goods_id'], $row['goods_thumb']);
 
-            $arr[$row['goods_id']]['goods_img'] =  '../' . $row['goods_img'];
+            $arr[$row['goods_id']]['goods_img'] = '../' . $row['goods_img'];
             $arr[$row['goods_id']]['url'] = url('goods', ['id' => $row['act_id']]);
         }
-        return ['list' => $arr, 'totalPage' => ceil($count/$size)];
+        return ['list' => $arr, 'totalPage' => ceil($count / $size)];
     }
 
 
-
-    public static function get_wholesale_goods_info($act_id, $warehouse_id = 0, $area_id = 0, $select = []) {
+    public static function get_wholesale_goods_info($act_id, $warehouse_id = 0, $area_id = 0, $select = [])
+    {
         $left_join = '';
         $left_join .= " LEFT JOIN " . $GLOBALS['ecs']->table('wholesale_cat') . " AS wc ON w.wholesale_cat_id = wc.cat_id ";
         $left_join .= " LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " AS g ON w.goods_id = g.goods_id ";
@@ -432,9 +453,9 @@ class Purchase extends Model {
             $row['volume_price'] = self::get_wholesale_volume_price($row['goods_id']);
 
 
-            if($GLOBALS['_CFG']['open_oss'] == 1){
+            if ($GLOBALS['_CFG']['open_oss'] == 1) {
                 $bucket_info = get_bucket_info();
-                if($row['goods_desc']){
+                if ($row['goods_desc']) {
                     $desc_preg = get_goods_desc_images_preg($bucket_info['endpoint'], $row['goods_desc']);
                     $row['goods_desc'] = $desc_preg['goods_desc'];
                 }
@@ -453,7 +474,7 @@ class Purchase extends Model {
             $row['goods_brand_url'] = !empty($brand_info) ? $brand_info['url'] : '';
             $row['brand_thumb'] = !empty($brand_info) ? $brand_info['brand_logo'] : '';
 
-            $row['rz_shopName'] = get_shop_name($row['user_id'], 1); 
+            $row['rz_shopName'] = get_shop_name($row['user_id'], 1);
             $row['goods_unit'] = $row['goods_unit'];
 
             $build_uri = [
@@ -474,7 +495,13 @@ class Purchase extends Model {
         return $row;
     }
 
-    public static function get_wholesale_goods_properties($goods_id, $warehouse_id = 0, $area_id = 0, $goods_attr_id = '', $attr_type = 0) {
+    public static function get_wholesale_goods_properties(
+        $goods_id,
+        $warehouse_id = 0,
+        $area_id = 0,
+        $goods_attr_id = '',
+        $attr_type = 0
+    ) {
         $attr_array = [];
         if (!empty($goods_attr_id)) {
             $attr_array = explode(',', $goods_attr_id);
@@ -513,14 +540,14 @@ class Purchase extends Model {
             'FROM ' . $GLOBALS['ecs']->table('wholesale_goods_attr') . ' AS g ' .
             'LEFT JOIN ' . $GLOBALS['ecs']->table('attribute') . ' AS a ON a.attr_id = g.attr_id ' .
             $leftJoin .
-            "WHERE g.goods_id = '$goods_id' " . $goodsAttr . $where . " AND a.attr_type <> 2 " . 
+            "WHERE g.goods_id = '$goods_id' " . $goodsAttr . $where . " AND a.attr_type <> 2 " .
             'ORDER BY a.sort_order, a.attr_id, g.goods_attr_id';
 
         $res = $GLOBALS['db']->getAll($sql);
 
-        $arr['pro'] = [];   
-        $arr['spe'] = [];   
-        $arr['lnk'] = [];     
+        $arr['pro'] = [];
+        $arr['spe'] = [];
+        $arr['lnk'] = [];
 
         foreach ($res AS $row) {
             $row['attr_value'] = str_replace("\n", '<br />', $row['attr_value']);
@@ -547,7 +574,8 @@ class Purchase extends Model {
                 ];
 
                 $attr_info = get_has_attr_info($row['attr_id'], $row['attr_value'], $img_site);
-                $row['img_flie'] = !empty($attr_info['attr_img']) ? get_image_path($row['attr_id'], $attr_info['attr_img'], true) : '';
+                $row['img_flie'] = !empty($attr_info['attr_img']) ? get_image_path($row['attr_id'],
+                    $attr_info['attr_img'], true) : '';
                 $row['img_site'] = $attr_info['attr_site'];
 
                 $arr['spe'][$row['attr_id']]['attr_type'] = $row['attr_type'];
@@ -574,7 +602,8 @@ class Purchase extends Model {
             }
 
 
-            $arr['spe'][$row['attr_id']]['values'] = get_array_sort($arr['spe'][$row['attr_id']]['values'], 'attr_sort');
+            $arr['spe'][$row['attr_id']]['values'] = get_array_sort($arr['spe'][$row['attr_id']]['values'],
+                'attr_sort');
             $arr['spe'][$row['attr_id']]['is_checked'] = get_attr_values($arr['spe'][$row['attr_id']]['values']);
 
         }
@@ -583,7 +612,8 @@ class Purchase extends Model {
     }
 
 
-    public static function get_wholesale_volume_price($goods_id = 0, $goods_number = 0) {
+    public static function get_wholesale_volume_price($goods_id = 0, $goods_number = 0)
+    {
         $sql = " SELECT price_model, goods_price FROM " . $GLOBALS['ecs']->table('wholesale') . " WHERE goods_id = '$goods_id' ";
         $res = $GLOBALS['db']->getRow($sql);
         if ($res['price_model']) {
@@ -597,7 +627,7 @@ class Purchase extends Model {
                     $res['volume_price'][$key]['range_number'] = $range_number;
                 }
                 if ($goods_number >= $val['volume_number']) {
-                    $res['volume_price'][$key]['is_reached'] = 1; 
+                    $res['volume_price'][$key]['is_reached'] = 1;
                     if (isset($res['volume_price'][$key - 1]['is_reached'])) {
                         unset($res['volume_price'][$key - 1]['is_reached']);
                     }
@@ -609,25 +639,26 @@ class Purchase extends Model {
     }
 
 
-    public static function isJurisdiction($goods){
+    public static function isJurisdiction($goods)
+    {
         $is_jurisdiction = 0;
 
-        if($_SESSION['user_id'] > 0){
+        if ($_SESSION['user_id'] > 0) {
 
             $sql = "SELECT user_id FROM " . $GLOBALS['ecs']->table('admin_user') . " WHERE ru_id = '" . $_SESSION['user_id'] . "'";
             $seller_id = $GLOBALS['db']->getOne($sql, true);
-            if($seller_id > 0){
+            if ($seller_id > 0) {
                 $is_jurisdiction = 1;
-            }else{
+            } else {
 
-                if($goods['rank_ids']){
+                if ($goods['rank_ids']) {
                     $rank_ids = explode(',', $goods['rank_ids']);
-                    if(in_array($_SESSION['user_rank'], $rank_ids)){
+                    if (in_array($_SESSION['user_rank'], $rank_ids)) {
                         $is_jurisdiction = 1;
                     }
                 }
             }
-        }else{
+        } else {
             $is_jurisdiction = 1;
         }
 
@@ -635,12 +666,14 @@ class Purchase extends Model {
     }
 
 
-    public static function get_brand_url($brand_id = 0){
-        $sql = "SELECT brand_id, brand_name, brand_logo FROM " .$GLOBALS['ecs']->table('brand'). " WHERE brand_id = '$brand_id'";
+    public static function get_brand_url($brand_id = 0)
+    {
+        $sql = "SELECT brand_id, brand_name, brand_logo FROM " . $GLOBALS['ecs']->table('brand') . " WHERE brand_id = '$brand_id'";
         $res = $GLOBALS['db']->getRow($sql);
         if ($res) {
             $res['url'] = build_uri('brand', ['bid' => $res['brand_id']], $res['brand_name']);
-            $res['brand_logo'] = empty($res['brand_logo']) ? str_replace(['../'], '', $GLOBALS['_CFG']['no_brand']) : DATA_DIR . '/brandlogo/' . $res['brand_logo'];
+            $res['brand_logo'] = empty($res['brand_logo']) ? str_replace(['../'], '',
+                $GLOBALS['_CFG']['no_brand']) : DATA_DIR . '/brandlogo/' . $res['brand_logo'];
 
             if ($GLOBALS['_CFG']['open_oss'] == 1) {
                 $bucket_info = get_bucket_info();
@@ -652,7 +685,8 @@ class Purchase extends Model {
         return $res;
     }
 
-    public static  function wholesale_cart_info($goods_id = 0, $rec_ids = '') {
+    public static function wholesale_cart_info($goods_id = 0, $rec_ids = '')
+    {
         if (!empty($_SESSION['user_id'])) {
             $sess_id = " c.user_id = '" . $_SESSION['user_id'] . "' ";
             $sess = "";
@@ -689,7 +723,8 @@ class Purchase extends Model {
     }
 
 
-    public static function get_wholesale_cart_info (){
+    public static function get_wholesale_cart_info()
+    {
         if (!empty($_SESSION['user_id'])) {
             $sess_id = " user_id = '" . $_SESSION['user_id'] . "' ";
             $c_sess = " wc.user_id = '" . $_SESSION['user_id'] . "' ";
@@ -741,7 +776,8 @@ class Purchase extends Model {
 
     }
 
-    public static function get_wholesale_main_attr_list($goods_id = 0, $attr = []) {
+    public static function get_wholesale_main_attr_list($goods_id = 0, $attr = [])
+    {
         $goods_type = get_table_date('wholesale', "goods_id='$goods_id'", ['goods_type'], 2);
 
         $sql = " SELECT DISTINCT attr_id FROM " . $GLOBALS['ecs']->table('wholesale_goods_attr') . " WHERE goods_id = '$goods_id' ";
@@ -759,9 +795,10 @@ class Purchase extends Model {
             if ($data) {
                 foreach ($data as $key => $val) {
                     $new_arr = array_merge($attr, [$val['goods_attr_id']]);
-                    $data[$key]['attr_group'] = implode(',', $new_arr); 
+                    $data[$key]['attr_group'] = implode(',', $new_arr);
                     $set = get_find_in_set($new_arr);
-                    $product_info = get_table_date('wholesale_products', "goods_id='$goods_id' $set", ['product_number']);
+                    $product_info = get_table_date('wholesale_products', "goods_id='$goods_id' $set",
+                        ['product_number']);
                     $data[$key] = array_merge($data[$key], $product_info);
 
                     if (empty($data[$key]) || empty($product_info)) {
@@ -776,7 +813,8 @@ class Purchase extends Model {
     }
 
 
-    public static function wholesale_cart_goods($goods_id = 0, $rec_ids = '') {
+    public static function wholesale_cart_goods($goods_id = 0, $rec_ids = '')
+    {
         if (!empty($_SESSION['user_id'])) {
             $sess_id = " c.user_id = '" . $_SESSION['user_id'] . "' ";
         } else {
@@ -800,12 +838,13 @@ class Purchase extends Model {
             $data['ru_id'] = $val;
             $data['shop_name'] = get_shop_name($val, 1);
 
-            $shop_information = get_shop_name($val); 
-            $data['is_IM'] = $shop_information['is_IM']; 
+            $shop_information = get_shop_name($val);
+            $data['is_IM'] = $shop_information['is_IM'];
 
             if ($val == 0) {
 
-                if ($GLOBALS['db']->getOne("SELECT kf_im_switch FROM " . $GLOBALS['ecs']->table('seller_shopinfo') . "WHERE ru_id = 0", true)) {
+                if ($GLOBALS['db']->getOne("SELECT kf_im_switch FROM " . $GLOBALS['ecs']->table('seller_shopinfo') . "WHERE ru_id = 0",
+                    true)) {
                     $data['is_dsc'] = true;
                 } else {
                     $data['is_dsc'] = false;
@@ -844,7 +883,6 @@ class Purchase extends Model {
             }
 
 
-
             $sql = " SELECT DISTINCT goods_id FROM " . $GLOBALS['ecs']->table('wholesale_cart') . " AS c WHERE $sess_id AND c.ru_id = '$val' ";
             $goods_ids = $GLOBALS['db']->getCol($sql);
             foreach ($goods_ids as $a => $g) {
@@ -853,7 +891,7 @@ class Purchase extends Model {
 
                 $sql = " SELECT c.rec_id, c.goods_price, c.goods_number, c.goods_attr_id " .
                     " FROM " . $GLOBALS['ecs']->table('wholesale_cart') . " AS c " .
-                    " WHERE $sess_id AND c.ru_id = '$val' AND c.goods_id = '$g' ORDER BY c.goods_attr_id"; 
+                    " WHERE $sess_id AND c.ru_id = '$val' AND c.goods_id = '$g' ORDER BY c.goods_attr_id";
                 $res = $GLOBALS['db']->getAll($sql);
 
                 $total_number = 0;
@@ -868,8 +906,9 @@ class Purchase extends Model {
                     $total_price += $res[$k]['total_price'];
                 }
 
-                $goods_data = get_table_date('wholesale', "goods_id='$g'", ['act_id', 'goods_id, goods_name, price_model, goods_price', 'moq', 'goods_number']);
-                $sql=" select goods_thumb from " . $GLOBALS['ecs']->table('goods') . "  where goods_id='$goods_data[goods_id]'";
+                $goods_data = get_table_date('wholesale', "goods_id='$g'",
+                    ['act_id', 'goods_id, goods_name, price_model, goods_price', 'moq', 'goods_number']);
+                $sql = " select goods_thumb from " . $GLOBALS['ecs']->table('goods') . "  where goods_id='$goods_data[goods_id]'";
                 $goods_thumb = $GLOBALS['db']->getOne($sql);
                 $goods_data['goods_thumb'] = get_image_path($goods_thumb);
                 $goods_data['total_number'] = $total_number;
@@ -884,13 +923,13 @@ class Purchase extends Model {
                 }
 
                 $volume_number = [];
-                foreach ( $goods_data['volume_price'] as $k => $v ) {
+                foreach ($goods_data['volume_price'] as $k => $v) {
                     array_push($volume_number, $v['volume_number']);
                 }
                 sort($volume_number);
 
                 $goods_data['list'] = $res;
-                $goods_data['min_number'] = $goods_data['moq']; 
+                $goods_data['min_number'] = $goods_data['moq'];
                 $product_info = get_table_date('wholesale_products', "goods_id='$g'", ['product_number']);
                 $goods_data['max_number'] = ($product_info['product_number'] > 0) ? $product_info['product_number'] : $goods_data['goods_number'];
 
@@ -904,7 +943,8 @@ class Purchase extends Model {
     }
 
 
-    public static function cartInfo ($rec_id){
+    public static function cartInfo($rec_id)
+    {
         if (!empty($_SESSION['user_id'])) {
             $sess_id = " c.user_id = '" . $_SESSION['user_id'] . "' ";
         } else {
@@ -951,7 +991,7 @@ class Purchase extends Model {
 
         if (empty($res)) {
             $list = [];
-        }else{
+        } else {
             $list = [
                 'rec_id' => $res[0]['rec_id'],
                 'total_price' => $res[0]['total_price'],
@@ -963,7 +1003,8 @@ class Purchase extends Model {
     }
 
 
-    public static function get_count_cart () {
+    public static function get_count_cart()
+    {
         if (!empty($_SESSION['user_id'])) {
             $sess_id = " c.user_id = '" . $_SESSION['user_id'] . "' ";
         } else {
@@ -972,13 +1013,14 @@ class Purchase extends Model {
 
         $sql = " SELECT SUM(goods_number) " .
             " FROM " . $GLOBALS['ecs']->table('wholesale_cart') . " AS c " .
-            " WHERE $sess_id  ORDER BY c.goods_attr_id"; 
+            " WHERE $sess_id  ORDER BY c.goods_attr_id";
         $res = $GLOBALS['db']->getOne($sql);
         return $res;
     }
 
 
-    public static function get_purchase_list($filter = [], $size = 10, $page = 1, $sort = "add_time", $order = "DESC") {
+    public static function get_purchase_list($filter = [], $size = 10, $page = 1, $sort = "add_time", $order = "DESC")
+    {
 
         if (isset($filter['user_id'])) {
             $where .= " AND user_id = '$filter[user_id]' ";
@@ -1023,7 +1065,7 @@ class Purchase extends Model {
         $res = $GLOBALS['db']->selectLimit($sql, $size, $start);
 
         $arr = [];
-        foreach ( $res as $row ) {
+        foreach ($res as $row) {
             $add_time = $row['add_time'];
             $end_time = $row['end_time'];
             $row['left_day'] = floor(($end_time - gmtime()) / 86400);
@@ -1032,9 +1074,10 @@ class Purchase extends Model {
             $row['add_time_complete'] = local_date('Y-m-d H:i:s', $add_time);
             $row['end_time_complete'] = local_date('Y-m-d H:i:s', $end_time);
 
-            $row['goods_number'] = get_table_date('wholesale_purchase_goods', "purchase_id = '" .$row['purchase_id']. "'", ['SUM(goods_number)'], 2);
+            $row['goods_number'] = get_table_date('wholesale_purchase_goods',
+                "purchase_id = '" . $row['purchase_id'] . "'", ['SUM(goods_number)'], 2);
 
-            $sql = " SELECT goods_img FROM " . $GLOBALS['ecs']->table('wholesale_purchase_goods') . " WHERE purchase_id = '" .$row['purchase_id']. "' AND goods_img != '' ORDER BY goods_id ASC LIMIT 1 ";
+            $sql = " SELECT goods_img FROM " . $GLOBALS['ecs']->table('wholesale_purchase_goods') . " WHERE purchase_id = '" . $row['purchase_id'] . "' AND goods_img != '' ORDER BY goods_id ASC LIMIT 1 ";
             $goods_img = $GLOBALS['db']->getOne($sql);
             if ($goods_img) {
                 $goods_img = unserialize($goods_img);
@@ -1053,7 +1096,8 @@ class Purchase extends Model {
     }
 
 
-    public static function get_purchase_info($purchase_id = 0) {
+    public static function get_purchase_info($purchase_id = 0)
+    {
         $sql = " SELECT * FROM " . $GLOBALS['ecs']->table('wholesale_purchase') . " WHERE purchase_id = '$purchase_id' ";
         $purchase_info = $GLOBALS['db']->getRow($sql);
 
@@ -1069,7 +1113,8 @@ class Purchase extends Model {
             $purchase_info['goods_list'] = $goods_list;
             $purchase_info['left_day'] = floor(($purchase_info['end_time'] - gmtime()) / 86400);
             $purchase_info['left_day'] = $purchase_info['left_day'] > 0 ? $purchase_info['left_day'] : 0;
-            $purchase_info['user_name'] = get_table_date('users', "user_id = '$purchase_info[user_id]'", ['user_name'], 2);
+            $purchase_info['user_name'] = get_table_date('users', "user_id = '$purchase_info[user_id]'", ['user_name'],
+                2);
 
             $purchase_info['shop_name'] = get_shop_name($purchase_info['user_id'], 1);
 
@@ -1078,7 +1123,7 @@ class Purchase extends Model {
             $purchase_info['area_info'] = get_seller_area_info($purchase_info['user_id']);
 
             $purchase_info['consignee_region'] = get_every_region_name($purchase_info['consignee_region']);
-            $purchase_info['consignee_address'] =$purchase_info['consignee_address'];
+            $purchase_info['consignee_address'] = $purchase_info['consignee_address'];
         }
 
         return $purchase_info;

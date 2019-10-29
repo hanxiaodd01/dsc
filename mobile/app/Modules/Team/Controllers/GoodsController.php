@@ -58,7 +58,10 @@ class GoodsController extends FrontendController
         //商品信息
         $goods = get_goods_info($this->goods_id, $this->region_id, $this->area_info['region_id']);
         //拼团商品信息
-        $team = $this->db->table('team_goods')->field('id,team_price,team_num,limit_num,astrict_num,is_team,team_desc')->where(array('goods_id' => $this->goods_id, 'is_team' => '1'))->find();
+        $team = $this->db->table('team_goods')->field('id,team_price,team_num,limit_num,astrict_num,is_team,team_desc')->where(array(
+            'goods_id' => $this->goods_id,
+            'is_team' => '1'
+        ))->find();
         $goods['t_id'] = $team['id'];
         $goods['team_price'] = price_format($team['team_price']);
         $goods['team_num'] = $team['team_num'];
@@ -169,8 +172,10 @@ class GoodsController extends FrontendController
         }
 
         $basic_date = array('region_name');
-        $basic_info['province'] = get_table_date('region', "region_id = '" . $basic_info['province'] . "'", $basic_date, 2);
-        $basic_info['city'] = get_table_date('region', "region_id= '" . $basic_info['city'] . "'", $basic_date, 2) . "市";
+        $basic_info['province'] = get_table_date('region', "region_id = '" . $basic_info['province'] . "'", $basic_date,
+            2);
+        $basic_info['city'] = get_table_date('region', "region_id= '" . $basic_info['city'] . "'", $basic_date,
+                2) . "市";
 
         $this->assign('basic_info', $basic_info);
 
@@ -179,7 +184,8 @@ class GoodsController extends FrontendController
         $this->assign('new_goods', $new_goods);
 
         $info = $this->db->table('goods')->field('goods_desc,desc_mobile')->where(array('goods_id' => $this->goods_id))->find();
-        $properties = get_goods_properties($this->goods_id, $this->region_id, $this->area_info['region_id']);  // 获得商品的规格和属性
+        $properties = get_goods_properties($this->goods_id, $this->region_id,
+            $this->area_info['region_id']);  // 获得商品的规格和属性
         // 查询关联商品描述
         $sql = "SELECT ld.goods_desc FROM {pre}link_desc_goodsid AS dg, {pre}link_goods_desc AS ld WHERE dg.goods_id = {$this->goods_id}  AND dg.d_id = ld.id";
         $link_desc = $this->db->getOne($sql);
@@ -190,9 +196,11 @@ class GoodsController extends FrontendController
             if (C('shop.open_oss') == 1) {
                 $bucket_info = get_bucket_info();
                 $bucket_info['endpoint'] = empty($bucket_info['endpoint']) ? $bucket_info['outside_site'] : $bucket_info['endpoint'];
-                $goods_desc = str_replace(array('src="/images/upload', 'src="images/upload'), 'src="' . $bucket_info['endpoint'] . 'images/upload', $info['goods_desc']);
+                $goods_desc = str_replace(array('src="/images/upload', 'src="images/upload'),
+                    'src="' . $bucket_info['endpoint'] . 'images/upload', $info['goods_desc']);
             } else {
-                $goods_desc = str_replace(array('src="/images/upload', 'src="images/upload'), 'src="' . __STATIC__ . '/images/upload', $info['goods_desc']);
+                $goods_desc = str_replace(array('src="/images/upload', 'src="images/upload'),
+                    'src="' . __STATIC__ . '/images/upload', $info['goods_desc']);
             }
         }
         if (empty($info['desc_mobile']) && empty($info['goods_desc'])) {
@@ -237,7 +245,8 @@ class GoodsController extends FrontendController
     public function actionInfo()
     {
         $info = $this->db->table('goods')->field('goods_desc,desc_mobile')->where(array('goods_id' => $this->goods_id))->find();
-        $properties = get_goods_properties($this->goods_id, $this->region_id, $this->area_info['region_id']);  // 获得商品的规格和属性
+        $properties = get_goods_properties($this->goods_id, $this->region_id,
+            $this->area_info['region_id']);  // 获得商品的规格和属性
         // 查询关联商品描述
         $sql = "SELECT ld.goods_desc FROM {pre}link_desc_goodsid AS dg, {pre}link_goods_desc AS ld WHERE dg.goods_id = {$this->goods_id}  AND dg.d_id = ld.id";
         $link_desc = $this->db->getOne($sql);
@@ -248,9 +257,11 @@ class GoodsController extends FrontendController
             if (C('shop.open_oss') == 1) {
                 $bucket_info = get_bucket_info();
                 $bucket_info['endpoint'] = empty($bucket_info['endpoint']) ? $bucket_info['outside_site'] : $bucket_info['endpoint'];
-                $goods_desc = str_replace(array('src="/images/upload', 'src="images/upload'), 'src="' . $bucket_info['endpoint'] . 'images/upload', $info['goods_desc']);
+                $goods_desc = str_replace(array('src="/images/upload', 'src="images/upload'),
+                    'src="' . $bucket_info['endpoint'] . 'images/upload', $info['goods_desc']);
             } else {
-                $goods_desc = str_replace(array('src="/images/upload', 'src="images/upload'), 'src="' . __STATIC__ . '/images/upload', $info['goods_desc']);
+                $goods_desc = str_replace(array('src="/images/upload', 'src="images/upload'),
+                    'src="' . __STATIC__ . '/images/upload', $info['goods_desc']);
             }
         }
         if (empty($info['desc_mobile']) && empty($info['goods_desc'])) {
@@ -293,7 +304,14 @@ class GoodsController extends FrontendController
             }
             $show = count($comments) > 0 ? 1 : 0;
             $max = $page > 0 ? 0 : 1;
-            die(json_encode(array('comments' => $comments, 'rank' => $rank, 'show' => $show, 'reset' => $max, 'totalPage' => $arr['max'], 'top' => 1)));
+            die(json_encode(array(
+                'comments' => $comments,
+                'rank' => $rank,
+                'show' => $show,
+                'reset' => $max,
+                'totalPage' => $arr['max'],
+                'top' => 1
+            )));
         }
         $this->assign('img', $img);
         $this->assign('info', commentCol($this->goods_id));
@@ -331,7 +349,8 @@ class GoodsController extends FrontendController
                 $res['qty'] = $number;
             }
             //ecmoban模板堂 --zhuo start
-            $products = get_warehouse_id_attr_number($this->goods_id, $_REQUEST['attr'], $goods['user_id'], $warehouse_id, $area_id);
+            $products = get_warehouse_id_attr_number($this->goods_id, $_REQUEST['attr'], $goods['user_id'],
+                $warehouse_id, $area_id);
             $attr_number = $products['product_number'];
 
             if ($goods['model_attr'] == 1) {
@@ -382,7 +401,8 @@ class GoodsController extends FrontendController
             }
 
             //属性价格
-            $spec_price = get_final_price($this->goods_id, $number, true, $attr_id, $warehouse_id, $area_id, 1, 0, 0, $res['show_goods']);
+            $spec_price = get_final_price($this->goods_id, $number, true, $attr_id, $warehouse_id, $area_id, 1, 0, 0,
+                $res['show_goods']);
             if ($GLOBALS['_CFG']['add_shop_price'] == 0 && empty($spec_price)) {
                 $spec_price = $shop_price;
             }
@@ -421,13 +441,16 @@ class GoodsController extends FrontendController
             for ($i = 0; $i < count($fitts); $i++) {
                 $fittings_interval = $fitts[$i]['fittings_interval'];
 
-                $res['fittings_interval'][$i]['fittings_minMax'] = price_format($fittings_interval['fittings_min']) . "-" . number_format($fittings_interval['fittings_max'], 2, '.', '');
-                $res['fittings_interval'][$i]['market_minMax'] = price_format($fittings_interval['market_min']) . "-" . number_format($fittings_interval['market_max'], 2, '.', '');
+                $res['fittings_interval'][$i]['fittings_minMax'] = price_format($fittings_interval['fittings_min']) . "-" . number_format($fittings_interval['fittings_max'],
+                        2, '.', '');
+                $res['fittings_interval'][$i]['market_minMax'] = price_format($fittings_interval['market_min']) . "-" . number_format($fittings_interval['market_max'],
+                        2, '.', '');
 
                 if ($fittings_interval['save_minPrice'] == $fittings_interval['save_maxPrice']) {
                     $res['fittings_interval'][$i]['save_minMaxPrice'] = price_format($fittings_interval['save_minPrice']);
                 } else {
-                    $res['fittings_interval'][$i]['save_minMaxPrice'] = price_format($fittings_interval['save_minPrice']) . "-" . number_format($fittings_interval['save_maxPrice'], 2, '.', '');
+                    $res['fittings_interval'][$i]['save_minMaxPrice'] = price_format($fittings_interval['save_minPrice']) . "-" . number_format($fittings_interval['save_maxPrice'],
+                            2, '.', '');
                 }
 
                 $res['fittings_interval'][$i]['groupId'] = $fittings_interval['groupId'];
@@ -473,7 +496,10 @@ class GoodsController extends FrontendController
 
         $goods = get_goods_info($this->goods_id, $warehouse_id, $area_id);
         //拼团商品信息
-        $team = $this->db->table('team_goods')->field('team_price,team_num,astrict_num')->where(array('goods_id' => $this->goods_id, 'is_team' => '1'))->find();
+        $team = $this->db->table('team_goods')->field('team_price,team_num,astrict_num')->where(array(
+            'goods_id' => $this->goods_id,
+            'is_team' => '1'
+        ))->find();
         $goods['team_price'] = price_format($team['team_price']);
         $goods['team_num'] = $team['team_num'];
         $goods['astruct_num'] = $team['astrict_num'];
@@ -488,7 +514,8 @@ class GoodsController extends FrontendController
                 $res['qty'] = $number;
             }
             //ecmoban模板堂 --zhuo start
-            $products = get_warehouse_id_attr_number($this->goods_id, $_REQUEST['attr'], $goods['user_id'], $warehouse_id, $area_id);
+            $products = get_warehouse_id_attr_number($this->goods_id, $_REQUEST['attr'], $goods['user_id'],
+                $warehouse_id, $area_id);
             $attr_number = $products['product_number'];
 
             if ($goods['model_attr'] == 1) {
@@ -539,7 +566,8 @@ class GoodsController extends FrontendController
             }
 
             //属性价格
-            $spec_price = tean_get_final_price($this->goods_id, $number, true, $attr_id, $warehouse_id, $area_id, 1, 0, 0, $res['show_goods']);
+            $spec_price = tean_get_final_price($this->goods_id, $number, true, $attr_id, $warehouse_id, $area_id, 1, 0,
+                0, $res['show_goods']);
             if ($GLOBALS['_CFG']['add_shop_price'] == 0 && empty($spec_price)) {
                 $spec_price = $shop_price;
             }
@@ -570,13 +598,16 @@ class GoodsController extends FrontendController
             for ($i = 0; $i < count($fitts); $i++) {
                 $fittings_interval = $fitts[$i]['fittings_interval'];
 
-                $res['fittings_interval'][$i]['fittings_minMax'] = price_format($fittings_interval['fittings_min']) . "-" . number_format($fittings_interval['fittings_max'], 2, '.', '');
-                $res['fittings_interval'][$i]['market_minMax'] = price_format($fittings_interval['market_min']) . "-" . number_format($fittings_interval['market_max'], 2, '.', '');
+                $res['fittings_interval'][$i]['fittings_minMax'] = price_format($fittings_interval['fittings_min']) . "-" . number_format($fittings_interval['fittings_max'],
+                        2, '.', '');
+                $res['fittings_interval'][$i]['market_minMax'] = price_format($fittings_interval['market_min']) . "-" . number_format($fittings_interval['market_max'],
+                        2, '.', '');
 
                 if ($fittings_interval['save_minPrice'] == $fittings_interval['save_maxPrice']) {
                     $res['fittings_interval'][$i]['save_minMaxPrice'] = price_format($fittings_interval['save_minPrice']);
                 } else {
-                    $res['fittings_interval'][$i]['save_minMaxPrice'] = price_format($fittings_interval['save_minPrice']) . "-" . number_format($fittings_interval['save_maxPrice'], 2, '.', '');
+                    $res['fittings_interval'][$i]['save_minMaxPrice'] = price_format($fittings_interval['save_minPrice']) . "-" . number_format($fittings_interval['save_maxPrice'],
+                            2, '.', '');
                 }
 
                 $res['fittings_interval'][$i]['groupId'] = $fittings_interval['groupId'];
@@ -765,11 +796,13 @@ class GoodsController extends FrontendController
         $sql = "select order_id,order_status, pay_status from " . $this->ecs->table('order_info') . " where team_id = $this->team_id and user_id =$user_id  ";
         $res = $this->db->getRow($sql);
         if ($res['order_status'] == 2) {
-            show_message('亲，您的拼团订单已取消', '查看订单', url('user/order/detail', array('order_id' => $res['order_id'])), 'success');
+            show_message('亲，您的拼团订单已取消', '查看订单', url('user/order/detail', array('order_id' => $res['order_id'])),
+                'success');
             exit;
         }
         if ($res['pay_status'] != PS_PAYED && $res['order_status'] != 2 && $res['order_status'] != 4) {
-            show_message('亲，您的拼团订单没有支付', '请前去支付', url('user/order/detail', array('order_id' => $res['order_id'])), 'success');
+            show_message('亲，您的拼团订单没有支付', '请前去支付', url('user/order/detail', array('order_id' => $res['order_id'])),
+                'success');
             exit;
         }
         $sql = "select tl.team_id, tl.start_time,o.team_parent_id,g.goods_id,g.goods_img,g.goods_name,g.goods_brief,tg.validity_time ,tg.team_num ,tg.team_price from " . $this->ecs->table('team_log') . " as tl LEFT JOIN " . $this->ecs->table('order_info') . " as o ON tl.team_id = o.team_id LEFT JOIN  " . $this->ecs->table('goods') . " as g ON tl.goods_id = g.goods_id LEFT JOIN " . $this->ecs->table('team_goods') . " AS tg ON tl.t_id = tg.id  " . " where tl.team_id = $this->team_id  and o.extension_code ='team_buy' and o.team_parent_id > 0 ";
@@ -821,7 +854,10 @@ class GoodsController extends FrontendController
         }
 
         /* --验证是否已经参团-- */
-        $team_join = $this->db->table('order_info')->where(array('user_id' => $_SESSION['user_id'], 'team_id' => $this->team_id))->count();
+        $team_join = $this->db->table('order_info')->where(array(
+            'user_id' => $_SESSION['user_id'],
+            'team_id' => $this->team_id
+        ))->count();
         if ($team_join > 0) {
             $this->assign('team_join', 1);
         }

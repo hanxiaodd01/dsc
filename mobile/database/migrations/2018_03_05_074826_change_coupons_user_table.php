@@ -19,7 +19,7 @@ class ChangeCouponsUserTable extends Migration
         // 判断字段是否存在 添加
         if (!Schema::hasColumn($this->tableName, 'cou_money')) {
             Schema::table($this->tableName, function (Blueprint $table) {
-                $table->decimal('cou_money',10,2)->default(0);
+                $table->decimal('cou_money', 10, 2)->default(0);
             });
         }
     }

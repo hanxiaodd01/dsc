@@ -47,9 +47,15 @@ class Admin extends PluginController
         $filter['type'] = $this->marketing_type;
         $offset = $this->pageLimit(url('market_list', $filter), $this->page_num);
 
-        $total = dao('wechat_marketing')->where(array('marketing_type' => $this->marketing_type, 'wechat_id' => $this->wechat_id))->count();
+        $total = dao('wechat_marketing')->where(array(
+            'marketing_type' => $this->marketing_type,
+            'wechat_id' => $this->wechat_id
+        ))->count();
 
-        $list = dao('wechat_marketing')->field('id, name, command, starttime, endtime, status')->where(array('marketing_type' => $this->marketing_type, 'wechat_id' => $this->wechat_id))->order('id DESC')->limit($offset)->select();
+        $list = dao('wechat_marketing')->field('id, name, command, starttime, endtime, status')->where(array(
+            'marketing_type' => $this->marketing_type,
+            'wechat_id' => $this->wechat_id
+        ))->order('id DESC')->limit($offset)->select();
         if ($list[0]['id']) {
             foreach ($list as $k => $v) {
                 $list[$k]['starttime'] = local_date('Y-m-d H:i', $v['starttime']);
@@ -184,7 +190,8 @@ class Admin extends PluginController
             if ($id) {
                 // 删除原背景图片
                 if ($data['background'] && $background_path != $data['background']) {
-                    $background_path = strpos($background_path, 'no_image') == false ? $background_path : '';  // 且不删除默认空图片
+                    $background_path = strpos($background_path,
+                        'no_image') == false ? $background_path : '';  // 且不删除默认空图片
                     $this->remove($background_path);
                 }
                 $where = array(
@@ -194,14 +201,22 @@ class Admin extends PluginController
                 );
                 dao('wechat_marketing')->data($data)->where($where)->save();
                 // $this->message(L('market_edit') . L('success'), url('index'));
-                $json_result = array('error' => 0, 'msg' => L('market_edit') . L('success'), 'url' => url('market_list', array('type' => $data['marketing_type'])));
+                $json_result = array(
+                    'error' => 0,
+                    'msg' => L('market_edit') . L('success'),
+                    'url' => url('market_list', array('type' => $data['marketing_type']))
+                );
                 exit(json_encode($json_result));
             } else {
                 //添加活动
                 $data['addtime'] = gmtime();
                 $id = dao('wechat_marketing')->data($data)->add();
                 // $this->message(L('market_add') . L('success'), url('index'));
-                $json_result = array('error' => 0, 'msg' => L('market_add') . L('success'), 'url' => url('market_list', array('type' => $data['marketing_type'])));
+                $json_result = array(
+                    'error' => 0,
+                    'msg' => L('market_add') . L('success'),
+                    'url' => url('market_list', array('type' => $data['marketing_type']))
+                );
                 exit(json_encode($json_result));
             }
         }
@@ -211,10 +226,16 @@ class Admin extends PluginController
         $info = array();
         $market_id = $this->cfg['market_id'];
         if (!empty($market_id)) {
-            $info = dao('wechat_marketing')->field('id, name, command, logo, background, starttime, endtime, config, description, support')->where(array('id' => $market_id, 'marketing_type' => $this->marketing_type, 'wechat_id' => $this->wechat_id))->find();
+            $info = dao('wechat_marketing')->field('id, name, command, logo, background, starttime, endtime, config, description, support')->where(array(
+                'id' => $market_id,
+                'marketing_type' => $this->marketing_type,
+                'wechat_id' => $this->wechat_id
+            ))->find();
             if ($info) {
-                $info['starttime'] = isset($info['starttime']) ? local_date('Y-m-d H:i:s', $info['starttime']) : local_date('Y-m-d H:i:s', $nowtime);
-                $info['endtime'] = isset($info['endtime']) ? local_date('Y-m-d H:i:s', $info['endtime']) : local_date('Y-m-d H:i:s', local_strtotime("+1 months", $nowtime));
+                $info['starttime'] = isset($info['starttime']) ? local_date('Y-m-d H:i:s',
+                    $info['starttime']) : local_date('Y-m-d H:i:s', $nowtime);
+                $info['endtime'] = isset($info['endtime']) ? local_date('Y-m-d H:i:s',
+                    $info['endtime']) : local_date('Y-m-d H:i:s', local_strtotime("+1 months", $nowtime));
                 $info['config'] = unserialize($info['config']);
                 $info['background'] = get_wechat_image_path($info['background']);
             } else {
@@ -235,7 +256,12 @@ class Admin extends PluginController
         }
 
         // 微信素材所需活动链接
-        $info['url'] = __HOST__ . url('wechat/index/market_show', array('type' => 'redpack', 'function' => 'activity', 'market_id' => $market_id, 'ru_id' => $this->ru_id));
+        $info['url'] = __HOST__ . url('wechat/index/market_show', array(
+                'type' => 'redpack',
+                'function' => 'activity',
+                'market_id' => $market_id,
+                'ru_id' => $this->ru_id
+            ));
 
         $this->assign('info', $info);
         $this->plugin_display('market_edit', $this->cfg);
@@ -339,7 +365,8 @@ class Admin extends PluginController
                 );
                 $info = dao('wechat_redpack_advertice')->where($condition)->find();
                 if (empty($info)) {
-                    $this->message('数据不存在', url('data_list', array('type' => $this->marketing_type, 'function' => $function, 'id' => $market_id)), 2);
+                    $this->message('数据不存在', url('data_list',
+                        array('type' => $this->marketing_type, 'function' => $function, 'id' => $market_id)), 2);
                 }
                 $info['icon'] = get_wechat_image_path($info['icon']);
             }
@@ -410,17 +437,20 @@ class Admin extends PluginController
                     'wechat_id' => $this->wechat_id
                 );
                 $info = dao('wechat_redpack_log')->where($condition)->find();
-                $info['nickname'] = dao('wechat_user')->where(array('wechat_id' => $this->wechat_id, 'openid' => $info['openid']))->getField('nickname');
+                $info['nickname'] = dao('wechat_user')->where(array(
+                    'wechat_id' => $this->wechat_id,
+                    'openid' => $info['openid']
+                ))->getField('nickname');
                 $info['time'] = !empty($info['time']) ? local_date('Y-m-d H:i:s', $info['time']) : '';
 
                 // 接口查询更多详情
                 if ($info['hassub'] == 1) {
                     $payment = get_payment('wxpay');
                     $options = array(
-                         'appid' => $payment['wxpay_appid'], //填写高级调用功能的app id
-                         'mch_id' => $payment['wxpay_mchid'], //微信支付商户号
-                         'key' => $payment['wxpay_key'] //微信支付API密钥
-                     );
+                        'appid' => $payment['wxpay_appid'], //填写高级调用功能的app id
+                        'mch_id' => $payment['wxpay_mchid'], //微信支付商户号
+                        'key' => $payment['wxpay_key'] //微信支付API密钥
+                    );
                     $WxHongbao = new Wechat($options);
                     // 证书
                     $sslcert = ROOT_PATH . "storage/app/certs/wxpay/" . md5($payment['wxpay_appsecret']) . "_apiclient_cert.pem";
@@ -477,7 +507,10 @@ class Admin extends PluginController
             $list = dao('wechat_redpack_log')->where($where)->order('id desc')->limit($offset)->select();
 
             foreach ($list as $key => $value) {
-                $list[$key]['nickname'] = dao('wechat_user')->where(array('wechat_id' => $this->wechat_id, 'openid' => $value['openid']))->getField('nickname');
+                $list[$key]['nickname'] = dao('wechat_user')->where(array(
+                    'wechat_id' => $this->wechat_id,
+                    'openid' => $value['openid']
+                ))->getField('nickname');
                 $list[$key]['time'] = !empty($value['time']) ? local_date('Y-m-d H:i:s', $value['time']) : '';
             }
             $this->assign('page', $this->pageShow($total));
@@ -507,9 +540,18 @@ class Admin extends PluginController
         $market_id = I('get.id', 0, 'intval');
 
         if (!empty($market_id)) {
-            $url = __HOST__ . url('wechat/index/market_show', array('type' => 'redpack', 'function' => 'activity', 'market_id' => $market_id, 'ru_id' => $this->ru_id));
+            $url = __HOST__ . url('wechat/index/market_show', array(
+                    'type' => 'redpack',
+                    'function' => 'activity',
+                    'market_id' => $market_id,
+                    'ru_id' => $this->ru_id
+                ));
 
-            $info = dao('wechat_marketing')->field('qrcode')->where(array('id' => $market_id, 'marketing_type' => $this->marketing_type, 'wechat_id' => $this->wechat_id))->find();
+            $info = dao('wechat_marketing')->field('qrcode')->where(array(
+                'id' => $market_id,
+                'marketing_type' => $this->marketing_type,
+                'wechat_id' => $this->wechat_id
+            ))->find();
 
             // 生成二维码
             // 纠错级别：L、M、Q、H
@@ -552,7 +594,11 @@ class Admin extends PluginController
      */
     public function get_market_config($id, $marketing_type)
     {
-        $info = dao('wechat_marketing')->field('config')->where(array('id' => $id, 'marketing_type' => $this->marketing_type, 'wechat_id' => $this->wechat_id))->find();
+        $info = dao('wechat_marketing')->field('config')->where(array(
+            'id' => $id,
+            'marketing_type' => $this->marketing_type,
+            'wechat_id' => $this->wechat_id
+        ))->find();
         $result = unserialize($info['config']);
         return $result;
     }
@@ -573,7 +619,11 @@ class Admin extends PluginController
             if ($handler && $handler == 'log_delete') {
                 $log_id = I('get.log_id', 0, 'intval');
                 if (!empty($log_id)) {
-                    dao('wechat_redpack_log')->where(array('id' => $log_id, 'wechat_id' => $this->wechat_id, 'market_id' => $market_id))->delete();
+                    dao('wechat_redpack_log')->where(array(
+                        'id' => $log_id,
+                        'wechat_id' => $this->wechat_id,
+                        'market_id' => $market_id
+                    ))->delete();
                     $json_result['msg'] = '删除成功！';
                     exit(json_encode($json_result));
                 } else {
@@ -609,7 +659,11 @@ class Admin extends PluginController
                 $re_openid = I('openid', '', 'trim');
 
                 //活动配置
-                $data = dao('wechat_marketing')->field('name, starttime, endtime, config')->where(array('id' => $market_id, 'marketing_type' => 'redpack', 'wechat_id' => $this->wechat_id))->find();
+                $data = dao('wechat_marketing')->field('name, starttime, endtime, config')->where(array(
+                    'id' => $market_id,
+                    'marketing_type' => 'redpack',
+                    'wechat_id' => $this->wechat_id
+                ))->find();
 
                 $redpackinfo['config'] = unserialize($data['config']);
 

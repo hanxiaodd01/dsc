@@ -11,15 +11,15 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: deppon.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 global $_LANG;
 
-$_LANG['deppon']             = '德邦物流';
-$_LANG['deppon_desc']        = '<a href="https://www.deppon.com" target="_blank">https://www.deppon.com</a>';
-$_LANG['item_fee']              = '单件商品费用';
-$_LANG['base_fee']              = '首重1KG以内费用';
-$_LANG['step_fee']               = '续重每1KG或其零数的费用';
-$_LANG['shipping_print']         = '<table style="width:18.8cm; height:3cm;" border="0" cellspacing="0" cellpadding="0">
+$_LANG['deppon'] = '德邦物流';
+$_LANG['deppon_desc'] = '<a href="https://www.deppon.com" target="_blank">https://www.deppon.com</a>';
+$_LANG['item_fee'] = '单件商品费用';
+$_LANG['base_fee'] = '首重1KG以内费用';
+$_LANG['step_fee'] = '续重每1KG或其零数的费用';
+$_LANG['shipping_print'] = '<table style="width:18.8cm; height:3cm;" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>&nbsp;</td>
   </tr>

@@ -1,7 +1,7 @@
 <?php
 //zend by 多点乐  禁止倒卖 一经发现停止任何服务
 if (!defined('IN_ECS')) {
-	exit('Hacking attempt');
+    exit('Hacking attempt');
 }
 
 define('MOBILE_WECHAT', ROOT_PATH . 'mobile/app/Modules/Wechat');
@@ -205,89 +205,89 @@ define('USER_LPASS', 8);
 define('USER_LINE', 9);
 
 if (!defined('CAL_GREGORIAN')) {
-	define('CAL_GREGORIAN', 0);
+    define('CAL_GREGORIAN', 0);
 }
 
 if (!defined('CAL_JULIAN')) {
-	define('CAL_JULIAN', 1);
+    define('CAL_JULIAN', 1);
 }
 
 if (!defined('CAL_JEWISH')) {
-	define('CAL_JEWISH', 2);
+    define('CAL_JEWISH', 2);
 }
 
 if (!defined('CAL_FRENCH')) {
-	define('CAL_FRENCH', 3);
+    define('CAL_FRENCH', 3);
 }
 
 if (!defined('CAL_NUM_CALS')) {
-	define('CAL_NUM_CALS', 4);
+    define('CAL_NUM_CALS', 4);
 }
 
 if (!defined('CAL_DOW_DAYNO')) {
-	define('CAL_DOW_DAYNO', 0);
+    define('CAL_DOW_DAYNO', 0);
 }
 
 if (!defined('CAL_DOW_SHORT')) {
-	define('CAL_DOW_SHORT', 1);
+    define('CAL_DOW_SHORT', 1);
 }
 
 if (!defined('CAL_DOW_LONG')) {
-	define('CAL_DOW_LONG', 2);
+    define('CAL_DOW_LONG', 2);
 }
 
 if (!defined('CAL_MONTH_GREGORIAN_SHORT')) {
-	define('CAL_MONTH_GREGORIAN_SHORT', 0);
+    define('CAL_MONTH_GREGORIAN_SHORT', 0);
 }
 
 if (!defined('CAL_MONTH_GREGORIAN_LONG')) {
-	define('CAL_MONTH_GREGORIAN_LONG', 0);
+    define('CAL_MONTH_GREGORIAN_LONG', 0);
 }
 
 if (!defined('CAL_MONTH_GREGORIAN_LONG')) {
-	define('CAL_MONTH_GREGORIAN_LONG', 1);
+    define('CAL_MONTH_GREGORIAN_LONG', 1);
 }
 
 if (!defined('CAL_MONTH_JULIAN_SHORT')) {
-	define('CAL_MONTH_JULIAN_SHORT', 2);
+    define('CAL_MONTH_JULIAN_SHORT', 2);
 }
 
 if (!defined('CAL_MONTH_JULIAN_LONG')) {
-	define('CAL_MONTH_JULIAN_LONG', 3);
+    define('CAL_MONTH_JULIAN_LONG', 3);
 }
 
 if (!defined('CAL_MONTH_JEWISH')) {
-	define('CAL_MONTH_JEWISH', 4);
+    define('CAL_MONTH_JEWISH', 4);
 }
 
 if (!defined('CAL_MONTH_FRENCH')) {
-	define('CAL_MONTH_FRENCH', 5);
+    define('CAL_MONTH_FRENCH', 5);
 }
 
 if (!defined('CAL_EASTER_DEFAULT')) {
-	define('CAL_EASTER_DEFAULT', 0);
+    define('CAL_EASTER_DEFAULT', 0);
 }
 
 if (!defined('CAL_EASTER_ROMAN')) {
-	define('CAL_EASTER_ROMAN', 1);
+    define('CAL_EASTER_ROMAN', 1);
 }
 
 if (!defined('CAL_EASTER_ALWAYS_GREGORIAN')) {
-	define('CAL_EASTER_ALWAYS_GREGORIAN', 2);
+    define('CAL_EASTER_ALWAYS_GREGORIAN', 2);
 }
 
 if (!defined('CAL_EASTER_ALWAYS_JULIAN')) {
-	define('CAL_EASTER_ALWAYS_JULIAN', 3);
+    define('CAL_EASTER_ALWAYS_JULIAN', 3);
 }
 
 if (!defined('CAL_JEWISH_ADD_ALAFIM_GERESH')) {
-	define('CAL_JEWISH_ADD_ALAFIM_GERESH', 2);
+    define('CAL_JEWISH_ADD_ALAFIM_GERESH', 2);
 }
 
 if (!defined('CAL_JEWISH_ADD_ALAFIM')) {
-	define('CAL_JEWISH_ADD_ALAFIM', 4);
+    define('CAL_JEWISH_ADD_ALAFIM', 4);
 }
 
 if (!defined('CAL_JEWISH_ADD_GERESHAYIM')) {
-	define('CAL_JEWISH_ADD_GERESHAYIM', 8);
+    define('CAL_JEWISH_ADD_GERESHAYIM', 8);
 }

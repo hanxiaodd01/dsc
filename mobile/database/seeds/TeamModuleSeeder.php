@@ -328,7 +328,7 @@ class TeamModuleSeeder extends Seeder
             ];
             DB::table('touch_ad_position')->insert($rows);
         }
-		
+
         if (empty($result_index)) {
             // 插入新数据
             $rows = [
@@ -418,7 +418,7 @@ class TeamModuleSeeder extends Seeder
     {
         $result = DB::table('touch_ad')->whereBetween('position_id', [1000, 1007])->get();
         $result = $result->toArray();
-		$result_index = DB::table('touch_ad')->whereBetween('position_id', [1008, 1014])->get();
+        $result_index = DB::table('touch_ad')->whereBetween('position_id', [1008, 1014])->get();
         $result_index = $result_index->toArray();
         if (empty($result)) {
             // 默认数据
@@ -657,16 +657,16 @@ class TeamModuleSeeder extends Seeder
             ];
             DB::table('touch_ad')->insert($rows);
         }
-		if (empty($result_index)) {
-			// 删除旧数据
-			DB::table('touch_ad')->whereIn('position_id', [1001,1005])->delete();
-			
-		}
-		
-		if (empty($result_index)) {
+        if (empty($result_index)) {
+            // 删除旧数据
+            DB::table('touch_ad')->whereIn('position_id', [1001, 1005])->delete();
+
+        }
+
+        if (empty($result_index)) {
             // 插入新数据
             $rows = [
-				[
+                [
                     'position_id' => '1001',
                     'media_type' => '0',
                     'ad_name' => '生鲜-left-01',
@@ -981,7 +981,7 @@ class TeamModuleSeeder extends Seeder
                     'ad_type' => '0',
                     'goods_name' => '0',
                 ],
-				[
+                [
                     'position_id' => '1014',
                     'media_type' => '0',
                     'ad_name' => '拼团首页精选商品广告位-right-02',
@@ -1047,12 +1047,11 @@ class TeamModuleSeeder extends Seeder
         }
 
         $result1 = DB::table('admin_action')->where('action_code', 'team')->first();
-        if(!empty($result1)){
+        if (!empty($result1)) {
             // 删除旧数据
             DB::table('admin_action')->where('action_id', $result1->action_id)->delete();
             DB::table('admin_action')->where('parent_id', $result1->action_id)->delete();
         }
-
 
 
     }

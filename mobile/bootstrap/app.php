@@ -24,12 +24,22 @@ require __DIR__ . '/../vendor/Kernel.php';
 require __DIR__ . '/../app/Support/helpers.php';
 $dbconf = require CONF_PATH . 'dbconf.php';
 $capsule = new \Illuminate\Database\Capsule\Manager();
-$capsule->addConnection(array('driver' => $dbconf['db_type'], 'host' => $dbconf['db_host'], 'port' => $dbconf['db_port'], 'database' => $dbconf['db_name'], 'username' => $dbconf['db_user'], 'password' => $dbconf['db_pwd'], 'charset' => $dbconf['db_charset'], 'collation' => 'utf8_general_ci', 'prefix' => $dbconf['db_prefix'], 'strict' => false));
+$capsule->addConnection(array(
+    'driver' => $dbconf['db_type'],
+    'host' => $dbconf['db_host'],
+    'port' => $dbconf['db_port'],
+    'database' => $dbconf['db_name'],
+    'username' => $dbconf['db_user'],
+    'password' => $dbconf['db_pwd'],
+    'charset' => $dbconf['db_charset'],
+    'collation' => 'utf8_general_ci',
+    'prefix' => $dbconf['db_prefix'],
+    'strict' => false
+));
 
 try {
-	$capsule->setAsGlobal();
-	$capsule->bootEloquent();
-}
-catch (Exception $e) {
-	exit($e->getMessage());
+    $capsule->setAsGlobal();
+    $capsule->bootEloquent();
+} catch (Exception $e) {
+    exit($e->getMessage());
 }

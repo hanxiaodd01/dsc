@@ -54,17 +54,17 @@ return [
         ],
 
         'mysql' => [
-            'driver'    => 'mysql',
-            'host'      => $dbconf['db_host'], // env('DB_HOST', 'localhost'),
-            'port'      => $dbconf['db_port'], // env('DB_PORT', 3306),
-            'database'  => $dbconf['db_name'], // env('DB_DATABASE', 'forge'),
-            'username'  => $dbconf['db_user'], // env('DB_USERNAME', 'forge'),
-            'password'  => $dbconf['db_pwd'], // env('DB_PASSWORD', ''),
-            'charset'   => $dbconf['db_charset'], // env('DB_CHARSET', 'utf8'),
+            'driver' => 'mysql',
+            'host' => $dbconf['db_host'], // env('DB_HOST', 'localhost'),
+            'port' => $dbconf['db_port'], // env('DB_PORT', 3306),
+            'database' => $dbconf['db_name'], // env('DB_DATABASE', 'forge'),
+            'username' => $dbconf['db_user'], // env('DB_USERNAME', 'forge'),
+            'password' => $dbconf['db_pwd'], // env('DB_PASSWORD', ''),
+            'charset' => $dbconf['db_charset'], // env('DB_CHARSET', 'utf8'),
             'collation' => env('DB_COLLATION', 'utf8_general_ci'),
-            'prefix'    => $dbconf['db_prefix'], // env('DB_PREFIX', ''),
-            'timezone'  => env('DB_TIMEZONE', '+00:00'),
-            'strict'    => env('DB_STRICT_MODE', false),
+            'prefix' => $dbconf['db_prefix'], // env('DB_PREFIX', ''),
+            'timezone' => env('DB_TIMEZONE', '+00:00'),
+            'strict' => env('DB_STRICT_MODE', false),
         ],
 
     ],
@@ -98,8 +98,8 @@ return [
         'cluster' => env('REDIS_CLUSTER', false),
 
         'default' => [
-            'host'     => env('REDIS_HOST', '127.0.0.1'),
-            'port'     => env('REDIS_PORT', 6379),
+            'host' => env('REDIS_HOST', '127.0.0.1'),
+            'port' => env('REDIS_PORT', 6379),
             'database' => env('REDIS_DATABASE', 0),
             'password' => env('REDIS_PASSWORD', null),
         ],

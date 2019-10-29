@@ -756,7 +756,6 @@ $_LANG['msg_re_registration'] = '重新注册';
 $_LANG['publish_product'] = '预售新品发布';
 
 
-
 /* region 地区  */
 
 $_LANG['input_dispatch_addr'] = '您尚未拥有此配送地区，请您填写配送地址';

@@ -4,5 +4,5 @@ namespace App\Contracts\Repositories;
 
 interface Transformable
 {
-	public function transform();
+    public function transform();
 }

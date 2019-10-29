@@ -11,7 +11,7 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: calendar.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 $_LANG['merchants_Settled_desc'] = "申请商家入驻；已提交申请，可查看当前审核状态。";
 $_LANG['see_Agreement'] = "查看开店协议";
 $_LANG['Popular_recommendation'] = "热门推荐";

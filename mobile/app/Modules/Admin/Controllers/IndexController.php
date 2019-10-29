@@ -4,8 +4,8 @@ namespace App\Modules\Admin\Controllers;
 
 class Index
 {
-	public function actionIndex()
-	{
-		redirect('/');
-	}
+    public function actionIndex()
+    {
+        redirect('/');
+    }
 }

@@ -321,11 +321,11 @@ $_LANG['17_coupons'] = '优惠券';
 $_LANG['18_value_card'] = '储值卡';
 
 if (file_exists(MOBILE_TEAM)) {
-	$_LANG['18_team'] = '拼团活动';
+    $_LANG['18_team'] = '拼团活动';
 }
 
 if (file_exists(MOBILE_BARGAIN)) {
-	$_LANG['19_bargain'] = '砍价活动';
+    $_LANG['19_bargain'] = '砍价活动';
 }
 
 $_LANG['03_seckill_list'] = '秒杀活动';
@@ -396,10 +396,9 @@ $_LANG['admin_logs'] = '管理员日志';
 $_LANG['agency_list'] = '办事处列表';
 
 if (judge_supplier_enabled()) {
-	$_LANG['01_suppliers_list'] = '供应商列表';
-}
-else {
-	$_LANG['suppliers_list'] = '供货商列表';
+    $_LANG['01_suppliers_list'] = '供应商列表';
+} else {
+    $_LANG['suppliers_list'] = '供货商列表';
 }
 
 $_LANG['add_kefu'] = '添加客服';
@@ -680,25 +679,25 @@ $_LANG['stores'] = '门店管理';
 $_LANG['2_order_stats'] = '门店销售统计';
 
 if (file_exists(MOBILE_WECHAT)) {
-	$_LANG['22_wechat'] = '微信';
-	$_LANG['01_wechat_admin'] = '公众号设置';
-	$_LANG['02_mass_message'] = '群发消息';
-	$_LANG['03_auto_reply'] = '自动回复';
-	$_LANG['04_menu'] = '自定义菜单';
-	$_LANG['05_fans'] = '粉丝管理';
-	$_LANG['06_media'] = '素材管理';
-	$_LANG['07_qrcode'] = '二维码管理';
-	$_LANG['09_extend'] = '功能扩展';
-	$_LANG['10_market'] = '营销中心';
+    $_LANG['22_wechat'] = '微信';
+    $_LANG['01_wechat_admin'] = '公众号设置';
+    $_LANG['02_mass_message'] = '群发消息';
+    $_LANG['03_auto_reply'] = '自动回复';
+    $_LANG['04_menu'] = '自定义菜单';
+    $_LANG['05_fans'] = '粉丝管理';
+    $_LANG['06_media'] = '素材管理';
+    $_LANG['07_qrcode'] = '二维码管理';
+    $_LANG['09_extend'] = '功能扩展';
+    $_LANG['10_market'] = '营销中心';
 }
 
 if (file_exists(MOBILE_DRP)) {
-	$_LANG['23_drp'] = '微分销管理';
-	$_LANG['01_drp_config'] = '店铺设置';
-	$_LANG['02_drp_shop'] = '分销商管理';
-	$_LANG['03_drp_list'] = '分销排行';
-	$_LANG['04_drp_order_list'] = '分销订单操作';
-	$_LANG['05_drp_set_config'] = '分销比例设置';
+    $_LANG['23_drp'] = '微分销管理';
+    $_LANG['01_drp_config'] = '店铺设置';
+    $_LANG['02_drp_shop'] = '分销商管理';
+    $_LANG['03_drp_list'] = '分销排行';
+    $_LANG['04_drp_order_list'] = '分销订单操作';
+    $_LANG['05_drp_set_config'] = '分销比例设置';
 }
 
 $_LANG['gallery_album'] = '图片库管理';

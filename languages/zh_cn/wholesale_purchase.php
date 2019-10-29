@@ -11,7 +11,7 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: wholesale_purchase.php 17217 2011-01-19 06:29:08Z liubo $20161214
-*/
+ */
 $_LANG['purchase_type'][0] = "现货商品";
 $_LANG['purchase_type'][1] = "定制商品";
 $_LANG['contact_gender'][0] = "未知";

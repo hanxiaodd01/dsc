@@ -12,16 +12,16 @@ $smarty->assign('helps', get_shop_help());
 $vote = get_vote();
 
 if (!empty($vote)) {
-	$smarty->assign('vote_id', $vote['id']);
-	$smarty->assign('vote', $vote['content']);
+    $smarty->assign('vote_id', $vote['id']);
+    $smarty->assign('vote', $vote['content']);
 }
 
 assign_dynamic('tag_cloud');
 $tags = get_tags();
 
 if (!empty($tags)) {
-	include_once ROOT_PATH . 'includes/lib_clips.php';
-	color_tag($tags);
+    include_once ROOT_PATH . 'includes/lib_clips.php';
+    color_tag($tags);
 }
 
 $smarty->assign('tags', $tags);

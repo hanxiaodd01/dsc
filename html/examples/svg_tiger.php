@@ -4,12 +4,11 @@ $content = "\n<page>\n    <draw style=\"margin:auto; width:180mm; height:180mm; 
 require_once dirname(__FILE__) . '/../html2pdf.class.php';
 
 try {
-	$html2pdf = new HTML2PDF('L', 'A4', 'fr');
-	$html2pdf->pdf->SetDisplayMode('fullpage');
-	$html2pdf->writeHTML($content, isset($_GET['vuehtml']));
-	$html2pdf->Output('svg_tiger.pdf');
-}
-catch (HTML2PDF_exception $e) {
-	echo $e;
-	exit();
+    $html2pdf = new HTML2PDF('L', 'A4', 'fr');
+    $html2pdf->pdf->SetDisplayMode('fullpage');
+    $html2pdf->writeHTML($content, isset($_GET['vuehtml']));
+    $html2pdf->Output('svg_tiger.pdf');
+} catch (HTML2PDF_exception $e) {
+    echo $e;
+    exit();
 }

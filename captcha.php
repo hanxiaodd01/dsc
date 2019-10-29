@@ -8,13 +8,15 @@ $img = new captcha(ROOT_PATH . 'data/captcha/', $_CFG['captcha_width'], $_CFG['c
 @ob_end_clean();
 
 if (isset($_REQUEST['is_login'])) {
-	$img->session_word = 'captcha_login';
-}
-else if (isset($_REQUEST['is_discuss'])) {
-	$img->session_word = 'captcha_discuss';
-}
-else if (isset($_REQUEST['is_user_comment'])) {
-	$img->session_word = 'is_user_comment';
+    $img->session_word = 'captcha_login';
+} else {
+    if (isset($_REQUEST['is_discuss'])) {
+        $img->session_word = 'captcha_discuss';
+    } else {
+        if (isset($_REQUEST['is_user_comment'])) {
+            $img->session_word = 'is_user_comment';
+        }
+    }
 }
 
 $img->generate_image();

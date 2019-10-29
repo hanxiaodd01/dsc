@@ -19,17 +19,19 @@ require(dirname(__FILE__) . '/includes/init.php');
 require(ROOT_PATH . '/includes/lib_area.php');  //ecmoban模板堂 --zhuo
 require(ROOT_PATH . 'includes/lib_wholesale.php');
 
-if($GLOBALS['_CFG']['wholesale_user_rank'] == 0){
+if ($GLOBALS['_CFG']['wholesale_user_rank'] == 0) {
     $is_seller = get_is_seller();
-    if($is_seller == 0){
-        ecs_header("Location: " .$ecs->url(). "\n");
+    if ($is_seller == 0) {
+        ecs_header("Location: " . $ecs->url() . "\n");
     }
 }
 
 $page = !empty($_REQUEST['page']) && intval($_REQUEST['page']) > 0 ? intval($_REQUEST['page']) : 1;
 $size = !empty($_CFG['page_size']) && intval($_CFG['page_size']) > 0 ? intval($_CFG['page_size']) : 10;
-$sort = (isset($_REQUEST['sort']) && in_array(trim(strtolower($_REQUEST['sort'])), array('sort_order'))) ? trim($_REQUEST['sort']) : $default_sort_order_type;
-$order = (isset($_REQUEST['order']) && in_array(trim(strtoupper($_REQUEST['order'])), array('ASC', 'DESC'))) ? trim($_REQUEST['order']) : $default_sort_order_method;
+$sort = (isset($_REQUEST['sort']) && in_array(trim(strtolower($_REQUEST['sort'])),
+        array('sort_order'))) ? trim($_REQUEST['sort']) : $default_sort_order_type;
+$order = (isset($_REQUEST['order']) && in_array(trim(strtoupper($_REQUEST['order'])),
+        array('ASC', 'DESC'))) ? trim($_REQUEST['order']) : $default_sort_order_method;
 
 /* ------------------------------------------------------ */
 //-- act 操作项的初始化
@@ -72,12 +74,13 @@ if ($_REQUEST['act'] == 'list') { //批发分类页
 
 /**
  * 取得某页的批发商品
- * @param   int     $size   每页记录数
- * @param   int     $page   当前页
- * @param   string  $where  查询条件
+ * @param int    $size  每页记录数
+ * @param int    $page  当前页
+ * @param string $where 查询条件
  * @return  array
  */
-function get_wholesale_list($cat_id, $size, $page, $sort, $order) {
+function get_wholesale_list($cat_id, $size, $page, $sort, $order)
+{
     $list = array();
     $where = " WHERE 1 ";
     $table = 'wholesale_cat';
@@ -88,11 +91,11 @@ function get_wholesale_list($cat_id, $size, $page, $sort, $order) {
     }
 
     $sql = "SELECT w.*, g.goods_thumb, g.user_id,g.goods_name as goods_name, g.shop_price, market_price, MIN(wvp.volume_number) AS volume_number, MAX(wvp.volume_price) AS volume_price " .
-            "FROM " . $GLOBALS['ecs']->table('wholesale') . " AS w, " .
-            $GLOBALS['ecs']->table('goods') . " AS g "
-            . " LEFT JOIN " . $GLOBALS['ecs']->table('wholesale_volume_price') . " AS wvp ON wvp.goods_id = g.goods_id "
-            . $where
-            . " AND w.goods_id = g.goods_id AND w.enabled = 1 AND w.review_status = 3 GROUP BY goods_id ";
+        "FROM " . $GLOBALS['ecs']->table('wholesale') . " AS w, " .
+        $GLOBALS['ecs']->table('goods') . " AS g "
+        . " LEFT JOIN " . $GLOBALS['ecs']->table('wholesale_volume_price') . " AS wvp ON wvp.goods_id = g.goods_id "
+        . $where
+        . " AND w.goods_id = g.goods_id AND w.enabled = 1 AND w.review_status = 3 GROUP BY goods_id ";
     $res = $GLOBALS['db']->selectLimit($sql, $size, ($page - 1) * $size);
 
     while ($row = $GLOBALS['db']->fetchRow($res)) {
@@ -104,7 +107,8 @@ function get_wholesale_list($cat_id, $size, $page, $sort, $order) {
         //判断当前商家是平台,还是入驻商家 bylu
         if ($row['user_id'] == 0) {
             //判断平台是否开启了IM在线客服
-            if ($GLOBALS['db']->getOne("SELECT kf_im_switch FROM " . $GLOBALS['ecs']->table('seller_shopinfo') . "WHERE ru_id = 0", true)) {
+            if ($GLOBALS['db']->getOne("SELECT kf_im_switch FROM " . $GLOBALS['ecs']->table('seller_shopinfo') . "WHERE ru_id = 0",
+                true)) {
                 $row['is_dsc'] = true;
             } else {
                 $row['is_dsc'] = false;
@@ -125,8 +129,8 @@ function get_wholesale_list($cat_id, $size, $page, $sort, $order) {
         $row['volume_price'] = $row['volume_price'];
         $row['rz_shopName'] = get_shop_name($row['user_id'], 1); //店铺名称
         $build_uri = array(
-            'urid' 		=> $row['user_id'],
-            'append' 	=> $row['rz_shopName']
+            'urid' => $row['user_id'],
+            'append' => $row['rz_shopName']
         );
 
         $domain_url = get_seller_domain_url($row['user_id'], $build_uri);
@@ -140,7 +144,7 @@ function get_wholesale_list($cat_id, $size, $page, $sort, $order) {
 
 /**
  * 商品价格阶梯
- * @param   int     $goods_id     商品ID
+ * @param int $goods_id 商品ID
  * @return  array
  */
 //function get_price_ladder($goods_id)
@@ -208,17 +212,19 @@ function get_wholesale_list($cat_id, $size, $page, $sort, $order) {
  * 创建分页信息
  *
  * @access  public
- * @param   string  $app            程序名称，如category
- * @param   string  $cat            分类ID
- * @param   string  $record_count   记录总数
- * @param   string  $size           每页记录数
- * @param   string  $sort           排序类型
- * @param   string  $order          排序顺序
- * @param   string  $page           当前页
+ * @param string $app          程序名称，如category
+ * @param string $cat          分类ID
+ * @param string $record_count 记录总数
+ * @param string $size         每页记录数
+ * @param string $sort         排序类型
+ * @param string $order        排序顺序
+ * @param string $page         当前页
  * @return  void
  */
-function assign_cat_pager($app, $cat, $record_count, $size, $sort, $order, $page = 1) {
-    $sch = array('sort' => $sort,
+function assign_cat_pager($app, $cat, $record_count, $size, $sort, $order, $page = 1)
+{
+    $sch = array(
+        'sort' => $sort,
         'order' => $order,
         'cat' => $cat,
     );
@@ -273,28 +279,30 @@ function assign_cat_pager($app, $cat, $record_count, $size, $sort, $order, $page
         $pager['page_last'] = ($_to < $page_count) ? $url_format . $page_count : '';
         $pager['page_kbd'] = ($_pagenum < $page_count) ? true : false;
         $pager['page_number'] = array();
-        for ($i = $_from; $i <= $_to;  ++$i) {
+        for ($i = $_from; $i <= $_to; ++$i) {
             $pager['page_number'][$i] = $url_format . $i;
         }
     } else {
-        $pager['page_first'] = ($page - $_offset > 1 && $_pagenum < $page_count) ? build_uri($app, $uri_args, '', 1, $keywords) : '';
+        $pager['page_first'] = ($page - $_offset > 1 && $_pagenum < $page_count) ? build_uri($app, $uri_args, '', 1,
+            $keywords) : '';
         $pager['page_prev'] = ($page > 1) ? build_uri($app, $uri_args, '', $page_prev, $keywords) : '';
         $pager['page_next'] = ($page < $page_count) ? build_uri($app, $uri_args, '', $page_next, $keywords) : '';
         $pager['page_last'] = ($_to < $page_count) ? build_uri($app, $uri_args, '', $page_count, $keywords) : '';
         $pager['page_kbd'] = ($_pagenum < $page_count) ? true : false;
         $pager['page_number'] = array();
-        for ($i = $_from; $i <= $_to;  ++$i) {
+        for ($i = $_from; $i <= $_to; ++$i) {
             $pager['page_number'][$i] = build_uri($app, $uri_args, '', $i, $keywords);
         }
     }
     $GLOBALS['smarty']->assign('pager', $pager);
 }
 
-function get_wholesale_cat_goodsCount($children, $cat_id, $ext = '') {
-	
+function get_wholesale_cat_goodsCount($children, $cat_id, $ext = '')
+{
+
     $where = " wc.is_show = 1 AND $children AND w.review_status = 3 ";
     // if ($cat_id) {
-        // $where .= " AND w.wholesale_cat_id = '$cat_id' ";
+    // $where .= " AND w.wholesale_cat_id = '$cat_id' ";
     // }
     $leftJoin = '';
     $leftJoin .= " LEFT JOIN " . $GLOBALS['ecs']->table('wholesale_cat') . " as wc on w.wholesale_cat_id = wc.cat_id ";

@@ -11,7 +11,7 @@
  * ============================================================================
  * $Author: liubo $
  * $Id: calendar.php 17217 2011-01-19 06:29:08Z liubo $
-*/
+ */
 $_LANG['comment_img_number'] = "最多可传10张图！";
 $_LANG['please_login'] = "请您先登录网站！";
 $_LANG['Review_information'] = "评论信息";

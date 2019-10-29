@@ -18,7 +18,7 @@
 |
 */
 
-$app = require __DIR__.'/../bootstrap/api.php';
+$app = require __DIR__ . '/../bootstrap/api.php';
 
 /*
 |--------------------------------------------------------------------------
