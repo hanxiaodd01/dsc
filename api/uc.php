@@ -16,7 +16,7 @@ class uc_note
         return xml_serialize($arr, $htmlon);
     }
 
-    public function uc_note()
+    public function __construct()
     {
         $this->appdir = ROOT_PATH;
         $this->db = $GLOBALS['db'];

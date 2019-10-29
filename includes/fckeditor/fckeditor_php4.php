@@ -51,7 +51,7 @@ class FCKeditor
      */
     public $Config;
 
-    public function FCKeditor($instanceName)
+    public function __construct($instanceName)
     {
         $this->InstanceName = $instanceName;
         $this->BasePath = '/fckeditor/';

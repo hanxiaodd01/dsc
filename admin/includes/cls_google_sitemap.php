@@ -48,7 +48,7 @@ class google_sitemap
 
 class google_sitemap_item
 {
-    public function google_sitemap_item($loc, $lastmod = '', $changefreq = '', $priority = '')
+    public function __construct($loc, $lastmod = '', $changefreq = '', $priority = '')
     {
         $this->loc = $loc;
         $this->lastmod = $lastmod;

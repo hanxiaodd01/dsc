@@ -52,7 +52,7 @@ if (!defined('WEBSITE')) {
 
     class website extends oath2
     {
-        function website()
+        function __construct()
         {
             $this->app_key = APP_KEY;
             $this->app_secret = APP_SECRET;

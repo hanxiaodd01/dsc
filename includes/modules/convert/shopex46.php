@@ -32,7 +32,7 @@ class shopex46
      */
     public $tcharset;
 
-    public function shopex46(&$sdb, $sprefix, $sroot, $scharset = 'UTF8')
+    public function __construct(&$sdb, $sprefix, $sroot, $scharset = 'UTF8')
     {
         $this->sdb = $sdb;
         $this->sprefix = $sprefix;

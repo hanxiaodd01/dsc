@@ -11,7 +11,7 @@ class shopex47
     public $scharset;
     public $tcharset;
 
-    public function shopex47(&$sdb, $sprefix, $sroot, $scharset = 'UTF8')
+    public function __construct(&$sdb, $sprefix, $sroot, $scharset = 'UTF8')
     {
         $this->sdb = $sdb;
         $this->sprefix = $sprefix;

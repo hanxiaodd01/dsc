@@ -3,7 +3,7 @@
 //多点乐资源
 class RSSBase
 {
-    public function RSSBase()
+    public function __construct()
     {
     }
 }
@@ -32,7 +32,7 @@ class RSSBuilder extends RSSBase
     public $use_dc_data = false;
     public $use_sy_data = false;
 
-    public function RSSBuilder(
+    public function __construct(
         $encoding = '',
         $about = '',
         $title = '',
@@ -726,7 +726,7 @@ class RSSItem extends RSSBase
     public $author;
     public $comments;
 
-    public function RSSItem(
+    public function __construct(
         $about = '',
         $title = '',
         $link = '',
