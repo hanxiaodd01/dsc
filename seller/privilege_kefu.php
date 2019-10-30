@@ -405,8 +405,11 @@ if ($_REQUEST['act'] == 'list') {
                                         $message = message_list($customer_id, $service_id);
                                         $list = $message['list'];
                                         $dialog = dialog($id);
-                                        require dirname(__FILE__) . '/../mobile/thinker/phpoffice/phpexcel/Classes/PHPExcel.php';
+
+                                        // @louv 2019-10-30: phpoffice/phpexcel may resolve this
+//                                        require dirname(__FILE__) . '/../mobile/thinker/phpoffice/phpexcel/Classes/PHPExcel.php';
                                         $excel = new PHPExcel();
+
                                         $letter = array('A', 'B', 'C', 'D', 'E', 'F', 'F', 'G');
 
                                         foreach ($list as $k => $v) {

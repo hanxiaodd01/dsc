@@ -6,6 +6,7 @@ use App\Modules\Wechat\Controllers\PluginController;
 use App\Extensions\QRcode;
 use Think\Image;
 use App\Extensions\Http;
+// @louv 2019-10-30: phpoffice/phpexcel may resolve this
 use PHPExcel\PHPExcel;
 use PHPExcel\PHPExcel_IOFactory;
 

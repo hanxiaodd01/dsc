@@ -3,6 +3,7 @@
 namespace App\Modules\Team\Controllers;
 
 use App\Modules\Base\Controllers\BackendController;
+// @louv 2019-10-30: phpoffice/phpexcel may resolve this
 use PHPExcel\PHPExcel;
 use PHPExcel\PHPExcel_IOFactory;
 

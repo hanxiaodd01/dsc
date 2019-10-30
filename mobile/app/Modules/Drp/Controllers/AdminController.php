@@ -600,6 +600,7 @@ class AdminController extends BackendController
                 header('Content-Type: application/vnd.ms-e xcel');
                 header('Content-Disposition: attachment;filename="' . $title . '_' . urlencode($name) . '.xls"');
                 header('Cache-Control: max-age=0');
+                // @louv 2019-10-30: phpoffice/phpexcel may resolve this
                 $objWriter = \PHPExcel_IOFactory::createWriter($excel, 'Excel5');
                 $objWriter->save('php://output');
                 exit;
