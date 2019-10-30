@@ -9,6 +9,9 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
+// @louv 2019-10-30: resolve function conflict
+// 原文件名为 functions.php
+
 use Illuminate\Container\Container;
 use Illuminate\Support\Facades\Facade;
 
