@@ -10,7 +10,9 @@ class Kernel extends \Laravel\Lumen\Console\Kernel
      * @var array
      */
     protected $commands = array(
-        'App\\Console\\Commands\\CustomerService',
+        // @louv 2019-10-30: close CustomerService temporally due to lack of workerMan
+//        'App\\Console\\Commands\\CustomerService',
+
         'App\\Console\\Commands\\ProjectRelease',
         'App\\Console\\Commands\\RestoreController',
         'App\\Console\\Commands\\RestoreModels'
