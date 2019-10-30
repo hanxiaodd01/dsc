@@ -405,7 +405,7 @@ if ($_REQUEST['act'] == 'list') {
                                         $message = message_list($customer_id, $service_id);
                                         $list = $message['list'];
                                         $dialog = dialog($id);
-                                        require dirname(__FILE__) . '/../mobile/vendor/phpoffice/phpexcel/Classes/PHPExcel.php';
+                                        require dirname(__FILE__) . '/../mobile/thinker/phpoffice/phpexcel/Classes/PHPExcel.php';
                                         $excel = new PHPExcel();
                                         $letter = array('A', 'B', 'C', 'D', 'E', 'F', 'F', 'G');
 

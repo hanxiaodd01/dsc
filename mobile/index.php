@@ -11,7 +11,7 @@ define('APP_DEBUG', true);
 
 // @louv 2019-10-30: resolve function conflict
 require_once __DIR__ . '/app/Support/helpers.php';
-require_once __DIR__ . '/vendor/Common/functions.prepend.php';
+require_once __DIR__ . '/thinker/Common/functions.prepend.php';
 
 /*
 |--------------------------------------------------------------------------
