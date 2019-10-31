@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['separate_name'] = '推荐分成';
 $_LANG['order_id'] = '订单号';
 $_LANG['affiliate_separate'] = '分成';

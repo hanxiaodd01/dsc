@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 function get_cat_info($cat_id)
 {
     return $GLOBALS['db']->getRow('SELECT cat_name, keywords, cat_desc, style, grade, filter_attr, parent_id, cat_icon FROM {pre}category as g WHERE cat_id = ' . $cat_id);

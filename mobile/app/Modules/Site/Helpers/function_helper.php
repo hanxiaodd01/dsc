@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 function goods_list($type, $page, $size, $warehouse_id = 0, $area_id = 0, $area_city)
 {
     if (C('shop.area_pricetype') == 1) {

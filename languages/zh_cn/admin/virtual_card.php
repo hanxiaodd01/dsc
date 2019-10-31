@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['virtual_card_list'] = '虚拟商品列表';
 $_LANG['lab_goods_name'] = '商品名称';
 $_LANG['replenish'] = '补货';

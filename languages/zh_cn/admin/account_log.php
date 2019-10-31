@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['status'] = '状态';
 $_LANG['add_account'] = '调节会员帐户';
 $_LANG['account_list'] = '会员帐户变动明细';

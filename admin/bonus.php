@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 function get_type_list($ru_id)
 {
     $sql = 'SELECT bonus_type_id, COUNT(*) AS sent_count' . ' FROM ' . $GLOBALS['ecs']->table('user_bonus') . ' GROUP BY bonus_type_id';

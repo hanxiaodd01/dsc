@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['product_desc'] = '商品描述相符';
 $_LANG['seller_fwtd'] = '卖家服务态度';
 $_LANG['logistics_speed'] = '物流发货速度';

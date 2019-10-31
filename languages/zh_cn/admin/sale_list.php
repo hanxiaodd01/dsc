@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['order_sn'] = '订单号';
 $_LANG['consignee'] = '收货人';
 $_LANG['all_status'] = '订单状态';

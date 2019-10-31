@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 function warehouse_product_list($goods_id = 0)
 {
     $result = get_filter();

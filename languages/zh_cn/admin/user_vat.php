@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['company_name'] = '公司名称';
 $_LANG['company_telephone'] = '公司电话';
 $_LANG['company_address'] = '公司地址';

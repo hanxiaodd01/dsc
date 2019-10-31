@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 function psi_suppliers_list()
 {
     $sql = "SELECT suppliers_id, suppliers_name, suppliers_desc, is_check\r\n\t\t\tFROM " . $GLOBALS['ecs']->table('suppliers');

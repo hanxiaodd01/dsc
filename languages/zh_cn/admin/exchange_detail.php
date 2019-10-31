@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['give_integral_order_list'] = '赠送积分订单列表';
 $_LANG['export'] = '导出';
 $_LANG['order_sn'] = '订单号';

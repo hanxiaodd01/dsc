@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['visual_home_title'] = '首页装修';
 $_LANG['visual_topic_title'] = '专题装修';
 $_LANG['visual_seller_title'] = '商家模板装修';

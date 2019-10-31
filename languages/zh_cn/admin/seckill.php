@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['seckill_list'] = '秒杀活动列表';
 $_LANG['seckill_add'] = '添加秒杀活动';
 $_LANG['seckill_edit'] = '编辑秒杀活动';

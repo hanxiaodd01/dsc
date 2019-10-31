@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 function create_html($out = '', $cache_id = 0, $cachename = '', $suffix = '', $topic_type = 0)
 {
     $smarty = new cls_template();

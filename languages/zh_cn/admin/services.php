@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['services_add'] = '添加客服';
 $_LANG['services_name'] = '客服昵称';
 $_LANG['services_desc'] = '业务描述';

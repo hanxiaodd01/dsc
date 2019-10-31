@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['lab_integral'] = '积分购买金额：';
 $_LANG['lab_give_integral'] = '赠送消费积分数：';
 $_LANG['lab_rank_integral'] = '赠送等级积分数：';

@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['goods_report_list'] = '举报列表';
 $_LANG['goods_report_type'] = '举报类型';
 $_LANG['goods_report_title'] = '举报主题';

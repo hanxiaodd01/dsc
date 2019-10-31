@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 function get_size_attr_goods($rec_id)
 {
     $sql = 'select size_attr from ' . $GLOBALS['ecs']->table('order_goods') . (' where rec_id = \'' . $rec_id . '\'');

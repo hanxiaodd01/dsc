@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['tab_general'] = '通用信息';
 $_LANG['tab_desc'] = '专题介绍';
 $_LANG['tab_goods'] = '专题商品';

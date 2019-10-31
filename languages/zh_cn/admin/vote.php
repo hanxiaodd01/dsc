@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['vote_id'] = '编号';
 $_LANG['vote_name'] = '调查主题';
 $_LANG['show_position'] = '显示位置';

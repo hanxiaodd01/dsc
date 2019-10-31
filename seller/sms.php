@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 function random($length = 6, $numeric = 0)
 {
     PHP_VERSION < '4.2.0' && mt_srand((double)microtime() * 1000000);

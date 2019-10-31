@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['user_id'] = '编号';
 $_LANG['user_name'] = '角色名';
 $_LANG['email'] = 'Email地址';

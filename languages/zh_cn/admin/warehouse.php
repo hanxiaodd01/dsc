@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['region_id'] = '地区编号';
 $_LANG['region_name'] = '地区名称';
 $_LANG['region_type'] = '地区类型';

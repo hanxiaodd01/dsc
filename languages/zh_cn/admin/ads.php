@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['ad_type'] = '广告类型';
 $_LANG['goods_name'] = '商品名称';
 $_LANG['ad_name_notic2'] = '广告位显示商品名称，以商品形式展现';

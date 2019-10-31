@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['is_show'] = '是否显示';
 $_LANG['view_order'] = '查看';
 $_LANG['button_remove'] = '删除流程';

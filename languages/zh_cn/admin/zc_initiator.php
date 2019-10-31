@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['rank_logo_manage'] = '等级标识管理';
 $_LANG['add_zc_initiator'] = '添加发起人';
 $_LANG['edit_zc_initiator'] = '编辑发起人';

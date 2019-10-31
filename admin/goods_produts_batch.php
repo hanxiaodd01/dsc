@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 function get_list_download($goods_sn = '', $warehouse_info = array(), $attr_info, $attr_num, $model = 0)
 {
     $arr = array();

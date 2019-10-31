@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['presale_list'] = '预售活动列表';
 $_LANG['add_presale'] = '添加预售活动';
 $_LANG['edit_presale'] = '编辑预售活动';

@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 function read_tpl_style($tpl_name, $flag = 1)
 {
     if (empty($tpl_name) && $flag == 1) {

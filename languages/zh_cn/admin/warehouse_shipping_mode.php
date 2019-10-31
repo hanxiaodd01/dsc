@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['01_shipping_add'] = '运费添加';
 $_LANG['fee_compute_mode'] = '费用计算方式';
 $_LANG['fee_by_weight'] = '按重量计算';

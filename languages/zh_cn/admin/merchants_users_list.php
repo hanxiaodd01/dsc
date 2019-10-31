@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['merchants_info'] = '店铺信息';
 $_LANG['seller_rank'] = '等级';
 $_LANG['im_service'] = 'IM客服';

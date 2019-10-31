@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['is_hot'] = '是否热销';
 $_LANG['ishot'] = '热销';
 $_LANG['isnothot'] = '非热销';

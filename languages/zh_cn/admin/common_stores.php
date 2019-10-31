@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['illegal_operate'] = '非法操作';
 $_LANG['store_assistant_add'] = '添加职员';
 $_LANG['store_assistant_list'] = '职员列表';

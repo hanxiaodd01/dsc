@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['zc_project_name'] = '项目名称';
 $_LANG['zc_topic_content'] = '话题内容';
 $_LANG['zc_child_topic'] = '查看子话题';

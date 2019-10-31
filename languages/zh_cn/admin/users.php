@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['nick_name'] = '昵称';
 $_LANG['user_and_nick'] = '会员/昵称';
 $_LANG['passwd_questions']['friend_birthday'] = '我最好朋友的生日？';

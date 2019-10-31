@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['lab_market_price'] = '市场售价：';
 $_LANG['group_buy_list'] = '团购活动列表';
 $_LANG['add_group_buy'] = '添加团购活动';

@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 function get_floor_content($curr_template, $filename, $id = 0, $region = '')
 {
     $where = ' where 1 ';

@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 define('IN_ECS', true);
 require dirname(__FILE__) . '/includes/init.php';
 $exc = new exchange($ecs->table('order_delayed'), $db, 'delayed_id', 'apply_day', 'order_id');

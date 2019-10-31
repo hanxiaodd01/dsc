@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['grade_name'] = '等级名称';
 $_LANG['goods_sun'] = '发布商品数量';
 $_LANG['seller_temp'] = '模板数量';

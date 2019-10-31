@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 function shipping_mode_list($shipping_id, $region_id)
 {
     $adminru = get_admin_ru_id();

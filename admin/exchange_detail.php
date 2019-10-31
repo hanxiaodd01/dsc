@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 function get_shop_exchange_detail($is_pagination = true)
 {
     $where = '';

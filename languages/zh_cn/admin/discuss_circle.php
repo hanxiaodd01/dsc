@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['comment_id'] = '编号';
 $_LANG['user_name'] = '用户名';
 $_LANG['discuss_type'] = '类型';

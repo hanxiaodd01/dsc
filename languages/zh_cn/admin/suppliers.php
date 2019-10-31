@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['add_suppliers'] = '添加供货商';
 $_LANG['edit_suppliers'] = '编辑供货商';
 $_LANG['suppliers_list'] = '供货商列表';

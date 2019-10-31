@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['zc_progress_manage'] = '项目进展管理';
 $_LANG['add_zc_progress'] = '添加项目进展';
 $_LANG['edit_zc_progress'] = '编辑项目进展';

@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 function create_source_config_file($db_host, $db_port, $db_user, $db_pass, $db_name, $db_prefix, $db_retain)
 {
     global $err;

@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['category_name'] = '众筹分类名称';
 $_LANG['prev_category'] = '上级分类';
 $_LANG['top_category'] = '顶级分类';

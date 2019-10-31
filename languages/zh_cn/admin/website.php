@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['website_name'] = '插件名称';
 $_LANG['website_qq'] = '作者QQ';
 $_LANG['website_author'] = '作者';

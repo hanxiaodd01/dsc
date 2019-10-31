@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 function get_activity_count()
 {
     $sql = 'SELECT COUNT(*) AS count FROM {pre}favourable_activity f LEFT JOIN {pre}touch_activity a ON a.act_id = f.act_id WHERE f.review_status = 3 ';

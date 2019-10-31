@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐  禁止倒卖 一经发现停止任何服务
+
 $_LANG['set_up_config'] = '请配置源站点数据库信息';
 $_LANG['select_method'] = '选择商品的方式：';
 $_LANG['by_cat'] = '根据商品分类、品牌';
