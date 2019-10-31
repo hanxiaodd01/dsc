@@ -1,4 +1,17 @@
 <?php
+// +----------------------------------------------------------------------
+// | ThinkPHP [ WE CAN DO IT JUST THINK IT ]
+// +----------------------------------------------------------------------
+// | Copyright (c) 2006-2014 http://thinkphp.cn All rights reserved.
+// +----------------------------------------------------------------------
+// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+// +----------------------------------------------------------------------
+// | Author: liu21st <liu21st@gmail.com>
+// +----------------------------------------------------------------------
+
+//----------------------------------
+// ThinkPHP公共入口文件
+//----------------------------------
 
 // 记录开始运行时间
 $GLOBALS['_beginTime'] = microtime(true);
@@ -24,15 +37,14 @@ const EXT = '.class.php';
 defined('THINK_PATH') or define('THINK_PATH', __DIR__ . '/');
 defined('APP_PATH') or define('APP_PATH', dirname($_SERVER['SCRIPT_FILENAME']) . '/');
 defined('APP_STATUS') or define('APP_STATUS', ''); // 应用状态 加载对应的配置文件
-defined('APP_DEBUG') or define('APP_DEBUG',
-    in_array(@$_SERVER['REMOTE_ADDR'], ['127.0.0.1', '192.168.10.1'])); // 是否调试模式
+defined('APP_DEBUG') or define('APP_DEBUG', false); // 是否调试模式
 
 if (function_exists('saeAutoLoader')) {// 自动识别SAE环境
     defined('APP_MODE') or define('APP_MODE', 'sae');
     defined('STORAGE_TYPE') or define('STORAGE_TYPE', 'Sae');
 } else {
-    defined('APP_MODE') or define('APP_MODE', 'common'); // 应用模式 默认为普通模式    
-    defined('STORAGE_TYPE') or define('STORAGE_TYPE', 'File'); // 存储类型 默认为File    
+    defined('APP_MODE') or define('APP_MODE', 'common'); // 应用模式 默认为普通模式
+    defined('STORAGE_TYPE') or define('STORAGE_TYPE', 'File'); // 存储类型 默认为File
 }
 
 defined('RUNTIME_PATH') or define('RUNTIME_PATH', APP_PATH . 'Runtime/');   // 系统运行时目录
@@ -60,7 +72,7 @@ if (version_compare(PHP_VERSION, '5.4.0', '<')) {
 } else {
     define('MAGIC_QUOTES_GPC', false);
 }
-define('IS_CGI', substr(PHP_SAPI, 0, 3) == 'cgi' ? 1 : 0); // 兼容判断FPM/FastCGI 模式
+define('IS_CGI', (0 === strpos(PHP_SAPI, 'cgi') || false !== strpos(PHP_SAPI, 'fcgi')) ? 1 : 0);
 define('IS_WIN', strstr(PHP_OS, 'WIN') ? 1 : 0);
 define('IS_CLI', PHP_SAPI == 'cli' ? 1 : 0);
 
@@ -77,11 +89,11 @@ if (!IS_CLI) {
     }
     if (!defined('__ROOT__')) {
         $_root = rtrim(dirname(_PHP_FILE_), '/');
-        define('__ROOT__', (($_root == '/' || $_root == '\\') ? '' : $_root));
+        define('__ROOT__', (('/' == $_root || '\\' == $_root) ? '' : $_root));
     }
 }
 
 // 加载核心Think类
 require CORE_PATH . 'Think' . EXT;
-// 核心Think类别名
-class_alias('Think\Think', 'ECTouch');
+// 应用初始化
+class_alias('Think\Think', 'Thinker');

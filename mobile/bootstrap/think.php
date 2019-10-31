@@ -19,6 +19,7 @@ define('LOG_PATH', ROOT_PATH . 'storage/logs/' . PATH_HASH . '/');
 define('TMPL_PATH', ROOT_PATH . 'resources/views/');
 define('PHP_SELF', isset($_SERVER['PHP_SELF']) ? $_SERVER['PHP_SELF'] : $_SERVER['SCRIPT_NAME']);
 define('BUILD_DIR_SECURE', false);
+
 require BASE_PATH . 'Support/constant.php';
 
 require __DIR__ . '/../thinker/ThinkPHP.php';
@@ -27,7 +28,9 @@ require __DIR__ . '/../thinker/ThinkPHP.php';
 //require __DIR__ . '/../app/Support/helpers.php';
 
 $dbconf = require CONF_PATH . 'dbconf.php';
+
 $capsule = new \Illuminate\Database\Capsule\Manager();
+
 $capsule->addConnection(array(
     'driver' => $dbconf['db_type'],
     'host' => $dbconf['db_host'],
