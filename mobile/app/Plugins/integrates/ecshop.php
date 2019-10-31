@@ -1,6 +1,6 @@
 <?php
 
-//高度差网络 https://www.gaodux.com/
+
 class ecshop extends \App\Libraries\Integrate
 {
     private $is_ecshop = 1;

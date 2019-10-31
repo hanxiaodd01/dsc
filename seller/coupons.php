@@ -1,5 +1,5 @@
 <?php
-//高度差网络 https://www.gaodux.com/
+
 function get_coupons_list($ru_id = '')
 {
     $sql = 'SELECT COUNT(*) FROM ' . $GLOBALS['ecs']->table('coupons') . '';

@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 $_LANG['app_name'] = 'Dscmall';
 $_LANG['cp_home'] = '管理中心';
 $_LANG['copyright'] = '版權所有 &copy; 2005-2017 上海商创網絡科技有限公司，並保留所有權利。';

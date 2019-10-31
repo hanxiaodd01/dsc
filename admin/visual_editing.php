@@ -1,5 +1,5 @@
 <?php
-//高度差网络 https://www.gaodux.com/
+
 define('IN_ECS', true);
 require dirname(__FILE__) . '/includes/init.php';
 require ROOT_PATH . '/includes/lib_visual.php';

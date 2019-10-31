@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function shopinfo_article_list()
 {
     $list = array();

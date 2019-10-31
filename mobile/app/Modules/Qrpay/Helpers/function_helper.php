@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function IsWeixinOrAlipay()
 {
     if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {

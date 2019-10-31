@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 $category_action = array(
     'dsc.category.list.get',
     'dsc.category.info.get',

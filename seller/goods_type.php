@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function get_goodstype($ru_id)
 {
     $where = ' WHERE 1 ';

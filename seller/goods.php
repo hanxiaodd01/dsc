@@ -1,5 +1,5 @@
 <?php
-/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 function cat_list_one_new($cat_id = 0, $cat_level = 0, $sel_cat)
 {
     if ($cat_id == 0) {

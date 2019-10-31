@@ -1,5 +1,5 @@
 <?php
-/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 function get_cat_store_list($cat_id)
 {
     $sql = 'SELECT user_shopMain_category AS user_cat, user_id FROM {pre}merchants_shop_information  WHERE 1 AND user_shopMain_category <> \'\' AND merchants_audit = 1';

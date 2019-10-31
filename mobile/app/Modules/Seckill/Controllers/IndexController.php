@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 namespace App\Modules\Seckill\Controllers;
 
 class IndexController extends \App\Modules\Base\Controllers\FrontendController

@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 $shipping_id = isset($_REQUEST['shipping_id']) ? $base->get_intval($_REQUEST['shipping_id']) : -1;
 $shipping_name = isset($_REQUEST['shipping_name']) ? $base->get_addslashes($_REQUEST['shipping_name']) : -1;
 $shipping_code = isset($_REQUEST['shipping_code']) ? $base->get_addslashes($_REQUEST['shipping_code']) : -1;

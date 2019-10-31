@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function getfiles($path, &$files = array())
 {
     if (!is_dir($path)) {

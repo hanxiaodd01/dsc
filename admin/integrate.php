@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function conflict_userlist()
 {
     $filter['flag'] = empty($_REQUEST['flag']) ? 0 : intval($_REQUEST['flag']);

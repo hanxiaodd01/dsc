@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 $_LANG['integrate_name'] = '名称';
 $_LANG['integrate_version'] = '版本';
 $_LANG['integrate_author'] = '作者';

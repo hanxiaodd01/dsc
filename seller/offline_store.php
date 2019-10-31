@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function upload_article_file($upload)
 {
     if (!make_dir('../' . DATA_DIR . '/offline_store')) {

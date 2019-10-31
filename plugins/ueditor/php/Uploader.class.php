@@ -1,6 +1,6 @@
 <?php
 
-//大商创网络
+
 class Uploader
 {
     private $fileField;

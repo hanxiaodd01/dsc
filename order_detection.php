@@ -1,5 +1,5 @@
 <?php
-/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 function get_order_detection_list()
 {
     $no_main_order = ' and (select count(*) from ' . $GLOBALS['ecs']->table('order_info') . ' as oi2 where oi2.main_order_id = o.order_id) = 0 ';

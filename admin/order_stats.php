@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function get_orderinfo($start_date, $end_date, $type = 0)
 {
     $order_info = array();

@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function license_check()
 {
     $return_array = array();

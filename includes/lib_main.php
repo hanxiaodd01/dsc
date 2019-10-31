@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function update_user_info()
 {
     if (!$_SESSION['user_id']) {

@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 namespace App\Modules\Presale\Controllers;
 
 class IndexController extends \App\Modules\Base\Controllers\FrontendController

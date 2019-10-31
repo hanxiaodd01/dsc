@@ -1,6 +1,6 @@
 <?php
 
-//高度差网络 https://www.gaodux.com/
+
 class qq
 {
     const GET_AUTH_CODE_URL = 'https://graph.qq.com/oauth2.0/authorize?';

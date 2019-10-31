@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 namespace App\Modules\Base\Controllers;
 
 abstract class FrontendController extends FoundationController

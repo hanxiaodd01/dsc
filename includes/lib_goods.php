@@ -1,5 +1,5 @@
 <?php
-/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 function goods_sort($goods_a, $goods_b)
 {
     if ($goods_a['sort_order'] == $goods_b['sort_order']) {

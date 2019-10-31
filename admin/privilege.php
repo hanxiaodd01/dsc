@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function get_admin_userlist($ru_id)
 {
     $list = array();

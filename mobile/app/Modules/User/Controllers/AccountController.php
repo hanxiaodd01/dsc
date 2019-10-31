@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 namespace App\Modules\User\Controllers;
 
 class AccountController extends \App\Modules\Base\Controllers\FrontendController

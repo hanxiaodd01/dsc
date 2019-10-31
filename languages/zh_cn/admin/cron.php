@@ -1,5 +1,5 @@
 <?php
-//高度差网络 https://www.gaodux.com/
+
 $_LANG['cron_name'] = '计划任务名称';
 $_LANG['cron_code'] = '此计划任务';
 $_LANG['if_open'] = '开启';

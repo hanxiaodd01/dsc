@@ -1,5 +1,5 @@
 <?php
-//高度差网络 https://www.gaodux.com/
+
 function sale_notice_list($ru_id)
 {
     $filter['keywords'] = empty($_REQUEST['keywords']) ? 0 : trim($_REQUEST['keywords']);

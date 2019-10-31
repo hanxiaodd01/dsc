@@ -1,5 +1,5 @@
 <?php
-//高度差网络 https://www.gaodux.com/
+
 function cat_update($cat_id, $args)
 {
     if (empty($args) || empty($cat_id)) {

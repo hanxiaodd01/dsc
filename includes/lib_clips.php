@@ -1,5 +1,5 @@
 <?php
-/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 function get_collection_goods($user_id, $record_count, $page, $pageFunc, $size = 10)
 {
     require_once 'includes/cls_pager.php';

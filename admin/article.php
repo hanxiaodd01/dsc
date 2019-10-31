@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function drop_link_goods($goods_id, $article_id)
 {
     $sql = 'DELETE FROM ' . $GLOBALS['ecs']->table('goods_article') . (' WHERE goods_id = \'' . $goods_id . '\' AND article_id = \'' . $article_id . '\' LIMIT 1');

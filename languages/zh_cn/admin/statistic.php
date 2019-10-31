@@ -1,5 +1,5 @@
 <?php
-/*QQ:2172298892  瑾梦网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 $_LANG['stats_off'] = '网站流量统计已被关闭。<BR>如有需要请到: 系统设置->商店设置->基本设置 开启站点流量统计服务。';
 $_LANG['last_update'] = '最后更新日期';
 $_LANG['now_update'] = '更新记录';

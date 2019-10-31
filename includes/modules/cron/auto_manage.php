@@ -1,5 +1,5 @@
 <?php
-//高度差网络 https://www.gaodux.com/
+
 if (!defined('IN_ECS')) {
     exit('Hacking attempt');
 }

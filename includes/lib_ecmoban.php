@@ -1,5 +1,5 @@
 <?php
-/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 function get_categories_tree_pro($cat_id = 0, $type = '')
 {
     if (0 < $cat_id) {

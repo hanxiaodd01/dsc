@@ -1,6 +1,6 @@
 <?php
 
-//大商创网络
+
 class dscmall extends \App\Libraries\Integrate
 {
     private $is_ecshop = 1;

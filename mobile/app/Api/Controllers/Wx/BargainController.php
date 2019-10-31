@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 namespace App\Api\Controllers\Wx;
 
 class BargainController extends \App\Api\Controllers\Controller

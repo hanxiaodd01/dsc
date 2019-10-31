@@ -1,5 +1,5 @@
 <?php
-/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 $_LANG['lab_goods_desc'] = '商品统一描述';
 $_LANG['lab_add_desc'] = '添加关联描述';
 $_LANG['lab_desc_list'] = '描述列表';

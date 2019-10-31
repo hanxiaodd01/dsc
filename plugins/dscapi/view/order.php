@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 $seller_id = isset($_REQUEST['seller_id']) ? $base->get_intval($_REQUEST['seller_id']) : -1;
 $order_id = isset($_REQUEST['order_id']) ? $base->get_intval($_REQUEST['order_id']) : -1;
 $order_sn = isset($_REQUEST['order_sn']) ? $base->get_addslashes($_REQUEST['order_sn']) : -1;

@@ -1,5 +1,5 @@
 <?php
-//高度差网络 https://www.gaodux.com/
+
 function patch_list($patch_url, $current_version)
 {
     $metadata_str = Http::doGet($patch_url);

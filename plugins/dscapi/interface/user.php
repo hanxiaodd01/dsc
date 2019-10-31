@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 $user_action = array(
     'dsc.user.list.get',
     'dsc.user.info.get',

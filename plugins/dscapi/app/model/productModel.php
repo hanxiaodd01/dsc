@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 namespace app\model;
 
 abstract class productModel extends \app\func\common

@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 $region_id = isset($_REQUEST['region_id']) ? $base->get_intval($_REQUEST['region_id']) : -1;
 $region_code = isset($_REQUEST['region_code']) ? $base->get_addslashes($_REQUEST['region_code']) : -1;
 $parent_id = isset($_REQUEST['parent_id']) ? $base->get_intval($_REQUEST['parent_id']) : -1;

@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 $warehouse_action = array(
     'dsc.warehouse.list.get',
     'dsc.warehouse.info.get',

@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 define('IN_ECS', true);
 require dirname(__FILE__) . '/includes/init.php';
 include_once 'includes/cls_json.php';

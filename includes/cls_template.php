@@ -1,6 +1,6 @@
 <?php
 
-//高度差网络 https://www.gaodux.com/
+
 class cls_template
 {
     public $template_dir = '';

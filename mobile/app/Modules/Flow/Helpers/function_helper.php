@@ -1,5 +1,5 @@
 <?php
-/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 function get_consignee_list_p($user_id, $id = 0, $num = 10, $start = 0)
 {
     if ($id) {

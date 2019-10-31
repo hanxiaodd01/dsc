@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 namespace App\Modules\Base\Controllers;
 
 abstract class FoundationController extends \Think\Controller\RestController

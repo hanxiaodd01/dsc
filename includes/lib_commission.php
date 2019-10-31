@@ -1,5 +1,5 @@
 <?php
-/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 function get_seller_commission_info($ru_id = 0)
 {
     $sql = 'SELECT ms.server_id, ms.commission_model, ms.suppliers_percent, mp.percent_value FROM ' . $GLOBALS['ecs']->table('merchants_server') . ' AS ms ' . 'LEFT JOIN ' . $GLOBALS['ecs']->table('merchants_percent') . ' AS mp ON ms.suppliers_percent = mp.percent_id ' . ('WHERE ms.user_id = \'' . $ru_id . '\' LIMIT 1');

@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function delDir($dir)
 {
     $dh = opendir($dir);

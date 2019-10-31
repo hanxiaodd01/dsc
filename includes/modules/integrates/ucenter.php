@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 if (!defined('IN_ECS')) {
     exit('Hacking attempt');
 }

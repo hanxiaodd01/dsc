@@ -1,5 +1,5 @@
 <?php
-/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 function flow_available_points($cart_value, $warehouse_id = 0, $area_id = 0, $area_city = 0)
 {
     if (!empty($_SESSION['user_id'])) {

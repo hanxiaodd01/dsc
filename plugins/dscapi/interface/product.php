@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 $product_action = array(
     'dsc.product.list.get',
     'dsc.product.info.get',

@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 define('DEALCONCURRENT_PAY_ORDER', 0);
 define('STATUS_CREATED', 0);
 define('STATUS_PAID', 1);

@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function get_ip_area_name($ip = 0, $api = 0)
 {
     $api = isset($GLOBALS['_CFG']['ip_type']) ? $GLOBALS['_CFG']['ip_type'] : 0;

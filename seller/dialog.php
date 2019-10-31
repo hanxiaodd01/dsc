@@ -1,5 +1,5 @@
 <?php
-/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 function ajax_get_area_list($ra_id = 0, $region_ids = array())
 {
     $sql = 'select r.region_id, r.region_name from ' . $GLOBALS['ecs']->table('merchants_region_info') . ' as mri' . ' left join ' . $GLOBALS['ecs']->table('region') . ' as r on mri.region_id = r.region_id' . (' where mri.ra_id = \'' . $ra_id . '\'');

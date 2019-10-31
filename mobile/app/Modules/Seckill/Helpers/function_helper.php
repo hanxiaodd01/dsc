@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function get_seckill_time()
 {
     $now = gmtime();

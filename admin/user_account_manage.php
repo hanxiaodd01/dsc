@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function get_total_amount($start_date, $end_date, $type = 0)
 {
     $sql = ' SELECT IFNULL(SUM(amount), 0) AS total_amount FROM ' . $GLOBALS['ecs']->table('user_account') . ' AS a, ' . $GLOBALS['ecs']->table('users') . ' AS u ' . (' WHERE process_type = ' . $type . ' AND is_paid = 1 AND a.user_id = u.user_id AND paid_time >= \'' . $start_date . '\' AND paid_time < \'') . ($end_date + 86400) . '\'';

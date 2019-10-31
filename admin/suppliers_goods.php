@@ -1,5 +1,5 @@
 <?php
-/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 function list_link($is_add = true, $extension_code = '')
 {
     $href = 'goods.php?act=list';

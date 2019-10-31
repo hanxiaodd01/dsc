@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function get_sale_list($is_pagination = true)
 {
     $filter['start_date'] = empty($_REQUEST['start_date']) ? local_strtotime('-7 days') : local_strtotime($_REQUEST['start_date']);

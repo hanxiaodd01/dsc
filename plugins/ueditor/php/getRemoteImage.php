@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function getRemoteImage($uri, $config)
 {
     global $root_path_relative;

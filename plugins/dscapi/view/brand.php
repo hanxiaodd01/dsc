@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 $brand_id = isset($_REQUEST['brand_id']) ? $base->get_intval($_REQUEST['brand_id']) : -1;
 $brand_name = isset($_REQUEST['brand_name']) ? $base->get_addslashes($_REQUEST['brand_name']) : -1;
 $val = array(

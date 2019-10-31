@@ -1,5 +1,5 @@
 <?php
-//高度差网络 https://www.gaodux.com/
+
 function favourable_list($ru_id)
 {
     $result = get_filter();

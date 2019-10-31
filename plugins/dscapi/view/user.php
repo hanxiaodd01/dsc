@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 $user_id = isset($_REQUEST['user_id']) ? $base->get_intval($_REQUEST['user_id']) : -1;
 $user_name = isset($_REQUEST['user_name']) ? $base->get_addslashes($_REQUEST['user_name']) : -1;
 

@@ -1,6 +1,6 @@
 <?php
 
-//高度差网络 https://www.gaodux.com/
+
 class ucenter extends \App\Libraries\Integrate
 {
     public function __construct($cfg)

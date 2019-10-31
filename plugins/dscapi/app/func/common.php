@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 namespace app\func;
 
 class common

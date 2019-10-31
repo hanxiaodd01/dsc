@@ -1,5 +1,5 @@
 <?php
-/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 function cause_info($c_id)
 {
     $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('return_cause') . ' WHERE cause_id = ' . $c_id;

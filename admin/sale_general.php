@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function get_data_list($type = 0)
 {
     if ($type != 0) {

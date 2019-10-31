@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function return_url($code)
 {
     return __URL__ . '/respond.php?code=' . $code;

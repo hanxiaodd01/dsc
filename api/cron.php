@@ -1,5 +1,5 @@
 <?php
-//高度差网络 https://www.gaodux.com/
+
 function get_next_time($cron)
 {
     $y = local_date('Y', $GLOBALS['timestamp']);

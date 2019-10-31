@@ -1,5 +1,5 @@
 <?php
-//高度差网络 https://www.gaodux.com/
+
 $_LANG['alidayu_add'] = '添加模板';
 $_LANG['alidayu_list'] = '短信模板列表';
 $_LANG['add_success'] = '添加成功';

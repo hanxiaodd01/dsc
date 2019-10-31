@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function get_pre_cat()
 {
     $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('presale_cat') . ' ORDER BY sort_order ASC ';

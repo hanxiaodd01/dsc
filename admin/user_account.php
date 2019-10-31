@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function get_user_surplus($user_id)
 {
     $sql = 'SELECT user_money, frozen_money FROM ' . $GLOBALS['ecs']->table('users') . (' WHERE user_id = \'' . $user_id . '\'');

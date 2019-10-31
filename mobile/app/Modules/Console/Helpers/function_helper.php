@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function replace_img_view($data)
 {
     $data = strstr($data, 'data');

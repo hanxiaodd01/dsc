@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function statistical_field_shop_num()
 {
     return 'COUNT(DISTINCT spi.ru_id)';

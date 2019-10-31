@@ -1,5 +1,5 @@
 <?php
-//高度差网络 https://www.gaodux.com/
+
 $_LANG['title'] = '文章标题';
 $_LANG['cat'] = '文章分类';
 $_LANG['content'] = '文章内容';

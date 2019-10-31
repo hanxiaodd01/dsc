@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 namespace app\controller;
 
 class brand extends \app\model\brandModel

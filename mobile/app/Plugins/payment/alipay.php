@@ -1,6 +1,6 @@
 <?php
 
-//大商创网络
+
 class alipay
 {
     public function get_code($order, $payment)

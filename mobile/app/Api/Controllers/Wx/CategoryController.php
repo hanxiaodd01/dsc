@@ -1,5 +1,5 @@
 <?php
-//高度差网络 https://www.gaodux.com/
+
 namespace App\Api\Controllers\Wx;
 
 class CategoryController extends \App\Api\Controllers\Controller

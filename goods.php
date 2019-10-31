@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function get_linked_goods($goods_id, $warehouse_id = 0, $area_id = 0, $area_city = 0)
 {
     $where = '';

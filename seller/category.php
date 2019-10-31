@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function cat_update($cat_id, $args)
 {
     if (empty($args) || empty($cat_id)) {

@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 namespace app\model;
 
 abstract class orderModel extends \app\func\common

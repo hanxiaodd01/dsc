@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function sess()
 {
     if (!empty($_SESSION['user_id'])) {

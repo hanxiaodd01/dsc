@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 $attribute_action = array(
     'dsc.goodstype.list.get',
     'dsc.goodstype.info.get',

@@ -1,5 +1,5 @@
 <?php
-/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 $_LANG['prev_step'] = '上一步：';
 $_LANG['next_step'] = '下一步：';
 $_LANG['select_language_title'] = '大商创升级程序 第1步/共3步 选择语言编码';

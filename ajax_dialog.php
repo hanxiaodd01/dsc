@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function get_str_array1($order)
 {
     $arr = array();

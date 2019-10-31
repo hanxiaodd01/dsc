@@ -1,5 +1,5 @@
 <?php
-//高度差网络 https://www.gaodux.com/
+
 function get_user_log()
 {
     $result = get_filter();

@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function get_store_user($ru_id = 0, $store_id = 0)
 {
     $result = get_filter();

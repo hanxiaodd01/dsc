@@ -1,5 +1,5 @@
 <?php
-/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 $_LANG['update_type'] = '更新状态';
 $_LANG['order_vcard_return'] = '【订单退款】储值卡退款金额：%s';
 $_LANG['01_email_manage'] = '邮件群发管理';

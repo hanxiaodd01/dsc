@@ -1,5 +1,5 @@
 <?php
-//高度差网络 https://www.gaodux.com/
+
 $_LANG['template_mall'] = '店铺模板';
 $_LANG['template_apply_list'] = '模板订单';
 $_LANG['temp_mode'][0] = '免费';

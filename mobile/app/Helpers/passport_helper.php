@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function register($username, $password, $email, $other = array())
 {
     if (!empty($GLOBALS['_CFG']['shop_reg_closed'])) {

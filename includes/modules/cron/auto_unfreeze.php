@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function auto_unfreeze_logResult($word = '', $type = 'auto_unfreeze')
 {
     $word = is_array($word) ? var_export($word, true) : $word;

@@ -1,6 +1,6 @@
 <?php
 
-//高度差网络 https://www.gaodux.com/
+
 class weibo
 {
     public $api_url = 'https://api.weibo.com/2/';

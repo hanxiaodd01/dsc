@@ -1,5 +1,5 @@
 <?php
-//高度差网络 https://www.gaodux.com/
+
 $_LANG['01_apply_sn'] = '【付款单号】%s';
 $_LANG['add_account'] = '调节商家帐户';
 $_LANG['account_list'] = '商家帐户变动明细';

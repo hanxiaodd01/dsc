@@ -1,5 +1,5 @@
 <?php
-//高度差网络 https://www.gaodux.com/
+
 $_LANG['cfg_name']['header_region'] = '商城头部推荐地区';
 $_LANG['cfg_desc']['header_region'] = '用于商城头部地区便于用户快速进入相应热门地区（格式：英文逗号）';
 $_LANG['cfg_name']['area_pricetype'] = '商品设置地区模式时';

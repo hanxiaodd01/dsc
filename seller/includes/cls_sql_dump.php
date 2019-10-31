@@ -1,6 +1,6 @@
 <?php
 
-//高度差网络 https://www.gaodux.com/
+
 class cls_sql_dump
 {
     public $max_size = 2097152;

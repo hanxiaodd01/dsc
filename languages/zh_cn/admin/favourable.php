@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 $_LANG['lab_act_range_desc'][0] = '商品已经参与其他优惠活动';
 $_LANG['lab_act_range_desc'][1] = '分类商品已经参与其他优惠活动';
 $_LANG['lab_act_range_desc'][2] = '品牌商品已经参与其他优惠活动';

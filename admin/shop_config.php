@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function update_configure($key, $val = '')
 {
     if (!empty($key)) {

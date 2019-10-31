@@ -1,5 +1,5 @@
 <?php
-/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 function get_xiaoliang($goods_id = 0)
 {
     $sql = 'SELECT sum(goods_number) FROM ' . $GLOBALS['ecs']->table('order_goods') . ' WHERE goods_id =' . $goods_id;

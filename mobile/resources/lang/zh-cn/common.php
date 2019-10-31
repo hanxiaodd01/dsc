@@ -1,5 +1,5 @@
 <?php
-/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 $_LANG['through'] = '通过';
 $_LANG['surplus_type_0'] = '充值';
 $_LANG['surplus_type_1'] = '提现';

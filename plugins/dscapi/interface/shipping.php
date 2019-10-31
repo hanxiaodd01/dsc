@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 $shipping_action = array(
     'dsc.shipping.list.get',
     'dsc.shipping.info.get',

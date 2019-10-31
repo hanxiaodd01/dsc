@@ -1,5 +1,5 @@
 <?php
-/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 define('IN_ECTOUCH', true);
 define('APPNAME', 'ECTouch');
 define('VERSION', 'v2.7.3.4');

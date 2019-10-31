@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 $region_action = array(
     'dsc.region.list.get',
     'dsc.region.info.get',

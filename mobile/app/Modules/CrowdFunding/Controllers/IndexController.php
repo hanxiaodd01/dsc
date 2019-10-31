@@ -1,5 +1,5 @@
 <?php
-//高度差网络 https://www.gaodux.com/
+
 namespace App\Modules\CrowdFunding\Controllers;
 
 class IndexController extends \App\Modules\Base\Controllers\FrontendController

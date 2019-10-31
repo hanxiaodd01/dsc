@@ -1,5 +1,5 @@
 <?php
-/*高度差网络  禁止倒卖 一经发现停止任何服务https://www.dscmall.cn*/
+
 echo '<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>';

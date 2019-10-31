@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function list_link($is_add = true, $extension_code = '')
 {
     $href = 'goods_lib.php?act=list';

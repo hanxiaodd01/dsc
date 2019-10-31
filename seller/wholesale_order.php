@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 function wholesale_order_list()
 {
     $adminru = get_admin_ru_id();

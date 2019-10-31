@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 $order_action = array(
     'dsc.order.list.get',
     'dsc.order.info.get',

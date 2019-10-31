@@ -1,5 +1,5 @@
 <?php
-//大商创网络
+
 if (!$smarty->is_cached('homeindex.dwt', $cache_id) || $preview == 1) {
     assign_template();
     $position = assign_ur_here();
