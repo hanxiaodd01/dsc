@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐 禁止倒卖 一经发现停止任何服务
+
 $_LANG['js_languages']['send_num_null'] = '请输入发放张数';
 $_LANG['js_languages']['send_num_number'] = '请输入正确的数字';
 $_LANG['js_languages']['card_name_null'] = '请输入用户名';

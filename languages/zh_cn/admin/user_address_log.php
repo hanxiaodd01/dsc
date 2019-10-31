@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐 禁止倒卖 一经发现停止任何服务
+
 $_LANG['03_users_list'] = '收货地址列表';
 $_LANG['remove_confirm_address'] = '您确定要删除该会员收货地址吗？';
 $_LANG['please_select'] = '请选择';

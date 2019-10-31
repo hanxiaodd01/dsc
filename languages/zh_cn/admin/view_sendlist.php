@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐 禁止倒卖 一经发现停止任何服务
+
 $_LANG['email_val'] = '邮件地址';
 $_LANG['email_error'] = '错误次数';
 $_LANG['email_subject'] = '邮件标题';

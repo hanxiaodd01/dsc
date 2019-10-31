@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐 禁止倒卖 一经发现停止任何服务
+
 $_LANG['table_list_notic'] = '当前需要修改的数据表有';
 $_LANG['table_list_one'] = '当前表前缀';
 $_LANG['table_list_two'] = '修改后表前缀';

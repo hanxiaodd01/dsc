@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐 禁止倒卖 一经发现停止任何服务
+
 $_LANG['tag_manage'] = '标签管理';
 $_LANG['tag_id'] = '编号';
 $_LANG['tag_words'] = '标签名称';

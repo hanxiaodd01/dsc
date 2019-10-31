@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐 禁止倒卖 一经发现停止任何服务
+
 $_LANG['template_manage'] = '模板管理';
 $_LANG['current_template'] = '当前模板';
 $_LANG['available_templates'] = '可用模板';

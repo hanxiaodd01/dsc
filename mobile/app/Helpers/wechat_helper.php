@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐 禁止倒卖 一经发现停止任何服务
+
 function get_wechat_image_path($image = '', $absolute_path = true, $is_mobile = true, $no_path = 'public/assets/wechat')
 {
     if (strpos($image, $no_path) !== false) {
