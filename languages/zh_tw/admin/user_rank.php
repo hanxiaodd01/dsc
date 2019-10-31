@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['rank_name'] = '會員等級名稱';
 $_LANG['integral_min'] = '積分下限';
 $_LANG['integral_max'] = '積分上限';

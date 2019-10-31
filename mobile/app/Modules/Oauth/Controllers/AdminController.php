@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace App\Modules\Oauth\Controllers;
 
 class AdminController extends \App\Modules\Base\Controllers\BackendController

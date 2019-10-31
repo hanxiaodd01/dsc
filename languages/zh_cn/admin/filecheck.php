@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['filecheck_verifying'] = '正在进行文件校验，请稍候......';
 $_LANG['filecheck_tips_step1'] = '文件校验是针对 ECSHOP 官方发布的文件为基础进行核对，点击下面按钮开始进行校验。';
 $_LANG['filecheck_start'] = '开 始';

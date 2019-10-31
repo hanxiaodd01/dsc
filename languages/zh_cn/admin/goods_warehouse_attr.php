@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['bar_code'] = '条形码';
 $_LANG['goods_sn'] = '货号';
 $_LANG['goods_number'] = '库存';

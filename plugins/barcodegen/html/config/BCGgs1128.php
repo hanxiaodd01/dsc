@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function customSetup($barcode, $get)
 {
     if (isset($get['start'])) {

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['sto_express'] = 'Shen Tong shipping';
 $_LANG['sto_express_desc'] = 'Cost of Jiang, Zhe, Hu region less than 1000g is less than 15 yuan/kg, other region 18 yuan/kg, more than 1000g is 5-6 yuan/kg, Yun Nan region is 8 yuan.';
 $_LANG['item_fee'] = 'Single commodity costs:';

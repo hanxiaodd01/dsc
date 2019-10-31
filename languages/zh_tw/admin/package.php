@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['package_id'] = '编号';
 $_LANG['package_name'] = '超值礼包名称';
 $_LANG['goodsid'] = '活动关联商品';

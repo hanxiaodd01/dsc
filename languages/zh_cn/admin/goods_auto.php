@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['id'] = '编号';
 $_LANG['starttime'] = '上架时间';
 $_LANG['endtime'] = '下架时间';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace App\Modules\Api\Controllers\V2;
 
 class ArticleController extends \App\Modules\Api\Foundation\Controller

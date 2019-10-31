@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['select_template'] = '請選擇郵件模版：';
 $_LANG['update_success'] = '保存模板內容成功。';
 $_LANG['update_failed'] = '保存模板內容失敗。';

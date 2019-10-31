@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 global $_LANG;
 $_LANG['yeepay'] = 'YeePay易宝';
 $_LANG['yeepay_ccb'] = '易宝建行支付';

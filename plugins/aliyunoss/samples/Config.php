@@ -1,6 +1,6 @@
 <?php
 
-//多点乐资源
+
 final class Config
 {
     const OSS_ACCESS_ID = '';

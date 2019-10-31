@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['list_all'] = 'Booking records';
 $_LANG['booking'] = 'Order information';
 $_LANG['id'] = 'ID';

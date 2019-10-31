@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['schp_imgsrc'] = 'Carousel picture Address';
 $_LANG['schp_imgurl'] = 'Carousel Picture Link';
 $_LANG['schp_imgdesc'] = 'Photo Caption';

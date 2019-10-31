@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['wholesale_list'] = 'Wholesale program list';
 $_LANG['add_wholesale'] = 'Add a wholesale program';
 $_LANG['edit_wholesale'] = 'Editor wholesale program';

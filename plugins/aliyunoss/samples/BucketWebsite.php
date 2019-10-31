@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function putBucketWebsite($ossClient, $bucket)
 {
     $websiteConfig = new \OSS\Model\WebsiteConfig('index.html', 'error.html');

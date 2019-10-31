@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function process_image(
     $page = 1,
     $page_size = 100,

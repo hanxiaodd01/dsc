@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace App\Models;
 
 class Migrations extends \Illuminate\Database\Eloquent\Model

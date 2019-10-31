@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function checkfiles($currentdir, $ext = '', $sub = 1, $skip = '')
 {
     global $md5data;

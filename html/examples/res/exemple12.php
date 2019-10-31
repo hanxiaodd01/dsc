@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $chaine = 'test de texte assez long pour engendrer des retours à la ligne automatique...';
 $chaine .= ', répétitif car besoin d\'un retour à la ligne';
 $chaine .= ', répétitif car besoin d\'un retour à la ligne';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function INPUT_I($name, $default = '', $filter = null, $datas = null)
 {
     static $_PUT;

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['group_buy_list'] = '團購活動列表';
 $_LANG['add_group_buy'] = '添加團購活動';
 $_LANG['edit_group_buy'] = '編輯團購活動';

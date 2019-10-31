@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['title'] = 'Run the SQL query';
 $_LANG['error'] = 'Error';
 $_LANG['succeed'] = 'Successfully';

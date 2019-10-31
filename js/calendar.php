@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $lang = (!empty($_GET['lang']) ? trim($_GET['lang']) : 'zh_cn');
 if (!file_exists('../languages/' . $lang . '/calendar.php') || strrchr($lang, '.')) {
     $lang = 'zh_cn';

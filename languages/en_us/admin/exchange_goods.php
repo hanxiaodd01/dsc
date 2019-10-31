@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['title'] = 'Title';
 $_LANG['goods_id'] = 'No.';
 $_LANG['goods_name'] = 'Goods';

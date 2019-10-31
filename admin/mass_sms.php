@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function mass_sms_list()
 {
     $filter = array();

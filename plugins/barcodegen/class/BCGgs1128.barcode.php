@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 include_once 'BCGParseException.php';
 include_once 'BCGcode128.barcode.php';
 

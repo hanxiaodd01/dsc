@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['msg_title'] = 'Title';
 $_LANG['list_all'] = 'View all messages';
 $_LANG['msg_id'] = 'ID';

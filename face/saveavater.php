@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $rs = array();
 
 switch ($_GET['action']) {

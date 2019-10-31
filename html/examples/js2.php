@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 ob_start();
 echo "<page>\n    <h1>Test de JavaScript 2</h1><br>\n    <br>\n    Normalement une alerte devrait apparaitre, indiquant \"coucou\"\n</page>\n";
 $content = ob_get_clean();

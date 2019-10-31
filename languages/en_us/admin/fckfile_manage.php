@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['fckfile_manage'] = 'Fck From document management';
 $_LANG['file_manage'] = 'File directory management';
 $_LANG['image_manage'] = 'Picture directory management';

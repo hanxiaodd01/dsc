@@ -1,6 +1,6 @@
 <?php
 
-//多点乐资源
+
 abstract class BCGBarcode
 {
     const COLOR_BG = 0;

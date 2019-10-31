@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['post_mail'] = '郵局平郵';
 $_LANG['post_mail_desc'] = '郵局平郵的描述內容。';
 $_LANG['pack_fee'] = '包裝費用：';

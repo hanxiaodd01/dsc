@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['rank_name'] = 'Rank name';
 $_LANG['integral_min'] = 'Min points';
 $_LANG['integral_max'] = 'Max points';

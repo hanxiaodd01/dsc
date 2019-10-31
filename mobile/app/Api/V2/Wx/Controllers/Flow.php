@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace app\api\v2\wx\controllers;
 
 class Flow extends \app\api\foundation\Controller

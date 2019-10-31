@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace app\models;
 
 class Stat extends \Illuminate\Database\Eloquent\Model

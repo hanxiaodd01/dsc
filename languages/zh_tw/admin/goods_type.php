@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['goods_type_list'] = '商品類型列表';
 $_LANG['edit_goods_type'] = '編輯商品類型';
 $_LANG['attr_groups'] = '屬性分組';

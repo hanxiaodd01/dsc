@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 if (!defined('__CLASS_HTML2PDF__')) {
     define('__CLASS_HTML2PDF__', '4.03');
     define('HTML2PDF_USED_TCPDF_VERSION', '5.0.002');

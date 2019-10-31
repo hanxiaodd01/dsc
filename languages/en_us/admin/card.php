@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['card_name'] = 'Card name';
 $_LANG['card_fee'] = 'Card money';
 $_LANG['free_money'] = 'Card free allowance';

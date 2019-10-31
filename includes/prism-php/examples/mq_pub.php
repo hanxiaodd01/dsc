@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 require 'include.php';
 $mq = $c->notify();
 $i = 0;

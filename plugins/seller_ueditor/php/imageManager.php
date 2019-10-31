@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function getfiles($path, &$files = array())
 {
     if (!is_dir($path)) {

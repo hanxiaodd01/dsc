@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['user_surplus'] = '預付款';
 $_LANG['surplus_id'] = '編號';
 $_LANG['user_id'] = '會員名稱';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 define('RANK_ID', '9');
 define('APP_KEY', '1105165607');
 $config['APP_KEY'] = '1105165607';

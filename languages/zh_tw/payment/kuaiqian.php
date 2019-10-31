@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 global $_LANG;
 $_LANG['kuaiqian'] = '快錢人民幣網關';
 $_LANG['kuaiqian_icbc'] = '工商銀行-快錢';

@@ -1,6 +1,6 @@
 <?php
 
-//多点乐资源
+
 class BCGDrawing
 {
     const IMG_FORMAT_PNG = 1;

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 define('IN_ECS', true);
 require dirname(__FILE__) . '/includes/init.php';
 require ROOT_PATH . '/includes/lib_visual.php';

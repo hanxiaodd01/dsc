@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 ob_start();
 include dirname(__FILE__) . '/res/exemple07a.php';
 include dirname(__FILE__) . '/res/exemple07b.php';

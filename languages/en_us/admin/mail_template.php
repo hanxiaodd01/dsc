@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['select_template'] = 'Please select mail template:';
 $_LANG['update_success'] = 'Saved template content successfully.';
 $_LANG['update_failed'] = 'Saved template content failed.';

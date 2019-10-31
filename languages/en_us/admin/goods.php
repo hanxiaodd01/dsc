@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['edit_goods'] = 'Edit';
 $_LANG['copy_goods'] = 'Copy';
 $_LANG['continue_add_goods'] = 'Continue add new product';

@@ -1,6 +1,6 @@
 <?php
 
-//多点乐资源
+
 class SMTP
 {
     const VERSION = '5.2.9';

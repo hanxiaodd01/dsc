@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 ob_start();
 echo "<page>\n    <h1>Test de JavaScript 1</h1><br>\n    <br>\n    Normalement la fenetre d'impression devrait apparaitre automatiquement\n</page>\n";
 $content = ob_get_clean();

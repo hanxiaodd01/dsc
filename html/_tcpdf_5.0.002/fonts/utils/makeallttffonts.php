@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $handle = opendir('.');
 
 while ($file = readdir($handle)) {

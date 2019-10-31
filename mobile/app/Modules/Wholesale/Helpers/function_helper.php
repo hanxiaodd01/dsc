@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function wholesale_list($size, $page, $where, $where_sort, $countSql = '', $sort, $order)
 {
     $list = array();

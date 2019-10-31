@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function baseCustomSetup($barcode, $get)
 {
     $font_dir = '..' . DIRECTORY_SEPARATOR . 'font';

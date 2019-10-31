@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['calendar_lang']['Sunday'] = '星期日';
 $_LANG['calendar_lang']['Monday'] = '星期一';
 $_LANG['calendar_lang']['Tuesday'] = '星期二';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 global $_LANG;
 $_LANG['ipdel'] = '瀏覽日誌刪除';
 $_LANG['ipdel_desc'] = '刪除瀏覽日誌';

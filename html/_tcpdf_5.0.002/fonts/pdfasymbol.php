@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $type = 'Type1';
 $name = 'PDFASymbol';
 $up = -100;

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['add_suppliers'] = '添加供貨商';
 $_LANG['edit_suppliers'] = '編輯供貨商';
 $_LANG['suppliers_list'] = '供貨商列表';

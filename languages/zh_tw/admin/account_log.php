@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['add_account'] = '調節會員帳戶';
 $_LANG['account_list'] = '會員帳戶變動明細';
 $_LANG['user_not_exist'] = '該用戶不存在';

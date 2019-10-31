@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['shophelp_add'] = 'Add new help';
 $_LANG['cat_add'] = 'Add new category';
 $_LANG['cat_name'] = 'Category name';

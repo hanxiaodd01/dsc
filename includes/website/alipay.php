@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 if (defined('WEBSITE')) {
     global $_LANG;
     $_LANG['help']['APP_KEY'] = '在支付宝中申请的 APP ID';

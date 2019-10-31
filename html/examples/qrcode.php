@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 ob_start();
 $msg = "Le site de html2pdf\r\nhttp://html2pdf.fr/";
 echo "<page backtop=\"10mm\" >\n    <page_header>\n        <table style=\"width: 100%; border: solid 1px black;\">\n            <tr>\n                <td style=\"text-align: left;    width: 50%\">html2pdf</td>\n                <td style=\"text-align: right;    width: 50%\">Exemples de QRcode</td>\n            </tr>\n        </table>\n    </page_header>\n    <h1>Exemples de QRcode</h1>\n    <h3>Message avec Correction d'erreur L, M, Q, H (valeur par défaut : H)</h3>\n    <qrcode value=\"";

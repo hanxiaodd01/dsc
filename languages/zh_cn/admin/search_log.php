@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['keywords'] = '关键字';
 $_LANG['date'] = '日期';
 $_LANG['hits'] = '搜索次数';

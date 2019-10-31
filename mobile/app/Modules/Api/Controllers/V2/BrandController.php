@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace App\Modules\Api\Controllers\V2;
 
 class BrandController extends \App\Modules\Api\Foundation\Controller

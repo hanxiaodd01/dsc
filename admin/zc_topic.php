@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function zc_topic_list($conditions = '')
 {
     $result = get_filter();

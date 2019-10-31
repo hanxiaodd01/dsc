@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['link_id'] = 'ID';
 $_LANG['link_name'] = 'Name';
 $_LANG['link_url'] = 'URL';

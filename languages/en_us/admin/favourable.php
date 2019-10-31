@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['favourable_list'] = 'Offers a list of Events';
 $_LANG['add_favourable'] = 'Add concessionary Events';
 $_LANG['edit_favourable'] = 'Edit preferences Events';

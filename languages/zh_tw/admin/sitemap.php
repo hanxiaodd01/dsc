@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['homepage_changefreq'] = '首頁更新頻率';
 $_LANG['category_changefreq'] = '分類頁更新頻率';
 $_LANG['content_changefreq'] = '內容頁更新頻率';

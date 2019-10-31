@@ -1,6 +1,6 @@
 <?php
 
-//多点乐资源
+
 class pin
 {
     public function Pinyin($_String, $_Code = 'gb2312')

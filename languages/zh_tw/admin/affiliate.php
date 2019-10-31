@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['on'] = '開啟';
 $_LANG['off'] = '關閉';
 $_LANG['separate_by'][0] = '推薦註冊分成';

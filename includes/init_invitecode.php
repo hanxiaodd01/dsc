@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_adv($type, $id)
 {
     $sql = 'select ap.ad_width,ap.ad_height,ad.ad_name,ad.ad_code,ad.ad_link,ad.media_type from ' . $GLOBALS['ecs']->table('ad_position') . ' as ap left join ' . $GLOBALS['ecs']->table('ad') . ' as ad on ad.position_id = ap.position_id where ad.ad_name=\'' . $type . '_' . $id . '\' and (ad.media_type=0 OR ad.media_type=3) and UNIX_TIMESTAMP()>ad.start_time and UNIX_TIMESTAMP()<ad.end_time and ad.enabled=1';

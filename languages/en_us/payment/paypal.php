@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 global $_LANG;
 $_LANG['paypal'] = 'Paypal';
 $_LANG['paypal_desc'] = 'PayPal(www.paypal.com) is a leading e-payment service provider in the world, its accounts has more than 71600 thousands.Udpay can be used in 56 markets by 7 types currency (Canadian dollar,EURO,Pound,U.S. dollar,Japanese yen,Austalian dollar, HongKong dollar).<br/><a href="http://cloud.ecshop.com/payment_apply.php?mod=paypal" target="_blank">Immediately online application</a>';

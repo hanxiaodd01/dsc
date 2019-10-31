@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['add_agency'] = 'Add Office';
 $_LANG['edit_agency'] = 'Editor Office';
 $_LANG['agency_list'] = 'Office List';

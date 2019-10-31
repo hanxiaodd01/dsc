@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 global $_LANG;
 $_LANG['udpay'] = '網匯通';
 $_LANG['udpay_desc'] = 'udpay 是在線付款解決方案的全球領導者，在全世界有超過七千一百六十萬個帳戶用戶。';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $url = '';
 
 if (isset($GLOBALS['_CFG']['certificate_id'])) {

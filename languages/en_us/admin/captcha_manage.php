@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['captcha_manage'] = 'Verification Code Set';
 $_LANG['captcha_note'] = 'Open Verification Code required GD library server support, and your server does not install the GD library.';
 $_LANG['captcha_setting'] = 'Verification Code Set';

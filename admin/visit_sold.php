@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function click_sold_info($ru_id, $cat_id, $brand_id, $show_num)
 {
     global $db;

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['shopex48_desc'] = 'shopex Single V4.8（支持到4.8.4版本）';
 $_LANG['step_file'] = '正在複製文件...';
 $_LANG['step_cat'] = '正在轉換商品分類...';

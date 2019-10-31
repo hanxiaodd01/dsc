@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['register_sms'] = 'Register Or Enable Sms Account.';
 $_LANG['email'] = 'Email';
 $_LANG['password'] = 'Password';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace App\Custom\Guestbook\Controllers;
 
 class Index extends \App\Http\Base\Controllers\Frontend

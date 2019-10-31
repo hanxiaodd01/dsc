@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['shopex47_desc'] = 'shopex Single V4.7';
 $_LANG['step_file'] = '正在复制文件...';
 $_LANG['step_cat'] = '正在转换商品分类...';

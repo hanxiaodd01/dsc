@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace app\api\v2\article\transformer;
 
 class ArticleTransformer extends \app\api\foundation\Transformer

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['empty_username_password'] = 'Please enter username and password.';
 $_LANG['shot_message'] = 'Short message';
 $_LANG['sys_msg'] = 'System Message';

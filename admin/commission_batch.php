@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_commission_list($commission_list)
 {
     if ($commission_list) {

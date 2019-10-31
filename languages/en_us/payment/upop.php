@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 global $_LANG;
 $_LANG['upop'] = 'UnionPay';
 $_LANG['upop_desc'] = 'China online payment of China UnionPay launched online payment platform, support for a number of banks, covering the debit and credit cards, including certification payment, fast payment and bank payment in a variety of ways, including certification and fast payment without opening the net silver, only a bank card, you can enjoy safe, convenient online payment service!';

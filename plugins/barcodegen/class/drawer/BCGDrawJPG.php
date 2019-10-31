@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 include_once 'BCGDraw.php';
 
 if (!function_exists('file_put_contents')) {

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_seller_commission_info($ru_id = 0)
 {
     $sql = 'SELECT ms.server_id, ms.commission_model, ms.suppliers_percent, mp.percent_value FROM ' . $GLOBALS['ecs']->table('merchants_server') . ' AS ms ' . 'LEFT JOIN ' . $GLOBALS['ecs']->table('merchants_percent') . ' AS mp ON ms.suppliers_percent = mp.percent_id ' . 'WHERE ms.user_id = \'' . $ru_id . '\'';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['ems'] = 'EMS express mail service';
 $_LANG['ems_express_desc'] = 'EMS express mail service\'s description';
 $_LANG['item_fee'] = 'Single commodity costs:';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['shipping_area_name'] = 'Shipping area name';
 $_LANG['shipping_area_districts'] = 'Area list';
 $_LANG['shipping_area_regions'] = 'Region';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['title'] = 'Title';
 $_LANG['cat'] = 'Category';
 $_LANG['reserve'] = 'Reserve';

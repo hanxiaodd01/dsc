@@ -1,6 +1,6 @@
 <?php
 
-//多点乐资源
+
 class BCGLabel
 {
     const POSITION_TOP = 0;

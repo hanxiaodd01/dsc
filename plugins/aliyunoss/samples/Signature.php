@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function getSignedUrlForGettingObject($ossClient, $bucket)
 {
     $object = 'test/test-signature-test-upload-and-download.txt';

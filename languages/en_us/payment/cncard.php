@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 global $_LANG;
 $_LANG['cncard'] = 'CNCARD';
 $_LANG['cncard_desc'] = 'B2C e-commerce site as a domestic in the earliest, the most professional, one of the largest companies, cloud network currently has domestic bank cards extremely well in real-time online payment platform and 5 years experience in digital goods e-commerce operations.';

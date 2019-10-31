@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $type = 'TrueTypeUnicode';
 $name = 'Furat';
 $up = -136;

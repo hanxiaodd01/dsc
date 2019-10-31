@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['virtual_card_list'] = 'Virtual Goods List';
 $_LANG['lab_goods_name'] = 'Name:';
 $_LANG['replenish'] = 'Replenish';

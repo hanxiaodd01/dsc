@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function submitEOrder($requestData)
 {
     $datas = array(

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 define('IN_CB', true);
 include 'include/header.php';
 registerImageKey('code', 'BCGupcext5');

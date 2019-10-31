@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['post_mail'] = 'Common mailing';
 $_LANG['post_mail_desc'] = 'Common mailing\'s description';
 $_LANG['pack_fee'] = 'Packing money:';

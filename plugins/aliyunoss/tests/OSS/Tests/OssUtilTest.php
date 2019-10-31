@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace OSS\Tests;
 
 class OssUtilTest extends \PHPUnit_Framework_TestCase

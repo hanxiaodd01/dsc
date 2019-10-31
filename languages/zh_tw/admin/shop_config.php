@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 require ROOT_PATH . ADMIN_PATH . '/sms_url.php';
 $_LANG['cfg_name']['basic'] = '基本設置';
 $_LANG['cfg_name']['display'] = '顯示設置';

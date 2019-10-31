@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 if (!defined('QRCODEDEFS')) {
     define('QRCODEDEFS', true);
     define('QR_MODE_NL', -1);

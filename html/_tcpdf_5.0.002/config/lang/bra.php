@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 global $l;
 $l = array();
 $l['a_meta_charset'] = 'UTF-8';

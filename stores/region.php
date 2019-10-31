@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 define('IN_ECS', true);
 define('INIT_NO_USERS', true);
 define('INIT_NO_SMARTY', true);

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 return array(
     'HTML_CACHE_ON' => true,
     'HTML_CACHE_TIME' => 3600 * 24,

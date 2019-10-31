@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function putBucketCors($ossClient, $bucket)
 {
     $corsConfig = new \OSS\Model\CorsConfig();

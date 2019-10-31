@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function curl($url, $postFields = null)
 {
     $ch = curl_init();

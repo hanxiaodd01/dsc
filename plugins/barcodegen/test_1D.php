@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 require_once 'class/BCGFontFile.php';
 require_once 'class/BCGColor.php';
 require_once 'class/BCGDrawing.php';

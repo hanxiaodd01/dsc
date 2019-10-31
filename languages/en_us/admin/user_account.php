@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['user_surplus'] = 'Advanced payment';
 $_LANG['surplus_id'] = 'ID';
 $_LANG['user_id'] = 'Username';

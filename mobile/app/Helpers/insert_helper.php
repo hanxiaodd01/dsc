@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function insert_query_info()
 {
     if ($GLOBALS['db']->queryTime == '') {

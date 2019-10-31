@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['id'] = '編號';
 $_LANG['starttime'] = '發佈時間';
 $_LANG['endtime'] = '取消時間';

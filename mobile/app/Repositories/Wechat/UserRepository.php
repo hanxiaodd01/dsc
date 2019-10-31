@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace App\Repositories\Wechat;
 
 class UserRepository implements \App\Contracts\Repository\RepositoryInterface

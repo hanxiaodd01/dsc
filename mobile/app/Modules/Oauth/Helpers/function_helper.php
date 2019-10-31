@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function merge_user($from_user_id = 0, $to_user_id = 0)
 {
     if ((0 < $from_user_id) && (0 < $to_user_id) && ($from_user_id != $to_user_id)) {

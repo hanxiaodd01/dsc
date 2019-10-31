@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 global $_LANG;
 $_LANG['auto_manage'] = '自动处理';
 $_LANG['auto_manage_desc'] = '自动处理商品的上架下架,和文章的发布取消';

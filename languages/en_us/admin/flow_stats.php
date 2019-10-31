@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['tab_general'] = 'General visitors count';
 $_LANG['tab_area'] = 'Area';
 $_LANG['tab_from'] = 'Source';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace app\api\v2\shop\transformer;
 
 class ShopTransformer extends \App\Api\Foundation\Transformer

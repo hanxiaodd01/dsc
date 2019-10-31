@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['ur_here'] = 'Webcollect';
 $_LANG['opened_title'] = 'You have opend the servise of webcollect,details as follows';
 $_LANG['webcollect_notice'] = 'Hammer away at helping advertisers to find more spread way, make it the cheapest of, and maximize the benefits.<br />Make a search through the shopex terrace, cooperate with shopping websites, to realize the infomations of advertisers are collect by some shopping websites.';

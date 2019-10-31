@@ -1,6 +1,6 @@
 <?php
 
-//多点乐资源
+
 class qrstr
 {
     static public function set(&$srctab, $x, $y, $repl, $replLen = false)

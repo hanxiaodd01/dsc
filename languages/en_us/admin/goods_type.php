@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['goods_type_list'] = 'List the type of merchandise';
 $_LANG['edit_goods_type'] = 'Edit the type of merchandise';
 $_LANG['attr_groups'] = 'Property division';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['require_login'] = 'Illegal entry.<br />You can\'t finish the operation until login.';
 $_LANG['no_records'] = 'No record';
 $_LANG['shot_message'] = 'Short message';

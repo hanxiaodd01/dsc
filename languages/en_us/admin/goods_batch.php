@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['select_method'] = 'Product method:';
 $_LANG['by_cat'] = 'Basis product category, brand.';
 $_LANG['by_sn'] = 'Basis product NO.';

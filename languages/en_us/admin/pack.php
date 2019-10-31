@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['pack_name'] = 'Packing name';
 $_LANG['pack_fee'] = 'Money';
 $_LANG['free_money'] = 'Free allowance';

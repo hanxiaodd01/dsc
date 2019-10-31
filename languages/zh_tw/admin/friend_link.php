@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['link_id'] = '編號';
 $_LANG['link_name'] = '鏈接名稱';
 $_LANG['link_url'] = '鏈接地址';

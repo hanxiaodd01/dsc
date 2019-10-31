@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 define('K_LRM', 8206);
 define('K_RLM', 8207);
 define('K_LRE', 8234);

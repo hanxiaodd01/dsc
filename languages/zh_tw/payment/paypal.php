@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 global $_LANG;
 $_LANG['paypal'] = 'paypal';
 $_LANG['paypal_desc'] = 'PayPal（www.paypal.com） 是在線付款解決方案的全球領導者，在全世界有超過七千一百六十萬個帳戶用戶。' . 'PayPal 可在 56 個市場以 7 種貨幣（加元、歐元、英鎊、美元、日元、澳元、港元）使用。' . '<br/><a href="http://cloud.ecshop.com/payment_apply.php?mod=paypal" target="_blank">立即在線申請</a>';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['bonus_type'] = 'Bonus Type';
 $_LANG['bonus_list'] = 'Bonus List';
 $_LANG['type_name'] = 'Name';

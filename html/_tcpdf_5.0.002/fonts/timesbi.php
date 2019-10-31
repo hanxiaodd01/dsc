@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $type = 'core';
 $dw = 500;
 $cw = array(

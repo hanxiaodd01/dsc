@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function scws($text, $top = 5, $return_array = false, $sep = ',')
 {
     if (!class_exists('pscws4')) {

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 define('BIND_MODULE', 'Respond');
 define('BIND_CONTROLLER', 'Index');
 define('BIND_ACTION', 'notify');

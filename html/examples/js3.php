@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 ob_start();
 echo "<page>\n    <h1>Test de JavaScript 3</h1><br>\n    <br>\n    Normalement une valeur devrait vous être demandée, puis affichée\n</page>\n";
 $content = ob_get_clean();

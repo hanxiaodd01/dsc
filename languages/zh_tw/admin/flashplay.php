@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['schp_imgsrc'] = '輪播圖片地址';
 $_LANG['schp_imgurl'] = '輪播圖片鏈接';
 $_LANG['schp_imgdesc'] = '圖片說明';

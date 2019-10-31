@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $url = $_SERVER['REQUEST_URI'];
 
 if (substr($url, 0, 7) !== 'http://') {

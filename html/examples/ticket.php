@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 ob_start();
 $num = 'CMD01-' . date('ymd');
 $nom = 'DUPONT Alphonse';

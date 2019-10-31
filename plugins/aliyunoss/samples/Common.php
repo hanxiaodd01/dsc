@@ -1,6 +1,6 @@
 <?php
 
-//多点乐资源
+
 class Common
 {
     const endpoint = Config::OSS_ENDPOINT;

@@ -1,6 +1,6 @@
 <?php
 
-//多点乐资源
+
 class TopLogger
 {
     public $conf = array('separator' => '	', 'log_file' => '');

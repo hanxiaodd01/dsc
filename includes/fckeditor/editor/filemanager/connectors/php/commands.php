@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function GetFolders($resourceType, $currentFolder)
 {
     $sServerDir = ServerMapFolder($resourceType, $currentFolder, 'GetFolders');

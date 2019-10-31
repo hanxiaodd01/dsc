@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['tab_general'] = '綜合訪問量';
 $_LANG['tab_area'] = '地區分佈';
 $_LANG['tab_from'] = '來源網站';

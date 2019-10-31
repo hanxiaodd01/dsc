@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['by_goods_type'] = '按商品類型顯示：';
 $_LANG['all_goods_type'] = '所有商品類型';
 $_LANG['attr_id'] = '編號';

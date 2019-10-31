@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['auction_list'] = 'Auction list';
 $_LANG['add_auction'] = 'Add auction Events';
 $_LANG['edit_auction'] = 'Edit Auction Events';

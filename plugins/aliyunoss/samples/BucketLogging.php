@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function putBucketLogging($ossClient, $bucket)
 {
     $option = array();

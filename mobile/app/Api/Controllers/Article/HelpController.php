@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace App\Api\Controllers\Article;
 
 class HelpController extends \App\Api\Controllers\Controller

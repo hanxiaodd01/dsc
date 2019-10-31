@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function sql_import($sql_file)
 {
     $db_ver = $GLOBALS['db']->version();

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['field_name'] = '會員註冊項名稱';
 $_LANG['field_order'] = '排序權值';
 $_LANG['field_display'] = '是否顯示';

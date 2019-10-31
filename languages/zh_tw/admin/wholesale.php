@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['wholesale_list'] = '批發方案列表';
 $_LANG['add_wholesale'] = '添加批發方案';
 $_LANG['add_batch_wholesale'] = '批量添加批發方案';

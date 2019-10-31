@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['post_express'] = 'Postal shipping packing';
 $_LANG['post_express_desc'] = 'Postal shipping packing description.';
 $_LANG['base_fee'] = 'Cost less than 1000g:';

@@ -1,6 +1,6 @@
 <?php
 
-//多点乐资源
+
 class alipay
 {
     public function get_code($order, $payment)

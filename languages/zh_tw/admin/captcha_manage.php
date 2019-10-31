@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['captcha_manage'] = '驗證碼設置';
 $_LANG['captcha_note'] = '開啟驗證碼需要服務GD庫支持，而您的服務器不支持GD。';
 $_LANG['captcha_setting'] = '驗證碼設置';

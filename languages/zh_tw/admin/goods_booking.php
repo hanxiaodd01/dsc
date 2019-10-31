@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['list_all'] = '全部缺貨登記信息';
 $_LANG['booking'] = '訂購信息';
 $_LANG['id'] = '序號';

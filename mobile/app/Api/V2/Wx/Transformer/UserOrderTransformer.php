@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace app\api\v2\wx\transformer;
 
 class UserOrderTransformer extends \app\api\foundation\Transformer

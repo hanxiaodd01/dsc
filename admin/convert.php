@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function check_files_readable($dirname)
 {
     if ($dh = opendir($dirname)) {

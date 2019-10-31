@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['virtual_card_list'] = '虛擬卡商品列表';
 $_LANG['lab_goods_name'] = '商品名稱';
 $_LANG['replenish'] = '補貨';

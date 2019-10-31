@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['upload_license'] = '上傳證書';
 $_LANG['download_license'] = '下載證書';
 $_LANG['back'] = '返回';

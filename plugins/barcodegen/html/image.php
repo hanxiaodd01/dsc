@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function showError()
 {
     header('Content-Type: image/png');

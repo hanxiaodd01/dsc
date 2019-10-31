@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['flow_login_register']['username_not_null'] = 'Please enter username.';
 $_LANG['flow_login_register']['username_invalid'] = 'Please enter a valid username.';
 $_LANG['flow_login_register']['password_not_null'] = 'Please enter password.';

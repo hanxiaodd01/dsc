@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function arr_foreach($arr)
 {
     $tmp = array();

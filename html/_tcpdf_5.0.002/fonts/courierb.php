@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $type = 'core';
 $name = 'Courier-Bold';
 $up = -100;

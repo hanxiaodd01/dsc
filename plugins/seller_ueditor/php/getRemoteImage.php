@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function getRemoteImage($uri, $config)
 {
     global $root_path_relative;

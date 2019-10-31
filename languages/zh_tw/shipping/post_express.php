@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['post_express'] = '郵政快遞包裹';
 $_LANG['post_express_desc'] = '郵政快遞包裹的描述內容。';
 $_LANG['base_fee'] = '1000克以內費用：';

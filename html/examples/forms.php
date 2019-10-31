@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 if (isset($_POST['test'])) {
     echo '<pre>';
     echo htmlentities(print_r($_POST, true));

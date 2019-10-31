@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['cat_name'] = 'Name';
 $_LANG['type'] = 'Category Type';
 $_LANG['type_name'][COMMON_CAT] = 'General classification';

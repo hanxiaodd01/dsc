@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 global $_LANG;
 $_LANG['auto_manage'] = 'Automatic processing';
 $_LANG['auto_manage_desc'] = 'Automatic processing of the merchandise shelf shelves, and the release of the abolition of article';

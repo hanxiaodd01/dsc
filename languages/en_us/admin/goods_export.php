@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['user_guide'] = '<br/>Help:' . '<ol>' . '<li>Use the search conditions permit only english eligible merchandise 50.</li>' . '<li>If the user required to export certain categories of merchandise all under the conditions choose to triage, no click search, the direct choice of data formats and encoding can be derived.</li>' . '</ol>';
 $_LANG['export_taobao'] = 'Export Taobao Assistant Supporting data formats';
 $_LANG['export_taobao_v43'] = 'Export Taobao AssistantV4.3 upporting data formats';

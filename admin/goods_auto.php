@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_auto_goods($ru_id)
 {
     $where = ' WHERE g.is_delete <> 1 ';

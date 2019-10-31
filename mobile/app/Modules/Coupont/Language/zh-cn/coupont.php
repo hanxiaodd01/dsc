@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['Coupon_redemption_task'] = '领券中心-任务集市';
 $_LANG['Coupon_redemption_failure'] = '领取失败,券已经被领完了';
 $_LANG['Coupon_redemption_limit'] = '领取失败,您已经领取过该券了!每人限领取 %s 张';

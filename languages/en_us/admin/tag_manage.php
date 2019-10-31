@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['tag_manage'] = 'Tag manage';
 $_LANG['tag_id'] = 'Tag ID';
 $_LANG['tag_words'] = 'Tag';

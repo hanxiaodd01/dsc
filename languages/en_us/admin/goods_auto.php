@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['id'] = 'id';
 $_LANG['starttime'] = 'Was added to our catalog';
 $_LANG['endtime'] = 'Under the time frame';

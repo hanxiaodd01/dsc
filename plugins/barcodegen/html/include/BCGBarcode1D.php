@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 if (!defined('IN_CB')) {
     exit('You are not allowed to access to this page.');
 }

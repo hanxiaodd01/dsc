@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['pack_name'] = '商品包裝名稱';
 $_LANG['pack_fee'] = '費用';
 $_LANG['free_money'] = '免費額度';

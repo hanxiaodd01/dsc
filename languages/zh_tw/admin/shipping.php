@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['shipping_name'] = '配送方式名稱';
 $_LANG['shipping_version'] = '插件版本';
 $_LANG['shipping_desc'] = '配送方式描述';

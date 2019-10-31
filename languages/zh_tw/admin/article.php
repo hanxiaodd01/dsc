@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['title'] = '文章標題';
 $_LANG['cat'] = '文章分類';
 $_LANG['reserve'] = '保留';

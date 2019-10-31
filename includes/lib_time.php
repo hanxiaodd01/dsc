@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function gmtime()
 {
     return time() - date('Z');

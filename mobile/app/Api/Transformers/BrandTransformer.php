@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace App\Api\Transformers;
 
 class BrandTransformer extends \League\Fractal\TransformerAbstract

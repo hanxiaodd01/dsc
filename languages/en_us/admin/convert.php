@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['confirm_convert'] = 'Attention: To convert program will lose the existing data, please operate with caution.';
 $_LANG['backup_data'] = 'If the existing data still has value probably to you, please backup first.';
 $_LANG['backup'] = 'Backup now.';

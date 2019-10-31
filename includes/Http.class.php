@@ -1,6 +1,6 @@
 <?php
 
-//多点乐资源
+
 class Http
 {
     static public $way = 0;

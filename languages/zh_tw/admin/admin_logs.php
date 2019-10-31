@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['log_id'] = '編號';
 $_LANG['log_time'] = '操作日期';
 $_LANG['user_id'] = '操作者';

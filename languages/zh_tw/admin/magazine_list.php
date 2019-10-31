@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['add_new'] = '添加新雜誌';
 $_LANG['magazine_name'] = '雜誌標題';
 $_LANG['magazine_edit'] = '編輯';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_email_list()
 {
     $result = get_filter();

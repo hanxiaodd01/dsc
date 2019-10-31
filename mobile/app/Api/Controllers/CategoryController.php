@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace App\Api\Controllers;
 
 class CategoryController extends \App\Api\Foundation\Controller

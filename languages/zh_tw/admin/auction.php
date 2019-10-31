@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['auction_list'] = '拍賣活動列表';
 $_LANG['add_auction'] = '添加拍賣活動';
 $_LANG['edit_auction'] = '編輯拍賣活動';

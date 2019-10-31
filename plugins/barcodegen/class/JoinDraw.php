@@ -1,6 +1,6 @@
 <?php
 
-//多点乐资源
+
 class JoinDraw
 {
     const ALIGN_RIGHT = 0;

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['tpApi']['name'] = '第三方服务';
 $lang_kdniao = array();
 $lang_kdniao['name'] = '快递鸟';

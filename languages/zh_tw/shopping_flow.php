@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['flow_login_register']['username_not_null'] = '請您輸入用戶名。';
 $_LANG['flow_login_register']['username_invalid'] = '您輸入了一個無效的用戶名。';
 $_LANG['flow_login_register']['password_not_null'] = '請您輸入密碼。';

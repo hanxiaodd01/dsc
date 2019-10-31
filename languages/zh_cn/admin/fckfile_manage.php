@@ -1,5 +1,5 @@
 <?php
-//多点乐资源  禁止倒卖 一经发现停止任何服务
+  禁止倒卖 一经发现停止任何服务
 $_LANG['fckfile_manage'] = 'Fck上传文件管理';
 $_LANG['file_manage'] = '文件目录管理';
 $_LANG['image_manage'] = '图片目录管理';

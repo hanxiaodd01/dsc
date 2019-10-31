@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['label_category'] = '選擇商品分類：';
 $_LANG['label_brand'] = '選擇商品品牌：';
 $_LANG['label_intro_type'] = '選擇推薦類型：';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function packs_list($ru_id)
 {
     $where = ' WHERE 1';

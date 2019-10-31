@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $type = 'cidfont0';
 $name = 'KozMinPro-Regular-Acro';
 $displayname = 'Kozuka Mincho Pro (Japanese Serif)';

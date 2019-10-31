@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function getInt($name, $def = 0)
 {
     return empty($_REQUEST[$name]) ? $def : intval($_REQUEST[$name]);

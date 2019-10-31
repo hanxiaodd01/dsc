@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['tag_manage'] = '標籤管理';
 $_LANG['tag_id'] = '編號';
 $_LANG['tag_words'] = '標籤名稱';

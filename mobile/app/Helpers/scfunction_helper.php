@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_ip_area_name($ip = '', $api = '新浪')
 {
     $Http = new \Touch\Http();

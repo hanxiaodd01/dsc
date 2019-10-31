@@ -1,6 +1,6 @@
 <?php
 
-//多点乐资源
+
 class HTML2PDF_parsingHtml
 {
     const HTML_TAB = '        ';

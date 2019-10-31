@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['group_buy_list'] = 'Associates list';
 $_LANG['add_group_buy'] = 'Add Associates';
 $_LANG['edit_group_buy'] = 'Edit';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['select_method'] = 'Ways to choose merchandise:';
 $_LANG['by_cat'] = 'From the classification, under the choice of brand merchandise';
 $_LANG['by_sn'] = 'Classification, under the brand names of all merchandise';

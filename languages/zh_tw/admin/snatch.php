@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['snatch_id'] = '編號';
 $_LANG['snatch_name'] = '活動名稱';
 $_LANG['goodsid'] = '活動商品';

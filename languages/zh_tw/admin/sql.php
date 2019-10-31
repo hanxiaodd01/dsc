@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['title'] = '運行 SQL 查詢';
 $_LANG['error'] = '出錯了';
 $_LANG['succeed'] = 'SQL 語句已成功運行';

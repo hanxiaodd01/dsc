@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_cat_articles($cat_id, $page = 1, $size = 20, $requirement = '')
 {
     if ($cat_id == '-1') {

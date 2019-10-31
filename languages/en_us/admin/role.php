@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['user_id'] = 'ID';
 $_LANG['user_name'] = 'Rolename';
 $_LANG['email'] = 'Email';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function print_textinputs_var()
 {
     global $textinputs;

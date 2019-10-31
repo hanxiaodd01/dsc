@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['msg_title'] = '留言標題';
 $_LANG['list_all'] = '查看所有留言';
 $_LANG['msg_id'] = '編號';

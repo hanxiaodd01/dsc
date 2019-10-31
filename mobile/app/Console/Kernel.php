@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace App\Console;
 
 class Kernel extends \Laravel\Lumen\Console\Kernel

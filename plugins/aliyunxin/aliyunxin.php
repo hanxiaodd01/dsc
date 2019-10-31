@@ -1,6 +1,6 @@
 <?php
 
-//多点乐资源
+
 class aliyunxin
 {
     private $regionId = 'cn-hangzhou';

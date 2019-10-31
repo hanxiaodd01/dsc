@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function zc_initiator_list($conditions = '')
 {
     $result = get_filter();

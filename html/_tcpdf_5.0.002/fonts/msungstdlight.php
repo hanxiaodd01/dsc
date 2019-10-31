@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $type = 'cidfont0';
 $name = 'MSungStd-Light-Acro';
 $displayname = 'MSung Light (Trad. Chinese)';

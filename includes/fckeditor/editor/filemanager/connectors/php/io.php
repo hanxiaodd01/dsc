@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function CombinePaths($sBasePath, $sFolder)
 {
     return RemoveFromEnd($sBasePath, '/') . '/' . RemoveFromStart($sFolder, '/');

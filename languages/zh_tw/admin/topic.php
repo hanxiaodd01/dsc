@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['tab_general'] = '通用信息';
 $_LANG['tab_desc'] = '專題介紹';
 $_LANG['tab_goods'] = '專題商品';

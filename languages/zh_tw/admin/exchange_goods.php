@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['title'] = '關鍵字';
 $_LANG['goods_id'] = '編號';
 $_LANG['goods_name'] = '商品';

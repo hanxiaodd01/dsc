@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['shophelp_add'] = '添加新帮助文章';
 $_LANG['cat_add'] = '添加新分类';
 $_LANG['cat_name'] = '分类名称';

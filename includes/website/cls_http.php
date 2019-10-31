@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 if (!defined('WEBSITE')) {
     if (!function_exists('curl_init')) {
         define('CURL', false);

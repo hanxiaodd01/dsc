@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['plugin_name'] = 'Name';
 $_LANG['plugin_desc'] = 'Description';
 $_LANG['plugin_version'] = 'Version';

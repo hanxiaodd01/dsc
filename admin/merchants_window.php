@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_seller_window($seller_theme)
 {
     $adminru = get_admin_ru_id();

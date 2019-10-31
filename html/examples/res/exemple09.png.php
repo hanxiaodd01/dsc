@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $px = (isset($_GET['px']) ? $_GET['px'] : 0);
 $px = preg_replace('/[^0-9]/isU', '', $px);
 $py = (isset($_GET['py']) ? $_GET['py'] : 0);

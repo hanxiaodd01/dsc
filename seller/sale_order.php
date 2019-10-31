@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_sales_order($ru_id, $is_pagination = true)
 {
     global $start_date;

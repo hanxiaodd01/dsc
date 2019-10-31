@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['add_agency'] = '添加辦事處';
 $_LANG['edit_agency'] = '編輯辦事處';
 $_LANG['agency_list'] = '辦事處列表';

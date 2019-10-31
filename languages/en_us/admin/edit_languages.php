@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['edit_languages'] = 'Edit Language Item';
 $_LANG['enter_keywords'] = 'Enter language keywords';
 $_LANG['edit_button'] = 'Submit';

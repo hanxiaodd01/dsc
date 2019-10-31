@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace App\Api\Controllers\Store;
 
 class StoreController extends \App\Api\Controllers\Controller

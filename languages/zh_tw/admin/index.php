@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['shop_guide'] = '開店嚮導';
 $_LANG['set_navigator'] = '設置導航欄';
 $_LANG['about'] = '關於程序';

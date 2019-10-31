@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 include_once 'BCGParseException.php';
 include_once 'BCGBarcode.php';
 include_once 'BCGBarcode1D.php';

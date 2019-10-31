@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['log_action']['add'] = 'Add';
 $_LANG['log_action']['remove'] = 'Delete';
 $_LANG['log_action']['edit'] = 'Edit';

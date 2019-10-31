@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['goods_name'] = 'Trade names';
 $_LANG['goods_last_update'] = 'Last updated';
 $_LANG['attention_addtolist'] = 'Insert Send Queue';

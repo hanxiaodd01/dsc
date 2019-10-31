@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 define('IN_ECS', true);
 require dirname(__FILE__) . '/includes/init.php';
 $exc = new exchange($ecs->table('reg_fields'), $db, 'id', 'reg_field_name');

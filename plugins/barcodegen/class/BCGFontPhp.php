@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 include_once 'BCGFont.php';
 include_once 'BCGColor.php';
 

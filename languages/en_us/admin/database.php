@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['db_manage'] = 'Database management';
 $_LANG['start_backup'] = 'Start backup';
 $_LANG['backup_name'] = 'Bbackup name';

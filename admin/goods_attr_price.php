@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_list_download($goods_name = '', $attr_name = '', $area_info = array())
 {
     if (0 < count($area_info)) {

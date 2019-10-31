@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 ob_start();
 include dirname(__FILE__) . '/res/exemple05.php';
 $content = ob_get_clean();

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function msg_list()
 {
     $filter['keywords'] = empty($_REQUEST['keywords']) ? '' : trim($_REQUEST['keywords']);

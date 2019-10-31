@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 error_reporting(7);
 
 if (!defined('IN_ECS')) {

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $cidinfo['uni2cid'] = array(
     32 => 1,
     33 => 2,

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['select_method'] = '選擇商品的方式：';
 $_LANG['by_cat'] = '根據商品分類、品牌';
 $_LANG['by_sn'] = '根據商品貨號';

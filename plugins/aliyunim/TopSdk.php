@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 if (!defined('TOP_SDK_WORK_DIR')) {
     define('TOP_SDK_WORK_DIR', '/tmp/');
 }

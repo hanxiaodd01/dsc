@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['payment'] = '支付方式';
 $_LANG['payment_name'] = '支付方式名稱';
 $_LANG['version'] = '插件版本';

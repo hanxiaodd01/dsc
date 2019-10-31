@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 if (isset($modules)) {
     foreach ($modules as $k => $v) {
         if ($v['pay_code'] == 'epay') {

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function putBucketReferer($ossClient, $bucket)
 {
     $refererConfig = new \OSS\Model\RefererConfig();

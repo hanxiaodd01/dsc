@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function array_sort($a, $b)
 {
     $cmp = strcmp($a['region'], $b['region']);

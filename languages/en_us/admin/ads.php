@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['position_name'] = 'Name';
 $_LANG['ad_width'] = 'Width';
 $_LANG['ad_height'] = 'Height';

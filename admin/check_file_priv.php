@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function check_file_in_array($arr, &$err_msg)
 {
     $read = true;

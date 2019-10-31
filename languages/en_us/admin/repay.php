@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['back_list'] = 'Return to list';
 $_LANG['dispose_succed'] = 'Successfully';
 $_LANG['rec_id'] = 'ID';

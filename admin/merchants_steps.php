@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function steps_process_list()
 {
     $result = get_filter();

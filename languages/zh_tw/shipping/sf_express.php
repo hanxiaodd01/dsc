@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 global $_LANG;
 $_LANG['sf_express'] = '順豐速運 ';
 $_LANG['sf_express_desc'] = '江、浙、滬地區首重15元/KG，續重2元/KG，其餘城市首重20元/KG';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['cron_name'] = '計劃任務名稱';
 $_LANG['cron_code'] = '此計劃任務';
 $_LANG['if_open'] = '開啟';

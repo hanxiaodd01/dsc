@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function classLoader($class)
 {
     $path = str_replace('\\', DIRECTORY_SEPARATOR, $class);

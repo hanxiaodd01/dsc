@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace app\api;
 
 class Transformer implements \app\contracts\transformer\TransformerInterface

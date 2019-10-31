@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 global $_LANG;
 $_LANG['alipay'] = 'Alipay';
 $_LANG['alipay_desc'] = 'Alipay web (www.alipay.com) is an advanced platform for online payment. <br/> ECShop pay packages offered by United Package: No pre-paid/annual fee, single rate of 1.5%, no flow restrictions.<br/><a href="http://cloud.ecshop.com/payment_apply.php?mod=alipay" target="_blank"><font color="red">Immediately online application</font></a>';

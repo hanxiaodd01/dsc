@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function ad_position_list($ru_id)
 {
     $where = ' WHERE 1';

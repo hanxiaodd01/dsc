@@ -1,6 +1,6 @@
 <?php
 
-//多点乐资源
+
 class api_handler
 {
     public function get_id_by_domain($params)

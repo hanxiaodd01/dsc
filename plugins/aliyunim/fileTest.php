@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 include 'TopSdk.php';
 date_default_timezone_set('Asia/Shanghai');
 $c = new TopClient();

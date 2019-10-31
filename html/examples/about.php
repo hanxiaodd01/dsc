@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 require_once dirname(__FILE__) . '/../html2pdf.class.php';
 ob_start();
 include dirname('__FILE__') . '/res/about.php';

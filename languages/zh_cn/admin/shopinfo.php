@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['id'] = '编号';
 $_LANG['title'] = '文章标题';
 $_LANG['add_time'] = '添加时间';

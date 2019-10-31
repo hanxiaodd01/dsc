@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 if (!isset($_SERVER['DOCUMENT_ROOT']) || empty($_SERVER['DOCUMENT_ROOT'])) {
     if (isset($_SERVER['SCRIPT_FILENAME'])) {
         $_SERVER['DOCUMENT_ROOT'] = str_replace('\\', '/',

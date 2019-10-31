@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace app\classes;
 
 class Paginator implements \ArrayAccess, \Illuminate\Support\Contracts\ArrayableInterface, \Countable, \IteratorAggregate, \Illuminate\Support\Contracts\JsonableInterface

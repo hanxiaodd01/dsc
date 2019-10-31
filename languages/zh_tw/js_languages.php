@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['js_languages']['confirm_cancel_cart'] = '确定从购物车中删除所有选中商品？';
 $_LANG['js_languages']['unit_price'] = '单价';
 $_LANG['js_languages']['New_reply'] = '新回复';

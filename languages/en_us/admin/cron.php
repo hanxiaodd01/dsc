@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['cron_name'] = 'Name planned mission';
 $_LANG['cron_code'] = 'The program mission';
 $_LANG['if_open'] = 'Open';

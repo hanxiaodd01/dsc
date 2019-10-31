@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['label_user_name'] = '會員名稱';
 $_LANG['label_pay_points_gt'] = '會員積分大於';
 $_LANG['label_pay_points_lt'] = '會員積分小於';

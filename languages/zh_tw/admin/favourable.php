@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['favourable_list'] = '優惠活動列表';
 $_LANG['add_favourable'] = '添加優惠活動';
 $_LANG['edit_favourable'] = '編輯優惠活動';

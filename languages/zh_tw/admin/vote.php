@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['vote_id'] = '編號';
 $_LANG['vote_name'] = '調查主題';
 $_LANG['show_position'] = '顯示位置';

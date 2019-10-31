@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace app\models;
 
 class Supplier extends \Illuminate\Database\Eloquent\Model

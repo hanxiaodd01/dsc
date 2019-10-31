@@ -1,6 +1,6 @@
 <?php
 
-//多点乐资源
+
 class Services_JSON
 {
     public function __construct($use = 0)

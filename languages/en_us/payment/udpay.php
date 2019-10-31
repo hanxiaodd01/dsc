@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 global $_LANG;
 $_LANG['udpay'] = 'Udpay';
 $_LANG['udpay_desc'] = 'The udpay is the global leader of the on-line payment solution, there are more than 71,600,000 bank account customers in the whole world.';

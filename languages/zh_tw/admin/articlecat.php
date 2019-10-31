@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['cat_name'] = '文章分類名稱';
 $_LANG['type'] = '分類類型';
 $_LANG['type_name'][COMMON_CAT] = '普通分類';

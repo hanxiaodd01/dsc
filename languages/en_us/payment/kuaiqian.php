@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 global $_LANG;
 $_LANG['kuaiqian'] = '99Bill';
 $_LANG['kuaiqian_icbc'] = 'icbc-99Bill';

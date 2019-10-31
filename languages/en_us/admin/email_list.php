@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['email_val'] = 'E-mail address';
 $_LANG['stat']['name'] = 'State';
 $_LANG['stat'][0] = 'Not confirmed';

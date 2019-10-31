@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['email_val'] = '郵件地址';
 $_LANG['stat']['name'] = '狀態';
 $_LANG['stat'][0] = '未確認';

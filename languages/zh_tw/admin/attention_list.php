@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['goods_name'] = '商品名稱';
 $_LANG['goods_last_update'] = '最新更新日期';
 $_LANG['attention_addtolist'] = '插入發送隊列';

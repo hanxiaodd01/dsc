@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace app\repositories\v2\article;
 
 class ArticleRepository extends \app\repositories\v2\Foundation implements \app\classes\interfaces\RepositoryInterface

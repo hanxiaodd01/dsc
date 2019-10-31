@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 global $Config;
 define('IN_ECS', true);
 define('ROOT_PATH', preg_replace('/includes(.*)/i', '', str_replace('\\', '/', __FILE__)));

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['shipping_name'] = 'Name';
 $_LANG['shipping_version'] = 'Version';
 $_LANG['shipping_desc'] = 'Description';

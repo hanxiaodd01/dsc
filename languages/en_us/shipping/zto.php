@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['zto'] = 'ZTO express';
 $_LANG['zto_desc'] = 'Qualcomm\'s Medium Express instructions. Prices in accordance with the declared value charges 2% of pay, but the price fee of not less than 100 yuan, and protect the price shall not exceed the amount of 10,000 won, and protect the price of the amount of more than 10,000 yuan, more than some invalid';
 $_LANG['item_fee'] = 'Single commodity costs:';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function tag_is_only($name, $tag_id, $goods_id = '')
 {
     if (empty($goods_id)) {

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_file_get_contents($url, $currentPage = 1)
 {
     $content = getSslPage($url);

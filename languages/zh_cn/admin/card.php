@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['card_name'] = '贺卡名称';
 $_LANG['card_fee'] = '贺卡费用';
 $_LANG['free_money'] = '贺卡免费额度';

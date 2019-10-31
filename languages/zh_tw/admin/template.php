@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['template_manage'] = '模板管理';
 $_LANG['current_template'] = '當前模板';
 $_LANG['available_templates'] = '可用模板';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 ob_start();
 echo "<style type=\"text/css\">\n<!--\n    table\n    {\n        padding: 0;\n        margin: 0;\n        border: none;\n        border-right: solid 0.2mm black;\n    }\n    td\n    {\n        padding: 0;\n        margin: 0;\n        border: none;\n    }\n\n    img\n    {\n        width: 10mm;\n    }\n-->\n</style>\n<page>\n<table cellpadding=\"0\" cellspacing=\"0\"><tr>\n";
 

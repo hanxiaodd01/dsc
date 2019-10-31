@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_type_list()
 {
     $sql = 'SELECT c_id, COUNT(*) AS sent_count' . ' FROM ' . $GLOBALS['ecs']->table('pay_card') . ' GROUP BY c_id';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['email_val'] = '郵件地址';
 $_LANG['email_error'] = '錯誤次數';
 $_LANG['email_subject'] = '郵件標題';

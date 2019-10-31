@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_template_info($template_name, $template_style = '')
 {
     if (empty($template_style) || ($template_style == '')) {

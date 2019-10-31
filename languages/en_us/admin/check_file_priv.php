@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['item'] = 'Item';
 $_LANG['read'] = 'Readable';
 $_LANG['write'] = 'Writable';

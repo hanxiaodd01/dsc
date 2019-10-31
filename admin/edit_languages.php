@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_language_item_list($file_path, $keyword)
 {
     if (empty($keyword)) {

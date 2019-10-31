@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function MakeFont($fontfile, $fmfile, $embedded = true, $enc = 'cp1252', $patch = array())
 {
     set_magic_quotes_runtime(0);

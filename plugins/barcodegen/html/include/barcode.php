@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $supportedBarcodes = array(
     'BCGcodabar.php' => 'Codabar',
     'BCGcode11.php' => 'Code 11',

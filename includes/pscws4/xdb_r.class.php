@@ -1,6 +1,6 @@
 <?php
 
-//多点乐资源
+
 class XDB_R
 {
     public $fd = false;

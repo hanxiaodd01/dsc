@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 global $webcolor;
 $webcolor = array(
     'aliceblue' => 'f0f8ff',

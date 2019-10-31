@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function open_api_list()
 {
     $result = get_filter();

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['bonus_type'] = '紅包類型';
 $_LANG['bonus_list'] = '紅包列表';
 $_LANG['type_name'] = '類型名稱';

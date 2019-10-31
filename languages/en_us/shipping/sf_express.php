@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['sf_express'] = 'Shun Feng shipping';
 $_LANG['sf_express_desc'] = 'Cost of Jiang, Zhe, Hu region less than 1000g is less than 15 yuan/kg, more than 1000g is 2 yuan/kg, other region 20 yuan/kg';
 $_LANG['item_fee'] = 'Single commodity costs:';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function goods_sort($goods_a, $goods_b)
 {
     if ($goods_a['sort_order'] == $goods_b['sort_order']) {

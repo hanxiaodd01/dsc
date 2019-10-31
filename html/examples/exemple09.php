@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $generate = isset($_GET['make_pdf']);
 $nom = (isset($_GET['nom']) ? $_GET['nom'] : 'inconnu');
 $nom = substr(preg_replace('/[^a-zA-Z0-9]/isU', '', $nom), 0, 26);

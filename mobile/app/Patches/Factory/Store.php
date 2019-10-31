@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace App\Patches\Factory;
 
 class Store

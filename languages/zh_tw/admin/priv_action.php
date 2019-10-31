@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['goods'] = '商品管理';
 $_LANG['cms_manage'] = '文章管理';
 $_LANG['users_manage'] = '會員管理';

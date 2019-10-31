@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_next_time($cron)
 {
     $timestamp = gmtime();

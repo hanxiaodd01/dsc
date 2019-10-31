@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['email_val'] = 'E-mail address';
 $_LANG['email_error'] = 'Error Hits';
 $_LANG['email_subject'] = 'Message headers';

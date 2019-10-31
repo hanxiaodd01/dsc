@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['cat_id'] = 'ID';
 $_LANG['cat_name'] = 'Name';
 $_LANG['isleaf'] = 'Disallow';

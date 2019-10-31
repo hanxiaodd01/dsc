@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 if (!isset($_SERVER)) {
     $_SERVER = $HTTP_SERVER_VARS;
 }

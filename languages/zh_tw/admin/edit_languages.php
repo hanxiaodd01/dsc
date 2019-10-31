@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['edit_languages'] = '語言項編輯';
 $_LANG['enter_keywords'] = '輸入語言項關鍵字';
 $_LANG['edit_button'] = '確認修改';

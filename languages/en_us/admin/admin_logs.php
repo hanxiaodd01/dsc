@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['log_id'] = 'NO.';
 $_LANG['log_time'] = 'Time';
 $_LANG['user_id'] = 'Operator';

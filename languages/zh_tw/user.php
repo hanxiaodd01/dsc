@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['require_login'] = '非法入口。<br />必須登錄才能完成操作。';
 $_LANG['no_records'] = '沒有記錄';
 $_LANG['shot_message'] = '短消息';

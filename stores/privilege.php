@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function clear_cart()
 {
     $sql = 'SELECT DISTINCT session_id ' . 'FROM ' . $GLOBALS['ecs']->table('cart') . ' AS c, ' . $GLOBALS['ecs']->table('sessions') . ' AS s ' . 'WHERE c.session_id = s.sesskey ';

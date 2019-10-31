@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function top_all($type = '')
 {
     $sql = 'SELECT c.cat_id,c.cat_name,c.parent_id,c.is_show ' . 'FROM {pre}zc_category as c ' . 'WHERE c.parent_id = 0 AND c.is_show = 1 ORDER BY c.sort_order ASC, c.cat_id ASC';

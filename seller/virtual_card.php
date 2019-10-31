@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_replenish_list()
 {
     $filter['goods_id'] = empty($_REQUEST['goods_id']) ? 0 : intval($_REQUEST['goods_id']);

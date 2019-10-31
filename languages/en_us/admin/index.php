@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['shop_guide'] = 'Shop guide';
 $_LANG['set_navigator'] = 'Set navigator';
 $_LANG['about'] = 'About Program';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $common_message = array('Result' => false, 'MessageCode' => 1, 'MessageString' => 'Nothing', 'InsertID' => 0);
 $_ALANG = array(
     100 => '登录成功',

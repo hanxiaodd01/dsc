@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function upload_article_file($upload)
 {
     if (!make_dir('../' . DATA_DIR . '/seller_grade')) {

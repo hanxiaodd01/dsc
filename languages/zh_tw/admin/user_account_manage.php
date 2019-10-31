@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['user_account_manage'] = '資金管理';
 $_LANG['view_application'] = '查看申請記錄';
 $_LANG['surplus_pro_type'] = '類型';

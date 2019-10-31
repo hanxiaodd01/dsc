@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['stats_off'] = 'Web site traffic statistics have been closed. <BR>If necessary go to: System Setup -> Configuration -> Basic to open the site traffic statistics service.';
 $_LANG['last_update'] = 'Latest update';
 $_LANG['now_update'] = 'Update log';

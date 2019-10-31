@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['label_category'] = 'Category:';
 $_LANG['label_brand'] = 'Brand:';
 $_LANG['label_intro_type'] = 'Recommend type:';

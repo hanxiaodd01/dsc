@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['order_sn'] = 'Order NO.';
 $_LANG['consignee'] = 'Consignee';
 $_LANG['all_status'] = 'Status';

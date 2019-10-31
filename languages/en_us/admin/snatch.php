@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['snatch_id'] = 'ID';
 $_LANG['snatch_name'] = 'Name';
 $_LANG['goodsid'] = 'Product ID';

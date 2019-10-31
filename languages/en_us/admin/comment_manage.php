@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['comment_id'] = 'ID';
 $_LANG['user_name'] = 'Username';
 $_LANG['from'] = 'sent comment at ';

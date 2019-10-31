@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['item'] = '項目';
 $_LANG['read'] = '可讀權限';
 $_LANG['write'] = '可寫權限';

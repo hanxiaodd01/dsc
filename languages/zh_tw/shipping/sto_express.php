@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['sto_express'] = '申通快遞';
 $_LANG['sto_express_desc'] = '江、浙、滬地區首重為15元/KG，其他地區18元/KG， 續重均為5-6元/KG， 雲南地區為8元';
 $_LANG['base_fee'] = '1000克以內費用';

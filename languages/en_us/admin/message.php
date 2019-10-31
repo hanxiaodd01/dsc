@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['sender_id'] = 'Sender ID';
 $_LANG['receiver_id'] = 'Receiver ID';
 $_LANG['send_date'] = 'Send date';

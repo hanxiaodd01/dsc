@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_store_header($merchant_id, $store_theme)
 {
     $sql = 'select content, shop_color, headbg_img, headtype from ' . $GLOBALS['ecs']->table('seller_shopheader') . ' where ru_id=\'' . $merchant_id . '\' and seller_theme=\'' . $store_theme . '\'';

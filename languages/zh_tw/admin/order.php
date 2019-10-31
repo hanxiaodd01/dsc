@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['order_sn'] = '訂單號';
 $_LANG['consignee'] = '收貨人';
 $_LANG['all_status'] = '訂單狀態';

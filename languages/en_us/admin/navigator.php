@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['add_new'] = 'Add navigation';
 $_LANG['system_main'] = 'System Properties';
 $_LANG['item_name'] = 'Name';

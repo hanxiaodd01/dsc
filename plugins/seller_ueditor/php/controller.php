@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 date_default_timezone_set('Asia/chongqing');
 error_reporting(1);
 header('Content-Type: text/html; charset=utf-8');

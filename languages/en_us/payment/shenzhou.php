@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 global $_LANG;
 $_LANG['shenzhou'] = 'Quick money to pay shenzhou';
 $_LANG['shenzhou_desc'] = 'shenzhou quick money（www.99bill.com） can be used to pay are shenzhou China Mobile recharge card to pay. shenzhou currently used to pay the amount of orders should not less than one million, can not exceed 500 yuan.' . '<br/><a href="http://cloud.ecshop.com/payment_apply.php?mod=shenzhou" target="_blank">Immediately online application</a>';

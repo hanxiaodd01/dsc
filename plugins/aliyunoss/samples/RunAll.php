@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 error_reporting(32767 | 8);
 require_once __DIR__ . '/Bucket.php';
 require_once __DIR__ . '/BucketCors.php';

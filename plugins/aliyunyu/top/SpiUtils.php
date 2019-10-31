@@ -1,6 +1,6 @@
 <?php
 
-//多点乐资源
+
 class SpiUtils
 {
     static private $top_sign_list = 'HTTP_TOP_SIGN_LIST';

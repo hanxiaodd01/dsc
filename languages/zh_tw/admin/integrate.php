@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['integrate_name'] = '名稱';
 $_LANG['integrate_version'] = '版本';
 $_LANG['integrate_author'] = '作者';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['position_name'] = '廣告位名稱';
 $_LANG['ad_width'] = '廣告位寬度';
 $_LANG['ad_height'] = '廣告位高度';

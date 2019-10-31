@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['region_id'] = 'Region id';
 $_LANG['region_name'] = 'Region name';
 $_LANG['region_type'] = 'Region type';

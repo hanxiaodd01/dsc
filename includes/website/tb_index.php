@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_auth_url($state)
 {
     $redirect_url = 'http://' . $_SERVER['HTTP_HOST'] . str_replace('tb_index.php', 'tb_callback.php',

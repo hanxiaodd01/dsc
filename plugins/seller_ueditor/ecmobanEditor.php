@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 require 'php/config.php';
 
 if (!$enable) {

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace App\Patches\R20171001;
 
 class R20171001 implements \App\Patches\Factory\PatchInterface

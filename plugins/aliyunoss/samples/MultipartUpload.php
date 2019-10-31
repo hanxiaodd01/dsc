@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function multiuploadFile($ossClient, $bucket)
 {
     $object = 'test/multipart-test.txt';

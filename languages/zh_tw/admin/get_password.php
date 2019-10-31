@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['user_name'] = '管理員用戶名';
 $_LANG['email'] = 'Email地址';
 $_LANG['enter_admin_pwd'] = '管理員新密碼';

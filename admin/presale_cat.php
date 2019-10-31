@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function presale_cat_exists($cat_name, $parent_cat, $exclude = 0)
 {
     $sql = 'SELECT COUNT(*) FROM ' . $GLOBALS['ecs']->table('presale_cat') . ' WHERE parent_id = \'' . $parent_cat . '\' AND cat_name = \'' . $cat_name . '\' AND cat_id <> \'' . $exclude . '\'';

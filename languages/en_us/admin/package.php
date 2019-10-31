@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['package_id'] = 'id';
 $_LANG['package_name'] = 'name';
 $_LANG['goodsid'] = 'Events related merchandise';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $path = 'uploads/';
 
 if (!empty($_FILES)) {

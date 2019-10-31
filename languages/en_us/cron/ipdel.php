@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 global $_LANG;
 $_LANG['ipdel'] = 'View log delete';
 $_LANG['ipdel_desc'] = 'Delete Browsing Log';

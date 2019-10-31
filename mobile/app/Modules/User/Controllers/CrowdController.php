@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace App\Modules\User\Controllers;
 
 class CrowdController extends \App\Modules\Base\Controllers\FrontendController

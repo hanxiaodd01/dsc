@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_categories_tree_pro($cat_id = 0, $type = '')
 {
     if (0 < $cat_id) {

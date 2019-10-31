@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_admin_logs()
 {
     $user_id = (!empty($_REQUEST['id']) ? intval($_REQUEST['id']) : 0);

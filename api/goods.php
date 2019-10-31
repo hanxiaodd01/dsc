@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function passport_decrypt($txt, $key)
 {
     $txt = passport_key(base64_decode($txt), $key);

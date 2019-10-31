@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function zc_cat_update($cat_id, $args)
 {
     if (empty($args) || empty($cat_id)) {

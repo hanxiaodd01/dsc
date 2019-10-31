@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 require_once dirname(__FILE__) . '/tcpdfConfig.php';
 require_once dirname(__FILE__) . '/../_tcpdf_' . HTML2PDF_USED_TCPDF_VERSION . '/tcpdf.php';
 

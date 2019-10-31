@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['vote_id'] = 'ID';
 $_LANG['vote_name'] = 'Name';
 $_LANG['show_position'] = 'Display the position.';

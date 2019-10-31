@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function seller_domain_list()
 {
     $result = get_filter();

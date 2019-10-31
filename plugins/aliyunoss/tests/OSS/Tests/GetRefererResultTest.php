@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace OSS\Tests;
 
 class GetRefererResultTest extends \PHPUnit_Framework_TestCase

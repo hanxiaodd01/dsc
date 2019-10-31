@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['on'] = 'Open';
 $_LANG['off'] = 'Close';
 $_LANG['separate_by'][0] = 'Recommend register is divided into';

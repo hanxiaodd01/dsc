@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['homepage_changefreq'] = 'Home page update frequency';
 $_LANG['category_changefreq'] = 'Category page update frequency';
 $_LANG['content_changefreq'] = 'Content page update frequency';

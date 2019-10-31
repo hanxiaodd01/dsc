@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 require_once dirname(__FILE__) . '/../html2pdf.class.php';
 $content = file_get_contents(dirname(__FILE__) . '/../_tcpdf_' . HTML2PDF_USED_TCPDF_VERSION . '/cache/utf8test.txt');
 $content = '<page style="font-family: freeserif"><br />' . nl2br($content) . '</page>';

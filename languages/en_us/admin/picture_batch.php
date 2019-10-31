@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['notes'] = 'Image batch processing allow you to re-create thumbnail and watermark.<br/> Please wait for processing.';
 $_LANG['change_link'] = 'After the picture for the deal to generate a new link';
 $_LANG['yes_change'] = 'New image new name and delete old image';

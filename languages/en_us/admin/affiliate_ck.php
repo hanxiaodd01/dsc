@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['order_id'] = 'Order No.';
 $_LANG['affiliate_separate'] = 'Divided into';
 $_LANG['affiliate_cancel'] = 'Cancel';

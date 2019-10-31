@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 if (!isset($_COOKIE['province'])) {
     $area_array = get_ip_area_name();
 

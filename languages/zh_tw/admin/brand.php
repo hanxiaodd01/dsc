@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['brand_name'] = '品牌名稱';
 $_LANG['site_url'] = '品牌網址';
 $_LANG['brand_desc'] = '品牌描述';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['comment_id'] = '編號';
 $_LANG['user_name'] = '用戶名';
 $_LANG['from'] = '於';

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['register_sms'] = '註冊或啟用短信賬號';
 $_LANG['email'] = '電子郵箱';
 $_LANG['password'] = '登錄密碼';

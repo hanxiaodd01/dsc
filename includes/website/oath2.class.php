@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 if (!defined('WEBSITE')) {
     include_once dirname(__FILE__) . '/cls_http.php';
 

@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 switch ($express_name) {
     case 'EMS':
         $postcom = 'ems';

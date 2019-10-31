@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['cat_id'] = '編號';
 $_LANG['cat_name'] = '分類名稱';
 $_LANG['isleaf'] = '不允許';

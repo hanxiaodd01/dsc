@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['empty_username_password'] = '對不起，您必須完整填寫用戶名和密碼。';
 $_LANG['shot_message'] = '短消息';
 $_LANG['sys_msg'] = '系統提示';

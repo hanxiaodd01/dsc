@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 namespace app\repositories\v2\order;
 
 class PayRepository implements \app\classes\interfaces\RepositoryInterface

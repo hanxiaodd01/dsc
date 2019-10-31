@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 function get_intro_list()
 {
     return array(

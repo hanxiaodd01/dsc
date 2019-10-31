@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['yto'] = 'YTO Express';
 $_LANG['yto_desc'] = 'Shanghai Yuantong Express Co., Ltd. established on May 28th, 2000, is a private-owned enterprise that combines express and logistics. Through 6 years\' development, the company now has ranked the front place among the logistics and express industry in China.';
 $_LANG['item_fee'] = 'Single commodity costs:';

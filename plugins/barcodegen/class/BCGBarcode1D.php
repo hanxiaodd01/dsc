@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 include_once 'BCGArgumentException.php';
 include_once 'BCGBarcode.php';
 include_once 'BCGFontPhp.php';

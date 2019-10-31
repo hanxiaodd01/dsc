@@ -1,5 +1,5 @@
 <?php
-//多点乐资源
+
 $_LANG['add_account'] = 'Adjustment Member Account';
 $_LANG['account_list'] = 'Member account details change';
 $_LANG['user_not_exist'] = 'The user does not exist';
