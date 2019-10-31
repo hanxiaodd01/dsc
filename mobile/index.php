@@ -6,7 +6,7 @@ define('APP_DEBUG', true);
 require_once __DIR__ . '/app/Support/helpers.php';
 require_once __DIR__ . '/thinker/Common/functions.prepend.php';
 
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 require __DIR__ . '/bootstrap/think.php';
 
