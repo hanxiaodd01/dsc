@@ -11,7 +11,10 @@
 |
 */
 
-$api = app('Dingo\Api\Routing\Router');
+use Dingo\Api\Routing\Router as DingoRouter;
+
+/** @var DingoRouter $api */
+$api = app(DingoRouter::class);
 
 /**
  * Add in header    Accept:application/vnd.lumen.v2+json

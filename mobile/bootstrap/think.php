@@ -39,7 +39,7 @@ $capsule->addConnection(array(
     'username' => $dbconf['db_user'],
     'password' => $dbconf['db_pwd'],
     'charset' => $dbconf['db_charset'],
-    'collation' => 'utf8_general_ci',
+    'collation' => 'utf8mb4_unicode_ci',
     'prefix' => $dbconf['db_prefix'],
     'strict' => false
 ));
