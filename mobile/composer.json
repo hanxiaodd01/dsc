@@ -1,0 +1,5 @@
+{
+    "require": {
+        "topthink/thinkphp": "3.2.3"
+    }
+}
