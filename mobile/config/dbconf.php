@@ -1,5 +1,24 @@
 <?php
 
+return [
+    // .env
+    'db_type' => 'mysql',
+    'db_host' => '192.168.33.11',
+    'db_user' => 'louv',
+    'db_pwd' => 'MySQL9.9',
+    'db_name' => 'dsc',
+    'db_prefix' => '',
+    'db_port' => 3306,
+    'db_charset' => 'utf8mb4',
+    'DEFAULT_TIMEZONE' => 'PRC',
+
+    // 分布式数据库配置项
+    'DB_DEPLOY_TYPE' => 0, // 数据库部署方式:0 集中式(单一服务器),1 分布式(主从服务器)
+    'DB_RW_SEPARATE' => true, // 数据库读写是否分离 主从式有效
+    'DB_MASTER_NUM' => 1, // 读写分离后 主服务器数量
+];
+
+/*
 $config = dirname(dirname(__DIR__)) . '/data/config.php';
 
 try {
@@ -31,3 +50,5 @@ try {
 } catch (Exception $e) {
     exit('Error Info: ' . $e->getMessage());
 }
+
+*/

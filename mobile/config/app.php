@@ -2,8 +2,7 @@
 
 return [
 
-    'name' => 'ECTouch',
-    'wxapp_on' => true, // 是否支持微信小程序 true 支持， false 不支持
+    'name' => env('APP_NAME', 'Lumen'),
 
     /*
     |--------------------------------------------------------------------------
@@ -16,7 +15,7 @@ return [
     |
     */
 
-    'key' => md5(__DIR__),
+    'key' => env('APP_KEY', 'SomeRandomString!!!'),
 
     'cipher' => 'AES-256-CBC',
 
@@ -31,7 +30,7 @@ return [
     |
     */
 
-    'locale' => 'zh-cn',
+    'locale' => env('APP_LOCALE', 'en'),
 
     /*
     |--------------------------------------------------------------------------
@@ -44,7 +43,16 @@ return [
     |
     */
 
-    'fallback_locale' => 'en-us',
+    'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en-us'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | dsc config
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    'wxapp_on' => true, // 是否支持微信小程序 true 支持， false 不支持
 
     // 商城URL
     'SHOP_URL' => 'http://shop.ectouch.cn/b2c/',
