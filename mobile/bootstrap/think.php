@@ -22,7 +22,7 @@ define('BUILD_DIR_SECURE', false);
 
 require BASE_PATH . 'Support/constant.php';
 
-require __DIR__ . '/../thinker/ThinkPHP.php';
+require __DIR__ . '/../ThinkPHP/ThinkPHP.php';
 
 // @louv 2019-10-30: resolve function conflict
 //require __DIR__ . '/../app/Support/helpers.php';
