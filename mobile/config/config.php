@@ -19,13 +19,15 @@ $static = empty($deploy['static_url']) ? $pc_url : $deploy['static_url'];
 $upload_path = empty($deploy['upload_path']) ? dirname(dirname(__DIR__)) . '/' : $deploy['upload_path'];
 
 $config = [
-    'url_model' => 0,
+    'url_model' => 2,
     'url_pathinfo_depr' => '/',
 
     'url_router_on' => true,
     'url_route_rules' => require dirname(__DIR__) . '/routes/web.php',
 
     'curl_http_version' => CURL_HTTP_VERSION_1_1, // 设置curl的HTTP版本
+
+    'LOG_RECORD' => true,  // 进行日志记录
 
     'session_auto_start' => false,
     'session_options' => [
