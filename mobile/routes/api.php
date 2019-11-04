@@ -19,10 +19,10 @@ $api = app(DingoRouter::class);
 /**
  * Add in header    Accept:application/vnd.lumen.v2+json
  */
-$api->version('v2', ['namespace' => 'App\Api\Controllers'], function ($api) {
+$api->version('v2', ['namespace' => 'App\Api\Controllers'], function (DingoRouter $api) {
 
     /** 小程序接口 */
-    $api->group(['prefix' => 'wx', 'namespace' => 'Wx'], function ($api) {
+    $api->group(['prefix' => 'wx', 'namespace' => 'Wx'], function (DingoRouter $api) {
 
         /** 首页 */
         $api->post('/', 'IndexController@index');
@@ -179,7 +179,7 @@ $api->version('v2', ['namespace' => 'App\Api\Controllers'], function ($api) {
     /**
      * Brand
      */
-    $api->group(['prefix' => 'brand', 'namespace' => 'Brand'], function ($api) {
+    $api->group(['prefix' => 'brand', 'namespace' => 'Brand'], function (DingoRouter $api) {
         /**
          * 品牌列表
          */
@@ -193,7 +193,7 @@ $api->version('v2', ['namespace' => 'App\Api\Controllers'], function ($api) {
     /**
      * Shop
      */
-    $api->group(['prefix' => 'shop', 'namespace' => 'Shop'], function ($api) {
+    $api->group(['prefix' => 'shop', 'namespace' => 'Shop'], function (DingoRouter $api) {
         $api->get('shop', 'ShopController@index');
     });
 
@@ -201,7 +201,7 @@ $api->version('v2', ['namespace' => 'App\Api\Controllers'], function ($api) {
     /**
      * 地区列表
      */
-    $api->group(['prefix' => 'location', 'namespace' => 'Location'], function ($api) {
+    $api->group(['prefix' => 'location', 'namespace' => 'Location'], function (DingoRouter $api) {
         //地区列表
         $api->get('index', 'LocationController@index');
         //仓库
@@ -215,7 +215,7 @@ $api->version('v2', ['namespace' => 'App\Api\Controllers'], function ($api) {
     /**
      * Need authentication
      */
-    $api->group(['prefix' => 'user', 'middleware' => 'api.auth'], function ($api) {
+    $api->group(['prefix' => 'user', 'middleware' => 'api.auth'], function (DingoRouter $api) {
 
         /**
          * User Profile
