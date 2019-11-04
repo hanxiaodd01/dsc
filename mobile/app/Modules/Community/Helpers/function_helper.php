@@ -1,5 +1,5 @@
 <?php
-//zend 多点乐资源  禁止倒卖 一经发现停止任何服务
+
 function community_list($type = 0, $page = 1, $size = 10, $user_id = 0, $goods_id = 0)
 {
     $where = '';

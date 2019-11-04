@@ -1,5 +1,5 @@
 <?php
-//zend 多点乐资源
+
 namespace App\Modules\Api\Controllers;
 
 class CategoryController extends \App\Modules\Api\Foundation\Controller

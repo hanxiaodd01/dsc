@@ -1,5 +1,5 @@
 <?php
-//zend 多点乐资源
+
 namespace App\Modules\Api\Controllers;
 
 class PaymentController extends \App\Api\Controllers\Controller

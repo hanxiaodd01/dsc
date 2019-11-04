@@ -1,5 +1,5 @@
 <?php
-//多点乐
+
 function get_shop_license()
 {
     $sql = "SELECT code, value\r\n            FROM " . $GLOBALS['ecs']->table('shop_config') . "\r\n            WHERE code IN ('certificate_id', 'token', 'certi')\r\n            LIMIT 0,3";

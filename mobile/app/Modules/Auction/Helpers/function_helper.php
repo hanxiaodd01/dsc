@@ -1,5 +1,5 @@
 <?php
-//zend 多点乐资源
+
 function auction_count($keywords = '')
 {
     $now = gmtime();

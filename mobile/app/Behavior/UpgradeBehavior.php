@@ -1,5 +1,5 @@
 <?php
-//多点乐
+
 namespace App\Behavior;
 
 class UpgradeBehavior

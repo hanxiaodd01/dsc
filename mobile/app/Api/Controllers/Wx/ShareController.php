@@ -1,5 +1,5 @@
 <?php
-//多点乐
+
 namespace App\Api\Controllers\Wx;
 
 class ShareController extends \App\Api\Controllers\Controller

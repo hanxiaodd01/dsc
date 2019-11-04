@@ -1,5 +1,5 @@
 <?php
-//zend 多点乐资源
+
 namespace App\Api\Controllers\Wx;
 
 class RegionController extends \App\Api\Controllers\Controller

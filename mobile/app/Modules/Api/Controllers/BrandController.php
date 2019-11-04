@@ -1,5 +1,5 @@
 <?php
-//zend by 多点乐资源
+
 namespace App\Modules\Api\Controllers;
 
 class BrandController extends \App\Modules\Api\Foundation\Controller

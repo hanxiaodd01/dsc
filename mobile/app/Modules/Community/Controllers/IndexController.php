@@ -1,5 +1,5 @@
 <?php
-//zend 多点乐资源  禁止倒卖 一经发现停止任何服务
+
 namespace App\Modules\Community\Controllers;
 
 class IndexController extends \App\Modules\Base\Controllers\FrontendController

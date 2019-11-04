@@ -1,5 +1,5 @@
 <?php
-//多点乐
+
 namespace App\Modules\Admin\Controllers;
 
 class UploadController extends \App\Modules\Base\Controllers\BackendController

@@ -1,5 +1,5 @@
 <?php
-//zend 多点乐资源
+
 namespace App\Channels\Sms\Driver;
 
 class Aliyun

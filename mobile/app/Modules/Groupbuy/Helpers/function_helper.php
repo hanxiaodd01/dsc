@@ -1,5 +1,5 @@
 <?php
-//多点乐
+
 function group_buy_list($size, $page, $keywords, $sort, $order)
 {
     $gb_list = array();
