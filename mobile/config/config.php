@@ -1,6 +1,6 @@
 <?php
 
-$dbconf = require __DIR__ . '/dbconf.php';
+$dbconf = require __DIR__ . '/db-conf.php';
 $deploy = require __DIR__ . '/deploy.php';
 $envfile = __DIR__ . '/config-local.php';
 $application = require __DIR__ . '/app.php';
