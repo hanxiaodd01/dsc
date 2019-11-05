@@ -343,11 +343,11 @@ function create_editor($input_name, $input_value = '', $width = 600, $height = 2
     return $editor;
 }
 
-function dd($var, $echo = true, $label = null, $strict = true)
-{
-    dump($var, $echo, $label, $strict);
-    exit();
-}
+//function dd($var, $echo = true, $label = null, $strict = true)
+//{
+//    dump($var, $echo, $label, $strict);
+//    exit();
+//}
 
 function get_three_to_two_array($list = array())
 {

@@ -25,6 +25,10 @@ require __DIR__ . '/../ThinkPHP/ThinkPHP.php';
 // @louv 2019-10-30: resolve function conflict
 //require __DIR__ . '/../app/Support/helpers.php';
 
+(new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
+    dirname(__DIR__)
+))->bootstrap();
+
 $dbconf = require CONF_PATH . 'db-conf.php';
 
 $capsule = new \Illuminate\Database\Capsule\Manager();
