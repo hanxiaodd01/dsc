@@ -20,8 +20,6 @@ define('TMPL_PATH', ROOT_PATH . 'resources/views/');
 define('PHP_SELF', isset($_SERVER['PHP_SELF']) ? $_SERVER['PHP_SELF'] : $_SERVER['SCRIPT_NAME']);
 define('BUILD_DIR_SECURE', false);
 
-require BASE_PATH . 'Support/constant.php';
-
 require __DIR__ . '/../ThinkPHP/ThinkPHP.php';
 
 // @louv 2019-10-30: resolve function conflict

@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
-class EventServiceProvider extends \Laravel\Lumen\Providers\EventServiceProvider
+use Laravel\Lumen\Providers\EventServiceProvider as LumenEventServiceProvider;
+
+class EventServiceProvider extends LumenEventServiceProvider
 {
     /**
      * The event listener mappings for the application.
@@ -10,6 +12,8 @@ class EventServiceProvider extends \Laravel\Lumen\Providers\EventServiceProvider
      * @var array
      */
     protected $listen = array(
-        'App\\Events\\ExampleEvent' => array('App\\Listeners\\EventListener')
+        \App\Events\ExampleEvent::class => [
+            \App\Listeners\ExampleListener::class,
+        ]
     );
 }
