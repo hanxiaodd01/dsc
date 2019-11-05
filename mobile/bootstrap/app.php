@@ -24,7 +24,11 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-$app->withFacades();
+$app->withFacades(true, [
+//    Illuminate\Support\Facades\App::class => 'App',
+//    Illuminate\Support\Facades\Redis::class => 'RedisF',
+//    Illuminate\Support\Arr::class => 'Arr',
+]);
 
 $app->withEloquent();
 
@@ -82,6 +86,8 @@ $app->singleton(
 $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 //$app->register(App\Providers\EventServiceProvider::class);
+
+//$app->register(Illuminate\Redis\RedisServiceProvider::class);
 
 $app->register(Dingo\Api\Provider\LumenServiceProvider::class);
 

@@ -2,12 +2,16 @@
 
 namespace App\Api\Controllers;
 
-class Controller extends \Laravel\Lumen\Routing\Controller
-{
-    use \Dingo\Api\Routing\Helpers;
+use Dingo\Api\Routing\Helpers as DingoHelperTrait;
 
-    protected function apiReturn($data, $code = 0)
+use Laravel\Lumen\Routing\Controller as BaseController;
+
+class Controller extends BaseController
+{
+    use DingoHelperTrait;
+
+    protected function apiReturn($data, $code = 0): array
     {
-        return array('code' => $code, 'data' => $data);
+        return compact('code', 'data');
     }
 }

@@ -17,9 +17,11 @@ use Dingo\Api\Routing\Router as DingoRouter;
 $api = app(DingoRouter::class);
 
 /**
- * Add in header    Accept:application/vnd.lumen.v2+json
+ * Accept:application/vnd.dd01.v2+json
  */
-$api->version('v2', ['namespace' => 'App\Api\Controllers'], function (DingoRouter $api) {
+$api->version('v2', [
+    'namespace' => 'App\Api\Controllers',
+], function (DingoRouter $api) {
 
     /** 小程序接口 */
     $api->group(['prefix' => 'wx', 'namespace' => 'Wx'], function (DingoRouter $api) {
@@ -226,6 +228,20 @@ $api->version('v2', ['namespace' => 'App\Api\Controllers'], function (DingoRoute
          * User Address
          */
         $api->resource('address', 'AddressController');
+
+    });
+
+    /*
+    |--------------------------------------------------------------------------
+    | Dev
+    |--------------------------------------------------------------------------
+    */
+    $api->group(['prefix' => 'louv', 'namespace' => 'Dev'], function (DingoRouter $api) {
+
+        /* louv */
+        $api->get('index', 'LouvController@index');
+        $api->get('test', 'LouvController@test');
+        $api->get('redis', 'LouvController@redis');
 
     });
 
