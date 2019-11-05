@@ -3,12 +3,12 @@
 !.gitkeep
 
 # JetBrains
-.idea/
-_temp/
+/.idea
+/_temp
 composer.phar
 
 # Laravel template
-/vendor/
+/vendor
 node_modules/
 npm-debug.log
 yarn-error.log

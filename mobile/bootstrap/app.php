@@ -5,11 +5,9 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-try {
-    (new Dotenv\Dotenv(__DIR__ . '/../'))->load();
-} catch (Dotenv\Exception\InvalidPathException $e) {
-    //
-}
+(new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
+    dirname(__DIR__)
+))->bootstrap();
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +37,7 @@ putenv("APP_TIMEZONE=Asia/Shanghai");
 */
 
 $app = new Laravel\Lumen\Application(
-    realpath(__DIR__ . '/../')
+    dirname(__DIR__)
 );
 
 $app->withFacades();
@@ -100,6 +98,7 @@ $app->singleton(
 $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\EventServiceProvider::class);
+
 $app->register(Dingo\Api\Provider\LumenServiceProvider::class);
 
 app('Dingo\Api\Transformer\Factory')->setAdapter(function ($app) {
@@ -117,7 +116,9 @@ app('Dingo\Api\Transformer\Factory')->setAdapter(function ($app) {
 |
 */
 
-$app->group(['namespace' => 'App\Api\Controllers'], function ($app) {
+$app->router->group([
+    'namespace' => 'App\Api\Controllers',
+], function ($router) {
     require __DIR__ . '/../routes/api.php';
 });
 

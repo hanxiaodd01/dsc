@@ -32,12 +32,12 @@ function get_bucket_info()
     return $res;
 }
 
-function dump($var)
-{
-    echo '<pre>';
-    var_dump($var);
-    echo '</pre>';
-}
+//function dump($var)
+//{
+//    echo '<pre>';
+//    var_dump($var);
+//    echo '</pre>';
+//}
 
 function get_del_str_comma($str = '')
 {

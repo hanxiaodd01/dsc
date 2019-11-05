@@ -16,7 +16,8 @@ class BrandController extends \App\Api\Controllers\Controller
 
     public function index()
     {
-        $data = $this->brand->getAllBrands();
+//        $data = $this->brand->getAllBrands();
+        $data = ['aa' => 'bb'];
         return $this->apiReturn($data);
     }
 
