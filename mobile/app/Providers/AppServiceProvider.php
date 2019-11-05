@@ -12,6 +12,7 @@ class AppServiceProvider extends ServiceProvider
     {
         if ($this->app->environment(LOCAL)) {
             /* @see \Laravel\Lumen\Application::configure() */
+            $this->app->configure('app');
             $this->app->configure('ide-helper');
             $this->app->register(IdeHelperServiceProvider::class);
         }

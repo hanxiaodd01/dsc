@@ -25,7 +25,7 @@ return array(
     |
     */
 
-    'include_fluent' => false,
+    'include_fluent' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -96,6 +96,7 @@ return array(
     'extra' => array(
         'Eloquent' => array('Illuminate\Database\Eloquent\Builder', 'Illuminate\Database\Query\Builder'),
         'Session' => array('Illuminate\Session\Store'),
+//        'RedisF' => [App\Support\IdeHelper\PredisHinter::class],
     ),
 
     'magic' => array(),

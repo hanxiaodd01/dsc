@@ -38,6 +38,7 @@ class LouvController extends Controller
          * Lumen use facade Illuminate\Support\Facades\Redis::class
          * Lumen register Illuminate\Redis\RedisServiceProvider::class
          * add config.app.aliases 'RedisF' => Illuminate\Support\Facades\Redis::class
+         * add config.ide-helper.extra 'RedisF' => [App\Support\IdeHelper\PredisHinter::class],
          * */
 
         $k = 'testKey1';
