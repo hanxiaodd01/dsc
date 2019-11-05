@@ -11,22 +11,6 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
-| Setting Environment
-|--------------------------------------------------------------------------
-|
-*/
-
-if (in_array(@$_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1', '192.168.10.1'])) {
-    putenv("APP_ENV=local");
-    putenv("APP_DEBUG=true");
-} else {
-    putenv("APP_ENV=production");
-    putenv("APP_DEBUG=false");
-}
-putenv("APP_TIMEZONE=Asia/Shanghai");
-
-/*
-|--------------------------------------------------------------------------
 | Create The Application
 |--------------------------------------------------------------------------
 |
