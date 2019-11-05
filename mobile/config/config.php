@@ -1,6 +1,5 @@
 <?php
 
-$dbconf = require __DIR__ . '/db-conf.php';
 $deploy = require __DIR__ . '/deploy.php';
 $envfile = __DIR__ . '/config-local.php';
 $application = require __DIR__ . '/app.php';
@@ -65,4 +64,25 @@ $config = [
 
 ];
 
-return array_merge($application, $config, $dbconf, $deploy, $env);
+$databaseConf = include CONF_PATH . 'database.php';
+$mysqlConf = $databaseConf['connections']['mysql'];
+
+$dbConf = [
+    // .env
+    'db_type' => $mysqlConf['driver'],
+    'db_host' => $mysqlConf['host'],
+    'db_user' => $mysqlConf['username'],
+    'db_pwd' => $mysqlConf['password'],
+    'db_name' => $mysqlConf['database'],
+    'db_prefix' => $mysqlConf['prefix'],
+    'db_port' => $mysqlConf['port'],
+    'db_charset' => $mysqlConf['charset'],
+    'DEFAULT_TIMEZONE' => $mysqlConf['timezone'],
+
+    // 分布式数据库配置项
+    'DB_DEPLOY_TYPE' => 0, // 数据库部署方式:0 集中式(单一服务器),1 分布式(主从服务器)
+    'DB_RW_SEPARATE' => true, // 数据库读写是否分离 主从式有效
+    'DB_MASTER_NUM' => 1, // 读写分离后 主服务器数量
+];
+
+return array_merge($application, $config, $dbConf, $deploy, $env);

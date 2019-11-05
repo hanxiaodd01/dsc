@@ -29,26 +29,31 @@ require __DIR__ . '/../ThinkPHP/ThinkPHP.php';
     dirname(__DIR__)
 ))->bootstrap();
 
-$dbconf = require CONF_PATH . 'db-conf.php';
-
-$capsule = new \Illuminate\Database\Capsule\Manager();
-
-$capsule->addConnection(array(
-    'driver' => $dbconf['db_type'],
-    'host' => $dbconf['db_host'],
-    'port' => $dbconf['db_port'],
-    'database' => $dbconf['db_name'],
-    'username' => $dbconf['db_user'],
-    'password' => $dbconf['db_pwd'],
-    'charset' => $dbconf['db_charset'],
-    'collation' => 'utf8mb4_unicode_ci',
-    'prefix' => $dbconf['db_prefix'],
-    'strict' => false
-));
+$databaseConf = include CONF_PATH . 'database.php';
+$mysqlConf = $databaseConf['connections']['mysql'];
 
 try {
+
+    $capsule = new Illuminate\Database\Capsule\Manager();
+
+    $capsule->addConnection([
+        'driver' => $mysqlConf['driver'],
+        'host' => $mysqlConf['host'],
+        'port' => $mysqlConf['port'],
+        'database' => $mysqlConf['database'],
+        'username' => $mysqlConf['username'],
+        'password' => $mysqlConf['password'],
+        'charset' => $mysqlConf['charset'],
+        'collation' => $mysqlConf['collation'],
+        'prefix' => $mysqlConf['prefix'],
+        'strict' => $mysqlConf['strict'],
+    ]);
+
     $capsule->setAsGlobal();
     $capsule->bootEloquent();
+
 } catch (Exception $e) {
-    exit($e->getMessage());
+    die($e->getMessage());
 }
+
+unset($databaseConf, $mysqlConf);
