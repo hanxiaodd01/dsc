@@ -8,6 +8,7 @@
         "php": "^7.2",
         "ext-curl": "*",
         "ext-pdo": "*",
+        "dd01/ec_system": "dev-dd01",
         "dingo/api": "^2.4.0",
         "doctrine/dbal": "^2.5",
         "endroid/qr-code": "^2.5",
@@ -46,6 +47,16 @@
         "classmap": [
             "tests/"
         ]
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        },
+        "dd01/ec_system": {
+            "type": "git",
+            "url": "git@github.com:hk01-digital/ec-system.git"
+        }
     },
     "scripts": {
         "post-root-package-install": [
