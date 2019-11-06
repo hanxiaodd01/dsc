@@ -236,7 +236,11 @@ $api->version('v2', [
     | Dev
     |--------------------------------------------------------------------------
     */
-    $api->group(['prefix' => 'louv', 'namespace' => 'Dev'], function (DingoRouter $api) {
+    $api->group([
+        'prefix' => 'louv',
+        'namespace' => 'Dev',
+        'middleware' => 'dev',
+    ], function (DingoRouter $api) {
 
         /* louv */
         $api->get('index', 'LouvController@index');
