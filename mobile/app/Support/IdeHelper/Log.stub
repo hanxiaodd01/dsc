@@ -1,0 +1,8 @@
+<?php
+
+use ES\Logger\CommonLog;
+
+class Log extends CommonLog
+{
+
+}

@@ -35,6 +35,20 @@ return [
     */
 
     'channels' => [
+
+        'custom' => [
+            'driver' => 'custom',
+            'via' => ES\Logger\Accessor\LaravelAccessor::class,
+
+            'level' => env('LOG_LEVEL', Psr\Log\LogLevel::ERROR),
+            'path' => storage_path('logs'),
+            'preferDirectory' => env('ES_LOGGER_PREFER_DIR', true),
+            // "[%datetime%] %level_name% %extra.cat% \"%message%\" %context.context% %context.extra%\n"
+            'lineFormat' => env('ES_LOGGER_LINE_FORMAT', "[%datetime%] %level_name%: %extra.cat% %context%\n"),
+            // "H:i:s v"
+            'datetimeFormat' => env('ES_LOGGER_DATETIME_FORMAT', 'Y-m-d H:i:s'),
+        ],
+
         'stack' => [
             'driver' => 'stack',
             'channels' => ['daily'],

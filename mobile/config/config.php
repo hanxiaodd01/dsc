@@ -26,7 +26,15 @@ $config = [
 
     'curl_http_version' => CURL_HTTP_VERSION_1_1, // 设置curl的HTTP版本
 
-    'LOG_RECORD' => true,  // 进行日志记录
+    /* 日志设置 */
+    'LOG_RECORD' => true,   // 默认不记录日志
+    'LOG_TYPE' => ES\Logger\Accessor\ThinkPHPAccessor::class, // 日志记录类型 默认为文件方式
+    // 允许记录的日志级别
+    'LOG_LEVEL' => ES\Logger\Accessor\ThinkPHPAccessor::psrToThinkLevel([
+        env('LOG_LEVEL', Psr\Log\LogLevel::ERROR),
+    ]),
+    'LOG_FILE_SIZE' => 2097152,    // 日志文件大小限制
+    'LOG_EXCEPTION_RECORD' => true,    // 是否记录异常信息日志
 
     'session_auto_start' => false,
     'session_options' => [

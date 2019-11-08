@@ -96,4 +96,4 @@ if (!IS_CLI) {
 // 加载核心Think类
 require CORE_PATH . 'Think' . EXT;
 // 应用初始化
-class_alias('Think\Think', 'Thinker');
+//Think\Think::start();
